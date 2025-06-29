@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic Medium', 'Meiryo', sans-serif;
+  }
+  
+  body {
+    @apply text-calico-black bg-calico-white;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-calico-pink text-white px-4 py-2 rounded-lg font-medium hover:bg-opacity-90 transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-denim text-white px-4 py-2 rounded-lg font-medium hover:bg-opacity-90 transition-colors;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md p-4 border border-calico-cream;
+  }
+  
+  .emergency-urgent {
+    @apply bg-urgent-red text-white animate-pulse-urgent;
+  }
+  
+  .emergency-warning {
+    @apply bg-urgent-orange text-white;
+  }
+  
+  .emergency-caution {
+    @apply bg-urgent-yellow text-calico-black;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .container {
+    @apply max-w-6xl mx-auto px-4;
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
