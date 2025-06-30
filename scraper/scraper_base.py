@@ -72,6 +72,24 @@ class BaseScraper:
         self.session = requests.Session()
         self.session.headers.update(config.get_scraping_headers())
         
+        # プロキシ設定（環境変数から取得）
+        import os
+        proxies = {}
+        https_proxy = os.environ.get('HTTPS_PROXY') or os.environ.get('https_proxy')
+        http_proxy = os.environ.get('HTTP_PROXY') or os.environ.get('http_proxy')
+        
+        if https_proxy:
+            proxies['https'] = https_proxy
+            logger.info(f"HTTPS プロキシ設定: {https_proxy}")
+        if http_proxy:
+            proxies['http'] = http_proxy
+            logger.info(f"HTTP プロキシ設定: {http_proxy}")
+        
+        if proxies:
+            self.session.proxies.update(proxies)
+        else:
+            logger.info("プロキシ設定なし")
+        
         # 自治体情報を取得
         self.municipality = db.get_municipality_by_id(municipality_id)
         if not self.municipality:
