@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import ScrapingDashboard from '@/components/ScrapingDashboard'
 
 interface ApiTestResult {
   endpoint: string
@@ -20,6 +21,8 @@ export default function ApiTestPage() {
     { name: 'Tails Statistics', endpoint: '/api/tails?stats=true' },
     { name: 'All Tails', endpoint: '/api/tails?limit=5' },
     { name: 'Urgent Tails', endpoint: '/api/tails/urgent?limit=3' },
+    { name: 'Scraping Logs', endpoint: '/api/scraping-logs?limit=10' },
+    { name: 'Scraping Stats', endpoint: '/api/scraping-stats' },
   ]
 
   const runTests = async () => {
@@ -151,7 +154,15 @@ export default function ApiTestPage() {
           <li><strong>Tails Statistics:</strong> 統計情報取得</li>
           <li><strong>All Tails:</strong> 尻尾ちゃん一覧取得</li>
           <li><strong>Urgent Tails:</strong> 緊急度の高い尻尾ちゃん取得</li>
+          <li><strong>Scraping Logs:</strong> スクレイピング履歴取得</li>
+          <li><strong>Scraping Stats:</strong> スクレイピング統計情報取得</li>
         </ul>
+      </div>
+
+      {/* スクレイピングダッシュボード */}
+      <div className="mt-12">
+        <h2 className="text-2xl font-bold text-calico-brown mb-6">📊 スクレイピングダッシュボード</h2>
+        <ScrapingDashboard />
       </div>
     </div>
   )

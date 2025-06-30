@@ -1,7 +1,27 @@
+'use client'
+
+import { useState } from 'react'
 import TailGrid from '@/components/TailGrid'
+import SearchForm from '@/components/SearchForm'
 import { Search } from 'lucide-react'
+import { TailSearchParams } from '@/types/database'
 
 export default function TailsPage() {
+  const [searchParams, setSearchParams] = useState<TailSearchParams>({
+    sort_by: 'deadline_date',
+    sort_order: 'asc',
+    limit: 20
+  })
+
+  const handleSearch = (newParams: TailSearchParams) => {
+    setSearchParams({
+      ...newParams,
+      sort_by: 'deadline_date',
+      sort_order: 'asc',
+      limit: 20
+    })
+  }
+
   return (
     <div className="container py-8">
       {/* ページヘッダー */}
@@ -14,33 +34,20 @@ export default function TailsPage() {
         </p>
       </div>
 
-      {/* 検索・フィルタセクション（Phase 3で実装予定） */}
+      {/* 検索・フィルタセクション */}
       <section className="mb-8">
         <div className="card">
           <div className="flex items-center mb-4">
             <Search className="mr-2 text-denim" size={24} />
             <h2 className="text-xl font-bold text-calico-brown">検索・フィルタ</h2>
           </div>
-          <div className="text-center py-8 bg-calico-cream rounded-lg">
-            <p className="text-calico-black">
-              🚧 検索・フィルタ機能は Phase 3 で実装予定です
-            </p>
-            <p className="text-sm text-calico-black mt-2">
-              現在は全ての尻尾ちゃんを期限日順で表示しています
-            </p>
-          </div>
+          <SearchForm onSearch={handleSearch} initialParams={searchParams} />
         </div>
       </section>
 
       {/* 尻尾ちゃん一覧 */}
       <section>
-        <TailGrid 
-          searchParams={{
-            sort_by: 'deadline_date',
-            sort_order: 'asc',
-            limit: 20
-          }}
-        />
+        <TailGrid searchParams={searchParams} />
       </section>
     </div>
   )

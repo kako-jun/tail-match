@@ -1,22 +1,69 @@
+'use client'
+
+import { useState, useEffect, use } from 'react'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { Clock, MapPin, Phone, ExternalLink, ArrowLeft, Heart } from 'lucide-react'
-import { getTailById } from '@/lib/tails'
+import { TailWithDetails } from '@/types/database'
 
 interface TailDetailPageProps {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
-export default async function TailDetailPage({ params }: TailDetailPageProps) {
-  const id = parseInt(params.id)
+export default function TailDetailPage({ params }: TailDetailPageProps) {
+  const [tail, setTail] = useState<TailWithDetails | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   
-  if (isNaN(id)) {
-    notFound()
+  const resolvedParams = use(params)
+  const id = parseInt(resolvedParams.id)
+
+  useEffect(() => {
+    if (isNaN(id)) {
+      setError('Invalid ID')
+      setLoading(false)
+      return
+    }
+
+    const fetchTail = async () => {
+      try {
+        const response = await fetch(`/api/tails/${id}`)
+        const data = await response.json()
+        
+        if (!response.ok) {
+          throw new Error(data.message || 'Failed to fetch tail')
+        }
+        
+        if (data.success) {
+          setTail(data.data)
+        } else {
+          throw new Error(data.error || 'Unknown error')
+        }
+      } catch (err) {
+        console.error('Failed to fetch tail:', err)
+        setError(err instanceof Error ? err.message : 'Unknown error')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchTail()
+  }, [id])
+
+  if (loading) {
+    return (
+      <div className="container py-8">
+        <div className="flex justify-center items-center min-h-96">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-denim mx-auto mb-4"></div>
+            <p className="text-calico-black">読み込み中...</p>
+          </div>
+        </div>
+      </div>
+    )
   }
 
-  const tail = await getTailById(id)
-  
-  if (!tail) {
+  if (error || !tail) {
     notFound()
   }
 
@@ -57,16 +104,29 @@ export default async function TailDetailPage({ params }: TailDetailPageProps) {
         {/* 画像エリア */}
         <div className="space-y-4">
           {/* メイン画像 */}
-          <div className="aspect-square bg-calico-cream rounded-lg overflow-hidden relative">
-            <img
-              src={tail.images && tail.images.length > 0 ? tail.images[0] : '/images/no-image-cat.svg'}
-              alt={tail.name || '保護猫'}
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement
-                target.src = '/images/no-image-cat.svg'
-              }}
-            />
+          <div className="aspect-square bg-gradient-to-br from-calico-cream to-yellow-100 rounded-2xl overflow-hidden relative center-all shadow-xl">
+            {tail.images && tail.images.length > 0 ? (
+              <img
+                src={tail.images[0]}
+                alt={tail.name || '保護猫'}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement
+                  const parent = target.parentElement
+                  if (parent) {
+                    target.style.display = 'none'
+                    const placeholder = document.createElement('div')
+                    placeholder.className = 'w-full h-full center-all text-9xl opacity-60'
+                    placeholder.innerHTML = '🐱'
+                    parent.appendChild(placeholder)
+                  }
+                }}
+              />
+            ) : (
+              <div className="w-full h-full center-all text-9xl opacity-60">
+                🐱
+              </div>
+            )}
             
             {/* 譲渡決定バッジ */}
             {tail.transfer_decided && (
