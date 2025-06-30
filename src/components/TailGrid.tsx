@@ -42,7 +42,7 @@ export default function TailGrid({
   const [tails, setTails] = useState<TailWithDetails[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [viewMode, setViewMode] = useState<'instagram' | 'card'>('instagram')
+  const [viewMode, setViewMode] = useState<'instagram' | 'card'>('card')
 
   useEffect(() => {
     const fetchTails = async () => {
@@ -101,7 +101,7 @@ export default function TailGrid({
       <Box sx={{ display: 'flex', justifyContent: 'center', py: 6 }}>
         <Box sx={{ textAlign: 'center' }}>
           <CircularProgress color="primary" sx={{ mb: 2 }} />
-          <Typography color="text.secondary">尻尾ちゃんを探しています...</Typography>
+          <Typography color="text.secondary">シッポたちを探しています...</Typography>
         </Box>
       </Box>
     )
@@ -132,7 +132,7 @@ export default function TailGrid({
       <Box sx={{ textAlign: 'center', py: 6 }}>
         <Typography variant="h1" sx={{ fontSize: '4rem', mb: 2 }}>😿</Typography>
         <Typography variant="h5" component="h3" gutterBottom color="primary">
-          {showUrgentOnly ? '緊急の尻尾ちゃんは見つかりませんでした' : '条件に合う尻尾ちゃんが見つかりませんでした'}
+          {showUrgentOnly ? '緊急のシッポたちは見つかりませんでした' : '条件に合うシッポたちが見つかりませんでした'}
         </Typography>
         <Typography color="text.secondary">
           {showUrgentOnly ? 
@@ -155,8 +155,8 @@ export default function TailGrid({
             textAlign: 'center'
           }}>
             {showUrgentOnly ? 
-              `🚨 緊急度の高い尻尾ちゃん ${tails.length}匹` :
-              `😺 ${tails.length}匹の尻尾ちゃんが見つかりました`
+              `🚨 緊急度の高いシッポたち ${tails.length}匹` :
+              `😺 ${tails.length}匹のシッポたちが見つかりました`
             }
           </Typography>
         </Paper>
@@ -172,13 +172,11 @@ export default function TailGrid({
           }}
           size="small"
         >
-          <ToggleButton value="instagram" aria-label="画像中心表示">
-            <ViewModule sx={{ mr: 1 }} />
-            画像中心
-          </ToggleButton>
           <ToggleButton value="card" aria-label="詳細表示">
-            <ViewList sx={{ mr: 1 }} />
-            詳細表示
+            <ViewList />
+          </ToggleButton>
+          <ToggleButton value="instagram" aria-label="画像表示">
+            <ViewModule />
           </ToggleButton>
         </ToggleButtonGroup>
       </Box>
@@ -195,10 +193,11 @@ export default function TailGrid({
             key={tail.id}
             sx={{ 
               flex: viewMode === 'instagram' ? {
-                xs: '1 1 calc(50% - 12px)',    // モバイル: 2列
-                sm: '1 1 calc(33.333% - 16px)', // タブレット: 3列
-                md: '1 1 calc(25% - 18px)',     // デスクトップ: 4列
-                lg: '1 1 calc(20% - 19px)'      // 大画面: 5列
+                xs: '1 1 calc(50% - 12px)',      // モバイル: 2列
+                sm: '1 1 calc(33.333% - 16px)',  // タブレット: 3列
+                md: '1 1 calc(20% - 19px)',       // デスクトップ: 5列
+                lg: '1 1 calc(16.666% - 20px)',  // 大画面: 6列
+                xl: '1 1 calc(14.285% - 21px)'   // 超大画面: 7列
               } : {
                 xs: '1 1 100%',                 // カード: モバイル1列
                 sm: '1 1 calc(50% - 12px)',     // カード: タブレット2列
@@ -222,7 +221,7 @@ export default function TailGrid({
         <Box sx={{ mt: 4 }}>
           <Alert severity="error" sx={{ textAlign: 'center' }}>
             <AlertTitle sx={{ fontWeight: 'bold' }}>
-              ⚠️ 緊急を要する尻尾ちゃんたちです
+              ⚠️ 緊急を要するシッポたちです
             </AlertTitle>
             これらの猫たちは残り時間がわずかです。
             お近くの方、または遠方でも引き取り可能な方は、

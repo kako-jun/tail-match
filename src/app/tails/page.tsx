@@ -3,8 +3,14 @@
 import { useState } from 'react'
 import TailGrid from '@/components/TailGrid'
 import SearchForm from '@/components/SearchForm'
-import { Search } from 'lucide-react'
+import { Search } from '@mui/icons-material'
 import { TailSearchParams } from '@/types/database'
+import {
+  Container,
+  Box,
+  Typography,
+  Paper
+} from '@mui/material'
 
 export default function TailsPage() {
   const [searchParams, setSearchParams] = useState<TailSearchParams>({
@@ -23,32 +29,40 @@ export default function TailsPage() {
   }
 
   return (
-    <div className="container py-8">
+    <Container maxWidth="lg" sx={{ minHeight: '100vh', px: { xs: 2, sm: 3, md: 4 }, py: 4 }}>
       {/* ページヘッダー */}
-      <div className="text-center mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold text-calico-brown mb-4">
-          🐾 尻尾ちゃん一覧
-        </h1>
-        <p className="text-lg text-calico-black">
-          家族を待っている尻尾ちゃんたちです
-        </p>
-      </div>
+      <Box sx={{ textAlign: 'center', mb: 6 }}>
+        <Typography variant="h3" component="h1" sx={{ 
+          fontWeight: 'bold',
+          background: 'linear-gradient(45deg, #8B4513 30%, #FF8C00 90%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          mb: 2
+        }}>
+          🐾 シッポたち一覧
+        </Typography>
+        <Typography variant="h6" color="text.secondary">
+          家族を待っているシッポたちです
+        </Typography>
+      </Box>
 
       {/* 検索・フィルタセクション */}
-      <section className="mb-8">
-        <div className="card">
-          <div className="flex items-center mb-4">
-            <Search className="mr-2 text-denim" size={24} />
-            <h2 className="text-xl font-bold text-calico-brown">検索・フィルタ</h2>
-          </div>
+      <Box component="section" sx={{ mb: 6 }}>
+        <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+            <Search sx={{ mr: 1, color: 'primary.main' }} />
+            <Typography variant="h5" sx={{ fontWeight: 'bold', color: 'primary.main' }}>
+              検索・フィルタ
+            </Typography>
+          </Box>
           <SearchForm onSearch={handleSearch} initialParams={searchParams} />
-        </div>
-      </section>
+        </Paper>
+      </Box>
 
-      {/* 尻尾ちゃん一覧 */}
-      <section>
+      {/* シッポたち一覧 */}
+      <Box component="section">
         <TailGrid searchParams={searchParams} />
-      </section>
-    </div>
+      </Box>
+    </Container>
   )
 }

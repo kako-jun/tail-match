@@ -1,8 +1,17 @@
 'use client'
 
 import { useState } from 'react'
-import { Search } from 'lucide-react'
+import { Search } from '@mui/icons-material'
 import { TailSearchParams } from '@/types/database'
+import {
+  Box,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Button,
+  Grid
+} from '@mui/material'
 
 interface SearchFormProps {
   onSearch: (params: TailSearchParams) => void
@@ -25,68 +34,105 @@ export default function SearchForm({ onSearch, initialParams = {} }: SearchFormP
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <label className="block text-sm font-medium mb-2">お住まいの地域</label>
-        <select 
-          className="w-full p-3 border border-calico-cream rounded-lg focus:ring-2 focus:ring-denim focus:border-transparent"
+    <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+      <FormControl fullWidth size="large">
+        <InputLabel>🌍 お住まいの地域</InputLabel>
+        <Select
+          label="🌍 お住まいの地域"
           value={searchParams.region_id || ''}
-          onChange={(e) => handleChange('region_id', e.target.value ? parseInt(e.target.value) : undefined)}
+          onChange={(e) => handleChange('region_id', e.target.value ? parseInt(e.target.value as string) : undefined)}
+          sx={{
+            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            borderRadius: 2,
+            minHeight: '56px'
+          }}
         >
-          <option value="">地域を選択してください</option>
-          <option value="13">東京都</option>
-          <option value="14">神奈川県</option>
-          <option value="17">石川県</option>
-        </select>
-      </div>
+          <MenuItem value="">地域を選択してください</MenuItem>
+          <MenuItem value="13">🗾 東京都</MenuItem>
+          <MenuItem value="14">🏙️ 神奈川県</MenuItem>
+          <MenuItem value="17">🌊 石川県</MenuItem>
+        </Select>
+      </FormControl>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div>
-          <label className="block text-sm font-medium mb-2">性別</label>
-          <select 
-            className="w-full p-3 border border-calico-cream rounded-lg focus:ring-2 focus:ring-denim focus:border-transparent"
-            value={searchParams.gender || ''}
-            onChange={(e) => handleChange('gender', e.target.value)}
-          >
-            <option value="">指定なし</option>
-            <option value="male">オス</option>
-            <option value="female">メス</option>
-          </select>
-        </div>
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={4}>
+          <FormControl fullWidth size="large">
+            <InputLabel>⚧ 性別</InputLabel>
+            <Select
+              label="⚧ 性別"
+              value={searchParams.gender || ''}
+              onChange={(e) => handleChange('gender', e.target.value as string)}
+              sx={{
+                backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                borderRadius: 2,
+                minHeight: '56px'
+              }}
+            >
+              <MenuItem value="">指定なし</MenuItem>
+              <MenuItem value="male">♂ オス</MenuItem>
+              <MenuItem value="female">♀ メス</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
         
-        <div>
-          <label className="block text-sm font-medium mb-2">年齢</label>
-          <select 
-            className="w-full p-3 border border-calico-cream rounded-lg focus:ring-2 focus:ring-denim focus:border-transparent"
-            value={searchParams.age_estimate || ''}
-            onChange={(e) => handleChange('age_estimate', e.target.value)}
-          >
-            <option value="">指定なし</option>
-            <option value="子猫">子猫（1歳未満）</option>
-            <option value="成猫">成猫（1-7歳）</option>
-            <option value="シニア猫">シニア猫（7歳以上）</option>
-          </select>
-        </div>
+        <Grid item xs={12} md={4}>
+          <FormControl fullWidth size="large">
+            <InputLabel>🎂 年齢</InputLabel>
+            <Select
+              label="🎂 年齢"
+              value={searchParams.age_estimate || ''}
+              onChange={(e) => handleChange('age_estimate', e.target.value as string)}
+              sx={{
+                backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                borderRadius: 2,
+                minHeight: '56px'
+              }}
+            >
+              <MenuItem value="">指定なし</MenuItem>
+              <MenuItem value="子猫">🐱 子猫（1歳未満）</MenuItem>
+              <MenuItem value="成猫">🐈 成猫（1-7歳）</MenuItem>
+              <MenuItem value="シニア猫">👴 シニア猫（7歳以上）</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
         
-        <div>
-          <label className="block text-sm font-medium mb-2">緊急度</label>
-          <select 
-            className="w-full p-3 border border-calico-cream rounded-lg focus:ring-2 focus:ring-denim focus:border-transparent"
-            value={searchParams.urgency_days || ''}
-            onChange={(e) => handleChange('urgency_days', e.target.value ? parseInt(e.target.value) : undefined)}
-          >
-            <option value="">指定なし</option>
-            <option value="3">3日以内</option>
-            <option value="7">1週間以内</option>
-            <option value="14">2週間以内</option>
-          </select>
-        </div>
-      </div>
+        <Grid item xs={12} md={4}>
+          <FormControl fullWidth size="large">
+            <InputLabel>⚠️ 緊急度</InputLabel>
+            <Select
+              label="⚠️ 緊急度"
+              value={searchParams.urgency_days || ''}
+              onChange={(e) => handleChange('urgency_days', e.target.value ? parseInt(e.target.value as string) : undefined)}
+              sx={{
+                backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                borderRadius: 2,
+                minHeight: '56px'
+              }}
+            >
+              <MenuItem value="">指定なし</MenuItem>
+              <MenuItem value="3">🚨 3日以内</MenuItem>
+              <MenuItem value="7">⚠️ 1週間以内</MenuItem>
+              <MenuItem value="14">📅 2週間以内</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+      </Grid>
       
-      <button type="submit" className="btn-primary w-full py-3 text-lg">
-        <Search className="inline mr-2" size={20} />
-        尻尾ちゃんを探す
-      </button>
-    </form>
+      <Button
+        type="submit"
+        variant="contained"
+        size="large"
+        startIcon={<Search />}
+        sx={{
+          py: 2,
+          fontSize: '1.1rem',
+          fontWeight: 'bold',
+          borderRadius: 2,
+          textTransform: 'none'
+        }}
+      >
+        🔍 シッポたちを探す
+      </Button>
+    </Box>
   )
 }
