@@ -1,0 +1,28 @@
+# robots.txt for Tail Match
+
+User-agent: *
+Allow: /
+Allow: /tails
+Allow: /shelters
+Allow: /about
+Allow: /search
+
+# Block access to admin and development paths
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /api/
+Disallow: /database/
+
+# Allow search engines to access images
+Allow: /images/
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.gif
+Allow: /*.svg
+
+# Sitemap
+Sitemap: https://tail-match.llll-ll.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
