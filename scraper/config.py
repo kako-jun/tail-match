@@ -30,7 +30,7 @@ class Config:
     MAX_CONCURRENT_SCRAPES = int(os.getenv('MAX_CONCURRENT_SCRAPES', '1'))
     
     # HTTP設定
-    USER_AGENT = 'Tail Match Bot 1.0 (https://tail-match.llll-ll.com; contact via website)'
+    USER_AGENT = 'Mozilla/5.0 (compatible; python-requests/2.31.0)'
     REQUEST_TIMEOUT = int(os.getenv('REQUEST_TIMEOUT', '30'))
     MAX_RETRIES = int(os.getenv('MAX_RETRIES', '3'))
     
