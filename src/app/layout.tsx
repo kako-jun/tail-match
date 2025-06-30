@@ -207,9 +207,20 @@ export default function RootLayout({
                   </Box>
                 </Box>
                 
-                <Box sx={{ borderTop: 1, borderColor: 'divider', mt: 4, pt: 3, textAlign: 'center' }}>
-                  <Typography variant="body2" color="text.secondary">
-                    © 2024 Tail Match by kako-jun | 
+                <Box sx={{ borderTop: 1, borderColor: 'divider', mt: 4, pt: 3 }}>
+                  <Box sx={{ display: 'flex', justifyContent: 'center', gap: 3, mb: 2, flexWrap: 'wrap' }}>
+                    <Link href="/legal/privacy" color="text.secondary" underline="hover">
+                      プライバシーポリシー
+                    </Link>
+                    <Link href="/legal/terms" color="text.secondary" underline="hover">
+                      利用規約
+                    </Link>
+                    <Link href="/legal/disclaimer" color="text.secondary" underline="hover">
+                      免責事項
+                    </Link>
+                  </Box>
+                  <Typography variant="body2" color="text.secondary" textAlign="center">
+                    © 2025 Tail Match by kako-jun | 
                     <Box component="span" sx={{ ml: 1, fontWeight: 'medium' }}>
                       すべての猫に愛ある家族を
                     </Box>
