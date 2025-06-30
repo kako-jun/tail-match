@@ -8,33 +8,49 @@
   }
   
   body {
-    @apply text-calico-black bg-calico-white;
+    @apply text-gray-800 bg-yellow-50;
+    /* フォールバック用 */
+    color: #2F2F2F;
+    background-color: #FFF8DC;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-calico-pink text-white px-4 py-2 rounded-lg font-medium hover:bg-opacity-90 transition-colors;
+    @apply bg-pink-300 text-white px-4 py-2 rounded-lg font-medium hover:bg-opacity-90 transition-colors;
+    /* フォールバック */
+    background-color: #FFB6C1;
   }
   
   .btn-secondary {
-    @apply bg-denim text-white px-4 py-2 rounded-lg font-medium hover:bg-opacity-90 transition-colors;
+    @apply bg-blue-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-opacity-90 transition-colors;
+    /* フォールバック */
+    background-color: #4682B4;
   }
   
   .card {
-    @apply bg-white rounded-lg shadow-md p-4 border border-calico-cream;
+    @apply bg-white rounded-lg shadow-md p-4 border border-yellow-200;
+    /* フォールバック */
+    border-color: #F5DEB3;
   }
   
   .emergency-urgent {
-    @apply bg-urgent-red text-white animate-pulse-urgent;
+    @apply bg-red-600 text-white animate-pulse;
+    /* フォールバック */
+    background-color: #DC143C;
   }
   
   .emergency-warning {
-    @apply bg-urgent-orange text-white;
+    @apply bg-orange-500 text-white;
+    /* フォールバック */
+    background-color: #FF8C00;
   }
   
   .emergency-caution {
-    @apply bg-urgent-yellow text-calico-black;
+    @apply bg-yellow-400 text-gray-800;
+    /* フォールバック */
+    background-color: #FFD700;
+    color: #2F2F2F;
   }
 }
 

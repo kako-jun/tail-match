@@ -32,9 +32,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className="bg-calico-white text-calico-black font-sans antialiased">
+      <body className="bg-yellow-50 text-gray-800 font-sans antialiased">
         <div className="min-h-screen flex flex-col">
-          <header className="bg-calico-brown text-white p-4">
+          <header className="bg-orange-700 text-white p-4">
             <div className="container mx-auto">
               <div className="flex items-center justify-between">
                 <Link href="/" className="hover:opacity-90">
@@ -43,20 +43,20 @@ export default function RootLayout({
                 </Link>
                 
                 <nav className="hidden md:flex space-x-6">
-                  <Link href="/" className="hover:text-calico-pink transition-colors">
+                  <Link href="/" className="hover:text-pink-300 transition-colors">
                     ホーム
                   </Link>
-                  <Link href="/tails" className="hover:text-calico-pink transition-colors">
+                  <Link href="/tails" className="hover:text-pink-300 transition-colors">
                     尻尾ちゃん一覧
                   </Link>
-                  <Link href="/api-test" className="hover:text-calico-pink transition-colors text-sm opacity-75">
+                  <Link href="/api-test" className="hover:text-pink-300 transition-colors text-sm opacity-75">
                     API動作確認
                   </Link>
                 </nav>
                 
                 {/* モバイルメニュー（簡易版） */}
                 <nav className="md:hidden">
-                  <Link href="/tails" className="text-sm hover:text-calico-pink">
+                  <Link href="/tails" className="text-sm hover:text-pink-300">
                     一覧
                   </Link>
                 </nav>

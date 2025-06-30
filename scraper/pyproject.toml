@@ -46,6 +46,9 @@ Pillow = "^10.2.0"
 textdistance = "^4.6.2"
 fuzzywuzzy = "^0.18.0"
 
+# Browser automation for dynamic content
+playwright = "^1.40.0"
+
 # Data validation
 pydantic = "^2.5.3"
 

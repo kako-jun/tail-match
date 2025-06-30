@@ -9,6 +9,8 @@ from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 from scraper_base import BaseScraper
 from local_extractor import local_extractor
+from playwright.sync_api import sync_playwright
+import time
 
 logger = logging.getLogger(__name__)
 
@@ -31,7 +33,7 @@ class UniversalScraper(BaseScraper):
 
     def extract_tail_data(self, soup: BeautifulSoup, base_url: str) -> List[Dict[str, Any]]:
         """
-        汎用猫データ抽出（全ての戦略を試行して見逃しを防ぐ）
+        汎用猫データ抽出（静的→動的の2段構え）
         """
         logger.info(f"Starting universal extraction for: {base_url}")
         
@@ -61,6 +63,18 @@ class UniversalScraper(BaseScraper):
         all_cats.extend(manual_cats)
         strategy_results['manual'] = len(manual_cats)
         logger.info(f"Manual content extraction: {len(manual_cats)} cats")
+        
+        # 戦略5: JavaScript検出・動的処理 🆕
+        js_detected = self._detect_javascript_content(soup)
+        if js_detected and len(all_cats) == 0:
+            logger.info("🔍 JavaScript content detected, no cats found - attempting dynamic extraction")
+            dynamic_cats = self._dynamic_extraction(base_url)
+            all_cats.extend(dynamic_cats)
+            strategy_results['dynamic'] = len(dynamic_cats)
+            logger.info(f"Dynamic extraction: {len(dynamic_cats)} cats")
+        elif js_detected and len(all_cats) > 0:
+            logger.info(f"🔍 JavaScript detected but {len(all_cats)} cats found - skipping dynamic extraction")
+            strategy_results['dynamic'] = 0
         
         # 重複除去
         unique_cats = self._deduplicate_universal_cats(all_cats)
@@ -309,3 +323,90 @@ class UniversalScraper(BaseScraper):
                 self.learned_patterns[domain][strategy] = self.learned_patterns[domain][strategy][-10:]
         
         logger.debug(f"Learning updated for {domain}: {self.learned_patterns[domain]}")
+
+    def _detect_javascript_content(self, soup: BeautifulSoup) -> bool:
+        """JavaScript動的コンテンツを検出"""
+        # 1. 外部JSファイルの存在確認
+        external_scripts = soup.find_all('script', src=True)
+        if len(external_scripts) > 2:  # 基本的なライブラリ以上
+            return True
+        
+        # 2. AJAX/Fetch の痕跡
+        all_scripts = soup.find_all('script')
+        ajax_keywords = ['ajax', 'fetch', 'XMLHttpRequest', '$.get', '$.post', 'axios']
+        
+        for script in all_scripts:
+            script_text = str(script).lower()
+            if any(keyword.lower() in script_text for keyword in ajax_keywords):
+                return True
+        
+        # 3. 空のコンテナ（JSで埋められる可能性）
+        import re
+        full_html = str(soup).lower()
+        api_patterns = [r'/api/', r'\.json', r'/data/', r'ajax']
+        
+        if any(re.search(pattern, full_html) for pattern in api_patterns):
+            return True
+        
+        # 4. 動物関連の空要素
+        empty_divs = soup.find_all('div', class_=True)
+        for div in empty_divs:
+            if not div.get_text(strip=True) and len(div.find_all()) == 0:
+                classes = ' '.join(div.get('class', []))
+                if any(word in classes.lower() for word in ['pet', 'animal', 'cat', 'list', 'data']):
+                    return True
+        
+        return False
+
+    def _dynamic_extraction(self, base_url: str) -> List[Dict[str, Any]]:
+        """Playwrightを使った動的サイト処理（プロキシ対応）"""
+        try:
+            # Playwrightでページを読み込み
+            from playwright.sync_api import sync_playwright
+            import os
+            
+            with sync_playwright() as p:
+                # プロキシ設定を環境変数から取得
+                https_proxy = os.environ.get('HTTPS_PROXY') or os.environ.get('https_proxy')
+                http_proxy = os.environ.get('HTTP_PROXY') or os.environ.get('http_proxy')
+                
+                browser_args = {"headless": True}
+                
+                # プロキシが設定されている場合は使用
+                if https_proxy:
+                    browser_args["proxy"] = {"server": https_proxy}
+                    logger.info(f"プロキシ使用: {https_proxy}")
+                elif http_proxy:
+                    browser_args["proxy"] = {"server": http_proxy}
+                    logger.info(f"プロキシ使用: {http_proxy}")
+                else:
+                    logger.info("プロキシなしで動作")
+                
+                browser = p.chromium.launch(**browser_args)
+                page = browser.new_page()
+                
+                # ページ読み込み
+                page.goto(base_url, wait_until='networkidle', timeout=30000)
+                
+                # 動的コンテンツの読み込み待機
+                page.wait_for_timeout(5000)  # 5秒待機
+                
+                # レンダリング後のHTMLを取得
+                html_content = page.content()
+                browser.close()
+                
+                logger.info(f"動的HTML取得完了: {len(html_content)} chars")
+                
+                # 新しいSoupで再解析
+                from bs4 import BeautifulSoup
+                dynamic_soup = BeautifulSoup(html_content, 'lxml')
+                
+                # 標準的な抽出を再実行
+                return self._standard_extraction(dynamic_soup, base_url)
+                
+        except ImportError:
+            logger.error("Playwright not installed - dynamic extraction skipped")
+            return []
+        except Exception as e:
+            logger.error(f"Dynamic extraction failed: {e}")
+            return []

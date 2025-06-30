@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverComponentsExternalPackages: ['pg']
-  },
+  serverExternalPackages: ['pg'],
   images: {
     domains: [
       // 自治体サイトのドメインを必要に応じて追加

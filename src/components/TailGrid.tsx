@@ -78,7 +78,8 @@ export default function TailGrid({
     }
 
     fetchTails()
-  }, [searchParams, showUrgentOnly, maxCount])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [JSON.stringify(searchParams), showUrgentOnly, maxCount])
 
   if (loading) {
     return (
