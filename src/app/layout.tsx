@@ -41,7 +41,7 @@ export default function RootLayout({
                         WebkitTextFillColor: 'transparent',
                         lineHeight: 1.2
                       }}>
-                        🐾 TailMatch
+                        🐾 Tail Match
                       </Typography>
                       <Typography variant="caption" sx={{ 
                         color: 'text.secondary',
@@ -153,7 +153,7 @@ export default function RootLayout({
                       WebkitTextFillColor: 'transparent',
                       fontWeight: 'bold'
                     }}>
-                      🐾 TailMatch
+                      🐾 Tail Match
                     </Typography>
                     <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
                       1匹でも多くの猫を救うために。<br />
@@ -209,7 +209,7 @@ export default function RootLayout({
                 
                 <Box sx={{ borderTop: 1, borderColor: 'divider', mt: 4, pt: 3, textAlign: 'center' }}>
                   <Typography variant="body2" color="text.secondary">
-                    © 2024 TailMatch by kako-jun | 
+                    © 2024 Tail Match by kako-jun | 
                     <Box component="span" sx={{ ml: 1, fontWeight: 'medium' }}>
                       すべての猫に愛ある家族を
                     </Box>

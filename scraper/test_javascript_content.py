@@ -16,7 +16,7 @@ def detect_javascript_content(url: str, name: str):
     print(f"{'='*60}")
     
     headers = {
-        'User-Agent': 'Mozilla/5.0 (compatible; TailMatch/1.0; +https://tailmatch.jp/robots)'
+        'User-Agent': 'Mozilla/5.0 (compatible; python-requests/2.31.0)'
     }
     
     response = requests.get(url, headers=headers, timeout=30)
