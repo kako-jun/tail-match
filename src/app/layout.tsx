@@ -1,38 +1,28 @@
+'use client'
+
 import './globals.css'
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { useState } from 'react'
 import ThemeRegistry from '@/components/ThemeRegistry'
-import { AppBar, Toolbar, Typography, Button, Container, Box } from '@mui/material'
-import { Home, Pets, Build } from '@mui/icons-material'
-
-export const metadata: Metadata = {
-  title: 'TailMatch - 全国の保護猫マッチングサービス',
-  description: '日本全国の自治体保護猫情報を集約し、殺処分を防ぐためのマッチングサービス',
-  keywords: ['保護猫', '里親', 'マッチング', '自治体', '猫', '救助'],
-  authors: [{ name: 'kako-jun' }],
-  openGraph: {
-    title: 'TailMatch - 全国の保護猫マッチングサービス',
-    description: '1匹でも多くの猫を救うために。全国の保護猫情報をまとめてお届けします。',
-    url: 'https://tail-match.llll-ll.com',
-    siteName: 'TailMatch',
-    locale: 'ja_JP',
-    type: 'website',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
-  },
-}
+import SpaceCatGame from '@/components/SpaceCatGame'
+import { AppBar, Toolbar, Typography, Button, Container, Box, IconButton, Menu as MuiMenu, MenuItem } from '@mui/material'
+import { Home, Pets, Build, Business, Menu } from '@mui/icons-material'
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const [mobileMenuAnchor, setMobileMenuAnchor] = useState<null | HTMLElement>(null)
+  
+  const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setMobileMenuAnchor(event.currentTarget)
+  }
+  
+  const handleMobileMenuClose = () => {
+    setMobileMenuAnchor(null)
+  }
   return (
     <html lang="ja">
       <body>
@@ -43,7 +33,7 @@ export default function RootLayout({
               <Toolbar>
                 <Link href="/" style={{ textDecoration: 'none', color: 'inherit', flexGrow: 1 }}>
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Box>
+                    <Box sx={{ textAlign: 'center' }}>
                       <Typography variant="h4" component="h1" sx={{ 
                         fontWeight: 'bold',
                         background: 'linear-gradient(45deg, #8B4513 30%, #FF8C00 90%)',
@@ -57,7 +47,8 @@ export default function RootLayout({
                         color: 'text.secondary',
                         fontSize: '0.75rem',
                         display: 'block',
-                        lineHeight: 1
+                        lineHeight: 1,
+                        textAlign: 'center'
                       }}>
                         全国の保護猫マッチングサービス
                       </Typography>
@@ -65,46 +56,70 @@ export default function RootLayout({
                   </Box>
                 </Link>
                 
-                <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
-                  <Button 
-                    component={Link}
-                    href="/"
-                    startIcon={<Home />}
-                    color="primary"
-                  >
-                    ホーム
-                  </Button>
-                  <Button 
-                    component={Link}
-                    href="/tails"
-                    startIcon={<Pets />}
-                    color="primary"
-                  >
-                    尻尾ちゃん一覧
-                  </Button>
-                  <Button 
-                    component={Link}
-                    href="/api-test"
-                    startIcon={<Build />}
-                    size="small"
-                    color="inherit"
-                  >
-                    API動作確認
-                  </Button>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                  <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
+                    <Button 
+                      component={Link}
+                      href="/"
+                      startIcon={<Home />}
+                      color="primary"
+                    >
+                      ホーム
+                    </Button>
+                    <Button 
+                      component={Link}
+                      href="/shelters"
+                      startIcon={<Business />}
+                      color="primary"
+                    >
+                      保護センターの一覧
+                    </Button>
+                    <Button 
+                      component={Link}
+                      href="/api-test"
+                      startIcon={<Build />}
+                      size="small"
+                      color="inherit"
+                    >
+                      API動作確認
+                    </Button>
+                  </Box>
+                  
+                  {/* 宇宙猫ゲーム - 常に表示 */}
+                  <SpaceCatGame size="small" />
+                  
+                  {/* モバイルメニューボタン */}
+                  <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+                    <IconButton
+                      onClick={handleMobileMenuOpen}
+                      color="primary"
+                      aria-label="メニュー"
+                    >
+                      <Menu />
+                    </IconButton>
+                  </Box>
                 </Box>
                 
-                {/* モバイルメニュー */}
-                <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-                  <Button 
-                    component={Link}
-                    href="/tails"
-                    startIcon={<Pets />}
-                    color="primary"
-                    size="small"
-                  >
-                    一覧
-                  </Button>
-                </Box>
+                {/* モバイルメニュードロップダウン */}
+                <MuiMenu
+                  anchorEl={mobileMenuAnchor}
+                  open={Boolean(mobileMenuAnchor)}
+                  onClose={handleMobileMenuClose}
+                  sx={{ display: { xs: 'block', md: 'none' } }}
+                >
+                  <MenuItem onClick={handleMobileMenuClose} component={Link} href="/">
+                    <Home sx={{ mr: 1 }} />
+                    ホーム
+                  </MenuItem>
+                  <MenuItem onClick={handleMobileMenuClose} component={Link} href="/shelters">
+                    <Business sx={{ mr: 1 }} />
+                    保護センターの一覧
+                  </MenuItem>
+                  <MenuItem onClick={handleMobileMenuClose} component={Link} href="/api-test">
+                    <Build sx={{ mr: 1 }} />
+                    API動作確認
+                  </MenuItem>
+                </MuiMenu>
               </Toolbar>
             </AppBar>
             
@@ -157,8 +172,8 @@ export default function RootLayout({
                       <Button component={Link} href="/" size="small" sx={{ justifyContent: 'flex-start' }}>
                         🏠 ホーム
                       </Button>
-                      <Button component={Link} href="/tails" size="small" sx={{ justifyContent: 'flex-start' }}>
-                        😺 尻尾ちゃん一覧
+                      <Button component={Link} href="/facilities" size="small" sx={{ justifyContent: 'flex-start' }}>
+                        🏥 保護センターの一覧
                       </Button>
                       <Button component={Link} href="/api-test" size="small" sx={{ justifyContent: 'flex-start' }}>
                         🔧 API動作確認

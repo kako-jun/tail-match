@@ -1,178 +1,559 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import { Search, Clock } from 'lucide-react'
 import TailGrid from '@/components/TailGrid'
 import StatsDisplay from '@/components/StatsDisplay'
+import {
+  Container,
+  Box,
+  Typography,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Button,
+  Paper,
+  IconButton
+} from '@mui/material'
+import { ChevronLeft, ChevronRight } from '@mui/icons-material'
 
 export default function HomePage() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  // 明るい猫の写真データ
+  const heroImages = [
+    {
+      url: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=1200&h=400&fit=crop&auto=format',
+      title: '幸せな家族を待つシッポたち',
+      subtitle: '温かい家庭で愛情をもらえる日を夢見ています'
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1200&h=400&fit=crop&auto=format',
+      title: '愛らしい表情のシッポたち',
+      subtitle: 'あなたとの出会いを心待ちにしています'
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=1200&h=400&fit=crop&auto=format',
+      title: '元気いっぱいのシッポたち',
+      subtitle: '新しい家族との楽しい毎日を夢見ています'
+    }
+  ]
+
+  // 自動スライド
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length)
+    }, 5000)
+
+    return () => clearInterval(timer)
+  }, [heroImages.length])
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroImages.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length)
+  }
+
   return (
-    <div className="min-h-screen">
-      {/* ヒーローセクション */}
-      <section className="hero-gradient relative overflow-hidden py-24 lg:py-32">
-        <div className="container relative z-10">
-          <div className="text-center mb-20">
-            <div className="mb-12">
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold bg-gradient-to-r from-calico-brown via-pink-paw to-denim bg-clip-text text-transparent mb-8 text-shadow">
-                🐾 Tail Match
-              </h1>
-              <p className="text-2xl md:text-3xl lg:text-4xl text-gray-800 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
-                1匹でも多くの猫を救うために<br />
-                <span className="font-bold bg-gradient-to-r from-calico-brown to-pink-600 bg-clip-text text-transparent">全国の保護猫情報</span>をまとめてお届けします
-              </p>
-            </div>
+    <>
+      {/* ヒーローカルーセル - フルワイド */}
+      <Box sx={{ 
+        position: 'relative',
+        width: '100vw',
+        height: { xs: '300px', md: '400px' },
+        marginLeft: { xs: '-16px', sm: '-24px', md: '-32px' },
+        marginRight: { xs: '-16px', sm: '-24px', md: '-32px' },
+        overflow: 'hidden'
+      }}>
+        {heroImages.map((image, index) => (
+          <Box
+            key={index}
+            sx={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${image.url})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'opacity 1s ease-in-out',
+              opacity: index === currentSlide ? 1 : 0
+            }}
+          >
+            <Box sx={{ 
+              textAlign: 'center', 
+              color: 'white',
+              px: 2,
+              py: 4,
+              backgroundColor: 'rgba(0,0,0,0.4)',
+              borderRadius: 3,
+              backdropFilter: 'blur(10px)'
+            }}>
+              <Typography variant="h3" component="h2" sx={{ 
+                fontWeight: 'bold',
+                mb: 2,
+                fontSize: { xs: '1.8rem', md: '2.5rem' },
+                textShadow: '2px 2px 4px rgba(0,0,0,0.7)'
+              }}>
+                {image.title}
+              </Typography>
+              <Typography variant="h6" sx={{ 
+                fontSize: { xs: '1rem', md: '1.2rem' },
+                textShadow: '1px 1px 2px rgba(0,0,0,0.7)',
+                maxWidth: '600px'
+              }}>
+                {image.subtitle}
+              </Typography>
+            </Box>
+          </Box>
+        ))}
+
+        {/* ナビゲーションボタン */}
+        <IconButton
+          onClick={prevSlide}
+          sx={{
+            position: 'absolute',
+            left: 16,
+            top: '50%',
+            transform: 'translateY(-50%)',
+            backgroundColor: 'rgba(255,255,255,0.8)',
+            color: 'primary.main',
+            '&:hover': {
+              backgroundColor: 'rgba(255,255,255,0.9)'
+            }
+          }}
+        >
+          <ChevronLeft fontSize="large" />
+        </IconButton>
+
+        <IconButton
+          onClick={nextSlide}
+          sx={{
+            position: 'absolute',
+            right: 16,
+            top: '50%',
+            transform: 'translateY(-50%)',
+            backgroundColor: 'rgba(255,255,255,0.8)',
+            color: 'primary.main',
+            '&:hover': {
+              backgroundColor: 'rgba(255,255,255,0.9)'
+            }
+          }}
+        >
+          <ChevronRight fontSize="large" />
+        </IconButton>
+
+        {/* インジケーター */}
+        <Box sx={{
+          position: 'absolute',
+          bottom: 16,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          display: 'flex',
+          gap: 1
+        }}>
+          {heroImages.map((_, index) => (
+            <Box
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              sx={{
+                width: 12,
+                height: 12,
+                borderRadius: '50%',
+                backgroundColor: index === currentSlide ? 'white' : 'rgba(255,255,255,0.5)',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease'
+              }}
+            />
+          ))}
+        </Box>
+      </Box>
+
+      <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3, md: 4 }, py: 4 }}>
+        {/* メインコンテンツ */}
+        <Box sx={{ textAlign: 'center', mb: 6 }}>
+          <Typography variant="h2" component="h1" sx={{ 
+            fontSize: { xs: '2rem', md: '2.5rem', lg: '3rem' },
+            fontWeight: 'bold',
+            background: 'linear-gradient(45deg, #8B4513 30%, #FF8C00 90%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            mb: 3
+          }}>
+            1匹でも多くの猫を救うために
+          </Typography>
+          <Typography variant="h5" sx={{ 
+            fontSize: { xs: '1.2rem', md: '1.5rem' },
+            color: 'text.primary',
+            mb: 4,
+            maxWidth: '600px',
+            mx: 'auto',
+            lineHeight: 1.5
+          }}>
+            <Box component="span" sx={{ 
+              fontWeight: 'bold',
+              background: 'linear-gradient(45deg, #8B4513 30%, #FF8C00 90%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }}>
+              全国の保護猫情報
+            </Box>
+            をまとめてお届けします
+          </Typography>
+        </Box>
             
-            {/* 緊急度の高い猫の表示エリア */}
-            <div className="urgent-alert p-8 mb-12 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-red-600/20 to-red-500/20 animate-pulse"></div>
-              <div className="relative z-10">
-                <div className="flex items-center justify-center mb-6">
-                  <Clock className="mr-3 animate-pulse" size={28} />
-                  <h2 className="text-2xl md:text-3xl font-bold">緊急！残り時間わずか</h2>
-                </div>
-                <p className="text-lg opacity-95 mb-6 max-w-2xl mx-auto">
-                  以下の尻尾ちゃんたちは、残り時間がわずかです。<br />
-                  <span className="font-semibold">今すぐ行動を起こしてください。</span>
-                </p>
-                <div className="mt-8">
-                  <TailGrid showUrgentOnly={true} maxCount={6} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* 装飾的な背景要素 */}
-        <div className="absolute top-10 left-10 text-6xl opacity-10 animate-bounce">🐾</div>
-        <div className="absolute top-32 right-20 text-4xl opacity-20 animate-pulse">❤️</div>
-        <div className="absolute bottom-20 left-20 text-5xl opacity-15 animate-bounce delay-1000">🏠</div>
-      </section>
+        {/* 緊急度の高い猫の表示エリア */}
+        <Paper 
+          elevation={3}
+          sx={{
+            background: 'linear-gradient(135deg, #FF6B6B 0%, #EE5A52 100%)',
+            color: 'white',
+            p: 4,
+            mb: 6,
+            borderRadius: 3,
+            position: 'relative',
+            overflow: 'hidden'
+          }}
+        >
+          <Box sx={{ position: 'relative', zIndex: 1 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 3 }}>
+              <Clock size={28} style={{ marginRight: 12 }} />
+              <Typography variant="h4" component="h2" sx={{ fontWeight: 'bold' }}>
+                緊急！残り時間わずか
+              </Typography>
+            </Box>
+            <Typography variant="h6" sx={{ 
+              opacity: 0.95,
+              mb: 4,
+              maxWidth: '600px',
+              mx: 'auto',
+              lineHeight: 1.6
+            }}>
+              以下のシッポたちは、残り時間がわずかです。<br />
+              <Box component="span" sx={{ fontWeight: 'bold' }}>
+                今すぐ行動を起こしてください。
+              </Box>
+            </Typography>
+            <Box sx={{ mt: 4 }}>
+              <TailGrid showUrgentOnly={true} maxCount={6} />
+            </Box>
+          </Box>
+        </Paper>
 
-      {/* 検索セクション */}
-      <section className="py-20 lg:py-24 bg-gradient-to-b from-white/50 to-transparent">
-        <div className="container">
-          <div className="search-card max-w-5xl mx-auto">
-            <div className="flex items-center justify-center mb-8">
-              <div className="bg-gradient-to-r from-denim to-blue-600 p-3 rounded-2xl mr-4">
-                <Search className="text-white" size={28} />
-              </div>
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-calico-brown to-denim bg-clip-text text-transparent">
-                尻尾ちゃんを探す
-              </h2>
-            </div>
-          
-            <div className="space-y-6">
-              <div>
-                <label className="block text-lg font-semibold mb-3 text-calico-brown">🌍 お住まいの地域</label>
-                <select className="custom-select w-full p-6 bg-white/90 backdrop-blur-xl border-2 border-white/40 rounded-3xl focus:ring-4 focus:ring-orange-300/50 focus:border-orange-400 transition-all duration-300 text-xl shadow-2xl font-semibold text-gray-800 cursor-pointer hover:bg-white hover:shadow-3xl min-h-20">
-                  <option value="">地域を選択してください</option>
-                  <option value="hokkaido">🗾 北海道</option>
-                  <option value="tohoku">🏔️ 東北</option>
-                  <option value="kanto">🏙️ 関東</option>
-                  <option value="chubu">🗻 中部</option>
-                  <option value="kansai">🏯 関西</option>
-                  <option value="chugoku">⛩️ 中国</option>
-                  <option value="shikoku">🌊 四国</option>
-                  <option value="kyushu">🌺 九州・沖縄</option>
-                </select>
-              </div>
+        {/* 検索セクション */}
+        <Box component="section" sx={{ py: { xs: 8, lg: 12 } }}>
+          <Paper 
+            elevation={4}
+            sx={{
+              maxWidth: '1000px',
+              mx: 'auto',
+              p: { xs: 4, md: 6 },
+              borderRadius: 4,
+              background: 'rgba(255, 248, 220, 0.9)',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)'
+            }}
+          >
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 4 }}>
+              <Box sx={{
+                background: 'linear-gradient(45deg, #8B4513 30%, #FF8C00 90%)',
+                p: 2,
+                borderRadius: 3,
+                mr: 2
+              }}>
+                <Search color="white" size={28} />
+              </Box>
+              <Typography variant="h3" sx={{ 
+                fontWeight: 'bold',
+                background: 'linear-gradient(45deg, #8B4513 30%, #FF8C00 90%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent'
+              }}>
+                シッポたちを探す
+              </Typography>
+            </Box>
+            
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+              <FormControl fullWidth size="large">
+                <InputLabel sx={{ fontSize: '1.1rem', fontWeight: 'semibold' }}>
+                  🌍 お住まいの地域
+                </InputLabel>
+                <Select
+                  label="🌍 お住まいの地域"
+                  defaultValue=""
+                  sx={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                    borderRadius: 3,
+                    '& .MuiOutlinedInput-notchedOutline': {
+                      borderWidth: 2,
+                      borderColor: 'rgba(255, 255, 255, 0.4)'
+                    },
+                    '&:hover .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'primary.main'
+                    },
+                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'primary.main'
+                    },
+                    minHeight: '64px'
+                  }}
+                >
+                  <MenuItem value="">地域を選択してください</MenuItem>
+                  <MenuItem value="hokkaido">🗾 北海道</MenuItem>
+                  <MenuItem value="tohoku">🏔️ 東北</MenuItem>
+                  <MenuItem value="kanto">🏙️ 関東</MenuItem>
+                  <MenuItem value="chubu">🗻 中部</MenuItem>
+                  <MenuItem value="kansai">🏯 関西</MenuItem>
+                  <MenuItem value="chugoku">⛩️ 中国</MenuItem>
+                  <MenuItem value="shikoku">🌊 四国</MenuItem>
+                  <MenuItem value="kyushu">🌺 九州・沖縄</MenuItem>
+                </Select>
+              </FormControl>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div>
-                  <label className="block text-lg font-semibold mb-3 text-calico-brown">⚧ 性別</label>
-                  <select className="custom-select w-full p-5 bg-white/90 backdrop-blur-xl border-2 border-white/40 rounded-3xl focus:ring-4 focus:ring-orange-300/50 focus:border-orange-400 transition-all duration-300 shadow-2xl font-semibold text-gray-800 cursor-pointer hover:bg-white hover:shadow-3xl text-lg min-h-16">
-                    <option value="">指定なし</option>
-                    <option value="male">♂ オス</option>
-                    <option value="female">♀ メス</option>
-                  </select>
-                </div>
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3 }}>
+                <Box sx={{ flex: { xs: '1 1 100%', md: '1 1 calc(33.333% - 16px)' }, minWidth: 0 }}>
+                  <FormControl fullWidth size="large">
+                    <InputLabel sx={{ fontSize: '1rem', fontWeight: 'semibold' }}>
+                      ⚧ 性別
+                    </InputLabel>
+                    <Select
+                      label="⚧ 性別"
+                      defaultValue=""
+                      sx={{
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                        borderRadius: 3,
+                        '& .MuiOutlinedInput-notchedOutline': {
+                          borderWidth: 2,
+                          borderColor: 'rgba(255, 255, 255, 0.4)'
+                        },
+                        '&:hover .MuiOutlinedInput-notchedOutline': {
+                          borderColor: 'primary.main'
+                        },
+                        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                          borderColor: 'primary.main'
+                        },
+                        minHeight: '56px'
+                      }}
+                    >
+                      <MenuItem value="">指定なし</MenuItem>
+                      <MenuItem value="male">♂ オス</MenuItem>
+                      <MenuItem value="female">♀ メス</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Box>
                 
-                <div>
-                  <label className="block text-lg font-semibold mb-3 text-calico-brown">🎂 年齢</label>
-                  <select className="custom-select w-full p-5 bg-white/90 backdrop-blur-xl border-2 border-white/40 rounded-3xl focus:ring-4 focus:ring-orange-300/50 focus:border-orange-400 transition-all duration-300 shadow-2xl font-semibold text-gray-800 cursor-pointer hover:bg-white hover:shadow-3xl text-lg min-h-16">
-                    <option value="">指定なし</option>
-                    <option value="kitten">🐱 子猫（1歳未満）</option>
-                    <option value="adult">🐈 成猫（1-7歳）</option>
-                    <option value="senior">👴 シニア猫（7歳以上）</option>
-                  </select>
-                </div>
+                <Box sx={{ flex: { xs: '1 1 100%', md: '1 1 calc(33.333% - 16px)' }, minWidth: 0 }}>
+                  <FormControl fullWidth size="large">
+                    <InputLabel sx={{ fontSize: '1rem', fontWeight: 'semibold' }}>
+                      🎂 年齢
+                    </InputLabel>
+                    <Select
+                      label="🎂 年齢"
+                      defaultValue=""
+                      sx={{
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                        borderRadius: 3,
+                        '& .MuiOutlinedInput-notchedOutline': {
+                          borderWidth: 2,
+                          borderColor: 'rgba(255, 255, 255, 0.4)'
+                        },
+                        '&:hover .MuiOutlinedInput-notchedOutline': {
+                          borderColor: 'primary.main'
+                        },
+                        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                          borderColor: 'primary.main'
+                        },
+                        minHeight: '56px'
+                      }}
+                    >
+                      <MenuItem value="">指定なし</MenuItem>
+                      <MenuItem value="kitten">🐱 子猫（1歳未満）</MenuItem>
+                      <MenuItem value="adult">🐈 成猫（1-7歳）</MenuItem>
+                      <MenuItem value="senior">👴 シニア猫（7歳以上）</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Box>
                 
-                <div>
-                  <label className="block text-lg font-semibold mb-3 text-calico-brown">🎨 猫種</label>
-                  <select className="custom-select w-full p-5 bg-white/90 backdrop-blur-xl border-2 border-white/40 rounded-3xl focus:ring-4 focus:ring-orange-300/50 focus:border-orange-400 transition-all duration-300 shadow-2xl font-semibold text-gray-800 cursor-pointer hover:bg-white hover:shadow-3xl text-lg min-h-16">
-                    <option value="">指定なし</option>
-                    <option value="mixed">🎭 ミックス</option>
-                    <option value="persian">👑 ペルシャ</option>
-                    <option value="siamese">🎌 シャム</option>
-                    <option value="maine-coon">🦁 メインクーン</option>
-                  </select>
-                </div>
-              </div>
+                <Box sx={{ flex: { xs: '1 1 100%', md: '1 1 calc(33.333% - 16px)' }, minWidth: 0 }}>
+                  <FormControl fullWidth size="large">
+                    <InputLabel sx={{ fontSize: '1rem', fontWeight: 'semibold' }}>
+                      🎨 猫種
+                    </InputLabel>
+                    <Select
+                      label="🎨 猫種"
+                      defaultValue=""
+                      sx={{
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                        borderRadius: 3,
+                        '& .MuiOutlinedInput-notchedOutline': {
+                          borderWidth: 2,
+                          borderColor: 'rgba(255, 255, 255, 0.4)'
+                        },
+                        '&:hover .MuiOutlinedInput-notchedOutline': {
+                          borderColor: 'primary.main'
+                        },
+                        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                          borderColor: 'primary.main'
+                        },
+                        minHeight: '56px'
+                      }}
+                    >
+                      <MenuItem value="">指定なし</MenuItem>
+                      <MenuItem value="mixed">🎭 ミックス</MenuItem>
+                      <MenuItem value="persian">👑 ペルシャ</MenuItem>
+                      <MenuItem value="siamese">🎌 シャム</MenuItem>
+                      <MenuItem value="maine-coon">🦁 メインクーン</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Box>
+              </Box>
               
-              <div className="pt-4">
-                <button className="btn-primary w-full py-4 text-xl">
-                  <Search className="inline mr-3" size={24} />
-                  🔍 尻尾ちゃんを探す
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+              <Box sx={{ pt: 2 }}>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  size="large"
+                  startIcon={<Search size={24} />}
+                  sx={{
+                    py: 2,
+                    fontSize: '1.25rem',
+                    fontWeight: 'bold',
+                    borderRadius: 3,
+                    textTransform: 'none'
+                  }}
+                >
+                  🔍 シッポたちを探す
+                </Button>
+              </Box>
+            </Box>
+          </Paper>
+        </Box>
 
-      {/* 統計情報 */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold bg-gradient-to-r from-calico-brown to-denim bg-clip-text text-transparent mb-4">
+        {/* 統計情報 */}
+        <Box component="section" sx={{ 
+          py: { xs: 8, md: 12 },
+          background: 'linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%)'
+        }}>
+          <Box sx={{ textAlign: 'center', mb: 6 }}>
+            <Typography variant="h3" sx={{ 
+              fontWeight: 'bold',
+              background: 'linear-gradient(45deg, #8B4513 30%, #FF8C00 90%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              mb: 2
+            }}>
               📊 リアルタイム統計
-            </h2>
-            <p className="text-xl text-calico-black">現在の保護猫情報をお知らせします</p>
-          </div>
+            </Typography>
+            <Typography variant="h5" color="text.secondary">
+              現在の保護猫情報をお知らせします
+            </Typography>
+          </Box>
           <StatsDisplay />
-        </div>
-      </section>
+        </Box>
 
-      {/* お知らせ */}
-      <section className="py-16">
-        <div className="container">
-          <div className="card-glass max-w-4xl mx-auto">
-            <div className="flex items-center mb-8">
-              <div className="bg-gradient-to-r from-yellow-400 to-orange-400 p-3 rounded-2xl mr-4">
-                <span className="text-white text-2xl">📢</span>
-              </div>
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-calico-brown to-orange-500 bg-clip-text text-transparent">
+        {/* お知らせ */}
+        <Box component="section" sx={{ py: 8 }}>
+          <Paper elevation={3} sx={{ 
+            maxWidth: '900px',
+            mx: 'auto',
+            p: 4,
+            borderRadius: 4,
+            background: 'rgba(255, 248, 220, 0.8)'
+          }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 4 }}>
+              <Box sx={{
+                background: 'linear-gradient(45deg, #FFD700, #FF8C00)',
+                p: 2,
+                borderRadius: 3,
+                mr: 2
+              }}>
+                <Typography sx={{ color: 'white', fontSize: '1.5rem' }}>📢</Typography>
+              </Box>
+              <Typography variant="h4" sx={{ 
+                fontWeight: 'bold',
+                background: 'linear-gradient(45deg, #8B4513 30%, #FF8C00 90%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent'
+              }}>
                 最新のお知らせ
-              </h2>
-            </div>
-            <div className="space-y-4">
-              <div className="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-2xl border border-green-200/50">
-                <div className="flex items-start">
-                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold mr-4 mt-1">
+              </Typography>
+            </Box>
+            
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+              <Paper elevation={2} sx={{
+                background: 'linear-gradient(135deg, #E8F5E8 0%, #E6F3FF 100%)',
+                p: 3,
+                borderRadius: 3,
+                border: '1px solid rgba(76, 175, 80, 0.2)'
+              }}>
+                <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
+                  <Box sx={{
+                    backgroundColor: '#C8E6C9',
+                    color: '#2E7D32',
+                    px: 2,
+                    py: 0.5,
+                    borderRadius: 2,
+                    fontSize: '0.875rem',
+                    fontWeight: 'bold',
+                    mr: 2,
+                    mt: 0.5,
+                    minWidth: 'fit-content'
+                  }}>
                     2024.06.30
-                  </span>
-                  <div>
-                    <h3 className="font-bold text-calico-brown mb-2">🎉 Phase 3 UI/UX完成！</h3>
-                    <p className="text-calico-black">
+                  </Box>
+                  <Box>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'primary.main', mb: 1 }}>
+                      🎉 Phase 3 UI/UX完成！
+                    </Typography>
+                    <Typography variant="body1" color="text.secondary">
                       検索・フィルタリング機能、緊急度表示システム、統計ダッシュボードが完成しました！
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-2xl border border-blue-200/50">
-                <div className="flex items-start">
-                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold mr-4 mt-1">
+                    </Typography>
+                  </Box>
+                </Box>
+              </Paper>
+
+              <Paper elevation={2} sx={{
+                background: 'linear-gradient(135deg, #E3F2FD 0%, #F3E5F5 100%)',
+                p: 3,
+                borderRadius: 3,
+                border: '1px solid rgba(63, 81, 181, 0.2)'
+              }}>
+                <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
+                  <Box sx={{
+                    backgroundColor: '#BBDEFB',
+                    color: '#1565C0',
+                    px: 2,
+                    py: 0.5,
+                    borderRadius: 2,
+                    fontSize: '0.875rem',
+                    fontWeight: 'bold',
+                    mr: 2,
+                    mt: 0.5,
+                    minWidth: 'fit-content'
+                  }}>
                     準備中
-                  </span>
-                  <div>
-                    <h3 className="font-bold text-calico-brown mb-2">🔄 自治体連携拡大中</h3>
-                    <p className="text-calico-black">
+                  </Box>
+                  <Box>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'primary.main', mb: 1 }}>
+                      🔄 自治体連携拡大中
+                    </Typography>
+                    <Typography variant="body1" color="text.secondary">
                       全国の自治体との連携を順次開始いたします。石川県に続き、他の都道府県も追加予定です。
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+                    </Typography>
+                  </Box>
+                </Box>
+              </Paper>
+            </Box>
+          </Paper>
+        </Box>
+      </Container>
+    </>
   )
 }
