@@ -12,6 +12,8 @@ from typing import List
 from config import config
 from database import db
 from test_scraper import TestScraper, SimpleScraper
+from ishikawa_scraper import IshikawaScraper, IshikawaAigoScraper, KanazawaCityScraper
+from universal_scraper import UniversalScraper
 
 # ログ設定
 logging.basicConfig(
@@ -50,6 +52,10 @@ def run_single_scraper(municipality_id: int, scraper_type: str = 'test') -> bool
             scraper = TestScraper(municipality_id)
         elif scraper_type == 'simple':
             scraper = SimpleScraper(municipality_id)
+        elif scraper_type == 'universal':
+            scraper = UniversalScraper(municipality_id)
+        elif scraper_type == 'ishikawa':
+            scraper = IshikawaScraper(municipality_id)
         else:
             logger.error(f"Unknown scraper type: {scraper_type}")
             return False
@@ -127,8 +133,8 @@ def main():
     parser.add_argument('--list', action='store_true', help='List active municipalities')
     parser.add_argument('--municipality', type=int, help='Run scraper for specific municipality ID')
     parser.add_argument('--all', action='store_true', help='Run scrapers for all municipalities')
-    parser.add_argument('--type', choices=['test', 'simple'], default='test', 
-                       help='Scraper type (default: test)')
+    parser.add_argument('--type', choices=['test', 'simple', 'universal', 'ishikawa'], default='universal', 
+                       help='Scraper type (default: universal)')
     parser.add_argument('--dry-run', action='store_true', help='Dry run (test only, no data changes)')
     
     args = parser.parse_args()

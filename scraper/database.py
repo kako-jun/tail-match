@@ -196,5 +196,29 @@ class DatabaseManager:
             logger.error(f"Failed to log scraping result: {e}")
             raise
 
+    def get_recent_scraping_logs(self, hours: int = 24) -> List[Dict[str, Any]]:
+        """最近のスクレイピングログを取得（ヘルスモニター用）"""
+        query = """
+        SELECT 
+            sl.id, sl.municipality_id, sl.started_at, sl.completed_at,
+            sl.status, sl.tails_found, sl.tails_added, sl.tails_updated,
+            sl.tails_removed, sl.error_message, sl.execution_time_ms,
+            m.name as municipality_name
+        FROM scraping_logs sl
+        LEFT JOIN municipalities m ON sl.municipality_id = m.id
+        WHERE sl.completed_at >= NOW() - INTERVAL '%s hours'
+        ORDER BY sl.completed_at DESC
+        """
+        
+        try:
+            return self.execute_query(query, (hours,))
+        except Exception as e:
+            logger.error(f"Failed to get recent scraping logs: {e}")
+            return []
+
+    def fetch_all(self, query: str, params: tuple = None) -> List[Dict[str, Any]]:
+        """execute_queryのエイリアス（互換性のため）"""
+        return self.execute_query(query, params)
+
 # グローバルデータベースマネージャーインスタンス
 db = DatabaseManager()
