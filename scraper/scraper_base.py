@@ -13,6 +13,8 @@ from urllib.parse import urljoin, urlparse
 from urllib.robotparser import RobotFileParser
 from config import config
 from database import db
+from html_sampler import html_sampler
+from health_monitor import health_monitor
 
 logger = logging.getLogger(__name__)
 
@@ -215,9 +217,12 @@ class BaseScraper:
         raise NotImplementedError("Subclasses must implement extract_tail_data method")
     
     def scrape(self) -> ScraperResult:
-        """メインスクレイピング処理"""
+        """メインスクレイピング処理（ヘルスモニタリング付き）"""
         result = ScraperResult()
         result.start_timer()
+        
+        # ハートビート更新
+        health_monitor.update_heartbeat('starting', f"Starting scrape for {self.municipality['name']}")
         
         logger.info(f"Starting scrape for {self.municipality['name']}")
         
@@ -240,6 +245,16 @@ class BaseScraper:
             # 猫データを抽出
             tail_data_list = self.extract_tail_data(soup, website_url)
             result.tails_found = len(tail_data_list)
+            
+            # HTMLサンプルを保存（重要：デグレ防止のため）
+            extraction_successful = len(tail_data_list) > 0
+            html_sampler.save_html_sample(
+                url=website_url,
+                html_content=response.text,
+                municipality_id=self.municipality_id,
+                cats_found=len(tail_data_list),
+                extraction_successful=extraction_successful
+            )
             
             # データベースに保存
             current_external_ids = []
@@ -265,9 +280,21 @@ class BaseScraper:
                 f"{result.tails_found} found, {result.tails_added} added, {result.tails_removed} removed"
             )
             
+            # 成功時のハートビート更新
+            health_monitor.update_heartbeat('completed', 
+                f"Scraping completed: {result.tails_found} found, {result.tails_added} added")
+            
         except Exception as e:
             result.add_error(f"Scraping failed: {e}")
             logger.error(f"Scraping failed for {self.municipality['name']}: {e}")
+            
+            # エラー時のハートビート更新
+            health_monitor.update_heartbeat('error', f"Scraping failed: {str(e)[:100]}")
+            
+            # 緊急事態の場合は緊急通知
+            if "connection" in str(e).lower() or "timeout" in str(e).lower():
+                health_monitor.emergency_notification(
+                    f"Connection issue during scraping {self.municipality['name']}: {e}")
         
         finally:
             result.end_timer()
@@ -277,5 +304,6 @@ class BaseScraper:
                 db.log_scraping_result(result.to_log_data(self.municipality_id))
             except Exception as e:
                 logger.error(f"Failed to log scraping result: {e}")
+                health_monitor.emergency_notification(f"Failed to log scraping result: {e}")
         
         return result

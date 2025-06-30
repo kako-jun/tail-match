@@ -21,9 +21,8 @@ class Config:
     DB_USER = os.getenv('DB_USER', 'tailmatch_user')
     DB_PASSWORD = os.getenv('DB_PASSWORD', 'dev_password_123')
     
-    # OpenAI API設定（Phase 2.2で使用）
-    OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', '')
-    OPENAI_MODEL = os.getenv('OPENAI_MODEL', 'gpt-4o-mini')
+    # ローカル抽出設定
+    EXTRACTION_METHOD = os.getenv('EXTRACTION_METHOD', 'pattern_matching')
     
     # スクレイピング設定
     SCRAPING_ENABLED = os.getenv('SCRAPING_ENABLED', 'false').lower() == 'true'
@@ -102,5 +101,5 @@ if config.LOG_LEVEL == 'DEBUG':
     print(f"Scraping Enabled: {config.SCRAPING_ENABLED}")
     print(f"Interval: {config.SCRAPING_INTERVAL_SECONDS} seconds")
     print(f"Max Concurrent: {config.MAX_CONCURRENT_SCRAPES}")
-    print(f"OpenAI Enabled: {'Yes' if config.OPENAI_API_KEY else 'No'}")
+    print(f"Extraction Method: {config.EXTRACTION_METHOD}")
     print("=" * 40)
