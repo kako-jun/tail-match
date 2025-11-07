@@ -62,17 +62,20 @@ tail-match/
 ## 🛠 技術スタック
 
 ### フロントエンド
+
 - **Next.js 15** - React 19 + TypeScript
 - **Material-UI (MUI)** - デザインシステム
 - **三毛猫カラーパレット** - 温かみのあるUI
 
 ### バックエンド
+
 - **Next.js API Routes** - サーバーサイドAPI
 - **PostgreSQL** - メインデータベース
 - **Python + Poetry** - スクレイピングシステム
 - **BeautifulSoup + Playwright** - 静的・動的コンテンツ対応
 
 ### インフラ
+
 - **Docker Compose** - コンテナオーケストレーション
 - **Nginx** - リバースプロキシ
 - **GitHub Actions** - CI/CD
@@ -80,11 +83,13 @@ tail-match/
 ## 🐱 スクレイピング機能
 
 ### 対応自治体
+
 - **石川県**: いしかわ動物愛護センター（24匹発見済み）
 - **金沢市**: 動物愛護管理センター
 - **全国拡張対応**: 汎用スクレイパーで他自治体対応可能
 
 ### AI抽出システム
+
 - **保守的パターンマッチング**: 見逃し防止重視
 - **JavaScript動的コンテンツ**: Playwright対応
 - **フォールバック機能**: 破損HTML対応
@@ -93,12 +98,14 @@ tail-match/
 ## 📊 管理機能
 
 ### スクレイピング監視
+
 - **管理画面**: `/admin/scraping`
 - **実行履歴**: タイムライン表示
 - **統計ダッシュボード**: 成功率・実行時間・発見数
 - **エラー監視**: フォールバック警告
 
 ### API エンドポイント
+
 ```
 GET /api/tails              # 保護猫一覧
 GET /api/tails/urgent       # 緊急度高
@@ -113,6 +120,9 @@ GET /api/admin/scraping/stats # 統計情報
 npm run dev                 # 開発サーバー起動
 npm run build              # 本番ビルド
 npm run lint               # ESLint実行
+npm run lint:fix           # ESLint自動修正
+npm run format             # Prettier実行（全ファイル）
+npm run format:check       # Prettierチェック（CIで使用）
 
 # スクレイピング開発
 cd scraper
@@ -129,20 +139,57 @@ docker compose down         # 停止
 docker compose -f compose.yaml -f compose.prod.yaml up -d
 ```
 
+## 🪝 Git Hooks（自動フォーマット）
+
+このプロジェクトでは、コミット時に自動的にコードをフォーマットするGit hookを使用しています。
+
+### 仕組み
+
+- **husky**: Git hookを管理
+- **lint-staged**: ステージングされたファイルのみ処理
+- **prettier**: コードを自動フォーマット
+
+### 動作
+
+```bash
+git add .
+git commit -m "メッセージ"
+# ↑ コミット前にprettierが自動実行され、コードがフォーマットされます
+```
+
+### 設定ファイル
+
+- `.husky/pre-commit`: pre-commitフック
+- `.prettierrc`: Prettier設定
+- `package.json` の `lint-staged`: 実行ルール
+
+### 手動フォーマット
+
+```bash
+# プロジェクト全体をフォーマット
+npm run format
+
+# フォーマットチェック（修正せずチェックのみ）
+npm run format:check
+```
+
 ## 🎯 現在の状況
 
 ### ✅ 完了機能
+
 - **基盤システム**: Next.js + PostgreSQL + Python完成
 - **UI/UX**: 検索・フィルタリング・緊急度表示
 - **スクレイピング**: 石川県で24匹発見（フォールバック）
 - **管理画面**: 履歴表示・統計ダッシュボード
 
 ### ⚠️ 技術課題
+
 - **JavaScript必須サイト**: 動的コンテンツ対応が必要
 - **Playwright統合**: 一部のサイトで必須
 - **データ品質**: フォールバック抽出の精度向上
 
 ### 🚀 次期実装予定
+
 - **Phase 4.2**: 複数自治体対応システム
 - **Phase 4.3**: 法的整備（免責事項・プライバシーポリシー）
 - **Playwright統合**: 全動的サイト対応
@@ -154,6 +201,7 @@ MIT License
 ## 🤝 コントリビューション
 
 プルリクエスト歓迎！特に：
+
 - 新しい自治体サイト対応
 - スクレイピング精度向上
 - UI/UX改善
