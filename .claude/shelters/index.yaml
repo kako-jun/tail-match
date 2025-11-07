@@ -10,6 +10,84 @@ metadata:
   maintainer: "Tail Match Project"
   license: "Public Domain"
 
+# サイト構造調査の状況
+investigation_status:
+  total_sites: 104
+  investigated: 1  # 石川県のみ調査済み
+  pending: 103
+  access_blocked_by_403: 8  # 初回調査で403エラー確認済み
+  notes: |
+    多くの自治体サイトが403エラーでスクレイピングをブロック。
+    Playwright（実際のブラウザ）での調査が必要。
+
+# 典型的なサイトパターン（想定）
+typical_site_patterns:
+  - pattern: "pdf_only"
+    name: "PDFのみ"
+    description: "猫情報がPDFファイルとして提供されている"
+    difficulty: "high"
+    playwright_required: false
+    notes: "PDFパース必要、画像認識でOCR可能性も"
+
+  - pattern: "static_html_table"
+    name: "静的HTMLテーブル"
+    description: "table要素で猫リストが静的に表示"
+    difficulty: "low"
+    playwright_required: false
+    typical_selectors:
+      - "table.animal-list"
+      - "table.jouto-list"
+      - "table tr"
+    notes: "最もスクレイピングしやすいパターン"
+
+  - pattern: "static_html_cards"
+    name: "静的HTMLカード"
+    description: "div/article要素でカード形式表示（静的HTML）"
+    difficulty: "low"
+    playwright_required: false
+    typical_selectors:
+      - ".animal-card"
+      - ".cat-item"
+      - ".jouto-card"
+    notes: "WordPressなどのCMS使用サイトで多い"
+
+  - pattern: "javascript_spa"
+    name: "JavaScript SPA"
+    description: "React/Vue等で動的レンダリング"
+    difficulty: "high"
+    playwright_required: true
+    examples:
+      - "石川県（aigo-ishikawa.jp）"
+    typical_selectors:
+      - ".data_boxes .data_box"
+      - "#app .item"
+    notes: "静的HTML取得では情報なし、JavaScript実行必須"
+
+  - pattern: "link_list"
+    name: "リンク集"
+    description: "各猫の個別ページへのリンク集"
+    difficulty: "medium"
+    playwright_required: false
+    notes: "リンクをたどって個別ページをスクレイピング必要"
+
+  - pattern: "cms_wordpress"
+    name: "WordPress"
+    description: "WordPressベースのサイト"
+    difficulty: "low-medium"
+    playwright_required: false
+    typical_selectors:
+      - ".post"
+      - "article.animal"
+      - ".wp-block"
+    notes: "プラグインによって構造が異なる"
+
+  - pattern: "external_system"
+    name: "外部システム連携"
+    description: "外部の保護動物管理システムへリンク"
+    difficulty: "very_high"
+    playwright_required: true
+    notes: "システムごとに異なる構造、個別対応必要"
+
 # 地方別ファイル構成
 regions:
   - name: "北海道"
