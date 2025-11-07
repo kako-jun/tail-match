@@ -1,0 +1,129 @@
+# Tail Match - 動物愛護センターデータベース インデックス
+# 全国の保護動物施設情報 - メタデータ・サマリー
+
+metadata:
+  version: "2.0.0"
+  last_updated: "2025-11-07"
+  total_prefectures: 47
+  total_facilities: 104  # 都道府県施設 + 政令指定都市・中核市
+  structure: "地方別分割（10ファイル）"
+  maintainer: "Tail Match Project"
+  license: "Public Domain"
+
+# 地方別ファイル構成
+regions:
+  - name: "北海道"
+    file: "hokkaido.yaml"
+    prefectures: 1
+    prefecture_codes: ["01"]
+    facilities: 2
+    description: "北海道立動物愛護センター、札幌市"
+
+  - name: "東北"
+    file: "tohoku.yaml"
+    prefectures: 6
+    prefecture_codes: ["02", "03", "04", "05", "06", "07"]
+    facilities: 12
+    description: "青森、岩手、宮城、秋田、山形、福島 + 仙台市など"
+
+  - name: "関東"
+    file: "kanto.yaml"
+    prefectures: 7
+    prefecture_codes: ["08", "09", "10", "11", "12", "13", "14"]
+    facilities: 20
+    description: "茨城～神奈川 + 東京都・横浜市・川崎市など政令市多数"
+
+  - name: "中部"
+    file: "chubu.yaml"
+    prefectures: 9
+    prefecture_codes: ["15", "16", "17", "18", "19", "20", "21", "22", "23"]
+    facilities: 18
+    description: "新潟～愛知 + 新潟市・静岡市・浜松市・名古屋市など"
+
+  - name: "近畿"
+    file: "kinki.yaml"
+    prefectures: 7
+    prefecture_codes: ["24", "25", "26", "27", "28", "29", "30"]
+    facilities: 15
+    description: "三重～和歌山 + 京都市・大阪市・堺市・神戸市など"
+
+  - name: "中国"
+    file: "chugoku.yaml"
+    prefectures: 5
+    prefecture_codes: ["31", "32", "33", "34", "35"]
+    facilities: 10
+    description: "鳥取～山口 + 岡山市・広島市など"
+
+  - name: "四国"
+    file: "shikoku.yaml"
+    prefectures: 4
+    prefecture_codes: ["36", "37", "38", "39"]
+    facilities: 8
+    description: "徳島、香川、愛媛、高知"
+
+  - name: "九州"
+    file: "kyushu.yaml"
+    prefectures: 7
+    prefecture_codes: ["40", "41", "42", "43", "44", "45", "46"]
+    facilities: 18
+    description: "福岡～鹿児島 + 福岡市・北九州市・熊本市など"
+
+  - name: "沖縄"
+    file: "okinawa.yaml"
+    prefectures: 1
+    prefecture_codes: ["47"]
+    facilities: 1
+    description: "沖縄県動物愛護管理センター"
+
+# スクレイピング調査状況
+scraping_status:
+  surveyed: 1           # サイト構造調査完了（石川県）
+  ready_to_implement: 0  # 実装準備完了
+  implemented: 0        # スクレイパー実装済み
+  total: 104            # 全施設数
+
+  # 優先度別施設数
+  high_priority: 10     # 大都市圏・緊急度高
+  medium_priority: 30   # 政令指定都市・中核市
+  low_priority: 64      # その他の県
+
+# 技術的分類
+site_types:
+  static_html: 0        # 静的HTML（調査中）
+  javascript_spa: 1     # JavaScript SPA（石川県など）
+  hybrid: 0             # ハイブリッド
+  unknown: 103          # 未調査
+
+# データベース連携
+database_mapping:
+  municipalities_table: "municipalities"
+  contact_info_field: "contact_info (JSONB)"
+  scraping_config_field: "scraping_config (JSONB)"
+
+# スクレイピング設定テンプレート
+scraping_config_template:
+  html_type: "static | dynamic | hybrid"
+  javascript_required: "boolean"
+  wait_for_selector: "string (動的サイトの場合)"
+  list_container: "CSS selector"
+  item_selector: "CSS selector"
+  fields:
+    name: "CSS selector or pattern"
+    breed: "CSS selector or pattern"
+    age: "CSS selector or pattern"
+    gender: "CSS selector or pattern"
+    color: "CSS selector or pattern"
+    image: "CSS selector or pattern"
+    deadline: "CSS selector or pattern"
+  pagination:
+    type: "none | numbered | infinite_scroll"
+    selector: "CSS selector (if applicable)"
+  empty_state_text: "string (掲載なしの表示文言)"
+
+# 注意事項
+notes:
+  - "各施設の詳細情報は地方別YAMLファイルを参照"
+  - "site_analysis セクションはサイト構造調査後に追記"
+  - "scraping_config はデータベースにも保存される"
+  - "JavaScript必須サイトはPlaywright対応が必要"
+  - "常に掲載があるとは限らないため、空状態の確認が重要"

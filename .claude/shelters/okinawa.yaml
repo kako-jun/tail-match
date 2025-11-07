@@ -1,0 +1,73 @@
+# Tail Match - 沖縄地方 動物愛護施設データベース
+# Region: 沖縄 (Okinawa)
+# Last Updated: 2025-11-07
+
+region:
+  name: "沖縄"
+  code: "47"
+  prefectures: 1
+  facilities_count: 1
+
+facilities:
+  # ========================================
+  # 沖縄県 (Okinawa)
+  # ========================================
+  - id: "okinawa_47_main"
+    prefecture_code: "47"
+    prefecture_name: "沖縄県"
+    name: "沖縄県動物愛護管理センター"
+    name_en: "Okinawa Prefectural Animal Welfare Management Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.okinawa.jp/site/hoken/seikatsueisei/yakumu/doubutuaigo_center.html"
+      adoption_page_url: "https://www.pref.okinawa.jp/site/hoken/seikatsueisei/yakumu/doubutsu-jouto.html"
+      phone: "098-945-3043"
+      address: "沖縄県南城市大里大城2000"
+      postal_code: "901-1202"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+
+        fields:
+          id: ""
+          name: ""
+          animal_type: ""
+          breed: ""
+          age: ""
+          gender: ""
+          color: ""
+          size: ""
+          protection_date: ""
+          deadline_date: ""
+          image: ""
+          description: ""
+
+        pagination:
+          type: "unknown"
+          selector: ""
+          max_pages: null
+
+        empty_state:
+          detection_method: ""
+          text_pattern: ""
+          notes: "掲載動物がいない場合の表示を確認する必要あり"
+
+# メモ
+notes:
+  - "沖縄県のみ（1県1施設）"
+  - "政令指定都市・中核市なし"
+  - "サイト構造調査は別途実施予定"
+  - "離島（宮古島、石垣島など）の情報も同センターで管理"
