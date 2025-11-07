@@ -1,0 +1,383 @@
+# Tail Match - 近畿地方 動物愛護施設データベース
+# Region: 近畿 (Kinki)
+# Last Updated: 2025-11-07
+
+region:
+  name: "近畿"
+  code: "kinki"
+  prefectures: 7
+  facilities_count: 15
+
+facilities:
+  # ========================================
+  # 三重県 (Mie)
+  # ========================================
+  - id: "mie_24_main"
+    prefecture_code: "24"
+    prefecture_name: "三重県"
+    name: "三重県動物愛護推進センター「あすまいる」"
+    name_en: "Mie Prefectural Animal Welfare Promotion Center 'Asumairu'"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.mie.lg.jp/ASMILE/"
+      adoption_page_url: "https://www.pref.mie.lg.jp/ASMILE/HP/70032046423.htm"
+      phone: "059-253-1238"
+      address: "三重県津市森町2438-2"
+      postal_code: "514-1101"
+      business_hours: "8:30～17:15"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 滋賀県 (Shiga)
+  # ========================================
+  - id: "shiga_25_main"
+    prefecture_code: "25"
+    prefecture_name: "滋賀県"
+    name: "滋賀県動物保護管理センター"
+    name_en: "Shiga Prefectural Animal Protection Management Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.shiga.lg.jp/doubutsuhogocenter/"
+      adoption_page_url: "https://www.pref.shiga.lg.jp/doubutsuhogocenter/jouto/index.html"
+      phone: "0748-75-1911"
+      address: "滋賀県湖南市岩根136-98"
+      postal_code: "520-3252"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 京都府 (Kyoto)
+  # ========================================
+  - id: "kyoto_26_main"
+    prefecture_code: "26"
+    prefecture_name: "京都府"
+    name: "京都府動物愛護管理センター"
+    name_en: "Kyoto Prefectural Animal Welfare Management Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.kyoto.jp/dobutsu/"
+      adoption_page_url: "https://www.pref.kyoto.jp/dobutsu/joto.html"
+      phone: "075-671-0336"
+      address: "京都府京都市南区上鳥羽仏現寺町11"
+      postal_code: "601-8103"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # 京都市 (政令指定都市)
+  - id: "kyoto_26_city"
+    prefecture_code: "26"
+    prefecture_name: "京都府"
+    name: "京都市動物愛護センター"
+    name_en: "Kyoto City Animal Welfare Center"
+    municipality_type: "designated_city"
+
+    contact_info:
+      website_url: "https://www.city.kyoto.lg.jp/hokenfukushi/page/0000009109.html"
+      adoption_page_url: "https://www.city.kyoto.lg.jp/hokenfukushi/page/0000008984.html"
+      phone: "075-671-0336"
+      address: "京都府京都市南区上鳥羽仏現寺町11"
+      postal_code: "601-8103"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 政令指定都市（京都府と同じ施設）"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 大阪府 (Osaka)
+  # ========================================
+  - id: "osaka_27_main"
+    prefecture_code: "27"
+    prefecture_name: "大阪府"
+    name: "大阪府動物愛護管理センター アニマルハーモニー大阪"
+    name_en: "Osaka Prefectural Animal Welfare Management Center 'Animal Harmony Osaka'"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "http://www.pref.osaka.lg.jp/doaicenter/"
+      adoption_page_url: "http://www.pref.osaka.lg.jp/doaicenter/joutojouhou/index.html"
+      phone: "072-958-8212"
+      address: "大阪府羽曳野市尺度53-4"
+      postal_code: "583-0862"
+      business_hours: "9:00～17:45"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # 大阪市 (政令指定都市)
+  - id: "osaka_27_city"
+    prefecture_code: "27"
+    prefecture_name: "大阪府"
+    name: "大阪市動物管理センター"
+    name_en: "Osaka City Animal Management Center"
+    municipality_type: "designated_city"
+
+    contact_info:
+      website_url: "https://www.city.osaka.lg.jp/kenkofukushi/page/0000093135.html"
+      adoption_page_url: "https://www.city.osaka.lg.jp/kenkofukushi/page/0000370215.html"
+      phone: "06-6685-3700"
+      address: "大阪府大阪市住之江区柴谷2-5-74"
+      postal_code: "559-0031"
+      business_hours: "9:00～17:30"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 政令指定都市"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # 堺市 (政令指定都市)
+  - id: "osaka_27_sakai"
+    prefecture_code: "27"
+    prefecture_name: "大阪府"
+    name: "堺市動物指導センター"
+    name_en: "Sakai City Animal Guidance Center"
+    municipality_type: "designated_city"
+
+    contact_info:
+      website_url: "https://www.city.sakai.lg.jp/kurashi/gomi/dobutsu/dogcat/center/index.html"
+      adoption_page_url: "https://www.city.sakai.lg.jp/kurashi/gomi/dobutsu/dogcat/jyoto/index.html"
+      phone: "072-228-0168"
+      address: "大阪府堺市堺区東雲西町1-8-17"
+      postal_code: "590-0031"
+      business_hours: "9:00～17:30"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 政令指定都市"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 兵庫県 (Hyogo)
+  # ========================================
+  - id: "hyogo_28_main"
+    prefecture_code: "28"
+    prefecture_name: "兵庫県"
+    name: "兵庫県動物愛護センター"
+    name_en: "Hyogo Prefectural Animal Welfare Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.hyogo-douaicenter.jp/"
+      adoption_page_url: "https://www.hyogo-douaicenter.jp/adoption/"
+      phone: "06-6432-4599"
+      address: "兵庫県尼崎市西昆陽4-1-1"
+      postal_code: "660-0046"
+      business_hours: "8:45～17:30"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # 神戸市 (政令指定都市)
+  - id: "hyogo_28_kobe"
+    prefecture_code: "28"
+    prefecture_name: "兵庫県"
+    name: "神戸市動物管理センター"
+    name_en: "Kobe City Animal Management Center"
+    municipality_type: "designated_city"
+
+    contact_info:
+      website_url: "https://www.city.kobe.lg.jp/a02874/kurashi/health/hygiene/animal/index.html"
+      adoption_page_url: "https://www.city.kobe.lg.jp/a02874/kurashi/health/hygiene/animal/joto.html"
+      phone: "078-741-8111"
+      address: "兵庫県神戸市北区山田町下谷上字中一里山14-1"
+      postal_code: "651-1101"
+      business_hours: "8:45～17:30"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 政令指定都市"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 奈良県 (Nara)
+  # ========================================
+  - id: "nara_29_main"
+    prefecture_code: "29"
+    prefecture_name: "奈良県"
+    name: "奈良県動物愛護センター"
+    name_en: "Nara Prefectural Animal Welfare Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "http://www.pref.nara.jp/1840.htm"
+      adoption_page_url: "http://www.pref.nara.jp/11447.htm"
+      phone: "0745-83-2631"
+      address: "奈良県宇陀市大宇陀小附89-1"
+      postal_code: "633-2112"
+      business_hours: "8:30～17:15"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 和歌山県 (Wakayama)
+  # ========================================
+  - id: "wakayama_30_main"
+    prefecture_code: "30"
+    prefecture_name: "和歌山県"
+    name: "和歌山県動物愛護センター"
+    name_en: "Wakayama Prefectural Animal Welfare Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.wakayama.lg.jp/prefg/031601/animal.html"
+      adoption_page_url: "https://www.pref.wakayama.lg.jp/prefg/031601/joto.html"
+      phone: "073-489-6500"
+      address: "和歌山県和歌山市まつえ西6-2-10"
+      postal_code: "640-8404"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+# メモ
+notes:
+  - "近畿地方は7府県（三重、滋賀、京都、大阪、兵庫、奈良、和歌山）"
+  - "政令指定都市: 京都市、大阪市、堺市、神戸市"
+  - "京都市と京都府は施設を共有"
+  - "サイト構造調査は別途実施予定"

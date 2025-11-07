@@ -1,0 +1,351 @@
+# Tail Match - 九州地方 動物愛護施設データベース
+# Region: 九州 (Kyushu)
+# Last Updated: 2025-11-07
+
+region:
+  name: "九州"
+  code: "kyushu"
+  prefectures: 7
+  facilities_count: 18
+
+facilities:
+  # ========================================
+  # 福岡県 (Fukuoka)
+  # ========================================
+  - id: "fukuoka_40_main"
+    prefecture_code: "40"
+    prefecture_name: "福岡県"
+    name: "福岡県動物愛護センター"
+    name_en: "Fukuoka Prefectural Animal Welfare Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.fukuoka.lg.jp/contents/doubutsu-aigo.html"
+      adoption_page_url: "https://www.pref.fukuoka.lg.jp/contents/jyoutocat.html"
+      phone: "092-944-1281"
+      address: "福岡県古賀市小竹131-2"
+      postal_code: "811-3135"
+      business_hours: "8:30～17:15"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # 福岡市 (政令指定都市)
+  - id: "fukuoka_40_city"
+    prefecture_code: "40"
+    prefecture_name: "福岡県"
+    name: "福岡市動物愛護管理センター（あにまるぽーと）"
+    name_en: "Fukuoka City Animal Welfare Management Center 'Animal Port'"
+    municipality_type: "designated_city"
+
+    contact_info:
+      website_url: "https://www.city.fukuoka.lg.jp/hofuku/doubutsu/"
+      adoption_page_url: "https://www.city.fukuoka.lg.jp/hofuku/doubutsu/life/001.html"
+      phone: "092-691-0131"
+      address: "福岡県福岡市東区蒲田5-10-1"
+      postal_code: "813-0023"
+      business_hours: "8:45～17:30"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 政令指定都市"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # 北九州市 (政令指定都市)
+  - id: "fukuoka_40_kitakyushu"
+    prefecture_code: "40"
+    prefecture_name: "福岡県"
+    name: "北九州市動物愛護センター"
+    name_en: "Kitakyushu City Animal Welfare Center"
+    municipality_type: "designated_city"
+
+    contact_info:
+      website_url: "https://www.city.kitakyushu.lg.jp/ho-huku/18901003.html"
+      adoption_page_url: "https://www.city.kitakyushu.lg.jp/ho-huku/18901034.html"
+      phone: "093-581-1800"
+      address: "福岡県北九州市小倉北区西港町24-7"
+      postal_code: "803-0801"
+      business_hours: "8:30～17:15"
+      closed_days: "火曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 政令指定都市"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 佐賀県 (Saga)
+  # ========================================
+  - id: "saga_41_main"
+    prefecture_code: "41"
+    prefecture_name: "佐賀県"
+    name: "佐賀県動物愛護管理センター"
+    name_en: "Saga Prefectural Animal Welfare Management Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.saga.lg.jp/kiji00331270/index.html"
+      adoption_page_url: "https://www.pref.saga.lg.jp/kiji00331276/index.html"
+      phone: "0952-62-1212"
+      address: "佐賀県佐賀市三瀬村藤原3764-9"
+      postal_code: "842-0301"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 長崎県 (Nagasaki)
+  # ========================================
+  - id: "nagasaki_42_main"
+    prefecture_code: "42"
+    prefecture_name: "長崎県"
+    name: "長崎県動物愛護管理センター"
+    name_en: "Nagasaki Prefectural Animal Welfare Management Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.nagasaki.jp/bunrui/kanko-kyoiku-bunka/doubutsu/"
+      adoption_page_url: "https://www.pref.nagasaki.jp/bunrui/kanko-kyoiku-bunka/doubutsu/jyouto/"
+      phone: "0957-35-2425"
+      address: "長崎県諫早市福田町1218-2"
+      postal_code: "854-0063"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 熊本県 (Kumamoto)
+  # ========================================
+  - id: "kumamoto_43_main"
+    prefecture_code: "43"
+    prefecture_name: "熊本県"
+    name: "熊本県動物愛護センター"
+    name_en: "Kumamoto Prefectural Animal Welfare Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.kumamoto.jp/soshiki/57/list1.html"
+      adoption_page_url: "https://www.pref.kumamoto.jp/soshiki/57/4556.html"
+      phone: "096-380-3310"
+      address: "熊本県熊本市東区小山2-11-1"
+      postal_code: "861-8045"
+      business_hours: "8:30～17:15"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # 熊本市 (政令指定都市)
+  - id: "kumamoto_43_city"
+    prefecture_code: "43"
+    prefecture_name: "熊本県"
+    name: "熊本市動物愛護センター"
+    name_en: "Kumamoto City Animal Welfare Center"
+    municipality_type: "designated_city"
+
+    contact_info:
+      website_url: "https://www.city.kumamoto.jp/hpkiji/pub/List.aspx?c_id=5&class_set_id=2&class_id=2438"
+      adoption_page_url: "https://www.city.kumamoto.jp/hpKiji/pub/detail.aspx?c_id=5&id=1685"
+      phone: "096-380-2153"
+      address: "熊本県熊本市東区小山2-11-1"
+      postal_code: "861-8045"
+      business_hours: "8:30～17:15"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 政令指定都市（熊本県と同じ施設）"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 大分県 (Oita)
+  # ========================================
+  - id: "oita_44_main"
+    prefecture_code: "44"
+    prefecture_name: "大分県"
+    name: "大分県動物愛護管理センター"
+    name_en: "Oita Prefectural Animal Welfare Management Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.oita.jp/site/doubutsuaigo/"
+      adoption_page_url: "https://www.pref.oita.jp/site/doubutsuaigo/jyoutocat.html"
+      phone: "097-588-1122"
+      address: "大分県大分市廻栖野3231-47"
+      postal_code: "870-1124"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 宮崎県 (Miyazaki)
+  # ========================================
+  - id: "miyazaki_45_main"
+    prefecture_code: "45"
+    prefecture_name: "宮崎県"
+    name: "宮崎県動物愛護センター"
+    name_en: "Miyazaki Prefectural Animal Welfare Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.miyazaki.lg.jp/contents/org/fukushi/eisei/doubutuaigo/"
+      adoption_page_url: "https://www.pref.miyazaki.lg.jp/contents/org/fukushi/eisei/doubutuaigo/page00143.html"
+      phone: "0985-24-9512"
+      address: "宮崎県宮崎市大字富吉字鴻ノ樔2965-1"
+      postal_code: "889-1703"
+      business_hours: "8:30～17:15"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 鹿児島県 (Kagoshima)
+  # ========================================
+  - id: "kagoshima_46_main"
+    prefecture_code: "46"
+    prefecture_name: "鹿児島県"
+    name: "鹿児島県動物愛護センター"
+    name_en: "Kagoshima Prefectural Animal Welfare Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.kagoshima.jp/ae08/kenko-fukushi/doubutsu/aigo/index.html"
+      adoption_page_url: "https://www.pref.kagoshima.jp/ae08/kenko-fukushi/doubutsu/aigo/jyoto.html"
+      phone: "099-258-1821"
+      address: "鹿児島県霧島市隼人町小田1493-1"
+      postal_code: "899-5111"
+      business_hours: "8:30～17:15"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+# メモ
+notes:
+  - "九州地方は7県（福岡、佐賀、長崎、熊本、大分、宮崎、鹿児島）"
+  - "政令指定都市: 福岡市、北九州市、熊本市"
+  - "熊本市は熊本県と施設を共有"
+  - "サイト構造調査は別途実施予定"
