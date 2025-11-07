@@ -1,0 +1,447 @@
+# Tail Match - 関東地方 動物愛護施設データベース
+# Region: 関東 (Kanto)
+# Last Updated: 2025-11-07
+
+region:
+  name: "関東"
+  code: "kanto"
+  prefectures: 7
+  facilities_count: 20
+
+facilities:
+  # ========================================
+  # 茨城県 (Ibaraki)
+  # ========================================
+  - id: "ibaraki_08_main"
+    prefecture_code: "08"
+    prefecture_name: "茨城県"
+    name: "茨城県動物指導センター"
+    name_en: "Ibaraki Prefectural Animal Guidance Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.ibaraki.jp/soshiki/hokenfukushi/doshise/"
+      adoption_page_url: "https://www.pref.ibaraki.jp/soshiki/hokenfukushi/doshise/jouto/index.html"
+      phone: "0296-72-1200"
+      address: "茨城県笠間市日沢47"
+      postal_code: "309-1606"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 栃木県 (Tochigi)
+  # ========================================
+  - id: "tochigi_09_main"
+    prefecture_code: "09"
+    prefecture_name: "栃木県"
+    name: "栃木県動物愛護指導センター"
+    name_en: "Tochigi Prefectural Animal Welfare Guidance Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.tochigi.lg.jp/e50/life/doubutsu/aigo/center.html"
+      adoption_page_url: "https://www.pref.tochigi.lg.jp/e50/life/doubutsu/aigo/jouto-inu-neko.html"
+      phone: "028-684-5458"
+      address: "栃木県宇都宮市今宮4-7-8"
+      postal_code: "321-0974"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 群馬県 (Gunma)
+  # ========================================
+  - id: "gunma_10_main"
+    prefecture_code: "10"
+    prefecture_name: "群馬県"
+    name: "群馬県動物愛護センター"
+    name_en: "Gunma Prefectural Animal Welfare Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.gunma.jp/02/d4210001.html"
+      adoption_page_url: "https://www.pref.gunma.jp/02/d4210013.html"
+      phone: "027-278-0555"
+      address: "群馬県玉村町樋越305-7"
+      postal_code: "370-1124"
+      business_hours: "8:30～17:15"
+      closed_days: "火曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 埼玉県 (Saitama)
+  # ========================================
+  - id: "saitama_11_main"
+    prefecture_code: "11"
+    prefecture_name: "埼玉県"
+    name: "埼玉県動物指導センター"
+    name_en: "Saitama Prefectural Animal Guidance Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.saitama.lg.jp/soshiki/b0716/index.html"
+      adoption_page_url: "https://www.pref.saitama.lg.jp/soshiki/b0716/inuneko-jyouhou.html"
+      phone: "048-855-0484"
+      address: "埼玉県熊谷市板井123"
+      postal_code: "360-0105"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # さいたま市 (政令指定都市)
+  - id: "saitama_11_city"
+    prefecture_code: "11"
+    prefecture_name: "埼玉県"
+    name: "さいたま市動物愛護ふれあいセンター"
+    name_en: "Saitama City Animal Welfare Center"
+    municipality_type: "designated_city"
+
+    contact_info:
+      website_url: "https://www.city.saitama.jp/002/003/004/003/index.html"
+      adoption_page_url: "https://www.city.saitama.jp/002/003/004/003/006/p008615.html"
+      phone: "048-840-4150"
+      address: "埼玉県さいたま市桜区神田950-1"
+      postal_code: "338-0812"
+      business_hours: "8:30～17:15"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 政令指定都市"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 千葉県 (Chiba)
+  # ========================================
+  - id: "chiba_12_main"
+    prefecture_code: "12"
+    prefecture_name: "千葉県"
+    name: "千葉県動物愛護センター"
+    name_en: "Chiba Prefectural Animal Welfare Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.chiba.lg.jp/aigo/"
+      adoption_page_url: "https://www.pref.chiba.lg.jp/aigo/jouhou/jouhou-top.html"
+      phone: "0476-93-5711"
+      address: "千葉県富里市御料709-1"
+      postal_code: "286-0211"
+      business_hours: "8:30～17:15"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # 千葉市 (政令指定都市)
+  - id: "chiba_12_city"
+    prefecture_code: "12"
+    prefecture_name: "千葉県"
+    name: "千葉市動物保護指導センター"
+    name_en: "Chiba City Animal Protection and Guidance Center"
+    municipality_type: "designated_city"
+
+    contact_info:
+      website_url: "https://www.city.chiba.jp/hokenfukushi/kenkou/seikatsueisei/center-top.html"
+      adoption_page_url: "https://www.city.chiba.jp/hokenfukushi/kenkou/seikatsueisei/jyoutoneko.html"
+      phone: "043-258-7817"
+      address: "千葉県千葉市稲毛区宮野木町445-1"
+      postal_code: "263-0054"
+      business_hours: "8:30～17:30"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 政令指定都市"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 東京都 (Tokyo)
+  # ========================================
+  - id: "tokyo_13_main"
+    prefecture_code: "13"
+    prefecture_name: "東京都"
+    name: "東京都動物愛護相談センター（本所）"
+    name_en: "Tokyo Metropolitan Animal Consultation Center (Main)"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.fukushihoken.metro.tokyo.lg.jp/douso/"
+      adoption_page_url: "https://www.fukushihoken.metro.tokyo.lg.jp/douso/jouto/cat_jouto.html"
+      phone: "03-3302-3507"
+      address: "東京都世田谷区八幡山2-9-11"
+      postal_code: "156-0056"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 本所と多摩支所がある"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  - id: "tokyo_13_tama"
+    prefecture_code: "13"
+    prefecture_name: "東京都"
+    name: "東京都動物愛護相談センター（多摩支所）"
+    name_en: "Tokyo Metropolitan Animal Consultation Center (Tama Branch)"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.fukushihoken.metro.tokyo.lg.jp/douso/shisetsu/tama.html"
+      adoption_page_url: "https://www.fukushihoken.metro.tokyo.lg.jp/douso/jouto/cat_jouto.html"
+      phone: "042-581-7435"
+      address: "東京都日野市石田1-192-33"
+      postal_code: "191-0021"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 多摩支所"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 神奈川県 (Kanagawa)
+  # ========================================
+  - id: "kanagawa_14_main"
+    prefecture_code: "14"
+    prefecture_name: "神奈川県"
+    name: "神奈川県動物保護センター"
+    name_en: "Kanagawa Prefectural Animal Protection Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.kanagawa.jp/docs/v7d/cnt/f80192/"
+      adoption_page_url: "https://www.pref.kanagawa.jp/docs/v7d/cnt/f80192/p1190156.html"
+      phone: "0463-58-3411"
+      address: "神奈川県平塚市土屋2586"
+      postal_code: "259-1205"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # 横浜市 (政令指定都市)
+  - id: "kanagawa_14_yokohama"
+    prefecture_code: "14"
+    prefecture_name: "神奈川県"
+    name: "横浜市動物愛護センター"
+    name_en: "Yokohama City Animal Welfare Center"
+    municipality_type: "designated_city"
+
+    contact_info:
+      website_url: "https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/"
+      adoption_page_url: "https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/center/joutoneko.html"
+      phone: "045-471-2111"
+      address: "神奈川県横浜市神奈川区菅田町75-4"
+      postal_code: "221-0864"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 政令指定都市"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # 川崎市 (政令指定都市)
+  - id: "kanagawa_14_kawasaki"
+    prefecture_code: "14"
+    prefecture_name: "神奈川県"
+    name: "川崎市動物愛護センター（ANIMAMALL かわさき）"
+    name_en: "Kawasaki City Animal Welfare Center (ANIMAMALL Kawasaki)"
+    municipality_type: "designated_city"
+
+    contact_info:
+      website_url: "https://www.city.kawasaki.jp/350/page/0000022127.html"
+      adoption_page_url: "https://www.city.kawasaki.jp/350/page/0000106065.html"
+      phone: "044-766-2237"
+      address: "神奈川県川崎市高津区蟹ヶ谷119"
+      postal_code: "213-0025"
+      business_hours: "8:30～17:00"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 政令指定都市"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # 相模原市 (政令指定都市)
+  - id: "kanagawa_14_sagamihara"
+    prefecture_code: "14"
+    prefecture_name: "神奈川県"
+    name: "相模原市動物愛護センター"
+    name_en: "Sagamihara City Animal Welfare Center"
+    municipality_type: "designated_city"
+
+    contact_info:
+      website_url: "https://www.city.sagamihara.kanagawa.jp/shisei/kekaku/1007179.html"
+      adoption_page_url: "https://www.city.sagamihara.kanagawa.jp/kurashi/pet/1007194.html"
+      phone: "042-762-0652"
+      address: "神奈川県相模原市中央区田名4750-1"
+      postal_code: "252-0287"
+      business_hours: "8:30～17:15"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 政令指定都市"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+# メモ
+notes:
+  - "関東地方は7都県（茨城、栃木、群馬、埼玉、千葉、東京、神奈川）"
+  - "政令指定都市: さいたま市、千葉市、横浜市、川崎市、相模原市"
+  - "東京都は本所・多摩支所の2拠点"
+  - "人口集中地域のため施設数が多い"
+  - "サイト構造調査は別途実施予定"

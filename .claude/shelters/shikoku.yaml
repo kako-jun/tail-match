@@ -1,0 +1,152 @@
+# Tail Match - 四国地方 動物愛護施設データベース
+# Region: 四国 (Shikoku)
+# Last Updated: 2025-11-07
+
+region:
+  name: "四国"
+  code: "shikoku"
+  prefectures: 4
+  facilities_count: 8
+
+facilities:
+  # ========================================
+  # 徳島県 (Tokushima)
+  # ========================================
+  - id: "tokushima_36_main"
+    prefecture_code: "36"
+    prefecture_name: "徳島県"
+    name: "徳島県動物愛護管理センター"
+    name_en: "Tokushima Prefectural Animal Welfare Management Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.tokushima.lg.jp/ippannokata/kurashi/shizen/5014832"
+      adoption_page_url: "https://www.pref.tokushima.lg.jp/ippannokata/kurashi/shizen/5014847"
+      phone: "088-636-6122"
+      address: "徳島県名西郡神山町阿野字長谷333"
+      postal_code: "771-3421"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 香川県 (Kagawa)
+  # ========================================
+  - id: "kagawa_37_main"
+    prefecture_code: "37"
+    prefecture_name: "香川県"
+    name: "香川県動物愛護管理センター「しっぽの森」"
+    name_en: "Kagawa Prefectural Animal Welfare Management Center 'Shippo no Mori'"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.kagawa.lg.jp/content/dir5/dir5_1/dir5_1_1/"
+      adoption_page_url: "https://www.pref.kagawa.lg.jp/content/dir5/dir5_1/dir5_1_1/wf0sjo150414114520.shtml"
+      phone: "087-849-1011"
+      address: "香川県高松市東植田町1202-3"
+      postal_code: "761-8077"
+      business_hours: "8:30～17:15"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 愛媛県 (Ehime)
+  # ========================================
+  - id: "ehime_38_main"
+    prefecture_code: "38"
+    prefecture_name: "愛媛県"
+    name: "愛媛県動物愛護センター"
+    name_en: "Ehime Prefectural Animal Welfare Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.ehime.jp/h25123/apc/"
+      adoption_page_url: "https://www.pref.ehime.jp/h25123/apc/joto.html"
+      phone: "089-977-9200"
+      address: "愛媛県松山市東川町乙44-7"
+      postal_code: "791-0133"
+      business_hours: "8:30～17:15"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 高知県 (Kochi)
+  # ========================================
+  - id: "kochi_39_main"
+    prefecture_code: "39"
+    prefecture_name: "高知県"
+    name: "高知県動物愛護管理センター"
+    name_en: "Kochi Prefectural Animal Welfare Management Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.kochi.lg.jp/soshiki/131601/"
+      adoption_page_url: "https://www.pref.kochi.lg.jp/soshiki/131601/jyoutoneko.html"
+      phone: "088-831-7939"
+      address: "高知県高知市孕東町68-5"
+      postal_code: "781-5103"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+# メモ
+notes:
+  - "四国地方は4県（徳島、香川、愛媛、高知）"
+  - "政令指定都市なし"
+  - "サイト構造調査は別途実施予定"

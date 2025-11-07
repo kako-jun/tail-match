@@ -1,0 +1,128 @@
+# Tail Match - 北海道地方 動物愛護施設データベース
+# Region: 北海道 (Hokkaido)
+# Last Updated: 2025-11-07
+
+region:
+  name: "北海道"
+  code: "01"
+  facilities_count: 2
+
+facilities:
+  # 北海道立動物愛護センター
+  - id: "hokkaido_01_main"
+    prefecture_code: "01"
+    prefecture_name: "北海道"
+    name: "北海道立動物愛護センター「あいにきた」"
+    name_en: "Hokkaido Animal Welfare Center 'Ainikita'"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.hokkaido.lg.jp/hf/kse/animal-welfare-center.html"
+      adoption_page_url: "https://www.pref.hokkaido.lg.jp/hf/kse/dog-cat/animal-information.html"
+      phone: "0123-89-2310"
+      address: "北海道夕張郡長沼町西1線北15号"
+      postal_code: "069-1316"
+      business_hours: "8:45～17:30"
+      closed_days: "土日祝日、年末年始"
+
+    # サイト構造解析（未調査）
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"  # static | dynamic | hybrid
+      javascript_required: null
+      notes: "調査待ち - 北海道立動物愛護センターの保護動物情報ページ"
+
+      # スクレイピング設定（調査後に記入）
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+
+        fields:
+          id: ""
+          name: ""
+          animal_type: ""  # cat | dog
+          breed: ""
+          age: ""
+          gender: ""
+          color: ""
+          size: ""
+          protection_date: ""
+          deadline_date: ""
+          image: ""
+          description: ""
+
+        pagination:
+          type: "unknown"  # none | numbered | infinite_scroll | button
+          selector: ""
+          max_pages: null
+
+        empty_state:
+          detection_method: ""
+          text_pattern: ""
+          notes: "掲載動物がいない場合の表示を確認する必要あり"
+
+  # 札幌市動物愛護管理センター
+  - id: "hokkaido_01_sapporo"
+    prefecture_code: "01"
+    prefecture_name: "北海道"
+    name: "札幌市動物愛護管理センター「あいまる さっぽろ」"
+    name_en: "Sapporo Animal Welfare Center 'Aimaru Sapporo'"
+    municipality_type: "designated_city"
+
+    contact_info:
+      website_url: "https://www.city.sapporo.jp/inuneko/"
+      adoption_page_url: "https://www.city.sapporo.jp/inuneko/joto_jokenin/jyoto-top.html"
+      phone: "011-736-6134"
+      address: "北海道札幌市中央区北22条西15丁目3-6"
+      postal_code: "001-0022"
+      business_hours: "8:45～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    # サイト構造解析（未調査）
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"  # static | dynamic | hybrid
+      javascript_required: null
+      notes: "調査待ち - 札幌市の譲渡動物情報ページ"
+
+      # スクレイピング設定（調査後に記入）
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+
+        fields:
+          id: ""
+          name: ""
+          animal_type: ""  # cat | dog
+          breed: ""
+          age: ""
+          gender: ""
+          color: ""
+          size: ""
+          protection_date: ""
+          deadline_date: ""
+          image: ""
+          description: ""
+
+        pagination:
+          type: "unknown"  # none | numbered | infinite_scroll | button
+          selector: ""
+          max_pages: null
+
+        empty_state:
+          detection_method: ""
+          text_pattern: ""
+          notes: "掲載動物がいない場合の表示を確認する必要あり"
+
+# メモ
+notes:
+  - "北海道は2施設（道立センター + 札幌市）"
+  - "サイト構造調査は別途実施予定"
+  - "常に動物が掲載されているとは限らないため、複数回チェックが必要"
+  - "JavaScriptでの動的読み込みの有無を確認する必要あり"
