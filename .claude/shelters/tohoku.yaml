@@ -1,0 +1,386 @@
+# Tail Match - 東北地方 動物愛護施設データベース
+# Region: 東北 (Tohoku)
+# Last Updated: 2025-11-07
+
+region:
+  name: "東北"
+  code: "tohoku"
+  prefectures: 6
+  facilities_count: 12
+
+facilities:
+  # ========================================
+  # 青森県 (Aomori)
+  # ========================================
+  - id: "aomori_02_main"
+    prefecture_code: "02"
+    prefecture_name: "青森県"
+    name: "青森県動物愛護センター"
+    name_en: "Aomori Prefectural Animal Welfare Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.aomori.lg.jp/soshiki/kenko/hoken/animal.html"
+      adoption_page_url: "https://www.pref.aomori.lg.jp/soshiki/kenko/hoken/animal-jyoto.html"
+      phone: "017-726-6100"
+      address: "青森県青森市宮田字玉水119-10"
+      postal_code: "038-0058"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields:
+          id: ""
+          name: ""
+          animal_type: ""
+          breed: ""
+          age: ""
+          gender: ""
+          color: ""
+          size: ""
+          protection_date: ""
+          deadline_date: ""
+          image: ""
+          description: ""
+        pagination:
+          type: "unknown"
+          selector: ""
+          max_pages: null
+        empty_state:
+          detection_method: ""
+          text_pattern: ""
+          notes: ""
+
+  # ========================================
+  # 岩手県 (Iwate)
+  # ========================================
+  - id: "iwate_03_main"
+    prefecture_code: "03"
+    prefecture_name: "岩手県"
+    name: "岩手県動物愛護センター"
+    name_en: "Iwate Prefectural Animal Welfare Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.iwate.jp/kurashikankyou/kankyou/seibututayousei/1006159.html"
+      adoption_page_url: "https://www.pref.iwate.jp/kurashikankyou/kankyou/seibututayousei/1006178.html"
+      phone: "019-651-3173"
+      address: "岩手県盛岡市川目第25地割1-1"
+      postal_code: "020-0507"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields:
+          id: ""
+          name: ""
+          animal_type: ""
+          breed: ""
+          age: ""
+          gender: ""
+          color: ""
+          size: ""
+          protection_date: ""
+          deadline_date: ""
+          image: ""
+          description: ""
+        pagination:
+          type: "unknown"
+          selector: ""
+          max_pages: null
+        empty_state:
+          detection_method: ""
+          text_pattern: ""
+          notes: ""
+
+  # ========================================
+  # 宮城県 (Miyagi)
+  # ========================================
+  - id: "miyagi_04_main"
+    prefecture_code: "04"
+    prefecture_name: "宮城県"
+    name: "宮城県動物愛護センター"
+    name_en: "Miyagi Prefectural Animal Welfare Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.miyagi.jp/soshiki/doubutuaigo/"
+      adoption_page_url: "https://www.pref.miyagi.jp/soshiki/doubutuaigo/jyoutoneko.html"
+      phone: "0223-58-2456"
+      address: "宮城県富谷市石積字堀田1"
+      postal_code: "981-3326"
+      business_hours: "8:30～17:15"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields:
+          id: ""
+          name: ""
+          animal_type: ""
+          breed: ""
+          age: ""
+          gender: ""
+          color: ""
+          size: ""
+          protection_date: ""
+          deadline_date: ""
+          image: ""
+          description: ""
+        pagination:
+          type: "unknown"
+          selector: ""
+          max_pages: null
+        empty_state:
+          detection_method: ""
+          text_pattern: ""
+          notes: ""
+
+  # 仙台市 (Sendai City - 政令指定都市)
+  - id: "miyagi_04_sendai"
+    prefecture_code: "04"
+    prefecture_name: "宮城県"
+    name: "仙台市動物管理センター「アニパル仙台」"
+    name_en: "Sendai City Animal Management Center 'Anipal Sendai'"
+    municipality_type: "designated_city"
+
+    contact_info:
+      website_url: "https://www.city.sendai.jp/dobutsu/kurashi/machi/hogo/index.html"
+      adoption_page_url: "https://www.city.sendai.jp/dobutsu/kurashi/machi/hogo/jouto/index.html"
+      phone: "022-258-1626"
+      address: "宮城県仙台市宮城野区扇町6-3-3"
+      postal_code: "983-0833"
+      business_hours: "8:30～17:00"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 政令指定都市"
+
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields:
+          id: ""
+          name: ""
+          animal_type: ""
+          breed: ""
+          age: ""
+          gender: ""
+          color: ""
+          size: ""
+          protection_date: ""
+          deadline_date: ""
+          image: ""
+          description: ""
+        pagination:
+          type: "unknown"
+          selector: ""
+          max_pages: null
+        empty_state:
+          detection_method: ""
+          text_pattern: ""
+          notes: ""
+
+  # ========================================
+  # 秋田県 (Akita)
+  # ========================================
+  - id: "akita_05_main"
+    prefecture_code: "05"
+    prefecture_name: "秋田県"
+    name: "秋田県動物愛護センター"
+    name_en: "Akita Prefectural Animal Welfare Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.akita.lg.jp/pages/archive/5302"
+      adoption_page_url: "https://www.pref.akita.lg.jp/pages/archive/5303"
+      phone: "018-827-5051"
+      address: "秋田県秋田市雄和椿川字駒坂台1-1"
+      postal_code: "019-2331"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields:
+          id: ""
+          name: ""
+          animal_type: ""
+          breed: ""
+          age: ""
+          gender: ""
+          color: ""
+          size: ""
+          protection_date: ""
+          deadline_date: ""
+          image: ""
+          description: ""
+        pagination:
+          type: "unknown"
+          selector: ""
+          max_pages: null
+        empty_state:
+          detection_method: ""
+          text_pattern: ""
+          notes: ""
+
+  # ========================================
+  # 山形県 (Yamagata)
+  # ========================================
+  - id: "yamagata_06_main"
+    prefecture_code: "06"
+    prefecture_name: "山形県"
+    name: "山形県動物愛護センター"
+    name_en: "Yamagata Prefectural Animal Welfare Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.yamagata.jp/020026/kurashi/pet/pet/"
+      adoption_page_url: "https://www.pref.yamagata.jp/020026/kurashi/pet/pet/jouto.html"
+      phone: "023-681-7560"
+      address: "山形県山形市大字漆山1954"
+      postal_code: "990-2161"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields:
+          id: ""
+          name: ""
+          animal_type: ""
+          breed: ""
+          age: ""
+          gender: ""
+          color: ""
+          size: ""
+          protection_date: ""
+          deadline_date: ""
+          image: ""
+          description: ""
+        pagination:
+          type: "unknown"
+          selector: ""
+          max_pages: null
+        empty_state:
+          detection_method: ""
+          text_pattern: ""
+          notes: ""
+
+  # ========================================
+  # 福島県 (Fukushima)
+  # ========================================
+  - id: "fukushima_07_main"
+    prefecture_code: "07"
+    prefecture_name: "福島県"
+    name: "福島県動物愛護センター「ハピまるふくしま」"
+    name_en: "Fukushima Prefectural Animal Welfare Center 'Hapimaru Fukushima'"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.fukushima.lg.jp/sec/21620a/"
+      adoption_page_url: "https://www.pref.fukushima.lg.jp/sec/21620a/doubutuaigo-jouto.html"
+      phone: "024-953-6400"
+      address: "福島県田村郡三春町大字上舞木字向田17"
+      postal_code: "963-7732"
+      business_hours: "8:30～17:15"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields:
+          id: ""
+          name: ""
+          animal_type: ""
+          breed: ""
+          age: ""
+          gender: ""
+          color: ""
+          size: ""
+          protection_date: ""
+          deadline_date: ""
+          image: ""
+          description: ""
+        pagination:
+          type: "unknown"
+          selector: ""
+          max_pages: null
+        empty_state:
+          detection_method: ""
+          text_pattern: ""
+          notes: ""
+
+# メモ
+notes:
+  - "東北地方は6県（青森、岩手、宮城、秋田、山形、福島）"
+  - "政令指定都市: 仙台市"
+  - "現時点で基本的な施設のみ記載（保健所等は今後追加予定）"
+  - "サイト構造調査は別途実施予定"

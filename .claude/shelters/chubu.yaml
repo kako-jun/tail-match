@@ -1,0 +1,502 @@
+# Tail Match - 中部地方 動物愛護施設データベース
+# Region: 中部 (Chubu)
+# Last Updated: 2025-11-07
+
+region:
+  name: "中部"
+  code: "chubu"
+  prefectures: 9
+  facilities_count: 18
+
+facilities:
+  # ========================================
+  # 新潟県 (Niigata)
+  # ========================================
+  - id: "niigata_15_main"
+    prefecture_code: "15"
+    prefecture_name: "新潟県"
+    name: "新潟県動物愛護センター"
+    name_en: "Niigata Prefectural Animal Welfare Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.niigata.lg.jp/sec/seikatueisei/1194060413803.html"
+      adoption_page_url: "https://www.pref.niigata.lg.jp/sec/seikatueisei/1356831944722.html"
+      phone: "0258-21-5501"
+      address: "新潟県長岡市関原町1-2663-6"
+      postal_code: "940-2035"
+      business_hours: "8:30～17:15"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # 新潟市 (政令指定都市)
+  - id: "niigata_15_city"
+    prefecture_code: "15"
+    prefecture_name: "新潟県"
+    name: "新潟市動物ふれあいセンター"
+    name_en: "Niigata City Animal Contact Center"
+    municipality_type: "designated_city"
+
+    contact_info:
+      website_url: "https://www.city.niigata.lg.jp/kurashi/animal/index.html"
+      adoption_page_url: "https://www.city.niigata.lg.jp/kurashi/animal/hogo/joutoneko.html"
+      phone: "025-288-4865"
+      address: "新潟県新潟市中央区清五郎341"
+      postal_code: "950-0933"
+      business_hours: "9:00～17:00"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 政令指定都市"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 富山県 (Toyama)
+  # ========================================
+  - id: "toyama_16_main"
+    prefecture_code: "16"
+    prefecture_name: "富山県"
+    name: "富山県動物管理センター"
+    name_en: "Toyama Prefectural Animal Management Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.toyama.jp/1279/kurashi/kenkou/ishi/kj00000010.html"
+      adoption_page_url: "https://www.pref.toyama.jp/1279/kurashi/kenkou/ishi/kj00000011.html"
+      phone: "076-425-1930"
+      address: "富山県富山市流杉457-1"
+      postal_code: "939-2706"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 石川県 (Ishikawa)
+  # ========================================
+  - id: "ishikawa_17_main"
+    prefecture_code: "17"
+    prefecture_name: "石川県"
+    name: "いしかわ動物愛護センター"
+    name_en: "Ishikawa Animal Welfare Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.ishikawa.lg.jp/douai/index.html"
+      adoption_page_url: "https://www.pref.ishikawa.lg.jp/douai/jouto/jouto.html"
+      phone: "076-258-7755"
+      address: "石川県金沢市才田町戊218"
+      postal_code: "920-0226"
+      business_hours: "8:30～17:15"
+      closed_days: "火曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: true
+      investigation_date: "2025-07-01"
+      html_type: "dynamic"
+      javascript_required: true
+      notes: "JavaScript SPAで実装 - Playwright必須。静的HTML取得では実データなし。"
+      scraping_config:
+        enabled: false
+        list_container: ".data_boxes"
+        item_selector: ".data_box.cat-card"
+        wait_for_selector: ".data_boxes"
+        fields:
+          id: "dl dt:contains('管理番号') + dd"
+          name: "dl dt:contains('名前') + dd"
+          animal_type: "cat"
+          breed: "dl dt:contains('種類') + dd"
+          age: "dl dt:contains('年齢') + dd"
+          gender: "dl dt:contains('性別') + dd"
+          color: "dl dt:contains('毛色') + dd"
+          size: ""
+          protection_date: "dl dt:contains('収容日') + dd"
+          deadline_date: "dl dt:contains('期限') + dd"
+          image: ".cat-image img[src]"
+          description: ".cat-description"
+        pagination:
+          type: "none"
+          selector: ""
+          max_pages: 1
+        empty_state:
+          detection_method: "text_pattern"
+          text_pattern: "現在、譲渡可能な猫はいません"
+          notes: "動的コンテンツのため、JavaScript実行後にチェック必要"
+
+  # 金沢市 (中核市)
+  - id: "ishikawa_17_kanazawa"
+    prefecture_code: "17"
+    prefecture_name: "石川県"
+    name: "金沢市動物愛護管理センター"
+    name_en: "Kanazawa City Animal Welfare Management Center"
+    municipality_type: "core_city"
+
+    contact_info:
+      website_url: "https://www4.city.kanazawa.lg.jp/23037/doubutu/index.html"
+      adoption_page_url: "https://www4.city.kanazawa.lg.jp/23037/doubutu/jouto/jouto.html"
+      phone: "076-258-9070"
+      address: "石川県金沢市才田町戊370-1"
+      postal_code: "920-0226"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 中核市"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 福井県 (Fukui)
+  # ========================================
+  - id: "fukui_18_main"
+    prefecture_code: "18"
+    prefecture_name: "福井県"
+    name: "福井県動物愛護管理センター"
+    name_en: "Fukui Prefectural Animal Welfare Management Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.fukui.lg.jp/doc/kennkou/doubutu/index.html"
+      adoption_page_url: "https://www.pref.fukui.lg.jp/doc/kennkou/doubutu/doubutu-jyoto.html"
+      phone: "0776-38-1135"
+      address: "福井県福井市開発町39-8-1"
+      postal_code: "910-0029"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 山梨県 (Yamanashi)
+  # ========================================
+  - id: "yamanashi_19_main"
+    prefecture_code: "19"
+    prefecture_name: "山梨県"
+    name: "山梨県動物愛護指導センター"
+    name_en: "Yamanashi Prefectural Animal Welfare Guidance Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.yamanashi.jp/doubutsu-ac/index.html"
+      adoption_page_url: "https://www.pref.yamanashi.jp/doubutsu-ac/jyouto.html"
+      phone: "055-273-5034"
+      address: "山梨県中央市乙黒1083"
+      postal_code: "409-3812"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 長野県 (Nagano)
+  # ========================================
+  - id: "nagano_20_main"
+    prefecture_code: "20"
+    prefecture_name: "長野県"
+    name: "長野県動物愛護センター「ハローアニマル」"
+    name_en: "Nagano Prefectural Animal Welfare Center 'Hello Animal'"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.nagano.lg.jp/helloanimals/"
+      adoption_page_url: "https://www.pref.nagano.lg.jp/helloanimals/jouto/index.html"
+      phone: "0263-91-5420"
+      address: "長野県小諸市大字菱平前新田2725"
+      postal_code: "384-0041"
+      business_hours: "8:30～17:15"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 岐阜県 (Gifu)
+  # ========================================
+  - id: "gifu_21_main"
+    prefecture_code: "21"
+    prefecture_name: "岐阜県"
+    name: "岐阜県動物愛護センター"
+    name_en: "Gifu Prefectural Animal Welfare Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.gifu.lg.jp/page/2468.html"
+      adoption_page_url: "https://www.pref.gifu.lg.jp/page/2475.html"
+      phone: "058-231-5385"
+      address: "岐阜県美濃市片知593"
+      postal_code: "501-3714"
+      business_hours: "8:30～17:15"
+      closed_days: "土日祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 静岡県 (Shizuoka)
+  # ========================================
+  - id: "shizuoka_22_main"
+    prefecture_code: "22"
+    prefecture_name: "静岡県"
+    name: "静岡県動物愛護管理センター「しっぽの森」"
+    name_en: "Shizuoka Prefectural Animal Welfare Management Center 'Shippo no Mori'"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.shizuoka.jp/kenkou/ke-140/animal_center.html"
+      adoption_page_url: "https://www.pref.shizuoka.jp/kenkou/ke-140/animal_jyoto.html"
+      phone: "0538-49-2222"
+      address: "静岡県磐田市岡ノ谷2071-1"
+      postal_code: "438-0001"
+      business_hours: "8:30～17:15"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # 静岡市 (政令指定都市)
+  - id: "shizuoka_22_city"
+    prefecture_code: "22"
+    prefecture_name: "静岡県"
+    name: "静岡市動物指導センター"
+    name_en: "Shizuoka City Animal Guidance Center"
+    municipality_type: "designated_city"
+
+    contact_info:
+      website_url: "https://www.city.shizuoka.lg.jp/000_002462.html"
+      adoption_page_url: "https://www.city.shizuoka.lg.jp/161_000038.html"
+      phone: "054-278-6409"
+      address: "静岡県静岡市葵区産女953"
+      postal_code: "420-0949"
+      business_hours: "8:30～17:15"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 政令指定都市"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # 浜松市 (政令指定都市)
+  - id: "shizuoka_22_hamamatsu"
+    prefecture_code: "22"
+    prefecture_name: "静岡県"
+    name: "浜松市動物愛護教育センター「はままつ友愛わんにゃん」"
+    name_en: "Hamamatsu City Animal Welfare Education Center"
+    municipality_type: "designated_city"
+
+    contact_info:
+      website_url: "https://www.city.hamamatsu.shizuoka.jp/dobutu/"
+      adoption_page_url: "https://www.city.hamamatsu.shizuoka.jp/dobutu/joutoneko.html"
+      phone: "053-487-1122"
+      address: "静岡県浜松市中区竜禅寺町2728-1"
+      postal_code: "432-8061"
+      business_hours: "8:30～17:00"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 政令指定都市"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # ========================================
+  # 愛知県 (Aichi)
+  # ========================================
+  - id: "aichi_23_main"
+    prefecture_code: "23"
+    prefecture_name: "愛知県"
+    name: "愛知県動物愛護センター"
+    name_en: "Aichi Prefectural Animal Welfare Center"
+    municipality_type: "prefecture"
+
+    contact_info:
+      website_url: "https://www.pref.aichi.jp/soshiki/dobutsu/"
+      adoption_page_url: "https://www.pref.aichi.jp/soshiki/dobutsu/neko-joto.html"
+      phone: "0565-58-2323"
+      address: "愛知県豊田市穂積町新屋73-3"
+      postal_code: "470-1201"
+      business_hours: "8:45～17:30"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+  # 名古屋市 (政令指定都市)
+  - id: "aichi_23_nagoya"
+    prefecture_code: "23"
+    prefecture_name: "愛知県"
+    name: "名古屋市動物愛護センター"
+    name_en: "Nagoya City Animal Welfare Center"
+    municipality_type: "designated_city"
+
+    contact_info:
+      website_url: "https://www.city.nagoya.jp/kenkofukushi/page/0000009394.html"
+      adoption_page_url: "https://www.city.nagoya.jp/kenkofukushi/page/0000009398.html"
+      phone: "052-762-0380"
+      address: "愛知県名古屋市千種区平和公園2-106"
+      postal_code: "464-0022"
+      business_hours: "8:45～17:30"
+      closed_days: "月曜日、祝日、年末年始"
+
+    site_analysis:
+      investigated: false
+      investigation_date: null
+      html_type: "unknown"
+      javascript_required: null
+      notes: "調査待ち - 政令指定都市"
+      scraping_config:
+        enabled: false
+        list_container: ""
+        item_selector: ""
+        wait_for_selector: ""
+        fields: {id: "", name: "", animal_type: "", breed: "", age: "", gender: "", color: "", size: "", protection_date: "", deadline_date: "", image: "", description: ""}
+        pagination: {type: "unknown", selector: "", max_pages: null}
+        empty_state: {detection_method: "", text_pattern: "", notes: ""}
+
+# メモ
+notes:
+  - "中部地方は9県（新潟、富山、石川、福井、山梨、長野、岐阜、静岡、愛知）"
+  - "政令指定都市: 新潟市、静岡市、浜松市、名古屋市"
+  - "中核市: 金沢市"
+  - "石川県のサイト構造調査が完了（JavaScript SPA、Playwright必須）"
+  - "サイト構造調査は別途実施予定"
