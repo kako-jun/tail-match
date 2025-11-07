@@ -1,0 +1,1086 @@
+# 日本全国の公的保護動物（犬猫）里親募集サイト一覧
+# Japan Public Animal Shelters Database (Dogs & Cats Adoption)
+#
+# 【データ構造説明】
+# このファイルは、日本全国の都道府県・政令指定都市・中核市が運営する
+# 動物愛護センター・動物管理センター・保健所の情報を体系的に整理したものです。
+#
+# 【編集方法】
+# - YAML形式で記述されているため、インデントに注意してください
+# - 新しい施設を追加する場合は、既存のエントリーをコピーして編集してください
+# - スクレイピング対応状況は、実際にテストした後に更新してください
+#
+# 【フィールド説明】
+# - code: 都道府県コード（01-47）
+# - name: 都道府県名
+# - region: 地域区分（北海道、東北、関東、中部、近畿、中国、四国、九州、沖縄）
+# - centers: 動物愛護センターのリスト
+#   - name: 施設の正式名称
+#   - nickname: 愛称（ある場合）
+#   - url: 公式サイトURL
+#   - adoption_url: 譲渡情報ページURL（別途ある場合）
+#   - phone: 電話番号
+#   - fax: FAX番号（任意）
+#   - email: メールアドレス（任意）
+#   - address: 住所
+#   - scraping_supported: スクレイピング対応状況（true/false/testing）
+#   - javascript_required: JavaScript動的レンダリングの要否（true/false/unknown）
+#   - site_structure: サイト構造の説明
+#   - notes: 備考・特記事項
+
+metadata:
+  last_updated: "2025-11-07"
+  version: "1.0.0"
+  total_prefectures: 47
+  data_source: "環境省・各自治体公式サイト"
+  maintainer: "Tail Match Project"
+  license: "Public Domain"
+
+# ============================================================
+# 北海道地方
+# ============================================================
+
+prefectures:
+  - code: "01"
+    name: "北海道"
+    region: "北海道"
+    centers:
+      - name: "北海道立動物愛護センター"
+        nickname: "あいにきた"
+        url: "https://www.pref.hokkaido.lg.jp/ks/awc/"
+        adoption_url: "https://www.pref.hokkaido.lg.jp/ks/awc/ainikita.html"
+        phone: ""
+        address: "〒069-0836 江別市文京台緑町582番地1"
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "公式サイトあり、譲渡情報は別ページ"
+        notes: "2024年4月1日開設。保健所からの収容動物を一元管理"
+
+      - name: "札幌市動物愛護管理センター"
+        nickname: "あいまる さっぽろ"
+        url: "https://www.city.sapporo.jp/inuneko/"
+        adoption_url: "https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/joutoinuneko.html"
+        phone: ""
+        address: "〒060-0022 札幌市中央区北22条西15丁目3-6"
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市、独立運営"
+        notes: "2023年11月13日に新施設に移転"
+
+# ============================================================
+# 東北地方
+# ============================================================
+
+  - code: "02"
+    name: "青森県"
+    region: "東北"
+    centers:
+      - name: "青森県動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "03"
+    name: "岩手県"
+    region: "東北"
+    centers:
+      - name: "岩手県動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "04"
+    name: "宮城県"
+    region: "東北"
+    centers:
+      - name: "宮城県動物愛護センター"
+        nickname: ""
+        url: "https://www.pref.miyagi.jp/soshiki/doubutuaigo/"
+        adoption_url: "https://www.pref.miyagi.jp/soshiki/doubutuaigo/joutodoubutu.html"
+        phone: "022-358-7888"
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "公式サイトあり、譲渡情報ページあり"
+        notes: "犬猫ダイヤル: 022-774-6920"
+
+      - name: "仙台市動物管理センター"
+        nickname: "アニパル仙台"
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市"
+        notes: "詳細情報要収集"
+
+  - code: "05"
+    name: "秋田県"
+    region: "東北"
+    centers:
+      - name: "秋田県動物管理センター"
+        nickname: "ワンニャピアあきた"
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "06"
+    name: "山形県"
+    region: "東北"
+    centers:
+      - name: "山形県動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "07"
+    name: "福島県"
+    region: "東北"
+    centers:
+      - name: "福島県動物愛護センター"
+        nickname: "ハピまるふくしま"
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "会津支所・相双支所あり"
+
+# ============================================================
+# 関東地方
+# ============================================================
+
+  - code: "08"
+    name: "茨城県"
+    region: "関東"
+    centers:
+      - name: "茨城県動物指導センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "09"
+    name: "栃木県"
+    region: "関東"
+    centers:
+      - name: "栃木県動物愛護指導センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "10"
+    name: "群馬県"
+    region: "関東"
+    centers:
+      - name: "群馬県動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "11"
+    name: "埼玉県"
+    region: "関東"
+    centers:
+      - name: "埼玉県動物指導センター"
+        nickname: ""
+        url: "https://www.pref.saitama.lg.jp/soshiki/b0716/index.html"
+        adoption_url: "https://www.pref.saitama.lg.jp/b0716/doubutu-jouto-1.html"
+        phone: "048-536-2465"
+        address: "〒360-0105 熊谷市板井123"
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "本所・南支所体制"
+        notes: "南支所: さいたま市桜区在家473, TEL: 048-855-0484"
+
+      - name: "さいたま市動物愛護ふれあいセンター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市"
+        notes: "詳細情報要収集"
+
+  - code: "12"
+    name: "千葉県"
+    region: "関東"
+    centers:
+      - name: "千葉県動物愛護センター"
+        nickname: ""
+        url: "https://www.pref.chiba.lg.jp/aigo/"
+        adoption_url: "https://www.pref.chiba.lg.jp/aigo/kainushi-bosyu-honsyo.html"
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "本所・東葛飾支所体制"
+        notes: "東葛飾支所: 〒277-0941 柏市高柳1018-6, TEL: 04-7191-0050"
+
+      - name: "千葉市動物保護指導センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市"
+        notes: "詳細情報要収集"
+
+  - code: "13"
+    name: "東京都"
+    region: "関東"
+    centers:
+      - name: "東京都動物愛護相談センター"
+        nickname: "ワンニャンとうきょう"
+        url: "https://wannyan.metro.tokyo.lg.jp/"
+        adoption_url: "https://wannyan.metro.tokyo.lg.jp/center-kara/"
+        phone: ""
+        address: "〒156-0056 世田谷区八幡山二丁目9番11号（本所）"
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "本所・多摩支所・城南島出張所"
+        notes: "多摩支所: 〒191-0021 日野市石田一丁目192番地の33"
+
+  - code: "14"
+    name: "神奈川県"
+    region: "関東"
+    centers:
+      - name: "神奈川県動物愛護センター"
+        nickname: ""
+        url: "https://www.pref.kanagawa.jp/osirase/1594/awc/index.html"
+        adoption_url: "https://www.pref.kanagawa.jp/osirase/1594/awc/receive/"
+        phone: "0463-58-3411"
+        fax: "0463-59-4931"
+        address: "〒259-1205 平塚市土屋401"
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "犬猫殺処分ゼロ達成"
+        notes: "月曜日から金曜日 8:30-17:15（祝祭日及び年末年始を除く）"
+
+      - name: "横浜市動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市"
+        notes: "詳細情報要収集"
+
+      - name: "川崎市動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市"
+        notes: "詳細情報要収集"
+
+      - name: "相模原市動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市"
+        notes: "詳細情報要収集"
+
+# ============================================================
+# 中部地方
+# ============================================================
+
+  - code: "15"
+    name: "新潟県"
+    region: "中部"
+    centers:
+      - name: "新潟県動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+      - name: "新潟市動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市"
+        notes: "詳細情報要収集"
+
+  - code: "16"
+    name: "富山県"
+    region: "中部"
+    centers:
+      - name: "富山県動物管理センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "17"
+    name: "石川県"
+    region: "中部"
+    centers:
+      - name: "いしかわ動物愛護センター"
+        nickname: "しっぽのかぞく"
+        url: "https://aigo-ishikawa.jp/"
+        adoption_url: "https://aigo-ishikawa.jp/petadoption_list/"
+        phone: "076-204-8622"
+        email: "douai@pref.ishikawa.lg.jp"
+        address: "〒929-0323 河北郡津幡町字津幡エ9"
+        scraping_supported: testing
+        javascript_required: true
+        site_structure: "JavaScript動的レンダリング必須、Playwright対応が必要"
+        notes: "休館日: 月曜日（祝日の場合は翌平日）、12/29-1/3。開館時間: 9:00-17:00"
+
+      - name: "金沢市動物愛護管理センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "中核市"
+        notes: "詳細情報要収集"
+
+  - code: "18"
+    name: "福井県"
+    region: "中部"
+    centers:
+      - name: "福井県動物管理指導センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "19"
+    name: "山梨県"
+    region: "中部"
+    centers:
+      - name: "山梨県動物愛護指導センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "20"
+    name: "長野県"
+    region: "中部"
+    centers:
+      - name: "長野県動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "ハローアニマルという愛称がある可能性"
+
+      - name: "長野市保健所"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "中核市"
+        notes: "詳細情報要収集"
+
+  - code: "21"
+    name: "岐阜県"
+    region: "中部"
+    centers:
+      - name: "岐阜県動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "22"
+    name: "静岡県"
+    region: "中部"
+    centers:
+      - name: "静岡県動物管理指導センター"
+        nickname: ""
+        url: "https://www.pref.shizuoka.jp/kousei/ko-900/"
+        adoption_url: ""
+        phone: "053-437-0142"
+        fax: "053-437-9690"
+        address: "〒431-1102 浜松市西区大山町3551-1"
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "新センター建設中"
+        notes: "2025年11月に新センター「しっぽのバトン」開所予定（富士市大淵）"
+
+      - name: "静岡市動物愛護館"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市"
+        notes: "詳細情報要収集"
+
+      - name: "浜松市動物愛護教育センター"
+        nickname: ""
+        url: "https://www.hama-aikyou.jp/"
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市"
+        notes: "詳細情報要収集"
+
+  - code: "23"
+    name: "愛知県"
+    region: "中部"
+    centers:
+      - name: "愛知県動物愛護センター"
+        nickname: ""
+        url: "https://www.pref.aichi.jp/soshiki/doukan-c/"
+        adoption_url: "https://www.pref.aichi.jp/soshiki/doukan-c/inuwokaitai.html"
+        phone: "0565-58-2323"
+        fax: "0565-58-2330"
+        address: "〒444-2222 豊田市穂積町新屋73-3"
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "本所・尾張支所・東三河支所・知多支所"
+        notes: "尾張支所: 一宮市浅井町西海戸字余陸寺31-1, TEL: 0586-78-2595"
+
+      - name: "名古屋市動物愛護センター"
+        nickname: ""
+        url: "https://www.city.nagoya.jp/kurashi/category/15-7-2-0-0-0-0-0-0-0.html"
+        adoption_url: "https://www.city.nagoya.jp/kenkofukushi/page/0000014182.html"
+        phone: "052-762-0380"
+        address: "〒464-0022 名古屋市千種区平和公園二丁目106番地"
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市、動物愛護館併設"
+        notes: "開館時間: 10:00-16:00、休館日: 月曜日（祝日の場合は翌平日）"
+
+# ============================================================
+# 近畿地方
+# ============================================================
+
+  - code: "24"
+    name: "三重県"
+    region: "近畿"
+    centers:
+      - name: "三重県動物愛護推進センター"
+        nickname: "あすまいる"
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "25"
+    name: "滋賀県"
+    region: "近畿"
+    centers:
+      - name: "滋賀県動物保護管理センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "26"
+    name: "京都府"
+    region: "近畿"
+    centers:
+      - name: "京都動物愛護センター"
+        nickname: ""
+        url: "https://www.pref.kyoto.jp/doubutsu/"
+        adoption_url: "https://www.pref.kyoto.jp/doubutsu/center_hp.html"
+        phone: "075-671-0336"
+        address: "〒615-8156 京都市西京区大枝沓掛町24-5（センター支所）"
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "京都府・京都市共同運営"
+        notes: "詳細情報は独立サイトあり"
+
+      - name: "京都市動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市、府と共同運営"
+        notes: "詳細情報要収集"
+
+  - code: "27"
+    name: "大阪府"
+    region: "近畿"
+    centers:
+      - name: "大阪府動物愛護管理センター"
+        nickname: "アニマルハーモニー大阪"
+        url: "https://www.pref.osaka.lg.jp/o120200/doaicenter/doaicenter/index.html"
+        adoption_url: "https://www.pref.osaka.lg.jp/doaicenter/doaicenter/jyoutoinu2.html"
+        phone: "072-958-8212"
+        fax: "072-956-1811"
+        email: "dobutsuaigokanri-c@sbox.pref.osaka.lg.jp"
+        address: "〒583-0862 羽曳野市尺度53番地の4"
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "本所・支所体制"
+        notes: "動物取扱業問い合わせ: 072-958-6591"
+
+      - name: "大阪市動物管理センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市"
+        notes: "詳細情報要収集"
+
+      - name: "堺市動物指導センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市"
+        notes: "詳細情報要収集"
+
+  - code: "28"
+    name: "兵庫県"
+    region: "近畿"
+    centers:
+      - name: "兵庫県動物愛護センター"
+        nickname: ""
+        url: "https://web.pref.hyogo.lg.jp/shisetsu/kurashi/shisetsu_052.html"
+        adoption_url: ""
+        phone: "06-6432-4599"
+        address: "〒661-0047 尼崎市西昆陽4丁目1-1"
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "本所・三木支所・但馬支所など5拠点"
+        notes: "県内5カ所のセンター及び支所が整備済み"
+
+      - name: "神戸市動物管理センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市"
+        notes: "詳細情報要収集"
+
+  - code: "29"
+    name: "奈良県"
+    region: "近畿"
+    centers:
+      - name: "奈良県動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "30"
+    name: "和歌山県"
+    region: "近畿"
+    centers:
+      - name: "和歌山県動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+# ============================================================
+# 中国地方
+# ============================================================
+
+  - code: "31"
+    name: "鳥取県"
+    region: "中国"
+    centers:
+      - name: "鳥取県動物愛護センター"
+        nickname: "アミティエ"
+        url: "https://www.haac.or.jp/"
+        adoption_url: "https://www.haac.or.jp/fp_system.aspx"
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "公式サイトあり"
+        notes: "詳細情報要収集"
+
+  - code: "32"
+    name: "島根県"
+    region: "中国"
+    centers:
+      - name: "島根県動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "33"
+    name: "岡山県"
+    region: "中国"
+    centers:
+      - name: "岡山県動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+      - name: "岡山市保健所"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市"
+        notes: "詳細情報要収集"
+
+  - code: "34"
+    name: "広島県"
+    region: "中国"
+    centers:
+      - name: "広島県動物愛護センター"
+        nickname: ""
+        url: "https://www.pref.hiroshima.lg.jp/site/apc/"
+        adoption_url: "https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-dog-list.html"
+        phone: "0848-60-8511"
+        fax: "0848-86-8012"
+        address: "〒729-0415 三原市本郷町上北方字用倉山11352番"
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "新施設、土日祝日も開館"
+        notes: "広島空港から車で約4分、徒歩11分"
+
+      - name: "広島市動物管理センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市"
+        notes: "詳細情報要収集"
+
+      - name: "福山市動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "中核市"
+        notes: "詳細情報要収集"
+
+  - code: "35"
+    name: "山口県"
+    region: "中国"
+    centers:
+      - name: "山口県動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+# ============================================================
+# 四国地方
+# ============================================================
+
+  - code: "36"
+    name: "徳島県"
+    region: "四国"
+    centers:
+      - name: "徳島県動物愛護管理センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "37"
+    name: "香川県"
+    region: "四国"
+    centers:
+      - name: "さぬき動物愛護センター"
+        nickname: "しっぽの森"
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "38"
+    name: "愛媛県"
+    region: "四国"
+    centers:
+      - name: "愛媛県動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "39"
+    name: "高知県"
+    region: "四国"
+    centers:
+      - name: "高知県小動物管理センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+# ============================================================
+# 九州地方
+# ============================================================
+
+  - code: "40"
+    name: "福岡県"
+    region: "九州"
+    centers:
+      - name: "公益財団法人 福岡県動物愛護センター"
+        nickname: ""
+        url: "https://www.pref.fukuoka.lg.jp/contents/douaicenter.html"
+        adoption_url: ""
+        phone: "092-944-1281"
+        address: "〒811-3135 古賀市小竹131番地2"
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "公益財団法人に運営委託"
+        notes: "北九州市・福岡市・久留米市を除く県内全域"
+
+      - name: "福岡市動物愛護管理センター"
+        nickname: "あにまるぽーと"
+        url: "https://wannyan.city.fukuoka.lg.jp/"
+        adoption_url: "https://www.wannyan.city.fukuoka.lg.jp/yokanet/animal/animal_posts/index"
+        phone: "092-691-0131"
+        fax: "092-691-0132"
+        email: "dobutsukanri.PHB@city.fukuoka.lg.jp"
+        address: "〒813-0023 福岡市東区蒲田5-10-1"
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市、わんにゃんよかネット"
+        notes: "東部動物愛護管理センター（あにまるぽーと）"
+
+      - name: "北九州市動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市"
+        notes: "詳細情報要収集"
+
+      - name: "久留米市動物管理センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "中核市"
+        notes: "詳細情報要収集"
+
+  - code: "41"
+    name: "佐賀県"
+    region: "九州"
+    centers:
+      - name: "佐賀県動物愛護管理センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "42"
+    name: "長崎県"
+    region: "九州"
+    centers:
+      - name: "長崎県動物管理所"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "43"
+    name: "熊本県"
+    region: "九州"
+    centers:
+      - name: "熊本県動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+      - name: "熊本市動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "政令指定都市"
+        notes: "詳細情報要収集"
+
+  - code: "44"
+    name: "大分県"
+    region: "九州"
+    centers:
+      - name: "大分県動物管理所"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "45"
+    name: "宮崎県"
+    region: "九州"
+    centers:
+      - name: "宮崎県動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+  - code: "46"
+    name: "鹿児島県"
+    region: "九州"
+    centers:
+      - name: "鹿児島県動物愛護センター"
+        nickname: ""
+        url: ""
+        adoption_url: ""
+        phone: ""
+        address: ""
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "要調査"
+        notes: "詳細情報要収集"
+
+# ============================================================
+# 沖縄地方
+# ============================================================
+
+  - code: "47"
+    name: "沖縄県"
+    region: "沖縄"
+    centers:
+      - name: "沖縄県動物愛護管理センター"
+        nickname: ""
+        url: "https://www.pref.okinawa.jp/kurashikankyo/petgaiju/1005064/index.html"
+        adoption_url: ""
+        phone: "098-945-3043"
+        fax: "098-945-0224"
+        address: "〒901-1202 南城市大里字大里2000"
+        scraping_supported: false
+        javascript_required: unknown
+        site_structure: "独立サイトあり"
+        notes: "窓口: 平日8:30-11:30, 13:00-16:30、電話: 平日8:30-12:00, 13:00-17:15"
+
+# ============================================================
+# 追加情報・今後の拡張予定
+# ============================================================
+
+# 【スクレイピング優先順位】
+# 1. 高優先度（緊急度が高い情報が多い可能性）:
+#    - 石川県（いしかわ動物愛護センター）
+#    - 東京都（ワンニャンとうきょう）
+#    - 神奈川県（動物愛護センター）
+#    - 大阪府（アニマルハーモニー大阪）
+#    - 福岡県（福岡県動物愛護センター）
+#
+# 2. 中優先度（政令指定都市）:
+#    - 札幌市、仙台市、横浜市、川崎市、相模原市
+#    - 新潟市、静岡市、浜松市、名古屋市
+#    - 京都市、大阪市、堺市、神戸市
+#    - 岡山市、広島市、北九州市、福岡市、熊本市
+#
+# 3. 低優先度（情報が少ない可能性）:
+#    - その他の県・中核市
+
+# 【技術的課題】
+# - JavaScript動的レンダリング対応（Playwright必須）
+# - 画像の外部リンク処理
+# - PDFファイルからの情報抽出
+# - 各サイトの構造変更への対応
+
+# 【今後の拡張計画】
+# - 各施設の開館時間・休館日の統一フォーマット化
+# - 譲渡会情報の収集
+# - 協力NPO団体の情報追加
+# - 多言語対応（英語、中国語、韓国語など）
