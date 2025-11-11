@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-11T10:47:44.864Z",
+  "url": "https://aigo-ishikawa.jp/petadoption_list/",
+  "has_animals": true,
+  "html_size": 90770,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}
