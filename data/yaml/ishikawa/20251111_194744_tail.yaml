@@ -1,0 +1,562 @@
+meta:
+  source_file: 20251111_194744_tail.html
+  source_url: https://aigo-ishikawa.jp/petadoption_list/
+  extracted_at: '2025-11-11T11:10:14.988Z'
+  municipality: ishikawa
+  municipality_id: 1
+animals:
+  - external_id: ishikawa_1762859414993_1
+    animal_type: unknown
+    name: 紅蘭（クラン）
+    breed: トイプードル
+    age_estimate: ２歳
+    gender: male
+    color: null
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - url: >-
+          https://aigo-ishikawa.jp/../system/ci.php?cr=6c4470940e97075cdbdd8fee70454c4b
+        alt: ''
+        original_src: ../system/ci.php?cr=6c4470940e97075cdbdd8fee70454c4b
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://aigo-ishikawa.jp/petadoption_list/
+    raw_text: New!仮名紅蘭（クラン）種類トイプードル推定年齢２歳性別オス体重約4㎏更新日：2025.11.10
+    container_html: >-
+      <div class="ribon ribon4"></div><div class="ribon_text">New!</div><div
+      class="image_area"><img
+      src="../system/ci.php?cr=6c4470940e97075cdbdd8fee70454c4b"></div><div
+      class="item_area"><dl><dt>仮名</dt><d
+    needs_review: false
+    confidence_score: 0.7999999999999999
+    extraction_method: raw_text_priority
+  - external_id: ishikawa_1762859414996_2
+    animal_type: unknown
+    name: AURA(オーラ）
+    breed: トイプードル
+    age_estimate: ８歳
+    gender: female
+    color: null
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - url: >-
+          https://aigo-ishikawa.jp/../system/ci.php?cr=454594c40374814543b07e8ad9244bbb
+        alt: ''
+        original_src: ../system/ci.php?cr=454594c40374814543b07e8ad9244bbb
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://aigo-ishikawa.jp/petadoption_list/
+    raw_text: New!仮名AURA(オーラ）種類トイプードル推定年齢８歳性別メス体重更新日：2025.11.10
+    container_html: >-
+      <div class="ribon ribon4"></div><div class="ribon_text">New!</div><div
+      class="image_area"><img
+      src="../system/ci.php?cr=454594c40374814543b07e8ad9244bbb"></div><div
+      class="item_area"><dl><dt>仮名</dt><d
+    needs_review: false
+    confidence_score: 0.7999999999999999
+    extraction_method: raw_text_priority
+  - external_id: ishikawa_1762859414996_3
+    animal_type: unknown
+    name: 虎三郎
+    breed: ミックス
+    age_estimate: 約5ヶ月
+    gender: male
+    color: 茶トラ
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - url: >-
+          https://aigo-ishikawa.jp/../system/ci.php?cr=a1f57a54974b33b292e416e50999d5b7
+        alt: ''
+        original_src: ../system/ci.php?cr=a1f57a54974b33b292e416e50999d5b7
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://aigo-ishikawa.jp/petadoption_list/
+    raw_text: New!仮名虎三郎毛色茶トラ推定年齢約5ヶ月性別オス更新日：2025.11.09
+    container_html: >-
+      <div class="ribon ribon4"></div><div class="ribon_text">New!</div><div
+      class="image_area"><img
+      src="../system/ci.php?cr=a1f57a54974b33b292e416e50999d5b7"></div><div
+      class="item_area"><dl><dt>仮名</dt><d
+    needs_review: false
+    confidence_score: 0.9999999999999999
+    extraction_method: raw_text_priority
+  - external_id: ishikawa_1762859414999_4
+    animal_type: unknown
+    name: ミオ
+    breed: ミックス
+    age_estimate: 約３歳
+    gender: female
+    color: キジトラ
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - url: >-
+          https://aigo-ishikawa.jp/../system/ci.php?cr=e5fc66cc6b03f0cb0cef320e24200eb2
+        alt: ''
+        original_src: ../system/ci.php?cr=e5fc66cc6b03f0cb0cef320e24200eb2
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://aigo-ishikawa.jp/petadoption_list/
+    raw_text: New!仮名ミオ毛色キジトラ推定年齢約３歳性別メス更新日：2025.11.07
+    container_html: >-
+      <div class="ribon ribon4"></div><div class="ribon_text">New!</div><div
+      class="image_area"><img
+      src="../system/ci.php?cr=e5fc66cc6b03f0cb0cef320e24200eb2"></div><div
+      class="item_area"><dl><dt>仮名</dt><d
+    needs_review: false
+    confidence_score: 0.9999999999999999
+    extraction_method: raw_text_priority
+  - external_id: ishikawa_1762859414999_5
+    animal_type: unknown
+    name: リコ
+    breed: ミックス
+    age_estimate: 推定２歳
+    gender: female
+    color: サバ白
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - url: >-
+          https://aigo-ishikawa.jp/../system/ci.php?cr=ca7b71b6d13ac19b28a29cf292773523
+        alt: ''
+        original_src: ../system/ci.php?cr=ca7b71b6d13ac19b28a29cf292773523
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://aigo-ishikawa.jp/petadoption_list/
+    raw_text: New!仮名リコ毛色サバ白推定年齢推定２歳性別メス更新日：2025.10.28
+    container_html: >-
+      <div class="ribon ribon4"></div><div class="ribon_text">New!</div><div
+      class="image_area"><img
+      src="../system/ci.php?cr=ca7b71b6d13ac19b28a29cf292773523"></div><div
+      class="item_area"><dl><dt>仮名</dt><d
+    needs_review: false
+    confidence_score: 0.9999999999999999
+    extraction_method: raw_text_priority
+  - external_id: ishikawa_1762859415000_6
+    animal_type: unknown
+    name: エバ
+    breed: ミックス
+    age_estimate: 推定４歳
+    gender: male
+    color: 茶白
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - url: >-
+          https://aigo-ishikawa.jp/../system/ci.php?cr=786682d05a84796203bd095f86f3d14d
+        alt: ''
+        original_src: ../system/ci.php?cr=786682d05a84796203bd095f86f3d14d
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://aigo-ishikawa.jp/petadoption_list/
+    raw_text: 募集中仮名エバ毛色茶白推定年齢推定４歳性別オス更新日：2025.11.07
+    container_html: >-
+      <div class="ribon ribon1"></div><div class="ribon_text">募集中</div><div
+      class="image_area"><img
+      src="../system/ci.php?cr=786682d05a84796203bd095f86f3d14d"></div><div
+      class="item_area"><dl><dt>仮名</dt><dd
+    needs_review: false
+    confidence_score: 0.9999999999999999
+    extraction_method: raw_text_priority
+  - external_id: ishikawa_1762859415000_7
+    animal_type: unknown
+    name: マグロ
+    breed: ミックス
+    age_estimate: 約５歳
+    gender: male
+    color: 茶白
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - url: >-
+          https://aigo-ishikawa.jp/../system/ci.php?cr=12b1a0a380a38b6255743fb003578381
+        alt: ''
+        original_src: ../system/ci.php?cr=12b1a0a380a38b6255743fb003578381
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://aigo-ishikawa.jp/petadoption_list/
+    raw_text: 募集中仮名マグロ毛色茶白推定年齢約５歳性別オス更新日：2025.09.28
+    container_html: >-
+      <div class="ribon ribon1"></div><div class="ribon_text">募集中</div><div
+      class="image_area"><img
+      src="../system/ci.php?cr=12b1a0a380a38b6255743fb003578381"></div><div
+      class="item_area"><dl><dt>仮名</dt><dd
+    needs_review: false
+    confidence_score: 0.9999999999999999
+    extraction_method: raw_text_priority
+  - external_id: ishikawa_1762859415000_8
+    animal_type: unknown
+    name: ブリ
+    breed: ミックス
+    age_estimate: ３歳
+    gender: male
+    color: 茶トラ
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - url: >-
+          https://aigo-ishikawa.jp/../system/ci.php?cr=7145b670be1b45d75e5abc602faa33ef
+        alt: ''
+        original_src: ../system/ci.php?cr=7145b670be1b45d75e5abc602faa33ef
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://aigo-ishikawa.jp/petadoption_list/
+    raw_text: 募集中仮名ブリ毛色茶トラ推定年齢３歳性別オス更新日：2025.09.26
+    container_html: >-
+      <div class="ribon ribon1"></div><div class="ribon_text">募集中</div><div
+      class="image_area"><img
+      src="../system/ci.php?cr=7145b670be1b45d75e5abc602faa33ef"></div><div
+      class="item_area"><dl><dt>仮名</dt><dd
+    needs_review: false
+    confidence_score: 0.9999999999999999
+    extraction_method: raw_text_priority
+  - external_id: ishikawa_1762859415000_9
+    animal_type: unknown
+    name: スコーン
+    breed: ミックス
+    age_estimate: 推定7～8歳
+    gender: female
+    color: 茶白
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - url: >-
+          https://aigo-ishikawa.jp/../system/ci.php?cr=1ce36d962fc76f1cdd1446ff8c2c087d
+        alt: ''
+        original_src: ../system/ci.php?cr=1ce36d962fc76f1cdd1446ff8c2c087d
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://aigo-ishikawa.jp/petadoption_list/
+    raw_text: 募集中仮名スコーン毛色茶白推定年齢推定7～8歳性別メス更新日：2025.10.20
+    container_html: >-
+      <div class="ribon ribon1"></div><div class="ribon_text">募集中</div><div
+      class="image_area"><img
+      src="../system/ci.php?cr=1ce36d962fc76f1cdd1446ff8c2c087d"></div><div
+      class="item_area"><dl><dt>仮名</dt><dd
+    needs_review: false
+    confidence_score: 0.9999999999999999
+    extraction_method: raw_text_priority
+  - external_id: ishikawa_1762859415001_10
+    animal_type: unknown
+    name: ラスク
+    breed: ミックス
+    age_estimate: 推定１０歳
+    gender: male
+    color: 茶トラ
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - url: >-
+          https://aigo-ishikawa.jp/../system/ci.php?cr=93d4dd979db71b0bdba5cfb53a29bdb7
+        alt: ''
+        original_src: ../system/ci.php?cr=93d4dd979db71b0bdba5cfb53a29bdb7
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://aigo-ishikawa.jp/petadoption_list/
+    raw_text: 募集中仮名ラスク毛色茶トラ推定年齢推定１０歳性別オス更新日：2025.10.30
+    container_html: >-
+      <div class="ribon ribon1"></div><div class="ribon_text">募集中</div><div
+      class="image_area"><img
+      src="../system/ci.php?cr=93d4dd979db71b0bdba5cfb53a29bdb7"></div><div
+      class="item_area"><dl><dt>仮名</dt><dd
+    needs_review: false
+    confidence_score: 0.9999999999999999
+    extraction_method: raw_text_priority
+  - external_id: ishikawa_1762859415001_11
+    animal_type: unknown
+    name: モンブラン
+    breed: ミックス
+    age_estimate: 推定１２歳
+    gender: male
+    color: 茶トラ
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - url: >-
+          https://aigo-ishikawa.jp/../system/ci.php?cr=31a9ce11538b17ad581df84f1dbc28d7
+        alt: ''
+        original_src: ../system/ci.php?cr=31a9ce11538b17ad581df84f1dbc28d7
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://aigo-ishikawa.jp/petadoption_list/
+    raw_text: 募集中仮名モンブラン毛色茶トラ推定年齢推定１２歳性別オス更新日：2025.10.30
+    container_html: >-
+      <div class="ribon ribon1"></div><div class="ribon_text">募集中</div><div
+      class="image_area"><img
+      src="../system/ci.php?cr=31a9ce11538b17ad581df84f1dbc28d7"></div><div
+      class="item_area"><dl><dt>仮名</dt><dd
+    needs_review: false
+    confidence_score: 0.9999999999999999
+    extraction_method: raw_text_priority
+  - external_id: ishikawa_1762859415001_12
+    animal_type: unknown
+    name: ほう
+    breed: ミックス
+    age_estimate: 約３ヶ月
+    gender: female
+    color: サビ
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - url: >-
+          https://aigo-ishikawa.jp/../system/ci.php?cr=3991fd82afdda89f6e19c5ab3eb483c8
+        alt: ''
+        original_src: ../system/ci.php?cr=3991fd82afdda89f6e19c5ab3eb483c8
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://aigo-ishikawa.jp/petadoption_list/
+    raw_text: 譲渡準備中仮名ほう毛色サビ推定年齢約３ヶ月性別メス更新日：2025.11.09
+    container_html: >-
+      <div class="ribon ribon3"></div><div class="ribon_text">譲渡準備中</div><div
+      class="image_area"><img
+      src="../system/ci.php?cr=3991fd82afdda89f6e19c5ab3eb483c8"></div><div
+      class="item_area"><dl><dt>仮名</dt><
+    needs_review: false
+    confidence_score: 0.9999999999999999
+    extraction_method: raw_text_priority
+  - external_id: ishikawa_1762859415001_13
+    animal_type: unknown
+    name: ニーナ
+    breed: ミックス
+    age_estimate: 1.5歳
+    gender: female
+    color: ブラックタビー
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - url: >-
+          https://aigo-ishikawa.jp/../system/ci.php?cr=8c877bf962eafe6c3815f472610dd494
+        alt: ''
+        original_src: ../system/ci.php?cr=8c877bf962eafe6c3815f472610dd494
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://aigo-ishikawa.jp/petadoption_list/
+    raw_text: 募集中仮名ニーナ毛色ブラックタビー推定年齢1.5歳性別メス更新日：2025.11.07
+    container_html: >-
+      <div class="ribon ribon1"></div><div class="ribon_text">募集中</div><div
+      class="image_area"><img
+      src="../system/ci.php?cr=8c877bf962eafe6c3815f472610dd494"></div><div
+      class="item_area"><dl><dt>仮名</dt><dd
+    needs_review: false
+    confidence_score: 0.9999999999999999
+    extraction_method: raw_text_priority
+  - external_id: ishikawa_1762859415001_14
+    animal_type: unknown
+    name: ネード
+    breed: ミックス
+    age_estimate: 約5ヶ月
+    gender: male
+    color: 茶トラ
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - url: >-
+          https://aigo-ishikawa.jp/../system/ci.php?cr=581341eebeed169781d8bb001e2068fe
+        alt: ''
+        original_src: ../system/ci.php?cr=581341eebeed169781d8bb001e2068fe
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://aigo-ishikawa.jp/petadoption_list/
+    raw_text: 募集中仮名ネード毛色茶トラ推定年齢約5ヶ月性別オス更新日：2025.11.07
+    container_html: >-
+      <div class="ribon ribon1"></div><div class="ribon_text">募集中</div><div
+      class="image_area"><img
+      src="../system/ci.php?cr=581341eebeed169781d8bb001e2068fe"></div><div
+      class="item_area"><dl><dt>仮名</dt><dd
+    needs_review: false
+    confidence_score: 0.9999999999999999
+    extraction_method: raw_text_priority
+  - external_id: ishikawa_1762859415002_15
+    animal_type: unknown
+    name: チョコ
+    breed: ミックス
+    age_estimate: 推定６歳
+    gender: male
+    color: キジトラ
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - url: >-
+          https://aigo-ishikawa.jp/../system/ci.php?cr=2a4d1532fd99d1eca6944cf1d13a6e28
+        alt: ''
+        original_src: ../system/ci.php?cr=2a4d1532fd99d1eca6944cf1d13a6e28
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://aigo-ishikawa.jp/petadoption_list/
+    raw_text: 募集中仮名チョコ毛色キジトラ推定年齢推定６歳性別オス更新日：2025.11.07
+    container_html: >-
+      <div class="ribon ribon1"></div><div class="ribon_text">募集中</div><div
+      class="image_area"><img
+      src="../system/ci.php?cr=2a4d1532fd99d1eca6944cf1d13a6e28"></div><div
+      class="item_area"><dl><dt>仮名</dt><dd
+    needs_review: false
+    confidence_score: 0.9999999999999999
+    extraction_method: raw_text_priority
+  - external_id: ishikawa_1762859415002_16
+    animal_type: dog
+    name: 小桜
+    breed: 柴犬
+    age_estimate: ８歳
+    gender: female
+    color: null
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - url: >-
+          https://aigo-ishikawa.jp/../system/ci.php?cr=a5217c488d9a76ba1bb9321706509dbc
+        alt: ''
+        original_src: ../system/ci.php?cr=a5217c488d9a76ba1bb9321706509dbc
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://aigo-ishikawa.jp/petadoption_list/
+    raw_text: 譲渡準備中仮名小桜種類柴犬推定年齢８歳性別メス体重１１Kg更新日：2025.11.03
+    container_html: >-
+      <div class="ribon ribon3"></div><div class="ribon_text">譲渡準備中</div><div
+      class="image_area"><img
+      src="../system/ci.php?cr=a5217c488d9a76ba1bb9321706509dbc"></div><div
+      class="item_area"><dl><dt>仮名</dt><
+    needs_review: false
+    confidence_score: 0.7999999999999999
+    extraction_method: raw_text_priority
+  - external_id: ishikawa_1762859415002_17
+    animal_type: unknown
+    name: ももたろう
+    breed: ミックス
+    age_estimate: 推定６歳
+    gender: male
+    color: キジ白
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - url: >-
+          https://aigo-ishikawa.jp/../system/ci.php?cr=861cdd4cf324398bb722636936e53324
+        alt: ''
+        original_src: ../system/ci.php?cr=861cdd4cf324398bb722636936e53324
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://aigo-ishikawa.jp/petadoption_list/
+    raw_text: 募集中仮名ももたろう毛色キジ白推定年齢推定６歳性別オス更新日：2025.11.06
+    container_html: >-
+      <div class="ribon ribon1"></div><div class="ribon_text">募集中</div><div
+      class="image_area"><img
+      src="../system/ci.php?cr=861cdd4cf324398bb722636936e53324"></div><div
+      class="item_area"><dl><dt>仮名</dt><dd
+    needs_review: false
+    confidence_score: 0.9999999999999999
+    extraction_method: raw_text_priority
+  - external_id: ishikawa_1762859415002_18
+    animal_type: unknown
+    name: 豆太朗
+    breed: コーギー系MIX
+    age_estimate: ７歳
+    gender: male
+    color: null
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - url: >-
+          https://aigo-ishikawa.jp/../system/ci.php?cr=88ea7a3c1b2c972904ecda9e26be1f19
+        alt: ''
+        original_src: ../system/ci.php?cr=88ea7a3c1b2c972904ecda9e26be1f19
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://aigo-ishikawa.jp/petadoption_list/
+    raw_text: 募集中仮名豆太朗種類コーギー系MIX推定年齢７歳性別オス体重13Kg更新日：2025.11.07
+    container_html: >-
+      <div class="ribon ribon1"></div><div class="ribon_text">募集中</div><div
+      class="image_area"><img
+      src="../system/ci.php?cr=88ea7a3c1b2c972904ecda9e26be1f19"></div><div
+      class="item_area"><dl><dt>仮名</dt><dd
+    needs_review: false
+    confidence_score: 0.7999999999999999
+    extraction_method: raw_text_priority
+statistics:
+  total_containers: 18
+  valid_animals: 18
+  extraction_errors: 0
+cross_check:
+  gender_mentions: 18
+  age_mentions: 36
+  breed_mentions: 3
+  image_tags: 29
+  animal_keywords:
+    cat: 9
+    dog: 11
+consistency_warnings:
+  - 年齢表記(36)が抽出数より大幅に多い - 取りこぼしの可能性
+confidence_level: medium

@@ -52,6 +52,7 @@
     "eslint-config-next": "15.3.4",
     "https-proxy-agent": "^7.0.6",
     "husky": "^9.1.7",
+    "js-yaml": "^4.1.0",
     "lint-staged": "^16.2.6",
     "playwright": "^1.49.1",
     "prettier": "^3.6.2",
