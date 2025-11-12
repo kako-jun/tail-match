@@ -141,8 +141,10 @@ ls .claude/shelters/
    ```
 
 5. **YAMLに構造をメモ**
-   - どのセレクタで猫データが取得できるか
-   - 画像、名前、年齢、性別などの取得方法
+   - どのセレクタで動物データ（猫・犬）が取得できるか
+   - 画像、名前、年齢、性別、animal_type などの取得方法
+   - ⚠️ **犬用ページが別URLで存在しないか確認**（例: cat.html → dog.html）
+   - ⚠️ **譲渡済み情報の確認**（status: available/adopted/removed の判定方法）
 
 ### Step 2: スクレイパーフォルダ作成
 
@@ -265,13 +267,15 @@ node scripts/scrapers/{municipality}/html-to-yaml.js
 
 **確認ポイント**:
 
-- 猫が正しく抽出されたか
+- 動物（猫・犬）が正しく抽出されたか
+- animal_type が正しく設定されているか（'cat' または 'dog'）
+- status が正しく設定されているか（'available', 'adopted', 'removed'）
 - 画像URLが空でないか
 - 信頼度が HIGH または MEDIUM か
 
 #### 5-3. セレクタ修正
 
-もし猫が0匹抽出された場合：
+もし動物が0匹抽出された場合：
 
 1. **HTMLでセレクタを確認**
 
@@ -303,7 +307,9 @@ cat > scripts/scrapers/{municipality}/README.md << 'EOF'
 2. YAML抽出: `node scripts/scrapers/{municipality}/html-to-yaml.js`
 
 ## 実績データ
-- 発見数: X匹
+- 発見数: 猫X匹、犬Y匹
+- animal_type: 正しく設定済み
+- status: 譲渡済み情報も抽出済み
 - 信頼度: HIGH
 EOF
 ```
@@ -432,19 +438,26 @@ node scripts/yaml-to-db.js
 
 ## 🔍 トラブルシューティング
 
-### 問題: 猫が0匹抽出される
+### 問題: 動物が0匹抽出される
 
-**原因**: セレクタが間違っている
+**原因**: セレクタが間違っている、または犬用ページを見逃している
 
 **解決方法**:
 
 1. HTMLファイルを直接確認
 
    ```bash
-   grep -A 5 -B 5 "猫の名前" data/html/{prefecture}/{municipality}/*.html
+   grep -A 5 -B 5 "動物の名前" data/html/{prefecture}/{municipality}/*.html
    ```
 
-2. セレクタを緩くする
+2. **犬用ページの存在を確認**
+
+   ```bash
+   # 例: 猫用ページが cat.html なら dog.html を確認
+   curl -I "猫用URLをdog用に変更したURL"
+   ```
+
+3. セレクタを緩くする
    - ❌ `div.wysiwyg > table` （直接の子要素のみ）
    - ✅ `div.wysiwyg table` （子孫要素すべて）
 
@@ -500,7 +513,10 @@ const $figure = $wysiwyg.prev('figure.img-item');
 ### 実装後
 
 - [ ] HTML収集が成功した（ファイルサイズ確認）
-- [ ] YAML抽出が成功した（猫が抽出された）
+- [ ] YAML抽出が成功した（動物が抽出された）
+- [ ] animal_type が正しく設定されている（'cat' または 'dog'）
+- [ ] status が正しく設定されている（'available', 'adopted', 'removed'）
+- [ ] 犬用ページの存在確認を実施した
 - [ ] 画像URLが空でない
 - [ ] 信頼度が HIGH または MEDIUM
 - [ ] README を作成した
@@ -508,7 +524,9 @@ const $figure = $wysiwyg.prev('figure.img-item');
 
 ---
 
-## 🎓 学んだ教訓（金沢市追加時）
+## 🎓 学んだ教訓
+
+### 金沢市追加時
 
 1. **archiveディレクトリは不要** - HTMLとmetadata.jsonは同じ階層
 2. **都道府県階層は必須** - `ishikawa/` を省略してはいけない
@@ -516,6 +534,14 @@ const $figure = $wysiwyg.prev('figure.img-item');
 4. **セレクタは緩く** - 中間要素（table-wrapperなど）を考慮する
 5. **画像はDOM構造を確認** - `.closest()` や `.prev()` の対象を正確に
 6. **直接コマンド実行** - ファイル移動などでスクリプトを作らない
+
+### 那覇市・犬用ページ発見時（2025-11-12）
+
+7. **犬も対象であることを忘れない** - プロジェクトは猫専用ではない
+8. **犬用ページの存在確認は必須** - cat.html → dog.html のパターンが多い
+9. **animal_type を明示的に設定** - 'cat' または 'dog' をハードコードしない
+10. **status フィールドも必須** - 譲渡済み情報（available/adopted/removed）を抽出
+11. **7施設で犬用ページを見逃していた** - 横断的なURL確認の重要性
 
 ---
 
