@@ -1,0 +1,199 @@
+meta:
+  source_file: 20251112_173141_tail.html
+  source_url: https://www.pref.hokkaido.lg.jp/ks/awc/inuneko.html
+  extracted_at: '2025-11-12T17:34:29.647+09:00'
+  municipality: hokkaido/hokkaido-pref
+  municipality_id: 19
+  total_count: 10
+  note: 新しい飼い主募集中の猫
+animals:
+  - external_id: hokkaido-pref-0
+    name: ほぅ
+    animal_type: cat
+    breed: null
+    age_estimate: 成猫
+    gender: female
+    color: ギジトラ
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images: []
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.pref.hokkaido.lg.jp/ks/awc/inuneko.html
+    confidence_level: high
+    extraction_notes:
+      - 飼い主募集中
+    listing_type: adoption
+  - external_id: hokkaido-pref-1
+    name: でぃ
+    animal_type: cat
+    breed: null
+    age_estimate: 成猫
+    gender: female
+    color: キジトラ
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images: []
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.pref.hokkaido.lg.jp/ks/awc/inuneko.html
+    confidence_level: high
+    extraction_notes:
+      - 飼い主募集中
+    listing_type: adoption
+  - external_id: hokkaido-pref-2
+    name: トノ
+    animal_type: cat
+    breed: null
+    age_estimate: 推定10歳
+    gender: male
+    color: 黒
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images: []
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.pref.hokkaido.lg.jp/ks/awc/inuneko.html
+    confidence_level: high
+    extraction_notes:
+      - 飼い主募集中
+    listing_type: adoption
+  - external_id: hokkaido-pref-3
+    name: ムギ
+    animal_type: cat
+    breed: null
+    age_estimate: 成猫
+    gender: male
+    color: キジトラ
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images: []
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.pref.hokkaido.lg.jp/ks/awc/inuneko.html
+    confidence_level: high
+    extraction_notes:
+      - 飼い主募集中
+    listing_type: adoption
+  - external_id: hokkaido-pref-4
+    name: らいす
+    animal_type: cat
+    breed: null
+    age_estimate: 推定10歳以上
+    gender: female
+    color: 茶白
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images: []
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.pref.hokkaido.lg.jp/ks/awc/inuneko.html
+    confidence_level: high
+    extraction_notes:
+      - 飼い主募集中
+    listing_type: adoption
+  - external_id: hokkaido-pref-5
+    name: カナデ
+    animal_type: cat
+    breed: null
+    age_estimate: 成猫
+    gender: male
+    color: キジ白
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images: []
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.pref.hokkaido.lg.jp/ks/awc/inuneko.html
+    confidence_level: high
+    extraction_notes:
+      - 飼い主募集中
+    listing_type: adoption
+  - external_id: hokkaido-pref-6
+    name: モナカ
+    animal_type: cat
+    breed: null
+    age_estimate: 成猫
+    gender: male
+    color: キジトラ
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images: []
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.pref.hokkaido.lg.jp/ks/awc/inuneko.html
+    confidence_level: high
+    extraction_notes:
+      - 飼い主募集中
+    listing_type: adoption
+  - external_id: hokkaido-pref-7
+    name: まゆ
+    animal_type: cat
+    breed: null
+    age_estimate: 成猫
+    gender: female
+    color: 黒
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images: []
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.pref.hokkaido.lg.jp/ks/awc/inuneko.html
+    confidence_level: high
+    extraction_notes:
+      - 飼い主募集中
+    listing_type: adoption
+  - external_id: hokkaido-pref-8
+    name: らら
+    animal_type: cat
+    breed: null
+    age_estimate: 成猫
+    gender: female
+    color: 黒
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images: []
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.pref.hokkaido.lg.jp/ks/awc/inuneko.html
+    confidence_level: high
+    extraction_notes:
+      - 飼い主募集中
+    listing_type: adoption
+  - external_id: hokkaido-pref-9
+    name: ねね
+    animal_type: cat
+    breed: null
+    age_estimate: 成猫
+    gender: female
+    color: 黒
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images: []
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.pref.hokkaido.lg.jp/ks/awc/inuneko.html
+    confidence_level: high
+    extraction_notes:
+      - 飼い主募集中
+    listing_type: adoption

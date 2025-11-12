@@ -1,0 +1,390 @@
+meta:
+  source_file: 20251112_173838_tail.html
+  source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+  extracted_at: '2025-11-12T17:41:07.854+09:00'
+  municipality: hokkaido/sapporo-city
+  municipality_id: 20
+  total_count: 19
+  note: 譲渡可能猫情報
+animals:
+  - external_id: LC071027-03
+    name: LC071027-03
+    animal_type: cat
+    breed: null
+    age_estimate: ４週
+    gender: male
+    color: 黒
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images: []
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡可能猫情報
+    listing_type: adoption
+  - external_id: LC071027-04
+    name: LC071027-04
+    animal_type: cat
+    breed: null
+    age_estimate: ４週
+    gender: male
+    color: 黒
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images: []
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡可能猫情報
+    listing_type: adoption
+  - external_id: AC071107-01
+    name: レム
+    animal_type: cat
+    breed: null
+    age_estimate: 5歳
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/images/AC071107-01_1.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡可能成猫情報
+    listing_type: adoption
+  - external_id: LC070929-01
+    name: くろすけ
+    animal_type: cat
+    breed: null
+    age_estimate: 3歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/images/LC070929-01_1.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡可能成猫情報
+    listing_type: adoption
+  - external_id: AC071011-01
+    name: パッタイ
+    animal_type: cat
+    breed: null
+    age_estimate: 3歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/images/AC071011-01_1.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡可能成猫情報
+    listing_type: adoption
+  - external_id: AC071011-03
+    name: ガパオ
+    animal_type: cat
+    breed: null
+    age_estimate: 3歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/images/AC071011-03_1.jpg
+      - https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/images/AC071011-03_2.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡可能成猫情報
+    listing_type: adoption
+  - external_id: AC071011-04
+    name: マムアン
+    animal_type: cat
+    breed: null
+    age_estimate: 3歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/images/AC071011-04_1.jpg
+      - https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/images/AC071011-04_2.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡可能成猫情報
+    listing_type: adoption
+  - external_id: AC071025-01
+    name: ビリヤニ
+    animal_type: cat
+    breed: null
+    age_estimate: 3歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/images/AC071025-01_1.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡可能成猫情報
+    listing_type: adoption
+  - external_id: AC071025-03
+    name: サモサ
+    animal_type: cat
+    breed: null
+    age_estimate: 2歳
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/images/AC071025-03_1.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡可能成猫情報
+    listing_type: adoption
+  - external_id: AC071025-05
+    name: ドーサ
+    animal_type: cat
+    breed: null
+    age_estimate: 1歳
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/images/AC071025-05_1.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡可能成猫情報
+    listing_type: adoption
+  - external_id: LC071030-01
+    name: まぜる
+    animal_type: cat
+    breed: null
+    age_estimate: 3歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/images/LC071030-01_1.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡可能成猫情報
+    listing_type: adoption
+  - external_id: AC071025-06
+    name: アチャール
+    animal_type: cat
+    breed: null
+    age_estimate: 2歳
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/images/AC071025-06_1.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡可能成猫情報
+    listing_type: adoption
+  - external_id: AC071108-01
+    name: ラフテー
+    animal_type: cat
+    breed: null
+    age_estimate: 2歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/images/AC071108-01_1.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡可能成猫情報
+    listing_type: adoption
+  - external_id: AC071108-02
+    name: チャンプル
+    animal_type: cat
+    breed: null
+    age_estimate: 7歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/images/AC071108-02_1.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡可能成猫情報
+    listing_type: adoption
+  - external_id: AC071108-03
+    name: ソーキ
+    animal_type: cat
+    breed: null
+    age_estimate: 2歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/images/AC071108-03_1.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡可能成猫情報
+    listing_type: adoption
+  - external_id: AC071108-04
+    name: ミミガー
+    animal_type: cat
+    breed: null
+    age_estimate: 2歳
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/images/AC071108-04_1.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡可能成猫情報
+    listing_type: adoption
+  - external_id: AC071108-05
+    name: イリチー
+    animal_type: cat
+    breed: null
+    age_estimate: 2歳
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/images/AC071108-05_1.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡可能成猫情報
+    listing_type: adoption
+  - external_id: AC071108-06
+    name: ジーマーミ
+    animal_type: cat
+    breed: null
+    age_estimate: 2歳
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/images/AC071108-06_1.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡可能成猫情報
+    listing_type: adoption
+  - external_id: LC071029-01
+    name: さんちゃん
+    animal_type: cat
+    breed: null
+    age_estimate: 3歳
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/images/LC071029-01_1.jpg
+      - https://www.city.sapporo.jp/shared/images/plugin/get_reader.png
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡可能成猫情報
+    listing_type: adoption
