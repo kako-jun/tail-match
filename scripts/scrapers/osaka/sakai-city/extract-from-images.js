@@ -7,6 +7,8 @@
  */
 
 import fs from 'fs';
+import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+
 import path from 'path';
 import yaml from 'js-yaml';
 import { exec } from 'child_process';
@@ -148,7 +150,7 @@ async function main() {
   );
   fs.mkdirSync(outputDir, { recursive: true });
 
-  const timestamp = new Date().toISOString().replace(/[-:]/g, '').replace('T', '_').split('.')[0];
+  const timestamp = getJSTTimestamp();
   const outputFile = path.join(outputDir, `${timestamp}_all.yaml`);
 
   const yamlContent = yaml.dump(
@@ -156,7 +158,7 @@ async function main() {
       meta: {
         source_file: 'multiple_html_pages',
         source_url: CONFIG.base_url + '/kurashi/dobutsu/dogcat/inunekojoto/index.html',
-        extracted_at: new Date().toISOString(),
+        extracted_at: getJSTISOString(),
         municipality: CONFIG.municipality,
         municipality_id: CONFIG.municipality_id,
         total_count: animals.length,
