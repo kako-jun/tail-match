@@ -1,0 +1,97 @@
+meta:
+  source_file: 20251112_052304_tail.html
+  source_url: https://www.city.osaka.lg.jp/kenko/page/0000206027.html
+  extracted_at: '2025-11-12T05:23:04.166Z'
+  municipality: osaka/osaka-city
+  total_count: 5
+animals:
+  - external_id: 7-4-15
+    name: メメちゃん
+    breed: 雑種
+    age_estimate: 推定7歳
+    gender: female
+    color: キジ白
+    size: 中
+    health_status: エイズ・白血病陰性、内部・外部寄生虫駆虫済、混合ワクチン接種済、マイクロチップ装着済
+    personality: 少し怖がりでシャイな性格ですが、センターでの生活にも慣れてきて、今では誰でも体を触らせてくれるようになりました！抱っこは練習中です。食べることやおもちゃで遊ぶことも大好きです。
+    special_needs: null
+    images:
+      - https://www.city.osaka.lg.jp/kenko/cmsfiles/contents/0000206/206027/7-4-15-4.JPG
+      - https://www.city.osaka.lg.jp/kenko/cmsfiles/contents/0000206/206027/7-4-15-5.JPG
+      - https://www.city.osaka.lg.jp/kenko/cmsfiles/contents/0000206/206027/7-4-15-6.JPG
+    protection_location: null
+    source_url: https://www.city.osaka.lg.jp/kenko/page/0000206027.html
+    confidence_level: high
+    extraction_notes: []
+  - external_id: 7-4-106
+    name: ペンネ君
+    breed: 雑種
+    age_estimate: 推定4歳
+    gender: male
+    color: キジ
+    size: 中
+    health_status: エイズ・白血病陰性、内部・外部寄生虫駆虫済、混合ワクチン接種済、マイクロチップ装着済
+    personality: 職員を見つけると鳴きながら近寄ってきてくれる甘えん坊な男の子です。人懐っこく抱っこも大好きですが、他の猫ちゃんがいるとマーキングしてしまう癖があるため、単頭飼育下でのトレーニングが必要です。
+    special_needs: null
+    images:
+      - https://www.city.osaka.lg.jp/kenko/cmsfiles/contents/0000206/206027/7-4-106-1.jpg
+      - https://www.city.osaka.lg.jp/kenko/cmsfiles/contents/0000206/206027/7-4-106-2.jpeg
+      - https://www.city.osaka.lg.jp/kenko/cmsfiles/contents/0000206/206027/7-4-106-3.jpeg
+    protection_location: null
+    source_url: https://www.city.osaka.lg.jp/kenko/page/0000206027.html
+    confidence_level: high
+    extraction_notes: []
+  - external_id: 7-4-145
+    name: ハリー君
+    breed: 雑種
+    age_estimate: 推定2.5ヶ月齢
+    gender: male
+    color: 黒白
+    size: 小
+    health_status: エイズ・白血病陰性、内部・外部寄生虫駆虫済、混合ワクチン接種済、マイクロチップ装着済
+    personality: やんちゃで甘えん坊な男の子です。何にでも興味津々で、部屋中を元気いっぱい走り回っています。おもちゃが大好きなので、沢山遊んであげてください。
+    special_needs: null
+    images:
+      - https://www.city.osaka.lg.jp/kenko/cmsfiles/contents/0000206/206027/7-4-145-2.jpg
+      - https://www.city.osaka.lg.jp/kenko/cmsfiles/contents/0000206/206027/7-4-145-1.jpg
+      - https://www.city.osaka.lg.jp/kenko/cmsfiles/contents/0000206/206027/7-4-145-3.jpg
+    protection_location: null
+    source_url: https://www.city.osaka.lg.jp/kenko/page/0000206027.html
+    confidence_level: high
+    extraction_notes: []
+  - external_id: 7-4-152
+    name: てん君
+    breed: ベンガル
+    age_estimate: 推定8歳
+    gender: male
+    color: 茶
+    size: 中
+    health_status: エイズ・白血病陰性、内部・外部寄生虫駆虫済、混合ワクチン接種済、マイクロチップ装着済
+    personality: 人も猫も大好き、好奇心旺盛でちょっと体が大きめのてん君！何にでも興味を持って近寄っていきます。おもちゃで遊ぶことも大好きなので、一緒に遊んで仲良くなってください！
+    special_needs: null
+    images:
+      - https://www.city.osaka.lg.jp/kenko/cmsfiles/contents/0000206/206027/7-4-152-1.jpg
+      - https://www.city.osaka.lg.jp/kenko/cmsfiles/contents/0000206/206027/7-4-152-2.jpg
+      - https://www.city.osaka.lg.jp/kenko/cmsfiles/contents/0000206/206027/7-4-152-3.jpg
+    protection_location: null
+    source_url: https://www.city.osaka.lg.jp/kenko/page/0000206027.html
+    confidence_level: high
+    extraction_notes: []
+  - external_id: 7-4-154
+    name: ちぃちゃん
+    breed: チートー様
+    age_estimate: 推定8歳
+    gender: female
+    color: キジ
+    size: 中
+    health_status: エイズ・白血病陰性、内部・外部寄生虫駆虫済、混合ワクチン接種済、マイクロチップ装着済
+    personality: 人懐っこくマイペースな女の子です。いつも高いところでのんびりしていますが、呼ぶと寄ってきてくれます。なでられたりおもちゃで遊んだりするのが大好きなちぃちゃんと仲良くなってくれる飼い主さん募集中です。
+    special_needs: null
+    images:
+      - https://www.city.osaka.lg.jp/kenko/cmsfiles/contents/0000206/206027/7-4-154-1.JPG
+      - https://www.city.osaka.lg.jp/kenko/cmsfiles/contents/0000206/206027/7-4-154-2.JPG
+      - https://www.city.osaka.lg.jp/kenko/cmsfiles/contents/0000206/206027/7-4-154-3.JPG
+    protection_location: null
+    source_url: https://www.city.osaka.lg.jp/kenko/page/0000206027.html
+    confidence_level: high
+    extraction_notes: []
