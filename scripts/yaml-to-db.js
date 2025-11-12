@@ -32,6 +32,8 @@ const CONFIG = {
     'osaka/sakai-city',
     'hyogo/hyogo-pref',
     'tokyo/tokyo-metro',
+    'kanagawa/kanagawa-pref',
+    'kanagawa/yokohama-city',
   ], // 複数自治体対応
   dryRun: process.argv.includes('--dry-run'), // --dry-run で実際の投入をスキップ
   skipReview: process.argv.includes('--skip-review'), // --skip-review でレビューフラグを無視
