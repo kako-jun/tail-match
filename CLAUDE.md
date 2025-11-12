@@ -3,6 +3,8 @@
 ## 📖 関連ドキュメント
 
 - **[スクレイピングアーキテクチャ](./scraping-architecture.md)** - 技術設計・実装方針（必読）
+- **[新規自治体追加ガイド](./NEW_MUNICIPALITY_GUIDE.md)** - 新しい保護センターを追加する手順（必読）
+- **[scripts/README.md](../scripts/README.md)** - スクレイピングスクリプトの使い方
 
 ---
 

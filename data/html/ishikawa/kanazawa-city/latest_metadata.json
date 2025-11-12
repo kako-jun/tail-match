@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-12T02:49:24.377Z",
+  "url": "https://www4.city.kanazawa.lg.jp/soshikikarasagasu/dobutsuaigokanricenter/gyomuannai/1/jouto_info/7301.html",
+  "has_animals": true,
+  "html_size": 106061,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}
