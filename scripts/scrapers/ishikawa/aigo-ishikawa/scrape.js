@@ -13,7 +13,7 @@
 
 import { chromium } from 'playwright';
 import { load } from 'cheerio';
-import { saveHtml, saveMetadata } from './lib/html-saver.js';
+import { saveHtml, saveMetadata } from '../../../lib/html-saver.js';
 
 // ========================================
 // 設定
