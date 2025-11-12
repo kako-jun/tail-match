@@ -86,6 +86,7 @@ function extractCatInfo($, $h4, index) {
     images,
     protection_date: null,
     deadline_date: null,
+    status: 'available',
     source_url: CONFIG.source_url,
     confidence_level: 'high',
     extraction_notes: ['譲渡候補猫'],
