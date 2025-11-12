@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-12T17:31:41.643+09:00",
+  "url": "https://www.pref.hokkaido.lg.jp/ks/awc/inuneko.html",
+  "has_animals": true,
+  "html_size": 27378,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}
