@@ -123,6 +123,13 @@ function extractCatFromBlock($, $block, index) {
     }
   }
 
+  // 譲渡済み判定（この動物のテキスト範囲のみで判定）
+  const blockText = textLines.join(' ');
+  const isAdopted =
+    blockText.includes('譲渡済み') ||
+    blockText.includes('譲渡しました') ||
+    blockText.includes('譲渡決定');
+
   return {
     external_id: `chiba-pref-${index}`,
     name: managementNumber.replace('【管理番号】', '').trim(),
@@ -138,6 +145,7 @@ function extractCatFromBlock($, $block, index) {
     images: images,
     protection_date: null,
     deadline_date: deadline_date,
+    status: isAdopted ? 'adopted' : 'available',
     source_url: CONFIG.source_url,
     confidence_level: 'high',
     extraction_notes: ['収容猫情報（東葛飾支所）', location],
