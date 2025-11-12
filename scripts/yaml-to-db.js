@@ -28,6 +28,8 @@ const CONFIG = {
     'fukui/fukui-pref',
     'kyoto/kyoto-pref',
     'osaka/osaka-pref',
+    'osaka/osaka-city',
+    'osaka/sakai-city',
   ], // 複数自治体対応
   dryRun: process.argv.includes('--dry-run'), // --dry-run で実際の投入をスキップ
   skipReview: process.argv.includes('--skip-review'), // --skip-review でレビューフラグを無視
@@ -84,14 +86,10 @@ function validateAnimalData(animal, index) {
 }
 
 /**
- * 名前がない場合にデフォルト名を生成
+ * 名前がない場合にデフォルト名を生成（external_idをそのまま使用）
  */
 function generateDefaultName(animal) {
   if (!animal.name || animal.name.includes('保護動物')) {
-    // external_idから番号を抽出してデフォルト名を生成
-    const idMatch = animal.external_id?.match(/\d+/);
-    const number = idMatch ? idMatch[0] : 'unknown';
-
     // 動物種別に応じた名前を生成
     let prefix = '保護動物';
     if (animal.animal_type === 'cat') {
@@ -100,7 +98,8 @@ function generateDefaultName(animal) {
       prefix = '保護犬';
     }
 
-    return `${prefix}${number}号`;
+    // external_idをそのまま使って一意性を保証
+    return `${prefix}${animal.external_id}`;
   }
   return animal.name;
 }
@@ -151,7 +150,8 @@ function importYAMLToDB(yamlData, db, yamlFilename) {
     }
 
     try {
-      const displayName = generateDefaultName(animal);
+      const baseName = generateDefaultName(animal);
+      const displayName = db.ensureUniqueName(yamlData.meta.municipality_id, baseName);
 
       if (!CONFIG.dryRun) {
         const result = db.upsertTail({
