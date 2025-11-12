@@ -168,6 +168,82 @@ animals:
 - クロスチェックで取りこぼしを検出
 - YAMLは人間が確認・修正可能
 
+#### 🔒 **個体識別子の重複防止手順**（2025-11-12追加）
+
+**問題**: 1つの管理番号に複数の個体が含まれる場合、`external_id`が重複してデータベース制約違反が発生
+
+**解決策**: サフィックス付与による一意化
+
+**実装例（福井県の事例）**:
+
+```javascript
+// html-to-yaml.js の抽出ロジック
+
+// 1. 管理番号と個体数を取得
+const managementNumbers = parseManagementNumbers(title); // ["HC25374"]
+const genderInfo = parseGenderString(specs['性別']); // 4匹（オス2匹、メス2匹）
+const totalCats = Math.max(managementNumbers.length, genderInfo.length); // 4
+
+// 2. external_id の生成ロジック
+for (let i = 0; i < totalCats; i++) {
+  let externalId;
+
+  if (managementNumbers.length >= totalCats && managementNumbers[i]) {
+    // ケース1: 管理番号が十分にある場合、そのまま使用
+    externalId = managementNumbers[i]; // "HC25378", "HC25379", ...
+  } else if (managementNumbers.length > 0) {
+    // ケース2: 管理番号が不足している場合、サフィックスで一意化
+    const baseId = managementNumbers[i] || managementNumbers[0];
+    externalId = `${baseId}-${i + 1}`; // "HC25374-1", "HC25374-2", "HC25374-3", "HC25374-4"
+  } else {
+    // ケース3: 管理番号が全くない場合、タイムスタンプで一意化
+    externalId = `{municipality}_unknown_${Date.now()}_${i}`;
+  }
+
+  // 3. 個体データの作成
+  const cat = {
+    external_id: externalId, // 必ず一意
+    name: null, // デフォルト名は yaml-to-db.js で生成
+    gender: genderInfo[i] ? genderInfo[i].gender : 'unknown',
+    // ... 他のフィールド
+  };
+}
+```
+
+**チェックリスト（新規自治体実装時）**:
+
+- [ ] 1つの管理番号に複数の個体が存在する可能性を確認
+- [ ] `external_id`生成ロジックにサフィックス付与機能を実装
+- [ ] テストデータで重複が発生しないことを確認
+- [ ] `node scripts/yaml-to-db.js --dry-run`でFOREIGN KEY制約エラーがないことを確認
+
+**デフォルト名の生成**（yaml-to-db.js）:
+
+```javascript
+function generateDefaultName(animal) {
+  if (!animal.name || animal.name.includes('保護動物')) {
+    // external_idから番号を抽出
+    const idMatch = animal.external_id?.match(/\d+/);
+    const number = idMatch ? idMatch[0] : 'unknown';
+
+    // 動物種別に応じた名前を生成
+    let prefix = '保護動物';
+    if (animal.animal_type === 'cat') {
+      prefix = '保護猫';
+    }
+
+    return `${prefix}${number}号`; // 例: "保護猫25374号"
+  }
+  return animal.name;
+}
+```
+
+**実績データ**:
+
+- 福井県: HC25374（4匹）→ HC25374-1, HC25374-2, HC25374-3, HC25374-4
+- 福井県: FC25368（3匹）→ FC25368-1, FC25368-2, FC25368-3
+- 福井県: HC25334（4匹）→ HC25334-1, HC25334-2, HC25334-3, HC25334-4
+
 ---
 
 ### **Step 3: DB投入**（better-sqlite3、手動実行）
