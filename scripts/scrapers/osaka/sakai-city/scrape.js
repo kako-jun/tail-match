@@ -7,6 +7,8 @@
  */
 
 import { chromium } from 'playwright';
+import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+
 import fs from 'fs';
 import path from 'path';
 
@@ -75,7 +77,7 @@ async function main() {
     fs.mkdirSync(outputDir, { recursive: true });
 
     // ファイル名生成（タイムスタンプ付き）
-    const timestamp = new Date().toISOString().replace(/[-:]/g, '').replace('T', '_').split('.')[0];
+    const timestamp = getJSTTimestamp();
     const filename = `${timestamp}_tail.html`;
     const filepath = path.join(outputDir, filename);
 
@@ -85,7 +87,7 @@ async function main() {
 
     // メタデータ保存
     const metadata = {
-      timestamp: new Date().toISOString(),
+      timestamp: getJSTISOString(),
       url: CONFIG.url,
       has_animals: html.includes('猫') || html.includes('ネコ') || html.includes('ねこ'),
       html_size: html.length,

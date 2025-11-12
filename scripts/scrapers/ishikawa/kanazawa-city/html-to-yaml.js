@@ -13,6 +13,8 @@
  */
 
 import fs from 'fs';
+import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+
 import path from 'path';
 import { load } from 'cheerio';
 import yaml from 'js-yaml';
@@ -47,7 +49,7 @@ function extractAnimalsFromHTML(html, sourceUrl, htmlFilename) {
   const extractionMeta = {
     source_file: htmlFilename,
     source_url: sourceUrl,
-    extracted_at: new Date().toISOString(),
+    extracted_at: getJSTISOString(),
     municipality: CONFIG.municipality,
     municipality_id: CONFIG.municipalityId,
   };
@@ -253,7 +255,7 @@ async function main() {
     fs.mkdirSync(CONFIG.yamlOutputDir, { recursive: true });
 
     // YAMLファイル名を生成（タイムスタンプ付き）
-    const timestamp = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '').replace('T', '_');
+    const timestamp = getJSTTimestamp();
     const yamlFilename = `${timestamp}_tail.yaml`;
     const yamlPath = path.join(CONFIG.yamlOutputDir, yamlFilename);
 

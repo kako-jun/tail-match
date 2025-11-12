@@ -13,6 +13,7 @@ import { chromium } from 'playwright';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -68,8 +69,8 @@ async function main() {
     // HTMLを取得
     const html = await page.content();
 
-    // タイムスタンプ生成
-    const timestamp = new Date().toISOString().replace(/[-:]/g, '').replace('T', '_').split('.')[0];
+    // タイムスタンプ生成（日本時間）
+    const timestamp = getJSTTimestamp();
 
     // HTMLを保存
     const filename = `${timestamp}_tail.html`;
@@ -86,7 +87,7 @@ async function main() {
       municipality: CONFIG.municipality,
       filename: filename,
       size: html.length,
-      scraped_at: new Date().toISOString(),
+      scraped_at: getJSTISOString(),
     };
 
     const metadataPath = path.join(CONFIG.outputDir, 'latest_metadata.json');

@@ -11,6 +11,8 @@
  */
 
 import fs from 'fs';
+import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+
 import path from 'path';
 import { load } from 'cheerio';
 import yaml from 'js-yaml';
@@ -44,7 +46,7 @@ function extractAnimalsFromHTML(html, sourceUrl, htmlFilename) {
   const extractionMeta = {
     source_file: htmlFilename,
     source_url: sourceUrl,
-    extracted_at: new Date().toISOString(),
+    extracted_at: getJSTISOString(),
     municipality: CONFIG.municipality,
     municipality_id: CONFIG.municipalityId,
   };

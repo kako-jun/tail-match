@@ -10,6 +10,8 @@
  */
 
 import fs from 'fs';
+import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+
 import path from 'path';
 import { load } from 'cheerio';
 import yaml from 'js-yaml';
@@ -235,7 +237,7 @@ async function main() {
 
     fs.mkdirSync(outputDir, { recursive: true });
 
-    const timestamp = new Date().toISOString().replace(/[-:]/g, '').replace('T', '_').split('.')[0];
+    const timestamp = getJSTTimestamp();
 
     const outputFile = path.join(outputDir, `${timestamp}_joto.yaml`);
 
@@ -244,7 +246,7 @@ async function main() {
         meta: {
           source_file: `${timestamp}_joto.html`,
           source_url: CONFIG.source_url,
-          extracted_at: new Date().toISOString(),
+          extracted_at: getJSTISOString(),
           municipality: CONFIG.municipality,
           municipality_id: 14, // 東京都動物愛護相談センター
           total_count: allCats.length,

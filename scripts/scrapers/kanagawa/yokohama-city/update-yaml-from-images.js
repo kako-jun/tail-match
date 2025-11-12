@@ -5,6 +5,8 @@
  */
 
 import fs from 'fs';
+import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+
 import path from 'path';
 import yaml from 'js-yaml';
 
@@ -168,7 +170,7 @@ async function main() {
   data.consistency_warnings = [];
 
   // 新しいYAMLファイルとして保存
-  const timestamp = new Date().toISOString().replace(/[-:]/g, '').replace('T', '_').split('.')[0];
+  const timestamp = getJSTTimestamp();
   const outputFile = path.join(yamlDir, `${timestamp}_tail.yaml`);
 
   const newYamlContent = yaml.dump(data, { indent: 2, lineWidth: -1 });
