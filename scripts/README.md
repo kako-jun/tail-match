@@ -8,20 +8,26 @@
 
 ```
 scripts/
-├── scrapers/               # 自治体ごとのスクレイパー
-│   ├── ishikawa/          # いしかわ動物愛護センター
-│   │   ├── scrape.js      # HTML収集（Playwright）
-│   │   ├── html-to-yaml.js # YAML抽出
-│   │   └── README.md      # 実行方法・実績
-│   └── kanazawa/          # 金沢市動物愛護管理センター
-│       ├── scrape.js
-│       ├── html-to-yaml.js
-│       └── README.md
-├── lib/                    # 共通ライブラリ
-│   ├── html-saver.js      # HTML保存ロジック
-│   ├── db.js              # SQLite接続
+├── scrapers/                    # 自治体ごとのスクレイパー
+│   ├── ishikawa/               # 石川県
+│   │   ├── aigo-ishikawa/      # いしかわ動物愛護センター
+│   │   │   ├── scrape.js       # HTML収集（Playwright）
+│   │   │   ├── html-to-yaml.js # YAML抽出
+│   │   │   └── README.md       # 実行方法・実績
+│   │   └── kanazawa-city/      # 金沢市動物愛護管理センター
+│   │       ├── scrape.js
+│   │       ├── html-to-yaml.js
+│   │       └── README.md
+│   └── toyama/                 # 富山県
+│       └── toyama-pref/        # 富山県動物管理センター
+│           ├── scrape.js
+│           ├── html-to-yaml.js
+│           └── README.md
+├── lib/                        # 共通ライブラリ
+│   ├── html-saver.js          # HTML保存ロジック
+│   ├── db.js                  # SQLite接続
 │   └── detect-javascript-site.js
-└── yaml-to-db.js          # YAML→DB投入（汎用）
+└── yaml-to-db.js              # YAML→DB投入（汎用）
 ```
 
 ---

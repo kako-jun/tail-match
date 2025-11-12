@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * 富山県動物管理センター スクレイパー (Playwright版)
+ * 金沢市動物愛護管理センター スクレイパー (Playwright版)
  *
  * 特徴:
  * - Playwright でJavaScript実行後のHTMLを取得
@@ -13,16 +13,16 @@
 
 import { chromium } from 'playwright';
 import { load } from 'cheerio';
-import { saveHtml, saveMetadata } from '../../lib/html-saver.js';
+import { saveHtml, saveMetadata } from '../../../lib/html-saver.js';
 
 // ========================================
 // 設定
 // ========================================
 
 const CONFIG = {
-  municipality: 'toyama/toyama-pref',
-  url: 'https://www.pref.toyama.jp/1207/kurashi/seikatsu/seikatsu/doubutsuaigo/cat.html',
-  expected_selectors: 'div.col2L img, div.col2R img',
+  municipality: 'ishikawa/kanazawa-city',
+  url: 'https://www4.city.kanazawa.lg.jp/soshikikarasagasu/dobutsuaigokanricenter/gyomuannai/1/jouto_info/7301.html',
+  expected_selectors: 'div.wysiwyg > table, figure.img-item',
 
   // リトライ設定
   retry_count: 3,
@@ -109,7 +109,7 @@ async function fetchWithRetry(url, retries = CONFIG.retry_count) {
 
       // 動的コンテンツの読み込み完了を確認
       try {
-        await page.waitForSelector('div.col2L, div.col2R', {
+        await page.waitForSelector('div.wysiwyg > table', {
           timeout: 5000,
         });
         console.log('✅ 動的コンテンツの読み込み確認');
@@ -146,7 +146,7 @@ async function fetchWithRetry(url, retries = CONFIG.retry_count) {
 
 async function main() {
   console.log('='.repeat(60));
-  console.log('🐱 富山県動物管理センター - HTML収集 (Playwright版)');
+  console.log('🐱 金沢市動物愛護管理センター - HTML収集 (Playwright版)');
   console.log('='.repeat(60));
   console.log(`   URL: ${CONFIG.url}`);
   console.log(`   Municipality: ${CONFIG.municipality}`);
