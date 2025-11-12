@@ -1,0 +1,136 @@
+meta:
+  source_file: 20251112_175436_tail.html
+  source_url: https://www.city.naha.okinawa.jp/kurasitetuduki/animal/904.html
+  extracted_at: '2025-11-12T18:02:01.666+09:00'
+  municipality: okinawa/naha-city
+  municipality_id: 22
+  total_count: 6
+  dog_count: 5
+  cat_count: 1
+  note: 譲渡動物情報（犬・猫）
+animals:
+  - external_id: ライム
+    name: ライム
+    animal_type: dog
+    breed: 雑種性別：オス（去勢済み）推定年齢：10歳体重：約10kg性格・特徴：大人しく控え目な男の子です。頑固なところもあり、抱っこは苦手です。フィラリア抗原検査陰性。写真撮影日：2025年6月30日
+    age_estimate: 10歳体重：約10kg性格・特徴：大人しく控え目な男の子です。頑固なところもあり、抱っこは苦手です。フィラリア抗原検査陰性。写真撮影日：2025年6月30日
+    gender: male
+    color: null
+    size: 体重約10kg性格・特徴：大人しく控え目な男の子です。頑固なところもあり、抱っこは苦手です。フィラリア抗原検査陰性。写真撮影日：2025年6月30日
+    health_status: null
+    personality: 大人しく控え目な男の子です。頑固なところもあり、抱っこは苦手です。フィラリア抗原検査陰性。写真撮影日：2025年6月30日
+    special_needs: フィラリア抗原検査陰性
+    images:
+      - https://www.city.naha.okinawa.jp/kurasitetuduki/animal/904.images/DSCF0118.JPG
+    protection_date: 2025年6月30日
+    deadline_date: null
+    status: available
+    source_url: https://www.city.naha.okinawa.jp/kurasitetuduki/animal/904.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡犬情報
+    listing_type: adoption
+  - external_id: フーガ
+    name: フーガ
+    animal_type: dog
+    breed: 雑種性別：オス（去勢済み）推定年齢：8歳体重：約12kg性格・特徴：元気で遊ぶことが大好きです。賢い子ですが、興奮すると甘噛みしてしまいます。フィラリア抗原検査陽性。写真撮影日：2025年1月28日
+    age_estimate: 8歳体重：約12kg性格・特徴：元気で遊ぶことが大好きです。賢い子ですが、興奮すると甘噛みしてしまいます。フィラリア抗原検査陽性。写真撮影日：2025年1月28日
+    gender: male
+    color: null
+    size: 体重約12kg性格・特徴：元気で遊ぶことが大好きです。賢い子ですが、興奮すると甘噛みしてしまいます。フィラリア抗原検査陽性。写真撮影日：2025年1月28日
+    health_status: null
+    personality: 元気で遊ぶことが大好きです。賢い子ですが、興奮すると甘噛みしてしまいます。フィラリア抗原検査陽性。写真撮影日：2025年1月28日
+    special_needs: フィラリア抗原検査陽性
+    images:
+      - https://www.city.naha.okinawa.jp/kurasitetuduki/animal/904.images/fuga.JPG
+    protection_date: 2025年1月28日
+    deadline_date: null
+    status: available
+    source_url: https://www.city.naha.okinawa.jp/kurasitetuduki/animal/904.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡犬情報
+    listing_type: adoption
+  - external_id: マルコ
+    name: マルコ
+    animal_type: dog
+    breed: マルチーズ性別：メス推定年齢：13歳以上体重：1.9kg性格・特徴：小さい体ですが食いしん坊です。高齢ですが元気いっぱいです。乳腺に腫瘤があります。フィラリア抗原検査陰性。写真撮影日：2025年9月2日
+    age_estimate: 13歳以上体重：1.9kg性格・特徴：小さい体ですが食いしん坊です。高齢ですが元気いっぱいです。乳腺に腫瘤があります。フィラリア抗原検査陰性。写真撮影日：2025年9月2日
+    gender: female
+    color: null
+    size: 体重1.9kg性格・特徴：小さい体ですが食いしん坊です。高齢ですが元気いっぱいです。乳腺に腫瘤があります。フィラリア抗原検査陰性。写真撮影日：2025年9月2日
+    health_status: null
+    personality: 小さい体ですが食いしん坊です。高齢ですが元気いっぱいです。乳腺に腫瘤があります。フィラリア抗原検査陰性。写真撮影日：2025年9月2日
+    special_needs: フィラリア抗原検査陰性、乳腺に腫瘤あり
+    images:
+      - https://www.city.naha.okinawa.jp/kurasitetuduki/animal/904.images/maruko.jpg
+    protection_date: 2025年9月2日
+    deadline_date: null
+    status: available
+    source_url: https://www.city.naha.okinawa.jp/kurasitetuduki/animal/904.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡犬情報
+    listing_type: adoption
+  - external_id: 平次
+    name: 平次
+    animal_type: dog
+    breed: 柴犬性別：オス推定年齢：12歳体重：約9kg性格・特徴：大人しく、のんびり屋さんです。皮膚炎があります。フィラリア抗原検査陰性。写真撮影日：2025年6月30日
+    age_estimate: 12歳体重：約9kg性格・特徴：大人しく、のんびり屋さんです。皮膚炎があります。フィラリア抗原検査陰性。写真撮影日：2025年6月30日
+    gender: male
+    color: null
+    size: 体重約9kg性格・特徴：大人しく、のんびり屋さんです。皮膚炎があります。フィラリア抗原検査陰性。写真撮影日：2025年6月30日
+    health_status: null
+    personality: 大人しく、のんびり屋さんです。皮膚炎があります。フィラリア抗原検査陰性。写真撮影日：2025年6月30日
+    special_needs: フィラリア抗原検査陰性、皮膚炎あり
+    images:
+      - https://www.city.naha.okinawa.jp/kurasitetuduki/animal/904.images/heiji.JPG
+    protection_date: 2025年6月30日
+    deadline_date: null
+    status: available
+    source_url: https://www.city.naha.okinawa.jp/kurasitetuduki/animal/904.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡犬情報
+    listing_type: adoption
+  - external_id: くるり
+    name: くるり
+    animal_type: dog
+    breed: トイ・プードル 性別：オス（去勢済み）推定年齢：10歳 体重：約4kg 性格・特徴：人懐っこく、元気な子です。首の後ろ側を触ろうとすると怒る場合があります。両目とも白内障があり、視力はかなり弱いです。フィラリア抗原検査陰性。 写真撮影日：2025年9月22日
+    age_estimate: 10歳 体重：約4kg 性格・特徴：人懐っこく、元気な子です。首の後ろ側を触ろうとすると怒る場合があります。両目とも白内障があり、視力はかなり弱いです。フィラリア抗原検査陰性。 写真撮影日：2025年9月22日
+    gender: male
+    color: null
+    size: 体重約4kg 性格・特徴：人懐っこく、元気な子です。首の後ろ側を触ろうとすると怒る場合があります。両目とも白内障があり、視力はかなり弱いです。フィラリア抗原検査陰性。 写真撮影日：2025年9月22日
+    health_status: null
+    personality: 人懐っこく、元気な子です。首の後ろ側を触ろうとすると怒る場合があります。両目とも白内障があり、視力はかなり弱いです。フィラリア抗原検査陰性。 写真撮影日：2025年9月22日
+    special_needs: フィラリア抗原検査陰性、白内障あり
+    images:
+      - https://www.city.naha.okinawa.jp/kurasitetuduki/animal/904.images/kururi.jpg
+    protection_date: 2025年9月22日
+    deadline_date: null
+    status: available
+    source_url: https://www.city.naha.okinawa.jp/kurasitetuduki/animal/904.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡犬情報
+    listing_type: adoption
+  - external_id: 現在、譲渡できる猫はいません。
+    name: 現在、譲渡できる猫はいません。
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: 体重約kg性格・特徴写真撮影日
+    health_status: null
+    personality: null
+    special_needs: null
+    images: []
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.naha.okinawa.jp/kurasitetuduki/animal/904.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡猫情報
+    listing_type: adoption
