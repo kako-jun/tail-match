@@ -40,6 +40,7 @@ next-env.d.ts
 /postgres_data
 *.db  # SQLiteデータベースは除外（YAMLから再現可能）
 *.sqlite
+data/tail-match.db  # 明示的にSQLiteデータベースを除外
 
 # Python
 __pycache__/
