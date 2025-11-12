@@ -26,6 +26,8 @@ const CONFIG = {
     'ishikawa/kanazawa-city',
     'toyama/toyama-pref',
     'fukui/fukui-pref',
+    'kyoto/kyoto-pref',
+    'osaka/osaka-pref',
   ], // 複数自治体対応
   dryRun: process.argv.includes('--dry-run'), // --dry-run で実際の投入をスキップ
   skipReview: process.argv.includes('--skip-review'), // --skip-review でレビューフラグを無視
