@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-12T17:24:19.714+09:00",
+  "url": "https://www.city.chiba.jp/hokenfukushi/iryoeisei/seikatsueisei/dobutsuhogo/transfercats.html",
+  "has_animals": true,
+  "html_size": 185479,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}
