@@ -21,7 +21,7 @@ import { initializeDatabase, closeDatabase } from './lib/db.js';
 
 const CONFIG = {
   yamlInputDir: 'data/yaml',
-  municipalities: ['ishikawa/aigo-ishikawa', 'ishikawa/kanazawa-city'], // 複数自治体対応
+  municipalities: ['ishikawa/aigo-ishikawa', 'ishikawa/kanazawa-city', 'toyama/toyama-pref'], // 複数自治体対応
   dryRun: process.argv.includes('--dry-run'), // --dry-run で実際の投入をスキップ
   skipReview: process.argv.includes('--skip-review'), // --skip-review でレビューフラグを無視
 };
@@ -68,20 +68,34 @@ function validateAnimalData(animal, index) {
     errors.push(`external_id が未設定`);
   }
 
-  if (!animal.name || animal.name.includes('保護動物')) {
-    errors.push(`実名が設定されていない (${animal.name})`);
-  }
-
-  if (!animal.gender || animal.gender === 'unknown') {
-    errors.push(`性別が不明`);
-  }
-
   // needs_review フラグのチェック
   if (animal.needs_review && !CONFIG.skipReview) {
     errors.push(`レビューが必要とマークされています`);
   }
 
   return errors;
+}
+
+/**
+ * 名前がない場合にデフォルト名を生成
+ */
+function generateDefaultName(animal) {
+  if (!animal.name || animal.name.includes('保護動物')) {
+    // external_idから番号を抽出してデフォルト名を生成
+    const idMatch = animal.external_id?.match(/\d+/);
+    const number = idMatch ? idMatch[0] : 'unknown';
+
+    // 動物種別に応じた名前を生成
+    let prefix = '保護動物';
+    if (animal.animal_type === 'cat') {
+      prefix = '保護猫';
+    } else if (animal.animal_type === 'dog') {
+      prefix = '保護犬';
+    }
+
+    return `${prefix}${number}号`;
+  }
+  return animal.name;
 }
 
 // ========================================
@@ -130,15 +144,17 @@ function importYAMLToDB(yamlData, db, yamlFilename) {
     }
 
     try {
+      const displayName = generateDefaultName(animal);
+
       if (!CONFIG.dryRun) {
         const result = db.upsertTail({
           municipality_id: yamlData.meta.municipality_id,
           external_id: animal.external_id,
           animal_type: animal.animal_type || 'unknown',
-          name: animal.name,
+          name: displayName,
           breed: animal.breed,
           age_estimate: animal.age_estimate,
-          gender: animal.gender,
+          gender: animal.gender || 'unknown',
           color: animal.color,
           size: animal.size,
           health_status: animal.health_status,
@@ -153,13 +169,13 @@ function importYAMLToDB(yamlData, db, yamlFilename) {
 
         if (result) {
           stats.inserted++;
-          console.log(`   ✅ 投入 ${index + 1}: ${animal.name} (${animal.gender})`);
+          console.log(`   ✅ 投入 ${index + 1}: ${displayName} (${animal.gender || 'unknown'})`);
         } else {
           stats.updated++;
-          console.log(`   🔄 更新 ${index + 1}: ${animal.name} (${animal.gender})`);
+          console.log(`   🔄 更新 ${index + 1}: ${displayName} (${animal.gender || 'unknown'})`);
         }
       } else {
-        console.log(`   [DRY-RUN] ${index + 1}: ${animal.name} (${animal.gender})`);
+        console.log(`   [DRY-RUN] ${index + 1}: ${displayName} (${animal.gender || 'unknown'})`);
         stats.inserted++;
       }
     } catch (error) {
