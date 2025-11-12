@@ -18,8 +18,13 @@ scripts/
 │   │       ├── scrape.js
 │   │       ├── html-to-yaml.js
 │   │       └── README.md
-│   └── toyama/                 # 富山県
-│       └── toyama-pref/        # 富山県動物管理センター
+│   ├── toyama/                 # 富山県
+│   │   └── toyama-pref/        # 富山県動物管理センター
+│   │       ├── scrape.js
+│   │       ├── html-to-yaml.js
+│   │       └── README.md
+│   └── fukui/                  # 福井県
+│       └── fukui-pref/         # 福井県動物愛護管理センター
 │           ├── scrape.js
 │           ├── html-to-yaml.js
 │           └── README.md
@@ -246,6 +251,29 @@ JavaScript必須サイトを検出（現在は使用していない、Playwright
 - **発見数**: 2匹（みたらし、キング）
 - **信頼度**: HIGH
 - **JavaScript必須**: No（静的HTMLだがPlaywright使用）
+
+### 富山県
+
+#### 富山県動物管理センター
+
+- **URL**: https://www.pref.toyama.jp/1207/kurashi/seikatsu/seikatsu/doubutsuaigo/cat.html
+- **発見数**: 8匹
+- **信頼度**: HIGH
+- **JavaScript必須**: Yes
+- **特徴**: 2カラムレイアウト（div.col2L / div.col2R）
+
+### 福井県
+
+#### 福井県動物愛護管理センター
+
+- **URL**: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+- **発見数**: 25匹
+- **信頼度**: HIGH
+- **JavaScript必須**: Yes
+- **特徴**:
+  - 外部サイト（fapscsite.com）でホスティング
+  - 1記事に複数動物が含まれる場合あり
+  - 管理番号形式: HC25378.25379（ドットで区切られた複数ID）
 
 ---
 

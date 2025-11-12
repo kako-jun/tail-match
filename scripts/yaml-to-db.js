@@ -21,7 +21,12 @@ import { initializeDatabase, closeDatabase } from './lib/db.js';
 
 const CONFIG = {
   yamlInputDir: 'data/yaml',
-  municipalities: ['ishikawa/aigo-ishikawa', 'ishikawa/kanazawa-city', 'toyama/toyama-pref'], // 複数自治体対応
+  municipalities: [
+    'ishikawa/aigo-ishikawa',
+    'ishikawa/kanazawa-city',
+    'toyama/toyama-pref',
+    'fukui/fukui-pref',
+  ], // 複数自治体対応
   dryRun: process.argv.includes('--dry-run'), // --dry-run で実際の投入をスキップ
   skipReview: process.argv.includes('--skip-review'), // --skip-review でレビューフラグを無視
 };
