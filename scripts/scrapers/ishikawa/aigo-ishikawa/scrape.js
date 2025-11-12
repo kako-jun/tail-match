@@ -12,6 +12,8 @@
  */
 
 import { chromium } from 'playwright';
+import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+
 import { load } from 'cheerio';
 import { saveHtml, saveMetadata } from '../../../lib/html-saver.js';
 
@@ -188,7 +190,7 @@ async function main() {
 
     // Step 5: メタデータ保存
     const metadata = {
-      timestamp: new Date().toISOString(),
+      timestamp: getJSTISOString(),
       url: CONFIG.url,
       has_animals: hasAnyAnimals,
       html_size: result.size,

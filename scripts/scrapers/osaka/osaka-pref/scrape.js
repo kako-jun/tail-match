@@ -10,6 +10,8 @@
  */
 
 import fs from 'fs';
+import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+
 import path from 'path';
 import { chromium } from 'playwright';
 
@@ -68,7 +70,7 @@ async function main() {
     fs.mkdirSync(outputDir, { recursive: true });
 
     // タイムスタンプ付きファイル名
-    const timestamp = new Date().toISOString().replace(/[-:]/g, '').replace('T', '_').split('.')[0];
+    const timestamp = getJSTTimestamp();
     const outputFile = path.join(outputDir, `${timestamp}_tail.html`);
 
     // HTML保存
@@ -78,7 +80,7 @@ async function main() {
 
     // メタデータ保存
     const metadata = {
-      timestamp: new Date().toISOString(),
+      timestamp: getJSTISOString(),
       url: CONFIG.url,
       has_animals: html.includes('猫') || html.includes('ネコ'),
       html_size: html.length,
