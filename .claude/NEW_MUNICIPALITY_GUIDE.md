@@ -34,6 +34,12 @@
 - ファイル移動などは直接コマンドを提案する
 - スクリプトファイルを作成しない
 
+### ❌ 6. `.claude/shelters/`を確認せずに進める
+
+- **新規自治体追加時は必ず** `.claude/shelters/` のYAMLを最初に確認
+- URLや連絡先情報が既に登録されている
+- Web検索せずにまずローカルの情報を確認する
+
 ---
 
 ## ✅ 正しいファイル構造
@@ -75,9 +81,30 @@ data/
 
 ## 📋 新規自治体追加手順
 
+### Step 0: シェルター情報の確認（最重要）
+
+**まず最初に** `.claude/shelters/` のYAMLファイルを確認してください：
+
+```bash
+# 対象地域のYAMLファイルを確認（例：中部地方）
+grep -A 20 "富山" .claude/shelters/chubu.yaml
+
+# または地域別に確認
+ls .claude/shelters/
+# → chubu.yaml, kanto.yaml, kinki.yaml など
+```
+
+**確認すべき情報**:
+
+- `website_url`: 公式サイトURL
+- `adoption_page_url`: 譲渡ページURL（これを使う）
+- `phone`, `address`: 連絡先情報
+- `site_analysis.investigated`: 調査済みか
+- `scraping_config`: スクレイピング設定（あれば参考にする）
+
 ### Step 1: 調査
 
-1. **対象サイトのURLを確認**
+1. **`.claude/shelters/`から対象サイトのURLを確認** ⚠️ 最重要
 2. **ブラウザでHTMLを確認**（DevToolsでセレクタを調査）
 3. **JavaScript必須か確認**（ほとんどの場合、Playwright必須）
 4. **既存のHTMLサンプルを取得**
