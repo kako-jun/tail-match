@@ -124,6 +124,12 @@ function extractCatFromRow($, $row, index) {
     }
   });
 
+  // 譲渡済み判定（詳細情報テキストで判定）
+  const isAdopted =
+    detailText.includes('譲渡済み') ||
+    detailText.includes('譲渡しました') ||
+    detailText.includes('譲渡決定');
+
   return {
     external_id: `saitama-city-${index}`,
     name: name,
@@ -139,6 +145,7 @@ function extractCatFromRow($, $row, index) {
     images: images,
     protection_date: null,
     deadline_date: null,
+    status: isAdopted ? 'adopted' : 'available',
     source_url: CONFIG.source_url,
     confidence_level: 'high',
     extraction_notes: ['譲渡猫情報', `名前: ${name}`],

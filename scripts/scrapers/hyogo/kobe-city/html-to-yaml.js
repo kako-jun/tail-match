@@ -105,6 +105,13 @@ function extractCatsFromPage($) {
     const $cells = $tr.find('td');
 
     if ($cells.length >= 3) {
+      // 譲渡済み判定（行全体のテキストで判定）
+      const rowText = $tr.text();
+      const isAdopted =
+        rowText.includes('譲渡済み') ||
+        rowText.includes('譲渡しました') ||
+        rowText.includes('譲渡決定');
+
       const cat = {
         external_id: `kobe-${i + 1}`,
         name: $cells.eq(0).text().trim() || null,
@@ -119,6 +126,7 @@ function extractCatsFromPage($) {
         special_needs: null,
         images: [],
         protection_date: null,
+        status: isAdopted ? 'adopted' : 'available',
         source_url: CONFIG.source_url,
         confidence_level: 'medium',
         extraction_notes: [],

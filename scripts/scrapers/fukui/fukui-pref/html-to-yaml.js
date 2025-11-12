@@ -205,6 +205,14 @@ function extractCatsFromArticle($, article) {
 
     const gender = genderInfo[i] ? genderInfo[i].gender : 'unknown';
 
+    // 譲渡済み判定（article全体とスペック情報で判定）
+    const articleText = $article.text();
+    const isAdopted =
+      articleText.includes('譲渡済み') ||
+      articleText.includes('譲渡しました') ||
+      articleText.includes('譲渡決定') ||
+      (specs['その他'] && specs['その他'].includes('譲渡済'));
+
     const cat = {
       external_id: externalId,
       name: null, // 名前情報がないため、後でgenerateDefaultNameで生成される
@@ -218,6 +226,7 @@ function extractCatsFromArticle($, article) {
       special_needs: specs['その他'] || null,
       images: images.length > 0 ? images : [],
       protection_location: specs['収容場所'] || location || null,
+      status: isAdopted ? 'adopted' : 'available',
       source_url: CONFIG.source_url,
       confidence_level: 'high',
       extraction_notes: [],

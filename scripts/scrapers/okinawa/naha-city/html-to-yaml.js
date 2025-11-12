@@ -144,7 +144,12 @@ function extractAnimalFromDiv($, $div, animalType) {
     images: images,
     protection_date: photoDate,
     deadline_date: null,
-    status: 'available',
+    status:
+      detailText.includes('譲渡済み') ||
+      detailText.includes('譲渡しました') ||
+      detailText.includes('譲渡決定')
+        ? 'adopted'
+        : 'available',
     source_url: CONFIG.source_url,
     confidence_level: 'high',
     extraction_notes: [`${animalType === 'dog' ? '譲渡犬' : '譲渡猫'}情報`],

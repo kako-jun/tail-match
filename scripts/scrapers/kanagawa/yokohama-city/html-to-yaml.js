@@ -102,6 +102,10 @@ function extractCatFromImage($img) {
   const filename = path.basename(src);
   const protectionDate = parseProtectionDateFromFilename(filename);
 
+  // 譲渡済み判定（alt属性で判定）
+  const isAdopted =
+    alt.includes('譲渡済み') || alt.includes('譲渡しました') || alt.includes('譲渡決定');
+
   return {
     external_id: externalId,
     name: `横浜市-${inquiryNumber}`,
@@ -117,6 +121,7 @@ function extractCatFromImage($img) {
     images: imageUrl ? [imageUrl] : [],
     protection_date: protectionDate,
     deadline_date: null,
+    status: isAdopted ? 'adopted' : 'available',
     source_url: CONFIG.source_url,
     confidence_level: 'medium',
     extraction_notes: [

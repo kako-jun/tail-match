@@ -206,6 +206,17 @@ function extractCatFromSection($, $h3, index) {
     }
   });
 
+  // 譲渡済み判定（h3とブロック全体のテキストで判定）
+  const textParts = [h3Text];
+  $imageBlocks.each((i, block) => {
+    textParts.push($(block).text());
+  });
+  const fullText = textParts.join(' ');
+  const isAdopted =
+    fullText.includes('譲渡済み') ||
+    fullText.includes('譲渡しました') ||
+    fullText.includes('譲渡決定');
+
   const cat = {
     external_id: id,
     name: name,
@@ -219,6 +230,7 @@ function extractCatFromSection($, $h3, index) {
     special_needs: null,
     images: images.length > 0 ? images : [],
     protection_location: null,
+    status: isAdopted ? 'adopted' : 'available',
     source_url: CONFIG.source_url,
     confidence_level: 'high',
     extraction_notes: [],

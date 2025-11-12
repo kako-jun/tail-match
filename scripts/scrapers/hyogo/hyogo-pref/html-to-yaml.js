@@ -116,6 +116,12 @@ function extractCatFromGalleryItem($, $item, index) {
     }
   });
 
+  // 譲渡済み判定
+  const isAdopted =
+    content.includes('譲渡済み') ||
+    content.includes('譲渡しました') ||
+    content.includes('譲渡決定');
+
   return {
     external_id: externalId,
     name: null, // 名前なし
@@ -134,6 +140,7 @@ function extractCatFromGalleryItem($, $item, index) {
     special_needs: null,
     images: imageUrl ? [imageUrl] : [],
     protection_date: null,
+    status: isAdopted ? 'adopted' : 'available',
     source_url: CONFIG.source_url,
     confidence_level: 'high',
     extraction_notes: [],

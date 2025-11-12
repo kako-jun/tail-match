@@ -60,6 +60,13 @@ function extractCatFromRow($, $row, index) {
   // 推定年齢 or 推定月齢
   const ageText = $cells.eq(3).text().trim();
 
+  // 譲渡済み判定（行全体のテキストで判定）
+  const rowText = $row.text();
+  const isAdopted =
+    rowText.includes('譲渡済み') ||
+    rowText.includes('譲渡しました') ||
+    rowText.includes('譲渡決定');
+
   return {
     external_id: external_id,
     name: external_id, // 札幌市は収容番号のみ
@@ -75,6 +82,7 @@ function extractCatFromRow($, $row, index) {
     images: [],
     protection_date: null,
     deadline_date: null,
+    status: isAdopted ? 'adopted' : 'available',
     source_url: CONFIG.source_url,
     confidence_level: 'high',
     extraction_notes: ['譲渡可能猫情報'],
@@ -101,6 +109,7 @@ function extractCatFromH3($, $h3, index) {
 
   // 画像を探す
   const images = [];
+  const textParts = [headingText];
   let $next = $h3.next();
   while ($next.length && !$next.is('h2') && !$next.is('h3')) {
     $next.find('img').each((i, img) => {
@@ -109,8 +118,17 @@ function extractCatFromH3($, $h3, index) {
         images.push(src.startsWith('http') ? src : CONFIG.base_url + src);
       }
     });
+    const text = $next.text().trim();
+    if (text) textParts.push(text);
     $next = $next.next();
   }
+
+  // 譲渡済み判定（この動物のテキスト範囲のみで判定）
+  const fullText = textParts.join(' ');
+  const isAdopted =
+    fullText.includes('譲渡済み') ||
+    fullText.includes('譲渡しました') ||
+    fullText.includes('譲渡決定');
 
   return {
     external_id: external_id,
@@ -127,6 +145,7 @@ function extractCatFromH3($, $h3, index) {
     images: images,
     protection_date: null,
     deadline_date: null,
+    status: isAdopted ? 'adopted' : 'available',
     source_url: CONFIG.source_url,
     confidence_level: 'high',
     extraction_notes: ['譲渡可能成猫情報'],

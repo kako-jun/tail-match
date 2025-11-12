@@ -138,6 +138,13 @@ function extractCatFromBox($, $box, index) {
     }
   });
 
+  // 譲渡済み判定（ボックス全体のテキストで判定）
+  const boxText = $box.text();
+  const isAdopted =
+    boxText.includes('譲渡済み') ||
+    boxText.includes('譲渡しました') ||
+    boxText.includes('譲渡決定');
+
   return {
     external_id: managementNumber,
     name: null, // 迷子猫のため名前なし
@@ -153,6 +160,7 @@ function extractCatFromBox($, $box, index) {
     images: imageUrl ? [imageUrl] : [],
     protection_date: protectionDate,
     deadline_date: deadlineDate,
+    status: isAdopted ? 'adopted' : 'available',
     source_url: detailUrl,
     confidence_level: 'high',
     extraction_notes: [
