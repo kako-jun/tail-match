@@ -28,7 +28,10 @@ CREATE TABLE IF NOT EXISTS municipalities (
     scraping_config TEXT,               -- スクレイピング設定 (JSON形式)
     is_active INTEGER DEFAULT 1,        -- アクティブフラグ (1: 有効, 0: 無効)
     created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-    updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+    updated_at TEXT DEFAULT CURRENT_TIMESTAMP,
+
+    -- 重複防止: 同じ地域内で自治体名が一意
+    UNIQUE(region_id, name)
 );
 
 -- 保護動物テーブル (tails)
