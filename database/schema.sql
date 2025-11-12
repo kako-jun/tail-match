@@ -111,6 +111,7 @@ INSERT OR IGNORE INTO regions (name, code, type) VALUES
     ('埼玉県', 'saitama', 'prefecture'),
     ('千葉県', 'chiba', 'prefecture'),
     ('北海道', 'hokkaido', 'prefecture'),
+    ('沖縄県', 'okinawa', 'prefecture'),
     ('愛知県', 'aichi', 'prefecture');
 
 -- 自治体の初期データ（ID順）
@@ -313,6 +314,26 @@ SELECT
     'https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html',
     1
 FROM regions r WHERE r.code = 'hokkaido';
+
+-- ID: 21 - 沖縄県動物愛護管理センター
+INSERT OR IGNORE INTO municipalities (id, region_id, name, website_url, is_active)
+SELECT
+    21,
+    r.id,
+    '沖縄県動物愛護管理センター',
+    'https://www.aniwel-pref.okinawa/animals/transfer/cats',
+    1
+FROM regions r WHERE r.code = 'okinawa';
+
+-- ID: 22 - 那覇市環境衛生課
+INSERT OR IGNORE INTO municipalities (id, region_id, name, website_url, is_active)
+SELECT
+    22,
+    r.id,
+    '那覇市環境衛生課',
+    'https://www.city.naha.okinawa.jp/kurasitetuduki/animal/904.html',
+    1
+FROM regions r WHERE r.code = 'okinawa';
 
 -- ========================================
 -- ビュー作成（便利なクエリ用）
