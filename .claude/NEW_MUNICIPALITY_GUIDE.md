@@ -163,10 +163,23 @@ cp scripts/scrapers/ishikawa/scrape.js scripts/scrapers/kanazawa/scrape.js
 **修正する箇所**:
 
 ```javascript
+// ⚠️ 必須: タイムスタンプ関数をインポート
+import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+
 const CONFIG = {
   municipality: 'ishikawa/kanazawa-city', // ⚠️ パス形式で指定
   url: '対象URL',
   expected_selectors: 'セレクタ', // ⚠️ 実際のHTMLに合わせる
+  // ...
+};
+
+// ⚠️ タイムスタンプ生成（日本時間JST）
+const timestamp = getJSTTimestamp(); // YYYYMMDD_HHMMSS形式
+
+// メタデータ用タイムスタンプ
+const metadata = {
+  timestamp: timestamp,
+  scraped_at: getJSTISOString(), // ISO 8601形式（+09:00付き）
   // ...
 };
 ```
@@ -182,23 +195,29 @@ cp scripts/scrapers/{existing_municipality}/html-to-yaml.js scripts/scrapers/{ne
 **修正する箇所**:
 
 ```javascript
+// ⚠️ 必須: タイムスタンプ関数をインポート
+import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+
 const CONFIG = {
   municipality: 'ishikawa/kanazawa-city', // ⚠️ パス形式
   base_url: 'https://example.com',
   source_url: '対象URL',
 };
+
+// ⚠️ タイムスタンプ生成（日本時間JST）
+const timestamp = getJSTTimestamp(); // YYYYMMDD_HHMMSS形式
 ```
 
 **⚠️ 重要: YAML出力構造（metaセクション必須）**:
 
 ```javascript
-// ✅ 正しい構造（metaセクションがある）
+// ✅ 正しい構造（metaセクションがある + 日本時間タイムスタンプ）
 const yamlContent = yaml.dump(
   {
     meta: {
       source_file: `${timestamp}_tail.html`,
       source_url: CONFIG.source_url,
-      extracted_at: new Date().toISOString(),
+      extracted_at: getJSTISOString(), // ⚠️ 日本時間を使用
       municipality: CONFIG.municipality,
       total_count: allCats.length,
     },
