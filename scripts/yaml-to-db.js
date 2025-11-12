@@ -31,6 +31,7 @@ const CONFIG = {
     'osaka/osaka-city',
     'osaka/sakai-city',
     'hyogo/hyogo-pref',
+    'tokyo/tokyo-metro',
   ], // 複数自治体対応
   dryRun: process.argv.includes('--dry-run'), // --dry-run で実際の投入をスキップ
   skipReview: process.argv.includes('--skip-review'), // --skip-review でレビューフラグを無視
@@ -173,6 +174,7 @@ function importYAMLToDB(yamlData, db, yamlFilename) {
           deadline_date: animal.deadline_date,
           status: animal.status || 'available',
           source_url: animal.source_url,
+          listing_type: animal.listing_type || 'adoption', // 迷子猫 or 譲渡猫
         });
 
         if (result) {

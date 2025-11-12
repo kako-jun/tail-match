@@ -1,0 +1,317 @@
+meta:
+  source_file: 20251112_063527_joto.html
+  source_url: https://shuyojoho.metro.tokyo.lg.jp/generals
+  extracted_at: '2025-11-12T06:35:27.364Z'
+  municipality: tokyo/tokyo-metro
+  municipality_id: 14
+  total_count: 14
+  note: 譲渡動物情報（新しい飼い主募集中）
+animals:
+  - external_id: 25-57
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://shuyojoho.metro.tokyo.lg.jp/img/upload/68de3556782f7.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8560
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容場所: 不明'
+      - '管理支所: 本所'
+    listing_type: adoption
+  - external_id: 25-58
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://shuyojoho.metro.tokyo.lg.jp/img/upload/68de353e43f1b.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8561
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容場所: 不明'
+      - '管理支所: 本所'
+    listing_type: adoption
+  - external_id: 25T15
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://shuyojoho.metro.tokyo.lg.jp/img/upload/68a5204774f51.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8503
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容場所: 不明'
+      - '管理支所: 多摩支所'
+    listing_type: adoption
+  - external_id: 25T25
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://shuyojoho.metro.tokyo.lg.jp/img/upload/68a6b231d2503.JPG
+    protection_date: null
+    deadline_date: null
+    source_url: https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8528
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容場所: 不明'
+      - '管理支所: 多摩支所'
+    listing_type: adoption
+  - external_id: 25T17
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://shuyojoho.metro.tokyo.lg.jp/img/upload/68afdc2fdb9f1.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8526
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容場所: 不明'
+      - '管理支所: 多摩支所'
+    listing_type: adoption
+  - external_id: 25-26
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://shuyojoho.metro.tokyo.lg.jp/img/upload/68bfd19954635.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8543
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容場所: 不明'
+      - '管理支所: 本所'
+    listing_type: adoption
+  - external_id: 25-34
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://shuyojoho.metro.tokyo.lg.jp/img/upload/68e718e99439c.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8544
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容場所: 不明'
+      - '管理支所: 本所'
+    listing_type: adoption
+  - external_id: 25-33
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://shuyojoho.metro.tokyo.lg.jp/img/upload/68e71b04be1cb.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8574
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容場所: 不明'
+      - '管理支所: 本所'
+    listing_type: adoption
+  - external_id: 25T28
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://shuyojoho.metro.tokyo.lg.jp/img/upload/68f71d322832b.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8583
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容場所: 不明'
+      - '管理支所: 多摩支所'
+    listing_type: adoption
+  - external_id: 25T35
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://shuyojoho.metro.tokyo.lg.jp/img/upload/690ad38b62064.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8600
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容場所: 不明'
+      - '管理支所: 多摩支所'
+    listing_type: adoption
+  - external_id: 25ネ7
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://shuyojoho.metro.tokyo.lg.jp/img/upload/68dcb52b11c1e.png
+    protection_date: null
+    deadline_date: null
+    source_url: https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8514
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容場所: 不明'
+      - '管理支所: 本所'
+    listing_type: adoption
+  - external_id: 25ネ3
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://shuyojoho.metro.tokyo.lg.jp/img/upload/68ca3a5daa83e.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8486
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容場所: 不明'
+      - '管理支所: 本所'
+    listing_type: adoption
+  - external_id: 24F84
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://shuyojoho.metro.tokyo.lg.jp/img/upload/68afffc2cbd30.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8300
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容場所: 不明'
+      - '管理支所: 城南島出張所'
+    listing_type: adoption
+  - external_id: 24ネ57
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://shuyojoho.metro.tokyo.lg.jp/img/upload/682d6ada6ebc5.JPG
+    protection_date: null
+    deadline_date: null
+    source_url: https://shuyojoho.metro.tokyo.lg.jp/generals/detail/8203
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容場所: 不明'
+      - '管理支所: 本所'
+    listing_type: adoption
