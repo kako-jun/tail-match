@@ -1,0 +1,428 @@
+meta:
+  source_file: multiple_pages
+  source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/index.html
+  extracted_at: '2025-11-12T05:45:00.000Z'
+  municipality: osaka/sakai-city
+  municipality_id: 8
+  total_count: 22
+  extraction_type: claude_vision_api
+  note: 画像内のテキストをClaude Vision APIで抽出しました
+confidence_level: high
+animals:
+  # R7_1.png - 左側
+  - external_id: No.6041
+    name: 黒猫6041
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定5歳
+    gender: male
+    color: 黒
+    size: null
+    health_status: FIV/FeLV陰性、ふみふみと撫でてほしがれる
+    personality: 大人しい子、ゴロゴロ言う、お腹に白いワンポイント、右目が白い
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.images/R7_1.png
+    protection_date: 2025-10
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_1.png - 右側
+  - external_id: No.7036
+    name: モモちゃん
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 13歳
+    gender: female
+    color: 長毛キジ白
+    size: null
+    health_status: FIV/FeLV陰性
+    personality: 人懐っこい、自ら近寄りゴロンとする
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.images/R7_1.png
+    protection_date: 2025-07
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_2.png - 左側
+  - external_id: No.2139
+    name: ハチワレ2139
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定5歳
+    gender: female
+    color: 白黒
+    size: null
+    health_status: FIV/FeLV陰性
+    personality: なでてほしい、ヘリながら寄ってくる、女の子ですがおしりトントンをさせてくれます
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.images/R7_2.png
+    protection_date: 2025-10
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_2.png - 右側
+  - external_id: No.5045
+    name: ハチワレ5045
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定6歳
+    gender: male
+    color: 白黒
+    size: null
+    health_status: FIV/FeLV陰性、最近背中に膿瘍が出てきました
+    personality: 抱っこができて、およやかしい性格、なでるのを止めるといつもうとなでてとしきりに出してくる
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.images/R7_2.png
+    protection_date: 2025-10
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_3.png - 左側
+  - external_id: No.2212
+    name: 茶トラ2212
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定7歳
+    gender: male
+    color: 茶トラ
+    size: null
+    health_status: FIV/FeLV陰性、ちょっとぽっちゃり
+    personality: だまにニャッとしゃべります、あまり目を合わせてはいけませんが、慣れると遊んでとやってきます
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.images/R7_3.png
+    protection_date: 2025-10
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_3.png - 右側
+  - external_id: No.2099
+    name: 白猫2099
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定7歳
+    gender: female
+    color: 白黒
+    size: null
+    health_status: FIV/FeLV陰性
+    personality: ゆっくりと伸ばなくなってあげてください、おやつは大好きで、自分より大きな子猫に負けず、まっしぐらです
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.images/R7_3.png
+    protection_date: 2025-01
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_4.png - 左側
+  - external_id: No.2068
+    name: ハチワレ2068
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定9歳
+    gender: male
+    color: 白黒
+    size: null
+    health_status: FIV/FeLV陰性/慢性鼻炎、すこしありますが
+    personality: おとなしいボディケアはあまり好きではありません、ちょこんとしています
+    special_needs: 慢性鼻炎
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.images/R7_4.png
+    protection_date: 2025-10
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_4.png - 右側
+  - external_id: No.7033
+    name: のびー
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定1歳
+    gender: male
+    color: 黒
+    size: null
+    health_status: FIV/FeLV陰性、まだ大人になりきれていません
+    personality: なでられるのも大好きで！ごはんはカラカラで食べやすい地面な練生な紳士な候補、しっぽは長めで先少し白いです
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.images/R7_4.png
+    protection_date: 2025-07
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_5.png - 左側
+  - external_id: No.6028
+    name: ハチワレ6028
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定5歳
+    gender: female
+    color: 白黒
+    size: null
+    health_status: FIV/FeLV陰性
+    personality: もちゃちゃも大好き、ちょびひげがチャームポイント、抱っこできます
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.images/R7_5.png
+    protection_date: 2025-01
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_5.png - 右側
+  - external_id: No.2140
+    name: ハチワレ2140
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定5歳
+    gender: male
+    color: 黒白
+    size: null
+    health_status: FIV/FeLV陰性、右耳に耳カット
+    personality: 人もキャットニップも大好き、チャットシートを着てるような黒白模様な紳士な候補な、ふわふわ柔の毛布が大好きです
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.images/R7_5.png
+    protection_date: 2025-01
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_6.png - 左側
+  - external_id: No.6028b
+    name: キジ白6028
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定6歳
+    gender: male
+    color: キジ白
+    size: null
+    health_status: FIV/FeLV陰性
+    personality: 慌てますが、最近はキャットタワーのハンモックにお気に入りで過ごしています、だまねにちょうのホールを追いかけて遊動します
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.images/R7_6.png
+    protection_date: 2025-10
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_6.png - 右側
+  - external_id: No.2092
+    name: 白猫2092
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定7歳
+    gender: female
+    color: 白黒
+    size: null
+    health_status: FIV/FeLV陰性
+    personality: おもちゃ大好き！ちゅーるには目もくらうようにまっしぐらにやってきます、もらえないといつまでまを出ちゃう、ホールを守のおもちゃちゃもち
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.images/R7_6.png
+    protection_date: 2025-01
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_7.png - 左側
+  - external_id: No.2142
+    name: ハチワレ2142
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定5歳
+    gender: male
+    color: 白黒
+    size: null
+    health_status: FIV/FeLV陰性、少し鼻炎があり鼻がブヒブヒなります
+    personality: 慣れると良い子で胸のケージのところでごろごろとしてのお好き子、よくぞのまましばらいやって、優しく餅でをあげてください、懐くいら
+    special_needs: 少し鼻炎
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.images/R7_7.png
+    protection_date: 2025-10
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_7.png - 右側
+  - external_id: No.2141
+    name: 黒猫2141
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定5歳
+    gender: male
+    color: 黒
+    size: null
+    health_status: FIV/FeLV陰性、強勢が少し胡蝶を取ります、2匹共右耳に耳カット
+    personality: 大人で慣れさせてくれます、手足が長く、かっしりした体つきです、抱きも地頭、最ら良く餅出てくれるおこ
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.images/R7_7.png
+    protection_date: 2025-10
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_8.png
+  - external_id: No.6035
+    name: 灰白猫6035
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定5歳
+    gender: male
+    color: 灰白
+    size: null
+    health_status: FIV/FeLV陰性、両目が覚えていません、物音や人の気配を感取に繋がれます
+    personality: とても人間そっくり、他の猫と接わらないかかしれはねーす、リサリとできます、左耳が少し離かかったようになっています
+    special_needs: 両目が見えない
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.images/R7_8.png
+    protection_date: 2025-10
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_9.png - 左側
+  - external_id: No.6040
+    name: ハチワレ6040
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定5歳
+    gender: female
+    color: 黒白
+    size: null
+    health_status: FIV/FeLV陰性
+    personality: すこうし警戒心が入りるところありますが、右目はうらっぽち覚えていません、左目は見えております、怖勝てを鋭利ばぐすりしてるのでゃ呼勝です
+    special_needs: 右目が見えない
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats3.images/R7_9.png
+    protection_date: 2025-01
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats3.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_9.png - 右側
+  - external_id: No.2091
+    name: 白猫2091
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定9歳
+    gender: female
+    color: 白黒
+    size: null
+    health_status: FIV/FeLV陰性、昔には鼻炎になります
+    personality: 小さめですが、おやつは大好き！おしゅっリん久しながら自分よりおおき子猫に負けず、食べに来まございます
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats3.images/R7_9.png
+    protection_date: 2025-10
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats3.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_10.png - 左側
+  - external_id: No.6058
+    name: 黒猫6058
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定5歳
+    gender: female
+    color: 黒
+    size: null
+    health_status: FIV/FeLV陰性、少し鼻がります
+    personality: あごになでるのが好きです、おしりトントンも好きです、左聴か少し離かかったようになっています
+    special_needs: 少し鼻炎
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats3.images/R7_10.png
+    protection_date: 2025-04
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats3.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_10.png - 右側
+  - external_id: No.7001
+    name: しっぽ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 約1歳
+    gender: female
+    color: 白黒
+    size: null
+    health_status: FIV/FeLV陰性、少し鼻炎がありますは、しっぽはめっちゃもじゃの方が小柄な女の子
+    personality: マヨ療護がありません、しっぽはめっちゃのじゃじゃもじゃの方が小柄な女の子です、体重は2kgちょっとの小柄な女の子
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats3.images/R7_10.png
+    protection_date: 2025-04
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats3.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_11.png - 左側
+  - external_id: No.7021
+    name: 灰白猫7021
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定4歳
+    gender: female
+    color: 灰白
+    size: null
+    health_status: FIV/FeLV陰性、少し鼻がります
+    personality: なでられるのもちゃんは好きです、しっぽは先は少しカエです
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats3.images/R7_11.png
+    protection_date: 2025-10
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats3.html
+    confidence_level: high
+    extraction_notes: []
+
+  # R7_11.png - 右側
+  - external_id: No.6026
+    name: キジ白6026
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定6歳
+    gender: female
+    color: キジ白
+    size: null
+    health_status: FIV/FeLV陰性、なかり除みまさんので
+    personality: ゆっくりと態度を励める人間に、整えるとジャーが出ちゃいます、ちゅーるときさみかメロメロです
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats3.images/R7_11.png
+    protection_date: 2025-10
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats3.html
+    confidence_level: high
+    extraction_notes: []
+
+  # 7005-2.png - 犬
+  - external_id: No.7005
+    name: 中型犬7005
+    animal_type: dog
+    breed: ミックス
+    age_estimate: 約1歳
+    gender: male
+    color: やや大きめの中型
+    size: やや大きめの中型
+    health_status: FIV/FeLV陰性
+    personality: ごはんもおやつも大好き、元気いっぱい、一緒にお散歩や一緒に遊んで欲しいと思っています、お散歩ははくいも引っ張らないように訓練が必要
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/centerdogs.images/7005-2.png
+    protection_date: 2025-07
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/centerdogs.html
+    confidence_level: high
+    extraction_notes: []
