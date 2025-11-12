@@ -1,0 +1,506 @@
+meta:
+  source_file: 20251112_040829_tail.html
+  source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+  extracted_at: '2025-11-12T04:08:29.422Z'
+  municipality: fukui/fukui-pref
+  total_count: 25
+animals:
+  - external_id: HC25378
+    name: null
+    breed: 雑種
+    age_estimate: 2025年春生まれ
+    gender: male
+    color: 短毛／三毛、グレー
+    size: 小型・中型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・三毛ちゃんは短めの前髪がチャームポイントです！！
+      ・グレーちゃんはとても綺麗な色で可愛いお顔の子です！！
+      ・人馴れ訓練中です。
+    images: &ref_0
+      - https://www.fapscsite.com/wp-content/uploads/2025/11/HC25378.25379.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/11/HC25378-scaled.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/11/HC25379-1-scaled.jpg
+    protection_location: 本所
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: '25379'
+    name: null
+    breed: 雑種
+    age_estimate: 2025年春生まれ
+    gender: female
+    color: 短毛／三毛、グレー
+    size: 小型・中型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・三毛ちゃんは短めの前髪がチャームポイントです！！
+      ・グレーちゃんはとても綺麗な色で可愛いお顔の子です！！
+      ・人馴れ訓練中です。
+    images: *ref_0
+    protection_location: 本所
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: HC25374
+    name: null
+    breed: 雑種
+    age_estimate: 2025年秋生まれ
+    gender: male
+    color: 短毛／サビ、キジ、茶キジ、黒
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・サビ、キジがメス、茶キジ、黒がオスです。
+      ・人馴れしていてとても可愛い子達です！
+    images: &ref_1
+      - https://www.fapscsite.com/wp-content/uploads/2025/11/C0E3DE32-FF57-44C5-BA55-ADCBE17B91B6.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/11/IMG_4150-1-scaled.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/11/IMG_4161-scaled.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/11/IMG_4163-scaled.jpg
+    protection_location: ボランティア宅(問い合わせ：本所)
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: HC25374
+    name: null
+    breed: 雑種
+    age_estimate: 2025年秋生まれ
+    gender: male
+    color: 短毛／サビ、キジ、茶キジ、黒
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・サビ、キジがメス、茶キジ、黒がオスです。
+      ・人馴れしていてとても可愛い子達です！
+    images: *ref_1
+    protection_location: ボランティア宅(問い合わせ：本所)
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: HC25374
+    name: null
+    breed: 雑種
+    age_estimate: 2025年秋生まれ
+    gender: female
+    color: 短毛／サビ、キジ、茶キジ、黒
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・サビ、キジがメス、茶キジ、黒がオスです。
+      ・人馴れしていてとても可愛い子達です！
+    images: *ref_1
+    protection_location: ボランティア宅(問い合わせ：本所)
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: HC25374
+    name: null
+    breed: 雑種
+    age_estimate: 2025年秋生まれ
+    gender: female
+    color: 短毛／サビ、キジ、茶キジ、黒
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・サビ、キジがメス、茶キジ、黒がオスです。
+      ・人馴れしていてとても可愛い子達です！
+    images: *ref_1
+    protection_location: ボランティア宅(問い合わせ：本所)
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: HC25309
+    name: null
+    breed: 雑種
+    age_estimate: 2025年秋生まれ
+    gender: female
+    color: 短毛／サビ
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・少し怖がりなサビちゃんです！
+      ・人馴れしています！！
+    images:
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/IMG_4118-scaled.jpg
+    protection_location: 本所
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: FC25368
+    name: null
+    breed: 雑種
+    age_estimate: 2025年秋生まれ
+    gender: male
+    color: 短毛／白、キジトラ、茶キジトラ
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・白、キジトラがメス、茶キジトラがオスです！
+      ・3匹とも人馴れしています！
+      ・白ちゃんと茶キジちゃんは譲渡が決定しました。
+    images: &ref_2
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/IMG_4123.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/IMG_4110-scaled.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/FC25368-1.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/FC25369-1.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/FC25370-1.jpg
+    protection_location: 本所
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: FC25368
+    name: null
+    breed: 雑種
+    age_estimate: 2025年秋生まれ
+    gender: female
+    color: 短毛／白、キジトラ、茶キジトラ
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・白、キジトラがメス、茶キジトラがオスです！
+      ・3匹とも人馴れしています！
+      ・白ちゃんと茶キジちゃんは譲渡が決定しました。
+    images: *ref_2
+    protection_location: 本所
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: FC25368
+    name: null
+    breed: 雑種
+    age_estimate: 2025年秋生まれ
+    gender: female
+    color: 短毛／白、キジトラ、茶キジトラ
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・白、キジトラがメス、茶キジトラがオスです！
+      ・3匹とも人馴れしています！
+      ・白ちゃんと茶キジちゃんは譲渡が決定しました。
+    images: *ref_2
+    protection_location: 本所
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: HC25263
+    name: null
+    breed: 雑種
+    age_estimate: 2025年春生まれ
+    gender: male
+    color: 短毛／2匹ともキジ白
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　実施済み。
+      ・人馴れ訓練中です。
+    images: &ref_3
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/IMG_4052.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/IMG_4050-scaled.jpg
+    protection_location: 本所
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: '25264'
+    name: null
+    breed: 雑種
+    age_estimate: 2025年春生まれ
+    gender: unknown
+    color: 短毛／2匹ともキジ白
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　実施済み。
+      ・人馴れ訓練中です。
+    images: *ref_3
+    protection_location: 本所
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: medium
+    extraction_notes:
+      - 性別情報が不明確です
+  - external_id: HC25334
+    name: null
+    breed: 雑種
+    age_estimate: 2025年夏生まれ
+    gender: male
+    color: 短毛／サバ白、茶白：2匹、キジ
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・怖がりで人馴れ訓練中です。
+      ・オスはサバ白、茶白、メスはキジ、茶白の4匹です！
+      ・HC25334(サバ白).HC25335(茶白オス).HC25341(茶白メス)は譲渡が決定しました。
+    images: &ref_4
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/IMG_4043.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/HC25334-2-1.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/HC25335-1.png
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/HC25336-1.png
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/HC25341-1.jpg
+    protection_location: 本所
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: HC25334
+    name: null
+    breed: 雑種
+    age_estimate: 2025年夏生まれ
+    gender: male
+    color: 短毛／サバ白、茶白：2匹、キジ
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・怖がりで人馴れ訓練中です。
+      ・オスはサバ白、茶白、メスはキジ、茶白の4匹です！
+      ・HC25334(サバ白).HC25335(茶白オス).HC25341(茶白メス)は譲渡が決定しました。
+    images: *ref_4
+    protection_location: 本所
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: HC25334
+    name: null
+    breed: 雑種
+    age_estimate: 2025年夏生まれ
+    gender: female
+    color: 短毛／サバ白、茶白：2匹、キジ
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・怖がりで人馴れ訓練中です。
+      ・オスはサバ白、茶白、メスはキジ、茶白の4匹です！
+      ・HC25334(サバ白).HC25335(茶白オス).HC25341(茶白メス)は譲渡が決定しました。
+    images: *ref_4
+    protection_location: 本所
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: HC25334
+    name: null
+    breed: 雑種
+    age_estimate: 2025年夏生まれ
+    gender: female
+    color: 短毛／サバ白、茶白：2匹、キジ
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・怖がりで人馴れ訓練中です。
+      ・オスはサバ白、茶白、メスはキジ、茶白の4匹です！
+      ・HC25334(サバ白).HC25335(茶白オス).HC25341(茶白メス)は譲渡が決定しました。
+    images: *ref_4
+    protection_location: 本所
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: FC25319
+    name: null
+    breed: 雑種
+    age_estimate: 2025年夏生まれ
+    gender: female
+    color: キジ白：3匹、茶キジ白：1匹
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・怖がりで人馴れ訓練中です。
+      ・4匹とも可愛いお顔の女の子です！！
+    images: &ref_5
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/IMG_4027.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/FC25319.png
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/FC25320.png
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/FC25330-1.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/FC25331-1.jpg
+    protection_location: 本所
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: '25320'
+    name: null
+    breed: 雑種
+    age_estimate: 2025年夏生まれ
+    gender: unknown
+    color: キジ白：3匹、茶キジ白：1匹
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・怖がりで人馴れ訓練中です。
+      ・4匹とも可愛いお顔の女の子です！！
+    images: *ref_5
+    protection_location: 本所
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: medium
+    extraction_notes:
+      - 性別情報が不明確です
+  - external_id: '25330'
+    name: null
+    breed: 雑種
+    age_estimate: 2025年夏生まれ
+    gender: unknown
+    color: キジ白：3匹、茶キジ白：1匹
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・怖がりで人馴れ訓練中です。
+      ・4匹とも可愛いお顔の女の子です！！
+    images: *ref_5
+    protection_location: 本所
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: medium
+    extraction_notes:
+      - 性別情報が不明確です
+  - external_id: '25331'
+    name: null
+    breed: 雑種
+    age_estimate: 2025年夏生まれ
+    gender: unknown
+    color: キジ白：3匹、茶キジ白：1匹
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・怖がりで人馴れ訓練中です。
+      ・4匹とも可愛いお顔の女の子です！！
+    images: *ref_5
+    protection_location: 本所
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: medium
+    extraction_notes:
+      - 性別情報が不明確です
+  - external_id: HC25275
+    name: null
+    breed: 雑種
+    age_estimate: 2025年夏生まれ
+    gender: female
+    color: 短毛／サビ
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・人馴れしています！
+    images:
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/542a831be86c99a02ec5d62c3335a5f8.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/f36c1677dc6a45ad50fdb1dbd7416232.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/HC25275.jpg
+    protection_location: ボランティア宅（問い合わせ：本所）
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: HC25338
+    name: null
+    breed: 雑種
+    age_estimate: 幼齢（離乳済み）
+    gender: male
+    color: 短毛／黒、半長毛／茶トラ、キジトラ
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断、ワクチン接種　未実施。
+      ・人馴れ訓練中です。
+      ※茶トラちゃんは譲渡が決定しました。
+    images:
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/acc62fc872fc00a03c26c0c9cf3f12be.png
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/HC25338.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/HC25339.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/10/HC25340.jpg
+    protection_location: ボランティア宅(問い合わせ：本所)
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: HC24466
+    name: null
+    breed: 雑種
+    age_estimate: 成猫
+    gender: male
+    color: 短毛／白
+    size: 中型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断 未実施。
+      ・イエローアイの男の子でとても可愛いです！
+      ・怖がりなため触ったりするのが難しいですが、人馴れ訓練中です！
+    images:
+      - https://www.fapscsite.com/wp-content/uploads/2025/09/IMG_4076-scaled.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/09/IMG_3250-scaled.jpg
+    protection_location: 本所
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: HC24464
+    name: null
+    breed: 雑種
+    age_estimate: 成猫
+    gender: female
+    color: 短毛／白
+    size: 中型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断 未実施。
+      ・怖がりなため触ったりするのが難しいですが、人馴れ訓練中です！
+    images:
+      - https://www.fapscsite.com/wp-content/uploads/2025/09/IMG_3247-scaled.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/09/IMG_3246-scaled.jpg
+    protection_location: 本所
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: HC24433
+    name: null
+    breed: 雑種
+    age_estimate: 成猫
+    gender: male
+    color: 短毛／グレー
+    size: 中型
+    health_status: null
+    personality: null
+    special_needs: |-
+      ・健康診断 未実施。
+      ・怖がりなため触ったりするのは難しいですが、人馴れ訓練中です！
+      ・きれいなグレーの男の子です！！
+    images:
+      - https://www.fapscsite.com/wp-content/uploads/2025/09/Z08_7745-scaled.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/09/Z08_7746-scaled.jpg
+      - https://www.fapscsite.com/wp-content/uploads/2025/09/HC24433-300x240-1.webp
+      - https://www.fapscsite.com/wp-content/uploads/2025/09/IMG_2452-1-scaled.jpg
+    protection_location: 本所
+    source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
+    confidence_level: high
+    extraction_notes: []
