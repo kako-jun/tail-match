@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-12T06:27:35.003Z",
+  "url": "https://shuyojoho.metro.tokyo.lg.jp/",
+  "has_animals": true,
+  "html_size": 6566,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}

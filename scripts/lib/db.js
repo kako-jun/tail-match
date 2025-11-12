@@ -163,9 +163,9 @@ class TailMatchDB {
         municipality_id, external_id, animal_type, name, breed,
         age_estimate, gender, color, size, health_status,
         personality, special_needs, images, protection_date,
-        deadline_date, status, source_url, last_scraped_at
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-      ON CONFLICT(municipality_id, external_id) 
+        deadline_date, status, source_url, listing_type, last_scraped_at
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(municipality_id, external_id)
       DO UPDATE SET
         name = excluded.name,
         breed = excluded.breed,
@@ -181,6 +181,7 @@ class TailMatchDB {
         deadline_date = excluded.deadline_date,
         status = excluded.status,
         source_url = excluded.source_url,
+        listing_type = excluded.listing_type,
         last_scraped_at = excluded.last_scraped_at,
         updated_at = CURRENT_TIMESTAMP
     `);
@@ -203,6 +204,7 @@ class TailMatchDB {
       tailData.deadline_date,
       tailData.status || 'available',
       tailData.source_url,
+      tailData.listing_type || 'adoption',
       new Date().toISOString()
     );
 
