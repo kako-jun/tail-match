@@ -21,10 +21,10 @@ import yaml from 'js-yaml';
 // ========================================
 
 const CONFIG = {
-  municipality: 'ishikawa',
+  municipality: 'ishikawa/aigo-ishikawa',
   municipalityId: 1,
-  htmlDir: 'data/html/ishikawa',
-  yamlOutputDir: 'data/yaml/ishikawa',
+  htmlDir: 'data/html/ishikawa/aigo-ishikawa',
+  yamlOutputDir: 'data/yaml/ishikawa/aigo-ishikawa',
 
   // 抽出ルール
   selectors: {
