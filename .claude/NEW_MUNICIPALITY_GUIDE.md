@@ -40,6 +40,18 @@
 - URLや連絡先情報が既に登録されている
 - Web検索せずにまずローカルの情報を確認する
 
+### ❌ 7. YAML出力時にmetaセクションを忘れる
+
+- `yaml.dump()` の構造に**必ず `meta:` セクション**を含める
+- ❌ トップレベルに `municipality`, `source_url` を配置
+- ✅ `meta` オブジェクト内に配置
+
+### ❌ 8. yaml-to-db.js の municipalities 配列に追加し忘れる
+
+- 新規自治体を追加したら**必ず `CONFIG.municipalities` に追加**
+- 追加しないとDB投入時にスキップされる
+- Step 7の最終チェックリストで確認
+
 ---
 
 ## ✅ 正しいファイル構造
@@ -86,8 +98,8 @@ data/
 **まず最初に** `.claude/shelters/` のYAMLファイルを確認してください：
 
 ```bash
-# 対象地域のYAMLファイルを確認（例：中部地方）
-grep -A 20 "富山" .claude/shelters/chubu.yaml
+# 対象地域のYAMLファイルを確認（例：中部地方の福井県）
+grep -A 20 "福井" .claude/shelters/chubu.yaml
 
 # または地域別に確認
 ls .claude/shelters/
@@ -97,10 +109,25 @@ ls .claude/shelters/
 **確認すべき情報**:
 
 - `website_url`: 公式サイトURL
-- `adoption_page_url`: 譲渡ページURL（これを使う）
+- `adoption_page_url`: 譲渡ページURL（⚠️ これを使う）
 - `phone`, `address`: 連絡先情報
 - `site_analysis.investigated`: 調査済みか
 - `scraping_config`: スクレイピング設定（あれば参考にする）
+
+**例（福井県の場合）**:
+
+```yaml
+- id: 'fukui_18_main'
+  prefecture_code: '18'
+  prefecture_name: '福井県'
+  name: '福井県動物愛護管理センター'
+  contact_info:
+    website_url: 'https://www.pref.fukui.lg.jp/...'
+    adoption_page_url: 'https://www.pref.fukui.lg.jp/...' # ⚠️ 404の可能性
+    phone: '0776-38-1135'
+```
+
+⚠️ **URLが404の場合**: Web検索で最新URLを探す（外部サイトの可能性もある）
 
 ### Step 1: 調査
 
@@ -149,7 +176,7 @@ const CONFIG = {
 **既存のパーサーをコピー**して修正：
 
 ```bash
-cp scripts/scrapers/ishikawa/html-to-yaml.js scripts/scrapers/kanazawa/html-to-yaml.js
+cp scripts/scrapers/{existing_municipality}/html-to-yaml.js scripts/scrapers/{new_municipality}/html-to-yaml.js
 ```
 
 **修正する箇所**:
@@ -157,11 +184,40 @@ cp scripts/scrapers/ishikawa/html-to-yaml.js scripts/scrapers/kanazawa/html-to-y
 ```javascript
 const CONFIG = {
   municipality: 'ishikawa/kanazawa-city', // ⚠️ パス形式
-  municipalityId: 2, // ⚠️ DBのID（未登録なら仮でOK）
-  htmlDir: 'data/html/ishikawa/kanazawa-city', // ⚠️ archiveなし
-  yamlOutputDir: 'data/yaml/ishikawa/kanazawa-city',
-  sourceUrl: '対象URL',
+  base_url: 'https://example.com',
+  source_url: '対象URL',
 };
+```
+
+**⚠️ 重要: YAML出力構造（metaセクション必須）**:
+
+```javascript
+// ✅ 正しい構造（metaセクションがある）
+const yamlContent = yaml.dump(
+  {
+    meta: {
+      source_file: `${timestamp}_tail.html`,
+      source_url: CONFIG.source_url,
+      extracted_at: new Date().toISOString(),
+      municipality: CONFIG.municipality,
+      total_count: allCats.length,
+    },
+    animals: allCats,
+  },
+  { indent: 2, lineWidth: -1 }
+);
+
+// ❌ 間違い（metaセクションがない）
+const yamlContent = yaml.dump(
+  {
+    municipality: CONFIG.municipality, // トップレベルはNG
+    source_url: CONFIG.source_url, // トップレベルはNG
+    scraped_at: new Date().toISOString(),
+    total_count: allCats.length,
+    animals: allCats,
+  },
+  { indent: 2, lineWidth: -1 }
+);
 ```
 
 **抽出ロジックを修正**:
@@ -233,7 +289,105 @@ cat > scripts/scrapers/{municipality}/README.md << 'EOF'
 EOF
 ```
 
-### Step 7: yaml-to-db.js に追加
+### Step 7: 最終チェックリスト（⚠️ 必須）
+
+**DB投入前に必ず確認してください！よくあるミスを防ぎます。**
+
+#### ✅ 1. YAML構造チェック
+
+```bash
+# YAMLファイルの先頭を確認
+head -20 data/yaml/{prefecture}/{municipality}/*.yaml
+```
+
+**必須要素**:
+
+- ✅ `meta:` セクションが存在する
+- ✅ `meta.source_file` が設定されている
+- ✅ `meta.source_url` が設定されている
+- ✅ `meta.extracted_at` が設定されている
+- ✅ `meta.municipality` が設定されている
+- ✅ `animals:` 配列が存在する
+
+**NG例**（metaがない）:
+
+```yaml
+municipality: fukui/fukui-pref # ❌ トップレベルにmunicipality
+source_url: ... # ❌ トップレベルにsource_url
+animals:
+  - ...
+```
+
+**OK例**:
+
+```yaml
+meta: # ✅ metaセクション
+  source_file: ...
+  source_url: ...
+  extracted_at: ...
+  municipality: fukui/fukui-pref
+animals:
+  - ...
+```
+
+#### ✅ 2. yaml-to-db.js の municipalities 配列チェック
+
+```bash
+# 現在登録されている自治体を確認
+grep -A 10 "municipalities:" scripts/yaml-to-db.js
+```
+
+**新しい自治体を追加**:
+
+```javascript
+const CONFIG = {
+  municipalities: [
+    'ishikawa/aigo-ishikawa',
+    'ishikawa/kanazawa-city',
+    'toyama/toyama-pref',
+    'fukui/fukui-pref', // ⚠️ 追加を忘れずに！
+  ],
+  // ...
+};
+```
+
+#### ✅ 3. import paths チェック
+
+```bash
+# scrape.js と html-to-yaml.js の import を確認
+grep "from.*lib" scripts/scrapers/{prefecture}/{municipality}/*.js
+```
+
+**県階層がある場合は `../../../lib/`**:
+
+```javascript
+// ✅ 正しい（fukui/fukui-pref の場合）
+import { saveHtml } from '../../../lib/html-saver.js';
+
+// ❌ 間違い
+import { saveHtml } from '../../lib/html-saver.js';
+```
+
+#### ✅ 4. municipality パス形式チェック
+
+```bash
+# scrape.js の CONFIG を確認
+grep "municipality:" scripts/scrapers/{prefecture}/{municipality}/scrape.js
+```
+
+**パス形式で指定**:
+
+```javascript
+// ✅ 正しい
+municipality: 'fukui/fukui-pref',
+
+// ❌ 間違い
+municipality: 'fukui-pref',
+```
+
+### Step 8: yaml-to-db.js に追加
+
+**Step 7の✅2を実施してください。**
 
 ```javascript
 const CONFIG = {
@@ -245,7 +399,7 @@ const CONFIG = {
 };
 ```
 
-### Step 8: DB投入
+### Step 9: DB投入
 
 ```bash
 # DRY-RUN（確認のみ）
