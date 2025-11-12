@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-12T17:10:21.866+09:00",
+  "url": "https://www.city.saitama.jp/008/004/003/005/jyoutonekonosyoukai.html",
+  "has_animals": true,
+  "html_size": 50872,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}
