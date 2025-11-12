@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-12T06:00:34.141Z",
+  "url": "http://www.hyogo-douai.sakura.ne.jp/jyouto4.html",
+  "has_animals": true,
+  "html_size": 9673,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}
