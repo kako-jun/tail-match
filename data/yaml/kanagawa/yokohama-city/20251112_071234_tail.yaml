@@ -1,0 +1,216 @@
+meta:
+  source_file: 20251112_071234_tail.html
+  source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+  extracted_at: '2025-11-12T07:12:34.461Z'
+  municipality: kanagawa/yokohama-city
+  municipality_id: 16
+  total_count: 9
+  note: 譲渡動物情報（新しい飼い主募集中）- 詳細は電話問い合わせ必須
+animals:
+  - external_id: yokohama-134
+    name: 横浜市-134
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: 詳細は横浜市動物愛護センターへお問い合わせください
+    images:
+      - https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.images/134jotof25101501.jpg
+    protection_date: '2025-10-15'
+    deadline_date: null
+    source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - 'お問合せ番号: 134'
+      - 詳細情報は電話問い合わせのみ（045-471-2111）
+    listing_type: adoption
+    inquiry_number: '134'
+  - external_id: yokohama-133
+    name: 横浜市-133
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: 詳細は横浜市動物愛護センターへお問い合わせください
+    images:
+      - https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.images/133jotof25071401.jpg
+    protection_date: '2025-07-14'
+    deadline_date: null
+    source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - 'お問合せ番号: 133'
+      - 詳細情報は電話問い合わせのみ（045-471-2111）
+    listing_type: adoption
+    inquiry_number: '133'
+  - external_id: yokohama-132
+    name: 横浜市-132
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: 詳細は横浜市動物愛護センターへお問い合わせください
+    images:
+      - https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.images/132jotof25100201.jpg
+    protection_date: '2025-10-02'
+    deadline_date: null
+    source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - 'お問合せ番号: 132'
+      - 詳細情報は電話問い合わせのみ（045-471-2111）
+    listing_type: adoption
+    inquiry_number: '132'
+  - external_id: yokohama-131
+    name: 横浜市-131
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: 詳細は横浜市動物愛護センターへお問い合わせください
+    images:
+      - https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.images/131jotof2101602.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - 'お問合せ番号: 131'
+      - 詳細情報は電話問い合わせのみ（045-471-2111）
+    listing_type: adoption
+    inquiry_number: '131'
+  - external_id: yokohama-130
+    name: 横浜市-130
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: 詳細は横浜市動物愛護センターへお問い合わせください
+    images:
+      - https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.images/130jotof25073101.jpg
+    protection_date: '2025-07-31'
+    deadline_date: null
+    source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - 'お問合せ番号: 130'
+      - 詳細情報は電話問い合わせのみ（045-471-2111）
+    listing_type: adoption
+    inquiry_number: '130'
+  - external_id: yokohama-110
+    name: 横浜市-110
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: 詳細は横浜市動物愛護センターへお問い合わせください
+    images:
+      - https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.images/110jotof25072401.JPG
+    protection_date: '2025-07-24'
+    deadline_date: null
+    source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - 'お問合せ番号: 110'
+      - 詳細情報は電話問い合わせのみ（045-471-2111）
+    listing_type: adoption
+    inquiry_number: '110'
+  - external_id: yokohama-114
+    name: 横浜市-114
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: 詳細は横浜市動物愛護センターへお問い合わせください
+    images:
+      - https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.images/114jotof24020901.JPG
+    protection_date: '2024-02-09'
+    deadline_date: null
+    source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - 'お問合せ番号: 114'
+      - 詳細情報は電話問い合わせのみ（045-471-2111）
+    listing_type: adoption
+    inquiry_number: '114'
+  - external_id: yokohama-111
+    name: 横浜市-111
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: 詳細は横浜市動物愛護センターへお問い合わせください
+    images:
+      - https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.images/111jotof24031401.JPG
+    protection_date: '2024-03-14'
+    deadline_date: null
+    source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - 'お問合せ番号: 111'
+      - 詳細情報は電話問い合わせのみ（045-471-2111）
+    listing_type: adoption
+    inquiry_number: '111'
+  - external_id: yokohama-946
+    name: 横浜市-946
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: 詳細は横浜市動物愛護センターへお問い合わせください
+    images:
+      - https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.images/946jotof23082401.jpg
+    protection_date: '2023-08-24'
+    deadline_date: null
+    source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - 'お問合せ番号: 946'
+      - 詳細情報は電話問い合わせのみ（045-471-2111）
+    listing_type: adoption
+    inquiry_number: '946'
