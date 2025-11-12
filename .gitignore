@@ -87,4 +87,9 @@ ENV/
 *.swo
 
 # OS
-Thumbs.dbdata/images/
+Thumbs.db
+
+# Data files (exclude from git)
+data/images/
+*.db.backup
+scripts/migrate-*.js  # One-time migration scripts
