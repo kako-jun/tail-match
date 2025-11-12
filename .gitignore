@@ -38,8 +38,8 @@ next-env.d.ts
 
 # Database
 /postgres_data
-# *.db  # SQLiteデータベースもバージョン管理対象にする
-# *.sqlite
+*.db  # SQLiteデータベースは除外（YAMLから再現可能）
+*.sqlite
 
 # Python
 __pycache__/
