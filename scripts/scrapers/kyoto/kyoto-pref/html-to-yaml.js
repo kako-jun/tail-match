@@ -102,11 +102,11 @@ function extractCatFromContent($, content, index) {
   // タイトル取得
   const title = $content.find('h2').text().trim();
 
-  // 譲渡決定済みはスキップ
-  if (title.includes('新しい飼い主さんが決まりました') || title.includes('決まりました')) {
-    console.log(`  ⏭️  スキップ: ${title} （譲渡決定済み）`);
-    return null;
-  }
+  // 譲渡決定済みも含めて抽出（statusフィールドで判別）
+  // if (title.includes('新しい飼い主さんが決まりました') || title.includes('決まりました')) {
+  //   console.log(`  ⏭️  スキップ: ${title} （譲渡決定済み）`);
+  //   return null;
+  // }
 
   // 名前を抽出（"センター名：" を除去）
   let name = title.replace(/センター名[：:]/g, '').trim();
@@ -133,6 +133,15 @@ function extractCatFromContent($, content, index) {
   // 性別解析
   const gender = parseGender(tableInfo['性別']);
 
+  // 譲渡済み判定（タイトルとコンテンツ全体のテキストで判定）
+  const contentText = $content.text();
+  const isAdopted =
+    title.includes('新しい飼い主さんが決まりました') ||
+    title.includes('決まりました') ||
+    contentText.includes('譲渡済み') ||
+    contentText.includes('譲渡しました') ||
+    contentText.includes('譲渡決定');
+
   // 猫オブジェクト作成
   const cat = {
     external_id: external_id,
@@ -147,6 +156,7 @@ function extractCatFromContent($, content, index) {
     special_needs: null,
     images: images,
     protection_location: null,
+    status: isAdopted ? 'adopted' : 'available',
     source_url: CONFIG.source_url,
     confidence_level: 'high',
     extraction_notes: [],

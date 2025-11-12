@@ -169,6 +169,13 @@ function extractCatFromTable($, table, index) {
     external_id = `osaka_unknown_${Date.now()}_${index}`;
   }
 
+  // 譲渡済み判定（テーブル全体のテキストで判定）
+  const tableText = $table.text();
+  const isAdopted =
+    tableText.includes('譲渡済み') ||
+    tableText.includes('譲渡しました') ||
+    tableText.includes('譲渡決定');
+
   const cat = {
     external_id: external_id,
     name: null, // 名前情報がないため、後でgenerateDefaultNameで生成される
@@ -182,6 +189,7 @@ function extractCatFromTable($, table, index) {
     special_needs: null,
     images: images.length > 0 ? images : [],
     protection_location: null,
+    status: isAdopted ? 'adopted' : 'available',
     source_url: CONFIG.source_url,
     confidence_level: 'high',
     extraction_notes: [],

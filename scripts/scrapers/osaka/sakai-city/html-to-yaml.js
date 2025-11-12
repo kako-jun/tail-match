@@ -67,6 +67,13 @@ function extractCatFromImage(imageUrl, index) {
   // 画像ファイル名を抽出 (例: "R7_1.png" → "R7_1")
   const filename = path.basename(imageUrl, path.extname(imageUrl));
 
+  // 譲渡済み判定（画像URLやファイル名で判定）
+  const isAdopted =
+    imageUrl.includes('譲渡済み') ||
+    imageUrl.includes('譲渡しました') ||
+    imageUrl.includes('譲渡決定') ||
+    filename.includes('譲渡済');
+
   return {
     external_id: filename,
     name: `堺市_${filename}`, // 仮の名前
@@ -81,6 +88,7 @@ function extractCatFromImage(imageUrl, index) {
     special_needs: null,
     images: [imageUrl],
     protection_location: null,
+    status: isAdopted ? 'adopted' : 'available',
     source_url: CONFIG.source_url,
     confidence_level: 'low', // 画像のみのため信頼度は低い
     extraction_notes: [

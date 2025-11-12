@@ -192,6 +192,13 @@ function extractCatFromCard($, $card, index) {
   // external_idを生成（仮名がない場合はインデックス）
   const externalId = name ? `kanagawa-${name}` : `kanagawa-unknown-${index}`;
 
+  // 譲渡済み判定（カード全体のテキストで判定）
+  const cardText = $card.text();
+  const isAdopted =
+    cardText.includes('譲渡済み') ||
+    cardText.includes('譲渡しました') ||
+    cardText.includes('譲渡決定');
+
   return {
     external_id: externalId,
     name: name,
@@ -207,6 +214,7 @@ function extractCatFromCard($, $card, index) {
     images: imageUrl ? [imageUrl] : [],
     protection_date: protectionDate,
     deadline_date: null, // 譲渡猫には期限なし
+    status: isAdopted ? 'adopted' : 'available',
     source_url: CONFIG.source_url,
     confidence_level: 'high',
     extraction_notes: [

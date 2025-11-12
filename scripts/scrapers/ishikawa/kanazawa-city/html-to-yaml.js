@@ -132,7 +132,12 @@ function extractAnimalsFromHTML(html, sourceUrl, htmlFilename) {
         images: normalizedImageUrl ? [normalizedImageUrl] : [],
         protection_date: null,
         deadline_date: null,
-        status: 'available',
+        status:
+          details.includes('譲渡済み') ||
+          details.includes('譲渡しました') ||
+          details.includes('譲渡決定')
+            ? 'adopted'
+            : 'available',
         transfer_decided: false,
         source_url: sourceUrl,
         confidence_score: name ? 0.9 : 0.6, // 名前が抽出できたら高スコア

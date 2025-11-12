@@ -257,8 +257,11 @@ function extractAnimalFromContainer($container, index, sourceUrl, $) {
     protection_date: extractDate(text, 'protection'),
     deadline_date: extractDate(text, 'deadline'),
 
-    // ステータス
-    status: 'available',
+    // ステータス（譲渡済み判定）
+    status:
+      text.includes('譲渡済み') || text.includes('譲渡しました') || text.includes('譲渡決定')
+        ? 'adopted'
+        : 'available',
     transfer_decided: false,
 
     // メタデータ
@@ -400,7 +403,12 @@ function extractAnimalsFromText($, sourceUrl) {
       color: extractColor(section),
       size: 'medium',
       health_status: extractHealthInfo(section),
-      status: 'available',
+      status:
+        section.includes('譲渡済み') ||
+        section.includes('譲渡しました') ||
+        section.includes('譲渡決定')
+          ? 'adopted'
+          : 'available',
       source_url: sourceUrl,
       extraction_method: 'text_fallback',
       raw_text: section.substring(0, 300),

@@ -40,6 +40,7 @@ function extractCatInfo($, $heading, index) {
   const gender = genderText === 'オス' ? 'male' : 'female';
 
   const images = [];
+  const textParts = [headingText];
   let $next = $heading.next();
   while ($next.length && !$next.is('h3') && !$next.is('h4')) {
     $next.find('img').each((i, img) => {
@@ -48,8 +49,17 @@ function extractCatInfo($, $heading, index) {
         images.push(src.startsWith('http') ? src : CONFIG.base_url + src);
       }
     });
+    const text = $next.text().trim();
+    if (text) textParts.push(text);
     $next = $next.next();
   }
+
+  // 譲渡済み判定（この動物のテキスト範囲のみで判定）
+  const fullText = textParts.join(' ');
+  const isAdopted =
+    fullText.includes('譲渡済み') ||
+    fullText.includes('譲渡しました') ||
+    fullText.includes('譲渡決定');
 
   return {
     external_id: `hokkaido-pref-${index}`,
@@ -66,6 +76,7 @@ function extractCatInfo($, $heading, index) {
     images,
     protection_date: null,
     deadline_date: null,
+    status: isAdopted ? 'adopted' : 'available',
     source_url: CONFIG.source_url,
     confidence_level: 'high',
     extraction_notes: ['飼い主募集中'],

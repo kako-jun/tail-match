@@ -156,7 +156,12 @@ function extractAnimalsFromHTML(html, sourceUrl, htmlFilename) {
         images: normalizedImageUrl ? [normalizedImageUrl] : [],
         protection_date: null,
         deadline_date: null,
-        status: 'available',
+        status:
+          textToAnalyze.includes('譲渡済み') ||
+          textToAnalyze.includes('譲渡しました') ||
+          textToAnalyze.includes('譲渡決定')
+            ? 'adopted'
+            : 'available',
         transfer_decided: false,
         source_url: normalizedLinkUrl,
         confidence_score: name && animalId ? 0.9 : name ? 0.7 : 0.5,
