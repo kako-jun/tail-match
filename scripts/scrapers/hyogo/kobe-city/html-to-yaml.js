@@ -112,10 +112,13 @@ function extractCatsFromPage($) {
         rowText.includes('譲渡しました') ||
         rowText.includes('譲渡決定');
 
+      // 動物種判定（デフォルトは猫）
+      const animalType = /犬|イヌ|dog/i.test(rowText) ? 'dog' : 'cat';
+
       const cat = {
         external_id: `kobe-${i + 1}`,
         name: $cells.eq(0).text().trim() || null,
-        animal_type: 'cat',
+        animal_type: animalType,
         breed: $cells.eq(1).text().trim() || null,
         age_estimate: null,
         gender: parseGender($cells.eq(2).text().trim()),
