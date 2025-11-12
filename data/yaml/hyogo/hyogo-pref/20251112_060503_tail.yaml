@@ -1,0 +1,25 @@
+meta:
+  source_file: 20251112_060503_tail.html
+  source_url: http://www.hyogo-douai.sakura.ne.jp/jyouto4.html
+  extracted_at: '2025-11-12T06:05:03.896Z'
+  municipality: hyogo/hyogo-pref
+  municipality_id: 11
+  total_count: 1
+animals:
+  - external_id: hyogo-1
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 推定２歳１か月齢
+    gender: male
+    color: null
+    size: null
+    health_status: 去勢済み
+    personality: null
+    special_needs: null
+    images:
+      - http://www.hyogo-douai.sakura.ne.jp/il20240625123145/img/image52.JPG
+    protection_date: null
+    source_url: http://www.hyogo-douai.sakura.ne.jp/jyouto4.html
+    confidence_level: high
+    extraction_notes: []
