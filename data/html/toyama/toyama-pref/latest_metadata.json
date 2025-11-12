@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-12T03:10:28.288Z",
+  "url": "https://www.pref.toyama.jp/1207/kurashi/seikatsu/seikatsu/doubutsuaigo/cat.html",
+  "has_animals": true,
+  "html_size": 75595,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}
