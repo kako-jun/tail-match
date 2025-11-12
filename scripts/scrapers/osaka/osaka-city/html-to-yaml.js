@@ -217,9 +217,13 @@ function extractCatFromSection($, $h3, index) {
     fullText.includes('譲渡しました') ||
     fullText.includes('譲渡決定');
 
+  // 動物種判定（デフォルトは猫）
+  const animalType = /犬|イヌ|dog/i.test(fullText) ? 'dog' : 'cat';
+
   const cat = {
     external_id: id,
     name: name,
+    animal_type: animalType,
     breed: details?.breed,
     age_estimate: details?.age,
     gender: details?.gender || 'unknown',

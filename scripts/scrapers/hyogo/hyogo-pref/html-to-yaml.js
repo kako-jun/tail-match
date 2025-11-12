@@ -122,10 +122,13 @@ function extractCatFromGalleryItem($, $item, index) {
     content.includes('譲渡しました') ||
     content.includes('譲渡決定');
 
+  // 動物種判定（デフォルトは猫）
+  const animalType = /犬|イヌ|dog/i.test(content) ? 'dog' : 'cat';
+
   return {
     external_id: externalId,
     name: null, // 名前なし
-    animal_type: 'cat',
+    animal_type: animalType,
     breed: breed,
     age_estimate: age,
     gender: gender,

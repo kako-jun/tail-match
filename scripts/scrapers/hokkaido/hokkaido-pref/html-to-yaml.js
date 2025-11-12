@@ -61,10 +61,13 @@ function extractCatInfo($, $heading, index) {
     fullText.includes('譲渡しました') ||
     fullText.includes('譲渡決定');
 
+  // 動物種判定（この動物のテキスト範囲で判定、デフォルトは猫）
+  const animalType = /犬|イヌ|dog/i.test(fullText) ? 'dog' : 'cat';
+
   return {
     external_id: `hokkaido-pref-${index}`,
     name,
-    animal_type: 'cat',
+    animal_type: animalType,
     breed: null,
     age_estimate: ageText,
     gender,
