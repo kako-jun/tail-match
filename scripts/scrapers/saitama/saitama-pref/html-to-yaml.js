@@ -162,6 +162,13 @@ async function main() {
         }
       });
 
+      // 譲渡済み判定（テーブル全体のテキストで判定）
+      const tableText = $table.text();
+      const isAdopted =
+        tableText.includes('譲渡済み') ||
+        tableText.includes('譲渡しました') ||
+        tableText.includes('譲渡決定');
+
       // 管理番号が有効な場合のみ追加
       if (managementNumber && managementNumber !== '2025-' && managementNumber.length > 5) {
         const cat = {
@@ -179,6 +186,7 @@ async function main() {
           images: [],
           protection_date: collectionDate || null,
           deadline_date: null,
+          status: isAdopted ? 'adopted' : 'available',
           source_url: CONFIG.source_url,
           confidence_level: 'medium',
           extraction_notes: ['収容動物情報（迷子猫）', `収容場所: ${location || '不明'}`],
