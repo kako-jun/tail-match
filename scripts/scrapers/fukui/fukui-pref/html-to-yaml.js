@@ -185,7 +185,22 @@ function extractCatsFromArticle($, article) {
   const totalCats = Math.max(managementNumbers.length, genderInfo.length);
 
   for (let i = 0; i < totalCats; i++) {
-    const externalId = managementNumbers[i] || managementNumbers[0];
+    // 管理番号の割り当て
+    let externalId;
+
+    if (managementNumbers.length >= totalCats && managementNumbers[i]) {
+      // 管理番号が十分にある場合、そのまま使用
+      externalId = managementNumbers[i];
+    } else if (managementNumbers.length > 0) {
+      // 管理番号が不足している場合、サフィックスで一意化
+      // （例: HC25374 + 4匹 → HC25374-1, HC25374-2, HC25374-3, HC25374-4）
+      const baseId = managementNumbers[i] || managementNumbers[0];
+      externalId = `${baseId}-${i + 1}`;
+    } else {
+      // 管理番号が全くない場合
+      externalId = `fukui_unknown_${Date.now()}_${i}`;
+    }
+
     const gender = genderInfo[i] ? genderInfo[i].gender : 'unknown';
 
     const cat = {

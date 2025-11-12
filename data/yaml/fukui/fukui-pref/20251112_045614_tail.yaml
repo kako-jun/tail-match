@@ -1,7 +1,7 @@
 meta:
-  source_file: 20251112_040829_tail.html
+  source_file: 20251112_045614_tail.html
   source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
-  extracted_at: '2025-11-12T04:08:29.422Z'
+  extracted_at: '2025-11-12T04:56:14.883Z'
   municipality: fukui/fukui-pref
   total_count: 25
 animals:
@@ -46,7 +46,7 @@ animals:
     source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
     confidence_level: high
     extraction_notes: []
-  - external_id: HC25374
+  - external_id: HC25374-1
     name: null
     breed: 雑種
     age_estimate: 2025年秋生まれ
@@ -68,7 +68,7 @@ animals:
     source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
     confidence_level: high
     extraction_notes: []
-  - external_id: HC25374
+  - external_id: HC25374-2
     name: null
     breed: 雑種
     age_estimate: 2025年秋生まれ
@@ -86,7 +86,7 @@ animals:
     source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
     confidence_level: high
     extraction_notes: []
-  - external_id: HC25374
+  - external_id: HC25374-3
     name: null
     breed: 雑種
     age_estimate: 2025年秋生まれ
@@ -104,7 +104,7 @@ animals:
     source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
     confidence_level: high
     extraction_notes: []
-  - external_id: HC25374
+  - external_id: HC25374-4
     name: null
     breed: 雑種
     age_estimate: 2025年秋生まれ
@@ -141,7 +141,7 @@ animals:
     source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
     confidence_level: high
     extraction_notes: []
-  - external_id: FC25368
+  - external_id: FC25368-1
     name: null
     breed: 雑種
     age_estimate: 2025年秋生まれ
@@ -165,7 +165,7 @@ animals:
     source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
     confidence_level: high
     extraction_notes: []
-  - external_id: FC25368
+  - external_id: FC25368-2
     name: null
     breed: 雑種
     age_estimate: 2025年秋生まれ
@@ -184,7 +184,7 @@ animals:
     source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
     confidence_level: high
     extraction_notes: []
-  - external_id: FC25368
+  - external_id: FC25368-3
     name: null
     breed: 雑種
     age_estimate: 2025年秋生まれ
@@ -240,7 +240,7 @@ animals:
     confidence_level: medium
     extraction_notes:
       - 性別情報が不明確です
-  - external_id: HC25334
+  - external_id: HC25334-1
     name: null
     breed: 雑種
     age_estimate: 2025年夏生まれ
@@ -264,7 +264,7 @@ animals:
     source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
     confidence_level: high
     extraction_notes: []
-  - external_id: HC25334
+  - external_id: HC25334-2
     name: null
     breed: 雑種
     age_estimate: 2025年夏生まれ
@@ -283,7 +283,7 @@ animals:
     source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
     confidence_level: high
     extraction_notes: []
-  - external_id: HC25334
+  - external_id: HC25334-3
     name: null
     breed: 雑種
     age_estimate: 2025年夏生まれ
@@ -302,7 +302,7 @@ animals:
     source_url: https://www.fapscsite.com/adoptable_animal/animal_kind/cat/
     confidence_level: high
     extraction_notes: []
-  - external_id: HC25334
+  - external_id: HC25334-4
     name: null
     breed: 雑種
     age_estimate: 2025年夏生まれ
