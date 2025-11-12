@@ -1,0 +1,242 @@
+meta:
+  source_file: 20251112_171021_tail.html
+  source_url: https://www.city.saitama.jp/008/004/003/005/jyoutonekonosyoukai.html
+  extracted_at: '2025-11-12T17:16:01.767+09:00'
+  municipality: saitama/saitama-city
+  municipality_id: 16
+  total_count: 10
+  note: 譲渡猫情報（新しい飼い主募集中）
+animals:
+  - external_id: saitama-city-2
+    name: ひだか
+    animal_type: cat
+    breed: null
+    age_estimate: 5歳
+    gender: male
+    color: 茶白、太め
+    size: null
+    health_status: null
+    personality: とっても食いしん坊な男の子です。ごはんが大好きで、あげてもすぐに平らげてしまいます。撫でるとふみふみしてくれます。体が少し不自由で食べるのが少し下手ですが、歩いたり走ったりできます。少しびびりで、クッションの下に隠れてしまうこともあります（一生懸命隠れている姿も可愛いです）。便秘薬を飲んでいます。
+    special_needs: null
+    images:
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/142.jpg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/083.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.saitama.jp/008/004/003/005/jyoutonekonosyoukai.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡猫情報
+      - '名前: ひだか'
+    listing_type: adoption
+  - external_id: saitama-city-3
+    name: ボス
+    animal_type: cat
+    breed: null
+    age_estimate: 5歳
+    gender: male
+    color: 白茶、太め
+    size: null
+    health_status: null
+    personality: 毛がやわらかく、ふわふわで気持ちいいです。知っている人には、ニャーと話しかけてくれます。収容からしばらくは近づいてもシャーばかりしていましたが、最近はシャーすることが少なくなり、近くに寄ってきて撫でてほしそうにしている時もあります。神経症状があるようで、不自然に首を傾けたり、ぐるぐる歩き続けたりします。引き続き人慣れ訓練中です。左耳にVカットがあります。今はりーと一緒の部屋で過ごしています。
+    special_needs: null
+    images:
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/096.jpg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/097.jpg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/144.jpg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/150.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.saitama.jp/008/004/003/005/jyoutonekonosyoukai.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡猫情報
+      - '名前: ボス'
+    listing_type: adoption
+  - external_id: saitama-city-4
+    name: やまと
+    animal_type: cat
+    breed: null
+    age_estimate: 5歳
+    gender: male
+    color: 白、一部薄茶
+    size: null
+    health_status: null
+    personality: いつも部屋の隅か段ボールの中にいる、びびりでおとなしい猫です。より目でブルーアイが特徴です。キャリーに入れたり抱っこしようとしたりすると暴れてしまいます。もともと骨盤を骨折していましたが、日常生活に問題はありません。空腹時嘔吐をするときがあり、ごはんを複数回に分けて与えています。
+    special_needs: null
+    images:
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/094.jpg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/095.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.saitama.jp/008/004/003/005/jyoutonekonosyoukai.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡猫情報
+      - '名前: やまと'
+    listing_type: adoption
+  - external_id: saitama-city-5
+    name: みこと
+    animal_type: cat
+    breed: null
+    age_estimate: 1歳
+    gender: female
+    color: キジ白
+    size: null
+    health_status: null
+    personality: 鼻の白のラインがチャームポイントの美猫です。人見知りですが、慣れた人にはごろごろふみふみ抱きついてくれます。ごはんも大好きです。背骨を脱臼しており、下半身不随で両後肢を引きずっていますが、2本の前肢で動くことができます（けっこう素早く動けます）。昼間はかえでちゃんと過ごしています。排尿排便の介助が必要です。便秘薬を飲んでいます。左耳カットがあります。
+    special_needs: null
+    images:
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/107.jpg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/135.jpeg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/151.jpg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/152.jpg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/136.jpeg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/137.jpeg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.saitama.jp/008/004/003/005/jyoutonekonosyoukai.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡猫情報
+      - '名前: みこと'
+    listing_type: adoption
+  - external_id: saitama-city-6
+    name: かえで
+    animal_type: cat
+    breed: null
+    age_estimate: 1歳
+    gender: female
+    color: キジトラ
+    size: null
+    health_status: null
+    personality: とっても可愛い小柄な猫です。赤ちゃん猫の頃に収容され、手をかけて育てたので、人馴れはしていますが、女王様のようになってしまいました。生まれつき胸部が扁平で胸腔が狭く、呼吸がやや荒かったので、酸素室で暮らしていましたが、現在は酸素室の外でみことちゃんと過ごしています。両後肢にも異常があり、力が入らないので、両後肢を引きずっていますが、前肢で素早く動きます。排尿排便の介助が必要です。通常の子猫より発育が遅いですが、ついに体重が2キロを超えました。クッションをふみふみするのがブームでしたが、最近は新しいタオルを入れてもらうと喜んで独り占めします。
+    special_needs: null
+    images:
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/105.jpg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/141.jpeg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/139.jpeg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/153.jpg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/140.jpeg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/154.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.saitama.jp/008/004/003/005/jyoutonekonosyoukai.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡猫情報
+      - '名前: かえで'
+    listing_type: adoption
+  - external_id: saitama-city-7
+    name: ムロ
+    animal_type: cat
+    breed: null
+    age_estimate: 3歳
+    gender: male
+    color: 茶トラ、ずんぐりむっくり
+    size: null
+    health_status: null
+    personality: 唾が飛ぶほどシャーで威嚇しますが、小声でキャーキャーと鳴きます。人間が怖いのにケージ手前で待ち伏せています。猫は好きなようです。特にすみくんのことが大好きです。すみくんと仲良くしているエイズ仲間に嫉妬して、すみくんを独り占めしようと日々頑張っています。右側に麻痺があり、トイレの位置決めに時間がかかります。人間の指からちゅーるが出てくると思っているふしがあり、指を前歯で咬んでこし出そうとしてきます。猫エイズ陽性です。
+    special_needs: null
+    images:
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/134.jpeg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/118.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.saitama.jp/008/004/003/005/jyoutonekonosyoukai.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡猫情報
+      - '名前: ムロ'
+    listing_type: adoption
+  - external_id: saitama-city-8
+    name: しゅうじ
+    animal_type: cat
+    breed: null
+    age_estimate: 15歳以上
+    gender: male
+    color: 白サバ、やせ
+    size: null
+    health_status: null
+    personality: 左足を脱臼していて、歩けますが滑ってしまいがちです。ごはんは大好きで、大きな声で人を呼びます。歯はほとんどありません。人は大好きなので、よくスリスリしてくれます。なでてあげると喜びます。最近はトイレの位置を間違えてしまうので、ケージの外にいるときはオムツを履いています。
+    special_needs: null
+    images:
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/123.jpg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/124.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.saitama.jp/008/004/003/005/jyoutonekonosyoukai.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡猫情報
+      - '名前: しゅうじ'
+    listing_type: adoption
+  - external_id: saitama-city-9
+    name: すみ
+    animal_type: cat
+    breed: null
+    age_estimate: 7歳
+    gender: male
+    color: 黒、大きい
+    size: null
+    health_status: null
+    personality: 顔面から耳にかけて負傷しており、目はほとんど見えていないと思っていましたが、ピンポイントにすり寄ってきたりするので、少しは見えているのかもしれません。ごはんやちゅーるに対する執着がすごく、ほかの猫のごはんを盗んでいます。エイズ仲間のみんなと打ち解けていますが、最近はムロくんにしつこくされて少しうんざりしているようにも見えます。 人も大好きで、ずっとすりすりごろごろしてくれます。毛がふわふわで気持ちいいです。猫エイズ陽性です。
+    special_needs: null
+    images:
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/130.jpg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/131.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.saitama.jp/008/004/003/005/jyoutonekonosyoukai.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡猫情報
+      - '名前: すみ'
+    listing_type: adoption
+  - external_id: saitama-city-10
+    name: みつば
+    animal_type: cat
+    breed: null
+    age_estimate: 8歳
+    gender: female
+    color: キジ白
+    size: null
+    health_status: null
+    personality: 目の輪郭がはっきりした猫です。人が好きでエンドレスすりすりをしてくれます。ちゅーるも好きで、ちゅーるをくれる手をつかんで離しません。猫は嫌いなのか、わざわざケンカを売りに行くので単独で生活をしています。
+    special_needs: null
+    images:
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/145.jpg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/147.jpg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/146.jpg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/148.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.saitama.jp/008/004/003/005/jyoutonekonosyoukai.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡猫情報
+      - '名前: みつば'
+    listing_type: adoption
+  - external_id: saitama-city-11
+    name: りー
+    animal_type: cat
+    breed: null
+    age_estimate: 11歳
+    gender: male
+    color: 黒
+    size: null
+    health_status: null
+    personality: 人が好きで頭突きを何度もしてくれます。猫に対してもフレンドリーです。いまはボスと一緒の部屋で暮らしています。ケージを開けると隣の部屋にいるひだかくんにも挨拶しに行きます。後ろ脚やお腹の毛が薄いです。蛇口から流れる水を飲むのが好きです。
+    special_needs: null
+    images:
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/158.jpg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/156.jpg
+      - https://www.city.saitama.jp/008/004/003/005/./jyoutonekonosyoukai_d/img/157.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.saitama.jp/008/004/003/005/jyoutonekonosyoukai.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡猫情報
+      - '名前: りー'
+    listing_type: adoption
