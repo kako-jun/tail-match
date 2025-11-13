@@ -1,0 +1,282 @@
+meta:
+  source_file: 20251113_161419_tail.html
+  source_url: https://www.aniwel-pref.okinawa/animals/transfer/cats
+  extracted_at: '2025-11-13T16:14:19.629+09:00'
+  municipality: okinawa/okinawa-pref-cats
+  municipality_id: 21
+  total_count: 13
+  note: 譲渡希望猫情報
+animals:
+  - external_id: '23333'
+    name: アルン
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/23333/thumbnail_large_image.JPG
+    protection_date: 2025年10月1日
+    deadline_date: null
+    status: adopted
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/cats
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡済み猫情報
+    listing_type: adoption
+  - external_id: '23332'
+    name: ポー
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/23332/thumbnail_large_image.JPG
+    protection_date: 2025年10月1日
+    deadline_date: null
+    status: adopted
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/cats
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡済み猫情報
+    listing_type: adoption
+  - external_id: '23276'
+    name: つきみ
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/23276/thumbnail_large_image.jpg
+    protection_date: 2025年9月18日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/cats
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望猫情報
+    listing_type: adoption
+  - external_id: '23275'
+    name: だんご
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/23275/thumbnail_large_image.jpg
+    protection_date: 2025年9月18日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/cats
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望猫情報
+    listing_type: adoption
+  - external_id: '23274'
+    name: すすき
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/23274/thumbnail_large_image.jpg
+    protection_date: 2025年9月18日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/cats
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望猫情報
+    listing_type: adoption
+  - external_id: '23134'
+    name: あやめ
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/23134/thumbnail_large_image.jpg
+    protection_date: 2025年8月20日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/cats
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望猫情報
+    listing_type: adoption
+  - external_id: '22700'
+    name: ツバキ
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/22700/thumbnail_large_image.JPG
+    protection_date: 2025年5月22日
+    deadline_date: null
+    status: adopted
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/cats
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡済み猫情報
+    listing_type: adoption
+  - external_id: '22699'
+    name: サザンカ
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/22699/thumbnail_large_image.jpg
+    protection_date: 2025年5月22日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/cats
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望猫情報
+    listing_type: adoption
+  - external_id: '22684'
+    name: まりも
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/22684/thumbnail_large_image.jpg
+    protection_date: 2025年5月20日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/cats
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望猫情報
+    listing_type: adoption
+  - external_id: '22543'
+    name: うめ
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/22543/thumbnail_large_image.JPG
+    protection_date: 2025年4月21日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/cats
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望猫情報
+    listing_type: adoption
+  - external_id: '21817'
+    name: ぼんてん
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/21817/thumbnail_large_image.jpg
+    protection_date: 2024年12月19日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/cats
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望猫情報
+    listing_type: adoption
+  - external_id: '20215'
+    name: みらん
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/20215/thumbnail_large_image.jpg
+    protection_date: 2024年4月10日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/cats
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望猫情報
+    listing_type: adoption
+  - external_id: '19875'
+    name: ぽわ
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/19875/thumbnail_large_image.jpg
+    protection_date: 2024年2月28日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/cats
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望猫情報
+    listing_type: adoption

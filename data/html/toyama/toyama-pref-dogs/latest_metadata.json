@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-11-13T11:19:34.899+09:00",
+  "timestamp": "2025-11-13T16:10:00.347+09:00",
   "url": "https://www.pref.toyama.jp/1207/kurashi/seikatsu/seikatsu/doubutsuaigo/dog.html",
   "has_animals": true,
-  "html_size": 76064,
+  "html_size": 76060,
   "scraper": "playwright",
   "note": "JavaScript実行後の完全レンダリングHTML取得"
 }

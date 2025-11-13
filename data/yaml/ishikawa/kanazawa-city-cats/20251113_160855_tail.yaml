@@ -1,0 +1,59 @@
+meta:
+  source_file: 20251113_160855_tail.html
+  source_url: https://www4.city.kanazawa.lg.jp/soshikikarasagasu/dobutsuaigokanricenter/gyomuannai/1/jouto_info/7301.html
+  extracted_at: '2025-11-13T16:08:55.604+09:00'
+  municipality: ishikawa/kanazawa-city-cats
+  municipality_id: 2
+animals:
+  - external_id: C070327
+    animal_type: cat
+    name: みたらし
+    breed: 雑種
+    age_estimate: 15歳
+    gender: female
+    color: キジトラ
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: "少しツンデレな性格の女の子♪\n\n\t\t\t高齢ですが、食欲旺盛で元気です☆彡\n\n\t\t\t他の猫ちゃんは苦手そうです！\n\n\t\t\t※首元に脱毛箇所あり\n\n\t\t\t名前は『みたらし』ちゃん🐈\n\n\t\t\t\_\n\n\t\t\t・ノミ、ダニ駆除済み\n\n\t\t\t・避妊手術済み\n\n\t\t\t・3種混合ワクチン接種済み"
+    images:
+      - https://www4.city.kanazawa.lg.jp/material/images/group/57/C070327.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://www4.city.kanazawa.lg.jp/soshikikarasagasu/dobutsuaigokanricenter/gyomuannai/1/jouto_info/7301.html
+    confidence_score: 0.9
+    extraction_method: table_based
+  - external_id: C060926
+    animal_type: cat
+    name: キング
+    breed: 雑種（長毛）
+    age_estimate: 10歳
+    gender: male
+    color: 茶
+    size: large
+    health_status: null
+    personality: null
+    special_needs: "猫上級者向け度★★★★★★\n\n\t\t\t\_\n\n\t\t\tまだまだ警戒心が強く、触られることをすごく嫌がりますが、\n\n\t\t\tごはんの時間になるとほんの少しですが、すり寄ってくるようになりました！\n\n\t\t\t保護した当初、左前足に大怪我をしていて治療したため、\n\n\t\t\t現在も少し前足の大きさが違います。\n\n\t\t\tゆっくりと仲良くなっていただけたら嬉しいです♪\n\n\t\t\t名前は『キング』くんです🐈\n\n\t\t\t\_\n\n\t\t\t※脱走癖があるため、猫ケージご用意できる方でお願いします。\n\n\t\t\t\_\n\n\t\t\t・ノミ、ダニ駆除済み\n\n\t\t\t・去勢手術済み\n\n\t\t\t・3種混合ワクチン接種済み"
+    images:
+      - https://www4.city.kanazawa.lg.jp/material/images/group/57/C0926.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://www4.city.kanazawa.lg.jp/soshikikarasagasu/dobutsuaigokanricenter/gyomuannai/1/jouto_info/7301.html
+    confidence_score: 0.9
+    extraction_method: table_based
+statistics:
+  total_tables: 2
+  valid_animals: 2
+  extraction_errors: 0
+cross_check:
+  gender_mentions: 2
+  age_mentions: 4
+  breed_mentions: 4
+  image_tags: 25
+  table_count: 2
+consistency_warnings: []
+confidence_level: high

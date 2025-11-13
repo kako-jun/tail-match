@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-11-12T04:04:59.371Z",
+  "timestamp": "2025-11-13T15:54:32.385+09:00",
   "url": "https://www.fapscsite.com/adoptable_animal/animal_kind/cat/",
   "has_animals": true,
-  "html_size": 93079,
+  "html_size": 91653,
   "scraper": "playwright",
   "note": "JavaScript実行後の完全レンダリングHTML取得"
 }

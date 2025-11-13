@@ -1,0 +1,194 @@
+meta:
+  source_file: 20251113_155048_tail.html
+  source_url: https://kyoto-ani-love.com/recruit-animal/cat/
+  extracted_at: '2025-11-13T15:50:48.327+09:00'
+  municipality: kyoto/kyoto-pref-cats
+  total_count: 11
+animals:
+  - external_id: kyoto_1763016648320_0
+    name: ジジ
+    breed: 雑種
+    age_estimate: 2～4歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 活発でとても遊び好きな性格です。下半身不随のためトイレなどケアが必要ですが、受け入れてくださる方を募集しています。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2023/12/3e63082da78b62c4ddb13498d8ebee7a.png
+    protection_location: null
+    status: available
+    source_url: https://kyoto-ani-love.com/recruit-animal/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto_1763016648322_1
+    name: チロル
+    breed: 雑種
+    age_estimate: 推定５歳以上
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: とても甘えん坊ですが、臆病な一面もあるネコさんです。お腹を見せてゴロゴロしている姿はとても可愛いです。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/05/IMG_0491-scaled.jpg
+    protection_location: null
+    status: available
+    source_url: https://kyoto-ani-love.com/recruit-animal/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto_1763016648322_2
+    name: よりちゃん
+    breed: 雑種
+    age_estimate: 推定１０歳以上
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: 人懐っこくて、スリスリが大好きな甘えっこさんです。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/08/yorityann-scaled.jpg
+    protection_location: null
+    status: adopted
+    source_url: https://kyoto-ani-love.com/recruit-animal/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto_1763016648323_3
+    name: ししまる
+    breed: スコティッシュフォールド
+    age_estimate: 10歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 穏やかでおりこうさんです。ブラッシングをするとグルグル言ってくれます。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/08/a9a9c3187686dd074428223d725427cb-e1754722849680.jpg
+    protection_location: null
+    status: available
+    source_url: https://kyoto-ani-love.com/recruit-animal/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto_1763016648323_4
+    name: みかん
+    breed: 雑種
+    age_estimate: 推定１~２歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: とても人懐っこく、いつもスリスリ甘えん坊さんです。おもちゃを使って遊ぶのも大好きです。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/06/mikann.jpg
+    protection_location: null
+    status: adopted
+    source_url: https://kyoto-ani-love.com/recruit-animal/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto_1763016648324_5
+    name: チョコ
+    breed: 雑種
+    age_estimate: 推定11歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 人に甘えてスリスリしてくれますが、少し怖がりさんな一面もあります。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/05/cfa8b3e1fa50b36f2dba85e72feba21e.png
+    protection_location: null
+    status: adopted
+    source_url: https://kyoto-ani-love.com/recruit-animal/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto_1763016648324_6
+    name: ぴのこ
+    breed: 雑種
+    age_estimate: ４～７歳
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: 基本人懐っこいです。ただ、独特なタイミングでシャーと鳴くことがあります。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/05/pinoko-rotated.jpg
+    protection_location: null
+    status: adopted
+    source_url: https://kyoto-ani-love.com/recruit-animal/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto_1763016648325_7
+    name: とろ
+    breed: 雑種
+    age_estimate: 推定４～７歳
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: とても甘えん坊のスリスリさんです。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/05/toro.jpg
+    protection_location: null
+    status: adopted
+    source_url: https://kyoto-ani-love.com/recruit-animal/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto_1763016648325_8
+    name: くろお
+    breed: 雑種
+    age_estimate: 推定５~８歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 人懐っこく、お顔に見合わず声が少し高めです。少しわがままなところがあり、とてもやんちゃだと思われます。かわいい声で鳴かれるとついついかまってしまいます。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/06/kuroo.jpg
+    protection_location: null
+    status: adopted
+    source_url: https://kyoto-ani-love.com/recruit-animal/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto_1763016648326_9
+    name: ラン
+    breed: 雑種
+    age_estimate: 推定４～５歳
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: やや警戒感が強くいつもはケージの中でじっとしていることが多いナイーブで怖がりのランさん。 同居猫とものんびり仲良くしていてケージの中で少しづつ撫でられるようになってきました！物陰に隠れるのが大好きでケージの外に出ることはまだ苦手なランさんですがじっくり気長に向き合っていただける方をお待ちしています。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2020/05/0f0529f6c54e824861ad3c9590439c60.jpg
+    protection_location: null
+    status: adopted
+    source_url: https://kyoto-ani-love.com/recruit-animal/cat/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto_1763016648326_10
+    name: 子猫たち
+    breed: 雑種
+    age_estimate: 子猫（３～６ヶ月齢）
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2024/02/2.jpg
+    protection_location: null
+    status: available
+    source_url: https://kyoto-ani-love.com/recruit-animal/cat/
+    confidence_level: high
+    extraction_notes: []
