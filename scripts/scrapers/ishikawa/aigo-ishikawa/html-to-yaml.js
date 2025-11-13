@@ -13,7 +13,8 @@
 
 import fs from 'fs';
 import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
-
+import { getAdoptionStatus } from '../../../lib/adoption-status.js';
+import { determineAnimalType as determineAnimalTypeHelper } from '../../../lib/animal-type.js';
 import path from 'path';
 import { load } from 'cheerio';
 import yaml from 'js-yaml';
@@ -258,10 +259,7 @@ function extractAnimalFromContainer($container, index, sourceUrl, $) {
     deadline_date: extractDate(text, 'deadline'),
 
     // ステータス（譲渡済み判定）
-    status:
-      text.includes('譲渡済み') || text.includes('譲渡しました') || text.includes('譲渡決定')
-        ? 'adopted'
-        : 'available',
+    status: getAdoptionStatus(text),
     transfer_decided: false,
 
     // メタデータ
@@ -403,12 +401,7 @@ function extractAnimalsFromText($, sourceUrl) {
       color: extractColor(section),
       size: 'medium',
       health_status: extractHealthInfo(section),
-      status:
-        section.includes('譲渡済み') ||
-        section.includes('譲渡しました') ||
-        section.includes('譲渡決定')
-          ? 'adopted'
-          : 'available',
+      status: getAdoptionStatus(section),
       source_url: sourceUrl,
       extraction_method: 'text_fallback',
       raw_text: section.substring(0, 300),
@@ -518,9 +511,8 @@ function extractSize(text) {
 }
 
 function determineAnimalType(text) {
-  if (text.includes('猫') || text.includes('ネコ') || text.includes('ねこ')) return 'cat';
-  if (text.includes('犬') || text.includes('イヌ') || text.includes('いぬ')) return 'dog';
-  return 'unknown';
+  // Use common helper function for consistency across all scrapers
+  return determineAnimalTypeHelper(text, 'unknown');
 }
 
 function extractHealthInfo(text) {

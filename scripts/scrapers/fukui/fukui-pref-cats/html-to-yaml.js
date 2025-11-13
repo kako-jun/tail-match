@@ -1,7 +1,13 @@
 #!/usr/bin/env node
 
 /**
- * 福井県動物愛護管理センター（犬） YAML抽出スクリプト
+ * 福井県動物愛護管理センター YAML抽出スクリプト
+ *
+ * 特徴:
+ * - article要素から猫情報を抽出
+ * - 1つのarticleに複数の猫が含まれる可能性あり（管理番号が複数）
+ * - <dl class="spec">から詳細情報を取得
+ * - YAML形式で出力（人間が確認・修正可能）
  */
 
 import fs from 'fs';
@@ -17,15 +23,18 @@ import yaml from 'js-yaml';
 // ========================================
 
 const CONFIG = {
-  municipality: 'fukui/fukui-pref-dogs',
+  municipality: 'fukui/fukui-pref-cats',
   base_url: 'https://www.fapscsite.com',
-  source_url: 'https://www.fapscsite.com/adoptable_animal/animal_kind/dog/',
+  source_url: 'https://www.fapscsite.com/adoptable_animal/animal_kind/cat/',
 };
 
 // ========================================
 // ユーティリティ
 // ========================================
 
+/**
+ * 最新のHTMLファイルを取得
+ */
 function getLatestHtmlFile() {
   const htmlDir = path.join(
     process.cwd(),
@@ -51,9 +60,13 @@ function getLatestHtmlFile() {
   return path.join(htmlDir, files[0]);
 }
 
+/**
+ * 性別文字列を解析（例: "オス：1匹、メス：1匹" → [{gender: 'male', count: 1}, {gender: 'female', count: 1}]）
+ */
 function parseGenderString(genderStr) {
   const results = [];
 
+  // パターン1: "オス：1匹、メス：1匹"
   const maleMatch = genderStr.match(/オス[：:]\s*(\d+)\s*匹/);
   const femaleMatch = genderStr.match(/メス[：:]\s*(\d+)\s*匹/);
 
@@ -71,6 +84,7 @@ function parseGenderString(genderStr) {
     }
   }
 
+  // パターン2: 単純な "オス" または "メス"
   if (results.length === 0) {
     if (genderStr.includes('オス')) {
       results.push({ gender: 'male', index: 0 });
@@ -84,23 +98,32 @@ function parseGenderString(genderStr) {
   return results;
 }
 
+/**
+ * 管理番号を解析（例: "HC25378.25379" → ["HC25378", "HC25379"]）
+ */
 function parseManagementNumbers(title) {
   const match = title.match(/管理番号[：:]\s*([A-Z0-9.]+)/);
   if (!match) {
     return [];
   }
 
-  const idsStr = match[1].split('(')[0];
+  const idsStr = match[1].split('(')[0]; // 括弧の前まで取得（場所情報を除外）
   const ids = idsStr.split('.').map((id) => id.trim());
 
   return ids;
 }
 
+/**
+ * 場所情報を抽出（例: "管理番号：HC25378.25379(松岡上吉野)" → "松岡上吉野"）
+ */
 function parseLocation(title) {
   const match = title.match(/\(([^)]+)\)/);
   return match ? match[1] : null;
 }
 
+/**
+ * <dl>から情報を抽出
+ */
 function extractSpecsFromDl($, $article) {
   const specs = {};
   const $dl = $article.find('dl.spec');
@@ -119,6 +142,9 @@ function extractSpecsFromDl($, $article) {
   return specs;
 }
 
+/**
+ * 画像URLを抽出
+ */
 function extractImages($, $article) {
   const images = [];
   $article.find('.uk-slideshow-items img').each((i, img) => {
@@ -130,42 +156,57 @@ function extractImages($, $article) {
   return images;
 }
 
-function extractDogsFromArticle($, article) {
+/**
+ * article要素から猫情報を抽出
+ */
+function extractCatsFromArticle($, article) {
   const $article = $(article);
-  const dogs = [];
+  const cats = [];
 
+  // タイトルから管理番号と場所を取得
   const title = $article.find('h2.entry-title').text().trim();
   const managementNumbers = parseManagementNumbers(title);
   const location = parseLocation(title);
 
   if (managementNumbers.length === 0) {
     console.warn(`⚠️ 管理番号が見つかりません: ${title}`);
-    return dogs;
+    return cats;
   }
 
+  // スペック情報を取得
   const specs = extractSpecsFromDl($, $article);
+
+  // 画像を取得
   const images = extractImages($, $article);
 
+  // 性別情報を解析
   const genderInfo = specs['性別']
     ? parseGenderString(specs['性別'])
     : [{ gender: 'unknown', index: 0 }];
 
-  const totalDogs = Math.max(managementNumbers.length, genderInfo.length);
+  // 管理番号と性別情報をマッチング
+  const totalCats = Math.max(managementNumbers.length, genderInfo.length);
 
-  for (let i = 0; i < totalDogs; i++) {
+  for (let i = 0; i < totalCats; i++) {
+    // 管理番号の割り当て
     let externalId;
 
-    if (managementNumbers.length >= totalDogs && managementNumbers[i]) {
+    if (managementNumbers.length >= totalCats && managementNumbers[i]) {
+      // 管理番号が十分にある場合、そのまま使用
       externalId = managementNumbers[i];
     } else if (managementNumbers.length > 0) {
+      // 管理番号が不足している場合、サフィックスで一意化
+      // （例: HC25374 + 4匹 → HC25374-1, HC25374-2, HC25374-3, HC25374-4）
       const baseId = managementNumbers[i] || managementNumbers[0];
       externalId = `${baseId}-${i + 1}`;
     } else {
-      externalId = `fukui-dog-unknown-${Date.now()}-${i}`;
+      // 管理番号が全くない場合
+      externalId = `fukui_unknown_${Date.now()}_${i}`;
     }
 
     const gender = genderInfo[i] ? genderInfo[i].gender : 'unknown';
 
+    // 譲渡済み判定（article全体とスペック情報で判定）
     const articleText = $article.text();
     const isAdopted =
       articleText.includes('譲渡済み') ||
@@ -173,10 +214,9 @@ function extractDogsFromArticle($, article) {
       articleText.includes('譲渡決定') ||
       (specs['その他'] && specs['その他'].includes('譲渡済'));
 
-    const dog = {
+    const cat = {
       external_id: externalId,
-      animal_type: 'dog',
-      name: null,
+      name: null, // 名前情報がないため、後でgenerateDefaultNameで生成される
       breed: specs['品種'] || null,
       age_estimate: specs['年齢'] || null,
       gender: gender,
@@ -193,25 +233,27 @@ function extractDogsFromArticle($, article) {
       extraction_notes: [],
     };
 
+    // 画像がない場合は警告
     if (images.length === 0) {
-      dog.extraction_notes.push('画像が見つかりませんでした');
-      dog.confidence_level = 'medium';
+      cat.extraction_notes.push('画像が見つかりませんでした');
+      cat.confidence_level = 'medium';
     }
 
-    if (!dog.external_id) {
-      dog.extraction_notes.push('管理番号が取得できませんでした');
-      dog.confidence_level = 'low';
+    // 必須情報のチェック
+    if (!cat.external_id) {
+      cat.extraction_notes.push('管理番号が取得できませんでした');
+      cat.confidence_level = 'low';
     }
 
-    if (!dog.gender || dog.gender === 'unknown') {
-      dog.extraction_notes.push('性別情報が不明確です');
-      dog.confidence_level = 'medium';
+    if (!cat.gender || cat.gender === 'unknown') {
+      cat.extraction_notes.push('性別情報が不明確です');
+      cat.confidence_level = 'medium';
     }
 
-    dogs.push(dog);
+    cats.push(cat);
   }
 
-  return dogs;
+  return cats;
 }
 
 // ========================================
@@ -220,38 +262,45 @@ function extractDogsFromArticle($, article) {
 
 async function main() {
   console.log('='.repeat(60));
-  console.log('🐕 福井県動物愛護管理センター（犬） - YAML抽出');
+  console.log('🐱 福井県動物愛護管理センター - YAML抽出');
   console.log('='.repeat(60));
   console.log(`   Municipality: ${CONFIG.municipality}`);
   console.log('='.repeat(60) + '\n');
 
   try {
+    // Step 1: 最新HTMLファイルを読み込み
     const htmlFile = getLatestHtmlFile();
     console.log(`📄 HTMLファイル: ${htmlFile}\n`);
 
     const html = fs.readFileSync(htmlFile, 'utf-8');
     const $ = load(html);
 
+    // Step 2: article要素を取得
     const articles = $('article.animal-item').toArray();
-    console.log(`📊 検出したアーティクル数: ${articles.length}`);
+    console.log(`📊 検出した記事数: ${articles.length}`);
 
     if (articles.length === 0) {
-      console.warn('⚠️ 犬情報が見つかりませんでした');
+      console.warn('⚠️ 記事が見つかりませんでした');
       return;
     }
 
-    const allDogs = [];
+    // Step 3: 各記事から猫情報を抽出
+    const allCats = [];
     articles.forEach((article, index) => {
-      console.log(`\n--- アーティクル ${index + 1}/${articles.length} ---`);
-      const dogs = extractDogsFromArticle($, article);
-      dogs.forEach((dog) => {
-        console.log(`   犬: ${dog.external_id}, 性別: ${dog.gender}`);
-        allDogs.push(dog);
+      console.log(`\n--- 記事 ${index + 1}/${articles.length} ---`);
+      const cats = extractCatsFromArticle($, article);
+      console.log(`   抽出した猫: ${cats.length}匹`);
+
+      cats.forEach((cat, catIndex) => {
+        console.log(`   - ${catIndex + 1}. ID: ${cat.external_id}, 性別: ${cat.gender}`);
       });
+
+      allCats.push(...cats);
     });
 
-    console.log(`\n📊 合計抽出数: ${allDogs.length}匹`);
+    console.log(`\n📊 合計抽出数: ${allCats.length}匹`);
 
+    // Step 4: YAML出力
     const outputDir = path.join(
       process.cwd(),
       'data',
@@ -262,6 +311,7 @@ async function main() {
     fs.mkdirSync(outputDir, { recursive: true });
 
     const timestamp = getJSTTimestamp();
+
     const outputFile = path.join(outputDir, `${timestamp}_tail.yaml`);
 
     const yamlContent = yaml.dump(
@@ -271,10 +321,9 @@ async function main() {
           source_url: CONFIG.source_url,
           extracted_at: getJSTISOString(),
           municipality: CONFIG.municipality,
-          municipality_id: 5, // 福井県動物愛護管理センター
-          total_count: allDogs.length,
+          total_count: allCats.length,
         },
-        animals: allDogs,
+        animals: allCats,
       },
       { indent: 2, lineWidth: -1 }
     );
@@ -296,4 +345,5 @@ async function main() {
   }
 }
 
+// 実行
 main();

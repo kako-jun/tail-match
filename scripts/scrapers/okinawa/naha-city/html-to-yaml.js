@@ -6,6 +6,7 @@
 
 import fs from 'fs';
 import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+import { getAdoptionStatus } from '../../../lib/adoption-status.js';
 import path from 'path';
 import { load } from 'cheerio';
 import yaml from 'js-yaml';
@@ -144,12 +145,7 @@ function extractAnimalFromDiv($, $div, animalType) {
     images: images,
     protection_date: photoDate,
     deadline_date: null,
-    status:
-      detailText.includes('譲渡済み') ||
-      detailText.includes('譲渡しました') ||
-      detailText.includes('譲渡決定')
-        ? 'adopted'
-        : 'available',
+    status: getAdoptionStatus(detailText),
     source_url: CONFIG.source_url,
     confidence_level: 'high',
     extraction_notes: [`${animalType === 'dog' ? '譲渡犬' : '譲渡猫'}情報`],
