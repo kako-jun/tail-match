@@ -1,0 +1,75 @@
+meta:
+  source_file: 20251113_174243_tail.html
+  source_url: https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/inu.html
+  extracted_at: '2025-11-13T18:45:15.292+09:00'
+  municipality: miyagi/sendai-city-dogs
+  municipality_id: null
+  total_count: 3
+  note: 譲渡対象犬情報
+animals:
+  - external_id: sendai-city-D24018
+    name: D24018
+    animal_type: dog
+    breed: 柴犬
+    age_estimate: 10歳
+    gender: male
+    color: 茶
+    size: 16kg
+    health_status: フィラリア検査（-）、マイクロチップ装着済、去勢手術実施済。
+    personality: 柴犬特有の気質と、警戒心、自立心の強い子です。。非常に神経質で、攻撃性などの問題があるため、慎重に接して信頼関係を築いていく必要があります。詳細については職員が直接ご説明しますのでお問い合わせください。。犬の飼育経験がある方で、この子の問題行動に向き合い、理解してくださる家族を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/images/d24018-3.jpg
+      - https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/images/d23006-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/inu.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象犬
+    listing_type: adoption
+  - external_id: sendai-city-D25015
+    name: D25015
+    animal_type: dog
+    breed: 柴系雑種
+    age_estimate: 高齢
+    gender: male
+    color: 茶白
+    size: 10.5kg
+    health_status: フィラリア検査（-）、マイクロチップ装着済、去勢手術実施済。
+    personality: 尻尾の先と耳先の白い毛がチャームポイントです。。高齢のために視力や聴力が弱く、動きはとてもゆっくりですが、お散歩は好きな子です。トイレは基本的に外で済ませる派ですが、ペットシーツにしていることもあります。。抱っこや、足先を触られることは苦手ですが、ブラッシングや撫でられることは好きです。
+    special_needs: null
+    images:
+      - https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/images/d25015-1.png
+      - https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/images/d25015-2.png
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/inu.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象犬
+    listing_type: adoption
+  - external_id: sendai-city-D25017
+    name: D25017
+    animal_type: dog
+    breed: "トイ\n\t\t\tプードル"
+    age_estimate: 12歳
+    gender: female
+    color: 白
+    size: 3.2Kg
+    health_status: フィラリア検査（-）、マイクロチップ装着済、不妊手術実施済。
+    personality: 人懐こく抱っこが大好きで、人を見つけると「かまって！かまって！」と鳴いて呼びます。他の犬をかまっているとヤキモチをやくので、この子に集中して愛情を注いでいただけるご家庭をお待ちしています。。皮膚がデリケートなので定期的なお手入れが必要です。
+    special_needs: null
+    images:
+      - https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/images/d25017.png
+      - https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/images/d25017-3.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/inu.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象犬
+    listing_type: adoption

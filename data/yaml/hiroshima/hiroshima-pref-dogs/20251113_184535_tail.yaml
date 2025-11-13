@@ -1,0 +1,324 @@
+meta:
+  source_file: 20251113_183308_tail.html
+  source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-dog-list.html
+  extracted_at: '2025-11-13T18:45:35.103+09:00'
+  municipality: hiroshima/hiroshima-pref-dogs
+  municipality_id: null
+  total_count: 15
+  note: 譲渡対象犬情報
+animals:
+  - external_id: hiroshima-pref-1HD20250002
+    name: '109'
+    animal_type: dog
+    breed: null
+    age_estimate: 推定1歳
+    gender: female
+    color: null
+    size: null
+    health_status: フィラリア検査：陰性（令和7年6月11日時点）
+    personality: null
+    special_needs: ※トライアル必須
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/484941.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-dog-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象犬
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HD20250177
+    name: '111'
+    animal_type: dog
+    breed: null
+    age_estimate: 推定5ヶ月
+    gender: female
+    color: null
+    size: null
+    health_status: フィラリア検査：陰性（令和7年10月1日時点）
+    personality: null
+    special_needs: ※最大2週間のトライアル可能
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/487754.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-dog-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象犬
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HD20250178
+    name: '112'
+    animal_type: dog
+    breed: null
+    age_estimate: 推定5ヶ月
+    gender: male
+    color: null
+    size: null
+    health_status: フィラリア検査：陰性（令和7年10月1日時点）
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/487755.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-dog-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象犬
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HD20250172
+    name: '97'
+    animal_type: dog
+    breed: null
+    age_estimate: 推定3ヶ月
+    gender: female
+    color: null
+    size: null
+    health_status: フィラリア検査：未実施
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/487924.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-dog-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象犬
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HD20250205
+    name: '14'
+    animal_type: dog
+    breed: null
+    age_estimate: 推定2.5ヶ月
+    gender: female
+    color: null
+    size: null
+    health_status: フィラリア検査：未実施
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/487926.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-dog-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象犬
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HD20250197
+    name: '11'
+    animal_type: dog
+    breed: null
+    age_estimate: 推定3ヶ月
+    gender: male
+    color: null
+    size: null
+    health_status: フィラリア検査：未実施
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/487927.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-dog-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象犬
+    listing_type: adoption
+  - external_id: hiroshima-pref-20250199
+    name: '13'
+    animal_type: dog
+    breed: null
+    age_estimate: 推定3ヶ月
+    gender: female
+    color: null
+    size: null
+    health_status: フィラリア検査：未実施
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/488215.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-dog-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象犬
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HD202502111
+    name: '19'
+    animal_type: dog
+    breed: null
+    age_estimate: 推定3ヶ月
+    gender: female
+    color: null
+    size: null
+    health_status: フィラリア検査：未実施
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/489348.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-dog-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象犬
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HD20250208
+    name: '17'
+    animal_type: dog
+    breed: null
+    age_estimate: 推定2ヶ月
+    gender: female
+    color: null
+    size: null
+    health_status: フィラリア検査：未実施
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/488934.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-dog-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象犬
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HD20250228
+    name: '28'
+    animal_type: dog
+    breed: null
+    age_estimate: 推定2ヶ月
+    gender: female
+    color: null
+    size: null
+    health_status: フィラリア検査：未実施
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/488936.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-dog-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象犬
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HD20250222
+    name: '25'
+    animal_type: dog
+    breed: null
+    age_estimate: 推定4.5ヶ月
+    gender: female
+    color: null
+    size: null
+    health_status: フィラリア検査：未実施
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/489345.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-dog-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象犬
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HD20250249
+    name: '33'
+    animal_type: dog
+    breed: null
+    age_estimate: 推定2.5ヶ月
+    gender: female
+    color: null
+    size: null
+    health_status: フィラリア検査：未実施
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/489815.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-dog-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象犬
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HD20250240
+    name: '34'
+    animal_type: dog
+    breed: null
+    age_estimate: 推定2.5ヶ月
+    gender: male
+    color: null
+    size: null
+    health_status: フィラリア検査：未実施
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/489809.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-dog-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象犬
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HD20250243
+    name: '35'
+    animal_type: dog
+    breed: null
+    age_estimate: 推定2.5ヶ月
+    gender: male
+    color: null
+    size: null
+    health_status: フィラリア検査：未実施
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/489810.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-dog-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象犬
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HD20250244
+    name: '36'
+    animal_type: dog
+    breed: null
+    age_estimate: 推定2.5ヶ月
+    gender: male
+    color: null
+    size: null
+    health_status: フィラリア検査：未実施
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/489811.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-dog-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象犬
+    listing_type: adoption

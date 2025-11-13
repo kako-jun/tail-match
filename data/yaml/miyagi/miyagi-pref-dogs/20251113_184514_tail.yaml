@@ -1,0 +1,53 @@
+meta:
+  source_file: 20251113_173051_tail.html
+  source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/jyoto-inu-syokai.html
+  extracted_at: '2025-11-13T18:45:14.786+09:00'
+  municipality: miyagi/miyagi-pref-dogs
+  municipality_id: null
+  total_count: 2
+  note: 譲渡候補犬情報
+animals:
+  - external_id: miyagi-pref-12654
+    name: キキ
+    animal_type: dog
+    breed: null
+    age_estimate: 推定5歳
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: 混合ワクチン：済。マイクロチップ：済。フィラリア陰性。人懐こく元気な子です。近くに寄るとかまってかまってとアピールしてきます♪。撫でられるのが大好きです。皮膚病治療中ですが、だいぶ良くなりました！
+    special_needs: null
+    images:
+      - https://www.pref.miyagi.jp/images/9150/kiki.jpg
+      - https://www.pref.miyagi.jp/images/9150/kiki3.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/jyoto-inu-syokai.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補犬
+    listing_type: adoption
+  - external_id: miyagi-pref-12689
+    name: マコ
+    animal_type: dog
+    breed: null
+    age_estimate: 推定7歳
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: 混合ワクチン：済。マイクロチップ：済。フィラリア陰性。静かで大人しい子です。時折手を舐めてくれるようになりました。お散歩上手です！。時間をかけて信頼関係を築いてくれる飼い主さんを募集しております
+    special_needs: null
+    images:
+      - https://www.pref.miyagi.jp/images/9150/mako.jpg
+      - https://www.pref.miyagi.jp/images/9150/mako2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/jyoto-inu-syokai.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補犬
+    listing_type: adoption
