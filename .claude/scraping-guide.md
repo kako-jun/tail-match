@@ -130,6 +130,47 @@ ls .claude/shelters/
    - ⚠️ **犬用ページが別URLで存在しないか確認**（例: cat.html → dog.html）
    - ⚠️ **譲渡済み情報の確認**（status: available/adopted/removed の判定方法）
 
+### Step 1.5: shelters.yaml の更新（⚠️ 重要）
+
+施設の構造を理解した時点で、**必ず** `.claude/shelters.yaml` を更新してください。
+
+**更新する項目**:
+
+```yaml
+- name: '○○動物愛護センター'
+  status: 'pending' # 調査中は pending のまま
+  page_type: 'separate' # separate / cat_only / dog_only / mixed
+  url_cats: 'https://...' # 猫専用URL（separate の場合）
+  url_dogs: 'https://...' # 犬専用URL（separate の場合）
+  notes: 'HTML構造のメモ（例: h4/h5/img/ul パターン、table構造など）'
+```
+
+**page_type の選択基準**:
+
+- `separate`: 猫と犬で別々のページ（例: neko.html と inu.html）
+- `cat_only`: 猫のみのページ
+- `dog_only`: 犬のみのページ
+- `mixed`: 同じページに猫と犬が混在
+
+**更新例**:
+
+```yaml
+# 修正前
+- name: '宮城県動物愛護センター'
+  status: 'pending'
+  page_type: 'unknown'
+  url: 'https://www.pref.miyagi.jp/soshiki/doubutuaigo/'
+
+# 修正後
+- name: '宮城県動物愛護センター'
+  status: 'pending' # 実装中は pending のまま
+  page_type: 'separate'
+  url: 'https://www.pref.miyagi.jp/soshiki/doubutuaigo/'
+  url_cats: 'https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html'
+  url_dogs: 'https://www.pref.miyagi.jp/soshiki/doubutuaigo/jyoto-inu-syokai.html'
+  notes: '猫: h4【名前】/h5性別年齢/img/ul構造。犬: h3 ID名前/h5/img/ul構造'
+```
+
 ### Step 2: スクレイパーフォルダ作成
 
 ⚠️ **命名規則に従ってサフィックスを付けること**
