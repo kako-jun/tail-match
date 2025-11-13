@@ -1,6 +1,14 @@
-# 新規自治体追加ガイド（保存版）
+# スクレイピング実装ガイド
 
-**重要**: このガイドは金沢市動物愛護管理センター追加時の失敗から作成されました。必ず最後まで読んでください。
+このファイルは新規自治体のスクレイパーを追加する際の完全な手順書です。
+
+## 📚 関連ドキュメント
+
+- **[scraping-architecture.md](./scraping-architecture.md)** - アーキテクチャ設計思想（なぜこの設計なのか）
+- **[common-mistakes.md](./common-mistakes.md)** - よくある間違いとベストプラクティス
+- **[CLAUDE.md](../CLAUDE.md)** - プロジェクト全体の状況管理
+
+> 💡 **ヒント**: 実装前に [scraping-architecture.md](./scraping-architecture.md) で設計思想を理解し、[common-mistakes.md](./common-mistakes.md) でよくある失敗を確認してください。
 
 ---
 
@@ -27,56 +35,6 @@
 // ❌ 間違い（旧形式）
 'chiba/chiba-city'; // 猫専用なのにサフィックスなし
 ```
-
----
-
-## ⚠️ よくある間違い（やってはいけないこと）
-
-### ❌ 1. `scraper-python-backup` を使おうとする
-
-- **このフォルダは凍結されたバックアップです**
-- 現在のスクレイパーは **Node.js** ベース（`scripts/scrapers/`）
-
-### ❌ 2. `archive` ディレクトリを作ろうとする
-
-- HTMLファイルと `latest_metadata.json` は**同じ階層**に並べる
-- ❌ `data/html/ishikawa/aigo-ishikawa/archive/20251112_tail.html`
-- ✅ `data/html/ishikawa/aigo-ishikawa/20251112_tail.html`
-
-### ❌ 3. 都道府県階層を省略する
-
-- 都道府県名（例: `ishikawa`）の階層は**必須**
-- ❌ `data/html/kanazawa-city/`
-- ✅ `data/html/ishikawa/kanazawa-city/`
-
-### ❌ 4. municipality設定を間違える
-
-- municipality は**パス形式**で指定する
-- ❌ `municipality: 'kanazawa-city'`
-- ✅ `municipality: 'ishikawa/kanazawa-city'`
-
-### ❌ 5. いちいちスクリプトで処理する
-
-- ファイル移動などは直接コマンドを提案する
-- スクリプトファイルを作成しない
-
-### ❌ 6. `.claude/shelters/`を確認せずに進める
-
-- **新規自治体追加時は必ず** `.claude/shelters/` のYAMLを最初に確認
-- URLや連絡先情報が既に登録されている
-- Web検索せずにまずローカルの情報を確認する
-
-### ❌ 7. YAML出力時にmetaセクションを忘れる
-
-- `yaml.dump()` の構造に**必ず `meta:` セクション**を含める
-- ❌ トップレベルに `municipality`, `source_url` を配置
-- ✅ `meta` オブジェクト内に配置
-
-### ❌ 8. yaml-to-db.js の municipalities 配列に追加し忘れる
-
-- 新規自治体を追加したら**必ず `CONFIG.municipalities` に追加**
-- 追加しないとDB投入時にスキップされる
-- Step 7の最終チェックリストで確認
 
 ---
 
@@ -607,88 +565,82 @@ const $figure = $wysiwyg.prev('figure.img-item');
 
 ---
 
-## 📝 チェックリスト
+## 🔒 個体識別子の重複防止手順（2025-11-12追加）
 
-新規自治体を追加する際は、以下を確認してください：
+**問題**: 1つの管理番号に複数の個体が含まれる場合、`external_id`が重複してデータベース制約違反が発生
 
-### 実装前
+**解決策**: サフィックス付与による一意化
 
-- [ ] 対象URLを確認した
-- [ ] HTMLサンプルを取得した
-- [ ] セレクタを調査した
-- [ ] JavaScript必須か確認した
+**実装例（福井県の事例）**:
 
-### 実装中
+```javascript
+// html-to-yaml.js の抽出ロジック
 
-- [ ] municipality をパス形式で設定した（例: `'ishikawa/kanazawa-city'`）
-- [ ] htmlDir に archive を含めていない
-- [ ] セレクタを実際のHTMLに合わせた
-- [ ] 画像取得のDOM構造を確認した
-- [ ] 共通ヘルパー関数をインポートした（`getAdoptionStatus`, `determineAnimalType`）
-- [ ] 譲渡済み判定に `getAdoptionStatus()` を使用した
-- [ ] 犬猫混在ページの場合、`determineAnimalType()` を使用した
+// 1. 管理番号と個体数を取得
+const managementNumbers = parseManagementNumbers(title); // ["HC25374"]
+const genderInfo = parseGenderString(specs['性別']); // 4匹（オス2匹、メス2匹）
+const totalCats = Math.max(managementNumbers.length, genderInfo.length); // 4
 
-### 実装後
+// 2. external_id の生成ロジック
+for (let i = 0; i < totalCats; i++) {
+  let externalId;
 
-- [ ] HTML収集が成功した（ファイルサイズ確認）
-- [ ] YAML抽出が成功した（動物が抽出された）
-- [ ] animal_type が正しく設定されている（'cat' または 'dog'）
-- [ ] status が正しく設定されている（'available', 'adopted', 'removed'）
-- [ ] 犬用ページの存在確認を実施した
-- [ ] 画像URLが空でない
-- [ ] 信頼度が HIGH または MEDIUM
-- [ ] README を作成した
-- [ ] yaml-to-db.js に追加した
+  if (managementNumbers.length >= totalCats && managementNumbers[i]) {
+    // ケース1: 管理番号が十分にある場合、そのまま使用
+    externalId = managementNumbers[i]; // "HC25378", "HC25379", ...
+  } else if (managementNumbers.length > 0) {
+    // ケース2: 管理番号が不足している場合、サフィックスで一意化
+    const baseId = managementNumbers[i] || managementNumbers[0];
+    externalId = `${baseId}-${i + 1}`; // "HC25374-1", "HC25374-2", "HC25374-3", "HC25374-4"
+  } else {
+    // ケース3: 管理番号が全くない場合、タイムスタンプで一意化
+    externalId = `{municipality}_unknown_${Date.now()}_${i}`;
+  }
 
----
+  // 3. 個体データの作成
+  const cat = {
+    external_id: externalId, // 必ず一意
+    name: null, // デフォルト名は yaml-to-db.js で生成
+    gender: genderInfo[i] ? genderInfo[i].gender : 'unknown',
+    // ... 他のフィールド
+  };
+}
+```
 
-## 🎓 学んだ教訓
+**チェックリスト（新規自治体実装時）**:
 
-### 金沢市追加時
+- [ ] 1つの管理番号に複数の個体が存在する可能性を確認
+- [ ] `external_id`生成ロジックにサフィックス付与機能を実装
+- [ ] テストデータで重複が発生しないことを確認
+- [ ] `node scripts/yaml-to-db.js --dry-run`でFOREIGN KEY制約エラーがないことを確認
 
-1. **archiveディレクトリは不要** - HTMLとmetadata.jsonは同じ階層
-2. **都道府県階層は必須** - `ishikawa/` を省略してはいけない
-3. **municipalityはパス形式** - `'ishikawa/kanazawa-city'` のように指定
-4. **セレクタは緩く** - 中間要素（table-wrapperなど）を考慮する
-5. **画像はDOM構造を確認** - `.closest()` や `.prev()` の対象を正確に
-6. **直接コマンド実行** - ファイル移動などでスクリプトを作らない
+**デフォルト名の生成**（yaml-to-db.js）:
 
-### 那覇市・犬用ページ発見時（2025-11-12）
+```javascript
+function generateDefaultName(animal) {
+  if (!animal.name || animal.name.includes('保護動物')) {
+    // external_idから番号を抽出
+    const idMatch = animal.external_id?.match(/\d+/);
+    const number = idMatch ? idMatch[0] : 'unknown';
 
-7. **犬も対象であることを忘れない** - プロジェクトは猫専用ではない
-8. **犬用ページの存在確認は必須** - cat.html → dog.html のパターンが多い
-9. **animal_type を明示的に設定** - 'cat' または 'dog' をハードコードしない
-10. **status フィールドも必須** - 譲渡済み情報（available/adopted/removed）を抽出
-11. **7施設で犬用ページを見逃していた** - 横断的なURL確認の重要性
+    // 動物種別に応じた名前を生成
+    let prefix = '保護動物';
+    if (animal.animal_type === 'cat') {
+      prefix = '保護猫';
+    }
 
-### 共通ヘルパー関数導入時（2025-11-13）
+    return `${prefix}${number}号`; // 例: "保護猫25374号"
+  }
+  return animal.name;
+}
+```
 
-12. **共通ロジックは必ず関数化する** - 全28施設で同じ判定ロジックを書かない
-13. **「ワンちゃん」「わんちゃん」などの愛称表記を忘れない** - カタカナ・ひらがな・漢字すべてカバー
-14. **譲渡済みキーワードは包括的に** - 施設ごとの表現の違いを吸収する
-15. **共通関数は scripts/lib/ に配置** - 全スクレイパーからアクセス可能
-16. **新規追加時は必ず共通関数を使用** - 手動判定を書かない
+**実績データ**:
 
-**共通化のメリット**:
-
-- **一貫性**: 全施設で同じ検出精度
-- **保守性**: キーワード追加は2ファイルのみ
-- **品質**: ユニットテスト可能
-- **拡張性**: 新しい動物種の追加が容易
-
-### 命名規則統一時（2025-11-13）
-
-17. **猫専用ページには `-cats` サフィックスを付ける** - 犬用ページとの統一感
-18. **混在ページにはサフィックスを付けない** - 明確な区別
-19. **命名規則は一貫性が最重要** - 将来の保守性に直結
-20. **ディレクトリ名とmunicipality設定は必ず一致させる** - データの整合性を保つ
-
-**命名規則の重要性**:
-
-- **可読性**: 一目でページ種別が分かる
-- **保守性**: 新規追加時の判断が容易
-- **拡張性**: 将来の動物種追加に対応可能
+- 福井県: HC25374（4匹）→ HC25374-1, HC25374-2, HC25374-3, HC25374-4
+- 福井県: FC25368（3匹）→ FC25368-1, FC25368-2, FC25368-3
+- 福井県: HC25334（4匹）→ HC25334-1, HC25334-2, HC25334-3, HC25334-4
 
 ---
 
-このガイドに従えば、同じミスを繰り返さずに新規自治体を追加できます。
+このガイドに従えば、新規自治体を効率的に追加できます。

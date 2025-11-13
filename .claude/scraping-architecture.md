@@ -1,7 +1,27 @@
 # Tail Match - スクレイピングアーキテクチャ仕様
 
-**最終更新**: 2025-11-11
-**ステータス**: 石川県で実証完了、汎用化フェーズ
+**最終更新**: 2025-11-13
+**ステータス**: 全28施設実装完了、本格運用フェーズ
+
+---
+
+## 📚 このドキュメントの位置づけ
+
+このドキュメントは**スクレイピングシステムの技術設計・アーキテクチャ仕様**を説明します。
+
+- **設計方針**: なぜこのアーキテクチャを選んだのか
+- **技術スタック選定理由**: なぜこの技術を使うのか
+- **データフロー**: 3ステップパイプラインの概要と利点
+- **ディレクトリ構造**: 規約とルール
+- **設計レベルの教訓**: アーキテクチャから学んだこと
+
+### 関連ドキュメント
+
+- **[スクレイピング実装ガイド](./scraping-guide.md)** - 新規施設追加の実装手順（Step-by-Step）
+- **[よくある間違い](./common-mistakes.md)** - 実装時のアンチパターンとベストプラクティス
+- **[プロジェクト状況](../CLAUDE.md)** - 現在の進捗とタスク管理
+
+**実装を始める前に**: 設計思想を理解したい場合はこのドキュメントを読み、実際に実装する場合は [scraping-guide.md](./scraping-guide.md) を参照してください。
 
 ---
 
@@ -9,284 +29,131 @@
 
 ### 実証済みアーキテクチャ
 
-**3ステップパイプライン**（石川県で18匹100%抽出成功）
+**3ステップパイプライン**（全28施設で運用中）
 
 ```
 [1] HTML収集 (Playwright)
-    ↓ data/html/{municipality}/archive/{timestamp}_tail.html
-[2] YAML抽出 (Cheerio + 正規表現)
-    ↓ data/yaml/{municipality}/{timestamp}_tail.yaml
+    ↓ data/html/{prefecture}/{municipality}/{timestamp}_tail.html
+[2] YAML抽出 (Cheerio + 共通ヘルパー関数)
+    ↓ data/yaml/{prefecture}/{municipality}/{timestamp}_tail.yaml
 [3] DB投入 (better-sqlite3)
     ↓ data/tail-match.db
 ```
+
+**実装状況**: 28施設（猫専用17 + 犬専用7 + 混在4）
 
 ### 技術スタック（確定版）
 
 - **HTML収集**: Playwright 1.49.1（常時使用、JS動的レンダリング対応）
 - **HTML解析**: cheerio（軽量・高速）
 - **データ抽出**: 正規表現（raw_text優先、confidence 0.3→0.8に改善）
+- **共通ヘルパー**: `adoption-status.js`, `animal-type.js`（全28施設で統一）
 - **中間フォーマット**: YAML（js-yaml、人間が確認・修正可能）
 - **データベース**: SQLite (`better-sqlite3`)
 - **品質保証**: クロスチェック機能（性別/年齢/画像の整合性検証）
 
+### なぜこの技術スタックなのか？
+
+#### Playwright を常時使用する理由
+
+1. **現代的なウェブサイトの実態**: 大半の自治体サイトでJavaScript動的レンダリングが使われている
+2. **シンプルな実装**: 「静的HTMLで取れるか判定」よりも「常にPlaywright」の方が保守が容易
+3. **実証済み**: 石川県でHTMLサイズ1KB→90KBの改善実績
+
+#### raw_text優先抽出の理由
+
+1. **セレクタの脆弱性**: HTMLセレクタはサイト変更に弱い
+2. **汎用性**: 正規表現ベースは多様な表記揺れに対応しやすい
+3. **実証済み**: 石川県でconfidence 0.3→0.8の改善実績
+
+#### YAML中間フォーマットの理由
+
+1. **人間が確認・修正可能**: 自動抽出の精度が100%でなくても問題ない
+2. **デバッグ容易**: パーサーロジック改善時に全HTML再処理可能
+3. **ロールバック可能**: DB投入前に品質確認できる
+
+#### SQLiteを選んだ理由
+
+1. **軽量**: PostgreSQL不要、ファイルベースで管理が容易
+2. **十分な性能**: 数千〜数万レコード程度なら問題なし
+3. **バージョン管理可能**: GitHubにコミットできる
+
 ---
 
-## 📁 ディレクトリ構造（2025-11-11現在）
+## 📁 ディレクトリ構造（2025-11-13現在）
 
 ```
 tail-match/
 ├── data/
 │   ├── tail-match.db              # SQLite データベース（バージョン管理対象）
 │   ├── html/                      # 収集したHTML（全保存）
-│   │   └── {municipality}/
-│   │       ├── latest_metadata.json   # 最新実行の情報
-│   │       └── archive/               # タイムスタンプ付きHTML
-│   │           └── {timestamp}_tail.html
+│   │   └── {prefecture}/
+│   │       └── {municipality}/
+│   │           ├── latest_metadata.json    # 最新実行の情報
+│   │           └── {timestamp}_tail.html   # タイムスタンプ付きHTML（同階層）
 │   └── yaml/                      # 抽出済みYAML（検証・修正可能）
-│       └── {municipality}/
-│           └── {timestamp}_tail.yaml
+│       └── {prefecture}/
+│           └── {municipality}/
+│               └── {timestamp}_tail.yaml
 ├── scripts/
 │   ├── lib/
 │   │   ├── html-saver.js          # HTML保存（共通）
-│   │   └── db.js                  # SQLite接続（共通）
+│   │   ├── db.js                  # SQLite接続（共通）
+│   │   ├── adoption-status.js     # 譲渡済み判定（共通）★2025-11-13追加
+│   │   └── animal-type.js         # 動物種判定（共通）★2025-11-13追加
 │   ├── scrapers/                  # 【自治体ごとのスクレイパー】
-│   │   └── ishikawa/              # 石川県（実装完了）
-│   │       ├── scrape.js          # HTML収集
-│   │       ├── html-to-yaml.js    # YAML抽出
-│   │       └── README.md          # 実行方法・実績データ
+│   │   ├── ishikawa/              # 石川県（実装完了）
+│   │   │   ├── aigo-ishikawa/
+│   │   │   │   ├── scrape.js          # HTML収集
+│   │   │   │   ├── html-to-yaml.js    # YAML抽出
+│   │   │   │   └── README.md          # 実行方法・実績データ
+│   │   │   └── kanazawa-city-cats/    # 金沢市（猫専用）
+│   │   ├── chiba/                 # 千葉県（猫・犬各1施設）
+│   │   │   ├── chiba-city-cats/
+│   │   │   └── chiba-city-dogs/
+│   │   └── ... （全28施設）
 │   └── yaml-to-db.js              # YAML→DB投入（汎用化済み）
 └── database/
     └── schema.sql                 # SQLite スキーマ定義
 ```
 
-### 今後の汎用化ディレクトリ案
+### 命名規則（2025-11-13統一完了）
+
+- 猫専用ページ: `-cats` サフィックス（17施設）
+- 犬専用ページ: `-dogs` サフィックス（7施設）
+- 混在ページ: サフィックスなし（4施設）
+
+**詳細な命名規則**: [実装ガイド - 命名規則](./scraping-guide.md#命名規則) 参照
+
+### ✅ 汎用化完了（2025-11-13）
+
+共通ヘルパー関数を全28施設で使用中：
 
 ```
-scripts/
-├── lib/
-│   ├── playwright-fetcher.js      # 【新規】Playwright HTML取得（汎用）
-│   ├── raw-text-extractor.js      # 【新規】raw_text優先抽出（汎用）
-│   ├── cross-checker.js           # 【新規】クロスチェック機能（汎用）
-│   ├── html-saver.js              # HTML保存（既存）
-│   └── db.js                      # SQLite接続（既存）
-├── scrapers/                      # 自治体ごとのディレクトリ
-│   ├── ishikawa/                  # 石川県（完了）
-│   │   ├── scrape.js
-│   │   ├── html-to-yaml.js
-│   │   └── README.md
-│   └── {municipality}/            # 【新規自治体用テンプレート】
-│       ├── scrape.js              # 自治体固有スクレイパー
-│       ├── html-to-yaml.js        # 自治体固有パーサー
-│       └── README.md              # 実行方法・実績
-└── yaml-to-db.js                  # YAML→DB投入（完成）
+scripts/lib/
+├── html-saver.js              # HTML保存（共通）
+├── db.js                      # SQLite接続（共通）
+├── adoption-status.js         # 譲渡済み判定（共通）★新規
+└── animal-type.js             # 動物種判定（共通）★新規
 ```
+
+**adoption-status.js の主要機能**:
+
+- 包括的キーワード検出（譲渡済み、譲渡しました、※譲渡しました、里親決定など）
+- 施設特有の表現にも対応（京都府「決まりました」など）
+- 全28施設で統一使用
+
+**animal-type.js の主要機能**:
+
+- 多様な表記対応（犬/イヌ/いぬ/ワンちゃん/わんちゃん/ワンコ/わんこ）
+- 猫も同様（猫/ネコ/ねこ/ニャンちゃん/にゃんちゃん/ニャンコ/にゃんこ）
+- 混在ページでの動的判定に使用（4施設）
 
 ---
 
 ## 🔄 3ステップ処理フロー（実証済み）
 
-### **Step 1: HTML収集**（Playwright使用、毎日実行）
-
-```bash
-node scripts/scrapers/ishikawa/scrape.js
-```
-
-**処理内容**:
-
-1. PlaywrightでChromium起動
-2. ページにアクセス
-3. **5秒待機**（JavaScriptで動的にHTMLをレンダリング）
-4. レンダリング完了後のHTMLを取得
-5. タイムスタンプ付きで保存: `data/html/ishikawa/archive/20251111_194744_tail.html`
-6. メタデータ更新: `data/html/ishikawa/latest_metadata.json`
-
-**出力例**:
-
-```
-data/html/ishikawa/archive/20251111_194744_tail.html  # 90KB（動物18匹）
-```
-
-**重要**:
-
-- 常にPlaywrightを使用（JS動的サイトがデフォルト）
-- 掲載ゼロの日も保存する（空HTMLも貴重なデータ）
-- HTMLは絶対に上書きしない（後で何度でもパース可能）
-
----
-
-### **Step 2: YAML抽出**（Cheerio + 正規表現、手動実行）
-
-```bash
-node scripts/scrapers/ishikawa/html-to-yaml.js
-```
-
-**処理内容**:
-
-1. 最新のHTMLファイルを読み込み
-2. Cheerioで解析
-3. **raw_text優先抽出**:
-   - `rawText = $(container).text()` で生テキスト取得
-   - 正規表現で構造化データを抽出（例: `/仮名\s*[:：]?\s*([^\s種類性別...]+)/`）
-   - セレクタベースはフォールバック
-4. **クロスチェック実行**:
-   - 性別キーワード数 vs 抽出動物数
-   - 年齢キーワード数 vs 抽出動物数
-   - 画像タグ数 vs 抽出動物数
-5. 信頼度レベル判定（high/medium/low/critical）
-6. YAML出力: `data/yaml/ishikawa/20251111_194744_tail.yaml`
-
-**出力例**:
-
-```yaml
-meta:
-  municipality_id: 'ishikawa'
-  scraped_at: '2025-11-11T19:47:44+09:00'
-
-cross_check:
-  stats:
-    gender_mentions: 18
-    age_mentions: 36
-    breed_mentions: 3
-    image_tags: 29
-  consistency_warnings:
-    - '年齢表記(36)が抽出数より大幅に多い'
-  confidence_level: 'medium'
-
-animals:
-  - external_id: 'ishikawa_001'
-    name: '紅蘭（クラン）'
-    breed: 'トイプードル'
-    age_estimate: '２歳'
-    gender: 'male'
-    confidence_score: 0.8
-    extraction_method: 'raw_text_priority'
-```
-
-**重要**:
-
-- raw_text優先でconfidence 0.3→0.8に改善
-- クロスチェックで取りこぼしを検出
-- YAMLは人間が確認・修正可能
-
-#### 🔒 **個体識別子の重複防止手順**（2025-11-12追加）
-
-**問題**: 1つの管理番号に複数の個体が含まれる場合、`external_id`が重複してデータベース制約違反が発生
-
-**解決策**: サフィックス付与による一意化
-
-**実装例（福井県の事例）**:
-
-```javascript
-// html-to-yaml.js の抽出ロジック
-
-// 1. 管理番号と個体数を取得
-const managementNumbers = parseManagementNumbers(title); // ["HC25374"]
-const genderInfo = parseGenderString(specs['性別']); // 4匹（オス2匹、メス2匹）
-const totalCats = Math.max(managementNumbers.length, genderInfo.length); // 4
-
-// 2. external_id の生成ロジック
-for (let i = 0; i < totalCats; i++) {
-  let externalId;
-
-  if (managementNumbers.length >= totalCats && managementNumbers[i]) {
-    // ケース1: 管理番号が十分にある場合、そのまま使用
-    externalId = managementNumbers[i]; // "HC25378", "HC25379", ...
-  } else if (managementNumbers.length > 0) {
-    // ケース2: 管理番号が不足している場合、サフィックスで一意化
-    const baseId = managementNumbers[i] || managementNumbers[0];
-    externalId = `${baseId}-${i + 1}`; // "HC25374-1", "HC25374-2", "HC25374-3", "HC25374-4"
-  } else {
-    // ケース3: 管理番号が全くない場合、タイムスタンプで一意化
-    externalId = `{municipality}_unknown_${Date.now()}_${i}`;
-  }
-
-  // 3. 個体データの作成
-  const cat = {
-    external_id: externalId, // 必ず一意
-    name: null, // デフォルト名は yaml-to-db.js で生成
-    gender: genderInfo[i] ? genderInfo[i].gender : 'unknown',
-    // ... 他のフィールド
-  };
-}
-```
-
-**チェックリスト（新規自治体実装時）**:
-
-- [ ] 1つの管理番号に複数の個体が存在する可能性を確認
-- [ ] `external_id`生成ロジックにサフィックス付与機能を実装
-- [ ] テストデータで重複が発生しないことを確認
-- [ ] `node scripts/yaml-to-db.js --dry-run`でFOREIGN KEY制約エラーがないことを確認
-
-**デフォルト名の生成**（yaml-to-db.js）:
-
-```javascript
-function generateDefaultName(animal) {
-  if (!animal.name || animal.name.includes('保護動物')) {
-    // external_idから番号を抽出
-    const idMatch = animal.external_id?.match(/\d+/);
-    const number = idMatch ? idMatch[0] : 'unknown';
-
-    // 動物種別に応じた名前を生成
-    let prefix = '保護動物';
-    if (animal.animal_type === 'cat') {
-      prefix = '保護猫';
-    }
-
-    return `${prefix}${number}号`; // 例: "保護猫25374号"
-  }
-  return animal.name;
-}
-```
-
-**実績データ**:
-
-- 福井県: HC25374（4匹）→ HC25374-1, HC25374-2, HC25374-3, HC25374-4
-- 福井県: FC25368（3匹）→ FC25368-1, FC25368-2, FC25368-3
-- 福井県: HC25334（4匹）→ HC25334-1, HC25334-2, HC25334-3, HC25334-4
-
----
-
-### **Step 3: DB投入**（better-sqlite3、手動実行）
-
-```bash
-# DRY-RUNで確認
-node scripts/yaml-to-db.js --dry-run
-
-# 実際に投入
-node scripts/yaml-to-db.js
-```
-
-**処理内容**:
-
-1. YAMLファイルを読み込み
-2. 信頼度レベルをチェック（`critical`ならスキップ）
-3. 各動物データを検証
-4. SQLiteにUPSERT（重複は更新）
-5. 投入結果サマリーを表示
-
-**出力例**:
-
-```
-📊 投入結果サマリー
-ファイル処理数: 1個
-動物総数: 18匹
-新規投入: 18匹
-更新: 0匹
-スキップ: 0匹
-エラー: 0匹
-
-利用可能な動物: 28匹
-```
-
-**重要**:
-
-- `--dry-run`で事前確認必須
-- `confidence_level: critical`は投入前に人間が確認
-- UPSERTで同じ動物の更新に対応
-
----
-
-## 🎯 なぜ3ステップなのか？
+### なぜ3ステップなのか？
 
 | ステップ        | 失敗時の対応                             | 利点                                     |
 | --------------- | ---------------------------------------- | ---------------------------------------- |
@@ -296,42 +163,70 @@ node scripts/yaml-to-db.js
 
 **実例**: 石川県でraw_text優先パーサーを実装した際、保存済みHTMLを再パースしてconfidence 0.3→0.8に改善できた。
 
+### データフローの概要
+
+```
+[Step 1: HTML収集]
+- Playwrightで動的レンダリング
+- 5秒待機してHTML取得
+- タイムスタンプ付きで保存
+↓
+data/html/{prefecture}/{municipality}/{timestamp}_tail.html
+
+[Step 2: YAML抽出]
+- Cheerioで解析
+- raw_text優先抽出（正規表現）
+- 共通ヘルパー関数で譲渡済み・動物種判定
+- クロスチェックで品質検証
+↓
+data/yaml/{prefecture}/{municipality}/{timestamp}_tail.yaml
+
+[Step 3: DB投入]
+- YAMLファイル読み込み
+- confidence_level チェック
+- SQLiteにUPSERT
+↓
+data/tail-match.db
+```
+
+**実装の詳細**: [実装ガイド - 3ステップ処理フロー](./scraping-guide.md#3ステップ処理フロー) 参照
+
 ---
 
-### 検出時の処理
+## 📦 ファイル命名規則（2025-11-13統一）
 
-```javascript
-if (detection.isJavaScriptRequired) {
-  console.log('⚠️  警告: JavaScript動的レンダリングサイトです');
-
-  // 静的HTMLを警告付きで保存
-  fs.writeFileSync('static_EMPTY_WARNING.html', html);
-  fs.writeFileSync('detection_result.json', JSON.stringify(detection));
-
-  // エラー終了（CI/CDで気付けるように）
-  process.exit(1);
-}
-```
-
----
-
-## 📦 ファイル命名規則
-
-### 規則
+### ディレクトリ命名規則
 
 ```
-latest_empty.html                     # 掲載なし（最新のみ、上書きOK）
-archive/20251111_093045_5cats.html    # 掲載あり（全保存、上書きNG）
-archive/20251112_101520_0cats.html    # 0匹でもarchive（デバッグ用）
-static_EMPTY_WARNING.html             # JS必須サイト警告
-detection_result.json                 # 検出結果メタデータ
+{prefecture}/{municipality}/        # municipality は -cats/-dogs サフィックス必須
+
+例:
+ishikawa/aigo-ishikawa/            # 混在ページ（サフィックスなし）
+ishikawa/kanazawa-city-cats/       # 猫専用ページ
+chiba/chiba-city-dogs/             # 犬専用ページ
 ```
+
+### ファイル命名規則
+
+```
+{timestamp}_tail.html              # タイムスタンプ付きHTML（同階層に保存）
+latest_metadata.json               # 最新実行の情報
+
+例:
+20251113_093045_tail.html          # 2025年11月13日 09:30:45 実行
+```
+
+**重要**:
+
+- **archive/ サブディレクトリは使用しない**
+- すべてのHTMLファイルは municipality ディレクトリ直下に保存
+- タイムスタンプで履歴管理
 
 ### タイムスタンプ形式
 
 ```javascript
 const timestamp = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '').replace('T', '_');
-// 結果: 20251111_093045
+// 結果: 20251113_093045
 ```
 
 ---
@@ -403,166 +298,12 @@ CREATE TABLE scraping_logs (
 );
 ```
 
----
+### スキーマ設計の要点
 
-## 🔧 実装例
-
-### 基本スクレイパー
-
-```javascript
-// scripts/scrape-ishikawa.js
-import fs from 'fs';
-import path from 'path';
-import axios from 'axios';
-import cheerio from 'cheerio';
-import { HttpsProxyAgent } from 'https-proxy-agent';
-import { detectJavaScriptSite } from './lib/detect-javascript-site.js';
-
-const CONFIG = {
-  url: 'https://aigo-ishikawa.jp/petadoption_list/',
-  expected_selectors: '.data_boxes, .data_box, .cat-card, table.animal-list',
-  retry_count: 3,
-  retry_delay: 2000,
-  request_delay: 3000, // 礼儀正しく3秒間隔
-  timeout: 30000,
-  user_agent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-};
-
-// プロキシ設定
-const proxy = process.env.HTTPS_PROXY || process.env.HTTP_PROXY;
-const agent = proxy ? new HttpsProxyAgent(proxy) : undefined;
-
-// ディレクトリ作成
-const htmlDir = 'data/html/ishikawa';
-const archiveDir = path.join(htmlDir, 'archive');
-fs.mkdirSync(archiveDir, { recursive: true });
-
-console.log('📥 いしかわ動物愛護センター - HTML収集開始');
-
-// HTML取得
-const response = await axios.get(CONFIG.url, {
-  httpsAgent: agent,
-  headers: { 'User-Agent': CONFIG.user_agent },
-  timeout: CONFIG.timeout,
-});
-
-// JavaScript必須サイトか検出
-const detection = detectJavaScriptSite(response.data, CONFIG);
-
-if (detection.isJavaScriptRequired) {
-  console.error('⚠️  JavaScript動的レンダリングサイトです');
-  fs.writeFileSync(path.join(htmlDir, 'static_EMPTY_WARNING.html'), response.data);
-  process.exit(1);
-}
-
-// 掲載数カウント
-const $ = cheerio.load(response.data);
-const catCount = $(CONFIG.expected_selectors).length;
-
-// ファイル名決定
-const timestamp = new Date().toISOString().slice(0, 19).replace(/[-:]/g, '').replace('T', '_');
-
-let filepath;
-if (catCount === 0) {
-  filepath = path.join(htmlDir, 'latest_empty.html');
-  console.log('📭 掲載なし - latest_empty.html を上書き');
-} else {
-  filepath = path.join(archiveDir, `${timestamp}_${catCount}cats.html`);
-  console.log(`🐱 ${catCount}匹発見 - archive に保存`);
-}
-
-// HTML保存
-fs.writeFileSync(filepath, response.data, 'utf-8');
-console.log(`✅ 保存完了: ${filepath}`);
-console.log(`📊 サイズ: ${response.data.length} bytes`);
-```
-
----
-
-## 🚀 実行フロー
-
-### 石川県の場合（2025-11-11実装完了）
-
-```bash
-# Step 1: HTML収集
-node scripts/scrapers/ishikawa/scrape.js
-
-# Step 2: YAML抽出
-node scripts/scrapers/ishikawa/html-to-yaml.js
-
-# Step 3: DB投入（DRY-RUN）
-node scripts/yaml-to-db.js --dry-run
-
-# Step 3: DB投入（本番）
-node scripts/yaml-to-db.js
-```
-
-### 本番運用（cron例）
-
-```bash
-# 毎日 AM 3:00 - HTML収集（自治体ごと）
-0 3 * * * cd /path/to/tail-match && node scripts/scrapers/ishikawa/scrape.js
-
-# 手動で必要に応じてYAML抽出・DB投入
-# （クロスチェック結果を確認してから投入するため）
-```
-
----
-
-## ✅ 設計の利点
-
-1. **デバッグ容易** - HTMLが残っているので何度でもパースし直せる
-2. **軽量** - SQLiteで十分、PostgreSQL不要
-3. **貴重なデータ保護** - 掲載ありHTMLは絶対に上書きしない
-4. **自動検出** - JavaScript必須サイトを自動で警告
-5. **実績あり** - osaka-kenpo + kanazawa のベストプラクティス統合
-
----
-
-## 🔐 礼儀正しいスクレイピング
-
-- ✅ リクエスト間隔: 3秒以上
-- ✅ User-Agent設定: 明確な識別子
-- ✅ robots.txt 遵守
-- ✅ 深夜・早朝実行（サーバー負荷軽減）
-- ✅ リトライ機能（最大3回、2秒間隔）
-- ✅ タイムアウト: 30秒
-
----
-
-**このアーキテクチャに基づいて、各自治体のスクレイパーを順次実装していきます。**
-
----
-
-## 📊 石川県での実証結果（2025-11-11）
-
-### 実績データ
-
-| 指標                 | Before               | After                    | 改善率 |
-| -------------------- | -------------------- | ------------------------ | ------ |
-| **HTMLサイズ**       | 1KB（空）            | 90KB                     | 9000%  |
-| **抽出成功率**       | 0%                   | 100%（18/18匹）          | ∞      |
-| **実名抽出**         | 0%（"保護動物1号"）  | 100%（"紅蘭（クラン）"） | ∞      |
-| **犬種精度**         | 低（"ミックス"固定） | 高（"トイプードル"）     | -      |
-| **confidence_score** | 0.3                  | 0.8                      | 167%   |
-
-### パフォーマンス
-
-- **HTML収集**: 約10秒（Playwright起動〜保存）
-- **YAML抽出**: 約1秒（Cheerio解析）
-- **DB投入**: 約0.5秒（18匹分、UPSERT）
-- **合計**: 約12秒/自治体
-
-### クロスチェック結果
-
-```
-性別表記: 18個  → 抽出数: 18匹 ✅ 一致
-年齢表記: 36個  → 抽出数: 18匹 ⚠️ 取りこぼし可能性（要確認）
-犬種表記: 3個   → 抽出数: 18匹 ⚠️ 低頻出（許容範囲）
-画像タグ: 29個  → 抽出数: 18匹 ✅ 適切
-```
-
-**信頼度レベル**: MEDIUM（警告1件だが投入可能）
+- **UNIQUE(municipality_id, external_id)**: 同じ施設内での個体識別子重複を防止
+- **JSON フィールド**: 柔軟な構造化データ（images, contact_info, scraping_config）
+- **TEXT 型の日付**: SQLiteではISO 8601形式の文字列を推奨
+- **status フィールド**: 'available'（募集中）、'adopted'（譲渡済み）の2値
 
 ---
 
@@ -570,10 +311,10 @@ node scripts/yaml-to-db.js
 
 ### ✅ 完全汎用化可能（すべての自治体で共通）
 
-#### 1. Playwright HTML取得ライブラリ
+#### 1. Playwright HTML取得
 
 ```javascript
-// scripts/lib/playwright-fetcher.js（新規作成推奨）
+// scripts/lib/playwright-fetcher.js（概念的な実装）
 
 import { chromium } from 'playwright';
 
@@ -581,15 +322,10 @@ export async function fetchDynamicHTML(url, options = {}) {
   const {
     waitTime = 5000, // JS実行待機時間（自治体ごと調整可能）
     timeout = 30000,
-    proxy = null,
     viewport = { width: 1920, height: 1080 },
   } = options;
 
-  const browser = await chromium.launch({
-    headless: true,
-    proxy: proxy ? { server: proxy } : undefined,
-  });
-
+  const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport });
   await page.goto(url, { timeout, waitUntil: 'networkidle' });
   await page.waitForTimeout(waitTime);
@@ -601,14 +337,14 @@ export async function fetchDynamicHTML(url, options = {}) {
 }
 ```
 
-**用途**: どの自治体でも使える動的HTML取得。`waitTime`だけ調整すればOK。
+**設計意図**: どの自治体でも使える動的HTML取得。`waitTime`だけ調整すればOK。
 
 ---
 
 #### 2. raw_text優先抽出パターン
 
 ```javascript
-// scripts/lib/raw-text-extractor.js（新規作成推奨）
+// scripts/lib/raw-text-extractor.js（概念的な実装）
 
 export function extractFieldFromRawText(rawText, fieldPatterns) {
   for (const pattern of fieldPatterns) {
@@ -645,7 +381,7 @@ export const COMMON_PATTERNS = {
 };
 ```
 
-**用途**: 自治体サイトの表記揺れに対応。複数パターンを試して最初にマッチしたものを使用。
+**設計意図**: 自治体サイトの表記揺れに対応。複数パターンを試して最初にマッチしたものを使用。
 
 **実績**: 石川県でconfidence 0.3→0.8に改善。
 
@@ -654,7 +390,7 @@ export const COMMON_PATTERNS = {
 #### 3. クロスチェック機能
 
 ```javascript
-// scripts/lib/cross-checker.js（新規作成推奨）
+// scripts/lib/cross-checker.js（概念的な実装）
 
 export function performCrossCheck(html, extractedAnimals) {
   const $ = cheerio.load(html);
@@ -665,26 +401,18 @@ export function performCrossCheck(html, extractedAnimals) {
     age_mentions: (fullText.match(/[0-9０-９]+歳|[0-9０-９]+ヶ月|推定年齢/g) || []).length,
     breed_mentions: (fullText.match(/種類|犬種|猫種|品種|ミックス|雑種/g) || []).length,
     image_tags: $('img').length,
-    color_mentions: (fullText.match(/毛色|カラー|色|白|黒|茶|灰|三毛/g) || []).length,
   };
 
   const warnings = [];
 
   // 性別チェック（汎用）
   if (stats.gender_mentions < extractedAnimals.length * 0.8) {
-    warnings.push(
-      `性別表記(${stats.gender_mentions})が抽出数(${extractedAnimals.length})より少ない`
-    );
+    warnings.push(`性別表記(${stats.gender_mentions})が少ない`);
   }
 
   // 年齢チェック（汎用）
   if (stats.age_mentions > extractedAnimals.length * 1.5) {
-    warnings.push(`年齢表記(${stats.age_mentions})が抽出数より大幅に多い - 取りこぼしの可能性`);
-  }
-
-  // 画像チェック（汎用）
-  if (stats.image_tags < extractedAnimals.length * 0.5) {
-    warnings.push(`画像数(${stats.image_tags})が少なすぎる可能性`);
+    warnings.push(`年齢表記(${stats.age_mentions})が多すぎる - 取りこぼしの可能性`);
   }
 
   // 信頼度レベル判定（汎用）
@@ -699,7 +427,7 @@ export function performCrossCheck(html, extractedAnimals) {
 }
 ```
 
-**用途**: どの自治体でも使える品質検証。性別・年齢・画像などは普遍的な指標。
+**設計意図**: どの自治体でも使える品質検証。性別・年齢・画像などは普遍的な指標。
 
 **実績**: 石川県で年齢表記36個vs抽出18匹の不一致を検出（要確認フラグ）。
 
@@ -711,10 +439,9 @@ export function performCrossCheck(html, extractedAnimals) {
 # すべての自治体で統一されたYAML構造
 
 meta:
-  municipality_id: 'ishikawa' # 自治体ID
-  scraped_at: '2025-11-11T19:47:44+09:00'
+  municipality_id: 'ishikawa/aigo-ishikawa'
+  scraped_at: '2025-11-13T19:47:44+09:00'
   source_url: 'https://...'
-  html_filepath: 'data/html/ishikawa/archive/20251111_194744_tail.html'
 
 cross_check:
   stats:
@@ -733,44 +460,12 @@ animals:
     breed: 'トイプードル'
     age_estimate: '２歳'
     gender: 'male'
-    color: '茶'
-    size: null
-    health_status: null
-    personality: null
-    special_needs: null
-    images: ['https://...']
-    protection_date: null
-    deadline_date: null
     status: 'available'
-    source_url: 'https://...'
     confidence_score: 0.8 # 0.0-1.0
-    extraction_method: 'raw_text_priority' # or 'selector_fallback'
-    needs_review: false
+    extraction_method: 'raw_text_priority'
 ```
 
-**用途**: すべての自治体で統一されたデータ形式。`confidence_level`で品質を可視化。
-
----
-
-#### 5. DB投入ロジック（汎用実装済み）
-
-`scripts/yaml-to-db.js`はすでに汎用化されています：
-
-```javascript
-const CONFIG = {
-  municipalities: ['ishikawa', 'tokyo', 'osaka'], // 配列で複数対応
-  dryRun: process.argv.includes('--dry-run'),
-  skipReview: process.argv.includes('--skip-review'),
-};
-
-// 信頼度チェック（汎用）
-if (data.confidence_level === 'critical' && !CONFIG.skipReview) {
-  console.warn('手動確認を推奨');
-  return null;
-}
-```
-
-**用途**: `municipalities`配列に追加するだけで複数自治体対応。
+**設計意図**: すべての自治体で統一されたデータ形式。`confidence_level`で品質を可視化。
 
 ---
 
@@ -779,21 +474,12 @@ if (data.confidence_level === 'critical' && !CONFIG.skipReview) {
 #### 1. セレクタパターン
 
 ```javascript
-// scripts/config/ishikawa.js（新規作成推奨）
+// scripts/scrapers/{prefecture}/{municipality}/config.js（概念）
 
-export const ISHIKAWA_SELECTORS = {
+export const SELECTORS = {
   container: '.data_box', // 動物情報のコンテナ（サイトごと異なる）
   name: '.animal-name',
   breed: '.animal-breed',
-  gender: '.animal-gender',
-  image: 'img.animal-photo',
-  detailLink: 'a.detail-link',
-};
-
-export const ISHIKAWA_CONFIG = {
-  municipalityId: 'ishikawa',
-  sourceUrl: 'https://aigo-ishikawa.jp/petadoption_list/',
-  waitTime: 5000, // JS実行待機時間（サイトによって異なる）
 };
 ```
 
@@ -804,20 +490,17 @@ export const ISHIKAWA_CONFIG = {
 #### 2. データマッピング
 
 ```javascript
-// scripts/parsers/ishikawa-parser.js（新規作成推奨）
+// 自治体固有の正規化処理（概念）
 
-export function mapIshikawaData(rawData) {
+export function normalizeData(rawData) {
   return {
-    // 石川県固有: "オス" → "male" の変換
-    gender: rawData.gender === 'オス' ? 'male' : rawData.gender === 'メス' ? 'female' : 'unknown',
-
-    // 石川県固有: "２歳" → "2歳" の正規化
+    // 全角→半角の正規化
     age_estimate: rawData.age?.replace(/[０-９]/g, (s) =>
       String.fromCharCode(s.charCodeAt(0) - 0xfee0)
     ),
 
-    // 石川県固有: external_idの生成ルール
-    external_id: `ishikawa_${rawData.protection_number}`,
+    // external_idの生成ルール
+    external_id: `{municipality}_${rawData.protection_number}`,
   };
 }
 ```
@@ -826,190 +509,83 @@ export function mapIshikawaData(rawData) {
 
 ---
 
-## 🚀 新規自治体追加手順（テンプレート）
+## 🚀 新規自治体追加について
 
-### ステップ1: 調査
+新規自治体を追加する際の詳細な手順は **[スクレイピング実装ガイド](./scraping-guide.md)** を参照してください。
 
-1. 対象URLを確認
-2. ブラウザで開き、JavaScriptが必要か確認（DevToolsでネットワークタブ確認）
-3. 動物情報のHTMLセレクタを調査
-4. データ項目を確認（名前、犬種、年齢、性別、画像など）
+このドキュメントでは、以下の設計思想のみを説明しています：
 
-### ステップ2: 設定ファイル作成
+- **汎用化戦略**: どの部分が共通化できるか
+- **カスタマイズポイント**: どの部分が自治体固有か
+- **設計の利点**: なぜこのアーキテクチャなのか
 
-```javascript
-// scripts/scrapers/{municipality}/config.js
+**実装時の参考資料**:
 
-export const {MUNICIPALITY}_CONFIG = {
-  municipalityId: '{municipality}',
-  sourceUrl: '{url}',
-  waitTime: 5000,  // 初期値、動作確認後に調整
-};
-
-export const {MUNICIPALITY}_SELECTORS = {
-  container: '.animal-item',  // 要調査
-  name: '.name',              // 要調査
-  // ...
-};
-
-export const {MUNICIPALITY}_PATTERNS = {
-  // COMMON_PATTERNS をベースに自治体固有パターンを追加
-  name: [
-    ...COMMON_PATTERNS.name,
-    /独自パターン/,
-  ],
-};
-```
-
-### ステップ3: スクレイピングスクリプト作成
-
-```javascript
-// scripts/scrapers/{municipality}/scrape.js
-
-import { fetchDynamicHTML } from '../../lib/playwright-fetcher.js';
-import { saveHTML } from '../../lib/html-saver.js';
-import { {MUNICIPALITY}_CONFIG } from './config.js';
-
-async function main() {
-  const html = await fetchDynamicHTML({MUNICIPALITY}_CONFIG.sourceUrl, {
-    waitTime: {MUNICIPALITY}_CONFIG.waitTime,
-  });
-
-  const filepath = saveHTML(html, {MUNICIPALITY}_CONFIG.municipalityId);
-  console.log(`✅ HTML保存: ${filepath}`);
-}
-
-main();
-```
-
-### ステップ4: パーサー作成
-
-```javascript
-// scripts/scrapers/{municipality}/html-to-yaml.js
-
-import { extractFieldFromRawText, COMMON_PATTERNS } from '../../lib/raw-text-extractor.js';
-import { {MUNICIPALITY}_SELECTORS, {MUNICIPALITY}_PATTERNS } from './config.js';
-
-export function extract{Municipality}Animals($) {
-  const animals = [];
-
-  $({MUNICIPALITY}_SELECTORS.container).each((index, container) => {
-    const $container = $(container);
-    const rawText = $container.text();
-
-    // raw_text優先抽出（汎用ライブラリ使用）
-    const name = extractFieldFromRawText(rawText, {MUNICIPALITY}_PATTERNS.name) ||
-                 $container.find({MUNICIPALITY}_SELECTORS.name).text().trim();
-
-    // ... 他のフィールドも同様
-
-    animals.push({ name, breed, age, gender, ... });
-  });
-
-  return animals;
-}
-```
-
-### ステップ5: クロスチェック実装
-
-```javascript
-// scripts/html-to-yaml.js に統合
-
-import { performCrossCheck } from './lib/cross-checker.js';
-
-// パース後
-const crossCheckResult = performCrossCheck(html, animals);
-
-// YAMLに追加
-yamlData.cross_check = crossCheckResult;
-```
-
-### ステップ6: テスト実行
-
-```bash
-# HTML収集
-node scripts/scrapers/{municipality}/scrape.js
-
-# HTMLサイズ確認（1KB以下なら失敗）
-ls -lh data/html/{municipality}/archive/*.html
-
-# YAML抽出
-node scripts/scrapers/{municipality}/html-to-yaml.js
-
-# クロスチェック結果確認
-# → 信頼度がcriticalでないことを確認
-
-# DB投入（DRY-RUN）
-node scripts/yaml-to-db.js --dry-run
-
-# DB投入（本番）
-node scripts/yaml-to-db.js
-```
+- [実装ガイド](./scraping-guide.md) - Step-by-Step手順
+- [よくある間違い](./common-mistakes.md) - アンチパターン集
 
 ---
 
-## 📝 エージェント向けプロンプトテンプレート
+## 📊 実証結果（2025-11-13現在）
 
-新規自治体を追加する際は、以下の指示を使用してください：
+### 全体統計
 
-```markdown
-新しい自治体「{municipality_name}」のスクレイピングを実装してください。
+- **実装済み施設数**: 28施設
+  - 猫専用ページ: 17施設
+  - 犬専用ページ: 7施設
+  - 混在ページ: 4施設
+- **共通ヘルパー関数**: 全28施設で使用
+  - `getAdoptionStatus()`: 譲渡済み判定統一
+  - `determineAnimalType()`: 動物種判定統一
+- **命名規則統一**: `-cats`/`-dogs` サフィックス完備
 
-## 前提条件
+### 石川県での実証結果（パイロット施設）
 
-- 3ステップパイプライン（HTML収集→YAML抽出→DB投入）を使用
-- 汎用化済みのライブラリを最大限活用
-- クロスチェック機能を必ず実装
+| 指標                 | Before               | After                    | 改善率 |
+| -------------------- | -------------------- | ------------------------ | ------ |
+| **HTMLサイズ**       | 1KB（空）            | 90KB                     | 9000%  |
+| **抽出成功率**       | 0%                   | 100%（18/18匹）          | ∞      |
+| **実名抽出**         | 0%（"保護動物1号"）  | 100%（"紅蘭（クラン）"） | ∞      |
+| **犬種精度**         | 低（"ミックス"固定） | 高（"トイプードル"）     | -      |
+| **confidence_score** | 0.3                  | 0.8                      | 167%   |
 
-## 実装チェックリスト
+### パフォーマンス
 
-### HTML収集
+- **HTML収集**: 約10秒（Playwright起動〜保存）
+- **YAML抽出**: 約1秒（Cheerio解析 + 共通ヘルパー）
+- **DB投入**: 約0.5秒（18匹分、UPSERT）
+- **合計**: 約12秒/施設
 
-- [ ] `scripts/lib/playwright-fetcher.js` を使用
-- [ ] `scripts/lib/html-saver.js` を使用
-- [ ] waitTime を調整（初期値5000ms）
-- [ ] HTMLサイズが十分か確認（1KB以下は失敗）
+### 品質保証（全28施設）
 
-### YAML抽出
-
-- [ ] `scripts/lib/raw-text-extractor.js` を使用
-- [ ] COMMON_PATTERNS をベースに自治体固有パターンを追加
-- [ ] raw_text優先抽出を実装
-- [ ] セレクタベースをフォールバックとして実装
-- [ ] confidence_score を計算（0.5以上が目標）
-
-### クロスチェック
-
-- [ ] `scripts/lib/cross-checker.js` を使用
-- [ ] 性別キーワード数 vs 抽出動物数を比較
-- [ ] 年齢キーワード数 vs 抽出動物数を比較
-- [ ] 画像タグ数 vs 抽出動物数を比較
-- [ ] confidence_level を判定（critical は投入前に確認）
-
-### DB投入
-
-- [ ] `scripts/yaml-to-db.js` の municipalities配列に追加
-- [ ] DRY-RUNで確認
-- [ ] 実際に投入
-
-### 品質確認
-
-- [ ] 実名が抽出されているか（「保護動物N号」ではない）
-- [ ] confidence_score が 0.5 以上か
-- [ ] クロスチェックで大きな警告が出ていないか
-- [ ] DBに正しく投入されたか（件数確認）
-
-## 注意事項
-
-- raw_textからの抽出を優先すること（石川県でconfidence 0.3→0.8の実績）
-- クロスチェックは必須（取りこぼし検出のため）
-- confidence_level: critical の場合は投入前に人間が確認
-- waitTime はサイトによって調整（3-10秒程度）
-```
+- 譲渡済み判定: 包括的キーワード検出（10種類）
+- 動物種判定: 多様な表記対応（漢字・カタカナ・ひらがな・愛称）
+- クロスチェック: 性別・年齢・画像の整合性検証
+- 個体識別子: 重複防止サフィックス付与
 
 ---
 
-## 🎓 学んだ教訓
+## ✅ 設計の利点
+
+1. **デバッグ容易** - HTMLが残っているので何度でもパースし直せる
+2. **軽量** - SQLiteで十分、PostgreSQL不要
+3. **貴重なデータ保護** - 掲載ありHTMLは絶対に上書きしない
+4. **実績あり** - 28施設で安定稼働中
+
+---
+
+## 🔐 礼儀正しいスクレイピング
+
+- リクエスト間隔: 3秒以上
+- User-Agent設定: 明確な識別子
+- robots.txt 遵守
+- 深夜・早朝実行（サーバー負荷軽減）
+- リトライ機能（最大3回、2秒間隔）
+- タイムアウト: 30秒
+
+---
+
+## 🎓 学んだ教訓（設計レベル）
 
 ### ✅ やって良かったこと
 
@@ -1018,6 +594,8 @@ node scripts/yaml-to-db.js
 3. **3ステップパイプライン**: HTML→YAML→DB の中間フォーマットで安全性確保
 4. **クロスチェック**: 性別・年齢・画像の整合性で取りこぼしを検出
 5. **YAML中間フォーマット**: 人間が確認・修正できる形式で品質保証
+6. **共通ヘルパー関数**: 譲渡済み判定・動物種判定をDRY原則で統一（2025-11-13）
+7. **命名規則統一**: `-cats`/`-dogs` サフィックスで混在ページと明確に区別（2025-11-13）
 
 ### ❌ 避けるべきこと
 
@@ -1025,16 +603,45 @@ node scripts/yaml-to-db.js
 2. **セレクタのみ抽出**: 汎用性が低く、サイト変更に弱い
 3. **空HTML判定の複雑化**: Playwright で統一した方がシンプル
 4. **confidence無視**: 低品質データをDBに入れると後で大変
+5. **archive/ サブディレクトリ**: HTMLは同階層に保存する方がシンプル
+6. **施設ごとの重複ロジック**: 共通化できるものは必ず共通ヘルパーにする
+
+**実装レベルの教訓**: [よくある間違い](./common-mistakes.md) を参照
 
 ---
 
 ## 📚 参考リソース
 
-- **石川県動物愛護センター**: https://aigo-ishikawa.jp/petadoption_list/
+### 関連ドキュメント
+
+- **[スクレイピング実装ガイド](./scraping-guide.md)** - 新規施設追加の完全な手順
+- **[よくある間違い](./common-mistakes.md)** - 過去の失敗から学んだ教訓
+- **[プロジェクト状況管理](../CLAUDE.md)** - 現在の進捗とタスク管理
+
+### 外部ライブラリ
+
 - **Playwright公式**: https://playwright.dev/
 - **Cheerio公式**: https://cheerio.js.org/
 - **better-sqlite3**: https://github.com/WiseLibs/better-sqlite3
+- **js-yaml**: https://github.com/nodeca/js-yaml
+
+### 実装済み施設
+
+- **石川県**: いしかわ動物愛護センター（混在）、金沢市（猫専用）
+- **千葉県**: 千葉市（猫・犬各専用）、千葉県（猫・犬各専用）
+- **福井県**: 福井県（猫・犬各専用）
+- **神奈川県**: 神奈川県（猫・犬各専用）、横浜市（猫専用）
+- **京都府**: 京都府（猫・犬各専用）
+- **沖縄県**: 沖縄県（猫・犬各専用）、那覇市（混在）
+- **富山県**: 富山県（猫・犬各専用）
+- **大阪府**: 大阪府、大阪市、堺市（各猫専用）
+- **兵庫県**: 兵庫県（猫専用）、神戸市（混在）
+- **埼玉県**: 埼玉県、さいたま市（各猫専用）
+- **東京都**: 東京都（猫専用）
+- **北海道**: 北海道（混在）、札幌市（猫専用）
+
+**合計**: 28施設（猫専用17 + 犬専用7 + 混在4）
 
 ---
 
-**このアーキテクチャに基づいて、各自治体のスクレイパーを順次実装していきます。**
+**このアーキテクチャに基づいて、全28施設が安定稼働中です。新規施設追加時はこのドキュメントを参照してください。**
