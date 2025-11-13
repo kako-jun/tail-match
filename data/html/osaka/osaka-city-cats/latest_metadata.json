@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-11-12T05:17:29.277Z",
+  "timestamp": "2025-11-13T15:51:45.264+09:00",
   "url": "https://www.city.osaka.lg.jp/kenko/page/0000206027.html",
   "has_animals": true,
-  "html_size": 40717,
+  "html_size": 40718,
   "scraper": "playwright",
   "note": "JavaScript実行後の完全レンダリングHTML取得"
 }

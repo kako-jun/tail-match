@@ -1,0 +1,242 @@
+meta:
+  source_file: multiple_html_pages
+  source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/index.html
+  extracted_at: '2025-11-13T15:53:12.546+09:00'
+  municipality: osaka/sakai-city
+  municipality_id: osaka_27_sakai
+  total_count: 12
+  extraction_type: image_download_template
+  note: 画像をダウンロード済み。手動またはClaude Vision APIでデータを埋める必要があります。
+confidence_level: low
+consistency_warnings:
+  - 画像内の情報を手動で確認する必要があります
+  - 管理番号、性別、年齢、毛色、健康状態、性格を画像から読み取ってください
+animals:
+  - external_id: '7'
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.images/R7_1.png
+    protection_location: null
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.html
+    confidence_level: medium
+    extraction_notes:
+      - 画像から手動で情報を抽出する必要があります
+    needs_review: true
+  - external_id: '7'
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.images/R7_2.png
+    protection_location: null
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.html
+    confidence_level: medium
+    extraction_notes:
+      - 画像から手動で情報を抽出する必要があります
+    needs_review: true
+  - external_id: '7'
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.images/R7_3.png
+    protection_location: null
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.html
+    confidence_level: medium
+    extraction_notes:
+      - 画像から手動で情報を抽出する必要があります
+    needs_review: true
+  - external_id: '7'
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.images/R7_4.png
+    protection_location: null
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats1.html
+    confidence_level: medium
+    extraction_notes:
+      - 画像から手動で情報を抽出する必要があります
+    needs_review: true
+  - external_id: '7'
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.images/R7_5.png
+    protection_location: null
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.html
+    confidence_level: medium
+    extraction_notes:
+      - 画像から手動で情報を抽出する必要があります
+    needs_review: true
+  - external_id: '7'
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.images/R7_6.png
+    protection_location: null
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.html
+    confidence_level: medium
+    extraction_notes:
+      - 画像から手動で情報を抽出する必要があります
+    needs_review: true
+  - external_id: '7'
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.images/R7_7.png
+    protection_location: null
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.html
+    confidence_level: medium
+    extraction_notes:
+      - 画像から手動で情報を抽出する必要があります
+    needs_review: true
+  - external_id: '7'
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.images/R7_8.png
+    protection_location: null
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats2.html
+    confidence_level: medium
+    extraction_notes:
+      - 画像から手動で情報を抽出する必要があります
+    needs_review: true
+  - external_id: '7'
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats3.images/R7_9.png
+    protection_location: null
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats3.html
+    confidence_level: medium
+    extraction_notes:
+      - 画像から手動で情報を抽出する必要があります
+    needs_review: true
+  - external_id: '7'
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats3.images/R7_10.png
+    protection_location: null
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats3.html
+    confidence_level: medium
+    extraction_notes:
+      - 画像から手動で情報を抽出する必要があります
+    needs_review: true
+  - external_id: '7'
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats3.images/R7_11.png
+    protection_location: null
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/cats3.html
+    confidence_level: medium
+    extraction_notes:
+      - 画像から手動で情報を抽出する必要があります
+    needs_review: true
+  - external_id: 7005-2
+    name: null
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/centerdogs.images/7005-2.png
+    protection_location: null
+    source_url: https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/centerdogs.html
+    confidence_level: medium
+    extraction_notes:
+      - 画像から手動で情報を抽出する必要があります
+    needs_review: true

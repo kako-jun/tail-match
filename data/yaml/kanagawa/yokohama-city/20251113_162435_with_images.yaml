@@ -1,0 +1,221 @@
+meta:
+  source_file: 20251113_162432_tail.html
+  source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+  extracted_at: '2025-11-13T16:24:35.354+09:00'
+  municipality: kanagawa/yokohama-city
+  municipality_id: 16
+  total_count: 9
+  extraction_type: image_download_template
+  note: 画像をダウンロード済み。Claude Vision APIまたは手動でデータを埋める必要があります。
+confidence_level: low
+consistency_warnings:
+  - 画像内の情報を確認する必要があります
+  - お問合せ番号、性別、年齢、毛色、健康状態、性格を画像から読み取ってください
+animals:
+  - external_id: yokohama-134
+    name: 横浜市-134
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - data/images/kanagawa/yokohama-city/134jotof25101501.jpg
+    image_url_original: jotoinfo-cat.images/134jotof25101501.jpg
+    protection_date: '2025-10-15'
+    deadline_date: null
+    source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+    confidence_level: low
+    extraction_notes:
+      - 画像から情報を抽出する必要があります
+    needs_review: true
+    inquiry_number: '134'
+    listing_type: adoption
+  - external_id: yokohama-133
+    name: 横浜市-133
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - data/images/kanagawa/yokohama-city/133jotof25071401.jpg
+    image_url_original: jotoinfo-cat.images/133jotof25071401.jpg
+    protection_date: '2025-07-14'
+    deadline_date: null
+    source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+    confidence_level: low
+    extraction_notes:
+      - 画像から情報を抽出する必要があります
+    needs_review: true
+    inquiry_number: '133'
+    listing_type: adoption
+  - external_id: yokohama-132
+    name: 横浜市-132
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - data/images/kanagawa/yokohama-city/132jotof25100201.jpg
+    image_url_original: jotoinfo-cat.images/132jotof25100201.jpg
+    protection_date: '2025-10-02'
+    deadline_date: null
+    source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+    confidence_level: low
+    extraction_notes:
+      - 画像から情報を抽出する必要があります
+    needs_review: true
+    inquiry_number: '132'
+    listing_type: adoption
+  - external_id: yokohama-131
+    name: 横浜市-131
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - data/images/kanagawa/yokohama-city/131jotof2101602.jpg
+    image_url_original: jotoinfo-cat.images/131jotof2101602.jpg
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+    confidence_level: low
+    extraction_notes:
+      - 画像から情報を抽出する必要があります
+    needs_review: true
+    inquiry_number: '131'
+    listing_type: adoption
+  - external_id: yokohama-130
+    name: 横浜市-130
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - data/images/kanagawa/yokohama-city/130jotof25073101.jpg
+    image_url_original: jotoinfo-cat.images/130jotof25073101.jpg
+    protection_date: '2025-07-31'
+    deadline_date: null
+    source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+    confidence_level: low
+    extraction_notes:
+      - 画像から情報を抽出する必要があります
+    needs_review: true
+    inquiry_number: '130'
+    listing_type: adoption
+  - external_id: yokohama-110
+    name: 横浜市-110
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - data/images/kanagawa/yokohama-city/110jotof25072401.JPG
+    image_url_original: jotoinfo-cat.images/110jotof25072401.JPG
+    protection_date: '2025-07-24'
+    deadline_date: null
+    source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+    confidence_level: low
+    extraction_notes:
+      - 画像から情報を抽出する必要があります
+    needs_review: true
+    inquiry_number: '110'
+    listing_type: adoption
+  - external_id: yokohama-114
+    name: 横浜市-114
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - data/images/kanagawa/yokohama-city/114jotof24020901.JPG
+    image_url_original: jotoinfo-cat.images/114jotof24020901.JPG
+    protection_date: '2024-02-09'
+    deadline_date: null
+    source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+    confidence_level: low
+    extraction_notes:
+      - 画像から情報を抽出する必要があります
+    needs_review: true
+    inquiry_number: '114'
+    listing_type: adoption
+  - external_id: yokohama-111
+    name: 横浜市-111
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - data/images/kanagawa/yokohama-city/111jotof24031401.JPG
+    image_url_original: jotoinfo-cat.images/111jotof24031401.JPG
+    protection_date: '2024-03-14'
+    deadline_date: null
+    source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+    confidence_level: low
+    extraction_notes:
+      - 画像から情報を抽出する必要があります
+    needs_review: true
+    inquiry_number: '111'
+    listing_type: adoption
+  - external_id: yokohama-946
+    name: 横浜市-946
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - data/images/kanagawa/yokohama-city/946jotof23082401.jpg
+    image_url_original: jotoinfo-cat.images/946jotof23082401.jpg
+    protection_date: '2023-08-24'
+    deadline_date: null
+    source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html
+    confidence_level: low
+    extraction_notes:
+      - 画像から情報を抽出する必要があります
+    needs_review: true
+    inquiry_number: '946'
+    listing_type: adoption

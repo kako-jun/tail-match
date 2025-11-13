@@ -1,0 +1,32 @@
+meta:
+  source_file: 20251113_155354_tail.html
+  source_url: https://shuyojoho.metro.tokyo.lg.jp/cat
+  extracted_at: '2025-11-13T15:53:54.586+09:00'
+  municipality: tokyo/tokyo-metro-cats
+  municipality_id: 14
+  total_count: 1
+  note: 収容動物情報（迷子猫、飼い主探し用）
+animals:
+  - external_id: 25F67
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://shuyojoho.metro.tokyo.lg.jp/img/upload/69114e1de6bb2.gif
+    protection_date: '2025-11-10'
+    deadline_date: '2025-11-18'
+    status: available
+    source_url: https://shuyojoho.metro.tokyo.lg.jp/animals/detail/8601
+    confidence_level: high
+    extraction_notes:
+      - 収容動物情報（迷子猫）
+      - "収容場所: 大田区\t\t\t\t西六郷３丁目"
+      - '管理支所: 城南島出張所'
+    listing_type: lost_pet

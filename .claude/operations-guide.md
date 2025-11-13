@@ -238,64 +238,18 @@ node scripts/yaml-to-db.js 2>&1 | grep "ERROR\|WARNING"
 node scripts/yaml-to-db.js
 ```
 
-### パターン5: countAnimalsInHTML is not defined エラー
+### パターン5: 新規施設追加時のエラー
 
-**2025-11-13追加**: 新規施設追加時によくあるエラー
+**新規施設追加時のよくあるエラー**は [common-mistakes.md](./common-mistakes.md#バグ修正事例) を参照してください。
 
-**エラー例**:
+主なエラーパターン:
 
-```
-ReferenceError: countAnimalsInHTML is not defined
-    at main (file:///path/to/scrape.js:70:25)
-```
+- `countAnimalsInHTML is not defined` - 関数定義忘れ
+- `allAnimals is not defined` - 変数名ミス
+- ディレクトリパスエラー - CONFIG設定ミス
+- 全角・半角括弧の混在 - 正規表現パターン不足
 
-**原因**:
-
-- scrape.jsに`countAnimalsInHTML`関数が未定義
-- 履歴ロガー統合時に`logHTMLCount(countAnimalsInHTML(html))`を追加したが、関数本体を追加し忘れた
-
-**対応**:
-
-1. 他施設のscrape.jsから`countAnimalsInHTML`関数をコピー:
-
-```bash
-# テンプレートとして使える施設
-cat scripts/scrapers/chiba/chiba-pref-dogs/scrape.js | grep -A 50 "function countAnimalsInHTML"
-```
-
-2. または、自動修正ツールを使用:
-
-```bash
-node scripts/fix-missing-count-function.js
-```
-
-### パターン6: allAnimals is not defined エラー
-
-**2025-11-13追加**: コピー&ペーストミス
-
-**エラー例**:
-
-```
-ReferenceError: allAnimals is not defined
-    at main (file:///path/to/html-to-yaml.js:195:25)
-```
-
-**原因**:
-
-- html-to-yaml.jsで`logger.logYAMLCount(allAnimals.length)`としているが、実際の変数名は`allCats`や`allDogs`
-
-**対応**:
-
-```bash
-# 該当行を修正
-vim scripts/scrapers/{prefecture}/{municipality}/html-to-yaml.js
-
-# 修正例
-logger.logYAMLCount(allAnimals.length);  # ❌
-↓
-logger.logYAMLCount(allCats.length);     # ✅ (猫の場合)
-logger.logYAMLCount(allDogs.length);     # ✅ (犬の場合)
-```
+詳細な原因・修正方法・影響施設は [common-mistakes.md](./common-mistakes.md) に記載されています。
 
 ---
 

@@ -1,0 +1,1593 @@
+meta:
+  source_file: 20251113_155012_tail.html
+  source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+  extracted_at: '2025-11-13T15:50:12.229+09:00'
+  municipality: kanagawa/kanagawa-pref-cats
+  municipality_id: 15
+  total_count: 72
+  note: 譲渡動物情報（新しい飼い主募集中）
+animals:
+  - external_id: kanagawa-コロンボ
+    name: コロンボ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: 白・茶
+    size: medium
+    health_status: null
+    personality: なでられます
+    special_needs: イケメンお坊ちゃまです。ちゅーるは直接より、指から舐めたい派。優しい人が好きです。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/koronnbo.jpg
+    protection_date: '2025-10-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年10月'
+    listing_type: adoption
+  - external_id: kanagawa-ダース
+    name: ダース
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: 茶トラ
+    size: large
+    health_status: null
+    personality: なでられます
+    special_needs: しょぼくれているときもありますが、基本人を受け入れてくれます。温かいお家を待っているようにも見えます。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/da-su.jpg
+    protection_date: '2025-10-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年10月'
+    listing_type: adoption
+  - external_id: kanagawa-イレブン
+    name: イレブン
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: キジ白
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: 口先からはシャーは出てしまいますが、時間と共に馴れるかも。本人の怖さが取れれば新たな一面が出る可能性あり。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/irebunn.jpg
+    protection_date: '2025-10-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年10月'
+    listing_type: adoption
+  - external_id: kanagawa-ラン
+    name: ラン
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: 三毛
+    size: medium
+    health_status: null
+    personality: 抱っこできます
+    special_needs: 頬のチークが可愛さを引き立てます。人の表情を読んで、甘えるタイミングを選びます。引き際を心得ている優しい女の子です。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/rann.jpg
+    protection_date: '2025-09-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年9月'
+    listing_type: adoption
+  - external_id: kanagawa-てん
+    name: てん
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: 白・黒
+    size: medium
+    health_status: null
+    personality: 抱っこできます
+    special_needs: 人が大好きで優しく顔に顔を近づけるスキンシップです。嬉しいとよだれも出ます。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/ten.jpg
+    protection_date: '2025-09-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年9月'
+    listing_type: adoption
+  - external_id: kanagawa-くぅ
+    name: くぅ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: サビ
+    size: medium
+    health_status: null
+    personality: 抱っこできます
+    special_needs: 顔面の麻痺が少しありますが、ごはんも上手に食べられます。人が大好きで、おしゃべりも上手です。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/ku.jpg
+    protection_date: '2025-09-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年9月'
+    listing_type: adoption
+  - external_id: kanagawa-なな
+    name: なな
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: 三毛
+    size: medium
+    health_status: null
+    personality: 抱っこできます
+    special_needs: 優しい優しい女の子です。三毛さん特有のキツさはありません。少しだけ毛は長めです。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/nana.jpg
+    protection_date: '2025-08-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年8月'
+    listing_type: adoption
+  - external_id: kanagawa-ウクレレ
+    name: ウクレレ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: 黒
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 怖がりさんなので、手や口が出ることがあります。身のこなしや逃げ足は早いです。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/ukurere.jpg
+    protection_date: '2025-07-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年7月'
+    listing_type: adoption
+  - external_id: kanagawa-バイオリン
+    name: バイオリン
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: 黒
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: 怖がりですが、固まってしまうタイプです。安心できる場所があれば、少しずつ馴れていくかもしれません。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/violin.jpg
+    protection_date: '2025-07-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年7月'
+    listing_type: adoption
+  - external_id: kanagawa-ティンパニー
+    name: ティンパニー
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: 白・黒
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 怖がりさんなので、手や口が出ることがあります。日中は隠れ、夕方以降活動しています。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/tinpani.jpg
+    protection_date: '2025-07-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年7月'
+    listing_type: adoption
+  - external_id: kanagawa-ハーモニカ
+    name: ハーモニカ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: 白・黒
+    size: medium
+    health_status: null
+    personality: なでられます
+    special_needs: 怖がりさんなので、手や口が出ることがあります。時間をかけて向き合える方に。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/hamonica.jpg
+    protection_date: '2025-07-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年7月'
+    listing_type: adoption
+  - external_id: kanagawa-チェロ
+    name: チェロ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: 白・黒
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 怖がりさんなので、手や口が出ることがあります。高い場所が好きです。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/chero.jpg
+    protection_date: '2025-07-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年7月'
+    listing_type: adoption
+  - external_id: kanagawa-ソプラノ
+    name: ソプラノ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: 黒
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: おやつは好きですが、パンチはいつでも繰り出します。まだまだ人が怖いです。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/sopurano.jpg
+    protection_date: '2025-07-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年7月'
+    listing_type: adoption
+  - external_id: kanagawa-アルト
+    name: アルト
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: キジ白
+    size: medium
+    health_status: null
+    personality: 抱っこできます
+    special_needs: 人は好きで、撫でて欲しい時にはよってきます。あごの下は特に喜びポイントです。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/aruto.jpg
+    protection_date: '2025-07-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年7月'
+    listing_type: adoption
+  - external_id: kanagawa-ファゴット
+    name: ファゴット
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: 黒
+    size: medium
+    health_status: null
+    personality: 抱っこできます
+    special_needs: 人が大好き過ぎて、撫で撫でしてもらってから、ごはんを食べる傾向があります。投薬があります。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/fagotto.jpg
+    protection_date: '2025-07-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年7月'
+    listing_type: adoption
+  - external_id: kanagawa-ピアノ
+    name: ピアノ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: 白・黒
+    size: medium
+    health_status: null
+    personality: 抱っこできます
+    special_needs: 人に馴れてスリスリきますが、触られるのはたまにお断りされます。歩くと白いお手てがチョコチョコと動いてかわいいです。投薬があります。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/piano.jpg
+    protection_date: '2025-07-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年7月'
+    listing_type: adoption
+  - external_id: kanagawa-よんさま
+    name: よんさま
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 抱っこできます
+    special_needs: 新しい人にも環境にもすぐ馴染む、驚きのご長寿です。ごはんも好き嫌いせず、よく食べます。頑固さがありそうで柔軟で、全てのことに達観しております。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/yon.jpg
+    protection_date: '2025-08-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年8月'
+    listing_type: adoption
+  - external_id: kanagawa-さん
+    name: さん
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: 白・黒
+    size: medium
+    health_status: null
+    personality: 抱っこできます
+    special_needs: 大きなハート形模様がついている、可愛い子です。怖がりですが、人には心を許しています。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/san.jpg
+    protection_date: '2025-08-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年8月'
+    listing_type: adoption
+  - external_id: kanagawa-にぃ
+    name: にぃ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: 白・茶
+    size: medium
+    health_status: null
+    personality: 抱っこできます
+    special_needs: 細かい事は気にしない、新しいお家には馴染みやすいタイプです。頭を撫でると嬉しそうにします。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/nii.jpg
+    protection_date: '2025-08-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年8月'
+    listing_type: adoption
+  - external_id: kanagawa-花火
+    name: 花火
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: 三毛
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 心許す方には、馴れるそうですが、まだまだセンターでは難しそうです。おうちでゆっくり花火さんを見守ることができる方に。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/hanabi.jpg
+    protection_date: '2025-07-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年7月'
+    listing_type: adoption
+  - external_id: kanagawa-凪
+    name: 凪
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: すばしこく逃げますが、あきらめると触らせてくれます。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/nagi.jpg
+    protection_date: '2025-07-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年7月'
+    listing_type: adoption
+  - external_id: kanagawa-祭
+    name: 祭
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: 三毛
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: まだまだ緊張しています。時間をかけて、祭さんを見守っていただける方に。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/maturi.jpg
+    protection_date: '2025-07-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年7月'
+    listing_type: adoption
+  - external_id: kanagawa-蝉丸
+    name: 蝉丸
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: 白・黒
+    size: medium
+    health_status: null
+    personality: なでられます
+    special_needs: 眼は見えていないようでいて、僅かながらも見えるらしく、普通の子のように部屋を縦横無尽に走り回ります。色々なものに興味を持ちます。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/semimaru.jpg
+    protection_date: '2025-07-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年7月'
+    listing_type: adoption
+  - external_id: kanagawa-翡翠
+    name: 翡翠
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: 白・黒
+    size: medium
+    health_status: null
+    personality: なでられます
+    special_needs: 優しい子で、いつも仲間に囲まれています。三段ケージの上で寛ぐのが日課です。目は見えています。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/hisui.jpg
+    protection_date: '2025-07-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年7月'
+    listing_type: adoption
+  - external_id: kanagawa-朝顔
+    name: 朝顔
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: キジ白
+    size: medium
+    health_status: null
+    personality: なでられます
+    special_needs: いつも真面目なお顔で、猫同士の会話に参加しています。実はとても甘えたがりさんです。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/asagao.jpg
+    protection_date: '2025-07-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年7月'
+    listing_type: adoption
+  - external_id: kanagawa-八雲（やくも）
+    name: 八雲（やくも）
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: キジ
+    size: medium
+    health_status: null
+    personality: なでられます
+    special_needs: 手先が器用な仕事人なので、脱走注意です。ケージの部品を取り外します。IQ高いくノ一です。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/yakumo.jpg
+    protection_date: '2025-06-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年6月'
+    listing_type: adoption
+  - external_id: kanagawa-桜子（さくらこ）
+    name: 桜子（さくらこ）
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: 三毛
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 美人な小料理屋の女将です。少しシャーを言いますが、交渉の余地あり。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/sakurako.jpg
+    protection_date: '2025-06-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年6月'
+    listing_type: adoption
+  - external_id: kanagawa-真澄（ますみ）
+    name: 真澄（ますみ）
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: シャーは言いますが、最近は少し人馴れしてきました。怒った顔も可愛い、茶キジの美人さんです。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/masumi.jpg
+    protection_date: '2025-06-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年6月'
+    listing_type: adoption
+  - external_id: kanagawa-黒龍（こくりゅう）
+    name: 黒龍（こくりゅう）
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: 白・黒
+    size: medium
+    health_status: null
+    personality: なでられます
+    special_needs: 強そうな名前ですが、緊張が強い優男さんです。毛が柔らかくて、ふかふかしています。仲間がいると気が強くなる傾向あり。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/kokuryu.jpg
+    protection_date: '2025-06-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年6月'
+    listing_type: adoption
+  - external_id: kanagawa-獺祭(だっさい）
+    name: 獺祭(だっさい）
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: 野生のカワウソのごとく、人になびかず、シャーをいただけます。頬周りを撫でれば、気持ちがいいのか、シャーが一瞬止まります。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/dassai.jpg
+    protection_date: '2025-06-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年6月'
+    listing_type: adoption
+  - external_id: kanagawa-リコッタ
+    name: リコッタ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: 絵のモデルさんのように、微動だにせず固まります。これから、人との関係を築いていく段階です。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/rikotta.jpg
+    protection_date: '2025-06-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年6月'
+    listing_type: adoption
+  - external_id: kanagawa-ラクレット
+    name: ラクレット
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: 白・茶
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 足先の白さが可愛い茶トラの女の子です。まだまだ緊張は強いですが、穏やかな性格です。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/rakuretto.jpg
+    protection_date: '2025-06-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年6月'
+    listing_type: adoption
+  - external_id: kanagawa-パルメザン
+    name: パルメザン
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: キジ白
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: 運動神経抜群の、斥候タイプ。脱走注意です。これから、人との関係を築いていく段階です。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/parumezan.jpg
+    protection_date: '2025-06-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年6月'
+    listing_type: adoption
+  - external_id: kanagawa-ミモレット
+    name: ミモレット
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: 茶トラ
+    size: medium
+    health_status: null
+    personality: なでられます
+    special_needs: 繊細な茶トラの女の子です。食は細め。何をされても固まってしまいますが心を許してくれれば、穏やかな子になると思います。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/mimoreto.jpg
+    protection_date: '2025-06-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年6月'
+    listing_type: adoption
+  - external_id: kanagawa-マスカルポーネ
+    name: マスカルポーネ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: 三毛
+    size: medium
+    health_status: null
+    personality: なでられます
+    special_needs: 不思議な模様の猫さんです。シャーは出ますが、時間をかければ馴れていくかもしれません。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/masukarupone.jpg
+    protection_date: '2025-06-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年6月'
+    listing_type: adoption
+  - external_id: kanagawa-カマンベール
+    name: カマンベール
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: 緊張の強いチーズシリーズの中では、一番緩みがあります。大きいマズルが可愛く、優しい子です。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/kamanberu.jpg
+    protection_date: '2025-06-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年6月'
+    listing_type: adoption
+  - external_id: kanagawa-ゴルゴン
+    name: ゴルゴン
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: キジ白
+    size: medium
+    health_status: null
+    personality: なでられます
+    special_needs: 怖がりなイケメン君です。ご挨拶シャーは出ますが、変わっていくかもしれません。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/gorugon.jpg
+    protection_date: '2025-06-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年6月'
+    listing_type: adoption
+  - external_id: kanagawa-エダム
+    name: エダム
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: 基本穏やかです。これから、人との関係を築いていく段階です。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/edamu.jpg
+    protection_date: '2025-06-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年6月'
+    listing_type: adoption
+  - external_id: kanagawa-チェダー
+    name: チェダー
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: 白・茶
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: 可愛い茶トラの女の子です。まだまだ緊張は強いですが、穏やかな性格です。ごはんはしっかり食べます。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/cheda.jpg
+    protection_date: '2025-06-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年6月'
+    listing_type: adoption
+  - external_id: kanagawa-パテ
+    name: パテ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: 白・茶
+    size: medium
+    health_status: null
+    personality: 抱っこできます
+    special_needs: 軽い白内障がありますが、視力は十分あります。人が大好きな大型の子です。投薬が必要です。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/pate.jpg
+    protection_date: '2025-05-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年5月'
+    listing_type: adoption
+  - external_id: kanagawa-バンズ
+    name: バンズ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: その他
+    size: medium
+    health_status: null
+    personality: 抱っこできます
+    special_needs: 人が大好きな子です。真っ直ぐに見つめてきて、撫でられるのを待っています。投薬が必要です。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/banzu.jpg
+    protection_date: '2025-05-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年5月'
+    listing_type: adoption
+  - external_id: kanagawa-アールグレイ
+    name: アールグレイ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: キジ
+    size: medium
+    health_status: null
+    personality: なでられます
+    special_needs: 怖がりで固まってしまいますが、時間をかければ馴れていくと思います。静かです。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/a-rugurei.jpg
+    protection_date: '2025-05-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年5月'
+    listing_type: adoption
+  - external_id: kanagawa-みわ
+    name: みわ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: まだまだ緊張していますが、仲間とは仲良しです。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/miwa.jpg
+    protection_date: '2024-11-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2024年11月'
+    listing_type: adoption
+  - external_id: kanagawa-ちひろ
+    name: ちひろ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 緊張していますが、仲間とは仲良しです。皮膚は良くなりました。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/chihiro.jpg
+    protection_date: '2024-11-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2024年11月'
+    listing_type: adoption
+  - external_id: kanagawa-ミーシャ
+    name: ミーシャ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: キジ白
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 仲間猫とは独立路線を生きています。まだまだシャーは出ますが、どこかで転じるかも。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/misha.jpg
+    protection_date: '2024-11-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2024年11月'
+    listing_type: adoption
+  - external_id: kanagawa-芍薬
+    name: 芍薬
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: サビ
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: かわいいサビ猫さんです。怖がりなので気長にお付き合いできる方に。仲間猫と仲良しです。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/syakuyaku.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2024年８月'
+    listing_type: adoption
+  - external_id: kanagawa-菊花
+    name: 菊花
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: サビ
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: かわいいサビ猫さんです。怖がりなので気長にお付き合いできる方に。仲間猫と仲良しです。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/kikuka.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2024年８月'
+    listing_type: adoption
+  - external_id: kanagawa-琥珀
+    name: 琥珀
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: 茶トラ
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 足長、モデル体型のイケにゃんです。怖がりなので気長にお付き合いできる方に。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/kohaku.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2024年８月'
+    listing_type: adoption
+  - external_id: kanagawa-ボッティチェリ
+    name: ボッティチェリ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: その他
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 我が道を行く、個性派です。おやつが大好きです。嫌な時には手が出ます。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/botthi.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2023年２月'
+    listing_type: adoption
+  - external_id: kanagawa-シャルダン
+    name: シャルダン
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 常にびっくりしたような目をしています。面接を隣の部屋でしていると、シャルダンにガラス越しにガン見されるのが気になります。趣味：人間観察。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/sharudann.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2023年２月'
+    listing_type: adoption
+  - external_id: kanagawa-シャガール
+    name: シャガール
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: おすまし顔がかわいい美人さんです。遊びが大好きです。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/shaga-ru.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2023年２月'
+    listing_type: adoption
+  - external_id: kanagawa-ダリ
+    name: ダリ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: 画家一家のリーダー的存在です。仲間猫を守るために体を張ります。おやつ大好きです。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/dari.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2023年２月'
+    listing_type: adoption
+  - external_id: kanagawa-景時
+    name: 景時
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: キジ白
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: 引きこもり系でしたが、成長して、仲間猫とコミュニケーションをとれるようになりました。少しずつ人にも心を開きつつあります。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/kagetoki.jpg
+    protection_date: '2022-07-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2022年7月'
+    listing_type: adoption
+  - external_id: kanagawa-義時
+    name: 義時
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: リーダー格で、器の大きいボス的存在です。抜け毛が多いので、短毛ですがブラッシングが必要です。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/yositoki.jpg
+    protection_date: '2022-07-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2022年7月'
+    listing_type: adoption
+  - external_id: kanagawa-ボレロ
+    name: ボレロ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: キジ白
+    size: medium
+    health_status: null
+    personality: なでられます
+    special_needs: 人が大好きで、お膝に乗ると30分は動かない、癒し系キャラです。慢性の鼻炎を持っています。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/borero.jpg
+    protection_date: '2022-06-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2022年6月'
+    listing_type: adoption
+  - external_id: kanagawa-ルミナス
+    name: ルミナス
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 耳先の毛が長めなのが、かっこ良いです。遊びが大好きなので、毎日少しでも遊ぶ時間を取れる方に。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/ruminasu.jpg
+    protection_date: '2022-06-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2022年6月'
+    listing_type: adoption
+  - external_id: kanagawa-ロココ
+    name: ロココ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 怖がりで、すぐ隠れてしまいますが、その全体像は美しい濃いめのキジトラ模様です。夜の方が落ち着くのか、少しそばに寄ることができます。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/rokoko.jpg
+    protection_date: '2022-06-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2022年6月'
+    listing_type: adoption
+  - external_id: kanagawa-さばと
+    name: さばと
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 警戒心強めで、いつも周りを観察していますが、少しずつ人に馴れてきています。時間をかけて向き合っていただける方に。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/sabato.jpg
+    protection_date: '2022-02-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2022年2月'
+    listing_type: adoption
+  - external_id: kanagawa-エクレア
+    name: エクレア
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: 茶トラ
+    size: medium
+    health_status: null
+    personality: なでられます
+    special_needs: どんなタイプの猫とも合わせられるコミュ上手。今まで数々の猫たちと過ごしてきました。常に目立たないように行動しますが、可愛い茶トラには、つい目がいきます。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/ekurea.jpg
+    protection_date: '2021-06-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2021年6月'
+    listing_type: adoption
+  - external_id: kanagawa-実
+    name: 実
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: 三毛
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 大人の魅力を醸し出すツンタイプの三毛。慣れるまで時間はかかりましたが、最近慣れてきて、穏やかな表情になりました。他の猫ちゃんとは相性次第ですが、受け止めタイプの子がいるおうちがよいかもしれません。実ちゃんのマイペースな時間に寄り添ってくださる方に。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/minori.jpg
+    protection_date: '2021-08-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2021年8月'
+    listing_type: adoption
+  - external_id: kanagawa-きなこ
+    name: きなこ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: 茶トラ
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: とにかく優しく、歴代の彼女には尽くしてきました。どんなタイプの猫とも合わせることができます。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/kinako.jpg
+    protection_date: '2021-06-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2021年6月'
+    listing_type: adoption
+  - external_id: kanagawa-ルーシー
+    name: ルーシー
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 人は怖くてたまりませんが、どんと構えて、他人事は全く気にしません。おやつ大好き。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/ru-si-.jpg
+    protection_date: '2021-01-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2021年1月'
+    listing_type: adoption
+  - external_id: kanagawa-サリー
+    name: サリー
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 人は怖くてたまりません。警戒心高めで常にアンテナを張っています。時間をかけて向き合っていただける方に。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/sari-.jpg
+    protection_date: '2021-01-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2021年1月'
+    listing_type: adoption
+  - external_id: kanagawa-時政
+    name: 時政
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: 白・黒
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 手練れの侍のように、常に人には気を張っています。手も口も的確に繰り出します。そこを含め、全てを受け入れて下さる方に。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/tokimasa.jpg
+    protection_date: '2020-11-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2020年11月'
+    listing_type: adoption
+  - external_id: kanagawa-山吹
+    name: 山吹
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: 白・黒
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: いつもおっかなびっくり顔をしている、怖がりさんではありますが、おっとり系ではあります。ゆっくり向き合える方に。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/yamabuki.jpg
+    protection_date: '2020-11-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2020年11月'
+    listing_type: adoption
+  - external_id: kanagawa-カンナ
+    name: カンナ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: 黒
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: まだまだ馴れてはいませんが、最近はおしゃべりしてくれるようなりました。声を掛けると可愛く返事してくれたりします。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/kanna.jpg
+    protection_date: '2020-11-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2020年11月'
+    listing_type: adoption
+  - external_id: kanagawa-はるか
+    name: はるか
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: 白・茶
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 歌舞伎顔のイケメン猫です。強い目力で、よく人を見ています。根気よく接していると、少しづつ馴れていくかもしれません。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/haruka.jpg
+    protection_date: '2020-11-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2020年11月'
+    listing_type: adoption
+  - external_id: kanagawa-日向
+    name: 日向
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 沢山の猫ちゃんと生活していたため、人に触られることは苦手です。慢性の気管支喘息があり、恒常的にお薬を内服しています。十分な医療ケアができる方に。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/hyuga.jpg
+    protection_date: '2020-11-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2020年11月'
+    listing_type: adoption
+  - external_id: kanagawa-萩
+    name: 萩
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 沢山の猫ちゃんと生活していたため、人に触られることは苦手です。環境に慣れるまで十分な時間をかけてくださる方に。脱走対策は十分に行ってください。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/hagi.jpg
+    protection_date: '2020-10-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2020年10月'
+    listing_type: adoption
+  - external_id: kanagawa-ちー
+    name: ちー
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: 沢山の猫ちゃんと生活していたため、人に触られることは苦手です。環境に慣れるまで十分な時間をかけてくださる方に。脱走対策は十分に行ってください。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/ti-.jpg
+    protection_date: '2020-09-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2020年9月'
+    listing_type: adoption
+  - external_id: kanagawa-鈴
+    name: 鈴
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: 白・黒
+    size: medium
+    health_status: null
+    personality: なでられます
+    special_needs: 沢山の猫ちゃんと生活していました。慣れた人には寄ってきて、おやつの催促や、ブラッシング、なでなでをさせてくれます。10歳以上のシニアさんですが、気長に新しい環境に慣れるまで見守ってくださる方に。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/suzu.jpg
+    protection_date: '2020-09-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2020年9月'
+    listing_type: adoption
+  - external_id: kanagawa-うた
+    name: うた
+    animal_type: cat
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: キジ
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: 遊ぶのが大好きなイケメンです。人とは距離を置きたいクールな一面を持っています。身体能力高し。
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/cat/img/uta.jpg
+    protection_date: '2016-12-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2016年12月'
+    listing_type: adoption
