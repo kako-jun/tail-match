@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-11-12T17:05:20.365+09:00",
+  "timestamp": "2025-11-13T15:53:38.183+09:00",
   "url": "https://www.pref.saitama.lg.jp/b0716/shuuyou-jyouhou-pocg.html",
   "has_animals": true,
-  "html_size": 38268,
+  "html_size": 38273,
   "scraper": "playwright",
   "note": "JavaScript実行後の完全レンダリングHTML取得"
 }

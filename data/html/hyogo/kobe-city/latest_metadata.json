@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-13T15:49:03.132+09:00",
+  "url": "https://www.city.kobe.lg.jp/a84140/kenko/health/hygiene/animal/zmenu/index.html",
+  "has_animals": false,
+  "html_size": 27353,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}
