@@ -43,10 +43,9 @@ echo "================================================================"
 echo ""
 
 # ================================================================
-# 全施設リスト（完全自動化済みのみ）
+# 全施設リスト（全28施設）
 # ================================================================
 
-# 堺市と横浜市は除外（画像OCR必要）
 SCRAPERS=(
   # 千葉
   "chiba/chiba-city-cats"
@@ -69,7 +68,7 @@ SCRAPERS=(
   # 神奈川
   "kanagawa/kanagawa-pref-cats"
   "kanagawa/kanagawa-pref-dogs"
-  # "kanagawa/yokohama-city-cats"  # 画像OCR必要（除外）
+  "kanagawa/yokohama-city-cats"
 
   # 京都
   "kyoto/kyoto-pref-cats"
@@ -83,7 +82,7 @@ SCRAPERS=(
   # 大阪
   "osaka/osaka-city-cats"
   "osaka/osaka-pref-cats"
-  # "osaka/sakai-city-cats"  # 画像OCR必要（除外）
+  "osaka/sakai-city-cats"
 
   # 埼玉
   "saitama/saitama-city-cats"
@@ -102,11 +101,7 @@ SCRAPERS=(
 )
 
 TOTAL_SCRAPERS=${#SCRAPERS[@]}
-echo "📊 対象施設数: ${TOTAL_SCRAPERS}施設"
-echo ""
-echo "⚠️  除外施設（手動実行が必要）:"
-echo "  - osaka/sakai-city-cats（画像OCR必要）"
-echo "  - kanagawa/yokohama-city-cats（画像OCR必要）"
+echo "📊 対象施設数: ${TOTAL_SCRAPERS}施設（全施設統一.shラッパー呼び出し）"
 echo ""
 
 # ================================================================
@@ -147,6 +142,7 @@ for scraper in "${SCRAPERS[@]}"; do
   echo "----------------------------------------"
 
   SCRAPER_DIR="scripts/scrapers/$scraper"
+  SCRAPER_SH="$SCRAPER_DIR/run-full-scrape.sh"
 
   if [ ! -d "$SCRAPER_DIR" ]; then
     echo "⚠️  ディレクトリが存在しません: $SCRAPER_DIR"
@@ -154,34 +150,17 @@ for scraper in "${SCRAPERS[@]}"; do
     continue
   fi
 
-  # ステップ1: HTML収集
-  if [ -f "$SCRAPER_DIR/scrape.js" ]; then
-    echo "  [1/2] HTML収集中..."
-    if node "$SCRAPER_DIR/scrape.js"; then
-      echo "    ✅ HTML収集成功"
-    else
-      echo "    ❌ HTML収集失敗"
-      ERROR_COUNT=$((ERROR_COUNT + 1))
-      continue
-    fi
-  else
-    echo "  ⚠️  scrape.js が存在しません"
-    SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
-    continue
-  fi
-
-  # ステップ2: YAML抽出
-  if [ -f "$SCRAPER_DIR/html-to-yaml.js" ]; then
-    echo "  [2/2] YAML抽出中..."
-    if node "$SCRAPER_DIR/html-to-yaml.js"; then
-      echo "    ✅ YAML抽出成功"
+  # 統一インターフェース: run-full-scrape.sh を呼び出し
+  if [ -f "$SCRAPER_SH" ]; then
+    if bash "$SCRAPER_SH"; then
+      echo "✅ スクレイピング成功"
       SUCCESS_COUNT=$((SUCCESS_COUNT + 1))
     else
-      echo "    ❌ YAML抽出失敗"
+      echo "❌ スクレイピング失敗"
       ERROR_COUNT=$((ERROR_COUNT + 1))
     fi
   else
-    echo "  ⚠️  html-to-yaml.js が存在しません"
+    echo "⚠️  run-full-scrape.sh が存在しません: $SCRAPER_SH"
     SKIPPED_COUNT=$((SKIPPED_COUNT + 1))
   fi
 
