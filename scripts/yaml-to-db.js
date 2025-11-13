@@ -254,6 +254,7 @@ async function main() {
     for (const municipality of CONFIG.municipalities) {
       // 各自治体ごとにロガーを作成
       const logger = createLogger(municipality);
+      logger.start();
 
       try {
         const yamlDir = path.join(CONFIG.yamlInputDir, municipality);
@@ -268,6 +269,7 @@ async function main() {
         console.log(`\n📁 ${municipality}: ${yamlFiles.length}個のYAMLファイル`);
 
         let municipalityTotalInserted = 0;
+        let municipalityTotalYAML = 0; // YAMLファイル内の動物数合計
 
         for (const yamlFile of yamlFiles) {
           const yamlPath = path.join(yamlDir, yamlFile);
@@ -277,6 +279,10 @@ async function main() {
             console.log(`⏭️  スキップ: ${yamlFile}`);
             continue;
           }
+
+          // YAMLファイル内の動物数をカウント
+          const yamlAnimals = yamlData.animals || [];
+          municipalityTotalYAML += yamlAnimals.length;
 
           const stats = importYAMLToDB(yamlData, db, yamlFile);
           allStats.files_processed++;
@@ -289,6 +295,9 @@ async function main() {
           // この自治体の投入数を集計
           municipalityTotalInserted += stats.inserted + stats.updated;
         }
+
+        // YAML抽出後の動物数を記録（YAML→DBの不一致を検出）
+        logger.logYAMLCount(municipalityTotalYAML);
 
         // DB投入後の動物数を記録（1匹でも減少したら自動警告）
         logger.logDBCount(municipalityTotalInserted);
