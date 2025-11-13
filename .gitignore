@@ -93,4 +93,7 @@ Thumbs.db
 # Data files (exclude from git)
 data/images/
 *.db.backup
+
+# Temporary scripts (exclude from git)
+scripts/temp/  # Temporary/one-time scripts
 scripts/migrate-*.js  # One-time migration scripts
