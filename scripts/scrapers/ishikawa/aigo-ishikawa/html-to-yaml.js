@@ -18,6 +18,7 @@ import { determineAnimalType as determineAnimalTypeHelper } from '../../../lib/a
 import path from 'path';
 import { load } from 'cheerio';
 import yaml from 'js-yaml';
+import { createLogger } from '../../../lib/history-logger.js';
 
 // ========================================
 // 設定
@@ -620,6 +621,8 @@ async function processAllHTMLFiles() {
   console.log('🐱 HTML → YAML 変換処理');
   console.log('='.repeat(60));
 
+  const logger = createLogger(CONFIG.municipality);
+
   try {
     // 出力ディレクトリ作成
     if (!fs.existsSync(CONFIG.yamlOutputDir)) {
@@ -651,6 +654,9 @@ async function processAllHTMLFiles() {
       // 動物データを抽出
       const extractionResult = extractAnimalsFromHTML(html, sourceUrl, path.basename(htmlFile));
 
+      // YAML抽出後の動物数を記録（⚠️ 1匹でも減少したら自動警告）
+      logger.logYAMLCount(extractionResult.statistics.valid_animals);
+
       // YAMLファイルに出力
       const yamlFilename = path.basename(htmlFile, '.html') + '.yaml';
       const yamlFilepath = path.join(CONFIG.yamlOutputDir, yamlFilename);
@@ -677,6 +683,7 @@ async function processAllHTMLFiles() {
     console.log('2. yaml-to-db.js でデータベースに投入');
     console.log(`\nYAMLファイル場所: ${CONFIG.yamlOutputDir}`);
   } catch (error) {
+    logger.logError(error);
     console.error('\n❌ 変換処理エラー:', error);
     process.exit(1);
   }

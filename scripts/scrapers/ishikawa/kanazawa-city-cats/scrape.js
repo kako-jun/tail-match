@@ -12,8 +12,9 @@
  */
 
 import { chromium } from 'playwright';
-import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+import { getJSTISOString } from '../../../lib/timestamp.js';
 
+import { createLogger } from '../../../lib/history-logger.js';
 import { load } from 'cheerio';
 import { saveHtml, saveMetadata } from '../../../lib/html-saver.js';
 
@@ -126,6 +127,7 @@ async function fetchWithRetry(url, retries = CONFIG.retry_count) {
       await browser.close();
       return html;
     } catch (error) {
+      logger.logError(error);
       console.error(`❌ エラー (試行 ${attempt}/${retries}): ${error.message}`);
 
       if (browser) {
@@ -138,6 +140,7 @@ async function fetchWithRetry(url, retries = CONFIG.retry_count) {
       } else {
         throw new Error(`最大リトライ回数に達しました: ${error.message}`);
       }
+      logger.finalize();
     }
   }
 }
@@ -147,6 +150,9 @@ async function fetchWithRetry(url, retries = CONFIG.retry_count) {
 // ========================================
 
 async function main() {
+  const logger = createLogger(CONFIG.municipality);
+  logger.start();
+
   console.log('='.repeat(60));
   console.log('🐱 金沢市動物愛護管理センター - HTML収集 (Playwright版)');
   console.log('='.repeat(60));
@@ -162,6 +168,10 @@ async function main() {
     // Note: Playwright使用により、JavaScript実行後の完全レンダリングHTMLを取得
     console.log('💡 Playwrightでレンダリング済みHTMLを取得 - 動的コンテンツも含まれています\n');
 
+    // HTML内の動物数をカウント
+    const animalCount = countAnimalsInHTML(html);
+    logger.logHTMLCount(animalCount);
+
     // Step 3: 掲載有無チェック（0匹 or 1匹以上）
     const $ = load(html);
     const selectors = CONFIG.expected_selectors.split(',').map((s) => s.trim());
@@ -174,7 +184,6 @@ async function main() {
       }
     }
 
-    const displayCount = hasAnyAnimals ? 'cats' : 0;
     console.log(`\n📊 検出結果: ${hasAnyAnimals ? '動物の掲載あり' : '掲載なし'}`);
 
     // Step 4: HTML保存
@@ -205,12 +214,67 @@ async function main() {
     console.log('✅ HTML収集完了');
     console.log('='.repeat(60));
   } catch (error) {
+    logger.logError(error);
     console.error('\n' + '='.repeat(60));
     console.error('❌ エラーが発生しました');
     console.error('='.repeat(60));
     console.error(error);
     process.exit(1);
   }
+}
+
+/**
+ * HTML内の動物数をカウント
+ */
+function countAnimalsInHTML(html) {
+  // テーブル行をカウント
+  const tableRows = html.match(/<tr[^>]*>/gi);
+  if (tableRows && tableRows.length > 1) {
+    // ヘッダー行を除外
+    const count = tableRows.length - 1;
+    console.log(`  🔍 テーブル行パターンで${count}匹検出`);
+    return count > 0 ? count : 0;
+  }
+
+  // カード/ボックス形式をカウント
+  const cardPatterns = [
+    /<div[^>]*class="[^"]*card[^"]*"[^>]*>/gi,
+    /<div[^>]*class="[^"]*box[^"]*"[^>]*>/gi,
+    /<div[^>]*class="[^"]*item[^"]*"[^>]*>/gi,
+  ];
+
+  for (const pattern of cardPatterns) {
+    const matches = html.match(pattern);
+    if (matches && matches.length > 0) {
+      console.log(`  🔍 カードパターンで${matches.length}匹検出`);
+      return matches.length;
+    }
+  }
+
+  // 詳細ページへのリンクをカウント
+  const linkPattern = /<a[^>]*href="[^"]*detail[^"]*"[^>]*>/gi;
+  const matches = html.match(linkPattern);
+  if (matches) {
+    console.log(`  🔍 詳細リンクパターンで${matches.length}匹検出`);
+    return matches.length;
+  }
+
+  // 画像タグをカウント（汎用フォールバック）
+  const imgPattern = /<img[^>]*src="[^"]*"[^>]*>/gi;
+  const allImages = html.match(imgPattern);
+  if (allImages) {
+    // アイコンや装飾画像を除外
+    const animalImages = allImages.filter(
+      (img) => !img.includes('icon') && !img.includes('logo') && !img.includes('button')
+    );
+    if (animalImages.length > 0) {
+      console.log(`  🔍 画像パターンで${animalImages.length}匹検出`);
+      return animalImages.length;
+    }
+  }
+
+  console.log('  ⚠️  動物データが見つかりませんでした');
+  return 0;
 }
 
 // 実行

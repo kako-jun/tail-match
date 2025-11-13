@@ -14,6 +14,7 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 import { initializeDatabase, closeDatabase } from './lib/db.js';
+import { createLogger } from './lib/history-logger.js';
 
 // ========================================
 // 設定
@@ -97,7 +98,7 @@ function validateAnimalData(animal, index) {
 
   // 必須フィールドのチェック
   if (!animal.external_id) {
-    errors.push(`external_id が未設定`);
+    errors.push(`[動物${index + 1}] external_id が未設定`);
   }
 
   // needs_review フラグのチェック
@@ -251,32 +252,54 @@ async function main() {
 
     // 各自治体のYAMLファイルを処理
     for (const municipality of CONFIG.municipalities) {
-      const yamlDir = path.join(CONFIG.yamlInputDir, municipality);
+      // 各自治体ごとにロガーを作成
+      const logger = createLogger(municipality);
 
-      if (!fs.existsSync(yamlDir)) {
-        console.log(`⚠️  ディレクトリが存在しません: ${yamlDir}`);
-        continue;
-      }
+      try {
+        const yamlDir = path.join(CONFIG.yamlInputDir, municipality);
 
-      const yamlFiles = fs.readdirSync(yamlDir).filter((f) => f.endsWith('.yaml'));
-      console.log(`\n📁 ${municipality}: ${yamlFiles.length}個のYAMLファイル`);
-
-      for (const yamlFile of yamlFiles) {
-        const yamlPath = path.join(yamlDir, yamlFile);
-        const yamlData = loadAndValidateYAML(yamlPath);
-
-        if (!yamlData) {
-          console.log(`⏭️  スキップ: ${yamlFile}`);
+        if (!fs.existsSync(yamlDir)) {
+          console.log(`⚠️  ディレクトリが存在しません: ${yamlDir}`);
+          logger.finalize();
           continue;
         }
 
-        const stats = importYAMLToDB(yamlData, db, yamlFile);
-        allStats.files_processed++;
-        allStats.total_animals += stats.total;
-        allStats.inserted += stats.inserted;
-        allStats.updated += stats.updated;
-        allStats.skipped += stats.skipped;
-        allStats.errors += stats.errors;
+        const yamlFiles = fs.readdirSync(yamlDir).filter((f) => f.endsWith('.yaml'));
+        console.log(`\n📁 ${municipality}: ${yamlFiles.length}個のYAMLファイル`);
+
+        let municipalityTotalInserted = 0;
+
+        for (const yamlFile of yamlFiles) {
+          const yamlPath = path.join(yamlDir, yamlFile);
+          const yamlData = loadAndValidateYAML(yamlPath);
+
+          if (!yamlData) {
+            console.log(`⏭️  スキップ: ${yamlFile}`);
+            continue;
+          }
+
+          const stats = importYAMLToDB(yamlData, db, yamlFile);
+          allStats.files_processed++;
+          allStats.total_animals += stats.total;
+          allStats.inserted += stats.inserted;
+          allStats.updated += stats.updated;
+          allStats.skipped += stats.skipped;
+          allStats.errors += stats.errors;
+
+          // この自治体の投入数を集計
+          municipalityTotalInserted += stats.inserted + stats.updated;
+        }
+
+        // DB投入後の動物数を記録（1匹でも減少したら自動警告）
+        logger.logDBCount(municipalityTotalInserted);
+
+        // 最終的にfinalize()を呼んでshelters-history.yamlを更新
+        logger.finalize();
+      } catch (error) {
+        // エラー時もロガーに記録
+        logger.logError(error);
+        logger.finalize();
+        throw error; // エラーは上位に伝播
       }
     }
 
