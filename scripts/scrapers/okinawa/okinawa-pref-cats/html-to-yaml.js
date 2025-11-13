@@ -140,7 +140,7 @@ async function main() {
     console.log(`\n📊 合計抽出数: ${allCats.length}匹`);
 
     // YAML抽出後の動物数を記録（⚠️ 1匹でも減少したら自動警告）
-    logger.logYAMLCount(allAnimals.length || allCats.length || allDogs.length);
+    logger.logYAMLCount(allCats.length);
 
     const outputDir = path.join(
       process.cwd(),
