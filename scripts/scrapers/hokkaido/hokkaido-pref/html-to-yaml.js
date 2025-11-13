@@ -6,6 +6,7 @@ import { determineAnimalType } from '../../../lib/animal-type.js';
 import path from 'path';
 import { load } from 'cheerio';
 import yaml from 'js-yaml';
+import { createLogger } from '../../../lib/history-logger.js';
 
 const CONFIG = {
   municipality: 'hokkaido/hokkaido-pref',
@@ -91,6 +92,8 @@ async function main() {
   console.log('🐱 北海道立動物愛護センター - YAML抽出');
   console.log('='.repeat(60) + '\n');
 
+  const logger = createLogger(CONFIG.municipality);
+
   try {
     const htmlFile = getLatestHtmlFile();
     const html = fs.readFileSync(htmlFile, 'utf-8');
@@ -113,6 +116,9 @@ async function main() {
     });
 
     console.log(`\n📊 合計抽出数: ${allCats.length}匹`);
+
+    // YAML抽出後の動物数を記録（⚠️ 1匹でも減少したら自動警告）
+    logger.logYAMLCount(allCats.length);
 
     const outputDir = path.join(
       process.cwd(),
@@ -149,6 +155,7 @@ async function main() {
     console.log('✅ YAML抽出完了');
     console.log('='.repeat(60));
   } catch (error) {
+    logger.logError(error);
     console.error('❌ エラー:', error);
     process.exit(1);
   }

@@ -1,0 +1,440 @@
+# Tail Match - スクレイピング履歴管理
+# 最終更新: 2025-11-13
+#
+# 目的:
+# - 各スクレイパーの動作確認状態を記録
+# - エラー・警告を永続的に保存
+# - HTML→YAML→DBの数値の不一致を検出
+#
+# 運用方針:
+# - 各スクレイパー実行時に自動更新
+# - last_10_runs のみを保持（最新10回分）
+# - verified: true になれば動作確認完了
+# - mismatch が頻発する場合は要調査
+
+metadata:
+  version: "1.0.0"
+  last_updated: "2025-11-13"
+  purpose: "スクレイピング動作確認・エラー履歴管理"
+  total_scrapers: 28  # 実装済みスクレイパー数
+
+# スクレイパーごとの履歴
+# municipality はパス形式（例: ishikawa/aigo-ishikawa）
+scrapers:
+  # ========================================
+  # 北海道地方
+  # ========================================
+
+  hokkaido/hokkaido-pref:
+    name: "北海道立動物愛護センター「あいにきた」"
+    page_type: "mixed"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  hokkaido/sapporo-city-cats:
+    name: "札幌市動物愛護管理センター「あいまる さっぽろ」"
+    page_type: "cat_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  # ========================================
+  # 関東地方
+  # ========================================
+
+  saitama/saitama-pref-cats:
+    name: "埼玉県動物指導センター"
+    page_type: "cat_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  saitama/saitama-city-cats:
+    name: "さいたま市動物愛護ふれあいセンター"
+    page_type: "cat_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  chiba/chiba-pref-cats:
+    name: "千葉県動物愛護センター（猫）"
+    page_type: "cat_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  chiba/chiba-pref-dogs:
+    name: "千葉県動物愛護センター（犬）"
+    page_type: "dog_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  chiba/chiba-city-cats:
+    name: "千葉市動物保護指導センター（猫）"
+    page_type: "cat_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  chiba/chiba-city-dogs:
+    name: "千葉市動物保護指導センター（犬）"
+    page_type: "dog_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  tokyo/tokyo-metro-cats:
+    name: "東京都動物愛護相談センター"
+    page_type: "cat_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  kanagawa/kanagawa-pref-cats:
+    name: "神奈川県動物愛護センター（猫）"
+    page_type: "cat_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  kanagawa/kanagawa-pref-dogs:
+    name: "神奈川県動物愛護センター（犬）"
+    page_type: "dog_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  kanagawa/yokohama-city-cats:
+    name: "横浜市動物愛護センター"
+    page_type: "cat_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  # ========================================
+  # 中部地方
+  # ========================================
+
+  toyama/toyama-pref-cats:
+    name: "富山県動物愛護センター（猫）"
+    page_type: "cat_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  toyama/toyama-pref-dogs:
+    name: "富山県動物愛護センター（犬）"
+    page_type: "dog_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  ishikawa/aigo-ishikawa:
+    name: "いしかわ動物愛護センター"
+    page_type: "mixed"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  ishikawa/kanazawa-city-cats:
+    name: "金沢市動物愛護管理センター"
+    page_type: "cat_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  fukui/fukui-pref-cats:
+    name: "福井県動物愛護管理センター（猫）"
+    page_type: "cat_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  fukui/fukui-pref-dogs:
+    name: "福井県動物愛護管理センター（犬）"
+    page_type: "dog_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  # ========================================
+  # 近畿地方
+  # ========================================
+
+  kyoto/kyoto-pref-cats:
+    name: "京都府動物愛護センター（猫）"
+    page_type: "cat_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  kyoto/kyoto-pref-dogs:
+    name: "京都府動物愛護センター（犬）"
+    page_type: "dog_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  osaka/osaka-pref-cats:
+    name: "大阪府動物愛護管理センター"
+    page_type: "cat_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  osaka/osaka-city-cats:
+    name: "大阪市動物管理センター"
+    page_type: "cat_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  osaka/sakai-city-cats:
+    name: "堺市動物指導センター"
+    page_type: "cat_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  hyogo/hyogo-pref-cats:
+    name: "兵庫県動物愛護センター"
+    page_type: "cat_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  hyogo/kobe-city:
+    name: "神戸市動物管理センター"
+    page_type: "mixed"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  # ========================================
+  # 沖縄地方
+  # ========================================
+
+  okinawa/okinawa-pref-cats:
+    name: "沖縄県動物愛護管理センター（猫）"
+    page_type: "cat_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  okinawa/okinawa-pref-dogs:
+    name: "沖縄県動物愛護管理センター（犬）"
+    page_type: "dog_only"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+  okinawa/naha-city:
+    name: "那覇市環境衛生課"
+    page_type: "mixed"
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+
+# ========================================
+# ステータス定義
+# ========================================
+
+status_definitions:
+  success: "HTML収集→YAML抽出→DB投入が全て成功"
+  error: "いずれかのステップでエラーが発生"
+  mismatch: "HTML/YAML/DBの動物数に不一致あり（要調査）"
+  empty: "動物数0（正常だが動作確認にはならない）"
+
+# ========================================
+# 警告の種類
+# ========================================
+
+warning_types:
+  html_yaml_mismatch: "HTML→YAMLで動物数が減少"
+  yaml_db_mismatch: "YAML→DBで動物数が減少"
+  significant_drop: "前回比で50%以上減少（サイト構造変更の可能性）"
+  zero_animals: "動物数0（施設が空の可能性）"
+
+# ========================================
+# 実行履歴の例
+# ========================================
+# last_10_runs の各エントリーは以下の形式:
+#
+# - timestamp: "2025-11-13T10:30:00+09:00"
+#   status: "success"  # success | error | mismatch | empty
+#   html_count: 20  # HTML内の動物数
+#   yaml_count: 20  # YAML抽出後の動物数
+#   db_count: 20  # DB投入後の動物数
+#   error_message: null  # エラー時のみ設定
+#   warning: null  # 警告がある場合のみ設定
+#   duration_ms: 3500  # 実行時間（ミリ秒）

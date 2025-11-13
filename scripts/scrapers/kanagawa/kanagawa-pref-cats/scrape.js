@@ -9,6 +9,7 @@
 import { chromium } from 'playwright';
 import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
 
+import { createLogger } from '../../../lib/history-logger.js';
 import fs from 'fs';
 import path from 'path';
 
@@ -29,6 +30,9 @@ const CONFIG = {
 // ========================================
 
 async function main() {
+  const logger = createLogger(CONFIG.municipality);
+  logger.start();
+
   console.log('='.repeat(60));
   console.log('🐱 神奈川県動物愛護センター - HTML収集');
   console.log('='.repeat(60));
@@ -129,6 +133,7 @@ async function main() {
           break;
         }
       } catch (error) {
+        logger.logError(error);
         console.log('   ✅ ページネーション終了');
         break;
       }
@@ -141,6 +146,14 @@ async function main() {
     }
 
     console.log(`📊 総ページ数: ${allHtmlPages.length}`);
+
+    // HTML内の動物数をカウント（全ページの合計）
+    let totalCount = 0;
+    for (const html of allHtmlPages) {
+      totalCount += countAnimalsInHTML(html);
+    }
+    console.log(`📊 全ページ合計: ${totalCount}匹`);
+    logger.logHTMLCount(totalCount);
 
     // 保存先ディレクトリ作成
     const outputDir = path.join(
@@ -191,16 +204,72 @@ async function main() {
     console.log('✅ HTML収集完了');
     console.log('='.repeat(60));
   } catch (error) {
+    logger.logError(error);
     console.error('\n' + '='.repeat(60));
     console.error('❌ エラーが発生しました');
     console.error('='.repeat(60));
     console.error(error);
     process.exit(1);
+    logger.finalize();
   } finally {
     if (browser) {
       await browser.close();
     }
   }
+}
+
+/**
+ * HTML内の動物数をカウント
+ */
+function countAnimalsInHTML(html) {
+  // テーブル行をカウント
+  const tableRows = html.match(/<tr[^>]*>/gi);
+  if (tableRows && tableRows.length > 1) {
+    // ヘッダー行を除外
+    const count = tableRows.length - 1;
+    console.log(`  🔍 テーブル行パターンで${count}匹検出`);
+    return count > 0 ? count : 0;
+  }
+
+  // カード/ボックス形式をカウント
+  const cardPatterns = [
+    /<div[^>]*class="[^"]*card[^"]*"[^>]*>/gi,
+    /<div[^>]*class="[^"]*box[^"]*"[^>]*>/gi,
+    /<div[^>]*class="[^"]*item[^"]*"[^>]*>/gi,
+  ];
+
+  for (const pattern of cardPatterns) {
+    const matches = html.match(pattern);
+    if (matches && matches.length > 0) {
+      console.log(`  🔍 カードパターンで${matches.length}匹検出`);
+      return matches.length;
+    }
+  }
+
+  // 詳細ページへのリンクをカウント
+  const linkPattern = /<a[^>]*href="[^"]*detail[^"]*"[^>]*>/gi;
+  const matches = html.match(linkPattern);
+  if (matches) {
+    console.log(`  🔍 詳細リンクパターンで${matches.length}匹検出`);
+    return matches.length;
+  }
+
+  // 画像タグをカウント（汎用フォールバック）
+  const imgPattern = /<img[^>]*src="[^"]*"[^>]*>/gi;
+  const allImages = html.match(imgPattern);
+  if (allImages) {
+    // アイコンや装飾画像を除外
+    const animalImages = allImages.filter(
+      (img) => !img.includes('icon') && !img.includes('logo') && !img.includes('button')
+    );
+    if (animalImages.length > 0) {
+      console.log(`  🔍 画像パターンで${animalImages.length}匹検出`);
+      return animalImages.length;
+    }
+  }
+
+  console.log('  ⚠️  動物データが見つかりませんでした');
+  return 0;
 }
 
 // 実行

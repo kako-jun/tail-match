@@ -9,6 +9,7 @@
 import { chromium } from 'playwright';
 import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
 
+import { createLogger } from '../../../lib/history-logger.js';
 import fs from 'fs';
 import path from 'path';
 
@@ -29,6 +30,9 @@ const CONFIG = {
 // ========================================
 
 async function main() {
+  const logger = createLogger(CONFIG.municipality);
+  logger.start();
+
   console.log('='.repeat(60));
   console.log('🐕 千葉県動物愛護センター（犬） - HTML収集');
   console.log('='.repeat(60));
@@ -62,6 +66,9 @@ async function main() {
     const html = await page.content();
     console.log(`✅ HTML取得完了: ${html.length} 文字`);
 
+    // HTML内の動物数をカウント
+    const animalCount = countAnimalsInHTML(html);
+    logger.logHTMLCount(animalCount);
     const outputDir = path.join(
       process.cwd(),
       'data',
@@ -95,11 +102,13 @@ async function main() {
     console.log('✅ HTML収集完了');
     console.log('='.repeat(60));
   } catch (error) {
+    logger.logError(error);
     console.error('\n' + '='.repeat(60));
     console.error('❌ エラーが発生しました');
     console.error('='.repeat(60));
     console.error(error);
     process.exit(1);
+    logger.finalize();
   } finally {
     if (browser) {
       await browser.close();

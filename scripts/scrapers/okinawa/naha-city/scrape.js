@@ -10,6 +10,7 @@ import path from 'path';
 import { chromium } from 'playwright';
 import { getJSTTimestamp } from '../../../lib/timestamp.js';
 
+import { createLogger } from '../../../lib/history-logger.js';
 const CONFIG = {
   municipality: 'okinawa/naha-city',
   url: 'https://www.city.naha.okinawa.jp/kurasitetuduki/animal/904.html',
@@ -19,6 +20,9 @@ const CONFIG = {
 };
 
 async function scrapeNahaCity() {
+  const logger = createLogger(CONFIG.municipality);
+  logger.start();
+
   console.log('='.repeat(60));
   console.log('🐱 那覇市環境衛生課 - スクレイピング開始');
   console.log('='.repeat(60));
@@ -45,6 +49,9 @@ async function scrapeNahaCity() {
     const htmlContent = await page.content();
     console.log(`📄 HTML取得完了: ${htmlContent.length} 文字\n`);
 
+    // HTML内の動物数をカウント
+    const animalCount = countAnimalsInHTML(html);
+    logger.logHTMLCount(animalCount);
     // HTMLを保存
     const outputDir = path.join(
       process.cwd(),
@@ -76,11 +83,13 @@ async function scrapeNahaCity() {
     console.log('✅ スクレイピング完了');
     console.log('='.repeat(60));
   } catch (error) {
+    logger.logError(error);
     console.error('\n' + '='.repeat(60));
     console.error('❌ スクレイピングエラー');
     console.error('='.repeat(60));
     console.error(error);
     throw error;
+    logger.finalize();
   } finally {
     await browser.close();
   }

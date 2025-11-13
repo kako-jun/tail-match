@@ -8,6 +8,7 @@
 
 import { chromium } from 'playwright';
 import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+import { createLogger } from '../../../lib/history-logger.js';
 
 import fs from 'fs';
 import path from 'path';
@@ -29,6 +30,9 @@ const CONFIG = {
 // ========================================
 
 async function main() {
+  const logger = createLogger(CONFIG.municipality);
+  logger.start();
+
   console.log('='.repeat(60));
   console.log('🐱 千葉市動物保護指導センター - HTML収集');
   console.log('='.repeat(60));
@@ -65,6 +69,10 @@ async function main() {
     // HTML取得
     const html = await page.content();
     console.log(`✅ HTML取得完了: ${html.length} 文字`);
+
+    // HTML内の動物数をカウント
+    const animalCount = countAnimalsInHTML(html);
+    logger.logHTMLCount(animalCount);
 
     // 保存先ディレクトリ作成
     const outputDir = path.join(
@@ -103,6 +111,7 @@ async function main() {
     console.log('✅ HTML収集完了');
     console.log('='.repeat(60));
   } catch (error) {
+    logger.logError(error);
     console.error('\n' + '='.repeat(60));
     console.error('❌ エラーが発生しました');
     console.error('='.repeat(60));
@@ -112,7 +121,37 @@ async function main() {
     if (browser) {
       await browser.close();
     }
+    logger.finalize();
   }
+}
+
+/**
+ * HTML内の動物数をカウント
+ * 千葉市は<h4>タグで各猫を識別（例: 20250101（猫の名前））
+ */
+function countAnimalsInHTML(html) {
+  // <h4>タグ内に日付形式（8桁の数字）と名前が含まれるパターンをカウント
+  const h4Pattern = /<h4[^>]*>.*?\d{8}.*?<\/h4>/gi;
+  const matches = html.match(h4Pattern);
+
+  if (matches) {
+    console.log(`  🔍 <h4>タグパターンで${matches.length}匹検出`);
+    return matches.length;
+  }
+
+  // フォールバック: <h4>タグをカウント（コンテンツエリア内のみ）
+  const contentMatch = html.match(/<div[^>]*id="contents_editable"[^>]*>([\s\S]*?)<\/div>/i);
+  if (contentMatch) {
+    const contentArea = contentMatch[1];
+    const h4Tags = contentArea.match(/<h4[^>]*>/gi);
+    if (h4Tags) {
+      console.log(`  🔍 コンテンツエリア内の<h4>タグで${h4Tags.length}匹検出`);
+      return h4Tags.length;
+    }
+  }
+
+  console.log('  ⚠️  動物データが見つかりませんでした');
+  return 0;
 }
 
 // 実行

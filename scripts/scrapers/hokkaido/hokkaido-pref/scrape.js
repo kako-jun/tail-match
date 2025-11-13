@@ -8,6 +8,7 @@
 
 import { chromium } from 'playwright';
 import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+import { createLogger } from '../../../lib/history-logger.js';
 
 import fs from 'fs';
 import path from 'path';
@@ -29,6 +30,9 @@ const CONFIG = {
 // ========================================
 
 async function main() {
+  const logger = createLogger(CONFIG.municipality);
+  logger.start();
+
   console.log('='.repeat(60));
   console.log('🐱 北海道立動物愛護センター - HTML収集');
   console.log('='.repeat(60));
@@ -62,6 +66,10 @@ async function main() {
     const html = await page.content();
     console.log(`✅ HTML取得完了: ${html.length} 文字`);
 
+    // HTML内の動物数をカウント
+    const animalCount = countAnimalsInHTML(html);
+    logger.logHTMLCount(animalCount);
+
     const outputDir = path.join(
       process.cwd(),
       'data',
@@ -94,17 +102,50 @@ async function main() {
     console.log('\n' + '='.repeat(60));
     console.log('✅ HTML収集完了');
     console.log('='.repeat(60));
+
+    logger.finalize();
   } catch (error) {
+    logger.logError(error);
     console.error('\n' + '='.repeat(60));
     console.error('❌ エラーが発生しました');
     console.error('='.repeat(60));
     console.error(error);
+    logger.finalize();
     process.exit(1);
   } finally {
     if (browser) {
       await browser.close();
     }
   }
+}
+
+/**
+ * HTML内の動物数をカウント
+ * 北海道は <h3> または <h4> タグ内に（仮名）パターンで各猫を識別
+ */
+function countAnimalsInHTML(html) {
+  // （仮名）パターンをカウント
+  const namePattern = /<h[34][^>]*>.*?（仮名）.*?<\/h[34]>/gi;
+  const matches = html.match(namePattern);
+
+  if (matches) {
+    console.log(`  🔍 （仮名）パターンで${matches.length}匹検出`);
+    return matches.length;
+  }
+
+  // フォールバック: h3またはh4タグをカウント（コンテンツエリア内のみ）
+  const contentMatch = html.match(/<div[^>]*class="[^"]*content[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+  if (contentMatch) {
+    const contentArea = contentMatch[1];
+    const headingTags = contentArea.match(/<h[34][^>]*>/gi);
+    if (headingTags) {
+      console.log(`  🔍 コンテンツエリア内のh3/h4タグで${headingTags.length}匹検出`);
+      return headingTags.length;
+    }
+  }
+
+  console.log('  ⚠️  動物データが見つかりませんでした');
+  return 0;
 }
 
 main();

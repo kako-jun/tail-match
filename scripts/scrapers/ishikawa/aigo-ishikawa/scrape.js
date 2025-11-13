@@ -12,7 +12,8 @@
  */
 
 import { chromium } from 'playwright';
-import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+import { getJSTISOString } from '../../../lib/timestamp.js';
+import { createLogger } from '../../../lib/history-logger.js';
 
 import { load } from 'cheerio';
 import { saveHtml, saveMetadata } from '../../../lib/html-saver.js';
@@ -147,6 +148,9 @@ async function fetchWithRetry(url, retries = CONFIG.retry_count) {
 // ========================================
 
 async function main() {
+  const logger = createLogger(CONFIG.municipality);
+  logger.start();
+
   console.log('='.repeat(60));
   console.log('🐱 いしかわ動物愛護センター - HTML収集 (Playwright版)');
   console.log('='.repeat(60));
@@ -162,6 +166,10 @@ async function main() {
     // Note: Playwright使用により、JavaScript実行後の完全レンダリングHTMLを取得
     console.log('💡 Playwrightでレンダリング済みHTMLを取得 - 動的コンテンツも含まれています\n');
 
+    // HTML内の動物数をカウント
+    const animalCount = countAnimalsInHTML(html);
+    logger.logHTMLCount(animalCount);
+
     // Step 3: 掲載有無チェック（0匹 or 1匹以上）
     const $ = load(html);
     const selectors = CONFIG.expected_selectors.split(',').map((s) => s.trim());
@@ -174,7 +182,6 @@ async function main() {
       }
     }
 
-    const displayCount = hasAnyAnimals ? 'cats' : 0;
     console.log(`\n📊 検出結果: ${hasAnyAnimals ? '動物の掲載あり' : '掲載なし'}`);
 
     // Step 4: HTML保存
@@ -204,13 +211,50 @@ async function main() {
     console.log('\n' + '='.repeat(60));
     console.log('✅ HTML収集完了');
     console.log('='.repeat(60));
+
+    logger.finalize();
   } catch (error) {
+    logger.logError(error);
     console.error('\n' + '='.repeat(60));
     console.error('❌ エラーが発生しました');
     console.error('='.repeat(60));
     console.error(error);
+    logger.finalize();
     process.exit(1);
   }
+}
+
+/**
+ * HTML内の動物数をカウント
+ * いしかわ動物愛護センターは.data_boxクラスで各動物を識別
+ */
+function countAnimalsInHTML(html) {
+  // .data_box, .data_boxes, .animal-card など複数パターンに対応
+  const patterns = [
+    /<div[^>]*class="[^"]*data_box[^"]*"[^>]*>/gi,
+    /<div[^>]*class="[^"]*animal-card[^"]*"[^>]*>/gi,
+    /<div[^>]*class="[^"]*cat-card[^"]*"[^>]*>/gi,
+    /<div[^>]*class="[^"]*pet-item[^"]*"[^>]*>/gi,
+  ];
+
+  let maxCount = 0;
+  let detectedPattern = 'none';
+
+  for (const pattern of patterns) {
+    const matches = html.match(pattern);
+    if (matches && matches.length > maxCount) {
+      maxCount = matches.length;
+      detectedPattern = pattern.source.match(/class="[^"]*([^"]+)[^"]*"/)?.[1] || 'unknown';
+    }
+  }
+
+  if (maxCount > 0) {
+    console.log(`  🔍 ${detectedPattern} パターンで${maxCount}匹検出`);
+    return maxCount;
+  }
+
+  console.log('  ⚠️  動物データが見つかりませんでした');
+  return 0;
 }
 
 // 実行
