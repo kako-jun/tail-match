@@ -1,0 +1,664 @@
+meta:
+  source_file: 20251113_183325_tail.html
+  source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+  extracted_at: '2025-11-13T18:45:35.403+09:00'
+  municipality: hiroshima/hiroshima-city
+  municipality_id: null
+  total_count: 30
+  note: 譲渡対象動物情報（猫・犬混在）
+animals:
+  - external_id: hiroshima-city-7-8-9
+    name: コウ
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 人懐こく甘えん坊です。やんちゃで元気いっぱいです！最期まで愛情をもって飼ってくださる方を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-8-9-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-8-9-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
+  - external_id: hiroshima-city-7-8-10
+    name: ヒメ
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: 人懐こく甘えん坊です。やんちゃで元気いっぱいです！最期まで愛情をもって飼ってくださる方を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-8-10-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-8-10-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
+  - external_id: hiroshima-city-7-8-11
+    name: カガ
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: 人懐こく甘えん坊です。右後ろ足の指先が、へその緒に絡まって壊死してしまっていたため指先がありませんが、他の子と何も変わらず走り回ったりして元気いっぱいです！最期まで愛情をもって飼ってくださる方を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-8-11-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-8-11-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
+  - external_id: hiroshima-city-7-8-12
+    name: トク
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 人懐こく甘えん坊です。やんちゃで元気いっぱいです！最期まで愛情をもって飼ってくださる方を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-8-12-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-8-12-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
+  - external_id: hiroshima-city-7-9-11
+    name: パンプゥ
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 怖がりです。人懐こく甘えん坊です。最期まで愛情をもって飼ってくださる方を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-9-11-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-9-11-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
+  - external_id: hiroshima-city-7-9-6
+    name: かぼちゃん
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: 人懐こく甘えん坊です。やんちゃで元気いっぱいです。最期まで愛情をもって飼ってくださる方を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-9-6-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-9-6-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 申請中
+    listing_type: adoption
+  - external_id: hiroshima-city-7-8-8
+    name: とらじろう
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: とても怖がりです。少しずつセンターの環境に慣れてきて甘えてくれるようになりました。撫でるとスリスリしてくれます。最期まで愛情をもって飼ってくださる方を募集しています。検査：FIV（+）/FeLV（ー）
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-8-8.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
+  - external_id: hiroshima-city-7-8-7
+    name: しまじろう
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: とても怖がりです。少しずつセンターの環境に慣れてきました。甘えてくれるようになるまでもう少し時間はかかりそうです。最期まで愛情をもって飼ってくださる方を募集しています。検査：FIV（+）/FeLV（ー）
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-8-7.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
+  - external_id: hiroshima-city-7-8-4
+    name: パワー
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: とても怖がりです。少しずつセンターの環境に慣れてきて人がいてもご飯が食べられるようになってきました。最近では人の姿を見ると鳴いてくれるようになりました。でも近づくとまだ怖いため威嚇して箱に隠れてしまいます。甘えてくれるようになるまでもう少し時間はかかりそうです。最期まで愛情をもって飼ってくださる方を募集しています。検査：FIV（+）/FeLV（ー）
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-8-4.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
+  - external_id: hiroshima-city-7-8-5
+    name: エネ
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: とても怖がりです。少しずつセンターの環境に慣れてきて人がいてもご飯が食べられるようになってきました。まだ人を怖がりますが、最近は人の姿を見て鳴いてくれたり、撫でると甘えてくれるようになりました。攻撃性はなく、怖くて固まっているような子です。最期まで愛情をもって飼ってくださる方を募集しています。検査：FIV（+）/FeLV（ー）
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-8-5.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
+  - external_id: hiroshima-city-7-8-6
+    name: ルギィ
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: とても怖がりです。少しずつセンターの環境に慣れてきましたが人がいるとまだ怖くてご飯が食べられないため、人がいなくなってからご飯を食べます。まだ人に対して怖がるため、慣れるまでもう少し時間はかかりそうです。攻撃性はなく、怖くて固まっているような子です。小柄な女の子です。最期まで愛情をもって飼ってくださる方を募集しています。検査：FIV（+）/FeLV（ー）
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-8-6.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
+  - external_id: hiroshima-city-7-9-5
+    name: はちのすけ
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 雑種、2025年8月22日頃生まれ（推定）、白黒、オス。人懐こく甘えん坊です。オモチャでよく遊び、元気いっぱいです。あまり物怖じせず、何にでも興味津々です。人の姿が見えると甘えたくて、必死にアピールするくらい甘えん坊です。最期まで愛情をもって飼ってくださる方を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-9-5-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-9-5-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: adopted
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡が決まりました！
+    listing_type: adoption
+  - external_id: hiroshima-city-7-7-14
+    name: ムック
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 人懐こく甘えん坊です。ガチャピンと兄弟でいつも一緒にくっついて寝たり遊んだりしています。ガチャピンが鳴くとすぐに駆け付けるくらい仲良しです。オモチャでよく遊びます。甘えたいときや眠たいときは自分から膝や体に乗ってきて甘えてくれます。腕の中で寝てくれる甘えん坊です。しっぽは短めです。最期まで愛情をもって飼ってくださる方を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-7-14-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-7-14-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: adopted
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡が決まりました！
+    listing_type: adoption
+  - external_id: hiroshima-city-7-7-15
+    name: ガチャピン
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: 人懐こく甘えん坊です。ムックと兄弟でいつも一緒にくっついて寝たり遊んだりしています。オモチャでよく遊びます。甘えたいときや眠たいときは自分から膝や体に乗ってきて甘えてくれます。人がいれば傍に来て、くっついて寝てくれます。腕の中で寝てくれる甘えん坊です。最期まで愛情をもって飼ってくださる方を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-7-15-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-7-15-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: adopted
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡が決まりました！
+    listing_type: adoption
+  - external_id: hiroshima-city-7-7-10
+    name: えりまき
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 人懐こく甘えん坊で、元気いっぱいです！他の猫とも遊びたがります。最期まで愛情をもって飼ってくださる方を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-7-10-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-7-10-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: adopted
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡が決まりました！
+    listing_type: adoption
+  - external_id: hiroshima-city-7-6-24
+    name: 相葉くん
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 人懐こく甘えん坊で、元気いっぱいです！真菌症の治療をしていましたが、毛も生えてきて良くなったため真菌症の治療を終了しました。食いしん坊です。最期まで愛情をもって飼ってくださる方を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-6-24-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-6-24-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
+  - external_id: hiroshima-city-7-6-26
+    name: にの
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 少し怖がりなところがありますが、甘えん坊で元気いっぱいです！真菌症の治療をしていましたが、毛も生えてきて良くなったため真菌症の治療は終了しました。食いしん坊です。最期まで愛情をもって飼ってくださる方を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-6-26-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-6-26-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
+  - external_id: hiroshima-city-7-6-27
+    name: 大野くん
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 人懐こく甘えん坊で元気いっぱいです！真菌症の治療をしていましたが、毛も生えてきて良くなったため真菌症の治療は終了しました。保護された時に、風邪の症状がひどく左目の一部白濁、右目は少し膜がある状態ですが保護時よりとても良くなりました。目は見えており、オモチャにしっかり反応します。食いしん坊です。5匹兄弟で一番小柄でしっぽ短め。爪切り出来ます。最期まで愛情をもって飼ってくださる方を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-6-27-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-6-27-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
+  - external_id: hiroshima-city-7-6-28
+    name: 松潤
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 人懐こく甘えん坊で、元気いっぱいです！真菌症の治療をしていましたが、毛も生えてきて良くなったため、真菌症の治療は終了しました。爪切り出来ます。最期まで愛情をもって飼ってくださる方を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-6-28-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-6-28-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
+  - external_id: hiroshima-city-7-6-22
+    name: 剛
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 人懐こく甘えん坊です。抱っこや爪切りできます。真菌症の治療を行っていましたが良くなったため治療を終了しています。最期まで愛情をもって飼ってくださる方を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-6-22-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-6-22-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
+  - external_id: hiroshima-city-7-6-20
+    name: ピラフ
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 人懐こく甘えん坊で、とてもやんちゃです！センターに今いる猫の中で一番元気です！他の猫と遊びたがります。オモチャ大好きです。最期まで愛情をもって飼ってくださる方を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-6-20-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-6-20-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
+  - external_id: hiroshima-city-7-10-3
+    name: らーめん
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: 5kg
+    health_status: null
+    personality: 膝に乗ってくれる甘えん坊です。自分からスリスリ寄ってきてくれます。初対面の人には最初はドキドキしますが、すぐ慣れてくれます。おやつ大好きです。散歩は怖いと固まってしまいますが、慣れると歩いてくれます。自転車や人に少し吠えてしまうことあり。抱っこできます。センターに来た時にもつれがひどかったため毛は短くしています。最期まで愛情をもって室内で飼ってくださる家族を募集しています。体重約5kg
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/7-10-3-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/7-10-3-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 申請中
+    listing_type: adoption
+  - external_id: hiroshima-city-7-10-1
+    name: まる
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: とても寂しがりで人の傍にいたがる甘えん坊です。自分からスリスリ寄ってきてくれます。初対面の人には最初はドキドキしますが、すぐ慣れてくれます。散歩は上手に歩けます。慣れない場所で最初は車の音などに怖がって震えていましたが「大丈夫だよ」と寄り添ってあげると最後には慣れて歩いてくれました。階段を上がるのが苦手。最期まで愛情をもって室内で飼ってくださる家族を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/7-10-1-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/7-10-1-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 申請中
+    listing_type: adoption
+  - external_id: hiroshima-city-7-9-5
+    name: りん
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: female
+    color: null
+    size: 20kg
+    health_status: null
+    personality: 人が大好きな甘えん坊です。散歩は引っ張りなく上手に歩けます。散歩が大好きで、リードを見ると喜びます。目が合うと小首を傾げる可愛い子です。トイレはきれい好きなのか外の散歩時にします。階段を上がるのが苦手。フードは小粒の方が好みのようです。穏やかな性格です。主人を決めたら一途な感じで、ずっと傍にいたがります。他の動物に対しても友好的です。現在、ボランティア宅にて預かってもらっています。ボランティア宅の犬とはワンプロをするくらい打ち解けているようです。最期まで愛情をもって室内で飼ってくださる家族を募集しています。体重20kg
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/7-9-5-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/7-9-5-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 申請中
+    listing_type: adoption
+  - external_id: hiroshima-city-7-7-19
+    name: アッシュ
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: 19kg
+    health_status: null
+    personality: 人懐こく甘えん坊で、とにかく遊びたいパワフルな子です。とても力が強いため、その力に対応できる方。1日に十分な運動をさせることができる方。しつけが入っておらず、散歩も引きが強くセンターで勉強中です。犬を飼った経験があり、最期まで愛情をもって室内で飼ってくださる家族を募集しています。体重19kg　フィラリア/陰性
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/7-7-19-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/7-7-19-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
+  - external_id: hiroshima-city-7-7-18
+    name: ふうた
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: 3kg
+    health_status: null
+    personality: 人懐こく甘えん坊です。寂しがりで人恋しくて鳴きます。抱っこ・シャンプーなどのお手入れ出来ます。左前足が少し内側に曲がったような状態ですが、今のところ生活に支障はないようです。最期まで愛情をもって室内で飼ってくださる家族を募集しています。体重2～3kg
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-7-18-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/c7-7-18-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: adopted
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡が決まりました！
+    listing_type: adoption
+  - external_id: hiroshima-city-6-2-1
+    name: フェンディ
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/6-2-1-1.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/6-2-1-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: adopted
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡が決まりました！
+    listing_type: adoption
+  - external_id: hiroshima-city-6-9-5
+    name: 秋都
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/201671.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/201673.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 申請中
+    listing_type: adoption
+  - external_id: hiroshima-city-6-9-4
+    name: 広秋
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/201667.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/201669.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
+  - external_id: hiroshima-city-6-4-2
+    name: そう
+    animal_type: dog
+    breed: null
+    age_estimate: 7歳
+    gender: male
+    color: null
+    size: 20kg
+    health_status: null
+    personality: 散歩は引っ張りもなく上手に歩けます。寂しがりな性格です。トイレは外派。男性と爪切りが苦手です。脱走癖あり。やきもちをやくので先住犬がいない家庭を希望します。最期まで愛情をもって室内で飼ってくださる家族を募集しています。体重約17～20kgくらい。フィラリア陰性
+    special_needs: null
+    images:
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/193575.jpg
+      - https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/023/100/193577.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption

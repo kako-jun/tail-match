@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-13T18:33:45.427+09:00",
+  "url": "https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-cat-list.html",
+  "has_animals": true,
+  "html_size": 32815,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}

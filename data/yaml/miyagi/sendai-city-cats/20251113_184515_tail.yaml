@@ -1,0 +1,135 @@
+meta:
+  source_file: 20251113_173522_tail.html
+  source_url: https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/neko.html
+  extracted_at: '2025-11-13T18:45:15.043+09:00'
+  municipality: miyagi/sendai-city-cats
+  municipality_id: null
+  total_count: 6
+  note: 譲渡対象猫情報
+animals:
+  - external_id: sendai-city-C25037
+    name: C25037
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: キジトラ
+    size: 中
+    health_status: 猫白血病（-）/猫エイズ（-）。ワクチン接種済。マイクロチップ装着済。去勢手術実施済。
+    personality: 素直に甘えられるようになるまで、少しだけ時間のかかる子です。撫でようとすると、警戒心から『触らないで…』と困り顔でケージの奥に引っ込んでしまう子でしたが、センターにきて2ヶ月半ほど経過し、最近では自分からお腹を出して甘えてきてくれるようになりました。。時間がかかってしまっても、この子が安心して過ごせるようになるまで、じっくり向き合ってくださるご家庭を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/images/c25037-4.png
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/neko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption
+  - external_id: sendai-city-C25049
+    name: C25049
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: 茶トラ
+    size: 中
+    health_status: 猫白血病（-）/猫エイズ（-）。ワクチン接種済。マイクロチップ装着済。去勢手術実施済。
+    personality: 臆病な性格のため、嫌なことがあったり、初めましての人に対しては『シャー！』と威嚇してしまうことのある子ですが、落ち着くとかわいらしい声でアピールしてくる、隠れ甘えん坊です。。ごろんと寝転がり、ふみふみしながら顔を押し付けて『撫でてよー！』とアピールしてくる姿が可愛らしい子です。。新しい環境に慣れるまでは、根の臆病な性格が出てくる可能性があります。この子が落ち着けるまでじっくり寄り添って暮らしていただけるご家庭を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/images/c25049-2.png
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/neko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption
+  - external_id: sendai-city-C25050
+    name: C25050
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: キジトラ
+    size: 中
+    health_status: 猫白血病（-）/猫エイズ（-）。ワクチン接種済。マイクロチップ装着済。去勢手術実施済。
+    personality: 大きな顔と、眼光が鋭く見える細い目がチャームポイントです。がっしりとした体つきなので、『なでて～』と手にすり寄ってきたときの衝撃が重く、撫でてほしい！という思いが強く伝わってくる子です。。新しい環境に慣れるまでは、根の臆病な性格が出てくる可能性があります。この子が落ち着けるまでじっくり寄り添って暮らしていただけるご家庭を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/images/image002_10.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/neko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption
+  - external_id: sendai-city-C25051
+    name: C25051
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: female
+    color: 茶白
+    size: 中
+    health_status: 猫白血病（-）/猫エイズ（-）。ワクチン接種済。マイクロチップ装着済。避妊手術実施済。
+    personality: 『ザ・女の子』な性格で、嫌なことがあったりすると、やや根に持つタイプです。気分のいい時には、ゴロンとお腹を出すときもありますが、自分から撫でてもらうのを催促しておきながら、急に『もういい！』と怒ったりするツンデレガールです。。新しい環境に慣れるまでは、『シャー！』と威嚇をしてしまう子ですが、この子が落ち着けるまで、じっくり寄り添って暮らしていただけるご家庭を募集しています。
+    special_needs: null
+    images:
+      - https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/images/c25051-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/neko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption
+  - external_id: sendai-city-C25059
+    name: C25059
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: female
+    color: キジサビ
+    size: 中
+    health_status: 猫白血病（-）/猫エイズ（+）。ワクチン接種済。マイクロチップ装着済。避妊手術実施済。。※猫エイズ陽性のため、先住猫のいないご家庭を募集しています
+    personality: センターに来たばかりの頃は『シャー！』と威嚇していた子でしたが、最近では自分から近づいてきて、作業しているのもお構いなしに職員の手があるところまで突進してきては、なでなでを催促してくるようになってきました。。新しい環境に慣れるまでは、臆病な性格がちょっぴり出てくる可能性がありますが、根はとても甘えっ子さんです。
+    special_needs: null
+    images:
+      - https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/images/c25059-3.png
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/neko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption
+  - external_id: sendai-city-C25060
+    name: C25060
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: female
+    color: 長毛キジトラ
+    size: 中
+    health_status: 猫白血病（-）/猫エイズ（-）。ワクチン接種済。マイクロチップ装着済。避妊手術実施済。
+    personality: 場所見知りすることはありましたが、センターに来たばかりの頃から人見知りはしない子です。職員がいる間は、構ってほしくて鳴いて呼んだり、ケージの隙間から手を伸ばしてチョイチョイと手招きして甘えてくる子です。。最近では毛並みも整ってきて、より可愛らしくなってきました。
+    special_needs: null
+    images:
+      - https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/images/c25060-3.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/neko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption

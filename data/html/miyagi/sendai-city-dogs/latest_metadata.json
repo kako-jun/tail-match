@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-13T17:42:43.231+09:00",
+  "url": "https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/inu.html",
+  "has_animals": true,
+  "html_size": 37995,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}

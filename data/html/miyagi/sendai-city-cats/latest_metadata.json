@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-13T17:35:22.263+09:00",
+  "url": "https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/neko.html",
+  "has_animals": true,
+  "html_size": 40583,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}

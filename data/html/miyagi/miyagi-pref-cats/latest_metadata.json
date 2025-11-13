@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-13T17:18:39.815+09:00",
+  "url": "https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html",
+  "has_animals": true,
+  "html_size": 40041,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}
