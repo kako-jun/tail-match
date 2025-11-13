@@ -145,32 +145,34 @@ prefectures:
       - name: "宮城県動物愛護センター"
         city: null
         type: "prefecture"
-        status: "pending"
-        scraper_path: null
-        page_type: "unknown"
+        status: "implemented"
+        scraper_path: "scripts/scrapers/miyagi/miyagi-pref-cats, scripts/scrapers/miyagi/miyagi-pref-dogs"
+        page_type: "separate"
         url: "https://www.pref.miyagi.jp/soshiki/doubutuaigo/"
-        url_adoption: "https://www.pref.miyagi.jp/soshiki/doubutuaigo/jyoutoneko.html"
+        url_cats: "https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html"
+        url_dogs: "https://www.pref.miyagi.jp/soshiki/doubutuaigo/jyoto-inu-syokai.html"
         contact:
-          phone: "0223-58-2456"
-          address: "宮城県富谷市石積字堀田1"
+          phone: "022-358-7888"
+          address: "宮城県富谷市明石下向田69-4"
           email: null
           postal_code: "981-3326"
-        notes: "未実装、調査済み"
+        notes: "猫: h4【名前】/h5性別年齢/img/ul構造。犬: h3 ID名前/h5/img/ul構造。実装完了 (2025-11-13)"
 
       - name: "仙台市動物管理センター「アニパル仙台」"
         city: "仙台市"
         type: "designated_city"
-        status: "pending"
-        scraper_path: null
-        page_type: "unknown"
-        url: "https://www.city.sendai.jp/dobutsu/kurashi/machi/hogo/index.html"
-        url_adoption: "https://www.city.sendai.jp/dobutsu/kurashi/machi/hogo/jouto/index.html"
+        status: "implemented"
+        scraper_path: "scripts/scrapers/miyagi/sendai-city-cats, scripts/scrapers/miyagi/sendai-city-dogs"
+        page_type: "separate"
+        url: "https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/index.html"
+        url_cats: "https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/neko.html"
+        url_dogs: "https://www.city.sendai.jp/dobutsu/kurashi/shizen/petto/hogodobutsu/joho/inu.html"
         contact:
           phone: "022-258-1626"
           address: "宮城県仙台市宮城野区扇町6-3-3"
           email: null
           postal_code: "983-0833"
-        notes: "譲渡犬情報、譲渡猫情報、譲渡子猫情報を提供。毎週金曜日に猫譲渡会開催"
+        notes: "2つのテーブル構造（情報・写真）。猫: C番号6列、犬: D番号7列。実装完了 (2025-11-13)"
 
   - prefecture_name: "秋田県"
     prefecture_code: "05"
