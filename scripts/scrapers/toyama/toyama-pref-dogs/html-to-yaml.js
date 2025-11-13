@@ -6,6 +6,7 @@
 
 import fs from 'fs';
 import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+import { getAdoptionStatus } from '../../../lib/adoption-status.js';
 
 import path from 'path';
 import { load } from 'cheerio';
@@ -129,12 +130,7 @@ function extractAnimalsFromHTML(html, sourceUrl, htmlFilename) {
         images: normalizedImageUrl ? [normalizedImageUrl] : [],
         protection_date: null,
         deadline_date: null,
-        status:
-          textToAnalyze.includes('譲渡済み') ||
-          textToAnalyze.includes('譲渡しました') ||
-          textToAnalyze.includes('譲渡決定')
-            ? 'adopted'
-            : 'available',
+        status: getAdoptionStatus(textToAnalyze),
         transfer_decided: false,
         source_url: normalizedLinkUrl,
         confidence_score: name && animalId ? 0.9 : name ? 0.7 : 0.5,

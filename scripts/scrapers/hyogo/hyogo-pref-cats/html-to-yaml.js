@@ -1,18 +1,17 @@
 #!/usr/bin/env node
 
 /**
- * 神戸市動物管理センター YAML抽出スクリプト
+ * 兵庫県動物愛護センター YAML抽出スクリプト
  *
  * 特徴:
- * - 収容犬猫情報ページから猫情報を抽出
- * - 神戸市の標準的な動物情報フォーマット
+ * - sp-item-gallery構造から猫情報を抽出
+ * - 募集期間、品種、性別、年齢を取得
  * - YAML形式で出力
  */
 
 import fs from 'fs';
 import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
 import { getAdoptionStatus } from '../../../lib/adoption-status.js';
-import { determineAnimalType } from '../../../lib/animal-type.js';
 
 import path from 'path';
 import { load } from 'cheerio';
@@ -23,9 +22,9 @@ import yaml from 'js-yaml';
 // ========================================
 
 const CONFIG = {
-  municipality: 'hyogo/kobe-city',
-  base_url: 'https://www.city.kobe.lg.jp',
-  source_url: 'https://www.city.kobe.lg.jp/a84140/kenko/health/hygiene/animal/zmenu/index.html',
+  municipality: 'hyogo/hyogo-pref-cats',
+  base_url: 'http://www.hyogo-douai.sakura.ne.jp',
+  source_url: 'http://www.hyogo-douai.sakura.ne.jp/jyouto4.html',
 };
 
 // ========================================
@@ -68,19 +67,9 @@ function parseGender(text) {
 
   text = text.toLowerCase();
 
-  if (
-    text.includes('オス') ||
-    text.includes('おす') ||
-    text.includes('雄') ||
-    text.includes('♂')
-  ) {
+  if (text.includes('オス') || text.includes('おす') || text.includes('雄')) {
     return 'male';
-  } else if (
-    text.includes('メス') ||
-    text.includes('めす') ||
-    text.includes('雌') ||
-    text.includes('♀')
-  ) {
+  } else if (text.includes('メス') || text.includes('めす') || text.includes('雌')) {
     return 'female';
   } else {
     return 'unknown';
@@ -88,57 +77,75 @@ function parseGender(text) {
 }
 
 /**
- * 猫情報を抽出（サイト構造に応じて調整が必要）
+ * ギャラリーアイテムから猫情報を抽出
  */
-function extractCatsFromPage($) {
-  const allCats = [];
+function extractCatFromGalleryItem($, $item, index) {
+  const title = $item.find('.item-gallery-title').text().trim();
+  const content = $item.find('.item-gallery-content').text().trim();
+  const $img = $item.find('.item-gallery-thumbnail');
+  const imgSrc = $img.attr('src');
 
-  // 「収容した猫はいません」チェック
-  const pageText = $('body').text();
-  if (pageText.includes('収容した猫はいません') || pageText.includes('猫はいません')) {
-    console.log('⚠️ 現在、収容されている猫はいません');
-    return allCats;
+  // 画像URLを絶対URLに変換
+  let imageUrl = null;
+  if (imgSrc) {
+    if (imgSrc.startsWith('http')) {
+      imageUrl = imgSrc;
+    } else {
+      imageUrl = CONFIG.base_url + '/' + imgSrc;
+    }
   }
 
-  // 実際のHTML構造に基づいて抽出ロジックを実装
-  // 例: テーブル形式の場合
-  $('table tr').each((i, tr) => {
-    const $tr = $(tr);
-    const $cells = $tr.find('td');
+  // 募集期間から external_id を生成
+  const dateMatch = title.match(/(\d+)月(\d+)日/);
+  const externalId = dateMatch
+    ? `hyogo-${dateMatch[1]}-${dateMatch[2]}-${index}`
+    : `hyogo-${index}`;
 
-    if ($cells.length >= 3) {
-      // 譲渡済み判定（行全体のテキストで判定）
-      const rowText = $tr.text();
-      const status = getAdoptionStatus(rowText);
+  // コンテンツから情報を抽出
+  const parts = content.split('、').map((s) => s.trim());
+  let breed = null;
+  let gender = 'unknown';
+  let age = null;
 
-      // 動物種判定（デフォルトは猫）
-      const animalType = determineAnimalType(rowText, 'cat');
-
-      const cat = {
-        external_id: `kobe-${i + 1}`,
-        name: $cells.eq(0).text().trim() || null,
-        animal_type: animalType,
-        breed: $cells.eq(1).text().trim() || null,
-        age_estimate: null,
-        gender: parseGender($cells.eq(2).text().trim()),
-        color: null,
-        size: null,
-        health_status: null,
-        personality: null,
-        special_needs: null,
-        images: [],
-        protection_date: null,
-        status: status,
-        source_url: CONFIG.source_url,
-        confidence_level: 'medium',
-        extraction_notes: [],
-      };
-
-      allCats.push(cat);
+  parts.forEach((part) => {
+    if (part.includes('雑種') || part.includes('純血')) {
+      breed = part;
+    } else if (part.includes('オス') || part.includes('メス')) {
+      gender = parseGender(part);
+    } else if (part.includes('歳') || part.includes('齢')) {
+      age = part;
     }
   });
 
-  return allCats;
+  // 譲渡済み判定
+  const status = getAdoptionStatus(content);
+
+  // 動物種判定（デフォルトは猫）
+  const animalType = /犬|イヌ|dog/i.test(content) ? 'dog' : 'cat';
+
+  return {
+    external_id: externalId,
+    name: null, // 名前なし
+    animal_type: animalType,
+    breed: breed,
+    age_estimate: age,
+    gender: gender,
+    color: null,
+    size: null,
+    health_status: content.includes('去勢済み')
+      ? '去勢済み'
+      : content.includes('避妊済み')
+        ? '避妊済み'
+        : null,
+    personality: null,
+    special_needs: null,
+    images: imageUrl ? [imageUrl] : [],
+    protection_date: null,
+    status: status,
+    source_url: CONFIG.source_url,
+    confidence_level: 'high',
+    extraction_notes: [],
+  };
 }
 
 // ========================================
@@ -147,7 +154,7 @@ function extractCatsFromPage($) {
 
 async function main() {
   console.log('='.repeat(60));
-  console.log('🐱 神戸市動物管理センター - YAML抽出');
+  console.log('🐱 兵庫県動物愛護センター - YAML抽出');
   console.log('='.repeat(60));
   console.log(`   Municipality: ${CONFIG.municipality}`);
   console.log('='.repeat(60) + '\n');
@@ -160,23 +167,28 @@ async function main() {
     const html = fs.readFileSync(htmlFile, 'utf-8');
     const $ = load(html);
 
-    // Step 2: 猫情報を抽出
-    const allCats = extractCatsFromPage($);
+    // Step 2: ギャラリーアイテムを取得
+    const $galleryItems = $('.sp-item-gallery .item-gallery-item');
 
-    console.log(`📊 検出した猫数: ${allCats.length}`);
+    console.log(`📊 検出した猫数: ${$galleryItems.length}`);
 
-    if (allCats.length === 0) {
-      console.warn('⚠️ 猫情報が見つかりませんでした（現在収容猫なし）');
+    if ($galleryItems.length === 0) {
+      console.warn('⚠️ 猫情報が見つかりませんでした');
       return;
     }
 
-    // Step 3: 各猫の情報を表示
-    allCats.forEach((cat, index) => {
-      console.log(`\n--- 猫 ${index + 1}/${allCats.length} ---`);
+    // Step 3: 各アイテムから猫情報を抽出
+    const allCats = [];
+    $galleryItems.each((index, item) => {
+      console.log(`\n--- 猫 ${index + 1}/${$galleryItems.length} ---`);
+      const cat = extractCatFromGalleryItem($, $(item), index + 1);
+
       console.log(`   ID: ${cat.external_id}`);
       console.log(
-        `   名前: ${cat.name || '不明'}, 品種: ${cat.breed || '不明'}, 性別: ${cat.gender}`
+        `   品種: ${cat.breed || '不明'}, 性別: ${cat.gender}, 年齢: ${cat.age_estimate || '不明'}`
       );
+
+      allCats.push(cat);
     });
 
     console.log(`\n📊 合計抽出数: ${allCats.length}匹`);
@@ -202,7 +214,7 @@ async function main() {
           source_url: CONFIG.source_url,
           extracted_at: getJSTISOString(),
           municipality: CONFIG.municipality,
-          municipality_id: 13, // 神戸市動物管理センター
+          municipality_id: 11, // 兵庫県動物愛護センター
           total_count: allCats.length,
         },
         animals: allCats,

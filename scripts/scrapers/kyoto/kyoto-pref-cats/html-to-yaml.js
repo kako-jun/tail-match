@@ -1,7 +1,13 @@
 #!/usr/bin/env node
 
 /**
- * 京都府動物愛護管理センター（犬） YAML抽出スクリプト
+ * 京都府動物愛護管理センター YAML抽出スクリプト
+ *
+ * 特徴:
+ * - div.content.clearfix から猫情報を抽出
+ * - 譲渡決定済みの猫はスキップ
+ * - table.info から詳細情報を取得
+ * - YAML形式で出力（人間が確認・修正可能）
  */
 
 import fs from 'fs';
@@ -17,15 +23,18 @@ import yaml from 'js-yaml';
 // ========================================
 
 const CONFIG = {
-  municipality: 'kyoto/kyoto-pref-dogs',
+  municipality: 'kyoto/kyoto-pref-cats',
   base_url: 'https://kyoto-ani-love.com',
-  source_url: 'https://kyoto-ani-love.com/recruit-animal/dog/',
+  source_url: 'https://kyoto-ani-love.com/recruit-animal/cat/',
 };
 
 // ========================================
 // ユーティリティ
 // ========================================
 
+/**
+ * 最新のHTMLファイルを取得
+ */
 function getLatestHtmlFile() {
   const htmlDir = path.join(
     process.cwd(),
@@ -51,13 +60,22 @@ function getLatestHtmlFile() {
   return path.join(htmlDir, files[0]);
 }
 
+/**
+ * 性別を解析
+ */
 function parseGender(genderStr) {
   if (!genderStr) return 'unknown';
-  if (genderStr.includes('オス') || genderStr.includes('雄')) return 'male';
-  if (genderStr.includes('メス') || genderStr.includes('雌')) return 'female';
+  if (genderStr.includes('オス') || genderStr.includes('雄')) {
+    return 'male';
+  } else if (genderStr.includes('メス') || genderStr.includes('雌')) {
+    return 'female';
+  }
   return 'unknown';
 }
 
+/**
+ * table.info から情報を抽出
+ */
 function extractTableInfo($, $table) {
   const info = {};
 
@@ -76,29 +94,47 @@ function extractTableInfo($, $table) {
   return info;
 }
 
-function extractDogFromContent($, content, index) {
+/**
+ * div.content.clearfix から猫情報を抽出
+ */
+function extractCatFromContent($, content, index) {
   const $content = $(content);
 
+  // タイトル取得
   const title = $content.find('h2').text().trim();
 
+  // 譲渡決定済みも含めて抽出（statusフィールドで判別）
+  // if (title.includes('新しい飼い主さんが決まりました') || title.includes('決まりました')) {
+  //   console.log(`  ⏭️  スキップ: ${title} （譲渡決定済み）`);
+  //   return null;
+  // }
+
+  // 名前を抽出（"センター名：" を除去）
   let name = title.replace(/センター名[：:]/g, '').trim();
+
+  // 括弧内の情報を除去（例: "ししまる（検討中の方がおられます）" → "ししまる"）
   name = name.replace(/[（(].*?[）)]/g, '').trim();
 
   if (!name) {
-    name = `京都犬${index + 1}号`;
+    name = `京都猫${index + 1}号`;
   }
 
+  // external_id は名前から生成（タイムスタンプ付き）
   const timestamp = Date.now();
-  const external_id = `kyoto-dog-${timestamp}-${index}`;
+  const external_id = `kyoto_${timestamp}_${index}`;
 
+  // 画像URL取得
   const imageUrl = $content.find('div.image.img-rollover a').attr('href');
   const images = imageUrl ? [imageUrl] : [];
 
+  // テーブル情報取得
   const $table = $content.find('table.info');
   const tableInfo = extractTableInfo($, $table);
 
+  // 性別解析
   const gender = parseGender(tableInfo['性別']);
 
+  // 譲渡済み判定（タイトルとコンテンツ全体のテキストで判定）
   const contentText = $content.text();
   const isAdopted =
     title.includes('新しい飼い主さんが決まりました') ||
@@ -107,10 +143,10 @@ function extractDogFromContent($, content, index) {
     contentText.includes('譲渡しました') ||
     contentText.includes('譲渡決定');
 
-  const dog = {
+  // 猫オブジェクト作成
+  const cat = {
     external_id: external_id,
     name: name,
-    animal_type: 'dog',
     breed: tableInfo['種類'] || null,
     age_estimate: tableInfo['年齢'] || tableInfo['推定年齢'] || null,
     gender: gender,
@@ -127,17 +163,19 @@ function extractDogFromContent($, content, index) {
     extraction_notes: [],
   };
 
+  // 画像がない場合は警告
   if (images.length === 0) {
-    dog.extraction_notes.push('画像が見つかりませんでした');
-    dog.confidence_level = 'medium';
+    cat.extraction_notes.push('画像が見つかりませんでした');
+    cat.confidence_level = 'medium';
   }
 
+  // テーブル情報がない場合
   if (Object.keys(tableInfo).length === 0) {
-    dog.extraction_notes.push('詳細情報テーブルが見つかりませんでした');
-    dog.confidence_level = 'low';
+    cat.extraction_notes.push('詳細情報テーブルが見つかりませんでした');
+    cat.confidence_level = 'low';
   }
 
-  return dog;
+  return cat;
 }
 
 // ========================================
@@ -146,34 +184,43 @@ function extractDogFromContent($, content, index) {
 
 async function main() {
   console.log('='.repeat(60));
-  console.log('🐕 京都府動物愛護管理センター（犬） - YAML抽出');
+  console.log('🐱 京都府動物愛護管理センター - YAML抽出');
   console.log('='.repeat(60));
   console.log(`   Municipality: ${CONFIG.municipality}`);
   console.log('='.repeat(60) + '\n');
 
   try {
+    // Step 1: 最新HTMLファイルを読み込み
     const htmlFile = getLatestHtmlFile();
     console.log(`📄 HTMLファイル: ${htmlFile}\n`);
 
     const html = fs.readFileSync(htmlFile, 'utf-8');
     const $ = load(html);
 
-    const allDogs = [];
-    $('div.content.clearfix').each((index, content) => {
-      const dog = extractDogFromContent($, content, index);
-      if (dog) {
-        allDogs.push(dog);
-        console.log(`   犬 ${index + 1}: ${dog.name} (${dog.gender})`);
-      }
-    });
+    // Step 2: div.content.clearfix を取得
+    const contents = $('div.content.clearfix').toArray();
+    console.log(`📊 検出したコンテンツ数: ${contents.length}`);
 
-    console.log(`\n📊 合計抽出数: ${allDogs.length}匹`);
-
-    if (allDogs.length === 0) {
-      console.warn('⚠️ 犬情報が見つかりませんでした');
+    if (contents.length === 0) {
+      console.warn('⚠️ コンテンツが見つかりませんでした');
       return;
     }
 
+    // Step 3: 各コンテンツから猫情報を抽出
+    const allCats = [];
+    contents.forEach((content, index) => {
+      console.log(`\n--- コンテンツ ${index + 1}/${contents.length} ---`);
+      const cat = extractCatFromContent($, content, index);
+
+      if (cat) {
+        console.log(`   ✅ ${cat.name} (${cat.gender})`);
+        allCats.push(cat);
+      }
+    });
+
+    console.log(`\n📊 合計抽出数: ${allCats.length}匹`);
+
+    // Step 4: YAML出力
     const outputDir = path.join(
       process.cwd(),
       'data',
@@ -184,6 +231,7 @@ async function main() {
     fs.mkdirSync(outputDir, { recursive: true });
 
     const timestamp = getJSTTimestamp();
+
     const outputFile = path.join(outputDir, `${timestamp}_tail.yaml`);
 
     const yamlContent = yaml.dump(
@@ -193,10 +241,9 @@ async function main() {
           source_url: CONFIG.source_url,
           extracted_at: getJSTISOString(),
           municipality: CONFIG.municipality,
-          municipality_id: 15, // 京都府動物愛護管理センター
-          total_count: allDogs.length,
+          total_count: allCats.length,
         },
-        animals: allDogs,
+        animals: allCats,
       },
       { indent: 2, lineWidth: -1 }
     );
@@ -218,4 +265,5 @@ async function main() {
   }
 }
 
+// 実行
 main();

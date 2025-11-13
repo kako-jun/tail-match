@@ -1,7 +1,12 @@
 #!/usr/bin/env node
 
 /**
- * 千葉県動物愛護センター（犬） YAML抽出スクリプト
+ * 千葉県動物愛護センター YAML抽出スクリプト
+ *
+ * 特徴:
+ * - 収容猫情報ページから猫情報を抽出
+ * - YAML形式で出力
+ * - 空状態（0匹）対応
  */
 
 import fs from 'fs';
@@ -17,16 +22,19 @@ import yaml from 'js-yaml';
 // ========================================
 
 const CONFIG = {
-  municipality: 'chiba/chiba-pref-dogs',
+  municipality: 'chiba/chiba-pref-cats',
   municipalityId: 17, // 千葉県動物愛護センター
   base_url: 'https://www.pref.chiba.lg.jp',
-  source_url: 'https://www.pref.chiba.lg.jp/aigo/pet/inu-neko/shuuyou/shuu-inu-tou.html',
+  source_url: 'https://www.pref.chiba.lg.jp/aigo/pet/inu-neko/shuuyou/shuu-neko-tou.html',
 };
 
 // ========================================
 // ユーティリティ
 // ========================================
 
+/**
+ * 最新のHTMLファイルを取得
+ */
 function getLatestHtmlFile() {
   const htmlDir = path.join(
     process.cwd(),
@@ -52,13 +60,17 @@ function getLatestHtmlFile() {
   return path.join(htmlDir, files[0]);
 }
 
-function extractDogFromBlock($, $block, index) {
+/**
+ * 猫情報ブロックから情報を抽出
+ */
+function extractCatFromBlock($, $block, index) {
   const $col2L = $block.find('.col2L');
 
   if ($col2L.length === 0) {
     return null;
   }
 
+  // 全てのpタグからテキストを取得
   const textLines = [];
   $col2L.find('p').each((i, p) => {
     const text = $(p).text().trim();
@@ -67,17 +79,21 @@ function extractDogFromBlock($, $block, index) {
     }
   });
 
+  // 管理番号の取得
   const managementNumber = textLines.find((line) => line.includes('【管理番号】'));
   if (!managementNumber) {
-    return null;
+    return null; // テンプレートの可能性
   }
 
+  // 収容場所
   const location = textLines.find((line) => line.includes('【収容場所】')) || '';
 
+  // 種類・毛色・性別
   const typeInfo = textLines.find(
     (line) => !line.includes('【') && (line.includes('オス') || line.includes('メス'))
   );
 
+  // 画像URL
   const $img = $col2L.find('img');
   const images = [];
   if ($img.length > 0) {
@@ -88,6 +104,7 @@ function extractDogFromBlock($, $block, index) {
     }
   }
 
+  // 掲載期限
   const deadlineLine = textLines.find((line) => line.includes('【掲載期限】'));
   let deadline_date = null;
   if (deadlineLine) {
@@ -97,6 +114,7 @@ function extractDogFromBlock($, $block, index) {
     }
   }
 
+  // 性別の判定
   let gender = 'unknown';
   if (typeInfo) {
     if (typeInfo.includes('オス')) {
@@ -106,13 +124,14 @@ function extractDogFromBlock($, $block, index) {
     }
   }
 
+  // 譲渡済み判定（この動物のテキスト範囲のみで判定）
   const blockText = textLines.join(' ');
   const status = getAdoptionStatus(blockText);
 
   return {
-    external_id: `chiba-pref-dog-${index}`,
+    external_id: `chiba-pref-${index}`,
     name: managementNumber.replace('【管理番号】', '').trim(),
-    animal_type: 'dog',
+    animal_type: 'cat',
     breed: null,
     age_estimate: null,
     gender: gender,
@@ -127,7 +146,7 @@ function extractDogFromBlock($, $block, index) {
     status: status,
     source_url: CONFIG.source_url,
     confidence_level: 'high',
-    extraction_notes: ['収容犬情報', location],
+    extraction_notes: ['収容猫情報（東葛飾支所）', location],
     listing_type: 'lost_pet',
   };
 }
@@ -138,40 +157,90 @@ function extractDogFromBlock($, $block, index) {
 
 async function main() {
   console.log('='.repeat(60));
-  console.log('🐕 千葉県動物愛護センター（犬） - YAML抽出');
+  console.log('🐱 千葉県動物愛護センター - YAML抽出');
   console.log('='.repeat(60));
   console.log(`   Municipality: ${CONFIG.municipality}`);
   console.log('='.repeat(60) + '\n');
 
   try {
+    // Step 1: 最新HTMLファイルを読み込み
     const htmlFile = getLatestHtmlFile();
     console.log(`📄 HTMLファイル: ${htmlFile}\n`);
 
     const html = fs.readFileSync(htmlFile, 'utf-8');
     const $ = load(html);
 
-    const allDogs = [];
+    // Step 2: 収容猫ブロックを探す
+    const allCats = [];
+    const $content = $('#tmp_contents');
 
-    $('.column2.clearfix').each((index, element) => {
-      const dog = extractDogFromBlock($, $(element), index);
-      if (dog) {
-        allDogs.push(dog);
-      }
-    });
+    // テンプレートではなく実際の収容データを探す
+    const $headings = $content.find('h2');
 
-    console.log(`📊 検出した犬数: ${allDogs.length}`);
+    if ($headings.length === 0 || $headings.first().text().includes('テンプレート')) {
+      // 収容猫なし
+      console.log('⚠️ 現在収容されている猫はいません');
 
-    if (allDogs.length === 0) {
-      console.warn('⚠️ 犬情報が見つかりませんでした');
+      const outputDir = path.join(
+        process.cwd(),
+        'data',
+        'yaml',
+        CONFIG.municipality.replace('/', path.sep)
+      );
+
+      fs.mkdirSync(outputDir, { recursive: true });
+
+      const timestamp = getJSTTimestamp();
+      const outputFile = path.join(outputDir, `${timestamp}_tail.yaml`);
+
+      const yamlContent = yaml.dump(
+        {
+          meta: {
+            source_file: path.basename(htmlFile),
+            source_url: CONFIG.source_url,
+            extracted_at: getJSTISOString(),
+            municipality: CONFIG.municipality,
+            municipality_id: CONFIG.municipalityId,
+            total_count: 0,
+            note: '収容猫なし（東葛飾支所）',
+          },
+          animals: [],
+        },
+        { indent: 2, lineWidth: -1 }
+      );
+
+      fs.writeFileSync(outputFile, yamlContent, 'utf-8');
+
+      console.log(`\n✅ YAML出力完了: ${outputFile}`);
+      console.log(`📊 ファイルサイズ: ${fs.statSync(outputFile).size} bytes`);
+
+      console.log('\n' + '='.repeat(60));
+      console.log('✅ YAML抽出完了（0匹）');
+      console.log('='.repeat(60));
       return;
     }
 
-    allDogs.forEach((dog, index) => {
-      console.log(`\n--- 犬 ${index + 1}/${allDogs.length} ---`);
-      console.log(`   ID: ${dog.external_id}`);
-      console.log(`   名前: ${dog.name || '不明'}, 性別: ${dog.gender}`);
+    // 実際の猫情報がある場合の処理
+    $headings.each((index, heading) => {
+      const $heading = $(heading);
+      if (!$heading.text().includes('テンプレート')) {
+        const $nextCol2 = $heading.next('.col2');
+        if ($nextCol2.length > 0) {
+          const cat = extractCatFromBlock($, $nextCol2, index + 1);
+          if (cat) {
+            allCats.push(cat);
+            console.log(`\n--- 猫 ${allCats.length} ---`);
+            console.log(`   名前: ${cat.name}`);
+            console.log(`   性別: ${cat.gender}`);
+            console.log(`   掲載期限: ${cat.deadline_date || '不明'}`);
+          }
+        }
+      }
     });
 
+    console.log(`\n📊 合計抽出数: ${allCats.length}匹`);
+
+    // Step 3: YAML出力
     const outputDir = path.join(
       process.cwd(),
       'data',
@@ -187,14 +256,15 @@ async function main() {
     const yamlContent = yaml.dump(
       {
         meta: {
-          source_file: `${timestamp}_tail.html`,
+          source_file: path.basename(htmlFile),
           source_url: CONFIG.source_url,
           extracted_at: getJSTISOString(),
           municipality: CONFIG.municipality,
           municipality_id: CONFIG.municipalityId,
-          total_count: allDogs.length,
+          total_count: allCats.length,
+          note: '収容猫情報（東葛飾支所）',
         },
-        animals: allDogs,
+        animals: allCats,
       },
       { indent: 2, lineWidth: -1 }
     );
@@ -216,4 +286,5 @@ async function main() {
   }
 }
 
+// 実行
 main();

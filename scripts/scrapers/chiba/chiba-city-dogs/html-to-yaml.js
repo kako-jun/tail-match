@@ -6,6 +6,7 @@
 
 import fs from 'fs';
 import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+import { getAdoptionStatus } from '../../../lib/adoption-status.js';
 
 import path from 'path';
 import { load } from 'cheerio';
@@ -103,10 +104,7 @@ function extractDogInfo($, element, index) {
   }
 
   // 譲渡済み判定
-  const isAdopted =
-    detailText.includes('譲渡済み') ||
-    detailText.includes('譲渡しました') ||
-    detailText.includes('譲渡決定');
+  const status = getAdoptionStatus(detailText);
 
   return {
     external_id,
@@ -122,7 +120,7 @@ function extractDogInfo($, element, index) {
     special_needs: null,
     images: [],
     protection_date: null,
-    status: isAdopted ? 'adopted' : 'available',
+    status: status,
     source_url: CONFIG.source_url,
     confidence_level: 'medium',
     extraction_notes: [],

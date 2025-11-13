@@ -1,17 +1,22 @@
 #!/usr/bin/env node
+
+/**
+ * 千葉市動物保護指導センター YAML抽出スクリプト
+ */
+
 import fs from 'fs';
 import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
-import { getAdoptionStatus } from '../../../lib/adoption-status.js';
-import { determineAnimalType } from '../../../lib/animal-type.js';
 import path from 'path';
 import { load } from 'cheerio';
 import yaml from 'js-yaml';
+import { getAdoptionStatus } from '../../../lib/adoption-status.js';
 
 const CONFIG = {
-  municipality: 'hokkaido/hokkaido-pref',
-  municipalityId: 19,
-  base_url: 'https://www.pref.hokkaido.lg.jp',
-  source_url: 'https://www.pref.hokkaido.lg.jp/ks/awc/inuneko.html',
+  municipality: 'chiba/chiba-city-cats',
+  municipalityId: 18, // 千葉市動物保護指導センター
+  base_url: 'https://www.city.chiba.jp',
+  source_url:
+    'https://www.city.chiba.jp/hokenfukushi/iryoeisei/seikatsueisei/dobutsuhogo/transfercats.html',
 };
 
 function getLatestHtmlFile() {
@@ -29,66 +34,73 @@ function getLatestHtmlFile() {
   return path.join(htmlDir, files[0]);
 }
 
-function extractCatInfo($, $heading, index) {
-  const headingText = $heading.text().trim();
-  const match = headingText.match(/（仮名）(.+?)（雑種(.+?)\s+(オス|メス)\s+(.+?)）/);
+function extractCatInfo($, $h4, index) {
+  const heading = $h4.text().trim();
+  const match = heading.match(/(\d{8})（(.+?)）/);
   if (!match) return null;
 
-  const name = match[1];
-  const color = match[2];
-  const genderText = match[3];
-  const ageText = match[4];
+  const external_id = `chiba-city-${match[1]}`;
+  const name = match[2];
 
-  const gender = genderText === 'オス' ? 'male' : 'female';
-
+  const $img = $h4.next('p').find('img');
   const images = [];
-  const textParts = [headingText];
-  let $next = $heading.next();
-  while ($next.length && !$next.is('h3') && !$next.is('h4')) {
-    $next.find('img').each((i, img) => {
-      const src = $(img).attr('src');
-      if (src && !src.includes('icon')) {
-        images.push(src.startsWith('http') ? src : CONFIG.base_url + src);
-      }
-    });
-    const text = $next.text().trim();
-    if (text) textParts.push(text);
-    $next = $next.next();
+  if ($img.length > 0) {
+    const src = $img.attr('src');
+    if (src) images.push(src.startsWith('http') ? src : CONFIG.base_url + src);
   }
 
-  // 譲渡済み判定（この動物のテキスト範囲のみで判定）
-  const fullText = textParts.join(' ');
-  const status = getAdoptionStatus(fullText);
+  const $details = $img.closest('p').next('p');
+  const detailText = $details.html() || '';
+  const lines = detailText.split('<br>').map((l) => l.trim());
 
-  // 動物種判定（この動物のテキスト範囲で判定、デフォルトは猫）
-  const animalType = determineAnimalType(fullText, 'cat');
+  let gender = 'unknown';
+  let color = null;
+  let age_estimate = null;
+  let personality = null;
+
+  lines.forEach((line) => {
+    if (line.includes('性別：')) {
+      const genderText = line.replace('性別：', '').trim();
+      if (genderText.includes('オス')) gender = 'male';
+      else if (genderText.includes('メス')) gender = 'female';
+    } else if (line.includes('毛色：')) {
+      color = line.replace('毛色：', '').trim();
+    } else if (line.includes('年齢：')) {
+      age_estimate = line.replace('年齢：', '').trim();
+    } else if (line.includes('コメント：')) {
+      personality = line.replace('コメント：', '').trim();
+    }
+  });
+
+  // 譲渡済み判定
+  const status = getAdoptionStatus(detailText + ' ' + heading);
 
   return {
-    external_id: `hokkaido-pref-${index}`,
+    external_id,
     name,
-    animal_type: animalType,
+    animal_type: 'cat',
     breed: null,
-    age_estimate: ageText,
+    age_estimate,
     gender,
     color,
     size: null,
     health_status: null,
-    personality: null,
+    personality,
     special_needs: null,
     images,
     protection_date: null,
     deadline_date: null,
-    status: status,
+    status,
     source_url: CONFIG.source_url,
     confidence_level: 'high',
-    extraction_notes: ['飼い主募集中'],
+    extraction_notes: ['譲渡候補猫'],
     listing_type: 'adoption',
   };
 }
 
 async function main() {
   console.log('='.repeat(60));
-  console.log('🐱 北海道立動物愛護センター - YAML抽出');
+  console.log('🐱 千葉市動物保護指導センター - YAML抽出');
   console.log('='.repeat(60) + '\n');
 
   try {
@@ -97,17 +109,17 @@ async function main() {
     const $ = load(html);
 
     const allCats = [];
-    $('h3, h4').each((index, heading) => {
-      const $heading = $(heading);
-      if ($heading.text().includes('（仮名）')) {
-        const cat = extractCatInfo($, $heading, index);
+    $('h4').each((index, h4) => {
+      const $h4 = $(h4);
+      if ($h4.text().match(/\d{8}（.+?）/)) {
+        const cat = extractCatInfo($, $h4, index);
         if (cat) {
           allCats.push(cat);
           console.log(`--- 猫 ${allCats.length} ---`);
           console.log(`   名前: ${cat.name}`);
           console.log(`   性別: ${cat.gender}`);
-          console.log(`   年齢: ${cat.age_estimate}`);
-          console.log(`   毛色: ${cat.color}`);
+          console.log(`   年齢: ${cat.age_estimate || '不明'}`);
+          console.log(`   毛色: ${cat.color || '不明'}`);
         }
       }
     });
@@ -134,7 +146,7 @@ async function main() {
           municipality: CONFIG.municipality,
           municipality_id: CONFIG.municipalityId,
           total_count: allCats.length,
-          note: '新しい飼い主募集中の猫',
+          note: '譲渡候補猫情報',
         },
         animals: allCats,
       },

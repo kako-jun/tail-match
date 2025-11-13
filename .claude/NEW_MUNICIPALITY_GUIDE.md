@@ -4,6 +4,32 @@
 
 ---
 
+## 📝 命名規則（2025-11-13統一完了）
+
+**ディレクトリ名とmunicipality設定には必ずサフィックスを付ける**
+
+| ページ種別     | サフィックス | 例                      |
+| -------------- | ------------ | ----------------------- |
+| 猫専用ページ   | `-cats`      | `chiba/chiba-city-cats` |
+| 犬専用ページ   | `-dogs`      | `chiba/chiba-city-dogs` |
+| 犬猫混在ページ | なし         | `okinawa/naha-city`     |
+
+**理由**: 犬用ページに `-dogs` が付いているのに猫用ページにサフィックスがないと統一感がなく、混在ページとの区別もつかない。
+
+**例**:
+
+```javascript
+// ✅ 正しい命名
+'chiba/chiba-city-cats'; // 猫専用
+'chiba/chiba-city-dogs'; // 犬専用
+'okinawa/naha-city'; // 混在ページ
+
+// ❌ 間違い（旧形式）
+'chiba/chiba-city'; // 猫専用なのにサフィックスなし
+```
+
+---
+
 ## ⚠️ よくある間違い（やってはいけないこと）
 
 ### ❌ 1. `scraper-python-backup` を使おうとする
@@ -148,18 +174,35 @@ ls .claude/shelters/
 
 ### Step 2: スクレイパーフォルダ作成
 
+⚠️ **命名規則に従ってサフィックスを付けること**
+
 ```bash
-mkdir -p scripts/scrapers/{prefecture_municipality}
+# 猫専用ページの場合
+mkdir -p scripts/scrapers/{prefecture}/{municipality}-cats
+
+# 犬専用ページの場合
+mkdir -p scripts/scrapers/{prefecture}/{municipality}-dogs
+
+# 犬猫混在ページの場合
+mkdir -p scripts/scrapers/{prefecture}/{municipality}
 ```
 
-例: `scripts/scrapers/kanazawa`
+**例**:
+
+- 猫専用: `scripts/scrapers/kanagawa/kanagawa-pref-cats`
+- 犬専用: `scripts/scrapers/kanagawa/kanagawa-pref-dogs`
+- 混在: `scripts/scrapers/okinawa/naha-city`
 
 ### Step 3: scrape.js 作成
 
 **既存のスクレイパーをコピー**して修正：
 
 ```bash
-cp scripts/scrapers/ishikawa/scrape.js scripts/scrapers/kanazawa/scrape.js
+# 猫専用ページの場合
+cp scripts/scrapers/chiba/chiba-city-cats/scrape.js scripts/scrapers/{new-location}/scrape.js
+
+# 犬専用ページの場合
+cp scripts/scrapers/chiba/chiba-city-dogs/scrape.js scripts/scrapers/{new-location}/scrape.js
 ```
 
 **修正する箇所**:
@@ -169,7 +212,7 @@ cp scripts/scrapers/ishikawa/scrape.js scripts/scrapers/kanazawa/scrape.js
 import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
 
 const CONFIG = {
-  municipality: 'ishikawa/kanazawa-city', // ⚠️ パス形式で指定
+  municipality: 'ishikawa/kanazawa-city-cats', // ⚠️ パス形式 + サフィックス
   url: '対象URL',
   expected_selectors: 'セレクタ', // ⚠️ 実際のHTMLに合わせる
   // ...
@@ -200,8 +243,12 @@ cp scripts/scrapers/{existing_municipality}/html-to-yaml.js scripts/scrapers/{ne
 // ⚠️ 必須: タイムスタンプ関数をインポート
 import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
 
+// ✅ 新規（2025-11-13）: 共通ヘルパー関数をインポート
+import { getAdoptionStatus } from '../../../lib/adoption-status.js';
+import { determineAnimalType } from '../../../lib/animal-type.js'; // 犬猫混在ページのみ
+
 const CONFIG = {
-  municipality: 'ishikawa/kanazawa-city', // ⚠️ パス形式
+  municipality: 'ishikawa/kanazawa-city-cats', // ⚠️ パス形式 + サフィックス
   base_url: 'https://example.com',
   source_url: '対象URL',
 };
@@ -245,6 +292,45 @@ const yamlContent = yaml.dump(
 
 - セレクタを実際のHTMLに合わせる
 - 画像、名前、年齢、性別などの取得方法を調整
+
+**✅ 共通ヘルパー関数の使用**（2025-11-13追加）:
+
+#### 1. 譲渡済み判定（全施設必須）
+
+```javascript
+// ✅ 正しい使い方
+const status = getAdoptionStatus(detailText + ' ' + heading);
+
+// 以下のキーワードが自動検出される：
+// - 譲渡済み、譲渡しました、譲渡決定
+// - ※譲渡しました、新しい飼い主さんが決まりました
+// - 決まりました、譲渡先決定、里親決定
+// - 引き取られました、飼い主が決まりました
+
+// ❌ 間違い（手動で判定しない）
+const isAdopted = text.includes('譲渡済み') || text.includes('譲渡しました');
+const status = isAdopted ? 'adopted' : 'available';
+```
+
+#### 2. 動物種判定（犬猫混在ページのみ）
+
+```javascript
+// ✅ 正しい使い方（混在ページの場合）
+const animal_type = determineAnimalType(fullText, 'cat'); // デフォルトは'cat'
+
+// 以下のキーワードが自動検出される：
+// 【犬】犬、イヌ、いぬ、ワンちゃん、わんちゃん、ワンコ、わんこ、dog
+// 【猫】猫、ネコ、ねこ、ニャンちゃん、にゃんちゃん、ニャンコ、にゃんこ、cat
+
+// ✅ 猫専用ページの場合（固定値）
+const animal_type = 'cat';
+
+// ✅ 犬専用ページの場合（固定値）
+const animal_type = 'dog';
+
+// ❌ 間違い（「ワンちゃん」「わんちゃん」などが漏れる）
+const animal_type = /犬|イヌ|dog/i.test(text) ? 'dog' : 'cat';
+```
 
 ### Step 5: テスト実行
 
@@ -410,6 +496,35 @@ municipality: 'fukui/fukui-pref',
 municipality: 'fukui-pref',
 ```
 
+#### ✅ 5. 共通ヘルパー関数の使用チェック（2025-11-13追加）
+
+```bash
+# html-to-yaml.js で共通関数を使用しているか確認
+grep "getAdoptionStatus\|determineAnimalType" scripts/scrapers/{prefecture}/{municipality}/html-to-yaml.js
+```
+
+**必須**:
+
+```javascript
+// ✅ 譲渡済み判定は全施設で必須
+import { getAdoptionStatus } from '../../../lib/adoption-status.js';
+const status = getAdoptionStatus(text);
+
+// ✅ 犬猫混在ページのみ必須
+import { determineAnimalType } from '../../../lib/animal-type.js';
+const animal_type = determineAnimalType(text, 'cat');
+```
+
+**NG例**（手動判定）:
+
+```javascript
+// ❌ 譲渡済み判定を手動で書かない
+const status = text.includes('譲渡済み') ? 'adopted' : 'available';
+
+// ❌ 動物種判定に「ワンちゃん」「わんちゃん」が抜けている
+const animal_type = /犬|イヌ|dog/i.test(text) ? 'dog' : 'cat';
+```
+
 ### Step 8: yaml-to-db.js に追加
 
 **Step 7の✅2を実施してください。**
@@ -509,6 +624,9 @@ const $figure = $wysiwyg.prev('figure.img-item');
 - [ ] htmlDir に archive を含めていない
 - [ ] セレクタを実際のHTMLに合わせた
 - [ ] 画像取得のDOM構造を確認した
+- [ ] 共通ヘルパー関数をインポートした（`getAdoptionStatus`, `determineAnimalType`）
+- [ ] 譲渡済み判定に `getAdoptionStatus()` を使用した
+- [ ] 犬猫混在ページの場合、`determineAnimalType()` を使用した
 
 ### 実装後
 
@@ -542,6 +660,34 @@ const $figure = $wysiwyg.prev('figure.img-item');
 9. **animal_type を明示的に設定** - 'cat' または 'dog' をハードコードしない
 10. **status フィールドも必須** - 譲渡済み情報（available/adopted/removed）を抽出
 11. **7施設で犬用ページを見逃していた** - 横断的なURL確認の重要性
+
+### 共通ヘルパー関数導入時（2025-11-13）
+
+12. **共通ロジックは必ず関数化する** - 全28施設で同じ判定ロジックを書かない
+13. **「ワンちゃん」「わんちゃん」などの愛称表記を忘れない** - カタカナ・ひらがな・漢字すべてカバー
+14. **譲渡済みキーワードは包括的に** - 施設ごとの表現の違いを吸収する
+15. **共通関数は scripts/lib/ に配置** - 全スクレイパーからアクセス可能
+16. **新規追加時は必ず共通関数を使用** - 手動判定を書かない
+
+**共通化のメリット**:
+
+- **一貫性**: 全施設で同じ検出精度
+- **保守性**: キーワード追加は2ファイルのみ
+- **品質**: ユニットテスト可能
+- **拡張性**: 新しい動物種の追加が容易
+
+### 命名規則統一時（2025-11-13）
+
+17. **猫専用ページには `-cats` サフィックスを付ける** - 犬用ページとの統一感
+18. **混在ページにはサフィックスを付けない** - 明確な区別
+19. **命名規則は一貫性が最重要** - 将来の保守性に直結
+20. **ディレクトリ名とmunicipality設定は必ず一致させる** - データの整合性を保つ
+
+**命名規則の重要性**:
+
+- **可読性**: 一目でページ種別が分かる
+- **保守性**: 新規追加時の判断が容易
+- **拡張性**: 将来の動物種追加に対応可能
 
 ---
 
