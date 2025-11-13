@@ -1,0 +1,219 @@
+meta:
+  source_file: 20251113_183345_tail.html
+  source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-cat-list.html
+  extracted_at: '2025-11-13T18:45:34.855+09:00'
+  municipality: hiroshima/hiroshima-pref-cats
+  municipality_id: null
+  total_count: 10
+  note: 譲渡対象猫情報
+animals:
+  - external_id: hiroshima-pref-1HN20250139
+    name: '145'
+    animal_type: cat
+    breed: null
+    age_estimate: 推定1歳
+    gender: female
+    color: null
+    size: null
+    health_status: 猫エイズ検査：陰性　猫白血病検査：陰性（令和7年9月26日時点）
+    personality: null
+    special_needs: ※最大2週間のトライアル可能
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/488869.jpg
+    protection_date: null
+    deadline_date: null
+    status: reserved
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-cat-list.html
+    confidence_level: high
+    extraction_notes:
+      - トライアル中
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HN20250144
+    name: '142'
+    animal_type: cat
+    breed: null
+    age_estimate: 推定2歳
+    gender: male
+    color: null
+    size: null
+    health_status: 猫エイズ検査：陰性　猫白血病検査：陰性（令和7年9月11日時点）
+    personality: null
+    special_needs: ※最大2週間のトライアル可能
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/487182.jpg
+    protection_date: null
+    deadline_date: null
+    status: reserved
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-cat-list.html
+    confidence_level: high
+    extraction_notes:
+      - トライアル中
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HN20250119
+    name: '140'
+    animal_type: cat
+    breed: null
+    age_estimate: 推定5ヶ月
+    gender: male
+    color: null
+    size: null
+    health_status: 猫エイズ検査：陰性　猫白血病検査：陰性（令和7年9月24日時点）
+    personality: null
+    special_needs: ※最大2週間のトライアル可能
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/488870.jpg
+    protection_date: null
+    deadline_date: null
+    status: reserved
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-cat-list.html
+    confidence_level: high
+    extraction_notes:
+      - トライアル中
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HN20250151
+    name: '137'
+    animal_type: cat
+    breed: null
+    age_estimate: 推定3歳
+    gender: female
+    color: null
+    size: null
+    health_status: 猫エイズ検査：陰性　猫白血病検査：陰性（令和7年9月12日時点）
+    personality: null
+    special_needs: ※最大2週間のトライアル可能
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/489229.jpg
+    protection_date: null
+    deadline_date: null
+    status: reserved
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-cat-list.html
+    confidence_level: high
+    extraction_notes:
+      - トライアル中
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HN20250146
+    name: '133'
+    animal_type: cat
+    breed: null
+    age_estimate: 推定7歳
+    gender: male
+    color: null
+    size: null
+    health_status: 猫エイズ検査：陰性　猫白血病検査：陰性（令和7年9月11日時点）
+    personality: null
+    special_needs: ※最大2週間のトライアル可能​
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/486499.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-cat-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HN20250121
+    name: '131'
+    animal_type: cat
+    breed: null
+    age_estimate: 推定6歳
+    gender: female
+    color: null
+    size: null
+    health_status: 猫エイズ検査：陰性　猫白血病検査：陰性（令和7年8月20日時点）
+    personality: null
+    special_needs: ※最大2週間のトライアル可能
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/485943.jpg
+    protection_date: null
+    deadline_date: null
+    status: reserved
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-cat-list.html
+    confidence_level: high
+    extraction_notes:
+      - トライアル中
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HN20250105
+    name: '128'
+    animal_type: cat
+    breed: null
+    age_estimate: 推定5歳
+    gender: female
+    color: null
+    size: null
+    health_status: 猫エイズ検査：陽性　猫白血病検査：陰性（令和7年8月13日時点）
+    personality: null
+    special_needs: ※最大2週間のトライアル可能
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/485472.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-cat-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HN20250124
+    name: '126'
+    animal_type: cat
+    breed: null
+    age_estimate: 推定7歳
+    gender: female
+    color: null
+    size: null
+    health_status: 猫エイズ検査：陰性　猫白血病検査：陰性（令和7年8月20日時点）
+    personality: null
+    special_needs: ※最大2週間のトライアル可能
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/485470.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-cat-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HN20250180
+    name: '33'
+    animal_type: cat
+    breed: null
+    age_estimate: 推定2ヶ月
+    gender: male
+    color: null
+    size: null
+    health_status: 猫エイズ検査：未実施　猫白血病検査：未実施
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/489765.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-cat-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption
+  - external_id: hiroshima-pref-1HN20250181
+    name: '32'
+    animal_type: cat
+    breed: null
+    age_estimate: 推定2ヶ月
+    gender: male
+    color: null
+    size: null
+    health_status: 猫エイズ検査：未実施　猫白血病検査：未実施
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.hiroshima.lg.jp/uploaded/image/489766.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-cat-list.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption

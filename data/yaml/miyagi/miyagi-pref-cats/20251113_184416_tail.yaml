@@ -1,0 +1,445 @@
+meta:
+  source_file: 20251113_171839_tail.html
+  source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+  extracted_at: '2025-11-13T18:44:16.661+09:00'
+  municipality: miyagi/miyagi-pref-cats
+  municipality_id: null
+  total_count: 20
+  note: 譲渡候補猫情報
+animals:
+  - external_id: miyagi-pref-12345
+    name: シャイン
+    animal_type: cat
+    breed: null
+    age_estimate: 推定7歳
+    gender: female
+    color: null
+    size: null
+    health_status: FeLV陰性／FIV陰性
+    personality: 大柄な体格の女の子です。触られることに慣れてませんが、攻撃性はなく固まっていることが多いです。時折リラックスして寛いでいる姿を見せてくれるようになりました
+    special_needs: null
+    images:
+      - https://www.pref.miyagi.jp/images/9161/syain.png
+      - https://www.pref.miyagi.jp/images/9161/img_5264_1.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
+  - external_id: miyagi-pref-12464
+    name: ルーチェ
+    animal_type: cat
+    breed: null
+    age_estimate: 推定7歳
+    gender: female
+    color: null
+    size: null
+    health_status: FeLV陰性／FIV陰性
+    personality: 大柄な体格の女の子です。触られることに慣れておらず攻撃性はないものの固まっていることが多いです
+    special_needs: null
+    images:
+      - https://www.pref.miyagi.jp/images/9161/img_1134.jpg
+      - https://www.pref.miyagi.jp/images/9161/img_1129.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
+  - external_id: miyagi-pref-12465
+    name: ジル
+    animal_type: cat
+    breed: null
+    age_estimate: 推定7歳
+    gender: female
+    color: null
+    size: null
+    health_status: FeLV陰性／FIV陰性
+    personality: 大柄な体格の女の子です。触られることに慣れておらず攻撃性はないものの固まっていることが多いです
+    special_needs: null
+    images:
+      - https://www.pref.miyagi.jp/images/9161/img_1126.jpg
+      - https://www.pref.miyagi.jp/images/9161/img_1123.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
+  - external_id: miyagi-pref-12341
+    name: 茶太郎
+    animal_type: cat
+    breed: null
+    age_estimate: 推定5歳
+    gender: male
+    color: null
+    size: null
+    health_status: FIV陽性のため同居猫のいない飼い主さんを募集しています
+    personality: 性格はおとなしく人見知りな性格なので人馴れ練習中です。触ることはできますが触られることに慣れていません
+    special_needs: 先住猫のいないご家庭を募集
+    images:
+      - https://www.pref.miyagi.jp/images/9161/img_1324.jpg
+      - https://www.pref.miyagi.jp/images/9161/img_1364.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
+  - external_id: miyagi-pref-12486
+    name: クラ
+    animal_type: cat
+    breed: null
+    age_estimate: 推定2歳
+    gender: male
+    color: null
+    size: null
+    health_status: FIV陽性のため同居猫のいない飼い主さんを募集しています
+    personality: 甘えん坊で誰にでもフレンドリーな性格です。撫でてほしくてスリスリ寄ってきます。おもちゃが大好きで猫じゃらしで遊んであげると喜びます
+    special_needs: 先住猫のいないご家庭を募集
+    images:
+      - https://www.pref.miyagi.jp/images/9161/img_1312.jpg
+      - https://www.pref.miyagi.jp/images/9161/img_1371.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
+  - external_id: miyagi-pref-12343
+    name: ミー
+    animal_type: cat
+    breed: null
+    age_estimate: 推定6歳
+    gender: female
+    color: null
+    size: null
+    health_status: FeLV陰性／FIV陰性
+    personality: 人見知りな性格ですが徐々に人なれが進んでいます！。最近は隠れずに餌をねだったり直接手からおやつを食べてくれるようになりました！​​​​​​。トイレも上手にできます
+    special_needs: null
+    images:
+      - https://www.pref.miyagi.jp/images/9161/20250717_132535.jpg
+      - https://www.pref.miyagi.jp/images/9161/20250729_115844.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
+  - external_id: miyagi-pref-12344
+    name: チャー
+    animal_type: cat
+    breed: null
+    age_estimate: 推定2歳
+    gender: female
+    color: null
+    size: null
+    health_status: FeLV陰性／FIV陰性
+    personality: やや臆病な性格ですが徐々に人なれが進んでいます！。最近は隠れずに餌をねだったり目の前でご飯を食べてくれるようになりました。トイレも上手にできます
+    special_needs: null
+    images:
+      - https://www.pref.miyagi.jp/images/9161/20250729_115918.jpg
+      - https://www.pref.miyagi.jp/images/9161/20250729_115702.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
+  - external_id: miyagi-pref-12522
+    name: ぴりか
+    animal_type: cat
+    breed: null
+    age_estimate: 推定8歳
+    gender: female
+    color: null
+    size: null
+    health_status: FeLV陰性／FIV陰性
+    personality: フレンドリーで穏やかな性格で撫でさせてくれます。ごはんもよく食べる元気な子です
+    special_needs: null
+    images:
+      - https://www.pref.miyagi.jp/images/9161/img_1476.jpg
+      - https://www.pref.miyagi.jp/images/9161/img_1463.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
+  - external_id: miyagi-pref-12571
+    name: シルバ
+    animal_type: cat
+    breed: null
+    age_estimate: 推定3歳
+    gender: male
+    color: null
+    size: null
+    health_status: FIV陽性のため同居猫のいない飼い主さんを募集しています
+    personality: フレンドリーな性格で人見知りせずすり寄ってきます☆
+    special_needs: 先住猫のいないご家庭を募集
+    images:
+      - https://www.pref.miyagi.jp/images/9161/img_1504.jpg
+      - https://www.pref.miyagi.jp/images/9161/img_1689.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
+  - external_id: miyagi-pref-12514
+    name: いぶき
+    animal_type: cat
+    breed: null
+    age_estimate: 推定10歳
+    gender: male
+    color: null
+    size: null
+    health_status: FeLV陰性／FIV陰性
+    personality: 警戒心が強くまだ触られることに慣れていません。人馴れは進んでおり目の前で餌を食べてくれるようになりました！
+    special_needs: null
+    images:
+      - https://www.pref.miyagi.jp/images/9161/ibuki_1.jpg
+      - https://www.pref.miyagi.jp/images/9161/ibuki_2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
+  - external_id: miyagi-pref-12557
+    name: ナツ
+    animal_type: cat
+    breed: null
+    age_estimate: 推定2歳
+    gender: female
+    color: null
+    size: null
+    health_status: FeLV陰性／FIV陰性
+    personality: 初めての人にも緊張しない人なれした子です。撫でてあげるとお腹をこちらに向けて「もっともっと！」とねだってきます☆
+    special_needs: null
+    images:
+      - https://www.pref.miyagi.jp/images/9161/12557_1.jpg
+      - https://www.pref.miyagi.jp/images/9161/12557_2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
+  - external_id: miyagi-pref-12652
+    name: こてつ
+    animal_type: cat
+    breed: null
+    age_estimate: 推定7歳
+    gender: male
+    color: null
+    size: null
+    health_status: FeLV陰性／FIV陰性
+    personality: 人馴れしておりなでたり抱っこは可能です。警戒心が強いため生活音に怯えたりビックリすると威嚇することもあります
+    special_needs: null
+    images:
+      - https://www.pref.miyagi.jp/images/9161/img_2117.jpg
+      - https://www.pref.miyagi.jp/images/9161/img_2071.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
+  - external_id: miyagi-pref-12517
+    name: ふさこ
+    animal_type: cat
+    breed: null
+    age_estimate: 推定5歳
+    gender: female
+    color: null
+    size: null
+    health_status: FeLV陰性／FIV陰性
+    personality: 穏やかで優しい性格です。人に馴れており撫でてあげるとゴロンと横になって気持ちよさそうにしてくれます！
+    special_needs: null
+    images:
+      - https://www.pref.miyagi.jp/images/9161/img_12517_2zumi.jpg
+      - https://www.pref.miyagi.jp/images/9161/img_12517_1zumi.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
+  - external_id: miyagi-pref-12521
+    name: でんた
+    animal_type: cat
+    breed: null
+    age_estimate: 推定3歳
+    gender: male
+    color: null
+    size: null
+    health_status: FeLV陰性／FIV陰性
+    personality: 食べるの大好き！猫じゃらし大好きな大柄わんぱく猫君です！。職員を見かけると「みゃおみゃお」と個性的な鳴き声で魅了してきます☆
+    special_needs: null
+    images:
+      - https://www.pref.miyagi.jp/images/9161/img_12521_2zumi.jpg
+      - https://www.pref.miyagi.jp/images/9161/img_12521_1zumi.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
+  - external_id: miyagi-pref-12436
+    name: てん子
+    animal_type: cat
+    breed: null
+    age_estimate: 推定7歳
+    gender: female
+    color: null
+    size: null
+    health_status: FeLV陰性／FIV陰性
+    personality: 小食ですがふっくら体系のマイペース猫ちゃんです！。撫でたり抱っこもでき愛嬌満点です
+    special_needs: null
+    images:
+      - https://www.pref.miyagi.jp/images/9161/img_2463zumi.jpg
+      - https://www.pref.miyagi.jp/images/9161/img_2470zumi.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
+  - external_id: miyagi-pref-12438
+    name: おか味
+    animal_type: cat
+    breed: null
+    age_estimate: 推定7歳
+    gender: female
+    color: null
+    size: null
+    health_status: FeLV陰性／FIV陰性
+    personality: どっしりとした貫禄のある姿が魅力的なおっとり女子です☆。撫でてあげると「もっと撫でてよ」と寝そべってアピールしてきます！
+    special_needs: null
+    images:
+      - https://www.pref.miyagi.jp/images/9161/img_2489zumi.jpg
+      - https://www.pref.miyagi.jp/images/9161/img_2507zumi.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
+  - external_id: miyagi-pref-12381
+    name: ケレン
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: 混合ワクチン：済。マイクロチップ：済。人馴れしており撫でたり抱っこも嫌がりません☆。動物病院で両眼の手術歴があります。視力が弱いですが日常生活に支障はなくトイレや遊びも上手です！
+    special_needs: null
+    images:
+      - https://www.pref.miyagi.jp/images/9161/img_2177.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
+  - external_id: miyagi-pref-12635
+    name: スンさん
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: 混合ワクチン：済。マイクロチップ：済。おとなしい性格です。撫でたり抱っこはできます
+    special_needs: null
+    images:
+      - https://www.pref.miyagi.jp/images/9161/12635.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
+  - external_id: miyagi-pref-12702
+    name: るな
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: 混合ワクチン：済。マイクロチップ：済。少し臆病な性格です。人慣れ練習中です。時間をかけて信頼関係を築いてくれる飼い主さんを募集しています
+    special_needs: null
+    images:
+      - https://www.pref.miyagi.jp/images/9161/12702-2.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
+  - external_id: miyagi-pref-12541
+    name: ちょび
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 混合ワクチン：済。マイクロチップ：済。人に対しては優しい性格ですが猫同士では相性が悪いと「シャー！」することがあります。ちょび髭のような黒い模様がダンディーなイケメンにゃんこです！
+    special_needs: null
+    images:
+      - https://www.pref.miyagi.jp/images/9161/img_3612zumi.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.miyagi.jp/soshiki/doubutuaigo/zyoutoneko.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡候補猫
+    listing_type: adoption
