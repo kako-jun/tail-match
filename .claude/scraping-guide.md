@@ -290,6 +290,107 @@ const animal_type = 'dog';
 const animal_type = /犬|イヌ|dog/i.test(text) ? 'dog' : 'cat';
 ```
 
+### Step 4.5: 履歴ロガー統合（必須）
+
+**全てのスクレイパーに履歴ロガーを統合する必要があります。**
+
+#### 4.5-1. scrape.js に追加
+
+```javascript
+import { createLogger } from '../../../lib/history-logger.js';
+
+async function main() {
+  const logger = createLogger(CONFIG.municipality);
+  logger.start();
+
+  try {
+    // HTML取得処理...
+    const html = await page.content();
+
+    // ⚠️ 施設固有のHTML内動物数カウント（必須）
+    const animalCount = countAnimalsInHTML(html);
+    logger.logHTMLCount(animalCount);
+
+    // HTML保存...
+  } catch (error) {
+    logger.logError(error);
+    throw error;
+  } finally {
+    await browser?.close();
+    // ⚠️ finalize()はyaml-to-db.jsで呼ぶのでここでは呼ばない
+  }
+}
+
+// ⚠️ 施設ごとにHTML構造が異なるため、カスタム実装が必要
+function countAnimalsInHTML(html) {
+  // 例1: テーブル行をカウント（ヘッダー除外）
+  const tableRows = html.match(/<tr[^>]*>/gi);
+  if (tableRows && tableRows.length > 1) {
+    return tableRows.length - 1;
+  }
+
+  // 例2: カード形式をカウント
+  const cards = html.match(/<div[^>]*class="[^"]*animal-card[^"]*"[^>]*>/gi);
+  if (cards) return cards.length;
+
+  // 例3: 詳細リンクをカウント
+  const links = html.match(/<a[^>]*href="[^"]*detail[^"]*"[^>]*>/gi);
+  if (links) return links.length;
+
+  return 0;
+}
+```
+
+**⚠️ 重要**: `logger`は`main()`関数内でのみ使用してください。`fetchWithRetry()`などの他の関数内で呼ぶとスコープエラーになります。
+
+#### 4.5-2. html-to-yaml.js に追加
+
+```javascript
+import { createLogger } from '../../../lib/history-logger.js';
+
+async function main() {
+  const logger = createLogger(CONFIG.municipality);
+
+  try {
+    // HTML読み込み・YAML抽出処理...
+    const animals = [];
+
+    // ⚠️ YAML抽出後の動物数を記録（自動的にHTML→YAMLの不一致を検出）
+    logger.logYAMLCount(animals.length);
+
+    // YAML保存...
+  } catch (error) {
+    logger.logError(error);
+    throw error;
+  }
+  // ⚠️ finalize()はyaml-to-db.jsで呼ぶのでここでは呼ばない
+}
+```
+
+#### 4.5-3. shelters-history.yaml への追加
+
+新規施設を `.claude/shelters-history.yaml` に登録：
+
+```yaml
+scrapers:
+  {prefecture}/{municipality}:
+    name: "施設名"
+    page_type: "cat_only" # or "dog_only" or "mixed"
+    verified: false
+    last_success: null
+    last_error: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+```
+
+**参考資料**:
+
+- `.claude/history-logger-guide.md` - 詳細な統合方法
+- `scripts/SCRAPER_COUNT_PATTERNS.md` - 既存施設のカウントパターン例
+
 ### Step 5: テスト実行
 
 #### 5-1. HTML収集
