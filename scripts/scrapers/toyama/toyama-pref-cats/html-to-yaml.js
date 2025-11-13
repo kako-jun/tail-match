@@ -25,8 +25,8 @@ import { createLogger } from '../../../lib/history-logger.js';
 const CONFIG = {
   municipality: 'toyama/toyama-pref-cats',
   municipalityId: 3, // DBに登録する際に設定（仮）
-  htmlDir: 'data/html/toyama/toyama-pref',
-  yamlOutputDir: 'data/yaml/toyama/toyama-pref',
+  htmlDir: 'data/html/toyama/toyama-pref-cats',
+  yamlOutputDir: 'data/yaml/toyama/toyama-pref-cats',
   sourceUrl: 'https://www.pref.toyama.jp/1207/kurashi/seikatsu/seikatsu/doubutsuaigo/cat.html',
 };
 

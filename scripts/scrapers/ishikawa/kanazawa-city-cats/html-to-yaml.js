@@ -27,8 +27,8 @@ import { createLogger } from '../../../lib/history-logger.js';
 const CONFIG = {
   municipality: 'ishikawa/kanazawa-city-cats',
   municipalityId: 2, // DBに登録する際に設定
-  htmlDir: 'data/html/ishikawa/kanazawa-city',
-  yamlOutputDir: 'data/yaml/ishikawa/kanazawa-city',
+  htmlDir: 'data/html/ishikawa/kanazawa-city-cats',
+  yamlOutputDir: 'data/yaml/ishikawa/kanazawa-city-cats',
   sourceUrl:
     'https://www4.city.kanazawa.lg.jp/soshikikarasagasu/dobutsuaigokanricenter/gyomuannai/1/jouto_info/7301.html',
 };
