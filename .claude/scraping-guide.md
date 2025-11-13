@@ -504,7 +504,7 @@ animals:
 
 ```bash
 # 現在登録されている自治体を確認
-grep -A 10 "municipalities:" scripts/yaml-to-db.js
+grep -A 10 "municipalities:" scripts/core/yaml-to-db.js
 ```
 
 **新しい自治体を追加**:
@@ -602,10 +602,10 @@ const CONFIG = {
 
 ```bash
 # DRY-RUN（確認のみ）
-node scripts/yaml-to-db.js --dry-run
+node scripts/core/yaml-to-db.js --dry-run
 
 # 本番投入
-node scripts/yaml-to-db.js
+node scripts/core/yaml-to-db.js
 ```
 
 ---
@@ -713,7 +713,7 @@ for (let i = 0; i < totalCats; i++) {
 - [ ] 1つの管理番号に複数の個体が存在する可能性を確認
 - [ ] `external_id`生成ロジックにサフィックス付与機能を実装
 - [ ] テストデータで重複が発生しないことを確認
-- [ ] `node scripts/yaml-to-db.js --dry-run`でFOREIGN KEY制約エラーがないことを確認
+- [ ] `node scripts/core/yaml-to-db.js --dry-run`でFOREIGN KEY制約エラーがないことを確認
 
 **デフォルト名の生成**（yaml-to-db.js）:
 

@@ -73,12 +73,12 @@
 - **自動不一致検出**:
   - HTML→YAML で1匹でも減少したら自動警告
   - YAML→DB で1匹でも減少したら自動警告
-  - サマリー表示: `scripts/show-scraping-summary.js`
+  - サマリー表示: `scripts/core/show-scraping-summary.js`
 - **バグ修正**:
   - 千葉市: 全角・半角括弧混在問題を修正（17→15不一致を解消）
   - 詳細は [バグ修正ログ](./.claude/bugfix-log.md) 参照
 - **運用準備完了**:
-  - `scripts/run-all-scrapers.sh` でDB初期化→全施設スクレイピング→サマリー表示の完全自動化
+  - `scripts/core/run-all-scrapers.sh` でDB初期化→全施設スクレイピング→サマリー表示の完全自動化
   - 不一致検出率: 3.6%（1/28施設）
 
 ### ⚠️ **残存技術課題**
@@ -121,7 +121,7 @@
 - ✅ status（譲渡済み）フィールド未実装問題（28施設）
 - ✅ 「ワンちゃん」「わんちゃん」表記漏れ問題
 - ✅ 履歴ロガー統合（全28施設、HTML→YAML→DB不一致検出）
-- ✅ 運用スクリプト作成（`scripts/run-all-scrapers.sh`）
+- ✅ 運用スクリプト作成（`scripts/core/run-all-scrapers.sh`）
 - ✅ 運用ドキュメント作成（`.claude/operations-guide.md`）
 - ✅ 定期実行・監視システム（cron設定手順、ログ確認、エラー通知）
 
