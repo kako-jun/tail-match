@@ -1,8 +1,8 @@
 metadata:
   version: 1.0.0
-  last_updated: '2025-11-13T16:24:35.390+09:00'
+  last_updated: '2025-11-13T18:45:35.424+09:00'
   purpose: スクレイピング動作確認・エラー履歴管理
-  total_scrapers: 28
+  total_scrapers: 35
 scrapers:
   hokkaido/hokkaido-pref:
     name: 北海道立動物愛護センター「あいにきた」
@@ -1980,6 +1980,146 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 5
+  miyagi/miyagi-pref-cats:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-13T18:44:16.666+09:00'
+    last_error: null
+    last_error_message: null
+    total_runs: 1
+    success_count: 1
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs:
+      - timestamp: '2025-11-13T18:44:16.666+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 20
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 70
+  miyagi/miyagi-pref-dogs:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-13T18:45:14.789+09:00'
+    last_error: null
+    last_error_message: null
+    total_runs: 1
+    success_count: 1
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs:
+      - timestamp: '2025-11-13T18:45:14.789+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 2
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 54
+  miyagi/sendai-city-cats:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-13T18:45:15.048+09:00'
+    last_error: null
+    last_error_message: null
+    total_runs: 1
+    success_count: 1
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs:
+      - timestamp: '2025-11-13T18:45:15.048+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 6
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 57
+  miyagi/sendai-city-dogs:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-13T18:45:15.295+09:00'
+    last_error: null
+    last_error_message: null
+    total_runs: 1
+    success_count: 1
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs:
+      - timestamp: '2025-11-13T18:45:15.295+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 3
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 55
+  hiroshima/hiroshima-pref-cats:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-13T18:45:34.859+09:00'
+    last_error: null
+    last_error_message: null
+    total_runs: 1
+    success_count: 1
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs:
+      - timestamp: '2025-11-13T18:45:34.859+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 10
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 66
+  hiroshima/hiroshima-pref-dogs:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-13T18:45:35.108+09:00'
+    last_error: null
+    last_error_message: null
+    total_runs: 1
+    success_count: 1
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs:
+      - timestamp: '2025-11-13T18:45:35.108+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 15
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 59
+  hiroshima/hiroshima-city:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-13T18:45:35.413+09:00'
+    last_error: null
+    last_error_message: null
+    total_runs: 1
+    success_count: 1
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs:
+      - timestamp: '2025-11-13T18:45:35.413+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 30
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 109
 status_definitions:
   success: HTML収集→YAML抽出→DB投入が全て成功
   error: いずれかのステップでエラーが発生
