@@ -45,7 +45,7 @@
 cd /path/to/tail-match
 
 # 全施設自動スクレイピング＆DB更新
-bash scripts/run-all-scrapers.sh
+bash scripts/core/run-all-scrapers.sh
 ```
 
 **実行時間**: 約20-30分（28施設 × 平均1分）
@@ -58,7 +58,7 @@ ls -lt logs/scraping/ | head -5
 cat logs/scraping/20251113_030000_full_run.log
 
 # サマリーを表示
-node scripts/show-scraping-summary.js
+node scripts/core/show-scraping-summary.js
 ```
 
 ### 2. cron自動実行（本番環境）
@@ -70,7 +70,7 @@ node scripts/show-scraping-summary.js
 crontab -e
 
 # 毎日早朝3:00に実行（日本時間）
-0 3 * * * cd /home/user/tail-match && bash scripts/run-all-scrapers.sh >> logs/cron.log 2>&1
+0 3 * * * cd /home/user/tail-match && bash scripts/core/run-all-scrapers.sh >> logs/cron.log 2>&1
 ```
 
 **推奨時間帯**:
@@ -98,7 +98,7 @@ grep "全施設自動スクレイピング完了" logs/cron.log
 
 ```bash
 # スクレイピング結果サマリーを表示
-node scripts/show-scraping-summary.js
+node scripts/core/show-scraping-summary.js
 ```
 
 **出力例**:
@@ -221,7 +221,7 @@ cat data/yaml/{prefecture}/{municipality}/最新ファイル.yaml
 2. yaml-to-db.jsのログを確認:
 
 ```bash
-node scripts/yaml-to-db.js 2>&1 | grep "ERROR\|WARNING"
+node scripts/core/yaml-to-db.js 2>&1 | grep "ERROR\|WARNING"
 ```
 
 ### パターン4: 全施設で0匹
@@ -235,7 +235,7 @@ node scripts/yaml-to-db.js 2>&1 | grep "ERROR\|WARNING"
 
 ```bash
 # yaml-to-db.jsを手動実行
-node scripts/yaml-to-db.js
+node scripts/core/yaml-to-db.js
 ```
 
 ### パターン5: 新規施設追加時のエラー
@@ -264,7 +264,7 @@ node scripts/yaml-to-db.js
 3. **run-all-scrapers.sh更新**:
 
 ```bash
-vim scripts/run-all-scrapers.sh
+vim scripts/core/run-all-scrapers.sh
 
 # SCRAPERS配列に追加
 SCRAPERS=(
@@ -304,7 +304,7 @@ find logs/scraping -name "*.log" -mtime +30 -delete
 
 ```bash
 # 全28施設を一括実行
-bash scripts/run-all-scrapers.sh
+bash scripts/core/run-all-scrapers.sh
 ```
 
 **統一インターフェース**:
@@ -341,7 +341,7 @@ cronジョブに失敗通知を追加：
 
 ```bash
 # メール通知
-0 3 * * * cd /home/user/tail-match && bash scripts/run-all-scrapers.sh || echo "スクレイピング失敗" | mail -s "[ERROR] Tail Match" admin@example.com
+0 3 * * * cd /home/user/tail-match && bash scripts/core/run-all-scrapers.sh || echo "スクレイピング失敗" | mail -s "[ERROR] Tail Match" admin@example.com
 ```
 
 ### 2. ダッシュボード

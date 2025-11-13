@@ -74,10 +74,10 @@ node scripts/scrapers/{municipality}/html-to-yaml.js
 
 ```bash
 # DRY-RUN（確認のみ）
-node scripts/yaml-to-db.js --dry-run
+node scripts/core/yaml-to-db.js --dry-run
 
 # 本番投入
-node scripts/yaml-to-db.js
+node scripts/core/yaml-to-db.js
 ```
 
 - **目的**: 検証済みYAMLをSQLiteデータベースに投入
