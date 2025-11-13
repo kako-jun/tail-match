@@ -8,6 +8,7 @@
 
 import { chromium } from 'playwright';
 import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+import { createLogger } from '../../../lib/history-logger.js';
 
 import fs from 'fs';
 import path from 'path';
@@ -29,6 +30,9 @@ const CONFIG = {
 // ========================================
 
 async function main() {
+  const logger = createLogger(CONFIG.municipality);
+  logger.start();
+
   console.log('='.repeat(60));
   console.log('🐱 東京都動物愛護相談センター - HTML収集');
   console.log('='.repeat(60));
@@ -99,6 +103,10 @@ async function main() {
     const html = await page.content();
     console.log(`✅ HTML取得完了: ${html.length} 文字`);
 
+    // HTML内の動物数をカウント
+    const animalCount = countAnimalsInHTML(html);
+    logger.logHTMLCount(animalCount);
+
     // 保存先ディレクトリ作成
     const outputDir = path.join(
       process.cwd(),
@@ -135,17 +143,47 @@ async function main() {
     console.log('\n' + '='.repeat(60));
     console.log('✅ HTML収集完了');
     console.log('='.repeat(60));
+
+    logger.finalize();
   } catch (error) {
+    logger.logError(error);
     console.error('\n' + '='.repeat(60));
     console.error('❌ エラーが発生しました');
     console.error('='.repeat(60));
     console.error(error);
+    logger.finalize();
     process.exit(1);
   } finally {
     if (browser) {
       await browser.close();
     }
   }
+}
+
+/**
+ * HTML内の動物数をカウント
+ * 東京都は .imgWrapper を含む要素で各猫を識別
+ */
+function countAnimalsInHTML(html) {
+  // .imgWrapperクラスをカウント
+  const wrapperPattern = /<div[^>]*class="[^"]*imgWrapper[^"]*"[^>]*>/gi;
+  const matches = html.match(wrapperPattern);
+
+  if (matches) {
+    console.log(`  🔍 .imgWrapperパターンで${matches.length}匹検出`);
+    return matches.length;
+  }
+
+  // フォールバック: 管理番号を含む要素をカウント
+  const managementPattern = /<h2[^>]*>.*?管理番号.*?<\/h2>/gi;
+  const managementMatches = html.match(managementPattern);
+  if (managementMatches) {
+    console.log(`  🔍 管理番号パターンで${managementMatches.length}匹検出`);
+    return managementMatches.length;
+  }
+
+  console.log('  ⚠️  動物データが見つかりませんでした');
+  return 0;
 }
 
 // 実行

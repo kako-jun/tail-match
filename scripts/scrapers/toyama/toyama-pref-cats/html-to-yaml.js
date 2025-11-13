@@ -16,6 +16,7 @@ import { getAdoptionStatus } from '../../../lib/adoption-status.js';
 import path from 'path';
 import { load } from 'cheerio';
 import yaml from 'js-yaml';
+import { createLogger } from '../../../lib/history-logger.js';
 
 // ========================================
 // 設定
@@ -272,6 +273,8 @@ function main() {
   console.log('🐱 富山県動物管理センター - HTML → YAML 変換');
   console.log('='.repeat(60));
 
+  const logger = createLogger(CONFIG.municipality);
+
   try {
     // Step 1: 最新HTMLファイルを取得
     const htmlFiles = fs
@@ -313,6 +316,9 @@ function main() {
       confidence_level: confidenceLevel,
     };
 
+    // YAML抽出後の動物数を記録（⚠️ 1匹でも減少したら自動警告）
+    logger.logYAMLCount(extractedData.animals.length);
+
     // Step 7: YAML保存
     fs.mkdirSync(CONFIG.yamlOutputDir, { recursive: true });
 
@@ -340,6 +346,7 @@ function main() {
     console.log(`\n✅ YAML保存: ${yamlPath}`);
     console.log('='.repeat(60));
   } catch (error) {
+    logger.logError(error);
     console.error('\n' + '='.repeat(60));
     console.error('❌ エラーが発生しました');
     console.error('='.repeat(60));

@@ -7,6 +7,7 @@
 import fs from 'fs';
 import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
 import { getAdoptionStatus } from '../../../lib/adoption-status.js';
+import { createLogger } from '../../../lib/history-logger.js';
 
 import path from 'path';
 import { load } from 'cheerio';
@@ -151,6 +152,8 @@ async function main() {
   console.log(`   Municipality: ${CONFIG.municipality}`);
   console.log('='.repeat(60) + '\n');
 
+  const logger = createLogger(CONFIG.municipality);
+
   try {
     const htmlFile = getLatestHtmlFile();
     console.log(`📄 HTMLファイル: ${htmlFile}\n`);
@@ -168,6 +171,9 @@ async function main() {
     });
 
     console.log(`\n📊 合計抽出数: ${allDogs.length}匹`);
+
+    // YAML抽出後の動物数を記録（⚠️ 1匹でも減少したら自動警告）
+    logger.logYAMLCount(allDogs.length);
 
     if (allDogs.length === 0) {
       console.warn('⚠️ 犬情報が見つかりませんでした');
@@ -210,6 +216,7 @@ async function main() {
     console.log('✅ YAML抽出完了');
     console.log('='.repeat(60));
   } catch (error) {
+    logger.logError(error);
     console.error('\n' + '='.repeat(60));
     console.error('❌ エラーが発生しました');
     console.error('='.repeat(60));

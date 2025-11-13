@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { chromium } from 'playwright';
 import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+import { createLogger } from '../../../lib/history-logger.js';
 import fs from 'fs';
 import path from 'path';
 
@@ -12,6 +13,9 @@ const CONFIG = {
 };
 
 async function main() {
+  const logger = createLogger(CONFIG.municipality);
+  logger.start();
+
   console.log('='.repeat(60));
   console.log('🐱 札幌市動物愛護管理センター - HTML収集');
   console.log('='.repeat(60));
@@ -33,6 +37,9 @@ async function main() {
     const html = await page.content();
     console.log(`✅ HTML取得完了: ${html.length} 文字`);
 
+    // HTML内の動物数をカウント
+    const animalCount = countAnimalsInHTML(html);
+    logger.logHTMLCount(animalCount);
     const outputDir = path.join(
       process.cwd(),
       'data',
@@ -61,8 +68,10 @@ async function main() {
       `💾 HTML保存完了: ${filepath}\n${'='.repeat(60)}\n✅ HTML収集完了\n${'='.repeat(60)}`
     );
   } catch (error) {
+    logger.logError(error);
     console.error('❌ エラー:', error);
     process.exit(1);
+    logger.finalize();
   } finally {
     if (browser) await browser.close();
   }
