@@ -1,0 +1,52 @@
+meta:
+  source_file: 20251113_111934_tail.html
+  source_url: https://www.pref.toyama.jp/1207/kurashi/seikatsu/seikatsu/doubutsuaigo/dog.html
+  extracted_at: '2025-11-13T11:19:44.836+09:00'
+  municipality: toyama/toyama-pref-dogs
+  municipality_id: 3
+  total_count: 2
+animals:
+  - external_id: '6005'
+    animal_type: dog
+    name: ブルブル
+    breed: 雑種
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.toyama.jp/images/13939/6005.png
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://www.pref.toyama.jp/1207/kurashi/seikatsu/seikatsu/doubutsuaigo/dog6005.html
+    confidence_score: 0.9
+    extraction_method: col2_based
+  - external_id: '7002'
+    animal_type: dog
+    name: ラッキー
+    breed: 雑種
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.toyama.jp/images/13939/7002.png
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://www.pref.toyama.jp/1207/kurashi/seikatsu/seikatsu/doubutsuaigo/dog7002.html
+    confidence_score: 0.9
+    extraction_method: col2_based
+statistics:
+  total_containers: 2
+  valid_animals: 2
+  extraction_errors: 0

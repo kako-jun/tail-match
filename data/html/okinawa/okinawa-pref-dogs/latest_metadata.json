@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-13T11:23:52.467+09:00",
+  "url": "https://www.aniwel-pref.okinawa/animals/transfer/dogs",
+  "has_animals": true,
+  "html_size": 26876,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}

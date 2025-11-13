@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-13T11:22:44.563+09:00",
+  "url": "https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html",
+  "has_animals": true,
+  "html_size": 27547,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}
