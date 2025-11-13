@@ -1117,31 +1117,32 @@ prefectures:
       - name: "広島県動物愛護センター"
         city: null
         type: "prefecture"
-        status: "pending"
-        scraper_path: null
-        page_type: "unknown"
-        url: "https://www.pref.hiroshima.lg.jp/soshiki/39/index.html"
-        url_adoption: "https://www.pref.hiroshima.lg.jp/soshiki/39/jyoutoneko.html"
+        status: "implemented"
+        scraper_path: "scripts/scrapers/hiroshima/hiroshima-pref-cats, scripts/scrapers/hiroshima/hiroshima-pref-dogs"
+        page_type: "separate"
+        url: "https://www.pref.hiroshima.lg.jp/site/apc/"
+        url_cats: "https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-cat-list.html"
+        url_dogs: "https://www.pref.hiroshima.lg.jp/site/apc/jouto-rebreed-dog-list.html"
         contact:
           phone: "0848-86-6511"
           address: "広島県三原市本郷町南方8915-2"
           email: null
           postal_code: "729-0417"
-        notes: "未実装、調査済み"
+        notes: "猫: h2【管理番号:1HN番号(表示番号)】/img/p詳細。犬: h2【管理番号 1HD番号(表示番号)】/img/p詳細。Playwright必須（domcontentloaded）。実装完了 (2025-11-13)"
 
       - name: "広島市動物愛護センター"
         city: "広島市"
         type: "designated_city"
-        status: "pending"
-        scraper_path: null
-        page_type: "unknown"
-        url: "https://www.city.hiroshima.lg.jp/soshiki/77/64.html"
+        status: "implemented"
+        scraper_path: "scripts/scrapers/hiroshima/hiroshima-city"
+        page_type: "mixed"
+        url: "https://www.city.hiroshima.lg.jp/living/pet-doubutsu/1021301/1026246/1023100.html"
         contact:
           phone: "082-243-6058"
           address: null
           email: null
           postal_code: null
-        notes: "平日10:00-12:00、13:30-15:30に予約制で見学可能"
+        notes: "猫犬混在ページ。h3で猫犬区分→h4【[No.]番号（名前）ステータス】/div.imagewrap/dl構造。猫はNo.付、犬はNo.なし。譲渡済み判定: '譲渡が決まりました！'。実装完了 (2025-11-13)"
 
   - prefecture_name: "山口県"
     prefecture_code: "35"
