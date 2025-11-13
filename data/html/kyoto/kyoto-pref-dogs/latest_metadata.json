@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-13T11:23:27.074+09:00",
+  "url": "https://kyoto-ani-love.com/recruit-animal/dog/",
+  "has_animals": true,
+  "html_size": 65179,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}
