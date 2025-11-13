@@ -622,6 +622,8 @@ async function processAllHTMLFiles() {
   console.log('='.repeat(60));
 
   const logger = createLogger(CONFIG.municipality);
+  logger.start();
+  logger.loadPreviousCounts(); // 前ステップのカウントを継承
 
   try {
     // 出力ディレクトリ作成
@@ -669,6 +671,8 @@ async function processAllHTMLFiles() {
 
       fs.writeFileSync(yamlFilepath, yamlContent, 'utf-8');
 
+      logger.finalize(); // 履歴を保存
+
       console.log(`✅ YAML出力: ${yamlFilepath}`);
       console.log(
         `📊 統計: ${extractionResult.statistics.valid_animals}匹の動物, ${extractionResult.statistics.extraction_errors}個のエラー`
@@ -684,6 +688,7 @@ async function processAllHTMLFiles() {
     console.log(`\nYAMLファイル場所: ${CONFIG.yamlOutputDir}`);
   } catch (error) {
     logger.logError(error);
+    logger.finalize(); // エラー時も履歴を保存
     console.error('\n❌ 変換処理エラー:', error);
     process.exit(1);
   }

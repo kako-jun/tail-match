@@ -255,6 +255,7 @@ async function main() {
       // 各自治体ごとにロガーを作成
       const logger = createLogger(municipality);
       logger.start();
+      logger.loadPreviousCounts(); // scrape.js と html-to-yaml.js のカウントを継承
 
       try {
         const yamlDir = path.join(CONFIG.yamlInputDir, municipality);

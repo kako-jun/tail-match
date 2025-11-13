@@ -62,6 +62,25 @@
 - **犬用ページ実装**: 7施設で犬用スクレイパーを追加実装
 - **ドキュメント更新**: 共通化・命名規則を各ガイドに反映
 
+### ✅ **Phase 4.2-part2 履歴ロガー完全統合完了** (2025-11-13)
+
+- **カウント継承システム実装**:
+  - `history-logger.js` に `loadPreviousCounts()` メソッド実装
+  - scrape.js → html-to-yaml.js → yaml-to-db.js の完全なパイプライン追跡
+- **全施設ロガー統合**:
+  - 28施設すべての html-to-yaml.js に logger.start() / loadPreviousCounts() / finalize() を統合
+  - 自動一括更新スクリプト作成: `scripts/update-all-html-to-yaml-loggers.js`
+- **自動不一致検出**:
+  - HTML→YAML で1匹でも減少したら自動警告
+  - YAML→DB で1匹でも減少したら自動警告
+  - サマリー表示: `scripts/show-scraping-summary.js`
+- **バグ修正**:
+  - 千葉市: 全角・半角括弧混在問題を修正（17→15不一致を解消）
+  - 詳細は [バグ修正ログ](./.claude/bugfix-log.md) 参照
+- **運用準備完了**:
+  - `scripts/run-all-scrapers.sh` でDB初期化→全施設スクレイピング→サマリー表示の完全自動化
+  - 不一致検出率: 3.6%（1/28施設）
+
 ### ⚠️ **残存技術課題**
 
 - **📋 データベース接続**: スクレイピング実行時の接続問題（要調査）

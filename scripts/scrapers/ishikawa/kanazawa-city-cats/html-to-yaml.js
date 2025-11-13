@@ -231,6 +231,8 @@ async function main() {
   console.log('='.repeat(60) + '\n');
 
   const logger = createLogger(CONFIG.municipality);
+  logger.start();
+  logger.loadPreviousCounts(); // 前ステップのカウントを継承
 
   try {
     // 最新のHTMLファイルを取得
@@ -274,6 +276,8 @@ async function main() {
 
     fs.writeFileSync(yamlPath, yamlContent, 'utf-8');
 
+    logger.finalize(); // 履歴を保存
+
     console.log('\n' + '='.repeat(60));
     console.log('✅ YAML変換完了');
     console.log('='.repeat(60));
@@ -288,6 +292,7 @@ async function main() {
     }
   } catch (error) {
     logger.logError(error);
+    logger.finalize(); // エラー時も履歴を保存
     console.error('\n' + '='.repeat(60));
     console.error('❌ エラーが発生しました');
     console.error('='.repeat(60));
