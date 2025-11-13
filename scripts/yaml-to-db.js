@@ -25,24 +25,31 @@ const CONFIG = {
     'ishikawa/aigo-ishikawa',
     'ishikawa/kanazawa-city',
     'toyama/toyama-pref',
+    'toyama/toyama-pref-dogs',
     'fukui/fukui-pref',
+    'fukui/fukui-pref-dogs',
     'kyoto/kyoto-pref',
+    'kyoto/kyoto-pref-dogs',
     'osaka/osaka-pref',
     'osaka/osaka-city',
     'osaka/sakai-city',
     'hyogo/hyogo-pref',
     'tokyo/tokyo-metro',
     'kanagawa/kanagawa-pref',
+    'kanagawa/kanagawa-pref-dogs',
     'kanagawa/yokohama-city',
     'saitama/saitama-pref',
     'saitama/saitama-city',
     'chiba/chiba-pref',
+    'chiba/chiba-pref-dogs',
     'chiba/chiba-city',
+    'chiba/chiba-city-dogs',
     'hokkaido/hokkaido-pref',
     'hokkaido/sapporo-city',
     'okinawa/okinawa-pref',
+    'okinawa/okinawa-pref-dogs',
     'okinawa/naha-city',
-  ], // 複数自治体対応
+  ], // 複数自治体対応（猫・犬）
   dryRun: process.argv.includes('--dry-run'), // --dry-run で実際の投入をスキップ
   skipReview: process.argv.includes('--skip-review'), // --skip-review でレビューフラグを無視
 };
