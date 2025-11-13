@@ -639,6 +639,59 @@ const CONFIG = {
 };
 ```
 
+### Step 8.5: shelters.yaml の更新（実装完了時）
+
+実装が完了したら `.claude/shelters.yaml` を更新してください。
+
+```yaml
+- name: '広島県動物愛護センター'
+  status: 'implemented' # pending → implemented に変更
+  scraper_path: 'scripts/scrapers/hiroshima/hiroshima-pref-cats, scripts/scrapers/hiroshima/hiroshima-pref-dogs'
+  page_type: 'separate' # 調査時に設定済み
+  notes: '実装完了 (2025-11-13)' # 完了日を追記
+```
+
+### Step 8.6: shelters-history.yaml の古い施設削除 ⚠️
+
+**重要**: 新規施設は自動追加されますが、**古い施設や間違った施設は手動で削除**する必要があります。
+
+実装完了後、必ず以下を確認してください：
+
+```bash
+# 1. shelters-history.yaml に登録されている施設一覧を確認
+grep -E "^  [a-z]" .claude/shelters-history.yaml | grep "/" | head -30
+
+# 2. shelters.yaml の実装済み施設数と比較
+grep -c "status: \"implemented\"" .claude/shelters.yaml
+```
+
+**削除が必要な施設の例**:
+
+- 命名規則変更で古くなった施設（例: `chiba/chiba-city` → `chiba/chiba-city-cats`）
+- テスト実装で作成した施設
+- URL変更で使われなくなった施設
+
+**削除手順**:
+
+1. `.claude/shelters-history.yaml` を開く
+2. 不要な施設のエントリー全体を削除
+3. `metadata.total_scrapers` を手動で更新
+
+**例**:
+
+```yaml
+scrapers:
+  # ❌ 削除対象: 古い命名（-cats サフィックスなし）
+  chiba/chiba-city:
+    name: '千葉市動物保護指導センター（旧）'
+    # ...（エントリー全体を削除）
+
+  # ✅ 正しい命名
+  chiba/chiba-city-cats:
+    name: '千葉市動物保護指導センター（猫）'
+    # ...
+```
+
 ### Step 9: DB投入
 
 ```bash
