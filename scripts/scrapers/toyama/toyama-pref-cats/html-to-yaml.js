@@ -274,6 +274,8 @@ function main() {
   console.log('='.repeat(60));
 
   const logger = createLogger(CONFIG.municipality);
+  logger.start();
+  logger.loadPreviousCounts(); // 前ステップのカウントを継承
 
   try {
     // Step 1: 最新HTMLファイルを取得
@@ -328,6 +330,8 @@ function main() {
 
     fs.writeFileSync(yamlPath, yaml.dump(yamlData, { lineWidth: -1, noRefs: true }), 'utf-8');
 
+    logger.finalize(); // 履歴を保存
+
     // 結果表示
     console.log('\n' + '='.repeat(60));
     console.log('📊 抽出結果サマリー');
@@ -347,6 +351,7 @@ function main() {
     console.log('='.repeat(60));
   } catch (error) {
     logger.logError(error);
+    logger.finalize(); // エラー時も履歴を保存
     console.error('\n' + '='.repeat(60));
     console.error('❌ エラーが発生しました');
     console.error('='.repeat(60));

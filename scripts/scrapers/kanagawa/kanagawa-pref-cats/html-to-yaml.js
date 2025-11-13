@@ -236,6 +236,8 @@ async function main() {
   console.log('='.repeat(60) + '\n');
 
   const logger = createLogger(CONFIG.municipality);
+  logger.start();
+  logger.loadPreviousCounts(); // 前ステップのカウントを継承
 
   try {
     // Step 1: 最新HTMLファイル（複数ページ）を読み込み
@@ -311,6 +313,8 @@ async function main() {
 
     fs.writeFileSync(outputFile, yamlContent, 'utf-8');
 
+    logger.finalize(); // 履歴を保存
+
     console.log(`\n✅ YAML出力完了: ${outputFile}`);
     console.log(`📊 ファイルサイズ: ${fs.statSync(outputFile).size} bytes`);
 
@@ -319,6 +323,7 @@ async function main() {
     console.log('='.repeat(60));
   } catch (error) {
     logger.logError(error);
+    logger.finalize(); // エラー時も履歴を保存
     console.error('\n' + '='.repeat(60));
     console.error('❌ エラーが発生しました');
     console.error('='.repeat(60));

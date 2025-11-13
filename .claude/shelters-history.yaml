@@ -1,6 +1,6 @@
 metadata:
   version: 1.0.0
-  last_updated: '2025-11-13T15:13:01.055+09:00'
+  last_updated: '2025-11-13T15:33:26.355+09:00'
   purpose: スクレイピング動作確認・エラー履歴管理
   total_scrapers: 28
 scrapers:
@@ -8,14 +8,38 @@ scrapers:
     name: 北海道立動物愛護センター「あいにきた」
     page_type: mixed
     verified: true
-    last_success: '2025-11-13T15:13:00.825+09:00'
+    last_success: '2025-11-13T15:23:09.794+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:09.794+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 21
+        db_count: 21
+        error_message: null
+        warning: null
+        duration_ms: 11
+      - timestamp: '2025-11-13T15:22:56.828+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 21
+        db_count: 21
+        error_message: null
+        warning: null
+        duration_ms: 8
+      - timestamp: '2025-11-13T15:14:46.329+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 21
+        db_count: 21
+        error_message: null
+        warning: null
+        duration_ms: 6
       - timestamp: '2025-11-13T15:13:00.825+09:00'
         status: success
         html_count: 0
@@ -36,14 +60,38 @@ scrapers:
     name: 札幌市動物愛護管理センター「あいまる さっぽろ」
     page_type: cat_only
     verified: true
-    last_success: '2025-11-13T15:13:01.015+09:00'
+    last_success: '2025-11-13T15:23:10.072+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:10.072+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 40
+        db_count: 40
+        error_message: null
+        warning: null
+        duration_ms: 42
+      - timestamp: '2025-11-13T15:22:57.092+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 40
+        db_count: 40
+        error_message: null
+        warning: null
+        duration_ms: 37
+      - timestamp: '2025-11-13T15:14:46.536+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 40
+        db_count: 40
+        error_message: null
+        warning: null
+        duration_ms: 8
       - timestamp: '2025-11-13T15:13:01.015+09:00'
         status: success
         html_count: 0
@@ -64,14 +112,38 @@ scrapers:
     name: 埼玉県動物指導センター
     page_type: cat_only
     verified: false
-    last_success: '2025-11-13T15:13:00.969+09:00'
+    last_success: '2025-11-13T15:23:09.994+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:09.994+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 2
+      - timestamp: '2025-11-13T15:22:57.022+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 2
+      - timestamp: '2025-11-13T15:14:46.501+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 0
       - timestamp: '2025-11-13T15:13:00.969+09:00'
         status: empty
         html_count: 0
@@ -92,14 +164,38 @@ scrapers:
     name: さいたま市動物愛護ふれあいセンター
     page_type: cat_only
     verified: true
-    last_success: '2025-11-13T15:13:00.976+09:00'
+    last_success: '2025-11-13T15:23:10.004+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:10.004+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 20
+        db_count: 20
+        error_message: null
+        warning: null
+        duration_ms: 6
+      - timestamp: '2025-11-13T15:22:57.032+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 20
+        db_count: 20
+        error_message: null
+        warning: null
+        duration_ms: 6
+      - timestamp: '2025-11-13T15:14:46.510+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 20
+        db_count: 20
+        error_message: null
+        warning: null
+        duration_ms: 5
       - timestamp: '2025-11-13T15:13:00.976+09:00'
         status: success
         html_count: 0
@@ -120,14 +216,38 @@ scrapers:
     name: 千葉県動物愛護センター（猫）
     page_type: cat_only
     verified: false
-    last_success: '2025-11-13T15:13:00.979+09:00'
+    last_success: '2025-11-13T15:23:10.011+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:10.011+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 2
+      - timestamp: '2025-11-13T15:22:57.037+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 1
+      - timestamp: '2025-11-13T15:14:46.514+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 0
       - timestamp: '2025-11-13T15:13:00.979+09:00'
         status: empty
         html_count: 0
@@ -148,14 +268,38 @@ scrapers:
     name: 千葉県動物愛護センター（犬）
     page_type: dog_only
     verified: false
-    last_success: '2025-11-13T15:13:01.044+09:00'
+    last_success: '2025-11-13T15:23:10.121+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:10.121+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 2
+      - timestamp: '2025-11-13T15:22:57.137+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 2
+      - timestamp: '2025-11-13T15:14:46.567+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 0
       - timestamp: '2025-11-13T15:13:01.044+09:00'
         status: empty
         html_count: 0
@@ -176,14 +320,70 @@ scrapers:
     name: 千葉市動物保護指導センター（猫）
     page_type: cat_only
     verified: true
-    last_success: '2025-11-13T15:13:00.988+09:00'
+    last_success: '2025-11-13T15:33:26.348+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 3
-    success_count: 3
+    total_runs: 10
+    success_count: 9
     error_count: 0
-    mismatch_count: 0
+    mismatch_count: 1
     last_10_runs:
+      - timestamp: '2025-11-13T15:33:26.348+09:00'
+        status: success
+        html_count: 17
+        yaml_count: 17
+        db_count: 45
+        error_message: null
+        warning: null
+        duration_ms: 88
+      - timestamp: '2025-11-13T15:23:10.026+09:00'
+        status: success
+        html_count: 17
+        yaml_count: 45
+        db_count: 45
+        error_message: null
+        warning: null
+        duration_ms: 10
+      - timestamp: '2025-11-13T15:22:57.052+09:00'
+        status: success
+        html_count: 17
+        yaml_count: 45
+        db_count: 45
+        error_message: null
+        warning: null
+        duration_ms: 11
+      - timestamp: '2025-11-13T15:21:52.715+09:00'
+        status: mismatch
+        html_count: 17
+        yaml_count: 15
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで2匹減少 (17→15)
+        duration_ms: 82
+      - timestamp: '2025-11-13T15:21:36.274+09:00'
+        status: success
+        html_count: 17
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 10403
+      - timestamp: '2025-11-13T15:14:46.524+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 30
+        db_count: 30
+        error_message: null
+        warning: null
+        duration_ms: 6
+      - timestamp: '2025-11-13T15:14:45.963+09:00'
+        status: success
+        html_count: 17
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 10238
       - timestamp: '2025-11-13T15:13:00.988+09:00'
         status: success
         html_count: 0
@@ -212,14 +412,38 @@ scrapers:
     name: 千葉市動物保護指導センター（犬）
     page_type: dog_only
     verified: false
-    last_success: '2025-11-13T15:13:01.047+09:00'
+    last_success: '2025-11-13T15:23:10.127+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:10.127+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 2
+      - timestamp: '2025-11-13T15:22:57.142+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 1
+      - timestamp: '2025-11-13T15:14:46.571+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 0
       - timestamp: '2025-11-13T15:13:01.047+09:00'
         status: empty
         html_count: 0
@@ -240,14 +464,38 @@ scrapers:
     name: 東京都動物愛護相談センター
     page_type: cat_only
     verified: true
-    last_success: '2025-11-13T15:13:00.933+09:00'
+    last_success: '2025-11-13T15:23:09.950+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:09.950+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 29
+        db_count: 29
+        error_message: null
+        warning: null
+        duration_ms: 26
+      - timestamp: '2025-11-13T15:22:56.980+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 29
+        db_count: 29
+        error_message: null
+        warning: null
+        duration_ms: 42
+      - timestamp: '2025-11-13T15:14:46.427+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 29
+        db_count: 29
+        error_message: null
+        warning: null
+        duration_ms: 6
       - timestamp: '2025-11-13T15:13:00.933+09:00'
         status: success
         html_count: 0
@@ -268,14 +516,38 @@ scrapers:
     name: 神奈川県動物愛護センター（猫）
     page_type: cat_only
     verified: true
-    last_success: '2025-11-13T15:13:00.957+09:00'
+    last_success: '2025-11-13T15:23:09.976+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:09.976+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 97
+        db_count: 97
+        error_message: null
+        warning: null
+        duration_ms: 22
+      - timestamp: '2025-11-13T15:22:57.006+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 97
+        db_count: 97
+        error_message: null
+        warning: null
+        duration_ms: 22
+      - timestamp: '2025-11-13T15:14:46.450+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 97
+        db_count: 97
+        error_message: null
+        warning: null
+        duration_ms: 20
       - timestamp: '2025-11-13T15:13:00.957+09:00'
         status: success
         html_count: 0
@@ -296,14 +568,38 @@ scrapers:
     name: 神奈川県動物愛護センター（犬）
     page_type: dog_only
     verified: true
-    last_success: '2025-11-13T15:13:01.041+09:00'
+    last_success: '2025-11-13T15:23:10.114+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:10.114+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 10
+        db_count: 10
+        error_message: null
+        warning: null
+        duration_ms: 4
+      - timestamp: '2025-11-13T15:22:57.131+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 10
+        db_count: 10
+        error_message: null
+        warning: null
+        duration_ms: 4
+      - timestamp: '2025-11-13T15:14:46.564+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 10
+        db_count: 10
+        error_message: null
+        warning: null
+        duration_ms: 3
       - timestamp: '2025-11-13T15:13:01.041+09:00'
         status: success
         html_count: 0
@@ -327,11 +623,35 @@ scrapers:
     last_success: null
     last_error: null
     last_error_message: null
-    total_runs: 2
+    total_runs: 5
     success_count: 0
     error_count: 0
-    mismatch_count: 2
+    mismatch_count: 5
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:09.987+09:00'
+        status: mismatch
+        html_count: 0
+        yaml_count: 27
+        db_count: 18
+        error_message: null
+        warning: YAML→DBで9匹減少 (27→18)
+        duration_ms: 6
+      - timestamp: '2025-11-13T15:22:57.016+09:00'
+        status: mismatch
+        html_count: 0
+        yaml_count: 27
+        db_count: 18
+        error_message: null
+        warning: YAML→DBで9匹減少 (27→18)
+        duration_ms: 6
+      - timestamp: '2025-11-13T15:14:46.497+09:00'
+        status: mismatch
+        html_count: 0
+        yaml_count: 27
+        db_count: 18
+        error_message: null
+        warning: YAML→DBで9匹減少 (27→18)
+        duration_ms: 42
       - timestamp: '2025-11-13T15:13:00.966+09:00'
         status: mismatch
         html_count: 0
@@ -352,14 +672,38 @@ scrapers:
     name: 富山県動物愛護センター（猫）
     page_type: cat_only
     verified: true
-    last_success: '2025-11-13T15:13:00.859+09:00'
+    last_success: '2025-11-13T15:23:09.839+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:09.839+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 8
+        db_count: 8
+        error_message: null
+        warning: null
+        duration_ms: 6
+      - timestamp: '2025-11-13T15:22:56.866+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 8
+        db_count: 8
+        error_message: null
+        warning: null
+        duration_ms: 4
+      - timestamp: '2025-11-13T15:14:46.355+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 8
+        db_count: 8
+        error_message: null
+        warning: null
+        duration_ms: 2
       - timestamp: '2025-11-13T15:13:00.859+09:00'
         status: success
         html_count: 0
@@ -380,14 +724,38 @@ scrapers:
     name: 富山県動物愛護センター（犬）
     page_type: dog_only
     verified: true
-    last_success: '2025-11-13T15:13:01.024+09:00'
+    last_success: '2025-11-13T15:23:10.088+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:10.088+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 2
+        db_count: 2
+        error_message: null
+        warning: null
+        duration_ms: 3
+      - timestamp: '2025-11-13T15:22:57.107+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 2
+        db_count: 2
+        error_message: null
+        warning: null
+        duration_ms: 2
+      - timestamp: '2025-11-13T15:14:46.546+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 2
+        db_count: 2
+        error_message: null
+        warning: null
+        duration_ms: 0
       - timestamp: '2025-11-13T15:13:01.024+09:00'
         status: success
         html_count: 0
@@ -408,14 +776,38 @@ scrapers:
     name: いしかわ動物愛護センター
     page_type: mixed
     verified: true
-    last_success: '2025-11-13T15:13:00.808+09:00'
+    last_success: '2025-11-13T15:23:09.764+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:09.764+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 18
+        db_count: 18
+        error_message: null
+        warning: null
+        duration_ms: 24
+      - timestamp: '2025-11-13T15:22:56.806+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 18
+        db_count: 18
+        error_message: null
+        warning: null
+        duration_ms: 21
+      - timestamp: '2025-11-13T15:14:46.308+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 18
+        db_count: 18
+        error_message: null
+        warning: null
+        duration_ms: 26
       - timestamp: '2025-11-13T15:13:00.808+09:00'
         status: success
         html_count: 0
@@ -436,14 +828,38 @@ scrapers:
     name: 金沢市動物愛護管理センター
     page_type: cat_only
     verified: true
-    last_success: '2025-11-13T15:13:00.851+09:00'
+    last_success: '2025-11-13T15:23:09.828+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:09.828+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 2
+        db_count: 2
+        error_message: null
+        warning: null
+        duration_ms: 4
+      - timestamp: '2025-11-13T15:22:56.857+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 2
+        db_count: 2
+        error_message: null
+        warning: null
+        duration_ms: 3
+      - timestamp: '2025-11-13T15:14:46.349+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 2
+        db_count: 2
+        error_message: null
+        warning: null
+        duration_ms: 1
       - timestamp: '2025-11-13T15:13:00.851+09:00'
         status: success
         html_count: 0
@@ -464,14 +880,38 @@ scrapers:
     name: 福井県動物愛護管理センター（猫）
     page_type: cat_only
     verified: true
-    last_success: '2025-11-13T15:13:00.872+09:00'
+    last_success: '2025-11-13T15:23:09.856+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:09.856+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 25
+        db_count: 25
+        error_message: null
+        warning: null
+        duration_ms: 11
+      - timestamp: '2025-11-13T15:22:56.879+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 25
+        db_count: 25
+        error_message: null
+        warning: null
+        duration_ms: 8
+      - timestamp: '2025-11-13T15:14:46.365+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 25
+        db_count: 25
+        error_message: null
+        warning: null
+        duration_ms: 6
       - timestamp: '2025-11-13T15:13:00.872+09:00'
         status: success
         html_count: 0
@@ -492,14 +932,38 @@ scrapers:
     name: 福井県動物愛護管理センター（犬）
     page_type: dog_only
     verified: true
-    last_success: '2025-11-13T15:13:01.028+09:00'
+    last_success: '2025-11-13T15:23:10.095+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:10.095+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 2
+        db_count: 2
+        error_message: null
+        warning: null
+        duration_ms: 3
+      - timestamp: '2025-11-13T15:22:57.113+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 2
+        db_count: 2
+        error_message: null
+        warning: null
+        duration_ms: 2
+      - timestamp: '2025-11-13T15:14:46.550+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 2
+        db_count: 2
+        error_message: null
+        warning: null
+        duration_ms: 1
       - timestamp: '2025-11-13T15:13:01.028+09:00'
         status: success
         html_count: 0
@@ -520,14 +984,38 @@ scrapers:
     name: 京都府動物愛護センター（猫）
     page_type: cat_only
     verified: true
-    last_success: '2025-11-13T15:13:00.877+09:00'
+    last_success: '2025-11-13T15:23:09.869+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:09.869+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 4
+        db_count: 4
+        error_message: null
+        warning: null
+        duration_ms: 6
+      - timestamp: '2025-11-13T15:22:56.889+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 4
+        db_count: 4
+        error_message: null
+        warning: null
+        duration_ms: 5
+      - timestamp: '2025-11-13T15:14:46.371+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 4
+        db_count: 4
+        error_message: null
+        warning: null
+        duration_ms: 1
       - timestamp: '2025-11-13T15:13:00.877+09:00'
         status: success
         html_count: 0
@@ -548,14 +1036,38 @@ scrapers:
     name: 京都府動物愛護センター（犬）
     page_type: dog_only
     verified: true
-    last_success: '2025-11-13T15:13:01.035+09:00'
+    last_success: '2025-11-13T15:23:10.105+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:10.105+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 19
+        db_count: 19
+        error_message: null
+        warning: null
+        duration_ms: 5
+      - timestamp: '2025-11-13T15:22:57.123+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 19
+        db_count: 19
+        error_message: null
+        warning: null
+        duration_ms: 6
+      - timestamp: '2025-11-13T15:14:46.558+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 19
+        db_count: 19
+        error_message: null
+        warning: null
+        duration_ms: 4
       - timestamp: '2025-11-13T15:13:01.035+09:00'
         status: success
         html_count: 0
@@ -576,14 +1088,38 @@ scrapers:
     name: 大阪府動物愛護管理センター
     page_type: cat_only
     verified: true
-    last_success: '2025-11-13T15:13:00.889+09:00'
+    last_success: '2025-11-13T15:23:09.886+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:09.886+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 33
+        db_count: 33
+        error_message: null
+        warning: null
+        duration_ms: 10
+      - timestamp: '2025-11-13T15:22:56.906+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 33
+        db_count: 33
+        error_message: null
+        warning: null
+        duration_ms: 12
+      - timestamp: '2025-11-13T15:14:46.383+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 33
+        db_count: 33
+        error_message: null
+        warning: null
+        duration_ms: 8
       - timestamp: '2025-11-13T15:13:00.889+09:00'
         status: success
         html_count: 0
@@ -604,14 +1140,38 @@ scrapers:
     name: 大阪市動物管理センター
     page_type: cat_only
     verified: true
-    last_success: '2025-11-13T15:13:00.894+09:00'
+    last_success: '2025-11-13T15:23:09.895+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:09.895+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 5
+        db_count: 5
+        error_message: null
+        warning: null
+        duration_ms: 4
+      - timestamp: '2025-11-13T15:22:56.914+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 5
+        db_count: 5
+        error_message: null
+        warning: null
+        duration_ms: 3
+      - timestamp: '2025-11-13T15:14:46.389+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 5
+        db_count: 5
+        error_message: null
+        warning: null
+        duration_ms: 2
       - timestamp: '2025-11-13T15:13:00.894+09:00'
         status: success
         html_count: 0
@@ -632,14 +1192,38 @@ scrapers:
     name: 堺市動物指導センター
     page_type: cat_only
     verified: true
-    last_success: '2025-11-13T15:13:00.902+09:00'
+    last_success: '2025-11-13T15:23:09.907+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:09.907+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 22
+        db_count: 22
+        error_message: null
+        warning: null
+        duration_ms: 7
+      - timestamp: '2025-11-13T15:22:56.925+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 22
+        db_count: 22
+        error_message: null
+        warning: null
+        duration_ms: 7
+      - timestamp: '2025-11-13T15:14:46.413+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 22
+        db_count: 22
+        error_message: null
+        warning: null
+        duration_ms: 21
       - timestamp: '2025-11-13T15:13:00.902+09:00'
         status: success
         html_count: 0
@@ -660,14 +1244,38 @@ scrapers:
     name: 兵庫県動物愛護センター
     page_type: cat_only
     verified: true
-    last_success: '2025-11-13T15:13:00.906+09:00'
+    last_success: '2025-11-13T15:23:09.919+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:09.919+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 1
+        db_count: 1
+        error_message: null
+        warning: null
+        duration_ms: 2
+      - timestamp: '2025-11-13T15:22:56.933+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 1
+        db_count: 1
+        error_message: null
+        warning: null
+        duration_ms: 3
+      - timestamp: '2025-11-13T15:14:46.417+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 1
+        db_count: 1
+        error_message: null
+        warning: null
+        duration_ms: 0
       - timestamp: '2025-11-13T15:13:00.906+09:00'
         status: success
         html_count: 0
@@ -688,14 +1296,38 @@ scrapers:
     name: 神戸市動物管理センター
     page_type: mixed
     verified: false
-    last_success: '2025-11-13T15:13:00.834+09:00'
+    last_success: '2025-11-13T15:23:09.804+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:09.804+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 2
+      - timestamp: '2025-11-13T15:22:56.838+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 2
+      - timestamp: '2025-11-13T15:14:46.335+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 0
       - timestamp: '2025-11-13T15:13:00.834+09:00'
         status: empty
         html_count: 0
@@ -716,14 +1348,38 @@ scrapers:
     name: 沖縄県動物愛護管理センター（猫）
     page_type: cat_only
     verified: true
-    last_success: '2025-11-13T15:13:01.020+09:00'
+    last_success: '2025-11-13T15:23:10.081+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:10.081+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 13
+        db_count: 13
+        error_message: null
+        warning: null
+        duration_ms: 5
+      - timestamp: '2025-11-13T15:22:57.101+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 13
+        db_count: 13
+        error_message: null
+        warning: null
+        duration_ms: 4
+      - timestamp: '2025-11-13T15:14:46.542+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 13
+        db_count: 13
+        error_message: null
+        warning: null
+        duration_ms: 3
       - timestamp: '2025-11-13T15:13:01.020+09:00'
         status: success
         html_count: 0
@@ -744,14 +1400,38 @@ scrapers:
     name: 沖縄県動物愛護管理センター（犬）
     page_type: dog_only
     verified: true
-    last_success: '2025-11-13T15:13:01.054+09:00'
+    last_success: '2025-11-13T15:23:10.138+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:10.138+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 18
+        db_count: 18
+        error_message: null
+        warning: null
+        duration_ms: 5
+      - timestamp: '2025-11-13T15:22:57.152+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 18
+        db_count: 18
+        error_message: null
+        warning: null
+        duration_ms: 5
+      - timestamp: '2025-11-13T15:14:46.595+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 18
+        db_count: 18
+        error_message: null
+        warning: null
+        duration_ms: 21
       - timestamp: '2025-11-13T15:13:01.054+09:00'
         status: success
         html_count: 0
@@ -772,14 +1452,38 @@ scrapers:
     name: 那覇市環境衛生課
     page_type: mixed
     verified: true
-    last_success: '2025-11-13T15:13:00.845+09:00'
+    last_success: '2025-11-13T15:23:09.818+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 5
+    success_count: 5
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-13T15:23:09.818+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 11
+        db_count: 11
+        error_message: null
+        warning: null
+        duration_ms: 7
+      - timestamp: '2025-11-13T15:22:56.849+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 11
+        db_count: 11
+        error_message: null
+        warning: null
+        duration_ms: 6
+      - timestamp: '2025-11-13T15:14:46.344+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 11
+        db_count: 11
+        error_message: null
+        warning: null
+        duration_ms: 3
       - timestamp: '2025-11-13T15:13:00.845+09:00'
         status: success
         html_count: 0

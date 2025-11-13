@@ -37,7 +37,8 @@ function getLatestHtmlFile() {
 
 function extractCatInfo($, $h4, index) {
   const heading = $h4.text().trim();
-  const match = heading.match(/(\d{8})（(.+?)）/);
+  // 全角（）と半角()の両方に対応
+  const match = heading.match(/(\d{8})[（(](.+?)[）)]/);
   if (!match) return null;
 
   const external_id = `chiba-city-${match[1]}`;
@@ -105,6 +106,8 @@ async function main() {
   console.log('='.repeat(60) + '\n');
 
   const logger = createLogger(CONFIG.municipality);
+  logger.start();
+  logger.loadPreviousCounts(); // scrape.jsのhtml_countを継承
 
   try {
     const htmlFile = getLatestHtmlFile();
@@ -114,7 +117,8 @@ async function main() {
     const allCats = [];
     $('h4').each((index, h4) => {
       const $h4 = $(h4);
-      if ($h4.text().match(/\d{8}（.+?）/)) {
+      // 全角（）と半角()の両方に対応
+      if ($h4.text().match(/\d{8}[（(].+?[）)]/)) {
         const cat = extractCatInfo($, $h4, index);
         if (cat) {
           allCats.push(cat);
@@ -163,11 +167,15 @@ async function main() {
 
     console.log(`\n✅ YAML出力完了: ${outputFile}`);
     console.log(`📊 ファイルサイズ: ${fs.statSync(outputFile).size} bytes\n`);
+
+    logger.finalize(); // 履歴を保存
+
     console.log('='.repeat(60));
     console.log('✅ YAML抽出完了');
     console.log('='.repeat(60));
   } catch (error) {
     logger.logError(error);
+    logger.finalize(); // エラー時も履歴を保存
     console.error('❌ エラー:', error);
     process.exit(1);
   }
