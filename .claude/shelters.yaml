@@ -1,0 +1,1580 @@
+# Tail Match - 全国動物保護施設データベース
+# 最終更新: 2025-11-13
+# データソース: データベース実装済み施設（正確なURL・連絡先）+ 市レベル施設調査
+
+metadata:
+  version: "5.0.0"
+  last_updated: "2025-11-13"
+  total_facilities: 78   # 全施設数（実装済み22 + 未実装56）
+  total_implemented: 22  # 実装済み自治体数
+  total_pending: 56      # 未実装施設数（調査済みURL）
+  total_scrapers: 28     # 猫犬別ページ含む
+  implementation_rate: "28.2%"  # 実装率
+  status: "運用中"
+  notes: |
+    このファイルは全国の保護施設情報を都道府県単位で管理します。
+    - 実装済み施設: 詳細情報（URL・連絡先・スクレイパーパス）
+    - 未実装施設: 調査済みURL情報（今後の実装に役立つ）
+    - 都道府県コード順（01=北海道 ～ 47=沖縄県）
+
+# 実装状況サマリー
+implementation_summary:
+  implemented_prefectures: 10      # 北海道、東京、神奈川、埼玉、千葉、富山、石川、福井、京都、大阪、兵庫、沖縄
+  pending_prefectures: 37          # 残り37都道府県
+  implemented_facilities: 22       # 実装済み自治体
+  scraper_count: 28                # 猫専用17 + 犬専用7 + 混在4
+
+  by_type:
+    mixed_pages: 4                 # 犬猫混在ページ
+    cat_only_pages: 17             # 猫専用ページ
+    dog_only_pages: 7              # 犬専用ページ
+
+# ========================================
+# 47都道府県別施設リスト
+# ========================================
+
+prefectures:
+  # ========================================
+  # 北海道地方
+  # ========================================
+
+  - prefecture_name: "北海道"
+    prefecture_code: "01"
+    region: "北海道地方"
+    facilities:
+      - name: "北海道立動物愛護センター「あいにきた」"
+        city: null
+        type: "prefecture"  # prefecture | city | designated_city | core_city | metropolitan
+        status: "implemented"
+        scraper_path: "hokkaido/hokkaido-pref"
+        page_type: "mixed"  # mixed | cat_only | dog_only | separate
+        url: "https://www.pref.hokkaido.lg.jp/ks/awc/inuneko.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "犬猫混在ページ、Playwright対応済み"
+
+      - name: "札幌市動物愛護管理センター「あいまる さっぽろ」"
+        city: "札幌市"
+        type: "designated_city"
+        status: "implemented"
+        scraper_path: "hokkaido/sapporo-city-cats"
+        page_type: "cat_only"
+        url: "https://www.city.sapporo.jp/inuneko/syuuyou_doubutsu/jotoneko.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "猫専用ページ"
+
+  # ========================================
+  # 東北地方
+  # ========================================
+
+  - prefecture_name: "青森県"
+    prefecture_code: "02"
+    region: "東北地方"
+    facilities:
+      - name: "青森県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.aomori.lg.jp/soshiki/kenko/hoken/animal.html"
+        url_adoption: "https://www.pref.aomori.lg.jp/soshiki/kenko/hoken/animal-jyoto.html"
+        contact:
+          phone: "017-726-6100"
+          address: "青森県青森市宮田字玉水119-10"
+          email: null
+          postal_code: "038-0058"
+        notes: "未実装、調査済み"
+
+      - name: "青森市保健所 動物愛護チーム"
+        city: "青森市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.aomori.aomori.jp/kurashi_kankyo/kankyo/1002067/1002077/index.html"
+        contact:
+          phone: null
+          address: "青森市朝日町三丁目36番17号"
+          email: null
+          postal_code: null
+        notes: "青森県在住者対象。18歳以上。「あおもりしワンニャン里親探しポスト」運営"
+
+  - prefecture_name: "岩手県"
+    prefecture_code: "03"
+    region: "東北地方"
+    facilities:
+      - name: "岩手県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.iwate.jp/kurashikankyou/kankyou/seibututayousei/1006159.html"
+        url_adoption: "https://www.pref.iwate.jp/kurashikankyou/kankyou/seibututayousei/1006178.html"
+        contact:
+          phone: "019-651-3173"
+          address: "岩手県盛岡市川目第25地割1-1"
+          email: null
+          postal_code: "020-0507"
+        notes: "未実装、調査済み"
+
+      - name: "盛岡市保健所"
+        city: "盛岡市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.morioka.iwate.jp/kurashi/pet/pet_kurashi/1001657.html"
+        contact:
+          phone: "019-603-8312"
+          address: null
+          email: null
+          postal_code: null
+        notes: "平日8:30-17:30に受付。県央保健所保護動物情報も別途あり"
+
+  - prefecture_name: "宮城県"
+    prefecture_code: "04"
+    region: "東北地方"
+    facilities:
+      - name: "宮城県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.miyagi.jp/soshiki/doubutuaigo/"
+        url_adoption: "https://www.pref.miyagi.jp/soshiki/doubutuaigo/jyoutoneko.html"
+        contact:
+          phone: "0223-58-2456"
+          address: "宮城県富谷市石積字堀田1"
+          email: null
+          postal_code: "981-3326"
+        notes: "未実装、調査済み"
+
+      - name: "仙台市動物管理センター「アニパル仙台」"
+        city: "仙台市"
+        type: "designated_city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.sendai.jp/dobutsu/kurashi/machi/hogo/index.html"
+        url_adoption: "https://www.city.sendai.jp/dobutsu/kurashi/machi/hogo/jouto/index.html"
+        contact:
+          phone: "022-258-1626"
+          address: "宮城県仙台市宮城野区扇町6-3-3"
+          email: null
+          postal_code: "983-0833"
+        notes: "譲渡犬情報、譲渡猫情報、譲渡子猫情報を提供。毎週金曜日に猫譲渡会開催"
+
+  - prefecture_name: "秋田県"
+    prefecture_code: "05"
+    region: "東北地方"
+    facilities:
+      - name: "秋田県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.akita.lg.jp/pages/archive/5302"
+        url_adoption: "https://www.pref.akita.lg.jp/pages/archive/5303"
+        contact:
+          phone: "018-827-5051"
+          address: "秋田県秋田市雄和椿川字駒坂台1-1"
+          email: null
+          postal_code: "019-2331"
+        notes: "未実装、調査済み"
+
+      - name: "秋田市保健所 衛生検査課"
+        city: "秋田市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.akita.lg.jp/kurashi/pet/1005363/1005513.html"
+        contact:
+          phone: "018-883-1182"
+          address: "秋田市八橋南1丁目8-3"
+          email: null
+          postal_code: "010-0976"
+        notes: "譲渡申込登録制度（1年間有効）。犬登録料3000円"
+
+  - prefecture_name: "山形県"
+    prefecture_code: "06"
+    region: "東北地方"
+    facilities:
+      - name: "山形県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.yamagata.jp/020026/kurashi/pet/pet/"
+        url_adoption: "https://www.pref.yamagata.jp/020026/kurashi/pet/pet/jouto.html"
+        contact:
+          phone: "023-681-7560"
+          address: "山形県山形市大字漆山1954"
+          email: null
+          postal_code: "990-2161"
+        notes: "未実装、調査済み"
+
+      - name: "山形市保健所 動物愛護センター「わんにゃんポート」"
+        city: "山形市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www4.city.yamagata-yamagata.lg.jp/kurashi/pet/1006550/1005143.html"
+        contact:
+          phone: "023-681-1210"
+          address: "山形市船町1030-1"
+          email: null
+          postal_code: null
+        notes: "事前に譲渡前講習会（約1時間）受講必要"
+
+  - prefecture_name: "福島県"
+    prefecture_code: "07"
+    region: "東北地方"
+    facilities:
+      - name: "福島県動物愛護センター「ハピまるふくしま」"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.fukushima.lg.jp/sec/21620a/"
+        url_adoption: "https://www.pref.fukushima.lg.jp/sec/21620a/doubutuaigo-jouto.html"
+        contact:
+          phone: "024-953-6400"
+          address: "福島県田村郡三春町大字上舞木字向田17"
+          email: null
+          postal_code: "963-7732"
+        notes: "未実装、調査済み"
+
+      - name: "福島市保健所 衛生課 動物愛護係"
+        city: "福島市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.fukushima.fukushima.jp/hoken-doubutsu-aigo/kurashi/pet/77.html"
+        contact:
+          phone: "024-597-6409"
+          address: "福島市森合町10番1号 保健福祉センター"
+          email: null
+          postal_code: "630-8122"
+        notes: "平日8:30-17:00受付。事前電話連絡必要。譲渡後しつけ方教室受講必須"
+
+  # ========================================
+  # 関東地方
+  # ========================================
+
+  - prefecture_name: "茨城県"
+    prefecture_code: "08"
+    region: "関東地方"
+    facilities:
+      - name: "茨城県動物指導センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.ibaraki.jp/soshiki/hokenfukushi/doshise/"
+        url_adoption: "https://www.pref.ibaraki.jp/soshiki/hokenfukushi/doshise/jouto/index.html"
+        contact:
+          phone: "0296-72-1200"
+          address: "茨城県笠間市日沢47"
+          email: null
+          postal_code: "309-1606"
+        notes: "未実装、調査済み"
+
+      - name: "水戸市動物愛護センター「あにまるっとみと」"
+        city: "水戸市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.mito.lg.jp/site/doubutsuaigo/"
+        contact:
+          phone: "029-350-3800"
+          address: "水戸市河和田町戊370番地"
+          email: null
+          postal_code: null
+        notes: "日・月曜日と祝日休業。8:30-17:15。不妊去勢手術費用助成あり"
+
+  - prefecture_name: "栃木県"
+    prefecture_code: "09"
+    region: "関東地方"
+    facilities:
+      - name: "栃木県動物愛護指導センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.tochigi.lg.jp/e50/life/doubutsu/aigo/center.html"
+        url_adoption: "https://www.pref.tochigi.lg.jp/e50/life/doubutsu/aigo/jouto-inu-neko.html"
+        contact:
+          phone: "028-684-5458"
+          address: "栃木県宇都宮市今宮4-7-8"
+          email: null
+          postal_code: "321-0974"
+        notes: "未実装、調査済み"
+
+      - name: "宇都宮市保健所「宮わんにゃんパーク」"
+        city: "宇都宮市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.utsunomiya.lg.jp/kurashi/pet/pet/1005585.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+          postal_code: null
+        notes: "栃木県動物愛護指導センター（028-684-5458）と連携"
+
+  - prefecture_name: "群馬県"
+    prefecture_code: "10"
+    region: "関東地方"
+    facilities:
+      - name: "群馬県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.gunma.jp/02/d4210001.html"
+        url_adoption: "https://www.pref.gunma.jp/02/d4210013.html"
+        contact:
+          phone: "027-278-0555"
+          address: "群馬県玉村町樋越305-7"
+          email: null
+          postal_code: "370-1124"
+        notes: "未実装、調査済み"
+
+      - name: "前橋市保健所 衛生検査課 動物愛護管理センター準備室"
+        city: "前橋市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.maebashi.gunma.jp/soshiki/kenko/eiseikensa/gyomu/1/1/3/4126.html"
+        contact:
+          phone: "027-220-5777"
+          address: "前橋市朝日町三丁目36番17号"
+          email: null
+          postal_code: null
+        notes: "群馬県在住者対象。週1回（火曜）講習会、月1回日曜譲渡会。令和8年度に新センター稼働予定"
+
+  - prefecture_name: "埼玉県"
+    prefecture_code: "11"
+    region: "関東地方"
+    facilities:
+      - name: "埼玉県動物指導センター"
+        city: null
+        type: "prefecture"
+        status: "implemented"
+        scraper_path: "saitama/saitama-pref-cats"
+        page_type: "cat_only"
+        url: "https://www.pref.saitama.lg.jp/b0716/joutoinuneko.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "猫専用ページ"
+
+      - name: "さいたま市動物愛護ふれあいセンター"
+        city: "さいたま市"
+        type: "designated_city"
+        status: "implemented"
+        scraper_path: "saitama/saitama-city-cats"
+        page_type: "cat_only"
+        url: "https://www.city.saitama.jp/001/011/015/003/006/p094736.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "猫専用ページ"
+
+  - prefecture_name: "千葉県"
+    prefecture_code: "12"
+    region: "関東地方"
+    facilities:
+      - name: "千葉県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "implemented"
+        scraper_path: "chiba/chiba-pref-cats, chiba/chiba-pref-dogs"
+        page_type: "separate"
+        url_cats: "https://www.pref.chiba.lg.jp/aigo/jyoutozentaikai/neko/index.html"
+        url_dogs: "https://www.pref.chiba.lg.jp/aigo/jyoutozentaikai/inu/index.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "猫・犬で別ページ、各スクレイパー実装済み"
+
+      - name: "千葉市動物保護指導センター"
+        city: "千葉市"
+        type: "designated_city"
+        status: "implemented"
+        scraper_path: "chiba/chiba-city-cats, chiba/chiba-city-dogs"
+        page_type: "separate"
+        url_cats: "https://www.city.chiba.jp/hokenfukushi/kenkou/seikatsueisei/catadoption.html"
+        url_dogs: "https://www.city.chiba.jp/hokenfukushi/kenkou/seikatsueisei/transferdogs.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "猫・犬で別ページ"
+
+  - prefecture_name: "東京都"
+    prefecture_code: "13"
+    region: "関東地方"
+    facilities:
+      - name: "東京都動物愛護相談センター"
+        city: null
+        type: "metropolitan"
+        status: "implemented"
+        scraper_path: "tokyo/tokyo-metro-cats"
+        page_type: "cat_only"
+        url: "https://www.fukushihoken.metro.tokyo.lg.jp/douso/jouto/neko.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "猫専用ページ"
+
+  - prefecture_name: "神奈川県"
+    prefecture_code: "14"
+    region: "関東地方"
+    facilities:
+      - name: "神奈川県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "implemented"
+        scraper_path: "kanagawa/kanagawa-pref-cats, kanagawa/kanagawa-pref-dogs"
+        page_type: "separate"
+        url_cats: "https://www.pref.kanagawa.jp/docs/v7d/cnt/f80192/p27.html"
+        url_dogs: "https://www.pref.kanagawa.jp/docs/v7d/cnt/f80192/receive/dog.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "猫・犬で別ページ"
+
+      - name: "横浜市動物愛護センター"
+        city: "横浜市"
+        type: "designated_city"
+        status: "implemented"
+        scraper_path: "kanagawa/yokohama-city-cats"
+        page_type: "cat_only"
+        url: "https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "猫専用ページ"
+
+      - name: "川崎市動物愛護センター"
+        city: "川崎市"
+        type: "designated_city"
+        status: "not_implemented"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.kawasaki.jp/350/page/0000046858.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "DB登録あり、スクレイパー未実装"
+
+      - name: "相模原市動物愛護センター"
+        city: "相模原市"
+        type: "designated_city"
+        status: "not_implemented"
+        scraper_path: null
+        page_type: "unknown"
+        url: "http://sagamihara-doubutsuaigo-center.jp/"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "DB登録あり、スクレイパー未実装"
+
+  # ========================================
+  # 中部地方
+  # ========================================
+
+  - prefecture_name: "新潟県"
+    prefecture_code: "15"
+    region: "中部地方"
+    facilities:
+      - name: "新潟県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.niigata.lg.jp/sec/seikatueisei/1194060413803.html"
+        url_adoption: "https://www.pref.niigata.lg.jp/sec/seikatueisei/1356831944722.html"
+        contact:
+          phone: "0258-21-5501"
+          address: "新潟県長岡市関原町1-2663-6"
+          email: null
+          postal_code: "940-2035"
+        notes: "未実装、調査済み"
+
+      - name: "新潟市動物愛護センター"
+        city: "新潟市"
+        type: "designated_city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.ikutopia.com/facilities/doubutsu/foster/"
+        contact:
+          phone: "025-288-0017"
+          address: "新潟市中央区清五郎343-2"
+          email: null
+          postal_code: null
+        notes: "いくとぴあ食花内の施設。譲渡講習会を毎日開催（10組限定）"
+
+  - prefecture_name: "富山県"
+    prefecture_code: "16"
+    region: "中部地方"
+    facilities:
+      - name: "富山県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "implemented"
+        scraper_path: "toyama/toyama-pref-cats, toyama/toyama-pref-dogs"
+        page_type: "separate"
+        url_cats: "https://www.pref.toyama.jp/1636/kurashi/datsusyobun/jouto.html"
+        url_dogs: "https://www.pref.toyama.jp/1636/kurashi/datsusyobun/inu.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "猫・犬で別ページ"
+
+  - prefecture_name: "石川県"
+    prefecture_code: "17"
+    region: "中部地方"
+    facilities:
+      - name: "いしかわ動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "implemented"
+        scraper_path: "ishikawa/aigo-ishikawa"
+        page_type: "mixed"
+        url: "https://aigo-ishikawa.jp/petadoption_list/"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "犬猫混在ページ、JavaScript SPA、Playwright対応済み"
+
+      - name: "金沢市動物愛護管理センター"
+        city: "金沢市"
+        type: "core_city"
+        status: "implemented"
+        scraper_path: "ishikawa/kanazawa-city-cats"
+        page_type: "cat_only"
+        url: "https://www4.city.kanazawa.lg.jp/11050/dobutsu/jyotozenshin.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "猫専用ページ"
+
+  - prefecture_name: "福井県"
+    prefecture_code: "18"
+    region: "中部地方"
+    facilities:
+      - name: "福井県動物愛護管理センター"
+        city: null
+        type: "prefecture"
+        status: "implemented"
+        scraper_path: "fukui/fukui-pref-cats, fukui/fukui-pref-dogs"
+        page_type: "separate"
+        url_cats: "https://fukuiloveanimals.com/jyoto.php"
+        url_dogs: "https://fukuiloveanimals.com/animal_kind/dog/"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "猫・犬で別ページ、1つの管理番号に複数個体あり"
+
+  - prefecture_name: "山梨県"
+    prefecture_code: "19"
+    region: "中部地方"
+    facilities:
+      - name: "山梨県動物愛護指導センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.yamanashi.jp/doubutsu-ac/index.html"
+        url_adoption: "https://www.pref.yamanashi.jp/doubutsu-ac/jyouto.html"
+        contact:
+          phone: "055-273-5034"
+          address: "山梨県中央市乙黒1083"
+          email: null
+          postal_code: "409-3812"
+        notes: "未実装、調査済み"
+
+      - name: "甲府市保健所 衛生薬務課"
+        city: "甲府市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.kofu.yamanashi.jp/kenko_zoshin/sekatsueisei/nekokainusi.html"
+        contact:
+          phone: "055-237-1161"
+          address: "山梨県甲府市丸の内一丁目18番1号"
+          email: null
+          postal_code: "400-8585"
+        notes: "平日8:30-17:15。保護猫譲渡会開催"
+
+  - prefecture_name: "長野県"
+    prefecture_code: "20"
+    region: "中部地方"
+    facilities:
+      - name: "長野県動物愛護センター「ハローアニマル」"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.nagano.lg.jp/helloanimals/"
+        url_adoption: "https://www.pref.nagano.lg.jp/helloanimals/jouto/index.html"
+        contact:
+          phone: "0263-91-5420"
+          address: "長野県小諸市大字菱平前新田2725"
+          email: null
+          postal_code: "384-0041"
+        notes: "未実装、調査済み"
+
+      - name: "長野市保健所 動物愛護センター"
+        city: "長野市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.nagano.nagano.jp/n107000/contents/p001118.html"
+        contact:
+          phone: "026-262-1212"
+          address: null
+          email: null
+          postal_code: null
+        notes: "平日8:30-17:15。10歳超の老犬老猫譲渡も電子申請受付"
+
+  - prefecture_name: "岐阜県"
+    prefecture_code: "21"
+    region: "中部地方"
+    facilities:
+      - name: "岐阜県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.gifu.lg.jp/page/2468.html"
+        url_adoption: "https://www.pref.gifu.lg.jp/page/2475.html"
+        contact:
+          phone: "058-231-5385"
+          address: "岐阜県美濃市片知593"
+          email: null
+          postal_code: "501-3714"
+        notes: "未実装、調査済み"
+
+  - prefecture_name: "静岡県"
+    prefecture_code: "22"
+    region: "中部地方"
+    facilities:
+      - name: "静岡県動物愛護管理センター「しっぽの森」"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.shizuoka.jp/kenkou/ke-140/animal_center.html"
+        url_adoption: "https://www.pref.shizuoka.jp/kenkou/ke-140/animal_jyoto.html"
+        contact:
+          phone: "0538-49-2222"
+          address: "静岡県磐田市岡ノ谷2071-1"
+          email: null
+          postal_code: "438-0001"
+        notes: "未実装、調査済み"
+
+      - name: "静岡市動物愛護館"
+        city: "静岡市"
+        type: "designated_city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.shizuoka.lg.jp/s3276/s001865.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+          postal_code: null
+        notes: "子猫譲渡あり。3種混合ワクチン、ウイルス検査、寄生虫駆除済み"
+
+      - name: "浜松市動物愛護教育センター"
+        city: "浜松市"
+        type: "designated_city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.hama-aikyou.jp/"
+        contact:
+          phone: "053-487-1616"
+          address: "浜松市中央区舘山寺町199"
+          email: null
+          postal_code: null
+        notes: "日曜祝日10:00-16:00に犬猫見学可能。事前連絡推奨"
+
+  - prefecture_name: "愛知県"
+    prefecture_code: "23"
+    region: "中部地方"
+    facilities:
+      - name: "愛知県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.aichi.jp/soshiki/dobutsu/"
+        url_adoption: "https://www.pref.aichi.jp/soshiki/dobutsu/neko-joto.html"
+        contact:
+          phone: "0565-58-2323"
+          address: "愛知県豊田市穂積町新屋73-3"
+          email: null
+          postal_code: "470-1201"
+        notes: "未実装、調査済み"
+
+      - name: "名古屋市動物愛護センター「人とペットの共生サポートセンター」"
+        city: "名古屋市"
+        type: "designated_city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://dog-cat-support.nagoya/"
+        contact:
+          phone: "052-762-1515"
+          address: null
+          email: null
+          postal_code: null
+        notes: "公益社団法人名古屋市獣医師会が運営。月例譲渡会開催"
+
+  # ========================================
+  # 近畿地方
+  # ========================================
+
+  - prefecture_name: "三重県"
+    prefecture_code: "24"
+    region: "近畿地方"
+    facilities:
+      - name: "三重県動物愛護推進センター「あすまいる」"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.mie.lg.jp/ASMILE/"
+        url_adoption: "https://www.pref.mie.lg.jp/ASMILE/HP/70032046423.htm"
+        contact:
+          phone: "059-253-1238"
+          address: "三重県津市森町2438-2"
+          email: null
+          postal_code: "514-1101"
+        notes: "未実装、調査済み"
+
+  - prefecture_name: "滋賀県"
+    prefecture_code: "25"
+    region: "近畿地方"
+    facilities:
+      - name: "滋賀県動物保護管理センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.shiga.lg.jp/doubutsuhogocenter/"
+        url_adoption: "https://www.pref.shiga.lg.jp/doubutsuhogocenter/jouto/index.html"
+        contact:
+          phone: "0748-75-1911"
+          address: "滋賀県湖南市岩根136-98"
+          email: null
+          postal_code: "520-3252"
+        notes: "未実装、調査済み"
+
+      - name: "大津市動物愛護センター"
+        city: "大津市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.otsu.lg.jp/soshiki/021/1442/index.html"
+        contact:
+          phone: "077-574-4601"
+          address: "大津市仰木里町1-24-2"
+          email: null
+          postal_code: "520-0246"
+        notes: "事前登録制。ペット飼育講習会必須。ワンニャン掲示板運営"
+
+  - prefecture_name: "京都府"
+    prefecture_code: "26"
+    region: "近畿地方"
+    facilities:
+      - name: "京都府動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "implemented"
+        scraper_path: "kyoto/kyoto-pref-cats, kyoto/kyoto-pref-dogs"
+        page_type: "separate"
+        url_cats: "http://kyoto-ani-love.com/publics/index/37/"
+        url_dogs: "http://kyoto-ani-love.com/recruit-animal/dog/"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "猫・犬で別ページ、譲渡済み表現「決まりました」"
+
+      - name: "京都動物愛護センター"
+        city: "京都市"
+        type: "designated_city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://kyoto-ani-love.com/"
+        contact:
+          phone: "075-671-0336"
+          address: "京都市南区上鳥羽仏現寺町11番地"
+          email: null
+          postal_code: "601-8103"
+        notes: "本所と西京支所で動物を管理。譲渡見学イベント定期開催"
+
+  - prefecture_name: "大阪府"
+    prefecture_code: "27"
+    region: "近畿地方"
+    facilities:
+      - name: "大阪府動物愛護管理センター"
+        city: null
+        type: "prefecture"
+        status: "implemented"
+        scraper_path: "osaka/osaka-pref-cats"
+        page_type: "cat_only"
+        url: "https://www.pref.osaka.lg.jp/doaigc/zyotoneko/"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "猫専用ページ"
+
+      - name: "大阪市動物管理センター"
+        city: "大阪市"
+        type: "designated_city"
+        status: "implemented"
+        scraper_path: "osaka/osaka-city-cats"
+        page_type: "cat_only"
+        url: "https://www.city.osaka.lg.jp/kenko/page/0000370055.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "猫専用ページ"
+
+      - name: "堺市動物指導センター"
+        city: "堺市"
+        type: "designated_city"
+        status: "implemented"
+        scraper_path: "osaka/sakai-city-cats"
+        page_type: "cat_only"
+        url: "https://www.city.sakai.lg.jp/kurashi/gomi/dobutsu/suishin/jyoutokai_neko.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "猫専用ページ"
+
+  - prefecture_name: "兵庫県"
+    prefecture_code: "28"
+    region: "近畿地方"
+    facilities:
+      - name: "兵庫県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "implemented"
+        scraper_path: "hyogo/hyogo-pref-cats"
+        page_type: "cat_only"
+        url: "https://web.pref.hyogo.lg.jp/kf10/hw11_000000110.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "猫専用ページ"
+
+      - name: "神戸市動物管理センター"
+        city: "神戸市"
+        type: "designated_city"
+        status: "implemented"
+        scraper_path: "hyogo/kobe-city"
+        page_type: "mixed"
+        url: "https://www.city.kobe.lg.jp/a01035/doubutsuaigo/catdog.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "犬猫混在ページ"
+
+  - prefecture_name: "奈良県"
+    prefecture_code: "29"
+    region: "近畿地方"
+    facilities:
+      - name: "奈良県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "http://www.pref.nara.jp/1840.htm"
+        url_adoption: "http://www.pref.nara.jp/11447.htm"
+        contact:
+          phone: "0745-83-2631"
+          address: "奈良県宇陀市大宇陀小附89-1"
+          email: null
+          postal_code: "633-2112"
+        notes: "未実装、調査済み"
+
+      - name: "奈良市保健所 保健衛生課 動物愛護係"
+        city: "奈良市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.nara.lg.jp/adv/ba.php?id=18"
+        contact:
+          phone: "0742-93-8395"
+          address: "奈良市三条本町13番1号 はぐくみセンター"
+          email: null
+          postal_code: "630-8122"
+        notes: "平日10:00-11:30、13:30-16:30見学可能（要予約）。無料譲渡"
+
+  - prefecture_name: "和歌山県"
+    prefecture_code: "30"
+    region: "近畿地方"
+    facilities:
+      - name: "和歌山県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.wakayama.lg.jp/prefg/031601/animal.html"
+        url_adoption: "https://www.pref.wakayama.lg.jp/prefg/031601/joto.html"
+        contact:
+          phone: "073-489-6500"
+          address: "和歌山県和歌山市まつえ西6-2-10"
+          email: null
+          postal_code: "640-8404"
+        notes: "未実装、調査済み"
+
+      - name: "和歌山市動物愛護管理センター"
+        city: "和歌山市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.wakayama.wakayama.jp/kurashi/kenko_iryo/1009125/1035775/1002096.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+          postal_code: null
+        notes: "譲渡会を年数回開催（3月、8月など）。平日個別講習・譲渡も可能"
+
+  # ========================================
+  # 中国地方
+  # ========================================
+
+  - prefecture_name: "鳥取県"
+    prefecture_code: "31"
+    region: "中国地方"
+    facilities:
+      - name: "鳥取県動物愛護センター「人と動物の未来センター アミティエ」"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.tottori.lg.jp/251144.htm"
+        url_adoption: "https://www.pref.tottori.lg.jp/280776.htm"
+        contact:
+          phone: "0858-33-5397"
+          address: "鳥取県倉吉市小田458"
+          email: null
+          postal_code: "682-0017"
+        notes: "未実装、調査済み"
+
+      - name: "鳥取市保健所"
+        city: "鳥取市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.tottori.lg.jp/www/contents/1612849168827/index.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+          postal_code: null
+        notes: "譲受希望登録制（1年間有効）。保護猫譲渡会を定期開催"
+
+  - prefecture_name: "島根県"
+    prefecture_code: "32"
+    region: "中国地方"
+    facilities:
+      - name: "島根県動物愛護管理センター「いぬねこサポートセンター」"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.shimane.lg.jp/medical/yakuji/yakumu/douai/"
+        url_adoption: "https://www.pref.shimane.lg.jp/medical/yakuji/yakumu/douai/joto.html"
+        contact:
+          phone: "0855-25-1681"
+          address: "島根県浜田市下府町1644"
+          email: null
+          postal_code: "697-0124"
+        notes: "未実装、調査済み"
+
+      - name: "松江保健所"
+        city: "松江市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.shimane.lg.jp/infra/nature/animal/matsue_hoken/jyouto/jyotodobutujyoho.html"
+        contact:
+          phone: "0852-61-8875"
+          address: null
+          email: null
+          postal_code: null
+        notes: "2025年4月から譲渡前適正講習受講必須（毎月第1水曜14:00）。マイクロチップ装着済み"
+
+  - prefecture_name: "岡山県"
+    prefecture_code: "33"
+    region: "中国地方"
+    facilities:
+      - name: "岡山県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.okayama.jp/page/detail-82914.html"
+        url_adoption: "https://www.pref.okayama.jp/page/detail-82920.html"
+        contact:
+          phone: "086-724-9512"
+          address: "岡山県岡山市北区御津伊田2750"
+          email: null
+          postal_code: "709-2131"
+        notes: "未実装、調査済み"
+
+      - name: "岡山市保健所 衛生課 動物衛生係"
+        city: "岡山市"
+        type: "designated_city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.okayama.jp/kurashi/0000016441.html"
+        contact:
+          phone: "086-803-1259"
+          address: null
+          email: null
+          postal_code: null
+        notes: "カインズ岡山南店ドッグランで譲渡会開催。無料譲渡（混合ワクチン、ノミダニ予防、内部寄生虫駆虫、マイクロチップ済み）"
+
+  - prefecture_name: "広島県"
+    prefecture_code: "34"
+    region: "中国地方"
+    facilities:
+      - name: "広島県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.hiroshima.lg.jp/soshiki/39/index.html"
+        url_adoption: "https://www.pref.hiroshima.lg.jp/soshiki/39/jyoutoneko.html"
+        contact:
+          phone: "0848-86-6511"
+          address: "広島県三原市本郷町南方8915-2"
+          email: null
+          postal_code: "729-0417"
+        notes: "未実装、調査済み"
+
+      - name: "広島市動物愛護センター"
+        city: "広島市"
+        type: "designated_city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.hiroshima.lg.jp/soshiki/77/64.html"
+        contact:
+          phone: "082-243-6058"
+          address: null
+          email: null
+          postal_code: null
+        notes: "平日10:00-12:00、13:30-15:30に予約制で見学可能"
+
+  - prefecture_name: "山口県"
+    prefecture_code: "35"
+    region: "中国地方"
+    facilities:
+      - name: "山口県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.yamaguchi.lg.jp/soshiki/16/"
+        url_adoption: "https://www.pref.yamaguchi.lg.jp/soshiki/16/11047.html"
+        contact:
+          phone: "083-973-8315"
+          address: "山口県山口市陶943-12"
+          email: null
+          postal_code: "754-0891"
+        notes: "未実装、調査済み"
+
+  # ========================================
+  # 四国地方
+  # ========================================
+
+  - prefecture_name: "徳島県"
+    prefecture_code: "36"
+    region: "四国地方"
+    facilities:
+      - name: "徳島県動物愛護管理センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.tokushima.lg.jp/ippannokata/kurashi/shizen/5014832"
+        url_adoption: "https://www.pref.tokushima.lg.jp/ippannokata/kurashi/shizen/5014847"
+        contact:
+          phone: "088-636-6122"
+          address: "徳島県名西郡神山町阿野字長谷333"
+          email: null
+          postal_code: "771-3421"
+        notes: "未実装、調査済み"
+
+  - prefecture_name: "香川県"
+    prefecture_code: "37"
+    region: "四国地方"
+    facilities:
+      - name: "香川県動物愛護管理センター「しっぽの森」"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.kagawa.lg.jp/content/dir5/dir5_1/dir5_1_1/"
+        url_adoption: "https://www.pref.kagawa.lg.jp/content/dir5/dir5_1/dir5_1_1/wf0sjo150414114520.shtml"
+        contact:
+          phone: "087-849-1011"
+          address: "香川県高松市東植田町1202-3"
+          email: null
+          postal_code: "761-8077"
+        notes: "未実装、調査済み"
+
+      - name: "さぬき動物愛護センター「しっぽの森」"
+        city: "高松市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.kagawa.lg.jp/s-doubutuaigo/sanukidouaicenter/index.html"
+        contact:
+          phone: null
+          address: "高松市東植田町1202-1"
+          email: null
+          postal_code: null
+        notes: "8:30-17:15開館。月曜休館。事前譲渡前講習会受講必須。殺処分設備なし"
+
+  - prefecture_name: "愛媛県"
+    prefecture_code: "38"
+    region: "四国地方"
+    facilities:
+      - name: "愛媛県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.ehime.jp/h25123/apc/"
+        url_adoption: "https://www.pref.ehime.jp/h25123/apc/joto.html"
+        contact:
+          phone: "089-977-9200"
+          address: "愛媛県松山市東川町乙44-7"
+          email: null
+          postal_code: "791-0133"
+        notes: "未実装、調査済み"
+
+  - prefecture_name: "高知県"
+    prefecture_code: "39"
+    region: "四国地方"
+    facilities:
+      - name: "高知県動物愛護管理センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.kochi.lg.jp/soshiki/131601/"
+        url_adoption: "https://www.pref.kochi.lg.jp/soshiki/131601/jyoutoneko.html"
+        contact:
+          phone: "088-831-7939"
+          address: "高知県高知市孕東町68-5"
+          email: null
+          postal_code: "781-5103"
+        notes: "未実装、調査済み"
+
+      - name: "高知市中央小動物管理センター"
+        city: "高知市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.kochi.kochi.jp/soshiki/36/aml-info.html"
+        contact:
+          phone: "088-831-7939"
+          address: "高知県高知市孕東町56-2"
+          email: null
+          postal_code: "780-8021"
+        notes: "平日8:30-17:15。高知市または高知県の飼い方講習会受講必須（1年間有効）。助成金制度あり"
+
+  # ========================================
+  # 九州地方
+  # ========================================
+
+  - prefecture_name: "福岡県"
+    prefecture_code: "40"
+    region: "九州地方"
+    facilities:
+      - name: "福岡県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.fukuoka.lg.jp/contents/doubutsu-aigo.html"
+        url_adoption: "https://www.pref.fukuoka.lg.jp/contents/jyoutocat.html"
+        contact:
+          phone: "092-944-1281"
+          address: "福岡県古賀市小竹131-2"
+          email: null
+          postal_code: "811-3135"
+        notes: "未実装、調査済み"
+
+      - name: "福岡市動物愛護管理センター「わんにゃんよかネット」"
+        city: "福岡市"
+        type: "designated_city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://wannyan.city.fukuoka.lg.jp/"
+        contact:
+          phone: null
+          address: "福岡市西区内浜1-4-22"
+          email: null
+          postal_code: "819-0005"
+        notes: "センター譲渡、動物愛護団体譲渡、個人間譲渡の3種類。試用期間あり"
+
+      - name: "北九州市動物愛護センター"
+        city: "北九州市"
+        type: "designated_city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.kitakyushu.lg.jp/contents/924_11835.html"
+        contact:
+          phone: "093-581-1800"
+          address: "北九州市小倉北区西港町24-7"
+          email: null
+          postal_code: "803-0801"
+        notes: "事前電話予約制。毎月第2土曜日に譲渡会開催。65歳以上は後見人同伴必要"
+
+  - prefecture_name: "佐賀県"
+    prefecture_code: "41"
+    region: "九州地方"
+    facilities:
+      - name: "佐賀県動物愛護管理センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.saga.lg.jp/kiji00331270/index.html"
+        url_adoption: "https://www.pref.saga.lg.jp/kiji00331276/index.html"
+        contact:
+          phone: "0952-62-1212"
+          address: "佐賀県佐賀市三瀬村藤原3764-9"
+          email: null
+          postal_code: "842-0301"
+        notes: "未実装、調査済み"
+
+      - name: "佐賀県犬猫譲渡センター「いっしょけんね」"
+        city: "佐賀市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.saga.lg.jp/kiji00315040/index.html"
+        contact:
+          phone: "0954-23-0532"
+          address: null
+          email: null
+          postal_code: null
+        notes: "マイクロチップ登録料（オンライン400円、紙面1400円）のみ負担"
+
+  - prefecture_name: "長崎県"
+    prefecture_code: "42"
+    region: "九州地方"
+    facilities:
+      - name: "長崎県動物愛護管理センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.nagasaki.jp/bunrui/kanko-kyoiku-bunka/doubutsu/"
+        url_adoption: "https://www.pref.nagasaki.jp/bunrui/kanko-kyoiku-bunka/doubutsu/jyouto/"
+        contact:
+          phone: "0957-35-2425"
+          address: "長崎県諫早市福田町1218-2"
+          email: null
+          postal_code: "854-0063"
+        notes: "未実装、調査済み"
+
+      - name: "長崎市動物愛護管理センター"
+        city: "長崎市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.nagasaki.lg.jp/site/doubutsuaigo/1370.html"
+        contact:
+          phone: "095-844-2961"
+          address: "長崎市茂里町2番34号 2階"
+          email: null
+          postal_code: null
+        notes: "平日10:00-12:00、13:00-16:00見学可能（要予約）。年3回譲渡会（7月、8月、10月）"
+
+  - prefecture_name: "熊本県"
+    prefecture_code: "43"
+    region: "九州地方"
+    facilities:
+      - name: "熊本県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.kumamoto.jp/soshiki/57/list1.html"
+        url_adoption: "https://www.pref.kumamoto.jp/soshiki/57/4556.html"
+        contact:
+          phone: "096-380-3310"
+          address: "熊本県熊本市東区小山2-11-1"
+          email: null
+          postal_code: "861-8045"
+        notes: "未実装、調査済み"
+
+      - name: "熊本市動物愛護センター"
+        city: "熊本市"
+        type: "designated_city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.kumamoto.jp/doubutuaigo/"
+        contact:
+          phone: null
+          address: "熊本市東区田水町3910"
+          email: null
+          postal_code: null
+        notes: "平日8:30-17:15に受付。要家族全員の同意"
+
+  - prefecture_name: "大分県"
+    prefecture_code: "44"
+    region: "九州地方"
+    facilities:
+      - name: "大分県動物愛護管理センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.oita.jp/site/doubutsuaigo/"
+        url_adoption: "https://www.pref.oita.jp/site/doubutsuaigo/jyoutocat.html"
+        contact:
+          phone: "097-588-1122"
+          address: "大分県大分市廻栖野3231-47"
+          email: null
+          postal_code: "870-1124"
+        notes: "未実装、調査済み"
+
+      - name: "おおいた動物愛護センター"
+        city: "大分市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://oita-aigo.com/"
+        contact:
+          phone: "097-588-1122"
+          address: null
+          email: null
+          postal_code: null
+        notes: "大分市動物愛護センター（097-588-2200）も併設。犬猫譲渡会を定期開催"
+
+  - prefecture_name: "宮崎県"
+    prefecture_code: "45"
+    region: "九州地方"
+    facilities:
+      - name: "宮崎県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.miyazaki.lg.jp/contents/org/fukushi/eisei/doubutuaigo/"
+        url_adoption: "https://www.pref.miyazaki.lg.jp/contents/org/fukushi/eisei/doubutuaigo/page00143.html"
+        contact:
+          phone: "0985-24-9512"
+          address: "宮崎県宮崎市大字富吉字鴻ノ樔2965-1"
+          email: null
+          postal_code: "889-1703"
+        notes: "未実装、調査済み"
+
+      - name: "みやざき動物愛護センター"
+        city: "宮崎市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.miyazaki.miyazaki.jp/life/pet/service/109756.html"
+        contact:
+          phone: "0985-85-6011"
+          address: "宮崎市清武町木原4543番地8"
+          email: null
+          postal_code: null
+        notes: "毎週日曜日（祝日除く）10:00-15:00に譲渡会開催。SNS活用"
+
+  - prefecture_name: "鹿児島県"
+    prefecture_code: "46"
+    region: "九州地方"
+    facilities:
+      - name: "鹿児島県動物愛護センター"
+        city: null
+        type: "prefecture"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.pref.kagoshima.jp/ae08/kenko-fukushi/doubutsu/aigo/index.html"
+        url_adoption: "https://www.pref.kagoshima.jp/ae08/kenko-fukushi/doubutsu/aigo/jyoto.html"
+        contact:
+          phone: "099-258-1821"
+          address: "鹿児島県霧島市隼人町小田1493-1"
+          email: null
+          postal_code: "899-5111"
+        notes: "未実装、調査済み"
+
+      - name: "鹿児島市動物愛護管理センター"
+        city: "鹿児島市"
+        type: "city"
+        status: "pending"
+        scraper_path: null
+        page_type: "unknown"
+        url: "https://www.city.kagoshima.lg.jp/kenkofukushi/hokenjo/seiei-jueki/kurashi/dobutsu/kainushi/boshu/index.html"
+        contact:
+          phone: "099-264-1237"
+          address: "鹿児島市田上町3910"
+          email: null
+          postal_code: null
+        notes: "平日8:30-17:15。鹿児島市民優先。不妊去勢手術必須"
+
+  - prefecture_name: "沖縄県"
+    prefecture_code: "47"
+    region: "九州地方"
+    facilities:
+      - name: "沖縄県動物愛護管理センター"
+        city: null
+        type: "prefecture"
+        status: "implemented"
+        scraper_path: "okinawa/okinawa-pref-cats, okinawa/okinawa-pref-dogs"
+        page_type: "separate"
+        url_cats: "https://www.aniwel-pref.okinawa/animals/transfer/cats"
+        url_dogs: "https://www.aniwel-pref.okinawa/animals/transfer/dogs"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "猫・犬で別ページ、譲渡済み表現「※譲渡しました」"
+
+      - name: "那覇市環境衛生課"
+        city: "那覇市"
+        type: "city"
+        status: "implemented"
+        scraper_path: "okinawa/naha-city"
+        page_type: "mixed"
+        url: "https://www.city.naha.okinawa.jp/kurasitetuduki/animal/904.html"
+        contact:
+          phone: null
+          address: null
+          email: null
+        notes: "犬猫混在ページ"
+
+# ========================================
+# 技術メモ
+# ========================================
+technical_notes:
+  common_helpers:
+    - "scripts/lib/adoption-status.js - 譲渡済み判定（全28施設で使用）"
+    - "scripts/lib/animal-type.js - 動物種判定（混在ページで使用）"
+
+  naming_convention:
+    cats: "-cats サフィックス（猫専用ページ）"
+    dogs: "-dogs サフィックス（犬専用ページ）"
+    mixed: "サフィックスなし（混在ページ）"
+
+  scraping_pipeline:
+    step1: "HTML収集（Playwright）"
+    step2: "YAML抽出（Cheerio + 共通ヘルパー）"
+    step3: "DB投入（better-sqlite3）"
+
+# ========================================
+# 新規施設追加時のチェックリスト
+# ========================================
+new_facility_checklist:
+  - "[ ] URLが有効か確認（404チェック）"
+  - "[ ] 猫専用・犬専用・混在ページの確認"
+  - "[ ] JavaScript必須サイトかの確認"
+  - "[ ] 譲渡済み表現の確認"
+  - "[ ] データベースに登録"
+  - "[ ] スクレイパー実装"
+  - "[ ] yaml-to-db.js の municipalities配列に追加"
+  - "[ ] このファイルに追加"
