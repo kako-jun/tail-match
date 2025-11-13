@@ -46,6 +46,8 @@ function countAnimalsInHTML(html) {
 }
 ```
 
+**⚠️ 重要**: `logger`は`main()`関数内でのみ使用してください。`fetchWithRetry()`などの他の関数内で`logger`を呼ぶとスコープエラーになります。エラーハンドリングは`main()`の`catch`ブロックで行います。
+
 ### 2. html-to-yaml.js（YAML抽出）の修正
 
 ```javascript

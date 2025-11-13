@@ -127,7 +127,6 @@ async function fetchWithRetry(url, retries = CONFIG.retry_count) {
       await browser.close();
       return html;
     } catch (error) {
-      logger.logError(error);
       console.error(`❌ エラー (試行 ${attempt}/${retries}): ${error.message}`);
 
       if (browser) {
@@ -140,7 +139,6 @@ async function fetchWithRetry(url, retries = CONFIG.retry_count) {
       } else {
         throw new Error(`最大リトライ回数に達しました: ${error.message}`);
       }
-      logger.finalize();
     }
   }
 }
