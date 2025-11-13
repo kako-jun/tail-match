@@ -1,6 +1,6 @@
 metadata:
   version: 1.0.0
-  last_updated: '2025-11-13T16:14:38.360+09:00'
+  last_updated: '2025-11-13T16:24:35.390+09:00'
   purpose: スクレイピング動作確認・エラー履歴管理
   total_scrapers: 28
 scrapers:
@@ -787,15 +787,23 @@ scrapers:
   kanagawa/yokohama-city-cats:
     name: 横浜市動物愛護センター
     page_type: cat_only
-    verified: false
-    last_success: null
+    verified: true
+    last_success: '2025-11-13T16:24:35.371+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 6
-    success_count: 0
+    total_runs: 7
+    success_count: 1
     error_count: 0
     mismatch_count: 6
     last_10_runs:
+      - timestamp: '2025-11-13T16:24:35.371+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 9
+        db_count: 18
+        error_message: null
+        warning: null
+        duration_ms: 2303
       - timestamp: '2025-11-13T15:54:51.249+09:00'
         status: mismatch
         html_count: 0

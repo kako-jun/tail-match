@@ -8,6 +8,7 @@
 
 import fs from 'fs';
 import { getJSTTimestamp, getJSTISOString } from '../../../lib/timestamp.js';
+import { createLogger } from '../../../lib/history-logger.js';
 
 import path from 'path';
 import yaml from 'js-yaml';
@@ -135,123 +136,143 @@ async function main() {
   console.log('='.repeat(60));
   console.log('='.repeat(60) + '\n');
 
-  // 最新のHTMLファイルを取得
-  const htmlDir = path.join(
-    process.cwd(),
-    'data',
-    'html',
-    CONFIG.municipality.replace('/', path.sep)
-  );
+  const logger = createLogger('kanagawa/yokohama-city-cats');
+  logger.start();
+  logger.loadPreviousCounts(); // 前ステップのカウントを継承
 
-  const htmlFiles = fs
-    .readdirSync(htmlDir)
-    .filter((f) => f.endsWith('_tail.html'))
-    .sort()
-    .reverse();
+  try {
+    // 最新のHTMLファイルを取得
+    const htmlDir = path.join(
+      process.cwd(),
+      'data',
+      'html',
+      CONFIG.municipality.replace('/', path.sep)
+    );
 
-  if (htmlFiles.length === 0) {
-    console.error('❌ HTMLファイルが見つかりません');
-    process.exit(1);
-  }
+    const htmlFiles = fs
+      .readdirSync(htmlDir)
+      .filter((f) => f.endsWith('_tail.html'))
+      .sort()
+      .reverse();
 
-  const htmlPath = path.join(htmlDir, htmlFiles[0]);
-  console.log(`📄 HTMLファイル: ${path.basename(htmlPath)}\n`);
-
-  // HTMLから画像URLを抽出
-  const imageUrls = extractImageUrlsFromHtml(htmlPath);
-  console.log(`📊 検出した猫数: ${imageUrls.length}\n`);
-
-  if (imageUrls.length === 0) {
-    console.error('❌ 画像URLが見つかりません');
-    process.exit(1);
-  }
-
-  // 画像保存ディレクトリ
-  const imageDir = path.join(
-    process.cwd(),
-    'data',
-    'images',
-    CONFIG.municipality.replace('/', path.sep)
-  );
-  fs.mkdirSync(imageDir, { recursive: true });
-
-  const animals = [];
-
-  // 各画像をダウンロード
-  for (let i = 0; i < imageUrls.length; i++) {
-    const { inquiry_number, url } = imageUrls[i];
-    const imageFilename = path.basename(url);
-    const imagePath = path.join(imageDir, imageFilename);
-
-    console.log(`[${i + 1}/${imageUrls.length}] お問合せ番号-${inquiry_number}`);
-
-    // ダウンロード
-    console.log(`   ダウンロード中: ${imageFilename}`);
-    const success = await downloadImage(url, imagePath);
-
-    if (!success) {
-      console.log(`   ❌ ダウンロード失敗`);
-      continue;
+    if (htmlFiles.length === 0) {
+      console.error('❌ HTMLファイルが見つかりません');
+      process.exit(1);
     }
 
-    const stats = fs.statSync(imagePath);
-    console.log(`   ✅ ダウンロード完了: ${(stats.size / 1024).toFixed(1)}KB`);
+    const htmlPath = path.join(htmlDir, htmlFiles[0]);
+    console.log(`📄 HTMLファイル: ${path.basename(htmlPath)}\n`);
 
-    // テンプレートデータを作成
-    const animalData = createManualDataTemplate(inquiry_number, url, imagePath);
-    animals.push(animalData);
-  }
+    // HTMLから画像URLを抽出
+    const imageUrls = extractImageUrlsFromHtml(htmlPath);
+    console.log(`📊 検出した猫数: ${imageUrls.length}\n`);
 
-  // YAML出力
-  console.log(`\n${'='.repeat(60)}`);
-  console.log('📝 YAML生成中...');
+    // YAML抽出後の動物数を記録（⚠️ 1匹でも減少したら自動警告）
+    logger.logYAMLCount(imageUrls.length);
 
-  const outputDir = path.join(
-    process.cwd(),
-    'data',
-    'yaml',
-    CONFIG.municipality.replace('/', path.sep)
-  );
-  fs.mkdirSync(outputDir, { recursive: true });
+    if (imageUrls.length === 0) {
+      console.error('❌ 画像URLが見つかりません');
+      logger.finalize(); // 空の場合も履歴を保存
+      process.exit(1);
+    }
 
-  const timestamp = getJSTTimestamp();
-  const outputFile = path.join(outputDir, `${timestamp}_with_images.yaml`);
+    // 画像保存ディレクトリ
+    const imageDir = path.join(
+      process.cwd(),
+      'data',
+      'images',
+      CONFIG.municipality.replace('/', path.sep)
+    );
+    fs.mkdirSync(imageDir, { recursive: true });
 
-  const yamlContent = yaml.dump(
-    {
-      meta: {
-        source_file: path.basename(htmlPath),
-        source_url: CONFIG.source_url,
-        extracted_at: getJSTISOString(),
-        municipality: CONFIG.municipality,
-        municipality_id: CONFIG.municipality_id,
-        total_count: animals.length,
-        extraction_type: 'image_download_template',
-        note: '画像をダウンロード済み。Claude Vision APIまたは手動でデータを埋める必要があります。',
+    const animals = [];
+
+    // 各画像をダウンロード
+    for (let i = 0; i < imageUrls.length; i++) {
+      const { inquiry_number, url } = imageUrls[i];
+      const imageFilename = path.basename(url);
+      const imagePath = path.join(imageDir, imageFilename);
+
+      console.log(`[${i + 1}/${imageUrls.length}] お問合せ番号-${inquiry_number}`);
+
+      // ダウンロード
+      console.log(`   ダウンロード中: ${imageFilename}`);
+      const success = await downloadImage(url, imagePath);
+
+      if (!success) {
+        console.log(`   ❌ ダウンロード失敗`);
+        continue;
+      }
+
+      const stats = fs.statSync(imagePath);
+      console.log(`   ✅ ダウンロード完了: ${(stats.size / 1024).toFixed(1)}KB`);
+
+      // テンプレートデータを作成
+      const animalData = createManualDataTemplate(inquiry_number, url, imagePath);
+      animals.push(animalData);
+    }
+
+    // YAML出力
+    console.log(`\n${'='.repeat(60)}`);
+    console.log('📝 YAML生成中...');
+
+    const outputDir = path.join(
+      process.cwd(),
+      'data',
+      'yaml',
+      CONFIG.municipality.replace('/', path.sep)
+    );
+    fs.mkdirSync(outputDir, { recursive: true });
+
+    const timestamp = getJSTTimestamp();
+    const outputFile = path.join(outputDir, `${timestamp}_with_images.yaml`);
+
+    const yamlContent = yaml.dump(
+      {
+        meta: {
+          source_file: path.basename(htmlPath),
+          source_url: CONFIG.source_url,
+          extracted_at: getJSTISOString(),
+          municipality: CONFIG.municipality,
+          municipality_id: CONFIG.municipality_id,
+          total_count: animals.length,
+          extraction_type: 'image_download_template',
+          note: '画像をダウンロード済み。Claude Vision APIまたは手動でデータを埋める必要があります。',
+        },
+        confidence_level: 'low',
+        consistency_warnings: [
+          '画像内の情報を確認する必要があります',
+          'お問合せ番号、性別、年齢、毛色、健康状態、性格を画像から読み取ってください',
+        ],
+        animals: animals,
       },
-      confidence_level: 'low',
-      consistency_warnings: [
-        '画像内の情報を確認する必要があります',
-        'お問合せ番号、性別、年齢、毛色、健康状態、性格を画像から読み取ってください',
-      ],
-      animals: animals,
-    },
-    { indent: 2, lineWidth: -1 }
-  );
+      { indent: 2, lineWidth: -1 }
+    );
 
-  fs.writeFileSync(outputFile, yamlContent, 'utf-8');
+    fs.writeFileSync(outputFile, yamlContent, 'utf-8');
 
-  console.log(`✅ YAML出力完了: ${outputFile}`);
-  console.log(`📊 動物数: ${animals.length}`);
-  console.log(`📁 画像保存先: ${imageDir}`);
+    logger.finalize(); // 履歴を保存
 
-  console.log('\n' + '='.repeat(60));
-  console.log('✅ 画像ダウンロード完了');
-  console.log('='.repeat(60));
-  console.log('\n次のステップ:');
-  console.log('  1. data/images/kanagawa/yokohama-city/ の画像を確認');
-  console.log('  2. YAMLファイルに手動で情報を入力');
-  console.log('  3. または Claude に画像を見せて情報を抽出してもらう');
+    console.log(`✅ YAML出力完了: ${outputFile}`);
+    console.log(`📊 動物数: ${animals.length}`);
+    console.log(`📁 画像保存先: ${imageDir}`);
+
+    console.log('\n' + '='.repeat(60));
+    console.log('✅ 画像ダウンロード完了');
+    console.log('='.repeat(60));
+    console.log('\n次のステップ:');
+    console.log('  1. data/images/kanagawa/yokohama-city/ の画像を確認');
+    console.log('  2. YAMLファイルに手動で情報を入力');
+    console.log('  3. または Claude に画像を見せて情報を抽出してもらう');
+  } catch (error) {
+    logger.logError(error);
+    logger.finalize(); // エラー時も履歴を保存
+    console.error('\n' + '='.repeat(60));
+    console.error('❌ エラーが発生しました');
+    console.error('='.repeat(60));
+    console.error(error);
+    process.exit(1);
+  }
 }
 
 // 実行
