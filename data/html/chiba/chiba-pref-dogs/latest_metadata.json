@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-13T11:21:46.345+09:00",
+  "url": "https://www.pref.chiba.lg.jp/aigo/pet/inu-neko/shuuyou/shuu-inu-tou.html",
+  "has_animals": true,
+  "html_size": 34345,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}

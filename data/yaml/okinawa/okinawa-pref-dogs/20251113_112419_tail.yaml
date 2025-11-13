@@ -1,0 +1,386 @@
+meta:
+  source_file: 20251113_112419_tail.html
+  source_url: https://www.aniwel-pref.okinawa/animals/transfer/dogs
+  extracted_at: '2025-11-13T11:24:19.767+09:00'
+  municipality: okinawa/okinawa-pref-dogs
+  municipality_id: 21
+  total_count: 18
+animals:
+  - external_id: '23409'
+    name: パピコ
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/23409/image.jpg
+    protection_date: 2025年10月20日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/dogs
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望犬情報
+    listing_type: adoption
+  - external_id: '23243'
+    name: 成犬譲渡促進プログラム　ソラ
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/23243/thumbnail_large_image.jpeg
+    protection_date: 2025年9月10日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/dogs
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望犬情報
+    listing_type: adoption
+  - external_id: '23215'
+    name: コテツ
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/23215/thumbnail_large_image.JPG
+    protection_date: 2025年9月4日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/dogs
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望犬情報
+    listing_type: adoption
+  - external_id: '22848'
+    name: ダッフィー
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/22848/thumbnail_large_image.JPG
+    protection_date: 2025年6月25日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/dogs
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望犬情報
+    listing_type: adoption
+  - external_id: '22818'
+    name: ポニョ
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/22818/thumbnail_large_image.jpg
+    protection_date: 2025年6月17日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/dogs
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望犬情報
+    listing_type: adoption
+  - external_id: '22811'
+    name: おかゆ
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/22811/thumbnail_large_image.JPG
+    protection_date: 2025年6月16日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/dogs
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望犬情報
+    listing_type: adoption
+  - external_id: '22794'
+    name: 杏
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/22794/thumbnail_large_image.jpg
+    protection_date: 2025年6月11日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/dogs
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望犬情報
+    listing_type: adoption
+  - external_id: '22746'
+    name: ちくわ
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/22746/thumbnail_large_image.jpg
+    protection_date: 2025年6月2日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/dogs
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望犬情報
+    listing_type: adoption
+  - external_id: '22544'
+    name: おこめ
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/22544/thumbnail_large_image.jpg
+    protection_date: 2025年4月21日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/dogs
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望犬情報
+    listing_type: adoption
+  - external_id: '22390'
+    name: れむ
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/22390/thumbnail_large_image.jpg
+    protection_date: 2025年3月26日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/dogs
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望犬情報
+    listing_type: adoption
+  - external_id: '22205'
+    name: パフィー
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/22205/thumbnail_large_image.jpg
+    protection_date: 2025年2月21日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/dogs
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望犬情報
+    listing_type: adoption
+  - external_id: '22151'
+    name: オスロ
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/22151/thumbnail_large_image.JPG
+    protection_date: 2025年2月10日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/dogs
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望犬情報
+    listing_type: adoption
+  - external_id: '21772'
+    name: ぽー
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/21772/thumbnail_large_image.JPG
+    protection_date: 2024年12月10日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/dogs
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望犬情報
+    listing_type: adoption
+  - external_id: '21646'
+    name: クッパ
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/21646/thumbnail_large_image.JPG
+    protection_date: 2024年11月22日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/dogs
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望犬情報
+    listing_type: adoption
+  - external_id: '21276'
+    name: シップ
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/21276/thumbnail_large_image.JPG
+    protection_date: 2024年9月19日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/dogs
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望犬情報
+    listing_type: adoption
+  - external_id: '21014'
+    name: キムチ
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: 環境調査中
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/21014/thumbnail_large_image.jpg
+    protection_date: 2024年8月2日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/dogs
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望犬情報
+    listing_type: adoption
+  - external_id: '20795'
+    name: なみ
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/20795/thumbnail_large_image.jpg
+    protection_date: 2024年6月26日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/dogs
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望犬情報
+    listing_type: adoption
+  - external_id: '20512'
+    name: ジャッキー
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.aniwel-pref.okinawa/files/animal/image/20512/thumbnail_large_image.jpg
+    protection_date: 2024年5月17日
+    deadline_date: null
+    status: available
+    source_url: https://www.aniwel-pref.okinawa/animals/transfer/dogs
+    confidence_level: medium
+    extraction_notes:
+      - 譲渡希望犬情報
+    listing_type: adoption
