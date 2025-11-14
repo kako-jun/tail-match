@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-15T03:31:02.034+09:00",
+  "url": "https://zuttoissho.com/omukae/animal/cat/",
+  "has_animals": true,
+  "html_size": 27135,
+  "scraper": "playwright",
+  "note": "リスト形式、仮名・年齢・毛色・施設名表示、「申込者あり」ステータス"
+}
