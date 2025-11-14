@@ -1,8 +1,8 @@
 metadata:
   version: 1.0.0
-  last_updated: '2025-11-15T02:22:06.470+09:00'
+  last_updated: '2025-11-15T03:06:06.162+09:00'
   purpose: スクレイピング動作確認・エラー履歴管理
-  total_scrapers: 37
+  total_scrapers: 38
 scrapers:
   hokkaido/hokkaido-pref:
     name: 北海道立動物愛護センター「あいにきた」
@@ -2200,6 +2200,58 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 297
+  fukuoka/kitakyushu-city-cats:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-15T03:02:42.813+09:00'
+    last_error: '2025-11-15T03:04:45.214+09:00'
+    last_error_message: numberCell is not defined
+    total_runs: 5
+    success_count: 1
+    error_count: 1
+    mismatch_count: 3
+    last_10_runs:
+      - timestamp: '2025-11-15T03:06:06.125+09:00'
+        status: mismatch
+        html_count: 11
+        yaml_count: 7
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで4匹減少 (11→7)
+        duration_ms: 193
+      - timestamp: '2025-11-15T03:05:18.698+09:00'
+        status: mismatch
+        html_count: 11
+        yaml_count: 4
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで7匹減少 (11→4)
+        duration_ms: 483
+      - timestamp: '2025-11-15T03:04:45.214+09:00'
+        status: error
+        html_count: 11
+        yaml_count: 4
+        db_count: 0
+        error_message: numberCell is not defined
+        warning: null
+        duration_ms: 432
+      - timestamp: '2025-11-15T03:02:58.934+09:00'
+        status: mismatch
+        html_count: 11
+        yaml_count: 4
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで7匹減少 (11→4)
+        duration_ms: 309
+      - timestamp: '2025-11-15T03:02:42.813+09:00'
+        status: success
+        html_count: 11
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 5874
 status_definitions:
   success: HTML収集→YAML抽出→DB投入が全て成功
   error: いずれかのステップでエラーが発生
