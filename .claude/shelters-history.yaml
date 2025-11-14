@@ -1,8 +1,8 @@
 metadata:
   version: 1.0.0
-  last_updated: '2025-11-13T18:45:35.424+09:00'
+  last_updated: '2025-11-15T02:22:06.470+09:00'
   purpose: スクレイピング動作確認・エラー履歴管理
-  total_scrapers: 35
+  total_scrapers: 37
 scrapers:
   hokkaido/hokkaido-pref:
     name: 北海道立動物愛護センター「あいにきた」
@@ -2120,6 +2120,86 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 109
+  aichi/aichi-pref-cats:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-15T02:14:16.455+09:00'
+    last_error: null
+    last_error_message: null
+    total_runs: 6
+    success_count: 6
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs:
+      - timestamp: '2025-11-15T02:14:16.455+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 4
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 244
+      - timestamp: '2025-11-15T02:13:18.507+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 1
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 272
+      - timestamp: '2025-11-15T02:13:05.607+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 1
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 270
+      - timestamp: '2025-11-15T02:12:47.649+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 1
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 359
+      - timestamp: '2025-11-15T02:12:22.208+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 1
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 156
+      - timestamp: '2025-11-15T02:10:45.495+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 1
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 408
+  aichi/aichi-pref-dogs:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-15T02:22:06.448+09:00'
+    last_error: null
+    last_error_message: null
+    total_runs: 1
+    success_count: 1
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs:
+      - timestamp: '2025-11-15T02:22:06.448+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 3
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 297
 status_definitions:
   success: HTML収集→YAML抽出→DB投入が全て成功
   error: いずれかのステップでエラーが発生
