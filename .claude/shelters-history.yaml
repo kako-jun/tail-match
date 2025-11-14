@@ -1,8 +1,8 @@
 metadata:
   version: 1.0.0
-  last_updated: '2025-11-15T03:33:10.920+09:00'
+  last_updated: '2025-11-15T03:44:39.868+09:00'
   purpose: スクレイピング動作確認・エラー履歴管理
-  total_scrapers: 40
+  total_scrapers: 42
 scrapers:
   hokkaido/hokkaido-pref:
     name: 北海道立動物愛護センター「あいにきた」
@@ -2308,6 +2308,70 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 6017
+  fukuoka/fukuoka-pref-cats:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-15T03:43:28.123+09:00'
+    last_error: null
+    last_error_message: null
+    total_runs: 3
+    success_count: 2
+    error_count: 0
+    mismatch_count: 1
+    last_10_runs:
+      - timestamp: '2025-11-15T03:43:28.123+09:00'
+        status: success
+        html_count: 10
+        yaml_count: 10
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 288
+      - timestamp: '2025-11-15T03:42:11.575+09:00'
+        status: mismatch
+        html_count: 10
+        yaml_count: 5
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで5匹減少 (10→5)
+        duration_ms: 242
+      - timestamp: '2025-11-15T03:41:57.748+09:00'
+        status: success
+        html_count: 10
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 8724
+  fukuoka/fukuoka-pref-dogs:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-15T03:44:39.788+09:00'
+    last_error: null
+    last_error_message: null
+    total_runs: 2
+    success_count: 2
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs:
+      - timestamp: '2025-11-15T03:44:39.788+09:00'
+        status: success
+        html_count: 5
+        yaml_count: 5
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 521
+      - timestamp: '2025-11-15T03:44:37.802+09:00'
+        status: success
+        html_count: 5
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 8983
 status_definitions:
   success: HTML収集→YAML抽出→DB投入が全て成功
   error: いずれかのステップでエラーが発生

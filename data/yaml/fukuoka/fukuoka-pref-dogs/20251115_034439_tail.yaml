@@ -1,0 +1,114 @@
+meta:
+  source_file: 20251115_034437_tail.html
+  source_url: https://www.zaidan-fukuoka-douai.or.jp/animals/centers/dog
+  extracted_at: '2025-11-15T03:44:39.777+09:00'
+  municipality: fukuoka/fukuoka-pref-dogs
+  municipality_id: null
+  total_count: 5
+  note: 福岡県動物愛護センター譲渡犬情報（公益財団法人運営）
+animals:
+  - external_id: fukuoka-pref-89aae2f2-314a-4a30-972b-1e36c31a05c6
+    name: No.4617
+    animal_type: dog
+    breed: null
+    age_estimate: 2歳～5歳
+    gender: female
+    color: null
+    size: null
+    health_status: 現在の体重：８．３ｋｇ
+    personality: null
+    special_needs: '推定生年月日: ２０２３年９月２６日頃'
+    images:
+      - https://www.zaidan-fukuoka-douai.or.jp/animals/center-detail/89aae2f2-314a-4a30-972b-1e36c31a05c6
+    protection_date: 2025年10月9日
+    deadline_date: null
+    status: available
+    source_url: https://www.zaidan-fukuoka-douai.or.jp/animals/centers/dog
+    confidence_level: high
+    extraction_notes:
+      - 募集中
+    listing_type: adoption
+  - external_id: fukuoka-pref-16d9ee7a-1a0a-4eb0-a938-d53497121fbd
+    name: No.4500
+    animal_type: dog
+    breed: null
+    age_estimate: 6歳～10歳
+    gender: female
+    color: null
+    size: null
+    health_status: １１．１Kg（適正体重８Kg位）
+    personality: null
+    special_needs: '推定生年月日: ２０１７年１０月３０日頃'
+    images:
+      - https://www.zaidan-fukuoka-douai.or.jp/animals/center-detail/16d9ee7a-1a0a-4eb0-a938-d53497121fbd
+    protection_date: 2025年09月29日
+    deadline_date: null
+    status: available
+    source_url: https://www.zaidan-fukuoka-douai.or.jp/animals/centers/dog
+    confidence_level: high
+    extraction_notes:
+      - 募集中
+    listing_type: adoption
+  - external_id: fukuoka-pref-ca413369-f266-4d64-92ac-c91071414998
+    name: No.4482
+    animal_type: dog
+    breed: null
+    age_estimate: 4か月～1歳
+    gender: female
+    color: null
+    size: null
+    health_status: 現在の体重：８．２Kg（予想体重：１２Kg～）
+    personality: null
+    special_needs: '推定生年月日: ２０２５年３月１日頃'
+    images:
+      - https://www.zaidan-fukuoka-douai.or.jp/animals/center-detail/ca413369-f266-4d64-92ac-c91071414998
+    protection_date: 2025年08月7日
+    deadline_date: null
+    status: available
+    source_url: https://www.zaidan-fukuoka-douai.or.jp/animals/centers/dog
+    confidence_level: high
+    extraction_notes:
+      - 募集中
+    listing_type: adoption
+  - external_id: fukuoka-pref-96452ae8-2a20-406f-8dfe-05aa4f957c75
+    name: No.4409
+    animal_type: dog
+    breed: null
+    age_estimate: 2歳～5歳
+    gender: male
+    color: null
+    size: null
+    health_status: 現在の体重：１０．７Kg（適正体重：１２Ｋｇ位）
+    personality: null
+    special_needs: '推定生年月日: ２０２０年７月４日頃'
+    images:
+      - https://www.zaidan-fukuoka-douai.or.jp/animals/center-detail/96452ae8-2a20-406f-8dfe-05aa4f957c75
+    protection_date: 2025年07月14日
+    deadline_date: null
+    status: available
+    source_url: https://www.zaidan-fukuoka-douai.or.jp/animals/centers/dog
+    confidence_level: high
+    extraction_notes:
+      - 募集中
+    listing_type: adoption
+  - external_id: fukuoka-pref-e0917e40-ac56-4e8c-a952-3e0e20485f90
+    name: No.3955
+    animal_type: dog
+    breed: null
+    age_estimate: 4か月～1歳
+    gender: male
+    color: null
+    size: null
+    health_status: 現在の体重：１５．２Kg
+    personality: null
+    special_needs: '推定生年月日: ２０２４年２月２４日頃'
+    images:
+      - https://www.zaidan-fukuoka-douai.or.jp/animals/center-detail/e0917e40-ac56-4e8c-a952-3e0e20485f90
+    protection_date: 2024年10月30日
+    deadline_date: null
+    status: available
+    source_url: https://www.zaidan-fukuoka-douai.or.jp/animals/centers/dog
+    confidence_level: high
+    extraction_notes:
+      - 募集中
+    listing_type: adoption
