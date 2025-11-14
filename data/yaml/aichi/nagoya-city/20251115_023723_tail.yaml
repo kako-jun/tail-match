@@ -1,0 +1,221 @@
+meta:
+  source_file: 20251115_022244_tail.html
+  source_url: https://dog-cat-support.nagoya/adoption/
+  extracted_at: '2025-11-15T03:00:00.000+09:00'
+  municipality: aichi/nagoya-city
+  total_count: 9
+  available_count: 9
+  adopted_count: 0
+  last_available_date: '2025-11-14'
+  extraction_type: image_ocr_completed
+  note: 画像から情報を抽出済み。譲渡動物情報（新しい飼い主募集中）
+confidence_level: high
+consistency_warnings: []
+animals:
+  - external_id: nagoya-251114-001
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 10歳
+    gender: male
+    color: 茶トラ
+    size: null
+    health_status: 良好、避妊去勢済、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済(2020年12月)
+    personality: おとなしい
+    special_needs: 現在飼っている住居が身内の不幸により、立ち退きする為
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251114/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251114-001.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2389'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251114-002
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 7歳
+    gender: female
+    color: キジトラ
+    size: null
+    health_status: 良好、避妊去勢済、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済(2020年7月)
+    personality: 活発
+    special_needs: 現在飼っている住居が身内の不幸により、立ち退きする為
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251114/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251114-002.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2390'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251114-003
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 7歳
+    gender: female
+    color: キジトラ
+    size: null
+    health_status: 良好、避妊去勢済、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済(2021年12月)
+    personality: おとなしい
+    special_needs: 現在飼っている住居が身内の不幸により、立ち退きする為
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251114/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251114-003.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2391'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251114-004
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 5歳
+    gender: female
+    color: 三毛
+    size: null
+    health_status: 良好、避妊去勢済、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済(2021年10月)
+    personality: 臆病
+    special_needs: 現在飼っている住居が身内の不幸により、立ち退きする為
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251114/004.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251114-004.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2392'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251113-001
+    name: null
+    animal_type: cat
+    breed: ラグドール
+    age_estimate: 8歳
+    gender: female
+    color: ブルーポイントバイカラー
+    size: null
+    health_status: 良好、避妊去勢済、マイクロチップ有、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済
+    personality: 穏やか、かなり甘えん坊で独占欲が強い、攻撃的
+    special_needs: 家庭の事情で飼育が困難になったため。妹妹が強いので、できれば先住猫のいない家庭
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251113/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251113-001.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2385'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251113-002
+    name: null
+    animal_type: cat
+    breed: ブリティッシュショートヘアー
+    age_estimate: 10歳
+    gender: female
+    color: ブルー
+    size: null
+    health_status: 良好、避妊去勢済、マイクロチップ有、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済
+    personality: おとなしい、温厚
+    special_needs: 家庭の事情で飼育が困難になったため。動けると甘えん坊なため、その要望に答えてくださる方
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251113/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251113-002.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2386'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251113-003
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 5～6歳
+    gender: female
+    color: 黒(エンジェルマーク有)
+    size: null
+    health_status: 良好、避妊去勢済、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済
+    personality: 大人しく臆病。猫じゃらして遊ぶのが好き・撫でられる事が好き・ブラッシング大好き。夜はトイレなど人を起こさないように抜き足差し足で人のリズムに合わせて暮らせる気遣い出来る猫です。
+    special_needs: お外でお世話をしていたが勝手に玄関にあったキャリーに入り暮らし始めたので保護しました。
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251113/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251113-003.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2387'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251113-004
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 1歳7ヶ月
+    gender: female
+    color: キジ白(キジ柄が明るめ茶色)
+    size: null
+    health_status: 良好、避妊去勢済、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済
+    personality: ボールや猫じゃらして上手に遊べて好奇心旺盛。ご機嫌上手で触ってもそこまで大好き。
+    special_needs: 家の敷地に来る野良猫を保護したが病気の保護猫がいるので飼えない。希望者様に送り事項としてあげたが、一緒に遊んだりする時間を確保して頂けたら嬉しいです。
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251113/004.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251113-004.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2388'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251112-001
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 6歳
+    gender: male
+    color: 白
+    size: null
+    health_status: 良好、避妊去勢済、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種
+    personality: 心優しく小心者、見た目とのギャップにびっくり
+    special_needs: 転居のため。
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251112/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251112-001.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2375'
+    listing_type: adoption
+    needs_review: false
