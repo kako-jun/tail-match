@@ -1299,30 +1299,34 @@ prefectures:
       - name: "福岡市動物愛護管理センター「わんにゃんよかネット」"
         city: "福岡市"
         type: "designated_city"
-        status: "pending"
-        scraper_path: null
-        page_type: "unknown"
+        status: "implemented"
+        scraper_path: "scripts/scrapers/fukuoka/fukuoka-city-cats, scripts/scrapers/fukuoka/fukuoka-city-dogs"
+        page_type: "separate"
         url: "https://wannyan.city.fukuoka.lg.jp/"
+        url_cats: "https://zuttoissho.com/omukae/animal/cat/"
+        url_dogs: "https://zuttoissho.com/omukae/animal/dog/"
         contact:
           phone: null
           address: "福岡市西区内浜1-4-22"
           email: null
           postal_code: "819-0005"
-        notes: "センター譲渡、動物愛護団体譲渡、個人間譲渡の3種類。試用期間あり"
+        notes: "外部サイト（zuttoissho.com）でリスト形式、仮名・年齢・毛色・施設名表示。実装完了 (2025-11-15)"
 
       - name: "北九州市動物愛護センター"
         city: "北九州市"
         type: "designated_city"
-        status: "pending"
-        scraper_path: null
-        page_type: "unknown"
+        status: "implemented"
+        scraper_path: "scripts/scrapers/fukuoka/kitakyushu-city-cats, scripts/scrapers/fukuoka/kitakyushu-city-dogs"
+        page_type: "separate"
         url: "https://www.city.kitakyushu.lg.jp/contents/924_11835.html"
+        url_cats: "https://www.city.kitakyushu.lg.jp/contents/924_11835.html"
+        url_dogs: "https://www.city.kitakyushu.lg.jp/contents/924_11835.html"
         contact:
           phone: "093-581-1800"
           address: "北九州市小倉北区西港町24-7"
           email: null
           postal_code: "803-0801"
-        notes: "事前電話予約制。毎月第2土曜日に譲渡会開催。65歳以上は後見人同伴必要"
+        notes: "成猫・子猫のテーブル形式、検査結果あり。実装完了 (2025-11-15)"
 
   - prefecture_name: "佐賀県"
     prefecture_code: "41"
