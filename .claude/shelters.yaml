@@ -3,13 +3,13 @@
 # データソース: データベース実装済み施設（正確なURL・連絡先）+ 市レベル施設調査
 
 metadata:
-  version: "5.0.0"
-  last_updated: "2025-11-13"
-  total_facilities: 78   # 全施設数（実装済み22 + 未実装56）
-  total_implemented: 22  # 実装済み自治体数
-  total_pending: 56      # 未実装施設数（調査済みURL）
-  total_scrapers: 28     # 猫犬別ページ含む
-  implementation_rate: "28.2%"  # 実装率
+  version: "5.1.0"
+  last_updated: "2025-11-15"
+  total_facilities: 78   # 全施設数（実装済み23 + 未実装55）
+  total_implemented: 23  # 実装済み自治体数
+  total_pending: 55      # 未実装施設数（調査済みURL）
+  total_scrapers: 30     # 猫犬別ページ含む
+  implementation_rate: "29.5%"  # 実装率（23/78）
   status: "運用中"
   notes: |
     このファイルは全国の保護施設情報を都道府県単位で管理します。
@@ -19,15 +19,15 @@ metadata:
 
 # 実装状況サマリー
 implementation_summary:
-  implemented_prefectures: 10      # 北海道、東京、神奈川、埼玉、千葉、富山、石川、福井、京都、大阪、兵庫、沖縄
-  pending_prefectures: 37          # 残り37都道府県
-  implemented_facilities: 22       # 実装済み自治体
-  scraper_count: 28                # 猫専用17 + 犬専用7 + 混在4
+  implemented_prefectures: 11      # 北海道、東京、神奈川、埼玉、千葉、富山、石川、福井、京都、大阪、兵庫、愛知、沖縄
+  pending_prefectures: 36          # 残り36都道府県
+  implemented_facilities: 23       # 実装済み自治体
+  scraper_count: 30                # 猫専用18 + 犬専用8 + 混在4
 
   by_type:
     mixed_pages: 4                 # 犬猫混在ページ
-    cat_only_pages: 17             # 猫専用ページ
-    dog_only_pages: 7              # 犬専用ページ
+    cat_only_pages: 18             # 猫専用ページ（愛知県追加）
+    dog_only_pages: 8              # 犬専用ページ（愛知県追加）
 
 # ========================================
 # 47都道府県別施設リスト
@@ -755,30 +755,32 @@ prefectures:
         city: null
         type: "prefecture"
         status: "pending"
-        scraper_path: null
-        page_type: "unknown"
-        url: "https://www.pref.aichi.jp/soshiki/dobutsu/"
-        url_adoption: "https://www.pref.aichi.jp/soshiki/dobutsu/neko-joto.html"
+        scraper_path: "scripts/scrapers/aichi/aichi-pref-cats, scripts/scrapers/aichi/aichi-pref-dogs"
+        page_type: "separate"
+        url: "https://www.pref.aichi.jp/soshiki/doukan-c/"
+        url_cats: "https://www.pref.aichi.jp/soshiki/doukan-c/honsyoneko.html, https://www.pref.aichi.jp/soshiki/doukan-c/owarineko.html, https://www.pref.aichi.jp/soshiki/doukan-c/titaneko.html"
+        url_dogs: "https://www.pref.aichi.jp/soshiki/doukan-c/honsyoinu.html, https://www.pref.aichi.jp/soshiki/doukan-c/owariinu.html"
         contact:
           phone: "0565-58-2323"
           address: "愛知県豊田市穂積町新屋73-3"
           email: null
           postal_code: "470-1201"
-        notes: "未実装、調査済み"
+        notes: "3支所（本所・尾張・知多）統合。猫: テーブル形式、管理No.で識別。犬: 本所・尾張のみ（知多は404）。実装中 (2025-11-15)"
 
       - name: "名古屋市動物愛護センター「人とペットの共生サポートセンター」"
         city: "名古屋市"
         type: "designated_city"
         status: "pending"
-        scraper_path: null
-        page_type: "unknown"
+        scraper_path: "scripts/scrapers/aichi/nagoya-city"
+        page_type: "mixed"
         url: "https://dog-cat-support.nagoya/"
+        url_adoption: "https://dog-cat-support.nagoya/adoption/"
         contact:
           phone: "052-762-1515"
           address: null
           email: null
           postal_code: null
-        notes: "公益社団法人名古屋市獣医師会が運営。月例譲渡会開催"
+        notes: "公益社団法人名古屋市獣医師会が運営。画像ベース（OCR必要）。ステータス画像で譲渡状況表示。堺市・横浜市と同じOCR方式。実装中 (2025-11-15)"
 
   # ========================================
   # 近畿地方
