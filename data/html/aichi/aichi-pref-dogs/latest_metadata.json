@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-11-15T02:21:43.479+09:00",
+  "urls": [
+    "https://www.pref.aichi.jp/soshiki/doukan-c/honsyoinu.html",
+    "https://www.pref.aichi.jp/soshiki/doukan-c/owariinu.html"
+  ],
+  "branches": ["honjo", "owari"],
+  "has_animals": true,
+  "html_size": 45586,
+  "scraper": "playwright",
+  "note": "愛知県全支所統合・犬譲渡情報（知多支所は犬用ページなし）"
+}

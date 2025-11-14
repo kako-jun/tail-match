@@ -1,0 +1,76 @@
+meta:
+  source_file: 20251115_022143_tail.html
+  source_urls:
+    - https://www.pref.aichi.jp/soshiki/doukan-c/honsyoinu.html
+    - https://www.pref.aichi.jp/soshiki/doukan-c/owariinu.html
+  extracted_at: '2025-11-15T02:22:06.442+09:00'
+  municipality: aichi/aichi-pref-dogs
+  total_count: 3
+  note: 愛知県全支所統合・譲渡候補犬情報
+animals:
+  - external_id: aichi-honjo-26
+    name: null
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.aichi.jp/uploaded/image/315750.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.aichi.jp/soshiki/doukan-c/honsyoinu.html
+    confidence_level: high
+    extraction_notes:
+      - honjo支所
+      - 管理No.26
+    listing_type: adoption
+  - external_id: aichi-honjo-27
+    name: null
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.aichi.jp/uploaded/image/315751.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.aichi.jp/soshiki/doukan-c/honsyoinu.html
+    confidence_level: high
+    extraction_notes:
+      - honjo支所
+      - 管理No.27
+    listing_type: adoption
+  - external_id: aichi-honjo-31
+    name: null
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.aichi.jp/uploaded/image/315753.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.aichi.jp/soshiki/doukan-c/honsyoinu.html
+    confidence_level: high
+    extraction_notes:
+      - honjo支所
+      - 管理No.31
+    listing_type: adoption

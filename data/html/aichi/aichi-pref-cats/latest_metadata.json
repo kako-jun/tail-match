@@ -1,0 +1,13 @@
+{
+  "timestamp": "2025-11-15T02:10:24.969+09:00",
+  "urls": [
+    "https://www.pref.aichi.jp/soshiki/doukan-c/honsyoneko.html",
+    "https://www.pref.aichi.jp/soshiki/doukan-c/owarineko.html",
+    "https://www.pref.aichi.jp/soshiki/doukan-c/titaneko.html"
+  ],
+  "branches": ["honjo", "owari", "chita"],
+  "has_animals": true,
+  "html_size": 76219,
+  "scraper": "playwright",
+  "note": "愛知県全支所統合・猫譲渡情報"
+}
