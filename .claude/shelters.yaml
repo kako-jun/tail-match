@@ -1284,17 +1284,18 @@ prefectures:
       - name: "福岡県動物愛護センター"
         city: null
         type: "prefecture"
-        status: "pending"
-        scraper_path: null
-        page_type: "unknown"
-        url: "https://www.pref.fukuoka.lg.jp/contents/doubutsu-aigo.html"
-        url_adoption: "https://www.pref.fukuoka.lg.jp/contents/jyoutocat.html"
+        status: "implemented"
+        scraper_path: "scripts/scrapers/fukuoka/fukuoka-pref-cats, scripts/scrapers/fukuoka/fukuoka-pref-dogs"
+        page_type: "separate"
+        url: "https://www.pref.fukuoka.lg.jp/contents/douaicenter.html"
+        url_cats: "https://www.zaidan-fukuoka-douai.or.jp/animals/centers/cat"
+        url_dogs: "https://www.zaidan-fukuoka-douai.or.jp/animals/centers/dog"
         contact:
           phone: "092-944-1281"
           address: "福岡県古賀市小竹131-2"
           email: null
           postal_code: "811-3135"
-        notes: "未実装、調査済み"
+        notes: "公益財団法人運営。カード形式、No.番号・性別・年齢・体サイズ・体重表示。実装完了 (2025-11-15)"
 
       - name: "福岡市動物愛護管理センター「わんにゃんよかネット」"
         city: "福岡市"
