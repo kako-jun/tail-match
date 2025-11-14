@@ -1,0 +1,219 @@
+meta:
+  source_file: 20251115_034157_tail.html
+  source_url: https://www.zaidan-fukuoka-douai.or.jp/animals/centers/cat
+  extracted_at: '2025-11-15T03:43:28.109+09:00'
+  municipality: fukuoka/fukuoka-pref-cats
+  municipality_id: null
+  total_count: 10
+  note: 福岡県動物愛護センター譲渡猫情報（公益財団法人運営）
+animals:
+  - external_id: fukuoka-pref-81e48d63-1409-4385-8942-8446f51fa4ba
+    name: No.4626
+    animal_type: cat
+    breed: null
+    age_estimate: 3ヵ月以下
+    gender: male
+    color: null
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: '推定生年月日: ２０２５年８月７日頃'
+    images:
+      - https://www.zaidan-fukuoka-douai.or.jp/animals/center-detail/81e48d63-1409-4385-8942-8446f51fa4ba
+    protection_date: 2025年10月29日
+    deadline_date: null
+    status: available
+    source_url: https://www.zaidan-fukuoka-douai.or.jp/animals/centers/cat
+    confidence_level: high
+    extraction_notes:
+      - 募集中
+    listing_type: adoption
+  - external_id: fukuoka-pref-a4f56e5b-6ff7-40e9-b989-a6e89891979d
+    name: No.4654
+    animal_type: cat
+    breed: null
+    age_estimate: 3ヵ月以下
+    gender: female
+    color: null
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: '推定生年月日: ２０２５年８月５日頃'
+    images:
+      - https://www.zaidan-fukuoka-douai.or.jp/animals/center-detail/a4f56e5b-6ff7-40e9-b989-a6e89891979d
+    protection_date: 2025年10月21日
+    deadline_date: null
+    status: available
+    source_url: https://www.zaidan-fukuoka-douai.or.jp/animals/centers/cat
+    confidence_level: high
+    extraction_notes:
+      - 募集中
+    listing_type: adoption
+  - external_id: fukuoka-pref-3b8c9bda-508e-42ae-bc34-80765c000859
+    name: No.4641
+    animal_type: cat
+    breed: null
+    age_estimate: 3ヵ月以下
+    gender: male
+    color: null
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: '推定生年月日: ２０２５年８月１２日頃'
+    images:
+      - https://www.zaidan-fukuoka-douai.or.jp/animals/center-detail/3b8c9bda-508e-42ae-bc34-80765c000859
+    protection_date: 2025年10月19日
+    deadline_date: null
+    status: available
+    source_url: https://www.zaidan-fukuoka-douai.or.jp/animals/centers/cat
+    confidence_level: high
+    extraction_notes:
+      - 募集中
+    listing_type: adoption
+  - external_id: fukuoka-pref-c53e9419-4979-4c6e-a9dd-d024e501387d
+    name: No.4485
+    animal_type: cat
+    breed: null
+    age_estimate: 2歳～5歳
+    gender: female
+    color: null
+    size: 大型
+    health_status: 4.3kg
+    personality: null
+    special_needs: '推定生年月日: ２０２２年７月２９日頃'
+    images:
+      - https://www.zaidan-fukuoka-douai.or.jp/animals/center-detail/c53e9419-4979-4c6e-a9dd-d024e501387d
+    protection_date: 2025年08月29日
+    deadline_date: null
+    status: available
+    source_url: https://www.zaidan-fukuoka-douai.or.jp/animals/centers/cat
+    confidence_level: high
+    extraction_notes:
+      - 募集中
+    listing_type: adoption
+  - external_id: fukuoka-pref-a1d3f7d1-5849-46e0-b226-2490cbcfc3db
+    name: No.4484
+    animal_type: cat
+    breed: null
+    age_estimate: 2歳～5歳
+    gender: male
+    color: null
+    size: 大型
+    health_status: ４．９５kg
+    personality: null
+    special_needs: '推定生年月日: ２０２０年７月２９日頃'
+    images:
+      - https://www.zaidan-fukuoka-douai.or.jp/animals/center-detail/a1d3f7d1-5849-46e0-b226-2490cbcfc3db
+    protection_date: 2025年08月29日
+    deadline_date: null
+    status: available
+    source_url: https://www.zaidan-fukuoka-douai.or.jp/animals/centers/cat
+    confidence_level: high
+    extraction_notes:
+      - 募集中
+    listing_type: adoption
+  - external_id: fukuoka-pref-a6a8d918-21e2-4dd3-b604-5994db867e3c
+    name: No.4464
+    animal_type: cat
+    breed: null
+    age_estimate: 4か月～1歳
+    gender: female
+    color: null
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: '推定生年月日: ２０２５年５月１２日頃'
+    images:
+      - https://www.zaidan-fukuoka-douai.or.jp/animals/center-detail/a6a8d918-21e2-4dd3-b604-5994db867e3c
+    protection_date: 2025年08月13日
+    deadline_date: null
+    status: available
+    source_url: https://www.zaidan-fukuoka-douai.or.jp/animals/centers/cat
+    confidence_level: high
+    extraction_notes:
+      - 募集中
+    listing_type: adoption
+  - external_id: fukuoka-pref-c5ab4c02-95f0-462a-b548-efa90eb0e105
+    name: No.4361
+    animal_type: cat
+    breed: null
+    age_estimate: 4か月～1歳
+    gender: male
+    color: null
+    size: 小型
+    health_status: null
+    personality: null
+    special_needs: '推定生年月日: ２０２５年５月１６日頃生'
+    images:
+      - https://www.zaidan-fukuoka-douai.or.jp/animals/center-detail/c5ab4c02-95f0-462a-b548-efa90eb0e105
+    protection_date: 2025年07月17日
+    deadline_date: null
+    status: available
+    source_url: https://www.zaidan-fukuoka-douai.or.jp/animals/centers/cat
+    confidence_level: high
+    extraction_notes:
+      - 募集中
+    listing_type: adoption
+  - external_id: fukuoka-pref-9840691b-2619-417e-b0b1-f0ab39379eae
+    name: No.4294
+    animal_type: cat
+    breed: null
+    age_estimate: 4か月～1歳
+    gender: male
+    color: null
+    size: 中型
+    health_status: null
+    personality: null
+    special_needs: '推定生年月日: ２０２３年１１月１６日頃'
+    images:
+      - https://www.zaidan-fukuoka-douai.or.jp/animals/center-detail/9840691b-2619-417e-b0b1-f0ab39379eae
+    protection_date: 2025年05月30日
+    deadline_date: null
+    status: available
+    source_url: https://www.zaidan-fukuoka-douai.or.jp/animals/centers/cat
+    confidence_level: high
+    extraction_notes:
+      - 募集中
+    listing_type: adoption
+  - external_id: fukuoka-pref-08ccdc15-86ed-4718-a588-e8a80ac7e54d
+    name: No.4039
+    animal_type: cat
+    breed: null
+    age_estimate: 2歳～5歳
+    gender: male
+    color: null
+    size: 大型
+    health_status: null
+    personality: null
+    special_needs: '推定生年月日: ２０１９年１２月１０日頃'
+    images:
+      - https://www.zaidan-fukuoka-douai.or.jp/animals/center-detail/08ccdc15-86ed-4718-a588-e8a80ac7e54d
+    protection_date: 2024年12月26日
+    deadline_date: null
+    status: available
+    source_url: https://www.zaidan-fukuoka-douai.or.jp/animals/centers/cat
+    confidence_level: high
+    extraction_notes:
+      - 募集中
+    listing_type: adoption
+  - external_id: fukuoka-pref-736949a9-6105-421f-b564-3b2f151e908f
+    name: No.4038
+    animal_type: cat
+    breed: null
+    age_estimate: 2歳～5歳
+    gender: male
+    color: null
+    size: 大型
+    health_status: null
+    personality: null
+    special_needs: '推定生年月日: ２０１９年１２月１０日頃'
+    images:
+      - https://www.zaidan-fukuoka-douai.or.jp/animals/center-detail/736949a9-6105-421f-b564-3b2f151e908f
+    protection_date: 2024年12月26日
+    deadline_date: null
+    status: available
+    source_url: https://www.zaidan-fukuoka-douai.or.jp/animals/centers/cat
+    confidence_level: high
+    extraction_notes:
+      - 募集中
+    listing_type: adoption
