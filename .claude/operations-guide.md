@@ -108,14 +108,39 @@ grep "全施設自動スクレイピング完了" logs/cron.log
 - ✅ 画像は全てダウンロード済み
 - ❌ 詳細データ（年齢、性別、毛色など）は**null**
 
-### 手動OCR処理手順
+### OCR処理手順
+
+#### 方法1: Google Cloud Vision API（推奨・無料）
+
+```bash
+# 1. Google Cloud Vision API設定（初回のみ）
+# https://console.cloud.google.com/ でプロジェクト作成
+# Vision API を有効化
+# サービスアカウント作成 → キーをダウンロード
+export GOOGLE_APPLICATION_CREDENTIALS="/path/to/key.json"
+npm install @google-cloud/vision
+
+# 2. OCR実行（月1,000リクエストまで無料）
+node scripts/scrapers/aichi/nagoya-city/ocr-extract.js
+# → data/ocr/aichi/nagoya-city/extracted_data.json が生成される
+
+# 3. extracted_data.json を update-yaml-from-images.js にコピー
+# （JSONの中身を extractedData オブジェクトに貼り付け）
+
+# 4. YAML更新
+node scripts/scrapers/aichi/nagoya-city/update-yaml-from-images.js
+
+# 5. DB投入
+node scripts/core/yaml-to-db.js
+```
+
+#### 方法2: Claudeエージェントに依頼（手動）
 
 ```bash
 # 1. 画像を確認
 ls -lt scripts/scrapers/aichi/nagoya-city/data/images/aichi/nagoya-city/*.jpg | head -10
 
-# 2. Claudeエージェントに画像を読ませて extractedData を生成
-# （Claudeセッションで以下を依頼）
+# 2. Claudeセッションで依頼
 # 「名古屋市の新しい画像を読んで、extractedData オブジェクトを更新してください」
 
 # 3. update-yaml-from-images.js の extractedData を更新（手動）
