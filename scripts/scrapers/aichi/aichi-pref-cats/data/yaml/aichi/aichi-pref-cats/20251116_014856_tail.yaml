@@ -1,0 +1,99 @@
+meta:
+  source_file: 20251116_014807_tail.html
+  source_urls:
+    - https://www.pref.aichi.jp/soshiki/doukan-c/honsyoneko.html
+    - https://www.pref.aichi.jp/soshiki/doukan-c/owarineko.html
+    - https://www.pref.aichi.jp/soshiki/doukan-c/titaneko.html
+  extracted_at: '2025-11-16T01:48:56.892+09:00'
+  municipality: aichi/aichi-pref-cats
+  total_count: 4
+  note: 愛知県全支所統合・譲渡候補猫情報
+animals:
+  - external_id: aichi-honjo-24
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: 2歳
+    gender: female
+    color: 雑種
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.aichi.jp/uploaded/image/314825.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.aichi.jp/soshiki/doukan-c/honsyoneko.html
+    confidence_level: high
+    extraction_notes:
+      - honjo支所
+      - 管理No.24
+    listing_type: adoption
+  - external_id: aichi-owari-50
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: 雑種
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.aichi.jp/uploaded/image/316937.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.aichi.jp/soshiki/doukan-c/owarineko.html
+    confidence_level: high
+    extraction_notes:
+      - owari支所
+      - 管理No.50
+    listing_type: adoption
+  - external_id: aichi-owari-51
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: 雑種
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.aichi.jp/uploaded/image/316938.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.aichi.jp/soshiki/doukan-c/owarineko.html
+    confidence_level: high
+    extraction_notes:
+      - owari支所
+      - 管理No.51
+    listing_type: adoption
+  - external_id: aichi-owari-52
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: female
+    color: 雑種
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.aichi.jp/uploaded/image/316939.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.aichi.jp/soshiki/doukan-c/owarineko.html
+    confidence_level: high
+    extraction_notes:
+      - owari支所
+      - 管理No.52
+    listing_type: adoption
