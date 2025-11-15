@@ -31,7 +31,8 @@ async function scrapeWithPlaywright() {
     console.log('🌐 ブラウザ起動中...');
     browser = await chromium.launch({ headless: true });
     const context = await browser.newContext({
-      userAgent: 'TailMatch-Scraper/1.0 (+https://github.com/your-org/tail-match)',
+      userAgent:
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
     });
     const page = await context.newPage();
 

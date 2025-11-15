@@ -16,7 +16,8 @@ const CONFIG = {
   url: 'https://www.aniwel-pref.okinawa/animals/transfer/dogs',
   timeout: 30000,
   waitTime: 5000,
-  userAgent: 'TailMatch/1.0 (+https://tail-match.llll-ll.com) - 保護犬情報収集Bot',
+  userAgent:
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
 };
 
 async function main() {
