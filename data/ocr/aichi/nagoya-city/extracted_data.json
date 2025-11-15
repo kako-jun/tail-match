@@ -16,7 +16,7 @@
     "breed": "雑種ulsご",
     "color": null,
     "gender": "female",
-    "age_estimate": null,
+    "age_estimate": "5ヵ月",
     "health_status": null,
     "personality": "活発 ・ 人 な つっ こい",
     "special_needs": null
@@ -313,7 +313,7 @@
     "breed": "雑種",
     "color": "キジ白",
     "gender": "male",
-    "age_estimate": null,
+    "age_estimate": "3ヵ月",
     "health_status": null,
     "personality": "活発",
     "special_needs": null
@@ -345,7 +345,7 @@
     "animal_type": "dog",
     "breed": null,
     "color": "キジトラ",
-    "gender": "unknown",
+    "gender": "male",
     "age_estimate": null,
     "health_status": null,
     "personality": "活 発",
