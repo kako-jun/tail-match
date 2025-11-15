@@ -103,7 +103,8 @@ async function scrapeHTML() {
     // 成猫ページ取得
     console.log(`🌐 アクセス: ${CONFIG.urls.adults} (成猫)`);
     const adultPage = await browser.newPage({
-      userAgent: 'TailMatchBot/1.0 (+https://github.com/yourusername/tail-match) Playwright/1.40.0',
+      userAgent:
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
     });
 
     await adultPage.goto(CONFIG.urls.adults, {
@@ -127,7 +128,8 @@ async function scrapeHTML() {
     // 子猫ページ取得
     console.log(`\n🌐 アクセス: ${CONFIG.urls.kittens} (子猫)`);
     const kittenPage = await browser.newPage({
-      userAgent: 'TailMatchBot/1.0 (+https://github.com/yourusername/tail-match) Playwright/1.40.0',
+      userAgent:
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
     });
 
     await kittenPage.goto(CONFIG.urls.kittens, {
