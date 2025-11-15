@@ -3238,7 +3238,7 @@ scrapers:
         yaml_count: 123
         db_count: 0
         error_message: null
-        warning: OCR処理: 18/123匹のデータを抽出済み、残り105匹は未処理
+        warning: "OCR処理: 18/123匹のデータを抽出済み、残り105匹は未処理"
         duration_ms: null
         notes: 画像OCR方式、18匹のデータを抽出完了
 status_definitions:
