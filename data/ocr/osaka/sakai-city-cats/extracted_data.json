@@ -1,0 +1,123 @@
+{
+  "R7_1.png": {
+    "inquiry_number": null,
+    "animal_type": "cat",
+    "breed": "雑種",
+    "color": "果",
+    "gender": "male",
+    "age_estimate": "推定5歳",
+    "health_status": "去勢手術済、FIV/FeLV陰性",
+    "personality": null,
+    "special_needs": null
+  },
+  "R7_10.png": {
+    "inquiry_number": null,
+    "animal_type": "cat",
+    "breed": "雑種",
+    "color": "黒",
+    "gender": "female",
+    "age_estimate": null,
+    "health_status": "避妊手術済、FIV/FeLV陰性",
+    "personality": null,
+    "special_needs": null
+  },
+  "R7_11.png": {
+    "inquiry_number": null,
+    "animal_type": "cat",
+    "breed": "雑種",
+    "color": "キ",
+    "gender": "female",
+    "age_estimate": "推定6歳",
+    "health_status": "避妊手術済、FIV/FeLV陰性",
+    "personality": null,
+    "special_needs": null
+  },
+  "R7_2.png": {
+    "inquiry_number": null,
+    "animal_type": "cat",
+    "breed": "雑種",
+    "color": "折",
+    "gender": "male",
+    "age_estimate": "推定5歳",
+    "health_status": "去勢手術済、FIV/FeLV陰性",
+    "personality": "Leo2kHXIETT,BLYントン吾好きき市抱っこができて、おとなしい性格です",
+    "special_needs": null
+  },
+  "R7_3.png": {
+    "inquiry_number": null,
+    "animal_type": "cat",
+    "breed": "雑種",
+    "color": "茶",
+    "gender": "male",
+    "age_estimate": "推定7歳",
+    "health_status": "去勢手術済、FIV/FeLV陰性",
+    "personality": "FIV/FeLV陰性/おとなしい性格です",
+    "special_needs": null
+  },
+  "R7_4.png": {
+    "inquiry_number": null,
+    "animal_type": "cat",
+    "breed": "雑種",
+    "color": "果",
+    "gender": "male",
+    "age_estimate": "推定1歳",
+    "health_status": "去勢手術済、FIV/FeLV陰性",
+    "personality": null,
+    "special_needs": null
+  },
+  "R7_5.png": {
+    "inquiry_number": null,
+    "animal_type": "cat",
+    "breed": "雑種",
+    "color": "黒",
+    "gender": "male",
+    "age_estimate": "推定5歳",
+    "health_status": "去勢手術済、FIV/FeLV陰性",
+    "personality": "慎重な性格です",
+    "special_needs": null
+  },
+  "R7_6.png": {
+    "inquiry_number": null,
+    "animal_type": "cat",
+    "breed": "雑種",
+    "color": "キ",
+    "gender": "female",
+    "age_estimate": "推定6歳",
+    "health_status": "避妊手術済、FIV/FeLV陰性",
+    "personality": null,
+    "special_needs": null
+  },
+  "R7_7.png": {
+    "inquiry_number": null,
+    "animal_type": "cat",
+    "breed": "雑種",
+    "color": "白",
+    "gender": "male",
+    "age_estimate": "推定5歳",
+    "health_status": "去勢手術済、FIV/FeLV陰性",
+    "personality": null,
+    "special_needs": null
+  },
+  "R7_8.png": {
+    "inquiry_number": null,
+    "animal_type": "cat",
+    "breed": "雑種",
+    "color": "灰",
+    "gender": "male",
+    "age_estimate": "推定5歳",
+    "health_status": "去勢手術済",
+    "personality": null,
+    "special_needs": null
+  },
+  "R7_9.png": {
+    "inquiry_number": null,
+    "animal_type": "cat",
+    "breed": "雑種",
+    "color": "黒",
+    "gender": "female",
+    "age_estimate": "推定5歳",
+    "health_status": "避妊手術済、FIV/FeLV陰性",
+    "personality": null,
+    "special_needs": null
+  }
+}
