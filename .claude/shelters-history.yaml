@@ -1,8 +1,8 @@
 metadata:
   version: 1.0.0
-  last_updated: '2025-11-15T03:44:39.868+09:00'
+  last_updated: '2025-11-15T11:15:47.077+09:00'
   purpose: スクレイピング動作確認・エラー履歴管理
-  total_scrapers: 42
+  total_scrapers: 43
 scrapers:
   hokkaido/hokkaido-pref:
     name: 北海道立動物愛護センター「あいにきた」
@@ -2204,14 +2204,38 @@ scrapers:
     name: null
     page_type: null
     verified: true
-    last_success: '2025-11-15T03:02:42.813+09:00'
-    last_error: '2025-11-15T03:04:45.214+09:00'
-    last_error_message: numberCell is not defined
-    total_runs: 5
-    success_count: 1
-    error_count: 1
-    mismatch_count: 3
+    last_success: '2025-11-15T10:56:35.548+09:00'
+    last_error: '2025-11-15T10:59:00.608+09:00'
+    last_error_message: 'ENOENT: no such file or directory, scandir ''/home/ariori/repos/2025/tail-match/scripts/scrapers/fukuoka/kitakyushu-city-dogs/data/html/fukuoka/kitakyushu-city-cats'''
+    total_runs: 8
+    success_count: 2
+    error_count: 2
+    mismatch_count: 4
     last_10_runs:
+      - timestamp: '2025-11-15T10:59:00.608+09:00'
+        status: error
+        html_count: 11
+        yaml_count: 7
+        db_count: 0
+        error_message: 'ENOENT: no such file or directory, scandir ''/home/ariori/repos/2025/tail-match/scripts/scrapers/fukuoka/kitakyushu-city-dogs/data/html/fukuoka/kitakyushu-city-cats'''
+        warning: null
+        duration_ms: 89
+      - timestamp: '2025-11-15T10:58:54.506+09:00'
+        status: mismatch
+        html_count: 11
+        yaml_count: 7
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで4匹減少 (11→7)
+        duration_ms: 324
+      - timestamp: '2025-11-15T10:56:35.548+09:00'
+        status: success
+        html_count: 11
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 4538
       - timestamp: '2025-11-15T03:06:06.125+09:00'
         status: mismatch
         html_count: 11
@@ -2256,14 +2280,30 @@ scrapers:
     name: null
     page_type: null
     verified: true
-    last_success: '2025-11-15T03:32:36.764+09:00'
+    last_success: '2025-11-15T10:57:15.768+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 4
+    success_count: 4
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-15T10:57:15.768+09:00'
+        status: success
+        html_count: 5
+        yaml_count: 5
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 239
+      - timestamp: '2025-11-15T10:55:49.798+09:00'
+        status: success
+        html_count: 5
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 5435
       - timestamp: '2025-11-15T03:32:36.764+09:00'
         status: success
         html_count: 5
@@ -2284,14 +2324,30 @@ scrapers:
     name: null
     page_type: null
     verified: false
-    last_success: '2025-11-15T03:33:10.896+09:00'
+    last_success: '2025-11-15T10:57:19.736+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 4
+    success_count: 4
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-15T10:57:19.736+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 96
+      - timestamp: '2025-11-15T10:56:01.711+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 5221
       - timestamp: '2025-11-15T03:33:10.896+09:00'
         status: empty
         html_count: 0
@@ -2312,14 +2368,30 @@ scrapers:
     name: null
     page_type: null
     verified: true
-    last_success: '2025-11-15T03:43:28.123+09:00'
+    last_success: '2025-11-15T10:55:16.532+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 3
-    success_count: 2
+    total_runs: 5
+    success_count: 4
     error_count: 0
     mismatch_count: 1
     last_10_runs:
+      - timestamp: '2025-11-15T10:55:16.532+09:00'
+        status: success
+        html_count: 10
+        yaml_count: 10
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 416
+      - timestamp: '2025-11-15T10:55:05.951+09:00'
+        status: success
+        html_count: 10
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 9714
       - timestamp: '2025-11-15T03:43:28.123+09:00'
         status: success
         html_count: 10
@@ -2348,14 +2420,30 @@ scrapers:
     name: null
     page_type: null
     verified: true
-    last_success: '2025-11-15T03:44:39.788+09:00'
+    last_success: '2025-11-15T10:57:10.652+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 4
+    success_count: 4
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-15T10:57:10.652+09:00'
+        status: success
+        html_count: 5
+        yaml_count: 5
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 397
+      - timestamp: '2025-11-15T10:55:38.811+09:00'
+        status: success
+        html_count: 5
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 8431
       - timestamp: '2025-11-15T03:44:39.788+09:00'
         status: success
         html_count: 5
@@ -2372,6 +2460,50 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 8983
+  fukuoka/kitakyushu-city-dogs:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-15T10:56:46.680+09:00'
+    last_error: null
+    last_error_message: null
+    total_runs: 4
+    success_count: 1
+    error_count: 0
+    mismatch_count: 3
+    last_10_runs:
+      - timestamp: '2025-11-15T11:15:47.063+09:00'
+        status: mismatch
+        html_count: 7
+        yaml_count: 3
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで4匹減少 (7→3)
+        duration_ms: 109
+      - timestamp: '2025-11-15T11:14:38.130+09:00'
+        status: mismatch
+        html_count: 7
+        yaml_count: 2
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで5匹減少 (7→2)
+        duration_ms: 234
+      - timestamp: '2025-11-15T11:08:38.883+09:00'
+        status: mismatch
+        html_count: 7
+        yaml_count: 2
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで5匹減少 (7→2)
+        duration_ms: 271
+      - timestamp: '2025-11-15T10:56:46.680+09:00'
+        status: success
+        html_count: 7
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 4342
 status_definitions:
   success: HTML収集→YAML抽出→DB投入が全て成功
   error: いずれかのステップでエラーが発生
