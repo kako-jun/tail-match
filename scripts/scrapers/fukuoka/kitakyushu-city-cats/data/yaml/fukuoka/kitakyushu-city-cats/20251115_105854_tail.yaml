@@ -1,0 +1,163 @@
+meta:
+  source_file: 20251115_105635_tail.html
+  source_url: https://www.city.kitakyushu.lg.jp/contents/924_11835.html
+  extracted_at: '2025-11-15T10:58:54.489+09:00'
+  municipality: fukuoka/kitakyushu-city-cats
+  municipality_id: null
+  total_count: 7
+  note: 成猫・子猫の譲渡候補情報（検査結果付き）
+animals:
+  - external_id: kitakyushu-city-B25004
+    name: はな
+    animal_type: cat
+    breed: null
+    age_estimate: 2023年
+    gender: female
+    color: キジ
+    size: null
+    health_status: '猫白血病: 陰性、猫エイズ: 陰性'
+    personality: null
+    special_needs: "受付中\n\t\t\t\tおもちゃで遊ぶことと、他の猫と触れ合うこと、ブラッシングが好きです。\n\t\t\t\t\t人間への警戒心が強めなので、いきなり「抱っこ」は難しいかも。\n\t\t\t\t\tじっくり、彼女のペースに合わせてあげてください。"
+    images:
+      - https://www.city.kitakyushu.lg.jp/files/001167420.jpg
+      - https://www.city.kitakyushu.lg.jp/files/001167421.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.kitakyushu.lg.jp/contents/924_11835.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption
+  - external_id: kitakyushu-city-B25002
+    name: ぶんた
+    animal_type: cat
+    breed: null
+    age_estimate: 2022年
+    gender: male
+    color: 黒白
+    size: null
+    health_status: '猫白血病: 陰性、猫エイズ: 陰性'
+    personality: null
+    special_needs: "受付中\n\t\t\t\t左大腿骨骨折と骨盤骨折の治療歴があります。\n\t\t\t\t\t野良猫気質がちょっぴり残った、人間への警戒心が強めの子。\n\t\t\t\t\tそんな彼ですが、猫に対しては優しさを見せることも！"
+    images:
+      - https://www.city.kitakyushu.lg.jp/files/001164675.jpg
+      - https://www.city.kitakyushu.lg.jp/files/001164676.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.kitakyushu.lg.jp/contents/924_11835.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption
+  - external_id: kitakyushu-city-B25048
+    name: さっちー
+    animal_type: cat
+    breed: null
+    age_estimate: 2015年
+    gender: female
+    color: キジ
+    size: null
+    health_status: '猫白血病: 陰性、猫エイズ: 陰性'
+    personality: null
+    special_needs: "受付中\n\t\t\t\t人間に対して人見知りをしません。反対に、他の猫はあまり好きじゃないみたいです。\n\t\t\t\t\t口の調子が少し悪いので、やわらかいご飯を用意してあげてください。"
+    images:
+      - https://www.city.kitakyushu.lg.jp/files/001161831.jpg
+      - https://www.city.kitakyushu.lg.jp/files/001161832.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.kitakyushu.lg.jp/contents/924_11835.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption
+  - external_id: kitakyushu-city-B23059
+    name: エリカ
+    animal_type: cat
+    breed: null
+    age_estimate: 2020年
+    gender: female
+    color: キジ
+    size: null
+    health_status: '猫白血病: 陰性、猫エイズ: 陽性'
+    personality: null
+    special_needs: "受付中\n\t\t\t\tクールビューティとは彼女のためにある言葉なのかもしれません。\n\t\t\t\t\tはじめは少し警戒しますが、慣れればスリスリ。人と適度な距離感で暮らせる猫だと思います。\n\t\t\t\t嫌いな猫には猫パンチする一面もあります。"
+    images:
+      - https://www.city.kitakyushu.lg.jp/files/001054590.jpg
+      - https://www.city.kitakyushu.lg.jp/files/001054591.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.kitakyushu.lg.jp/contents/924_11835.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption
+  - external_id: kitakyushu-city-B25077
+    name: あゆむ
+    animal_type: cat
+    breed: null
+    age_estimate: 2025年7月上旬
+    gender: male
+    color: 黒
+    size: null
+    health_status: null
+    personality: null
+    special_needs: "受付中\n\t\t\t\t・ノミ駆除済\n\t\t\t\t\t・3種混合ワクチン（1回目）接種済\n\t\t\t\t右後肢の断脚手術をしました。日常生活に支障はありません。\n\t\t\t\t\t最初は緊張するけれど、おしゃべりな甘えん坊さんです。"
+    images:
+      - https://www.city.kitakyushu.lg.jp/files/001168745.jpg
+      - https://www.city.kitakyushu.lg.jp/files/001168746.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.kitakyushu.lg.jp/contents/924_11835.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption
+  - external_id: kitakyushu-city-B25073
+    name: はなまる
+    animal_type: cat
+    breed: null
+    age_estimate: 2025年5月上旬
+    gender: male
+    color: 茶白
+    size: null
+    health_status: null
+    personality: null
+    special_needs: "受付中\n\t\t\t\t・ノミ駆除済\n\t\t\t\t\t・3種混合ワクチン（1回目）接種済\n\t\t\t\t人懐っこい性格です。初めての場所や人には、少し緊張するかも。"
+    images:
+      - https://www.city.kitakyushu.lg.jp/files/001167422.jpg
+      - https://www.city.kitakyushu.lg.jp/files/001167423.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.kitakyushu.lg.jp/contents/924_11835.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption
+  - external_id: kitakyushu-city-B25037
+    name: ビビ
+    animal_type: cat
+    breed: null
+    age_estimate: 2025年3月中旬
+    gender: female
+    color: 黒
+    size: null
+    health_status: null
+    personality: null
+    special_needs: "受付中\n\t\t\t\t・ノミ駆除済\n\t\t\t\t\t・3種混合ワクチン（1回目・2回目）接種済\n\t\t\t\t左前肢を負傷しており、足先を上手く動かすことが出来ませんが、日常生活に支障はありません。"
+    images:
+      - https://www.city.kitakyushu.lg.jp/files/001153092.jpg
+      - https://www.city.kitakyushu.lg.jp/files/001153093.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.kitakyushu.lg.jp/contents/924_11835.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption

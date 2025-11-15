@@ -1,0 +1,114 @@
+meta:
+  source_file: 20251115_105549_tail.html
+  source_url: https://zuttoissho.com/omukae/animal/cat/
+  extracted_at: '2025-11-15T10:57:15.761+09:00'
+  municipality: fukuoka/fukuoka-city-cats
+  municipality_id: null
+  total_count: 5
+  note: 福岡市譲渡猫情報（外部サイトzuttoissho.comより）
+animals:
+  - external_id: fukuoka-city-c4839
+    name: ジム
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 1歳
+    gender: unknown
+    color: 黒 去勢オス
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://zuttoissho.com/omukae/5853/
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://zuttoissho.com/omukae/animal/cat/
+    confidence_level: high
+    extraction_notes:
+      - 募集中
+    listing_type: adoption
+  - external_id: fukuoka-city-c4750
+    name: トロ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 2歳
+    gender: unknown
+    color: キジ（長毛） 去勢オス
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://zuttoissho.com/omukae/5034/
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://zuttoissho.com/omukae/animal/cat/
+    confidence_level: high
+    extraction_notes:
+      - 募集中
+    listing_type: adoption
+  - external_id: fukuoka-city-c4780
+    name: カイ
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 2025年4月下旬生まれ
+    gender: unknown
+    color: キジトラ オス
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://zuttoissho.com/omukae/5691/
+    protection_date: null
+    deadline_date: null
+    status: pending
+    source_url: https://zuttoissho.com/omukae/animal/cat/
+    confidence_level: high
+    extraction_notes:
+      - 申込者あり
+    listing_type: adoption
+  - external_id: fukuoka-city-c4836
+    name: プルーン
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 3か月
+    gender: unknown
+    color: 黒 オス
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://zuttoissho.com/omukae/5891/
+    protection_date: null
+    deadline_date: null
+    status: pending
+    source_url: https://zuttoissho.com/omukae/animal/cat/
+    confidence_level: high
+    extraction_notes:
+      - 申込者あり
+    listing_type: adoption
+  - external_id: fukuoka-city-c4810
+    name: ムーミン
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 2歳
+    gender: unknown
+    color: キジ（長毛） 不妊メス
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://zuttoissho.com/omukae/5731/
+    protection_date: null
+    deadline_date: null
+    status: pending
+    source_url: https://zuttoissho.com/omukae/animal/cat/
+    confidence_level: high
+    extraction_notes:
+      - 申込者あり
+    listing_type: adoption
