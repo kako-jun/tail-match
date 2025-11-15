@@ -1,0 +1,2843 @@
+meta:
+  source_file: 20251116_015328_tail.html
+  source_url: https://dog-cat-support.nagoya/adoption/
+  extracted_at: '2025-11-16T01:54:42.456+09:00'
+  municipality: aichi/nagoya-city
+  total_count: 123
+  available_count: 123
+  adopted_count: 0
+  last_available_date: '2025-11-14'
+  extraction_type: image_ocr_completed
+  note: 画像から情報を抽出済み。譲渡動物情報（新しい飼い主募集中）
+confidence_level: high
+consistency_warnings: []
+animals:
+  - external_id: nagoya-251114-001
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 10歳
+    gender: male
+    color: 茶トラ
+    size: null
+    health_status: 良好、避妊去勢済、マイクロチップ無、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済(2020年12月)
+    personality: おとなしい
+    special_needs: 現在飼っている住居が身内の不幸により、立ち退きする為
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251114/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251114-001.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2389'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251114-002
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 7歳
+    gender: female
+    color: キジトラ
+    size: null
+    health_status: 良好、避妊去勢済、マイクロチップ無、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済(2020年7月)
+    personality: 活発
+    special_needs: 現在飼っている住居が身内の不幸により、立ち退きする為
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251114/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251114-002.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2390'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251114-003
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 7歳
+    gender: female
+    color: キジトラ
+    size: null
+    health_status: 良好、避妊去勢済、マイクロチップ無、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済(2021年12月)
+    personality: おとなしい
+    special_needs: 現在飼っている住居が身内の不幸により、立ち退きする為
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251114/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251114-003.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2391'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251114-004
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 5歳
+    gender: female
+    color: 三毛
+    size: null
+    health_status: 良好、避妊去勢済、マイクロチップ無、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済(2021年10月)
+    personality: 臆病
+    special_needs: 現在飼っている住居が身内の不幸により、立ち退きする為
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251114/004.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251114-004.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2392'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251113-001
+    name: null
+    animal_type: cat
+    breed: ラグドール
+    age_estimate: 8歳
+    gender: female
+    color: ブルーポイントバイカラー
+    size: null
+    health_status: 良好、避妊去勢済、マイクロチップ有、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済
+    personality: 穏やか、かなり甘えん坊で独占欲が強い、攻撃的
+    special_needs: 家庭の事情で飼育が困難になったため。妹妹が強いので、できれば先住猫のいない家庭
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251113/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251113-001.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2385'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251113-002
+    name: null
+    animal_type: cat
+    breed: ブリティッシュショートヘアー
+    age_estimate: 10歳
+    gender: female
+    color: ブルー
+    size: null
+    health_status: 良好、避妊去勢済、マイクロチップ有、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済
+    personality: おとなしい、温厚
+    special_needs: 家庭の事情で飼育が困難になったため。動けると甘えん坊なため、その要望に答えてくださる方
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251113/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251113-002.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2386'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251113-003
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 5～6歳
+    gender: female
+    color: 黒(エンジェルマーク有)
+    size: null
+    health_status: 良好、避妊去勢済、マイクロチップ無、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済
+    personality: 大人しく臆病。猫じゃらして遊ぶのが好き・撫でられる事が好き・ブラッシング大好き。夜はトイレなど人を起こさないように抜き足差し足で人のリズムに合わせて暮らせる気遣い出来る猫です。
+    special_needs: お外でお世話をしていたが勝手に玄関にあったキャリーに入り暮らし始めたので保護しました。
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251113/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251113-003.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2387'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251113-004
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 1歳7ヶ月
+    gender: female
+    color: キジ白(キジ柄が明るめ茶色)
+    size: null
+    health_status: 良好、避妊去勢済、マイクロチップ無、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済
+    personality: ボールや猫じゃらして上手に遊べて好奇心旺盛。ご機嫌上手で触ってもそこまで大好き。
+    special_needs: 家の敷地に来る野良猫を保護したが病気の保護猫がいるので飼えない。希望者様に送り事項としてあげたが、一緒に遊んだりする時間を確保して頂けたら嬉しいです。
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251113/004.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251113-004.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2388'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251112-001
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 6歳
+    gender: male
+    color: 白
+    size: null
+    health_status: 良好、避妊去勢済、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種
+    personality: 心優しく小心者、見た目とのギャップにびっくり
+    special_needs: 転居のため。
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251112/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251112-001.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2375'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251112-002
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 6歳
+    gender: female
+    color: 黒白
+    size: null
+    health_status: 良好、避妊去勢未実施、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種
+    personality: 女の子らしい甘えっ子
+    special_needs: 転居のため。
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251112/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251112-002.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2376'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251112-003
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 4歳
+    gender: female
+    color: キジトラ
+    size: null
+    health_status: 良好、避妊去勢未実施、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種
+    personality: とっても賢く元気な女の子
+    special_needs: 転居のため。
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251112/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251112-003.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2377'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251112-004
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 5歳
+    gender: female
+    color: サビ
+    size: null
+    health_status: 良好、避妊去勢未実施、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種
+    personality: 頭が大く、誰とでも仲良しな女の子です。
+    special_needs: 転居のため。
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251112/004.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251112-004.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2378'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251112-005
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 5歳
+    gender: female
+    color: 黒
+    size: null
+    health_status: 良好、避妊去勢未実施、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種
+    personality: テレビを見るのが、趣味の女の子です。小さい体でも一人前
+    special_needs: 転居のため。
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251112/005.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251112-005.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2379'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251112-006
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 6歳
+    gender: male
+    color: 茶トラ
+    size: null
+    health_status: 良好、避妊去勢未実施、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種
+    personality: 元気いっぱいで健康
+    special_needs: 転居のため。
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251112/006.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251112-006.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2380'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251112-007
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 6歳
+    gender: male
+    color: 黒白
+    size: null
+    health_status: 良好、避妊去勢未実施、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種
+    personality: 甘えん坊で食欲旺盛な男の子
+    special_needs: 転居のため。
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251112/007.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251112-007.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2381'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251112-008
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 6歳
+    gender: female
+    color: 白
+    size: null
+    health_status: 良好、避妊去勢未実施、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種
+    personality: 真が大好きでおとなしい女の子
+    special_needs: 転居のため。
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251112/008.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251112-008.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2382'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251112-009
+    name: null
+    animal_type: cat
+    breed: 雑種
+    age_estimate: 6歳
+    gender: female
+    color: 黒白
+    size: null
+    health_status: 良好、避妊去勢未実施、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種
+    personality: 気好きでおりこうさん
+    special_needs: 転居のため。
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251112/009.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251112-009.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2383'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251112-010
+    name: null
+    animal_type: cat
+    breed: スコティッシュフォールド
+    age_estimate: 推定3～5歳
+    gender: male
+    color: ベージュ
+    size: null
+    health_status: 良好、避妊去勢未実施、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種
+    personality: 温厚・人懐っこく初対面でも触れます
+    special_needs: 転居のため。
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251112/010.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251112-010.html
+    confidence_level: high
+    extraction_notes:
+      - 画像から情報を抽出済み
+      - 'お問合せ番号: 2384'
+    listing_type: adoption
+    needs_review: false
+  - external_id: nagoya-251110-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251110/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251110-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-11-10'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251110-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251110/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251110-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-11-10'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251110-003
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251110/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251110-003.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-11-10'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251107-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251107/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251107-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-11-07'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251107-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251107/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251107-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-11-07'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251107-003
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251107/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251107-003.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-11-07'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251104-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251104/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251104-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-11-04'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251104-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251104/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251104-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-11-04'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251104-003
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251104/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251104-003.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-11-04'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251028-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251028/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251028-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-28'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251028-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251028/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251028-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-28'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251028-003
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251028/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251028-003.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-28'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251028-004
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251028/004.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251028-004.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-28'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251024-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251024/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251024-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-24'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251024-003
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251024/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251024-003.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-24'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251024-004
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251024/004.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251024-004.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-24'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251024-005
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251024/005.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251024-005.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-24'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251024-007
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251024/007.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251024-007.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-24'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251023-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251023/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251023-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-23'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251023-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251023/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251023-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-23'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251022-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251022/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251022-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-22'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251020-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251020/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251020-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-20'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251020-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251020/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251020-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-20'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251020-003
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251020/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251020-003.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-20'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251017-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251017/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251017-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-17'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251017-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251017/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251017-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-17'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251017-003
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251017/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251017-003.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-17'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251017-005
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251017/005.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251017-005.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-17'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251017-006
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251017/006.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251017-006.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-17'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251017-007
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251017/007.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251017-007.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-17'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251017-008
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251017/008.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251017-008.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-17'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251017-009
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251017/009.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251017-009.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-17'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251016-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251016/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251016-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-16'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251016-011
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251016/011.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251016-011.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-16'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251016-012
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251016/012.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251016-012.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-16'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251016-013
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251016/013.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251016-013.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-16'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251009-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251009/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251009-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-09'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251009-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251009/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251009-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-09'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251009-003
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251009/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251009-003.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-09'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251008-008
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251008/008.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251008-008.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-08'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251006-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251006/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251006-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-06'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251003-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251003/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251003-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-03'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251003-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251003/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251003-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-03'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-251003-003
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/251003/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/251003-003.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-10-03'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250930-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250930/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250930-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-30'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250926-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250926/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250926-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-26'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250926-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250926/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250926-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-26'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250926-003
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250926/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250926-003.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-26'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250926-004
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250926/004.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250926-004.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-26'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250926-005
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250926/005.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250926-005.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-26'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250926-006
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250926/006.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250926-006.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-26'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250926-007
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250926/007.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250926-007.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-26'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250922-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250922/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250922-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-22'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250917-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250917/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250917-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-17'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250916-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250916/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250916-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-16'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250916-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250916/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250916-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-16'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250916-003
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250916/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250916-003.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-16'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250916-006
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250916/006.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250916-006.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-16'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250912-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250912/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250912-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-12'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250905-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250905/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250905-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-05'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250904-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250904/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250904-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-04'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250904-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250904/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250904-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-04'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250904-003
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250904/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250904-003.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-04'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250903-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250903/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250903-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-03'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250902-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250902/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250902-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-02'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250902-003
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250902/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250902-003.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-02'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250902-004
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250902/004.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250902-004.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-02'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250902-005
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250902/005.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250902-005.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-02'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250902-006
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250902/006.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250902-006.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-02'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250902-007
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250902/007.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250902-007.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-02'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250902-008
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250902/008.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250902-008.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-02'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250901-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250901/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250901-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-09-01'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250828-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250828/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250828-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-08-28'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250828-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250828/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250828-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-08-28'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250819-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250819/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250819-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-08-19'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250814-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250814/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250814-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-08-14'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250812-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250812/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250812-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-08-12'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250812-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250812/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250812-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-08-12'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250812-003
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250812/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250812-003.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-08-12'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250812-004
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250812/004.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250812-004.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-08-12'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250812-005
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250812/005.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250812-005.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-08-12'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250812-006
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250812/006.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250812-006.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-08-12'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250812-007
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250812/007.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250812-007.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-08-12'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250812-008
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250812/008.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250812-008.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-08-12'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250806-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250806/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250806-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-08-06'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250804-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250804/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250804-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-08-04'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250801-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250801/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250801-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-08-01'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250801-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250801/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250801-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-08-01'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250801-005
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250801/005.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250801-005.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-08-01'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250801-006
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250801/006.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250801-006.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-08-01'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250801-007
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250801/007.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250801-007.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-08-01'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250730-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250730/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250730-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-07-30'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250730-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250730/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250730-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-07-30'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250730-003
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250730/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250730-003.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-07-30'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250728-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250728/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250728-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-07-28'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250723-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250723/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250723-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-07-23'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250716-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250716/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250716-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-07-16'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250716-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250716/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250716-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-07-16'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250715-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250715/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250715-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-07-15'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250715-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250715/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250715-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-07-15'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250715-003
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250715/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250715-003.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-07-15'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250704-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250704/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250704-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-07-04'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250702-001
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250702/001.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250702-001.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-07-02'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250702-002
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250702/002.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250702-002.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-07-02'
+    listing_type: adoption
+    needs_review: true
+  - external_id: nagoya-250702-003
+    name: null
+    animal_type: unknown
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://dog-cat-support.nagoya/images/adoption/250702/003.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://dog-cat-support.nagoya/adoption/250702-003.html
+    confidence_level: low
+    extraction_notes:
+      - 画像OCR処理が必要
+      - '掲載日: 2025-07-02'
+    listing_type: adoption
+    needs_review: true
