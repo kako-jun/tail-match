@@ -1,0 +1,316 @@
+- external_id: ehime-pref-cat-48508
+  municipality_id: null
+  name: ''
+  gender: male
+  age_estimate: ''
+  birth_estimate: 2024年4月生
+  description: |-
+    毛色: 黒
+    ​オス（去勢）
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/48508.jpg
+  scraped_at: '2025-11-15T12:58:33.583+09:00'
+- external_id: ehime-pref-cat-51061
+  municipality_id: null
+  name: ''
+  gender: female
+  age_estimate: ''
+  birth_estimate: 2024年2月生
+  description: '毛色: キジトラ'
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/51061.jpg
+  scraped_at: '2025-11-15T12:58:33.584+09:00'
+- external_id: ehime-pref-cat-51062
+  municipality_id: null
+  name: ''
+  gender: female
+  age_estimate: ''
+  birth_estimate: ​​2024年4月生
+  description: '毛色: 黒白'
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/51062.jpg
+  scraped_at: '2025-11-15T12:58:33.585+09:00'
+- external_id: ehime-pref-cat-47338
+  municipality_id: null
+  name: ''
+  gender: male
+  age_estimate: ''
+  birth_estimate: 2024年5月生
+  description: |-
+    毛色: キジ白
+    オス(去勢)
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/47338.png
+  scraped_at: '2025-11-15T12:58:33.585+09:00'
+- external_id: ehime-pref-cat-47337
+  municipality_id: null
+  name: ''
+  gender: male
+  age_estimate: ''
+  birth_estimate: 2024年5月生
+  description: |-
+    毛色: キジ白
+    オス(去勢)
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/47337.png
+  scraped_at: '2025-11-15T12:58:33.586+09:00'
+- external_id: ehime-pref-cat-50265
+  municipality_id: null
+  name: ''
+  gender: male
+  age_estimate: ''
+  birth_estimate: 2025年4月生
+  description: '毛色: 黒'
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/50265.jpg
+  scraped_at: '2025-11-15T12:58:33.586+09:00'
+- external_id: ehime-pref-cat-48876
+  municipality_id: null
+  name: ''
+  gender: male
+  age_estimate: ''
+  birth_estimate: 2025年4月生
+  description: '毛色: 黒白'
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/48876.jpg
+  scraped_at: '2025-11-15T12:58:33.586+09:00'
+- external_id: ehime-pref-cat-50267
+  municipality_id: null
+  name: ''
+  gender: female
+  age_estimate: ''
+  birth_estimate: 2025年4月生
+  description: '毛色: 茶トラ'
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/50267.jpg
+  scraped_at: '2025-11-15T12:58:33.586+09:00'
+- external_id: ehime-pref-cat-51063
+  municipality_id: null
+  name: ''
+  gender: male
+  age_estimate: ''
+  birth_estimate: 2025年4月生
+  description: '毛色: キジ白'
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/51063.jpg
+  scraped_at: '2025-11-15T12:58:33.587+09:00'
+- external_id: ehime-pref-cat-51064
+  municipality_id: null
+  name: ''
+  gender: male
+  age_estimate: ''
+  birth_estimate: 2025年4月生
+  description: '毛色: グレー白'
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/51064.jpg
+  scraped_at: '2025-11-15T12:58:33.587+09:00'
+- external_id: ehime-pref-dog-50697
+  municipality_id: null
+  name: ''
+  gender: male
+  age_estimate: ''
+  birth_estimate: 2023年12月生
+  description: |-
+    毛色: 茶黒
+    オス（去勢済）
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/50697.jpg
+  scraped_at: '2025-11-15T12:58:33.588+09:00'
+- external_id: ehime-pref-dog-49781
+  municipality_id: null
+  name: ''
+  gender: male
+  age_estimate: ''
+  birth_estimate: 2024年6月生
+  description: |-
+    毛色: 白
+    オス（去勢済）
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/49781.jpg
+  scraped_at: '2025-11-15T12:58:33.588+09:00'
+- external_id: ehime-pref-dog-50696
+  municipality_id: null
+  name: ''
+  gender: male
+  age_estimate: ''
+  birth_estimate: 2024年6月生
+  description: |-
+    毛色: 白
+    オス（去勢済）
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/50696.jpg
+  scraped_at: '2025-11-15T12:58:33.588+09:00'
+- external_id: ehime-pref-dog-50694
+  municipality_id: null
+  name: ''
+  gender: male
+  age_estimate: ''
+  birth_estimate: 2024年1月生
+  description: '毛色: 茶'
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/50694.jpg
+  scraped_at: '2025-11-15T12:58:33.588+09:00'
+- external_id: ehime-pref-dog-47683
+  municipality_id: null
+  name: ''
+  gender: male
+  age_estimate: ''
+  birth_estimate: 2024年7月生
+  description: '毛色: 茶白'
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/47683.jpg
+  scraped_at: '2025-11-15T12:58:33.589+09:00'
+- external_id: ehime-pref-dog-49769
+  municipality_id: null
+  name: ''
+  gender: female
+  age_estimate: ''
+  birth_estimate: 2024年3月生
+  description: '毛色: 白茶'
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/49769.jpg
+  scraped_at: '2025-11-15T12:58:33.589+09:00'
+- external_id: ehime-pref-dog-47687
+  municipality_id: null
+  name: ''
+  gender: male
+  age_estimate: ''
+  birth_estimate: 2021年9月生
+  description: |-
+    毛色: 茶
+    オス（去勢済）
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/47687.jpg
+  scraped_at: '2025-11-15T12:58:33.589+09:00'
+- external_id: ehime-pref-dog-47688
+  municipality_id: null
+  name: ''
+  gender: female
+  age_estimate: ''
+  birth_estimate: 2023年1月生
+  description: |-
+    毛色: 茶
+    メス（避妊済み）
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/47688.jpg
+  scraped_at: '2025-11-15T12:58:33.590+09:00'
+- external_id: ehime-pref-dog-47340
+  municipality_id: null
+  name: ''
+  gender: male
+  age_estimate: ''
+  birth_estimate: 2024年6月生
+  description: '毛色: 茶白'
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/47340.jpg
+  scraped_at: '2025-11-15T12:58:33.590+09:00'
+- external_id: ehime-pref-dog-47343
+  municipality_id: null
+  name: ''
+  gender: male
+  age_estimate: ''
+  birth_estimate: 2024年8月生
+  description: '毛色: 白'
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/47343.jpg
+  scraped_at: '2025-11-15T12:58:33.590+09:00'
+- external_id: ehime-pref-dog-47342
+  municipality_id: null
+  name: ''
+  gender: male
+  age_estimate: ''
+  birth_estimate: 2024年7月生
+  description: '毛色: 茶'
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/47342.jpg
+  scraped_at: '2025-11-15T12:58:33.591+09:00'
+- external_id: ehime-pref-dog-50698
+  municipality_id: null
+  name: ''
+  gender: male
+  age_estimate: ''
+  birth_estimate: 2025年2月生
+  description: '毛色: うす茶'
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/50698.jpg
+  scraped_at: '2025-11-15T12:58:33.591+09:00'
+- external_id: ehime-pref-dog-49770
+  municipality_id: null
+  name: ''
+  gender: male
+  age_estimate: ''
+  birth_estimate: 2025年3月生
+  description: '毛色: 黒茶'
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/49770.jpg
+  scraped_at: '2025-11-15T12:58:33.591+09:00'
+- external_id: ehime-pref-dog-51274
+  municipality_id: null
+  name: ''
+  gender: female
+  age_estimate: ''
+  birth_estimate: 2025年8月生
+  description: '毛色: ベージュ'
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/51274.jpg
+  scraped_at: '2025-11-15T12:58:33.592+09:00'
+- external_id: ehime-pref-dog-51275
+  municipality_id: null
+  name: ''
+  gender: female
+  age_estimate: ''
+  birth_estimate: 2025年8月生
+  description: '毛色: ベージュ'
+  status: available
+  source_url: https://www.pref.ehime.jp/page/17125.html
+  images:
+    - https://www.pref.ehime.jp/uploaded/image/51275.jpg
+  scraped_at: '2025-11-15T12:58:33.592+09:00'

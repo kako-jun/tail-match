@@ -1,8 +1,8 @@
 metadata:
   version: 1.0.0
-  last_updated: '2025-11-15T12:00:20.843+09:00'
+  last_updated: '2025-11-15T12:58:33.665+09:00'
   purpose: スクレイピング動作確認・エラー履歴管理
-  total_scrapers: 45
+  total_scrapers: 48
 scrapers:
   hokkaido/hokkaido-pref:
     name: 北海道立動物愛護センター「あいにきた」
@@ -2576,6 +2576,138 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 6961
+  tokushima/tokushima-pref-cats:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-15T12:30:50.449+09:00'
+    last_error: null
+    last_error_message: null
+    total_runs: 7
+    success_count: 6
+    error_count: 0
+    mismatch_count: 1
+    last_10_runs:
+      - timestamp: '2025-11-15T12:30:50.449+09:00'
+        status: success
+        html_count: 1
+        yaml_count: 1
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 317
+      - timestamp: '2025-11-15T12:30:24.052+09:00'
+        status: success
+        html_count: 1
+        yaml_count: 1
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 243
+      - timestamp: '2025-11-15T12:29:29.954+09:00'
+        status: success
+        html_count: 1
+        yaml_count: 1
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 258
+      - timestamp: '2025-11-15T12:25:46.917+09:00'
+        status: success
+        html_count: 1
+        yaml_count: 1
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 211
+      - timestamp: '2025-11-15T12:25:11.764+09:00'
+        status: mismatch
+        html_count: 1
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで1匹減少 (1→0)
+        duration_ms: 504
+      - timestamp: '2025-11-15T12:24:59.258+09:00'
+        status: success
+        html_count: 1
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 7004
+      - timestamp: '2025-11-15T12:24:13.355+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 9131
+  tokushima/tokushima-pref-dogs:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-15T12:38:29.322+09:00'
+    last_error: null
+    last_error_message: null
+    total_runs: 2
+    success_count: 2
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs:
+      - timestamp: '2025-11-15T12:38:29.322+09:00'
+        status: success
+        html_count: 10
+        yaml_count: 10
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 406
+      - timestamp: '2025-11-15T12:38:20.942+09:00'
+        status: success
+        html_count: 10
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 8637
+  ehime/ehime-pref:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-15T12:58:33.604+09:00'
+    last_error: null
+    last_error_message: null
+    total_runs: 3
+    success_count: 3
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs:
+      - timestamp: '2025-11-15T12:58:33.604+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 25
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 341
+      - timestamp: '2025-11-15T12:57:53.264+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 324
+      - timestamp: '2025-11-15T12:56:28.227+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 9342
 status_definitions:
   success: HTML収集→YAML抽出→DB投入が全て成功
   error: いずれかのステップでエラーが発生
