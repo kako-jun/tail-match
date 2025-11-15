@@ -1,0 +1,286 @@
+meta:
+  source_file: adults + kittens
+  source_url: https://www.pref.niigata.lg.jp/sec/seikatueisei/1334350843426.html, https://www.pref.niigata.lg.jp/sec/seikatueisei/1344055708060.html
+  extracted_at: '2025-11-15T13:29:59.675Z'
+  municipality: niigata/niigata-pref-cats
+  municipality_id: null
+  total_count: 12
+  note: 新潟県動物愛護センター猫譲渡情報（成猫＋子猫）
+animals:
+  - external_id: niigata-pref-cat-16b
+    name: しゃけ
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.niigata.lg.jp/uploaded/image/309172.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/309334.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/309173.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.niigata.lg.jp/sec/seikatueisei/1334350843426.html
+    confidence_level: high
+    extraction_notes:
+      - '飼育場所: 16b'
+    listing_type: adoption
+  - external_id: niigata-pref-25芝yc052
+    name: おかか
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.niigata.lg.jp/uploaded/image/308031.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/308785.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/308726.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.niigata.lg.jp/sec/seikatueisei/1334350843426.html
+    confidence_level: high
+    extraction_notes:
+      - 25芝YC052
+      - '飼育場所: 18a'
+    listing_type: adoption
+  - external_id: niigata-pref-cat-18b
+    name: ポッキー
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.niigata.lg.jp/uploaded/image/308971.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/309335.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/309061.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.niigata.lg.jp/sec/seikatueisei/1334350843426.html
+    confidence_level: high
+    extraction_notes:
+      - '飼育場所: 18b'
+    listing_type: adoption
+  - external_id: niigata-pref-cat-19b
+    name: めろん
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.niigata.lg.jp/uploaded/image/303741.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/308858.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/306389.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.niigata.lg.jp/sec/seikatueisei/1334350843426.html
+    confidence_level: high
+    extraction_notes:
+      - '飼育場所: 19b'
+    listing_type: adoption
+  - external_id: niigata-pref-cat-22a
+    name: たん
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.niigata.lg.jp/uploaded/image/305896.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/308070.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/305897.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.niigata.lg.jp/sec/seikatueisei/1334350843426.html
+    confidence_level: high
+    extraction_notes:
+      - '飼育場所: 22a'
+    listing_type: adoption
+  - external_id: niigata-pref-cat-3段ケージ
+    name: あみ
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.niigata.lg.jp/uploaded/image/307370.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/307371.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/306386.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.niigata.lg.jp/sec/seikatueisei/1334350843426.html
+    confidence_level: high
+    extraction_notes:
+      - '飼育場所: 3段ケージ'
+    listing_type: adoption
+  - external_id: niigata-pref-cat-犬舎41
+    name: キコ
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.niigata.lg.jp/uploaded/image/309494.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/309496.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/309497.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.niigata.lg.jp/sec/seikatueisei/1334350843426.html
+    confidence_level: high
+    extraction_notes:
+      - '飼育場所: 犬舎41'
+    listing_type: adoption
+  - external_id: niigata-pref-cat-犬舎42
+    name: すい
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.niigata.lg.jp/uploaded/image/308073.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/308074.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/298474.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.niigata.lg.jp/sec/seikatueisei/1334350843426.html
+    confidence_level: high
+    extraction_notes:
+      - '飼育場所: 犬舎42'
+    listing_type: adoption
+  - external_id: niigata-pref-cat-犬舎44
+    name: りつ
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.niigata.lg.jp/uploaded/image/309584.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/309585.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/309583.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.niigata.lg.jp/sec/seikatueisei/1334350843426.html
+    confidence_level: high
+    extraction_notes:
+      - '飼育場所: 犬舎44'
+    listing_type: adoption
+  - external_id: niigata-pref-cat-犬舎44-
+    name: めあり
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.niigata.lg.jp/uploaded/image/309581.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/309582.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/309580.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.niigata.lg.jp/sec/seikatueisei/1334350843426.html
+    confidence_level: high
+    extraction_notes:
+      - '飼育場所: 犬舎44　'
+    listing_type: adoption
+  - external_id: niigata-pref-cat-ふれあい室
+    name: あすか
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.niigata.lg.jp/uploaded/image/309500.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/309502.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/309503.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.niigata.lg.jp/sec/seikatueisei/1334350843426.html
+    confidence_level: high
+    extraction_notes:
+      - '飼育場所: ふれあい室'
+    listing_type: adoption
+  - external_id: niigata-pref-cat-20b
+    name: しゃむ
+    animal_type: cat
+    breed: null
+    age_estimate: 子猫
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.niigata.lg.jp/uploaded/image/309037.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/309039.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/309038.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.niigata.lg.jp/sec/seikatueisei/1344055708060.html
+    confidence_level: high
+    extraction_notes:
+      - '飼育場所: 20b'
+    listing_type: adoption

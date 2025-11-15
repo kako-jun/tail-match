@@ -1,0 +1,52 @@
+meta:
+  source_file: 20251115_132832_tail.html
+  source_url: https://www.pref.niigata.lg.jp/sec/seikatueisei/1334350842609.html
+  extracted_at: '2025-11-15T13:28:56.899Z'
+  municipality: niigata/niigata-pref-dogs
+  municipality_id: null
+  total_count: 2
+  note: 新潟県動物愛護センター犬譲渡情報
+animals:
+  - external_id: niigata-pref-25長yd002
+    name: ゆきお
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.niigata.lg.jp/uploaded/image/308065.jpg
+      - https://www.pref.niigata.lg.jp/uploaded/image/308064.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.niigata.lg.jp/sec/seikatueisei/1334350842609.html
+    confidence_level: high
+    extraction_notes:
+      - 25長YD002
+    listing_type: adoption
+  - external_id: niigata-pref-24芝yd006
+    name: うめきち
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.niigata.lg.jp/uploaded/image/304036.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.niigata.lg.jp/sec/seikatueisei/1334350842609.html
+    confidence_level: high
+    extraction_notes:
+      - 24芝YD006
+    listing_type: adoption

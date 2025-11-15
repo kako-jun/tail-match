@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-15T13:28:32.736Z",
+  "url": "https://www.pref.niigata.lg.jp/sec/seikatueisei/1334350842609.html",
+  "has_animals": true,
+  "html_size": 34015,
+  "scraper": "playwright",
+  "note": "h3要素で犬名、画像altで管理番号"
+}
