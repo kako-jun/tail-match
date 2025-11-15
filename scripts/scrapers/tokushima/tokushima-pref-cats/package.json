@@ -1,0 +1,17 @@
+{
+  "name": "tokushima-pref-cats-scraper",
+  "version": "1.0.0",
+  "description": "徳島県動物愛護管理センター（猫）スクレイパー",
+  "type": "module",
+  "scripts": {
+    "scrape": "node scrape.js",
+    "extract": "node html-to-yaml.js"
+  },
+  "keywords": [
+    "scraper",
+    "tokushima",
+    "cats"
+  ],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-15T12:24:59.171+09:00",
+  "url": "https://douai-tokushima.com/animalinfo/list4_2",
+  "has_animals": true,
+  "html_size": 5922,
+  "scraper": "playwright",
+  "note": "テーブル形式、番号・性別・推定生年月日・性格評価（愛嬌/やんちゃさ/慎重さ/人懐こさ）表示"
+}
