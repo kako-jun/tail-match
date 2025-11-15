@@ -46,7 +46,9 @@ const CONFIG = {
     'chiba/chiba-city-cats',
     'hokkaido/sapporo-city-cats',
     'okinawa/okinawa-pref-cats',
+    'niigata/niigata-city-cats',
     // 犬専用ページ（-dogs サフィックス）
+    'niigata/niigata-city-dogs',
     'toyama/toyama-pref-dogs',
     'fukui/fukui-pref-dogs',
     'kyoto/kyoto-pref-dogs',

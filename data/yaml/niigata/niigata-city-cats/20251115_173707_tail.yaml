@@ -1,0 +1,219 @@
+meta:
+  source_file: 20251115_173441_tail.html
+  source_url: https://www.ikutopia.com/facilities/doubutsu/foster/cat/
+  extracted_at: '2025-11-15T17:37:07.497+09:00'
+  municipality: niigata/niigata-city-cats
+  municipality_id: null
+  total_count: 10
+  note: 新潟市譲渡猫情報（いくとぴあ食花）
+animals:
+  - external_id: niigata-city-2025k28
+    name: ねる
+    animal_type: cat
+    breed: null
+    age_estimate: 子猫・推定9月生まれ
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.ikutopia.com/wp-content/uploads/2025/11/3ccbbca8a4375065610f36db29cce828-345x254.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.ikutopia.com/fosterinfo/77899/
+    confidence_level: high
+    extraction_notes:
+      - 2025k28
+    listing_type: adoption
+  - external_id: niigata-city-2025k27
+    name: ぬか
+    animal_type: cat
+    breed: null
+    age_estimate: 子猫・推定9月生まれ
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.ikutopia.com/wp-content/uploads/2025/11/e147cdeed3ec68f205449c6760a30644-345x254.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.ikutopia.com/fosterinfo/77897/
+    confidence_level: high
+    extraction_notes:
+      - 2025k27
+    listing_type: adoption
+  - external_id: niigata-city-2025k30
+    name: はく
+    animal_type: cat
+    breed: null
+    age_estimate: 子猫・推定9月生まれ
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.ikutopia.com/wp-content/uploads/2025/11/2c2740802623a82a59f01a321cd1266c-345x254.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.ikutopia.com/fosterinfo/77895/
+    confidence_level: high
+    extraction_notes:
+      - 2025k30
+    listing_type: adoption
+  - external_id: niigata-city-2025k29
+    name: のん
+    animal_type: cat
+    breed: null
+    age_estimate: 子猫・推定9月生まれ
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.ikutopia.com/wp-content/uploads/2025/11/19aeac55bbd0120c30d33d3831e7b3f6-345x254.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.ikutopia.com/fosterinfo/77893/
+    confidence_level: high
+    extraction_notes:
+      - 2025k29
+    listing_type: adoption
+  - external_id: niigata-city-2025k36
+    name: みみ
+    animal_type: cat
+    breed: null
+    age_estimate: 子猫・推定9月生まれ
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.ikutopia.com/wp-content/uploads/2025/11/0121dace8dc7992446226dcdeefc8ad3-345x254.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.ikutopia.com/fosterinfo/77891/
+    confidence_level: high
+    extraction_notes:
+      - 2025k36
+    listing_type: adoption
+  - external_id: niigata-city-2025k35
+    name: まい
+    animal_type: cat
+    breed: null
+    age_estimate: 子猫・推定9月生まれ
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.ikutopia.com/wp-content/uploads/2025/11/71855807ea4989dfc14ab87ed281393c-345x254.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.ikutopia.com/fosterinfo/77889/
+    confidence_level: high
+    extraction_notes:
+      - 2025k35
+    listing_type: adoption
+  - external_id: niigata-city-2025k34
+    name: ほおずき
+    animal_type: cat
+    breed: null
+    age_estimate: 子猫・推定9月生まれ
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.ikutopia.com/wp-content/uploads/2025/11/ecb16f77a55af0afea8639478299034b-345x254.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.ikutopia.com/fosterinfo/77886/
+    confidence_level: high
+    extraction_notes:
+      - 2025k34
+    listing_type: adoption
+  - external_id: niigata-city-2025k33
+    name: へちま
+    animal_type: cat
+    breed: null
+    age_estimate: 子猫・推定9月生まれ
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.ikutopia.com/wp-content/uploads/2025/11/b083b39180fdd4974ba91c752ab25d9c-345x254.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.ikutopia.com/fosterinfo/77883/
+    confidence_level: high
+    extraction_notes:
+      - 2025k33
+    listing_type: adoption
+  - external_id: niigata-city-2025k32
+    name: ふう
+    animal_type: cat
+    breed: null
+    age_estimate: 子猫・推定9月生まれ
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.ikutopia.com/wp-content/uploads/2025/11/2a05e24718a1421e6f9db430cf820ff9-345x254.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.ikutopia.com/fosterinfo/77880/
+    confidence_level: high
+    extraction_notes:
+      - 2025k32
+    listing_type: adoption
+  - external_id: niigata-city-2025k31
+    name: ひい
+    animal_type: cat
+    breed: null
+    age_estimate: 子猫・推定9月生まれ
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.ikutopia.com/wp-content/uploads/2025/11/5a2244c07182b3b19ff9df5ac6a8c92c-345x254.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.ikutopia.com/fosterinfo/77878/
+    confidence_level: high
+    extraction_notes:
+      - 2025k31
+    listing_type: adoption
