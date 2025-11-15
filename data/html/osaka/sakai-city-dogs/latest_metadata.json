@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-16T02:56:37.224+09:00",
+  "url": "https://www.city.sakai.lg.jp/kurashi/dobutsu/dogcat/inunekojoto/centerdogs.html",
+  "has_animals": true,
+  "html_size": 51922,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}
