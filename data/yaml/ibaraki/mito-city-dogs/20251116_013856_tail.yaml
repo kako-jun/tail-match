@@ -1,0 +1,78 @@
+source:
+  municipality: ibaraki/mito-city-dogs
+  url: https://www.city.mito.lg.jp/site/doubutsuaigo/2041.html
+  scraped_at: '2025-11-15T16:38:56.164Z'
+  note: 水戸市動物愛護センター「あにまるっとみと」
+dogs:
+  - external_id: mito-city-dog-50
+    name: ちゃた
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 雑種
+    features: '体重: 不明'
+    location: 水戸市動物愛護センター
+    received_date: ''
+    status: available
+    image_url: https://www.city.mito.lg.jp/uploaded/image/44315.JPG
+    notes: ''
+  - external_id: mito-city-dog-49
+    name: くろた
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 雑種
+    features: '体重: 不明'
+    location: 水戸市動物愛護センター
+    received_date: ''
+    status: available
+    image_url: https://www.city.mito.lg.jp/uploaded/image/44313.JPG
+    notes: ''
+  - external_id: mito-city-dog-44
+    name: ジロー
+    gender: male
+    age: adult
+    breed: 雑種
+    color: チワワ
+    features: '体重: 不明'
+    location: 水戸市動物愛護センター
+    received_date: ''
+    status: available
+    image_url: https://www.city.mito.lg.jp/uploaded/image/43878.JPG
+    notes: ''
+  - external_id: mito-city-dog-43
+    name: イチロー
+    gender: male
+    age: adult
+    breed: 雑種
+    color: チワワ
+    features: '体重: 不明'
+    location: 水戸市動物愛護センター
+    received_date: ''
+    status: available
+    image_url: https://www.city.mito.lg.jp/uploaded/image/43891.JPG
+    notes: ''
+  - external_id: mito-city-dog-40
+    name: ダイキチ
+    gender: unknown
+    age: adult
+    breed: 雑種
+    color: 不明
+    features: '体重: 不明'
+    location: 水戸市動物愛護センター
+    received_date: ''
+    status: available
+    image_url: https://www.city.mito.lg.jp/uploaded/image/43295.JPG
+    notes: ''
+  - external_id: mito-city-dog-39
+    name: ショウ
+    gender: unknown
+    age: adult
+    breed: 雑種
+    color: 不明
+    features: '体重: 不明'
+    location: 水戸市動物愛護センター
+    received_date: ''
+    status: available
+    image_url: https://www.city.mito.lg.jp/uploaded/image/43298.JPG
+    notes: ''

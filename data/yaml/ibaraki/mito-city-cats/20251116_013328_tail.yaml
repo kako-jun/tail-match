@@ -1,0 +1,50 @@
+source:
+  municipality: ibaraki/mito-city-cats
+  url: https://www.city.mito.lg.jp/site/doubutsuaigo/2039.html
+  scraped_at: '2025-11-15T16:33:28.356Z'
+  note: 水戸市動物愛護センター「あにまるっとみと」
+cats:
+  - external_id: mito-city-cat-43
+    name: マル
+    gender: female
+    age: senior
+    breed: 雑種
+    color: キジトラ
+    features: |-
+      人懐こい2匹です。若くはありませんが，子猫に負けないくらい俊敏でフリーにするとなかなか捕まえられません。
+      一緒にいた期間が長い2匹なので，2匹で引き取っていただける里親さんを募集します。
+
+      ​
+    location: 水戸市動物愛護センター
+    received_date: ''
+    status: available
+    image_url: https://www.city.mito.lg.jp/uploaded/image/43524.JPG
+    notes: 'ワクチン: 猫エイズ(－)、猫白血病(－)、ワクチン済'
+  - external_id: mito-city-cat-44
+    name: タマ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: キジトラ
+    features: |-
+      人懐こい2匹です。若くはありませんが，子猫に負けないくらい俊敏でフリーにするとなかなか捕まえられません。
+      一緒にいた期間が長い2匹なので，2匹で引き取っていただける里親さんを募集します。
+
+      ​
+    location: 水戸市動物愛護センター
+    received_date: ''
+    status: available
+    image_url: https://www.city.mito.lg.jp/uploaded/image/43525.JPG
+    notes: 'ワクチン: 猫エイズ(－)、猫白血病(－)、ワクチン済'
+  - external_id: mito-city-cat-34
+    name: しー
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 白キジ
+    features: 子猫の頃に頭にケガをしたことが原因で軽い斜頸があり，目と耳がやや不自由ですが元気に走り回っています。人が好きで，呼ぶとすぐに寄ってきます。猫にも友好的で，子猫の良い遊び相手になっています。トイレではなくケージの床に排泄してしまうため，トイレについて試行錯誤中です。
+    location: 水戸市動物愛護センター
+    received_date: ''
+    status: available
+    image_url: https://www.city.mito.lg.jp/uploaded/image/37860.JPG
+    notes: 'ワクチン: 猫エイズ(－)、猫白血病(－)、ワクチン済'
