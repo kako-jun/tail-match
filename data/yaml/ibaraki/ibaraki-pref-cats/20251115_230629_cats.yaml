@@ -1,0 +1,198 @@
+source:
+  municipality: ibaraki/ibaraki-pref-cats
+  url: https://www.pref.ibaraki.jp/hokenfukushi/doshise/hogo/syuuyou.html
+  scraped_at: '2025-11-15T14:06:29.254Z'
+  note: PDFから抽出、茨城県動物指導センター
+cats:
+  - external_id: ibaraki-pref-cat-23-4116
+    name: ヒロ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: キジトラ
+    features: '体格: 大, 首輪: 無'
+    location: 東海村豊白
+    received_date: 2024/2/15
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4116'
+  - external_id: ibaraki-pref-cat-23-4129
+    name: ほたて
+    gender: male
+    age: adult
+    breed: 雑種
+    color: キジ白
+    features: '体格: 中, 首輪: 無'
+    location: 阿見町鈴木
+    received_date: 2024/2/27
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4129'
+  - external_id: ibaraki-pref-cat-24-4737
+    name: オオヌキさん
+    gender: male
+    age: adult
+    breed: 雑種
+    color: こげ茶
+    features: '体格: 中, 首輪: 無'
+    location: 大洗町大貫町
+    received_date: 2025/2/28
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4737'
+  - external_id: ibaraki-pref-cat-25-0065
+    name: ごましお
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 白黒
+    features: '体格: 中, 首輪: 無'
+    location: 結城市結城
+    received_date: 2025/4/15
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0065'
+  - external_id: ibaraki-pref-cat-25-0420
+    name: キョウ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: キジ白
+    features: '体格: 中, 首輪: 無'
+    location: 東海村村松
+    received_date: 2025/6/10
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0420'
+  - external_id: ibaraki-pref-cat-25-0519
+    name: シャー
+    gender: female
+    age: adult
+    breed: 雑種
+    color: キジトラ
+    features: '体格: 中, 首輪: 無'
+    location: 神栖市神栖
+    received_date: 2025/6/23
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0519'
+  - external_id: ibaraki-pref-cat-25-0809
+    name: オセロ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 白黒
+    features: '体格: 中, 首輪: 無'
+    location: 古河市山田
+    received_date: 2025/9/1
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0809'
+  - external_id: ibaraki-pref-cat-25-0811
+    name: コハク
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 黒白
+    features: '体格: 中, 首輪: 無'
+    location: 古河市山田
+    received_date: 2025/9/1
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0811'
+  - external_id: ibaraki-pref-cat-25-0812
+    name: チャトラン
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶トラ
+    features: '体格: 中, 首輪: 無'
+    location: 古河市山田
+    received_date: 2025/9/1
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0812'
+  - external_id: ibaraki-pref-cat-25-0813
+    name: チャシロン
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶白
+    features: '体格: 中, 首輪: 無'
+    location: 古河市山田
+    received_date: 2025/9/1
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0813'
+  - external_id: ibaraki-pref-cat-25-0819
+    name: オーロラ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: パステル三毛
+    features: '体格: 中, 首輪: 無'
+    location: 境町
+    received_date: 2025/9/2
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0819'
+  - external_id: ibaraki-pref-cat-25-0821
+    name: アナ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 三毛
+    features: '体格: 中, 首輪: 無'
+    location: 境町
+    received_date: 2025/9/2
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0821'
+  - external_id: ibaraki-pref-cat-25-0822
+    name: ジャスミン
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 三毛
+    features: '体格: 中, 首輪: 無'
+    location: 境町
+    received_date: 2025/9/2
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0822'
+  - external_id: ibaraki-pref-cat-25-0823
+    name: アリエル
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 黒白
+    features: '体格: 中, 首輪: 無'
+    location: 境町
+    received_date: 2025/9/2
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0823'
+  - external_id: ibaraki-pref-cat-25-0824
+    name: エルサ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 黒白
+    features: '体格: 中, 首輪: 無'
+    location: 境町
+    received_date: 2025/9/2
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0824'
+  - external_id: ibaraki-pref-cat-25-0925
+    name: しっぽ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 白茶
+    features: '体格: 中, 首輪: 無'
+    location: 鹿嶋市神向寺
+    received_date: 2025/9/29
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0925'
