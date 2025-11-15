@@ -702,6 +702,115 @@ node scripts/core/yaml-to-db.js --dry-run
 node scripts/core/yaml-to-db.js
 ```
 
+### Step 10: コミット（⚠️ 必須手順）
+
+**重要**: スクレイピング実装完了後は、必ずクリーンナップしてからコミットしてください。
+
+#### 10.1: 最新データのコピー
+
+スクレイパーのローカルdataディレクトリ（`scripts/scrapers/{prefecture}/{municipality}/data/`）から、プロジェクトレベルのdataディレクトリにファイルをコピーします：
+
+```bash
+# 例: 福岡県の6施設の場合
+for facility in fukuoka-city-cats fukuoka-city-dogs fukuoka-pref-cats fukuoka-pref-dogs kitakyushu-city-cats kitakyushu-city-dogs; do
+  cp scripts/scrapers/fukuoka/$facility/data/html/fukuoka/$facility/*.html data/html/fukuoka/$facility/
+  cp scripts/scrapers/fukuoka/$facility/data/yaml/fukuoka/$facility/*_tail.yaml data/yaml/fukuoka/$facility/
+done
+```
+
+**注意**: 複数のYAMLファイルがある場合は、最新のもののみをコピーしてください。
+
+#### 10.2: クリーンナップ実行
+
+古いHTML/YAMLファイルを削除し、最新のファイルのみを保持します：
+
+```bash
+node scripts/core/cleanup-html-yaml.js
+```
+
+**確認**:
+
+- 🗑️ 削除対象のファイルが正しいか確認
+- ✅ 保持対象のファイルが最新のものか確認
+
+#### 10.3: Git状態確認
+
+```bash
+git status --short | grep {prefecture}
+```
+
+**期待される結果**:
+
+- `D` (削除): 古いHTML/YAMLファイル
+- `??` (新規追加): 最新のHTML/YAMLファイル
+- `A` (追加): スクレイパーのローカルdataディレクトリのファイル
+
+#### 10.4: スクレイパーコードのコミット
+
+```bash
+# scrape.js, html-to-yaml.js, shelters-history.yaml をコミット
+git add scripts/scrapers/{prefecture}/{municipality}/ .claude/shelters-history.yaml
+git commit -m "$(cat <<'EOF'
+feat: {施設名}のスクレイパー実装（{動物種}）
+
+- scrape.js: Playwright動的スクレイピング
+- html-to-yaml.js: データ抽出ロジック
+- 共通ヘルパー関数使用（譲渡済み判定、動物種判定）
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+EOF
+)"
+```
+
+#### 10.5: データファイルのコミット
+
+```bash
+# HTML/YAMLファイルとスクレイパーローカルdataをコミット
+git add data/html/{prefecture}/ data/yaml/{prefecture}/ scripts/scrapers/{prefecture}/*/data/
+git commit -m "$(cat <<'EOF'
+data: {施設名}のデータ追加（猫X匹・犬Y匹）
+
+【施設名1】
+- 猫: X匹（成猫・子猫の内訳など）
+- 犬: Y匹（成犬・子犬の内訳など）
+
+【施設名2】
+- ...
+
+クリーンナップ後の最新データのみコミット
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+EOF
+)"
+```
+
+**コミットメッセージの書き方**:
+
+- スクレイパーコード: `feat:` または `fix:` プレフィックス
+- データファイル: `data:` プレフィックス
+- 動物数を明記（例: 猫10匹・犬5匹）
+- 施設ごとの内訳を記載
+
+#### 10.6: 最終確認
+
+```bash
+# 最新の3コミットを確認
+git log --oneline -3
+
+# プッシュ前の最終確認
+git status
+```
+
+**期待される結果**:
+
+1. スクレイパーコードのコミット
+2. データファイルのコミット
+3. 未追跡ファイル: `.serena/` のみ（gitignore済み）
+
 ---
 
 ## 🔍 トラブルシューティング
