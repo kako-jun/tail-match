@@ -1,0 +1,18 @@
+{
+  "name": "ehime-pref-scraper",
+  "version": "1.0.0",
+  "description": "愛媛県動物愛護センタースクレイパー",
+  "type": "module",
+  "scripts": {
+    "scrape": "node scrape.js",
+    "extract": "node html-to-yaml.js"
+  },
+  "keywords": [
+    "scraper",
+    "ehime",
+    "dogs",
+    "cats"
+  ],
+  "author": "",
+  "license": "MIT"
+}
