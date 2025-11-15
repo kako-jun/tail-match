@@ -82,13 +82,22 @@ function extractAnimalFromCard($, card) {
   // external_id生成（管理番号から）
   const external_id = `kochi-pref-${managementNumber.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`;
 
-  // 動物種判定（URLから）
-  const detailLink = $card.find('.animal-more').attr('href') || '';
+  // 動物種判定（tab-listのリンクから）
+  const tabLink = $card.find('.tab-list a').attr('href') || '';
   let animalType = 'unknown';
-  if (detailLink.includes('center_jouto_inu') || name.includes('くん')) {
+  if (tabLink.includes('maigojouto_cat=center_jouto_inu')) {
     animalType = 'dog';
-  } else if (detailLink.includes('center_jouto_neko') || name.includes('ちゃん')) {
+  } else if (tabLink.includes('maigojouto_cat=center_jouto_neko')) {
     animalType = 'cat';
+  }
+
+  // フォールバック: 名前の接尾辞で判定
+  if (animalType === 'unknown') {
+    if (name.includes('くん')) {
+      animalType = 'dog';
+    } else if (name.includes('ちゃん')) {
+      animalType = 'cat';
+    }
   }
 
   // 更新日取得
@@ -129,15 +138,35 @@ async function main() {
     const html = fs.readFileSync(htmlPath, 'utf-8');
     const $ = load(html);
 
-    // カードから動物情報を抽出
+    // カードから動物情報を抽出（全タブから、重複は後で除去）
     console.log('🔍 動物情報を抽出中...');
-    const animals = [];
+    const allAnimals = [];
     $('.tab-animal-card').each((i, card) => {
       const animalInfo = extractAnimalFromCard($, card);
       if (animalInfo) {
-        animals.push(animalInfo);
+        allAnimals.push(animalInfo);
       }
     });
+
+    // external_idで重複除去（猫を優先）
+    const animalMap = new Map();
+    allAnimals.forEach((animal) => {
+      const existing = animalMap.get(animal.external_id);
+      if (!existing) {
+        // 新規の動物
+        animalMap.set(animal.external_id, animal);
+      } else if (existing.animal_type === 'cat') {
+        // 既存が猫なら保持
+        return;
+      } else if (animal.animal_type === 'cat') {
+        // 新しい方が猫なら上書き
+        animalMap.set(animal.external_id, animal);
+      }
+      // それ以外は既存を保持（犬同士の重複など）
+    });
+    const animals = Array.from(animalMap.values());
+
+    console.log(`  📝 抽出: ${allAnimals.length}件 → 重複除去後: ${animals.length}件`);
 
     // 猫と犬を分類
     const cats = animals.filter((a) => a.animal_type === 'cat');

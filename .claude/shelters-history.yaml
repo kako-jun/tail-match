@@ -1,6 +1,6 @@
 metadata:
   version: 1.0.0
-  last_updated: '2025-11-15T13:07:34.163+09:00'
+  last_updated: '2025-11-15T13:13:39.044+09:00'
   purpose: スクレイピング動作確認・エラー履歴管理
   total_scrapers: 49
 scrapers:
@@ -2712,14 +2712,54 @@ scrapers:
     name: null
     page_type: null
     verified: true
-    last_success: '2025-11-15T13:07:34.010+09:00'
+    last_success: '2025-11-15T13:13:38.985+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 2
-    success_count: 2
+    total_runs: 7
+    success_count: 7
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2025-11-15T13:13:38.985+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 40
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 622
+      - timestamp: '2025-11-15T13:12:53.860+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 40
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 587
+      - timestamp: '2025-11-15T13:12:30.771+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 40
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 484
+      - timestamp: '2025-11-15T13:11:23.424+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 86
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 627
+      - timestamp: '2025-11-15T13:10:36.658+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 86
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 745
       - timestamp: '2025-11-15T13:07:34.010+09:00'
         status: success
         html_count: 0
