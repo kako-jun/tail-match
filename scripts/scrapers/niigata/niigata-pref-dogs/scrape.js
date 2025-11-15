@@ -90,7 +90,8 @@ async function scrapeHTML() {
 
   try {
     const page = await browser.newPage({
-      userAgent: 'TailMatchBot/1.0 (+https://github.com/yourusername/tail-match) Playwright/1.40.0',
+      userAgent:
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
     });
 
     // ページ読み込み

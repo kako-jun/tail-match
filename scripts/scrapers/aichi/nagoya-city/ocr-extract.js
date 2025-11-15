@@ -74,30 +74,74 @@ function parseExtractedText(text, externalId) {
     let gender = 'unknown';
 
     // 「性別: 不明」「性別: 未判明」は明示的にunknownとして扱う
-    if (text.match(/性\s*別[:：\s]*(不明|未判明)/)) {
+    if (text.match(/[性に][別ヨ][:：\s]*(不明|未判明)/)) {
       gender = 'unknown';
     } else {
-      // 通常の性別パターン
-      const genderMatch = text.match(/性\s*別[:：\s]*(オス|メス|雄|雌|男\s*の\s*子|女\s*の\s*子)/);
-      if (genderMatch) {
-        const g = genderMatch[1].replace(/\s+/g, '');
+      // パターン1: 「性別」が正しく認識される場合
+      const genderMatch1 = text.match(
+        /性\s*別[:：\s]*(オス|メス|メメス|雄|雌|男\s*の\s*子|女\s*の\s*子)/
+      );
+      if (genderMatch1) {
+        const g = genderMatch1[1].replace(/\s+/g, '').replace(/メメス/g, 'メス');
         if (g === 'オス' || g === '雄' || g === '男の子') {
           gender = 'male';
         } else if (g === 'メス' || g === '雌' || g === '女の子') {
           gender = 'female';
         }
       }
+      // パターン2: 「性別」がOCRミス（「にヨ別」など）
+      else {
+        const genderMatch2 = text.match(/[性に][別ヨ][:：\s]*(オス|メス|メメス|雄|雌)/);
+        if (genderMatch2) {
+          const g = genderMatch2[1].replace(/メメス/g, 'メス');
+          if (g === 'オス' || g === '雄') {
+            gender = 'male';
+          } else if (g === 'メス' || g === '雌') {
+            gender = 'female';
+          }
+        }
+      }
     }
 
-    // 年齢（OCRミス対応：「年齢」「年人齢」「年_齢」など、同一行内で「齢」を含むパターン）
-    const ageMatch = text.match(/年[^\n齢]*齢\s*[:：\s]*([^\n]+)/);
+    // 年齢（OCRミス対応：「年齢」「年人齢」「年_齢」「年静」など、同一行内で「齢」「静」を含むパターン）
     let age_estimate = null;
-    if (ageMatch) {
-      // 「6歳」「5カ月」「3週」のような部分だけを抽出
+
+    // パターン1: 「年齢: X歳」形式（正常認識）
+    const ageMatch1 = text.match(/年[^\n齢静]*[齢静]\s*[:：\s]*([^\n]+)/);
+    if (ageMatch1) {
+      // 「6歳」「5カ月」「3週」「1歳半」のような部分だけを抽出
       // OCR誤認識対応: カ月（カタカナのカ） → ヵ月（小さいヵ）
-      const ageOnlyMatch = ageMatch[1].match(/(\d+\s*(?:歳|才|ヶ月|ヵ月|カ月|か月|週間|週))/);
+      const ageOnlyMatch = ageMatch1[1].match(
+        /(\d+\s*(?:歳\s*半|歳|才|ヶ月|ヵ月|カ月|か月|週間|週))/
+      );
       if (ageOnlyMatch) {
         age_estimate = ageOnlyMatch[1].replace(/\s+/g, '').replace(/カ月/g, 'ヵ月');
+      } else {
+        // パターン2: 「年齢: 10」のように数字のみ（歳が認識されていない）
+        const numberOnlyMatch = ageMatch1[1].match(/(\d+)/);
+        if (numberOnlyMatch) {
+          age_estimate = `${numberOnlyMatch[1]}歳`;
+        }
+      }
+    }
+
+    // パターン3: 「年齢」が認識されていない場合、「齢」「静」だけを探す
+    if (!age_estimate) {
+      const ageMatch2 = text.match(
+        /[齢静]\s*[:：\s]*(\d+\s*(?:歳\s*半|歳|才|ヶ月|ヵ月|カ月|か月|週間|週))/
+      );
+      if (ageMatch2) {
+        age_estimate = ageMatch2[1].replace(/\s+/g, '').replace(/カ月/g, 'ヵ月');
+      }
+    }
+
+    // パターン4: 「推定」「准定」などから探す（年齢行が全く認識されていない場合）
+    if (!age_estimate) {
+      const ageMatch3 = text.match(
+        /(?:推\s*定|准\s*定)\s*(\d+\s*(?:歳\s*半|歳|才|ヶ月|ヵ月|カ月|か月|週間|週))/
+      );
+      if (ageMatch3) {
+        age_estimate = `推定${ageMatch3[1].replace(/\s+/g, '').replace(/カ月/g, 'ヵ月')}`;
       }
     }
 

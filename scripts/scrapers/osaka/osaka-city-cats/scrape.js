@@ -46,7 +46,8 @@ async function main() {
     console.log('🚀 Playwrightブラウザ起動中...\n');
     browser = await chromium.launch({ headless: true });
     const context = await browser.newContext({
-      userAgent: 'TailMatchBot/1.0 (+https://github.com/kako-jun/tail-match; 保護猫情報収集)',
+      userAgent:
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
     });
     const page = await context.newPage();
 
