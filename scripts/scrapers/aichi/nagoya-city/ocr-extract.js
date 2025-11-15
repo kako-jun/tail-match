@@ -74,26 +74,34 @@ function parseExtractedText(text, externalId) {
     let gender = 'unknown';
 
     // 「性別: 不明」「性別: 未判明」は明示的にunknownとして扱う
-    if (text.match(/[性に][別ヨ][:：\s]*(不明|未判明)/)) {
+    if (text.match(/(?:性\s*別|[性に]\s*[ヨ]\s*別)\s*[:：]\s*(不明|未判明)/)) {
       gender = 'unknown';
     } else {
       // パターン1: 「性別」が正しく認識される場合
       const genderMatch1 = text.match(
-        /性\s*別[:：\s]*(オス|メス|メメス|雄|雌|男\s*の\s*子|女\s*の\s*子)/
+        /性\s*別\s*[:：]\s*(オス|メス|メメス|メメ\s*スニ|雄|雌|男\s*の\s*子|女\s*の\s*子)/
       );
       if (genderMatch1) {
-        const g = genderMatch1[1].replace(/\s+/g, '').replace(/メメス/g, 'メス');
+        const g = genderMatch1[1]
+          .replace(/\s+/g, '')
+          .replace(/メメス/g, 'メス')
+          .replace(/メメスニ/g, 'メス');
         if (g === 'オス' || g === '雄' || g === '男の子') {
           gender = 'male';
         } else if (g === 'メス' || g === '雌' || g === '女の子') {
           gender = 'female';
         }
       }
-      // パターン2: 「性別」がOCRミス（「にヨ別」など）
+      // パターン2: 「性別」がOCRミス（「にヨ別」など、3文字パターン対応）
       else {
-        const genderMatch2 = text.match(/[性に][別ヨ][:：\s]*(オス|メス|メメス|雄|雌)/);
+        const genderMatch2 = text.match(
+          /(?:[性に]\s*[ヨ]\s*別)\s*[:：]\s*(オス|メス|メメス|メメ\s*スニ|雄|雌)/
+        );
         if (genderMatch2) {
-          const g = genderMatch2[1].replace(/メメス/g, 'メス');
+          const g = genderMatch2[1]
+            .replace(/\s+/g, '')
+            .replace(/メメス/g, 'メス')
+            .replace(/メメスニ/g, 'メス');
           if (g === 'オス' || g === '雄') {
             gender = 'male';
           } else if (g === 'メス' || g === '雌') {
