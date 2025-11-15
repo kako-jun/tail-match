@@ -1,0 +1,32 @@
+- external_id: '2510076'
+  name: null
+  species: 犬
+  breed: 雑種
+  age: 成犬
+  gender: male
+  color: 茶
+  size: 中
+  description: |-
+    なし
+    収容日: 令和7年11月5日
+    収容場所: 笠岡市カブト中央町
+  image_url: https://www.pref.okayama.jp/uploaded/image/292698.JPG
+  status: available
+  source_url: https://www.pref.okayama.jp/page/859555.html
+  scraped_at: '2025-11-15T08:18:02.220Z'
+- external_id: '2510079'
+  name: null
+  species: 犬
+  breed: 雑種
+  age: 成犬
+  gender: female
+  color: 茶
+  size: 中
+  description: |-
+    首輪なし
+    収容日: 令和7年11月13日
+    収容場所: 笠岡市カブト中央町
+  image_url: https://www.pref.okayama.jp/uploaded/image/292919.JPG
+  status: available
+  source_url: https://www.pref.okayama.jp/page/859555.html
+  scraped_at: '2025-11-15T08:18:02.222Z'
