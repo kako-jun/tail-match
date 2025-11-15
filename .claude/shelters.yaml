@@ -3,13 +3,13 @@
 # データソース: データベース実装済み施設（正確なURL・連絡先）+ 市レベル施設調査
 
 metadata:
-  version: "5.2.0"
+  version: "5.3.0"
   last_updated: "2025-11-15"
-  total_facilities: 77   # 全施設数（実装済み24 + 未実装53）香川県重複統合
-  total_implemented: 24  # 実装済み自治体数
-  total_pending: 53      # 未実装施設数（調査済みURL）
-  total_scrapers: 32     # 猫犬別ページ含む
-  implementation_rate: "31.2%"  # 実装率（24/77）
+  total_facilities: 77   # 全施設数（実装済み26 + 未実装51）徳島県追加
+  total_implemented: 26  # 実装済み自治体数
+  total_pending: 51      # 未実装施設数（調査済みURL）
+  total_scrapers: 34     # 猫犬別ページ含む
+  implementation_rate: "33.8%"  # 実装率（26/77）
   status: "運用中"
   notes: |
     このファイルは全国の保護施設情報を都道府県単位で管理します。
@@ -19,15 +19,15 @@ metadata:
 
 # 実装状況サマリー
 implementation_summary:
-  implemented_prefectures: 12      # 北海道、東京、神奈川、埼玉、千葉、富山、石川、福井、京都、大阪、兵庫、愛知、香川、沖縄
-  pending_prefectures: 35          # 残り35都道府県
-  implemented_facilities: 24       # 実装済み自治体
-  scraper_count: 32                # 猫専用19 + 犬専用9 + 混在4
+  implemented_prefectures: 13      # 北海道、宮城、東京、神奈川、埼玉、千葉、富山、石川、福井、京都、大阪、兵庫、愛知、香川、徳島、沖縄
+  pending_prefectures: 34          # 残り34都道府県
+  implemented_facilities: 26       # 実装済み自治体
+  scraper_count: 34                # 猫専用21 + 犬専用11 + 混在4
 
   by_type:
     mixed_pages: 4                 # 犬猫混在ページ
-    cat_only_pages: 19             # 猫専用ページ（香川県追加）
-    dog_only_pages: 9              # 犬専用ページ（香川県追加）
+    cat_only_pages: 21             # 猫専用ページ（徳島県追加）
+    dog_only_pages: 11             # 犬専用ページ（徳島県追加）
 
 # ========================================
 # 47都道府県別施設リスト
@@ -1173,20 +1173,35 @@ prefectures:
     prefecture_code: "36"
     region: "四国地方"
     facilities:
-      - name: "徳島県動物愛護管理センター"
+      - name: "徳島県動物愛護管理センター（猫）"
         city: null
         type: "prefecture"
-        status: "pending"
-        scraper_path: null
-        page_type: "unknown"
-        url: "https://www.pref.tokushima.lg.jp/ippannokata/kurashi/shizen/5014832"
+        status: "implemented"
+        scraper_path: "scripts/scrapers/tokushima/tokushima-pref-cats"
+        page_type: "cat_only"
+        url: "https://douai-tokushima.com/animalinfo/list4_2"
         url_adoption: "https://www.pref.tokushima.lg.jp/ippannokata/kurashi/shizen/5014847"
         contact:
           phone: "088-636-6122"
           address: "徳島県名西郡神山町阿野字長谷333"
           email: null
           postal_code: "771-3421"
-        notes: "未実装、調査済み"
+        notes: "猫専用ページ。iframe内テーブル形式（table.f_a3）。rowspan対応パース処理。全角数字→半角変換実装。性格評価（愛嬌/やんちゃさ/慎重さ/人懐こさ）含む。データ: 1匹。実装完了 (2025-11-15)"
+
+      - name: "徳島県動物愛護管理センター（犬）"
+        city: null
+        type: "prefecture"
+        status: "implemented"
+        scraper_path: "scripts/scrapers/tokushima/tokushima-pref-dogs"
+        page_type: "dog_only"
+        url: "https://douai-tokushima.com/animalinfo/list4_1"
+        url_adoption: "https://www.pref.tokushima.lg.jp/ippannokata/kurashi/shizen/5014847"
+        contact:
+          phone: "088-636-6122"
+          address: "徳島県名西郡神山町阿野字長谷333"
+          email: null
+          postal_code: "771-3421"
+        notes: "犬専用ページ。iframe内テーブル形式（table.f_a3）。猫と同じ構造。データ: 10匹。実装完了 (2025-11-15)"
 
   - prefecture_name: "香川県"
     prefecture_code: "37"
