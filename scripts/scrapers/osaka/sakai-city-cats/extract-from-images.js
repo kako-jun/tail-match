@@ -21,11 +21,11 @@ const execAsync = promisify(exec);
 // ========================================
 
 const CONFIG = {
-  municipality: 'osaka/sakai-city',
+  municipality: 'osaka/sakai-city-cats',
   municipality_id: 'osaka_27_sakai',
   base_url: 'https://www.city.sakai.lg.jp',
   image_urls: [
-    // 猫
+    // 猫のみ（11枚）
     '/kurashi/dobutsu/dogcat/inunekojoto/cats1.images/R7_1.png',
     '/kurashi/dobutsu/dogcat/inunekojoto/cats1.images/R7_2.png',
     '/kurashi/dobutsu/dogcat/inunekojoto/cats1.images/R7_3.png',
@@ -37,8 +37,6 @@ const CONFIG = {
     '/kurashi/dobutsu/dogcat/inunekojoto/cats3.images/R7_9.png',
     '/kurashi/dobutsu/dogcat/inunekojoto/cats3.images/R7_10.png',
     '/kurashi/dobutsu/dogcat/inunekojoto/cats3.images/R7_11.png',
-    // 犬
-    '/kurashi/dobutsu/dogcat/inunekojoto/centerdogs.images/7005-2.png',
   ],
 };
 

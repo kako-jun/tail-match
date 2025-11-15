@@ -24,8 +24,8 @@ const __dirname = path.dirname(__filename);
 // ========================================
 
 const CONFIG = {
-  url: 'https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html',
-  municipality: 'kanagawa/yokohama-city-cats',
+  url: 'https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/joto_inu.html',
+  municipality: 'kanagawa/yokohama-city-dogs',
   outputDir: path.join(process.cwd(), 'data', 'html', 'kanagawa', 'yokohama-city'),
   userAgent: 'TailMatchBot/1.0 (https://tail-match.llll-ll.com; research@example.com)',
 };
@@ -39,7 +39,7 @@ async function main() {
   logger.start();
 
   console.log('='.repeat(60));
-  console.log('🐱 横浜市動物愛護センター（猫）- スクレイピング');
+  console.log('🐕 横浜市動物愛護センター（犬）- スクレイピング');
   console.log('='.repeat(60));
   console.log(`   URL: ${CONFIG.url}`);
   console.log(`   Municipality: ${CONFIG.municipality}`);
