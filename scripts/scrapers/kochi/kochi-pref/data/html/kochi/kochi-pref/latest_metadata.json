@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-15T13:06:15.881+09:00",
+  "url": "https://kochi-apc.com/jouto/",
+  "has_animals": false,
+  "html_size": 179098,
+  "scraper": "playwright",
+  "note": "犬猫混在ページ、カード形式、tabpagerページネーション"
+}
