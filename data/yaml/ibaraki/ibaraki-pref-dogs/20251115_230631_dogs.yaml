@@ -1,0 +1,1986 @@
+source:
+  municipality: ibaraki/ibaraki-pref-dogs
+  url: https://www.pref.ibaraki.jp/hokenfukushi/doshise/hogo/syuuyou.html
+  scraped_at: '2025-11-15T14:06:31.813Z'
+  note: PDFから抽出、茨城県動物指導センター
+dogs:
+  - external_id: ibaraki-pref-dog-22-3416
+    name: メビウス
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 小美玉市柴高
+    received_date: 2023/1/4
+    status: available
+    image_url: null
+    notes: '管理番号: 22-3416'
+  - external_id: ibaraki-pref-dog-22-3461
+    name: ゴードン
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 大, 首輪: 無'
+    location: 小美玉市柴高
+    received_date: 2023/1/27
+    status: available
+    image_url: null
+    notes: '管理番号: 22-3461'
+  - external_id: ibaraki-pref-dog-22-3470
+    name: トビー
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 大, 首輪: 無'
+    location: 小美玉市柴高
+    received_date: 2023/1/30
+    status: available
+    image_url: null
+    notes: '管理番号: 22-3470'
+  - external_id: ibaraki-pref-dog-22-3491
+    name: ももこ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: こげ茶
+    features: '体格: 中, 首輪: 無'
+    location: 行方市宇崎
+    received_date: 2023/2/15
+    status: available
+    image_url: null
+    notes: '管理番号: 22-3491'
+  - external_id: ibaraki-pref-dog-22-3492
+    name: リンコ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 白
+    features: '体格: 中, 首輪: 無'
+    location: 笠間市大橋
+    received_date: 2023/2/16
+    status: available
+    image_url: null
+    notes: '管理番号: 22-3492'
+  - external_id: ibaraki-pref-dog-22-3541
+    name: なるる
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 白薄茶
+    features: '体格: 中, 首輪: 無'
+    location: 鉾田市田崎
+    received_date: 2023/3/1
+    status: available
+    image_url: null
+    notes: '管理番号: 22-3541'
+  - external_id: ibaraki-pref-dog-22-3543
+    name: シャルル
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 鉾田市田崎
+    received_date: 2023/3/1
+    status: available
+    image_url: null
+    notes: '管理番号: 22-3543'
+  - external_id: ibaraki-pref-dog-22-3565
+    name: しげる
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: つくば市柳橋
+    received_date: 2023/3/10
+    status: available
+    image_url: null
+    notes: '管理番号: 22-3565'
+  - external_id: ibaraki-pref-dog-23-3688
+    name: ウズキ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 小, 首輪: 無'
+    location: 茨城町小幡
+    received_date: 2023/6/2
+    status: available
+    image_url: null
+    notes: '管理番号: 23-3688'
+  - external_id: ibaraki-pref-dog-23-3730
+    name: バーニー
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町小幡
+    received_date: 2023/6/21
+    status: available
+    image_url: null
+    notes: '管理番号: 23-3730'
+  - external_id: ibaraki-pref-dog-23-3782
+    name: ステイン
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 笠間市押辺
+    received_date: 2023/7/13
+    status: available
+    image_url: null
+    notes: '管理番号: 23-3782'
+  - external_id: ibaraki-pref-dog-23-3795
+    name: 裕次郎
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 鉾田市秋山
+    received_date: 2023/7/20
+    status: available
+    image_url: null
+    notes: '管理番号: 23-3795'
+  - external_id: ibaraki-pref-dog-23-3799
+    name: 呂布
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町小幡
+    received_date: 2023/7/24
+    status: available
+    image_url: null
+    notes: '管理番号: 23-3799'
+  - external_id: ibaraki-pref-dog-23-3856
+    name: 赤城
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 小美玉市西郷地
+    received_date: 2023/8/28
+    status: available
+    image_url: null
+    notes: '管理番号: 23-3856'
+  - external_id: ibaraki-pref-dog-23-3870
+    name: ヒューイ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 小美玉市柴高
+    received_date: 2023/9/6
+    status: available
+    image_url: null
+    notes: '管理番号: 23-3870'
+  - external_id: ibaraki-pref-dog-23-3871
+    name: シュレン
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 小美玉市柴高
+    received_date: 2023/9/6
+    status: available
+    image_url: null
+    notes: '管理番号: 23-3871'
+  - external_id: ibaraki-pref-dog-23-4023
+    name: レオーネ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2023/12/20
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4023'
+  - external_id: ibaraki-pref-dog-23-4024
+    name: パーシー
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶黒
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2023/12/20
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4024'
+  - external_id: ibaraki-pref-dog-23-4026
+    name: スーザン
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2023/12/21
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4026'
+  - external_id: ibaraki-pref-dog-23-4028
+    name: ニール
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町小幡
+    received_date: 2023/12/21
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4028'
+  - external_id: ibaraki-pref-dog-23-4030
+    name: ケープ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 白茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2023/12/25
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4030'
+  - external_id: ibaraki-pref-dog-23-4031
+    name: カーリー
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2023/12/25
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4031'
+  - external_id: ibaraki-pref-dog-23-4039
+    name: セリカ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2023/12/28
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4039'
+  - external_id: ibaraki-pref-dog-23-4050
+    name: キツネ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町小幡
+    received_date: 2024/1/10
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4050'
+  - external_id: ibaraki-pref-dog-23-4150
+    name: オリバー
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/3/14
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4150'
+  - external_id: ibaraki-pref-dog-23-4157
+    name: ベス
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶白
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町下土師
+    received_date: 2024/3/19
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4157'
+  - external_id: ibaraki-pref-dog-24-4172
+    name: ブッシュ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 薄茶
+    features: '体格: 中, 首輪: 赤'
+    location: 美浦村舟子
+    received_date: 2024/4/11
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4172'
+  - external_id: ibaraki-pref-dog-24-4179
+    name: ドルフ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町小幡
+    received_date: 2024/4/15
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4179'
+  - external_id: ibaraki-pref-dog-24-4217
+    name: ロイヤー
+    gender: male
+    age: adult
+    breed: 雑種
+    color: うす茶
+    features: '体格: 中, 首輪: 無'
+    location: 小美玉市与沢
+    received_date: 2024/5/20
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4217'
+  - external_id: ibaraki-pref-dog-24-4222
+    name: ヒバナ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 小美玉市与沢
+    received_date: 2024/5/23
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4222'
+  - external_id: ibaraki-pref-dog-24-4254
+    name: マクベス
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 白
+    features: '体格: 中, 首輪: 無'
+    location: 笠間市大渕
+    received_date: 2024/6/24
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4254'
+  - external_id: ibaraki-pref-dog-24-4267
+    name: ヒルゼン
+    gender: male
+    age: adult
+    breed: 柴犬
+    color: 茶
+    features: '体格: 中, 首輪: 茶・青'
+    location: つくば市寺具
+    received_date: 2024/7/12
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4267'
+  - external_id: ibaraki-pref-dog-24-4411
+    name: プリウス
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/10/11
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4411'
+  - external_id: ibaraki-pref-dog-24-4412
+    name: ノックス
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 白茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/10/11
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4412'
+  - external_id: ibaraki-pref-dog-24-4415
+    name: ギヴン
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/10/15
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4415'
+  - external_id: ibaraki-pref-dog-24-4422
+    name: ガンテツ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/10/17
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4422'
+  - external_id: ibaraki-pref-dog-24-4424
+    name: サフラン
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/10/17
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4424'
+  - external_id: ibaraki-pref-dog-24-4425
+    name: パンジー
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/10/17
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4425'
+  - external_id: ibaraki-pref-dog-24-4426
+    name: ダリア
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/10/17
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4426'
+  - external_id: ibaraki-pref-dog-24-4430
+    name: ウィル
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/10/18
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4430'
+  - external_id: ibaraki-pref-dog-24-4455
+    name: ミンファ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 鉾田市鹿田
+    received_date: 2024/10/29
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4455'
+  - external_id: ibaraki-pref-dog-24-4461
+    name: ナガ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/1
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4461'
+  - external_id: ibaraki-pref-dog-24-4462
+    name: キーナ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/1
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4462'
+  - external_id: ibaraki-pref-dog-24-4464
+    name: ダース
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/1
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4464'
+  - external_id: ibaraki-pref-dog-24-4465
+    name: ズシ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 黒茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/1
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4465'
+  - external_id: ibaraki-pref-dog-24-4468
+    name: グンタ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/5
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4468'
+  - external_id: ibaraki-pref-dog-24-4470
+    name: ララ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/5
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4470'
+  - external_id: ibaraki-pref-dog-24-4471
+    name: アムロ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/5
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4471'
+  - external_id: ibaraki-pref-dog-24-4499
+    name: ダグラス
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶黒
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/15
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4499'
+  - external_id: ibaraki-pref-dog-24-4507
+    name: ニコフ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 鉾田市舟木
+    received_date: 2024/11/20
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4507'
+  - external_id: ibaraki-pref-dog-24-4514
+    name: ドル
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/22
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4514'
+  - external_id: ibaraki-pref-dog-24-4516
+    name: コア
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/22
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4516'
+  - external_id: ibaraki-pref-dog-24-4523
+    name: ダイゴ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/29
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4523'
+  - external_id: ibaraki-pref-dog-24-4524
+    name: ラミ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶白
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/29
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4524'
+  - external_id: ibaraki-pref-dog-24-4525
+    name: レラ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/29
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4525'
+  - external_id: ibaraki-pref-dog-24-4526
+    name: ノブ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/29
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4526'
+  - external_id: ibaraki-pref-dog-24-4585
+    name: すみれ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 白茶
+    features: '体格: 中, 首輪: 無'
+    location: 笠間市長兎路
+    received_date: 2025/1/9
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4585'
+  - external_id: ibaraki-pref-dog-24-4602
+    name: ケイコ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 白茶
+    features: '体格: 中, 首輪: 無'
+    location: 笠間市長兎路
+    received_date: 2025/1/14
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4602'
+  - external_id: ibaraki-pref-dog-24-4626
+    name: ピノ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2025/1/23
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4626'
+  - external_id: ibaraki-pref-dog-24-4630
+    name: グルート
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 白
+    features: '体格: 中, 首輪: 無'
+    location: 小美玉市倉数
+    received_date: 2025/1/27
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4630'
+  - external_id: ibaraki-pref-dog-24-4674
+    name: マルク
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2025/2/12
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4674'
+  - external_id: ibaraki-pref-dog-24-4675
+    name: ラルク
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2025/2/12
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4675'
+  - external_id: ibaraki-pref-dog-24-4676
+    name: ゼルク
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 特大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2025/2/12
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4676'
+  - external_id: ibaraki-pref-dog-24-4684
+    name: サノス
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 小美玉市柴高
+    received_date: 2025/2/13
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4684'
+  - external_id: ibaraki-pref-dog-25-0044
+    name: クロッカス
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶グレー
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2025/4/11
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0044'
+  - external_id: ibaraki-pref-dog-25-0068
+    name: りん
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2025/4/16
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0068'
+  - external_id: ibaraki-pref-dog-25-0118
+    name: ボニー
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2025/4/23
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0118'
+  - external_id: ibaraki-pref-dog-25-0149
+    name: ミント
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 薄茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2025/4/28
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0149'
+  - external_id: ibaraki-pref-dog-25-0173
+    name: モネ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町下土師
+    received_date: 2025/5/7
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0173'
+  - external_id: ibaraki-pref-dog-25-0269
+    name: コム
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町小幡
+    received_date: 2025/5/21
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0269'
+  - external_id: ibaraki-pref-dog-25-0333
+    name: ミレー
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町小幡
+    received_date: 2025/5/29
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0333'
+  - external_id: ibaraki-pref-dog-25-0392
+    name: ジェーン
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2025/6/5
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0392'
+  - external_id: ibaraki-pref-dog-25-0654
+    name: クレス
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 白茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町下飯沼
+    received_date: 2025/7/18
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0654'
+  - external_id: ibaraki-pref-dog-25-0740
+    name: ガープ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 白
+    features: '体格: 中, 首輪: 赤'
+    location: 土浦市大畑
+    received_date: 2025/8/12
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0740'
+  - external_id: ibaraki-pref-dog-25-0799
+    name: サシャ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 黒茶
+    features: '体格: 不明, 首輪: 不明'
+    location: つくば市小野川
+    received_date: 2025/8/27
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0799'
+  - external_id: ibaraki-pref-dog-25-0800
+    name: めめこ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 日立市国分町
+    received_date: 2025/8/28
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0800'
+  - external_id: ibaraki-pref-dog-25-0852
+    name: おちょこ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 筑西市村田
+    received_date: 2025/9/10
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0852'
+  - external_id: ibaraki-pref-dog-25-0875
+    name: ムーチョ
+    gender: male
+    age: adult
+    breed: 柴犬風
+    color: 茶
+    features: '体格: 中, 首輪: 赤'
+    location: 神栖市大野原4丁目
+    received_date: 2025/9/16
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0875'
+  - external_id: ibaraki-pref-dog-25-0895
+    name: ジギー
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 白茶
+    features: '体格: 中, 首輪: 無'
+    location: 筑西市丙
+    received_date: 2025/9/22
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0895'
+  - external_id: ibaraki-pref-dog-25-0896
+    name: ユーノ
+    gender: female
+    age: adult
+    breed: ピットブル
+    color: グレー
+    features: '体格: 中, 首輪: チェーン'
+    location: 境町山崎
+    received_date: 2025/9/22
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0896'
+  - external_id: ibaraki-pref-dog-25-0988
+    name: ディノ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 薄茶
+    features: '体格: 中, 首輪: 赤'
+    location: 小美玉市高崎
+    received_date: 2025/10/22
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0988'
+  - external_id: ibaraki-pref-dog-25-1005
+    name: お梅
+    gender: female
+    age: adult
+    breed: 柴系雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 八千代町下山川
+    received_date: 2025/10/27
+    status: available
+    image_url: null
+    notes: '管理番号: 25-1005'
+  - external_id: ibaraki-pref-dog-25-1011
+    name: おなつ
+    gender: female
+    age: adult
+    breed: 柴犬風
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 坂東市長谷
+    received_date: 2025/10/28
+    status: available
+    image_url: null
+    notes: '管理番号: 25-1011'
+  - external_id: ibaraki-pref-dog-25-1024
+    name: ミツバ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 薄茶
+    features: '体格: 中, 首輪: 無'
+    location: 鉾田市鹿田
+    received_date: 2025/10/29
+    status: available
+    image_url: null
+    notes: '管理番号: 25-1024'
+  - external_id: ibaraki-pref-dog-25-1025
+    name: しんげん
+    gender: male
+    age: adult
+    breed: 雑種
+    color: ベージュ
+    features: '体格: 中, 首輪: 青'
+    location: 筑西市西谷貝
+    received_date: 2025/10/29
+    status: available
+    image_url: null
+    notes: '管理番号: 25-1025'
+  - external_id: ibaraki-pref-dog-22-3566
+    name: さむ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 白
+    features: '体格: 中, 首輪: 無'
+    location: 笠間市飯田
+    received_date: 2023/3/11
+    status: available
+    image_url: null
+    notes: '管理番号: 22-3566'
+  - external_id: ibaraki-pref-dog-22-3567
+    name: エーデル
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 小美玉市柴高
+    received_date: 2023/3/13
+    status: available
+    image_url: null
+    notes: '管理番号: 22-3567'
+  - external_id: ibaraki-pref-dog-22-3575
+    name: コッペ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶白
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2023/3/16
+    status: available
+    image_url: null
+    notes: '管理番号: 22-3575'
+  - external_id: ibaraki-pref-dog-22-3579
+    name: エマ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町下土師
+    received_date: 2023/3/20
+    status: available
+    image_url: null
+    notes: '管理番号: 22-3579'
+  - external_id: ibaraki-pref-dog-23-3615
+    name: さっちゃん
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 小, 首輪: 無'
+    location: 茨城町秋葉
+    received_date: 2023/4/14
+    status: available
+    image_url: null
+    notes: '管理番号: 23-3615'
+  - external_id: ibaraki-pref-dog-23-3658
+    name: ネネ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 白茶
+    features: '体格: 中, 首輪: 無'
+    location: 鉾田市造谷
+    received_date: 2023/5/12
+    status: available
+    image_url: null
+    notes: '管理番号: 23-3658'
+  - external_id: ibaraki-pref-dog-23-3665
+    name: カムラ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 笠間市安居
+    received_date: 2023/5/17
+    status: available
+    image_url: null
+    notes: '管理番号: 23-3665'
+  - external_id: ibaraki-pref-dog-23-3677
+    name: アモ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: クリーム
+    features: '体格: 中, 首輪: 無'
+    location: 鉾田市野友
+    received_date: 2023/5/26
+    status: available
+    image_url: null
+    notes: '管理番号: 23-3677'
+  - external_id: ibaraki-pref-dog-23-3951
+    name: くれない
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 小美玉市柴高
+    received_date: 2023/11/1
+    status: available
+    image_url: null
+    notes: '管理番号: 23-3951'
+  - external_id: ibaraki-pref-dog-23-3962
+    name: リオン
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶白
+    features: '体格: 中, 首輪: 青'
+    location: 境町長井戸
+    received_date: 2023/11/9
+    status: available
+    image_url: null
+    notes: '管理番号: 23-3962'
+  - external_id: ibaraki-pref-dog-23-3968
+    name: ブロー
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町秋葉
+    received_date: 2023/11/15
+    status: available
+    image_url: null
+    notes: '管理番号: 23-3968'
+  - external_id: ibaraki-pref-dog-23-3974
+    name: バルト
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶白
+    features: '体格: 中, 首輪: 無'
+    location: 小美玉市柴高
+    received_date: 2023/11/17
+    status: available
+    image_url: null
+    notes: '管理番号: 23-3974'
+  - external_id: ibaraki-pref-dog-23-3990
+    name: ケミィ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2023/11/29
+    status: available
+    image_url: null
+    notes: '管理番号: 23-3990'
+  - external_id: ibaraki-pref-dog-23-3999
+    name: レム
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2023/12/4
+    status: available
+    image_url: null
+    notes: '管理番号: 23-3999'
+  - external_id: ibaraki-pref-dog-23-4002
+    name: ベクタ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 小美玉市佐才
+    received_date: 2023/12/6
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4002'
+  - external_id: ibaraki-pref-dog-23-4005
+    name: プリッツ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 八千代町磯
+    received_date: 2023/12/7
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4005'
+  - external_id: ibaraki-pref-dog-23-4054
+    name: ルーラー
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 笠間市押辺
+    received_date: 2024/1/12
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4054'
+  - external_id: ibaraki-pref-dog-23-4080
+    name: エミール
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/1/31
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4080'
+  - external_id: ibaraki-pref-dog-23-4081
+    name: ユーイン
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 鉾田市冷水
+    received_date: 2024/1/31
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4081'
+  - external_id: ibaraki-pref-dog-23-4083
+    name: イザベラ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 笠間市押辺
+    received_date: 2024/2/1
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4083'
+  - external_id: ibaraki-pref-dog-23-4089
+    name: モーガン
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶白
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/2/2
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4089'
+  - external_id: ibaraki-pref-dog-23-4095
+    name: フリー
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/2/5
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4095'
+  - external_id: ibaraki-pref-dog-23-4103
+    name: トッパ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/2/8
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4103'
+  - external_id: ibaraki-pref-dog-23-4114
+    name: スミッシー
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/2/15
+    status: available
+    image_url: null
+    notes: '管理番号: 23-4114'
+  - external_id: ibaraki-pref-dog-24-4299
+    name: ヴォル
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 小美玉市柴高
+    received_date: 2024/8/2
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4299'
+  - external_id: ibaraki-pref-dog-24-4303
+    name: ラナ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町小幡
+    received_date: 2024/8/7
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4303'
+  - external_id: ibaraki-pref-dog-24-4304
+    name: ケラ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 薄茶
+    features: '体格: 中, 首輪: 無'
+    location: 鉾田市串挽
+    received_date: 2024/8/7
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4304'
+  - external_id: ibaraki-pref-dog-24-4316
+    name: りょうこ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: ひたちなか市長堀町
+    received_date: 2024/8/14
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4316'
+  - external_id: ibaraki-pref-dog-24-4326
+    name: スパン
+    gender: male
+    age: adult
+    breed: 柴犬
+    color: 茶白
+    features: '体格: 中, 首輪: 赤'
+    location: 茨城町大戸
+    received_date: 2024/8/22
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4326'
+  - external_id: ibaraki-pref-dog-24-4379
+    name: アンドー
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町秋葉
+    received_date: 2024/9/26
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4379'
+  - external_id: ibaraki-pref-dog-24-4387
+    name: ウィーラー
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 茶・青白'
+    location: つくば市上ノ室
+    received_date: 2024/9/30
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4387'
+  - external_id: ibaraki-pref-dog-24-4397
+    name: イー
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/10/7
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4397'
+  - external_id: ibaraki-pref-dog-24-4432
+    name: ゆずき
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/10/21
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4432'
+  - external_id: ibaraki-pref-dog-24-4433
+    name: ウスター
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 黒茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/10/21
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4433'
+  - external_id: ibaraki-pref-dog-24-4441
+    name: パドレス
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶白
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/10/25
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4441'
+  - external_id: ibaraki-pref-dog-24-4445
+    name: デト
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/10/28
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4445'
+  - external_id: ibaraki-pref-dog-24-4446
+    name: ロイト
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶白
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/10/28
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4446'
+  - external_id: ibaraki-pref-dog-24-4447
+    name: ウラ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/10/28
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4447'
+  - external_id: ibaraki-pref-dog-24-4450
+    name: ビティ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶白
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/10/28
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4450'
+  - external_id: ibaraki-pref-dog-24-4451
+    name: かつき
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/10/28
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4451'
+  - external_id: ibaraki-pref-dog-24-4474
+    name: ランバ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/5
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4474'
+  - external_id: ibaraki-pref-dog-24-4477
+    name: セイラ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/5
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4477'
+  - external_id: ibaraki-pref-dog-24-4482
+    name: チャド
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶白
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/11
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4482'
+  - external_id: ibaraki-pref-dog-24-4485
+    name: アキヒロ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶白
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/11
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4485'
+  - external_id: ibaraki-pref-dog-24-4486
+    name: ユージン
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/11
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4486'
+  - external_id: ibaraki-pref-dog-24-4491
+    name: ケニー
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 笠間市日草場
+    received_date: 2024/11/12
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4491'
+  - external_id: ibaraki-pref-dog-24-4492
+    name: リーデル
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町下土師
+    received_date: 2024/11/12
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4492'
+  - external_id: ibaraki-pref-dog-24-4498
+    name: ペンネ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/11/15
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4498'
+  - external_id: ibaraki-pref-dog-24-4529
+    name: ケンタ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 小美玉市与沢
+    received_date: 2024/11/29
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4529'
+  - external_id: ibaraki-pref-dog-24-4536
+    name: イレイザー
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 笠間市押辺
+    received_date: 2024/12/5
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4536'
+  - external_id: ibaraki-pref-dog-24-4538
+    name: おこげ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶黒
+    features: '体格: 中, 首輪: 無'
+    location: 境町猿山
+    received_date: 2024/12/5
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4538'
+  - external_id: ibaraki-pref-dog-24-4543
+    name: ミケラン
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 白黒
+    features: '体格: 中, 首輪: 有'
+    location: 神栖市須田
+    received_date: 2024/12/11
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4543'
+  - external_id: ibaraki-pref-dog-24-4545
+    name: メキ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶黒
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/12/13
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4545'
+  - external_id: ibaraki-pref-dog-24-4558
+    name: ピース
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/12/24
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4558'
+  - external_id: ibaraki-pref-dog-24-4560
+    name: ナモ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 白
+    features: '体格: 中, 首輪: 無'
+    location: 大子町下野宮
+    received_date: 2024/12/25
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4560'
+  - external_id: ibaraki-pref-dog-24-4567
+    name: タフィ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶白
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2024/12/27
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4567'
+  - external_id: ibaraki-pref-dog-24-4709
+    name: ロマノフ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 薄茶
+    features: '体格: 中, 首輪: 無'
+    location: 鉾田市鹿田
+    received_date: 2025/2/20
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4709'
+  - external_id: ibaraki-pref-dog-24-4711
+    name: ポッツ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町小幡
+    received_date: 2025/2/21
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4711'
+  - external_id: ibaraki-pref-dog-24-4736
+    name: ロード
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2025/2/28
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4736'
+  - external_id: ibaraki-pref-dog-24-4759
+    name: ブラウニー
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 黒茶
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町下土師
+    received_date: 2025/3/10
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4759'
+  - external_id: ibaraki-pref-dog-24-4775
+    name: アルバード
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2025/3/14
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4775'
+  - external_id: ibaraki-pref-dog-24-4790
+    name: ヒロキ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町木部
+    received_date: 2025/3/19
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4790'
+  - external_id: ibaraki-pref-dog-24-4827
+    name: コロ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2025/3/31
+    status: available
+    image_url: null
+    notes: '管理番号: 24-4827'
+  - external_id: ibaraki-pref-dog-25-0016
+    name: プリン
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 黒茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町小幡
+    received_date: 2025/4/7
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0016'
+  - external_id: ibaraki-pref-dog-25-0438
+    name: 忠勝
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2025/6/12
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0438'
+  - external_id: ibaraki-pref-dog-25-0459
+    name: マカ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町秋葉
+    received_date: 2025/6/16
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0459'
+  - external_id: ibaraki-pref-dog-25-0517
+    name: モロ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶黒
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町小幡
+    received_date: 2025/6/23
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0517'
+  - external_id: ibaraki-pref-dog-25-0525
+    name: アキ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2025/6/25
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0525'
+  - external_id: ibaraki-pref-dog-25-0562
+    name: ラント
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2025/7/2
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0562'
+  - external_id: ibaraki-pref-dog-25-0607
+    name: ケビン
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 大, 首輪: 無'
+    location: 茨城町秋葉
+    received_date: 2025/7/9
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0607'
+  - external_id: ibaraki-pref-dog-25-0618
+    name: おつゆ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: トラロープ'
+    location: 下妻市皆葉
+    received_date: 2025/7/14
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0618'
+  - external_id: ibaraki-pref-dog-25-0650
+    name: アレス
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶白
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町小幡
+    received_date: 2025/7/18
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0650'
+  - external_id: ibaraki-pref-dog-25-0913
+    name: ダイヤ
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 白
+    features: '体格: 中, 首輪: 無'
+    location: 鉾田市徳宿
+    received_date: 2025/9/25
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0913'
+  - external_id: ibaraki-pref-dog-25-0922
+    name: チャカ
+    gender: male
+    age: adult
+    breed: 柴犬系
+    color: 茶白
+    features: '体格: 中, 首輪: 黒(ﾘｰﾄﾞ赤)'
+    location: 潮来市釜谷
+    received_date: 2025/9/26
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0922'
+  - external_id: ibaraki-pref-dog-25-0937
+    name: しろ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 白
+    features: '体格: 大, 首輪: 無'
+    location: 八千代町東大山
+    received_date: 2025/10/2
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0937'
+  - external_id: ibaraki-pref-dog-25-0938
+    name: 才蔵
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 茶
+    features: '体格: 中, 首輪: 鎖'
+    location: 神栖市知手
+    received_date: 2025/10/2
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0938'
+  - external_id: ibaraki-pref-dog-25-0943
+    name: かんな
+    gender: female
+    age: adult
+    breed: 雑種
+    color: 茶白
+    features: '体格: 中, 首輪: 無'
+    location: 茨城町鳥羽田
+    received_date: 2025/10/6
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0943'
+  - external_id: ibaraki-pref-dog-25-0954
+    name: カムイ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 白
+    features: '体格: 不明, 首輪: 不明'
+    location: 鉾田市徳宿
+    received_date: 2025/10/8
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0954'
+  - external_id: ibaraki-pref-dog-25-0965
+    name: だいず
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 白茶
+    features: '体格: 中, 首輪: 無'
+    location: 筑西市村田
+    received_date: 2025/10/14
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0965'
+  - external_id: ibaraki-pref-dog-25-0966
+    name: ベッツ
+    gender: male
+    age: adult
+    breed: 雑種
+    color: 黒
+    features: '体格: 不明, 首輪: 不明'
+    location: 潮来市前川
+    received_date: 2025/10/14
+    status: available
+    image_url: null
+    notes: '管理番号: 25-0966'
