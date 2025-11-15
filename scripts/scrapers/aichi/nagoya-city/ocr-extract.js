@@ -3,99 +3,151 @@
 /**
  * 名古屋市動物愛護センター 画像OCR抽出スクリプト
  *
- * Claude Vision APIを使用して画像から情報を自動抽出します
+ * Google Cloud Vision APIを使用して画像から情報を自動抽出します
  *
  * 使い方:
- * 1. ANTHROPIC_API_KEY環境変数を設定
- * 2. node ocr-extract.js
+ * 1. Google Cloud Vision APIを有効化
+ * 2. サービスアカウントキーをダウンロード
+ * 3. GOOGLE_APPLICATION_CREDENTIALS環境変数を設定
+ *    export GOOGLE_APPLICATION_CREDENTIALS="/path/to/key.json"
+ * 4. npm install @google-cloud/vision
+ * 5. node ocr-extract.js
  *
+ * 無料枠: 月1,000リクエストまで無料
  * 出力: data/ocr/aichi/nagoya-city/extracted_data.json
  */
 
 import fs from 'fs';
 import path from 'path';
-import Anthropic from '@anthropic-ai/sdk';
+import vision from '@google-cloud/vision';
 
 const CONFIG = {
   municipality: 'aichi/nagoya-city',
-  apiKey: process.env.ANTHROPIC_API_KEY,
-  model: 'claude-3-5-sonnet-20241022',
-  maxTokens: 1024,
-  batchSize: 5, // 一度に処理する画像数
+  batchSize: 10, // 一度に処理する画像数
 };
 
-const EXTRACTION_PROMPT = `この画像は名古屋市動物愛護センターの譲渡動物情報です。
-以下の情報をJSON形式で抽出してください。読み取れない項目はnullにしてください。
+/**
+ * Google Cloud Vision APIでOCR実行
+ */
+async function extractTextFromImage(client, imagePath) {
+  const [result] = await client.textDetection(imagePath);
+  const detections = result.textAnnotations;
 
-必須情報:
-- inquiry_number: お問い合わせ番号（右上の数字）
-- animal_type: 動物種（"cat" または "dog"）
-- breed: 種類（品種）
-- color: 毛色
-- gender: 性別（"male", "female", "unknown"）
-- age_estimate: 年齢（例: "10歳", "1歳7ヶ月"）
-- health_status: 健康状態（避妊去勢、マイクロチップ、猫エイズ検査、猫白血病検査、ワクチンの情報をまとめて）
-- personality: 性格
-- special_needs: 募集の経緯
+  if (!detections || detections.length === 0) {
+    return null;
+  }
 
-JSONフォーマット:
-{
-  "inquiry_number": "2389",
-  "animal_type": "cat",
-  "breed": "雑種",
-  "color": "茶トラ",
-  "gender": "male",
-  "age_estimate": "10歳",
-  "health_status": "良好、避妊去勢済、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済(2020年12月)",
-  "personality": "おとなしい",
-  "special_needs": "現在飼っている住居が身内の不幸により、立ち退きする為"
+  // 全テキストを取得（最初の要素が全体のテキスト）
+  return detections[0].description;
 }
 
-JSONのみを返してください。説明文は不要です。`;
+/**
+ * OCRで抽出したテキストから構造化データを生成
+ */
+function parseExtractedText(text, externalId) {
+  try {
+    const lines = text.split('\n').map((l) => l.trim());
+
+    // お問い合わせ番号（右上の大きな数字）
+    const inquiryMatch = text.match(/(\d{4})/);
+    const inquiry_number = inquiryMatch ? inquiryMatch[1] : null;
+
+    // 種類・品種
+    const breedMatch = text.match(/種\s*類[:：\s]*(.+)/);
+    const breed = breedMatch ? breedMatch[1].trim() : null;
+
+    // 毛色
+    const colorMatch = text.match(/毛\s*色[:：\s]*(.+)/);
+    const color = colorMatch ? colorMatch[1].trim() : null;
+
+    // 性別
+    const genderMatch = text.match(/性\s*別[:：\s]*(オス|メス|雄|雌)/);
+    let gender = 'unknown';
+    if (genderMatch) {
+      const g = genderMatch[1];
+      gender = g === 'オス' || g === '雄' ? 'male' : 'female';
+    }
+
+    // 年齢
+    const ageMatch = text.match(/年\s*齢[:：\s]*(.+)/);
+    const age_estimate = ageMatch ? ageMatch[1].trim() : null;
+
+    // 健康状態（複数行にまたがる可能性）
+    const healthParts = [];
+    if (text.includes('避妊去勢')) {
+      healthParts.push(text.match(/避妊去勢[:：\s]*(済|未実施|無)/)?.[0] || '避妊去勢済');
+    }
+    if (text.includes('マイクロチップ')) {
+      healthParts.push(text.match(/マイクロチップ[:：\s]*(有|無)/)?.[0] || 'マイクロチップ無');
+    }
+    if (text.includes('健康状態')) {
+      healthParts.push('良好');
+    }
+    if (text.includes('猫エイズ検査')) {
+      healthParts.push(
+        text.match(/猫エイズ検査[:：\s]*(陰性|陽性|未検査)/)?.[0] || '猫エイズ検査陰性'
+      );
+    }
+    if (text.includes('猫白血病検査') || text.includes('猫白血病ウイルス')) {
+      healthParts.push(
+        text.match(/猫白血病[^：]*[:：\s]*(陰性|陽性|未検査)/)?.[0] || '猫白血病検査陰性'
+      );
+    }
+    if (text.includes('ワクチン')) {
+      const vaccineMatch = text.match(/ワクチン[:：\s]*([^\n]+)/);
+      healthParts.push(vaccineMatch ? vaccineMatch[0].trim() : 'ワクチン接種済');
+    }
+
+    const health_status = healthParts.length > 0 ? healthParts.join('、') : null;
+
+    // 性格
+    const personalityMatch = text.match(/性\s*格[:：\s]*([^\n]+)/);
+    const personality = personalityMatch ? personalityMatch[1].trim() : null;
+
+    // 募集の経緯
+    const needsMatch = text.match(/募集の経緯[:：\s]*([^\n]+)/);
+    const special_needs = needsMatch ? needsMatch[1].trim() : null;
+
+    // 動物種判定（猫エイズ検査があれば猫、なければ犬と推定）
+    const animal_type = text.includes('猫エイズ') || text.includes('猫白血病') ? 'cat' : 'dog';
+
+    return {
+      inquiry_number,
+      animal_type,
+      breed,
+      color,
+      gender,
+      age_estimate,
+      health_status,
+      personality,
+      special_needs,
+    };
+  } catch (error) {
+    console.error(`❌ パースエラー: ${externalId}`, error.message);
+    return null;
+  }
+}
 
 async function extractFromImage(client, imagePath, externalId) {
   try {
     console.log(`\n📸 処理中: ${externalId}`);
 
-    // 画像を読み込み
-    const imageBuffer = fs.readFileSync(imagePath);
-    const base64Image = imageBuffer.toString('base64');
+    // OCR実行
+    const text = await extractTextFromImage(client, imagePath);
 
-    // Claude Vision APIで抽出
-    const message = await client.messages.create({
-      model: CONFIG.model,
-      max_tokens: CONFIG.maxTokens,
-      messages: [
-        {
-          role: 'user',
-          content: [
-            {
-              type: 'image',
-              source: {
-                type: 'base64',
-                media_type: 'image/jpeg',
-                data: base64Image,
-              },
-            },
-            {
-              type: 'text',
-              text: EXTRACTION_PROMPT,
-            },
-          ],
-        },
-      ],
-    });
-
-    // レスポンスからJSONを抽出
-    const responseText = message.content[0].text;
-    const jsonMatch = responseText.match(/\{[\s\S]*\}/);
-
-    if (!jsonMatch) {
-      console.error(`❌ JSON抽出失敗: ${externalId}`);
+    if (!text) {
+      console.error(`❌ OCR失敗: ${externalId}`);
       return null;
     }
 
-    const extractedData = JSON.parse(jsonMatch[0]);
+    // テキストから構造化データを抽出
+    const extractedData = parseExtractedText(text, externalId);
+
+    if (!extractedData) {
+      console.error(`❌ パース失敗: ${externalId}`);
+      return null;
+    }
+
     console.log(
       `✅ 抽出完了: ${extractedData.animal_type} (${extractedData.gender}, ${extractedData.age_estimate})`
     );
@@ -112,14 +164,19 @@ async function main() {
   console.log('🐱🐕 名古屋市動物愛護センター - 画像OCR抽出');
   console.log('='.repeat(60) + '\n');
 
-  // APIキー確認
-  if (!CONFIG.apiKey) {
-    console.error('❌ ANTHROPIC_API_KEY環境変数が設定されていません');
-    console.error('   export ANTHROPIC_API_KEY=your-api-key');
+  // Google Cloud認証確認
+  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+    console.error('❌ GOOGLE_APPLICATION_CREDENTIALS環境変数が設定されていません');
+    console.error('   export GOOGLE_APPLICATION_CREDENTIALS="/path/to/key.json"');
+    console.error('\n   Google Cloud Vision APIの設定方法:');
+    console.error('   1. https://console.cloud.google.com/ でプロジェクト作成');
+    console.error('   2. Vision API を有効化');
+    console.error('   3. サービスアカウント作成 → キーをダウンロード');
+    console.error('   4. npm install @google-cloud/vision');
     process.exit(1);
   }
 
-  const client = new Anthropic({ apiKey: CONFIG.apiKey });
+  const client = new vision.ImageAnnotatorClient();
 
   // 画像ディレクトリ取得
   const imagesDir = path.join(
@@ -170,8 +227,8 @@ async function main() {
         errorCount++;
       }
 
-      // APIレート制限対策
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // 少し待機（サーバー負荷軽減）
+      await new Promise((resolve) => setTimeout(resolve, 100));
     }
   }
 

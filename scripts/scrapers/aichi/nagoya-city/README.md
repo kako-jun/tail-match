@@ -64,13 +64,49 @@ node scripts/scrapers/aichi/nagoya-city/update-yaml-from-images.js
 node scripts/core/yaml-to-db.js
 ```
 
-### OCR自動化の可能性
+### OCR自動化（推奨）
 
-`ocr-extract.js` スクリプトで Claude Vision API を使った自動化が可能ですが：
+`ocr-extract.js` スクリプトで **Google Cloud Vision API** を使った完全自動化が可能です：
 
-- `@anthropic-ai/sdk` のインストールが必要
-- API費用がかかる（123枚 × $0.02-0.05 = $2-6程度）
-- 現状は手動抽出を推奨
+#### メリット
+
+- ✅ **月1,000リクエストまで無料**
+- ✅ OCR専用なので精度が高い
+- ✅ 名古屋市123枚は完全に無料枠内
+
+#### セットアップ手順
+
+```bash
+# 1. Google Cloud Vision APIを有効化
+# https://console.cloud.google.com/ でプロジェクト作成
+# Vision API を有効化
+
+# 2. サービスアカウント作成 → キーをダウンロード
+# IAMと管理 → サービスアカウント → キーを作成 → JSON
+
+# 3. 環境変数を設定
+export GOOGLE_APPLICATION_CREDENTIALS="/path/to/key.json"
+
+# 4. パッケージインストール
+npm install @google-cloud/vision
+
+# 5. OCR実行
+node scripts/scrapers/aichi/nagoya-city/ocr-extract.js
+
+# 6. 抽出データで YAML 更新
+# ocr-extract.js が data/ocr/aichi/nagoya-city/extracted_data.json を生成
+# このJSONを update-yaml-from-images.js の extractedData に反映
+
+# 7. YAML更新
+node scripts/scrapers/aichi/nagoya-city/update-yaml-from-images.js
+```
+
+#### 無料枠の計算
+
+- 名古屋市: 123リクエスト/月
+- 堺市: ~50リクエスト/月
+- 横浜市: ~10リクエスト/月
+- **合計**: ~200リクエスト/月 → **完全に無料枠内**
 
 ## OCR処理の流れ
 
