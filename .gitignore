@@ -86,6 +86,7 @@ ENV/
 .idea/
 *.swp
 *.swo
+/.serena  # Serena MCP server data
 
 # OS
 Thumbs.db
