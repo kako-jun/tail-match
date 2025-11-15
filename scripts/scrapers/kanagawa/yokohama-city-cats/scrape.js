@@ -27,7 +27,8 @@ const CONFIG = {
   url: 'https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html',
   municipality: 'kanagawa/yokohama-city-cats',
   outputDir: path.join(process.cwd(), 'data', 'html', 'kanagawa', 'yokohama-city'),
-  userAgent: 'TailMatchBot/1.0 (https://tail-match.llll-ll.com; research@example.com)',
+  userAgent:
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
 };
 
 // ========================================
