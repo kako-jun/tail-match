@@ -1,0 +1,37 @@
+meta:
+  source_file: 20251116_031229_tail.html
+  source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/joto_inu.html
+  extracted_at: '2025-11-16T03:13:50.216+09:00'
+  municipality: kanagawa/yokohama-city-dogs
+  municipality_id: 16
+  total_count: 1
+  extraction_type: image_download_template
+  note: 画像をダウンロード済み。Claude Vision APIまたは手動でデータを埋める必要があります。
+confidence_level: low
+consistency_warnings:
+  - 画像内の情報を確認する必要があります
+  - お問合せ番号、性別、年齢、毛色、健康状態、性格を画像から読み取ってください
+animals:
+  - external_id: yokohama-193
+    name: 横浜市-193
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - data/images/kanagawa/yokohama-city-dogs/193jotoC25022001.JPG
+    image_url_original: joto_inu.images/193jotoC25022001.JPG
+    protection_date: null
+    deadline_date: null
+    source_url: https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/joto_inu.html
+    confidence_level: low
+    extraction_notes:
+      - 画像から情報を抽出する必要があります
+    needs_review: true
+    inquiry_number: '193'
+    listing_type: adoption

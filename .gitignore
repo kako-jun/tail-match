@@ -93,6 +93,7 @@ Thumbs.db
 
 # Data files (exclude from git)
 data/images/
+**/data/images/  # OCR画像ファイル（scripts/scrapers内も含む）
 *.db.backup
 
 # Temporary scripts (exclude from git)
