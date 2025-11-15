@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-15T12:56:28.030+09:00",
+  "url": "https://www.pref.ehime.jp/page/17125.html",
+  "has_animals": true,
+  "html_size": 68772,
+  "scraper": "playwright",
+  "note": "犬猫混在ページ、テーブル形式"
+}
