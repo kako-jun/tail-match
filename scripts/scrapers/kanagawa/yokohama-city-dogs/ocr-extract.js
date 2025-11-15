@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * 堺市動物指導センター（猫）画像OCR抽出スクリプト（Tesseract.js版）
+ * 横浜市動物愛護センター（犬）画像OCR抽出スクリプト（Tesseract.js版）
  *
  * Tesseract.jsを使用して画像から情報を自動抽出します
  * APIキー不要・完全ローカル実行で持続可能
@@ -15,7 +15,7 @@
  * - ✅ 無制限に使用可能
  * - ✅ 日本語OCR精度が高い
  *
- * 出力: data/ocr/osaka/sakai-city-cats/extracted_data.json
+ * 出力: data/ocr/kanagawa/yokohama-city-dogs/extracted_data.json
  */
 
 import fs from 'fs';
@@ -23,7 +23,7 @@ import path from 'path';
 import { createWorker } from 'tesseract.js';
 
 const CONFIG = {
-  municipality: 'osaka/sakai-city-cats',
+  municipality: 'kanagawa/yokohama-city-dogs',
   batchSize: 5, // 一度に処理する画像数（Tesseractは重いので少なめ）
 };
 
@@ -43,52 +43,45 @@ async function extractTextFromImage(worker, imagePath) {
 }
 
 /**
- * OCRで抽出したテキストから構造化データを生成（堺市フォーマット）
+ * OCRで抽出したテキストから構造化データを生成（横浜市フォーマット）
  */
 function parseExtractedText(text, externalId) {
   try {
     // スペースを除去（OCRで文字間にスペースが入る）
     const cleanText = text.replace(/\s+/g, '');
 
-    // 堺市はお問い合わせ番号がないのでnull
+    // お問い合わせ番号（「お問合せ番号」の後の3桁数字）
+    const inquiryMatch = text.match(/お\s*問\s*合\s*せ\s*番\s*号[一\s]*([0-9O]{3})/);
     let inquiry_number = null;
-
-    // 年齢（堺市フォーマット: 「推定X歳」「准定X歳」「約X歳」「X歳」）
-    let age_estimate = null;
-    // まず「推定X歳」「准定X歳」「約X歳」パターンを探す
-    const ageMatch1 = text.match(/(?:推\s*定|准\s*定|約)\s*(\d+)\s*歳/);
-    if (ageMatch1) {
-      age_estimate = `推定${ageMatch1[1]}歳`;
-    } else {
-      // 単独の「X歳」パターン（/の後に数字＋歳）
-      const ageMatch2 = text.match(/\/\s*(\d+)\s*歳/);
-      if (ageMatch2) {
-        age_estimate = `${ageMatch2[1]}歳`;
-      }
+    if (inquiryMatch) {
+      // OCRミス対応：Oを0に変換
+      inquiry_number = inquiryMatch[1].replace(/O/g, '0');
     }
 
-    // 性別・去勢情報（堺市フォーマット: 「男の子(去勢済)」「女の子(避妊済)」「女の子(部妊済)」）
+    // 年齢（「推定X歳」パターン）
+    const ageMatch = text.match(/推\s*定\s*(\d+)\s*歳/);
+    let age_estimate = null;
+    if (ageMatch) {
+      age_estimate = `${ageMatch[1]}歳`;
+    }
+
+    // 性別・去勢情報（「去勢手術済オス」「避妊手術済メス」パターン）
     let gender = 'unknown';
     let health_status_parts = [];
 
-    // 「男の子(去勢済)」パターン
-    if (text.match(/男\s*の\s*子\s*[（(]\s*去\s*勢\s*済/)) {
+    if (text.match(/去\s*勢\s*手\s*術\s*済\s*オス/)) {
       gender = 'male';
       health_status_parts.push('去勢手術済');
-    }
-    // 「女の子(避妊済)」「女の子(部妊済)」パターン（OCRミス対応）
-    else if (text.match(/女\s*の\s*子\s*[（(]\s*(?:避\s*妊|部\s*妊)\s*済/)) {
+    } else if (text.match(/去\s*勢\s*手\s*術\s*済\s*メス/)) {
+      gender = 'female';
+      health_status_parts.push('去勢手術済');
+    } else if (text.match(/避\s*妊\s*手\s*術\s*済\s*メス/)) {
       gender = 'female';
       health_status_parts.push('避妊手術済');
-    }
-    // フォールバック：「男の子」「女の子」だけ
-    else if (text.match(/男\s*の\s*子/)) {
+    } else if (text.match(/避\s*妊\s*手\s*術\s*済\s*オス/)) {
       gender = 'male';
-    } else if (text.match(/女\s*の\s*子/)) {
-      gender = 'female';
-    }
-    // さらにフォールバック：「オス」「メス」
-    else if (cleanText.includes('オス')) {
+      health_status_parts.push('避妊手術済');
+    } else if (cleanText.includes('オス')) {
       gender = 'male';
     } else if (cleanText.includes('メス')) {
       gender = 'female';
@@ -97,14 +90,6 @@ function parseExtractedText(text, externalId) {
     // ワクチン情報
     if (cleanText.includes('混合ワクチン') || cleanText.includes('ワクチン接種')) {
       health_status_parts.push('ワクチン接種済');
-    }
-
-    // FIV/FeLV検査結果（堺市特有）
-    if (text.match(/FIV\s*\/\s*FeLV\s*陰\s*性/) || cleanText.includes('FIV/FeLV陰性')) {
-      health_status_parts.push('FIV/FeLV陰性');
-    } else if (text.match(/FIV\s*\/\s*FeLV\s*誰\s*性/)) {
-      // OCRミス: 「陰性」が「誰性」になることがある
-      health_status_parts.push('FIV/FeLV陰性');
     }
 
     const health_status = health_status_parts.length > 0 ? health_status_parts.join('、') : null;
@@ -154,27 +139,9 @@ function parseExtractedText(text, externalId) {
       }
     }
 
-    // 品種・毛色（堺市フォーマット: 「品種 / 性別 / 年齢 / 毛色」）
-    let breed = null;
-    let color = null;
-
-    // 品種抽出（スラッシュで区切られた最初の部分、性別情報の前）
-    const breedMatch = text.match(/([^\n\/]+)\s*\/\s*(?:男|女)\s*の\s*子/);
-    if (breedMatch) {
-      // 最後の単語部分を抽出（前のノイズを除去）
-      const breedText = breedMatch[1].trim();
-      const breedWords = breedText.split(/\s+/);
-      breed = breedWords[breedWords.length - 1];
-    }
-
-    // 毛色抽出（年齢の後のスラッシュ以降）
-    const colorMatch = text.match(/(\d+)\s*歳\s*[\/／]\s*([^\n\/]+?)(?:\s|$|FIV)/);
-    if (colorMatch) {
-      // 最初の単語部分を抽出
-      const colorText = colorMatch[2].trim();
-      const colorWords = colorText.split(/\s+/);
-      color = colorWords[0];
-    }
+    // 品種・毛色は横浜市フォーマットには含まれていないのでnull
+    const breed = null;
+    const color = null;
 
     // 特別な配慮事項（「急な動作でびっくりしてしまう」などのパターン）
     let special_needs = null;
@@ -182,8 +149,8 @@ function parseExtractedText(text, externalId) {
       special_needs = '急な動作でびっくりしてしまうので、ゆったりと接してください';
     }
 
-    // 動物種判定（猫専用ページなので固定）
-    const animal_type = 'cat';
+    // 動物種判定（犬専用ページなので固定）
+    const animal_type = 'dog';
 
     return {
       inquiry_number,
@@ -238,7 +205,7 @@ async function extractFromImage(worker, imagePath, externalId) {
 
 async function main() {
   console.log('='.repeat(60));
-  console.log('🐱 堺市動物指導センター（猫）- 画像OCR抽出（Tesseract.js）');
+  console.log('🐕 横浜市動物愛護センター（犬）- 画像OCR抽出（Tesseract.js）');
   console.log('='.repeat(60) + '\n');
 
   // Tesseract.js ワーカー初期化（日本語＋英語）
@@ -263,7 +230,7 @@ async function main() {
   console.log('✅ Tesseract.js 初期化完了\n');
 
   // 画像ディレクトリ取得
-  // 堺市の場合は sakai-city-cats ディレクトリを使用
+  // 横浜市犬の場合は yokohama-city-dogs ディレクトリを使用
   const imagesDirPath = CONFIG.municipality.replace('/', path.sep);
   const imagesDir = path.join(process.cwd(), 'data', 'images', imagesDirPath);
 
@@ -273,10 +240,10 @@ async function main() {
     process.exit(1);
   }
 
-  // 画像ファイル一覧取得（.jpg/.JPG/.png すべてに対応）
+  // 画像ファイル一覧取得（.jpg と .JPG の両方に対応）
   const imageFiles = fs
     .readdirSync(imagesDir)
-    .filter((f) => f.endsWith('.jpg') || f.endsWith('.JPG') || f.endsWith('.png'))
+    .filter((f) => f.endsWith('.jpg') || f.endsWith('.JPG'))
     .sort();
 
   console.log(`📊 画像数: ${imageFiles.length}\n`);

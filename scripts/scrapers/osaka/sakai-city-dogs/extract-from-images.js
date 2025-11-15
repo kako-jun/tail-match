@@ -21,24 +21,12 @@ const execAsync = promisify(exec);
 // ========================================
 
 const CONFIG = {
-  municipality: 'osaka/sakai-city',
+  municipality: 'osaka/sakai-city-dogs',
   municipality_id: 'osaka_27_sakai',
   base_url: 'https://www.city.sakai.lg.jp',
   image_urls: [
-    // 犬
-    '/kurashi/dobutsu/dogdog/inunekojoto/dogs1.images/R7_1.png',
-    '/kurashi/dobutsu/dogdog/inunekojoto/dogs1.images/R7_2.png',
-    '/kurashi/dobutsu/dogdog/inunekojoto/dogs1.images/R7_3.png',
-    '/kurashi/dobutsu/dogdog/inunekojoto/dogs1.images/R7_4.png',
-    '/kurashi/dobutsu/dogdog/inunekojoto/dogs2.images/R7_5.png',
-    '/kurashi/dobutsu/dogdog/inunekojoto/dogs2.images/R7_6.png',
-    '/kurashi/dobutsu/dogdog/inunekojoto/dogs2.images/R7_7.png',
-    '/kurashi/dobutsu/dogdog/inunekojoto/dogs2.images/R7_8.png',
-    '/kurashi/dobutsu/dogdog/inunekojoto/dogs3.images/R7_9.png',
-    '/kurashi/dobutsu/dogdog/inunekojoto/dogs3.images/R7_10.png',
-    '/kurashi/dobutsu/dogdog/inunekojoto/dogs3.images/R7_11.png',
-    // 犬
-    '/kurashi/dobutsu/dogdog/inunekojoto/centerdogs.images/7005-2.png',
+    // 犬のみ（1枚）
+    '/kurashi/dobutsu/dogcat/inunekojoto/centerdogs.images/7005-2.png',
   ],
 };
 

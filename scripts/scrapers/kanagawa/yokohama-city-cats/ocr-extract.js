@@ -43,88 +43,114 @@ async function extractTextFromImage(worker, imagePath) {
 }
 
 /**
- * OCRで抽出したテキストから構造化データを生成
+ * OCRで抽出したテキストから構造化データを生成（横浜市フォーマット）
  */
 function parseExtractedText(text, externalId) {
   try {
-    const lines = text.split('\n').map((l) => l.trim());
+    // スペースを除去（OCRで文字間にスペースが入る）
+    const cleanText = text.replace(/\s+/g, '');
 
-    // お問い合わせ番号（右上の大きな数字）
-    const inquiryMatch = text.match(/(\d{4})/);
-    const inquiry_number = inquiryMatch ? inquiryMatch[1] : null;
-
-    // 種類・品種（「犬種」「猫種」「種類」すべてに対応、改行前まで抽出）
-    const breedMatch = text.match(/(?:犬|猫)?\s*種\s*(?:類)?[:：\s]*([^\n]+)/);
-    let breed = breedMatch ? breedMatch[1].trim() : null;
-    if (breed) {
-      breed = breed
-        .replace(/\s+/g, '')
-        .replace(/[』】\]]/g, '')
-        .split(/[。、]/)[0];
+    // お問い合わせ番号（「お問合せ番号」の後の3桁数字）
+    const inquiryMatch = text.match(/お\s*問\s*合\s*せ\s*番\s*号[一\s]*([0-9O]{3})/);
+    let inquiry_number = null;
+    if (inquiryMatch) {
+      // OCRミス対応：Oを0に変換
+      inquiry_number = inquiryMatch[1].replace(/O/g, '0');
     }
 
-    // 毛色（改行前まで抽出、スペース除去）
-    const colorMatch = text.match(/毛\s*色[:：\s]*([^\n]+)/);
-    let color = colorMatch ? colorMatch[1].trim() : null;
-    if (color) {
-      color = color.replace(/\s+/g, '').split(/[。、]/)[0];
-    }
-
-    // 性別
-    const genderMatch = text.match(/性\s*別[:：\s]*(オス|メス|雄|雌)/);
-    let gender = 'unknown';
-    if (genderMatch) {
-      const g = genderMatch[1];
-      gender = g === 'オス' || g === '雄' ? 'male' : 'female';
-    }
-
-    // 年齢（OCRミス対応：「年齢」「年人齢」「年_齢」など、同一行内で「齢」を含むパターン）
-    const ageMatch = text.match(/年[^\n齢]*齢\s*[:：\s]*([^\n]+)/);
+    // 年齢（「推定X歳」パターン）
+    const ageMatch = text.match(/推\s*定\s*(\d+)\s*歳/);
     let age_estimate = null;
     if (ageMatch) {
-      // 「6歳」のような部分だけを抽出
-      const ageOnlyMatch = ageMatch[1].match(/(\d+\s*(?:歳|才|ヶ月|ヵ月|か月))/);
-      age_estimate = ageOnlyMatch ? ageOnlyMatch[1].replace(/\s+/g, '') : null;
+      age_estimate = `${ageMatch[1]}歳`;
     }
 
-    // 健康状態（複数行にまたがる可能性）
-    const healthParts = [];
-    if (text.includes('避妊去勢')) {
-      healthParts.push(text.match(/避妊去勢[:：\s]*(済|未実施|無)/)?.[0] || '避妊去勢済');
-    }
-    if (text.includes('マイクロチップ')) {
-      healthParts.push(text.match(/マイクロチップ[:：\s]*(有|無)/)?.[0] || 'マイクロチップ無');
-    }
-    if (text.includes('健康状態')) {
-      healthParts.push('良好');
-    }
-    if (text.includes('猫エイズ検査')) {
-      healthParts.push(
-        text.match(/猫エイズ検査[:：\s]*(陰性|陽性|未検査)/)?.[0] || '猫エイズ検査陰性'
-      );
-    }
-    if (text.includes('猫白血病検査') || text.includes('猫白血病ウイルス')) {
-      healthParts.push(
-        text.match(/猫白血病[^：]*[:：\s]*(陰性|陽性|未検査)/)?.[0] || '猫白血病検査陰性'
-      );
-    }
-    if (text.includes('ワクチン')) {
-      const vaccineMatch = text.match(/ワクチン[:：\s]*([^\n]+)/);
-      healthParts.push(vaccineMatch ? vaccineMatch[0].trim() : 'ワクチン接種済');
+    // 性別・去勢情報（「去勢手術済オス」「避妊手術済メス」パターン）
+    let gender = 'unknown';
+    let health_status_parts = [];
+
+    if (text.match(/去\s*勢\s*手\s*術\s*済\s*オス/)) {
+      gender = 'male';
+      health_status_parts.push('去勢手術済');
+    } else if (text.match(/去\s*勢\s*手\s*術\s*済\s*メス/)) {
+      gender = 'female';
+      health_status_parts.push('去勢手術済');
+    } else if (text.match(/避\s*妊\s*手\s*術\s*済\s*メス/)) {
+      gender = 'female';
+      health_status_parts.push('避妊手術済');
+    } else if (text.match(/避\s*妊\s*手\s*術\s*済\s*オス/)) {
+      gender = 'male';
+      health_status_parts.push('避妊手術済');
+    } else if (cleanText.includes('オス')) {
+      gender = 'male';
+    } else if (cleanText.includes('メス')) {
+      gender = 'female';
     }
 
-    const health_status = healthParts.length > 0 ? healthParts.join('、') : null;
+    // ワクチン情報
+    if (cleanText.includes('混合ワクチン') || cleanText.includes('ワクチン接種')) {
+      health_status_parts.push('ワクチン接種済');
+    }
 
-    // 性格
-    const personalityMatch = text.match(/性\s*格[:：\s]*([^\n]+)/);
-    const personality = personalityMatch ? personalityMatch[1].trim() : null;
+    const health_status = health_status_parts.length > 0 ? health_status_parts.join('、') : null;
 
-    // 募集の経緯
-    const needsMatch = text.match(/募集の経緯[:：\s]*([^\n]+)/);
-    const special_needs = needsMatch ? needsMatch[1].trim() : null;
+    // 性格（文章形式で記載されている）
+    // 「甘えん坊で、活発な性格です」のようなパターンを抽出
+    let personality = null;
 
-    // 動物種判定（猫エイズ検査があれば猫、なければ犬と推定）
-    const animal_type = 'cat'; // 猫専用ページなので固定
+    // 「性格です」で終わる文を探す（最も一般的なパターン）
+    const personalityMatch1 = text.match(/([^\n。]+性\s*格\s*で\s*す)/);
+    if (personalityMatch1) {
+      let rawPersonality = personalityMatch1[1].replace(/\s+/g, '');
+
+      // ノイズ除去：性格を表す形容詞の直前までを削除
+      const personalityStartPatterns = [
+        /(怖がり|慎重|活発|おっとり|甘えん坊|人懐っ|人なつ|臆病|元気|大人|穏やか|落ち着|マイペース|用病|病気)/, // 「用病」は「臆病」のOCR誤認識
+      ];
+
+      for (const pattern of personalityStartPatterns) {
+        const startMatch = rawPersonality.match(pattern);
+        if (startMatch) {
+          const startIdx = rawPersonality.indexOf(startMatch[0]);
+          personality = rawPersonality.substring(startIdx);
+          break;
+        }
+      }
+
+      // パターンにマッチしない場合は元の文を使用
+      if (!personality) {
+        personality = rawPersonality;
+      }
+    }
+
+    // 「性格です」がない場合、性格を表す形容詞を含む文を探す
+    if (!personality) {
+      const personalityPatterns = [
+        /([ぁ-ん]+\s*(?:ん\s*坊|的|気味)(?:で|な|、)[^\n。]+(?:です|ます))/, // 「甘えん坊で...です」
+        /((?:怖\s*が\s*り|慎\s*重|活\s*発|おっ\s*とり|人\s*な\s*つっ\s*こい)[^\n。]+(?:です|ます))/, // 「怖がりで...です」
+      ];
+
+      for (const pattern of personalityPatterns) {
+        const match = text.match(pattern);
+        if (match) {
+          personality = match[1].replace(/\s+/g, '');
+          break;
+        }
+      }
+    }
+
+    // 品種・毛色は横浜市フォーマットには含まれていないのでnull
+    const breed = null;
+    const color = null;
+
+    // 特別な配慮事項（「急な動作でびっくりしてしまう」などのパターン）
+    let special_needs = null;
+    if (text.match(/急\s*な\s*動\s*作/)) {
+      special_needs = '急な動作でびっくりしてしまうので、ゆったりと接してください';
+    }
+
+    // 動物種判定（猫専用ページなので固定）
+    const animal_type = 'cat';
 
     return {
       inquiry_number,
@@ -179,7 +205,7 @@ async function extractFromImage(worker, imagePath, externalId) {
 
 async function main() {
   console.log('='.repeat(60));
-  console.log('🐱 横浜市動物愛護センター - 画像OCR抽出（Tesseract.js）');
+  console.log('🐱 横浜市動物愛護センター（猫）- 画像OCR抽出（Tesseract.js）');
   console.log('='.repeat(60) + '\n');
 
   // Tesseract.js ワーカー初期化（日本語＋英語）
