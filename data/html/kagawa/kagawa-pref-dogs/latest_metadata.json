@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-15T11:59:42.405+09:00",
+  "list_url": "https://www.pref.kagawa.lg.jp/s-doubutuaigo/sanukidouaicenter/jyouto/s04u6e190311095146.html",
+  "pdf_url": "https://www.pref.kagawa.lg.jp/documents/6103/1109dog.pdf",
+  "pdf_size": 4776805,
+  "scraper": "playwright-pdf",
+  "note": "表形式PDF、左に画像セル、譲渡済みは上に文字が被さる"
+}
