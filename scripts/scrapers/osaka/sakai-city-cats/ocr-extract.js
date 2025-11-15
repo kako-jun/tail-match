@@ -208,7 +208,10 @@ async function main() {
     process.cwd(),
     'data',
     'images',
-    CONFIG.municipality.replace('/', path.sep)
+    CONFIG.municipality
+      .replace(/-cats$/, '')
+      .replace(/-dogs$/, '')
+      .replace('/', path.sep)
   );
 
   if (!fs.existsSync(imagesDir)) {
@@ -263,7 +266,10 @@ async function main() {
     process.cwd(),
     'data',
     'ocr',
-    CONFIG.municipality.replace('/', path.sep)
+    CONFIG.municipality
+      .replace(/-cats$/, '')
+      .replace(/-dogs$/, '')
+      .replace('/', path.sep)
   );
   fs.mkdirSync(outputDir, { recursive: true });
 

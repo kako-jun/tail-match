@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * 横浜市動物愛護センター 画像OCR抽出スクリプト（Tesseract.js版）
+ * 堺市動物愛護センター 画像OCR抽出スクリプト（Tesseract.js版）
  *
  * Tesseract.jsを使用して画像から情報を自動抽出します
  * APIキー不要・完全ローカル実行で持続可能
@@ -15,7 +15,7 @@
  * - ✅ 無制限に使用可能
  * - ✅ 日本語OCR精度が高い
  *
- * 出力: data/ocr/kanagawa/yokohama-city-cats/extracted_data.json
+ * 出力: data/ocr/osaka/sakai-city-dogs/extracted_data.json
  */
 
 import fs from 'fs';
@@ -23,7 +23,7 @@ import path from 'path';
 import { createWorker } from 'tesseract.js';
 
 const CONFIG = {
-  municipality: 'kanagawa/yokohama-city-cats',
+  municipality: 'osaka/sakai-city-dogs',
   batchSize: 5, // 一度に処理する画像数（Tesseractは重いので少なめ）
 };
 
@@ -53,8 +53,8 @@ function parseExtractedText(text, externalId) {
     const inquiryMatch = text.match(/(\d{4})/);
     const inquiry_number = inquiryMatch ? inquiryMatch[1] : null;
 
-    // 種類・品種（「犬種」「猫種」「種類」すべてに対応、改行前まで抽出）
-    const breedMatch = text.match(/(?:犬|猫)?\s*種\s*(?:類)?[:：\s]*([^\n]+)/);
+    // 種類・品種（「犬種」「犬種」「種類」すべてに対応、改行前まで抽出）
+    const breedMatch = text.match(/(?:犬|犬)?\s*種\s*(?:類)?[:：\s]*([^\n]+)/);
     let breed = breedMatch ? breedMatch[1].trim() : null;
     if (breed) {
       breed = breed
@@ -98,14 +98,14 @@ function parseExtractedText(text, externalId) {
     if (text.includes('健康状態')) {
       healthParts.push('良好');
     }
-    if (text.includes('猫エイズ検査')) {
+    if (text.includes('犬エイズ検査')) {
       healthParts.push(
-        text.match(/猫エイズ検査[:：\s]*(陰性|陽性|未検査)/)?.[0] || '猫エイズ検査陰性'
+        text.match(/犬エイズ検査[:：\s]*(陰性|陽性|未検査)/)?.[0] || '犬エイズ検査陰性'
       );
     }
-    if (text.includes('猫白血病検査') || text.includes('猫白血病ウイルス')) {
+    if (text.includes('犬白血病検査') || text.includes('犬白血病ウイルス')) {
       healthParts.push(
-        text.match(/猫白血病[^：]*[:：\s]*(陰性|陽性|未検査)/)?.[0] || '猫白血病検査陰性'
+        text.match(/犬白血病[^：]*[:：\s]*(陰性|陽性|未検査)/)?.[0] || '犬白血病検査陰性'
       );
     }
     if (text.includes('ワクチン')) {
@@ -123,8 +123,8 @@ function parseExtractedText(text, externalId) {
     const needsMatch = text.match(/募集の経緯[:：\s]*([^\n]+)/);
     const special_needs = needsMatch ? needsMatch[1].trim() : null;
 
-    // 動物種判定（猫エイズ検査があれば猫、なければ犬と推定）
-    const animal_type = 'cat'; // 猫専用ページなので固定
+    // 動物種判定（犬エイズ検査があれば犬、なければ犬と推定）
+    const animal_type = 'dog'; // 犬専用ページなので固定
 
     return {
       inquiry_number,
@@ -179,7 +179,7 @@ async function extractFromImage(worker, imagePath, externalId) {
 
 async function main() {
   console.log('='.repeat(60));
-  console.log('🐱 横浜市動物愛護センター - 画像OCR抽出（Tesseract.js）');
+  console.log('🐕 堺市動物愛護センター - 画像OCR抽出（Tesseract.js）');
   console.log('='.repeat(60) + '\n');
 
   // Tesseract.js ワーカー初期化（日本語＋英語）
@@ -203,9 +203,16 @@ async function main() {
 
   console.log('✅ Tesseract.js 初期化完了\n');
 
-  // 画像ディレクトリ取得（-catsサフィックスを除去）
-  const imagesDirPath = CONFIG.municipality.replace(/-cats$/, '').replace('/', path.sep);
-  const imagesDir = path.join(process.cwd(), 'data', 'images', imagesDirPath);
+  // 画像ディレクトリ取得
+  const imagesDir = path.join(
+    process.cwd(),
+    'data',
+    'images',
+    CONFIG.municipality
+      .replace(/-cats$/, '')
+      .replace(/-dogs$/, '')
+      .replace('/', path.sep)
+  );
 
   if (!fs.existsSync(imagesDir)) {
     console.error(`❌ 画像ディレクトリが見つかりません: ${imagesDir}`);
@@ -238,7 +245,7 @@ async function main() {
 
     for (const imageFile of batch) {
       const imagePath = path.join(imagesDir, imageFile);
-      const externalId = imageFile.replace('yokohama-', '').replace('.jpg', '');
+      const externalId = imageFile.replace('sakai-', '').replace('.jpg', '');
 
       const data = await extractFromImage(worker, imagePath, externalId);
 
@@ -259,7 +266,10 @@ async function main() {
     process.cwd(),
     'data',
     'ocr',
-    CONFIG.municipality.replace('/', path.sep)
+    CONFIG.municipality
+      .replace(/-cats$/, '')
+      .replace(/-dogs$/, '')
+      .replace('/', path.sep)
   );
   fs.mkdirSync(outputDir, { recursive: true });
 
