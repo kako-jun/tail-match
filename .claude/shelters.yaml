@@ -1,15 +1,15 @@
 # Tail Match - 全国動物保護施設データベース
-# 最終更新: 2025-11-13
+# 最終更新: 2025-11-15
 # データソース: データベース実装済み施設（正確なURL・連絡先）+ 市レベル施設調査
 
 metadata:
-  version: "5.1.0"
+  version: "5.2.0"
   last_updated: "2025-11-15"
-  total_facilities: 78   # 全施設数（実装済み23 + 未実装55）
-  total_implemented: 23  # 実装済み自治体数
-  total_pending: 55      # 未実装施設数（調査済みURL）
-  total_scrapers: 30     # 猫犬別ページ含む
-  implementation_rate: "29.5%"  # 実装率（23/78）
+  total_facilities: 77   # 全施設数（実装済み24 + 未実装53）香川県重複統合
+  total_implemented: 24  # 実装済み自治体数
+  total_pending: 53      # 未実装施設数（調査済みURL）
+  total_scrapers: 32     # 猫犬別ページ含む
+  implementation_rate: "31.2%"  # 実装率（24/77）
   status: "運用中"
   notes: |
     このファイルは全国の保護施設情報を都道府県単位で管理します。
@@ -19,15 +19,15 @@ metadata:
 
 # 実装状況サマリー
 implementation_summary:
-  implemented_prefectures: 11      # 北海道、東京、神奈川、埼玉、千葉、富山、石川、福井、京都、大阪、兵庫、愛知、沖縄
-  pending_prefectures: 36          # 残り36都道府県
-  implemented_facilities: 23       # 実装済み自治体
-  scraper_count: 30                # 猫専用18 + 犬専用8 + 混在4
+  implemented_prefectures: 12      # 北海道、東京、神奈川、埼玉、千葉、富山、石川、福井、京都、大阪、兵庫、愛知、香川、沖縄
+  pending_prefectures: 35          # 残り35都道府県
+  implemented_facilities: 24       # 実装済み自治体
+  scraper_count: 32                # 猫専用19 + 犬専用9 + 混在4
 
   by_type:
     mixed_pages: 4                 # 犬猫混在ページ
-    cat_only_pages: 18             # 猫専用ページ（愛知県追加）
-    dog_only_pages: 8              # 犬専用ページ（愛知県追加）
+    cat_only_pages: 19             # 猫専用ページ（香川県追加）
+    dog_only_pages: 9              # 犬専用ページ（香川県追加）
 
 # ========================================
 # 47都道府県別施設リスト
@@ -1192,34 +1192,22 @@ prefectures:
     prefecture_code: "37"
     region: "四国地方"
     facilities:
-      - name: "香川県動物愛護管理センター「しっぽの森」"
+      - name: "さぬき動物愛護センター「しっぽの森」"
         city: null
         type: "prefecture"
-        status: "pending"
-        scraper_path: null
-        page_type: "unknown"
-        url: "https://www.pref.kagawa.lg.jp/content/dir5/dir5_1/dir5_1_1/"
-        url_adoption: "https://www.pref.kagawa.lg.jp/content/dir5/dir5_1/dir5_1_1/wf0sjo150414114520.shtml"
+        status: "implemented"
+        scraper_path: "scripts/scrapers/kagawa/kagawa-pref-cats, scripts/scrapers/kagawa/kagawa-pref-dogs"
+        page_type: "separate"
+        url: "https://www.pref.kagawa.lg.jp/s-doubutuaigo/sanukidouaicenter/index.html"
+        url_adoption: "https://www.pref.kagawa.lg.jp/s-doubutuaigo/sanukidouaicenter/jyouto/s04u6e190311095146.html"
+        url_cats: "https://www.pref.kagawa.lg.jp/documents/6103/[MMDD]cat.pdf"
+        url_dogs: "https://www.pref.kagawa.lg.jp/documents/6103/[MMDD]dog.pdf"
         contact:
           phone: "087-849-1011"
           address: "香川県高松市東植田町1202-3"
           email: null
           postal_code: "761-8077"
-        notes: "未実装、調査済み"
-
-      - name: "さぬき動物愛護センター「しっぽの森」"
-        city: "高松市"
-        type: "city"
-        status: "pending"
-        scraper_path: null
-        page_type: "unknown"
-        url: "https://www.pref.kagawa.lg.jp/s-doubutuaigo/sanukidouaicenter/index.html"
-        contact:
-          phone: null
-          address: "高松市東植田町1202-1"
-          email: null
-          postal_code: null
-        notes: "8:30-17:15開館。月曜休館。事前譲渡前講習会受講必須。殺処分設備なし"
+        notes: "香川県・高松市共同運営。PDF方式（pdfjs-dist）。猫: 36匹、犬: 43匹。8:30-17:15開館、月曜休館。実装完了 (2025-11-15)。TODO: PDF内画像抽出（セルフホスト必要）"
 
   - prefecture_name: "愛媛県"
     prefecture_code: "38"

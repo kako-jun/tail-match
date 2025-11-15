@@ -1,8 +1,8 @@
 metadata:
   version: 1.0.0
-  last_updated: '2025-11-15T11:15:47.077+09:00'
+  last_updated: '2025-11-15T12:00:20.843+09:00'
   purpose: スクレイピング動作確認・エラー履歴管理
-  total_scrapers: 43
+  total_scrapers: 45
 scrapers:
   hokkaido/hokkaido-pref:
     name: 北海道立動物愛護センター「あいにきた」
@@ -2504,6 +2504,78 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 4342
+  kagawa/kagawa-pref-cats:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-15T11:53:52.996+09:00'
+    last_error: null
+    last_error_message: null
+    total_runs: 4
+    success_count: 4
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs:
+      - timestamp: '2025-11-15T11:53:52.996+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 36
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 1095
+      - timestamp: '2025-11-15T11:52:56.604+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 1
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 751
+      - timestamp: '2025-11-15T11:51:56.396+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 815
+      - timestamp: '2025-11-15T11:49:11.731+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 6039
+  kagawa/kagawa-pref-dogs:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-15T12:00:20.797+09:00'
+    last_error: null
+    last_error_message: null
+    total_runs: 2
+    success_count: 2
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs:
+      - timestamp: '2025-11-15T12:00:20.797+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 43
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 1283
+      - timestamp: '2025-11-15T11:59:42.406+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 6961
 status_definitions:
   success: HTML収集→YAML抽出→DB投入が全て成功
   error: いずれかのステップでエラーが発生
