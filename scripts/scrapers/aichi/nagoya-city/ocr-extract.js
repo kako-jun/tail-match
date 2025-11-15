@@ -70,21 +70,35 @@ function parseExtractedText(text, externalId) {
       color = color.replace(/\s+/g, '').split(/[。、]/)[0];
     }
 
-    // 性別
-    const genderMatch = text.match(/性\s*別[:：\s]*(オス|メス|雄|雌)/);
+    // 性別（「オス」「メス」「男の子」「女の子」「雄」「雌」、OCRミス対応）
     let gender = 'unknown';
-    if (genderMatch) {
-      const g = genderMatch[1];
-      gender = g === 'オス' || g === '雄' ? 'male' : 'female';
+
+    // 「性別: 不明」「性別: 未判明」は明示的にunknownとして扱う
+    if (text.match(/性\s*別[:：\s]*(不明|未判明)/)) {
+      gender = 'unknown';
+    } else {
+      // 通常の性別パターン
+      const genderMatch = text.match(/性\s*別[:：\s]*(オス|メス|雄|雌|男\s*の\s*子|女\s*の\s*子)/);
+      if (genderMatch) {
+        const g = genderMatch[1].replace(/\s+/g, '');
+        if (g === 'オス' || g === '雄' || g === '男の子') {
+          gender = 'male';
+        } else if (g === 'メス' || g === '雌' || g === '女の子') {
+          gender = 'female';
+        }
+      }
     }
 
     // 年齢（OCRミス対応：「年齢」「年人齢」「年_齢」など、同一行内で「齢」を含むパターン）
     const ageMatch = text.match(/年[^\n齢]*齢\s*[:：\s]*([^\n]+)/);
     let age_estimate = null;
     if (ageMatch) {
-      // 「6歳」のような部分だけを抽出
-      const ageOnlyMatch = ageMatch[1].match(/(\d+\s*(?:歳|才|ヶ月|ヵ月|か月))/);
-      age_estimate = ageOnlyMatch ? ageOnlyMatch[1].replace(/\s+/g, '') : null;
+      // 「6歳」「5カ月」「3週」のような部分だけを抽出
+      // OCR誤認識対応: カ月（カタカナのカ） → ヵ月（小さいヵ）
+      const ageOnlyMatch = ageMatch[1].match(/(\d+\s*(?:歳|才|ヶ月|ヵ月|カ月|か月|週間|週))/);
+      if (ageOnlyMatch) {
+        age_estimate = ageOnlyMatch[1].replace(/\s+/g, '').replace(/カ月/g, 'ヵ月');
+      }
     }
 
     // 健康状態（複数行にまたがる可能性）
