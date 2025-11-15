@@ -10,7 +10,7 @@ import path from 'path';
 import yaml from 'js-yaml';
 
 // ========================================
-// 画像から抽出した情報
+// 画像から抽出した情報（手動抽出）
 // ========================================
 
 const extractedData = {
@@ -22,7 +22,7 @@ const extractedData = {
     gender: 'male',
     color: '茶トラ',
     health_status:
-      '良好、避妊去勢済、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済(2020年12月)',
+      '良好、避妊去勢済、マイクロチップ無、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済(2020年12月)',
     personality: 'おとなしい',
     special_needs: '現在飼っている住居が身内の不幸により、立ち退きする為',
   },
@@ -34,7 +34,7 @@ const extractedData = {
     gender: 'female',
     color: 'キジトラ',
     health_status:
-      '良好、避妊去勢済、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済(2020年7月)',
+      '良好、避妊去勢済、マイクロチップ無、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済(2020年7月)',
     personality: '活発',
     special_needs: '現在飼っている住居が身内の不幸により、立ち退きする為',
   },
@@ -46,7 +46,7 @@ const extractedData = {
     gender: 'female',
     color: 'キジトラ',
     health_status:
-      '良好、避妊去勢済、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済(2021年12月)',
+      '良好、避妊去勢済、マイクロチップ無、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済(2021年12月)',
     personality: 'おとなしい',
     special_needs: '現在飼っている住居が身内の不幸により、立ち退きする為',
   },
@@ -58,7 +58,7 @@ const extractedData = {
     gender: 'female',
     color: '三毛',
     health_status:
-      '良好、避妊去勢済、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済(2021年10月)',
+      '良好、避妊去勢済、マイクロチップ無、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済(2021年10月)',
     personality: '臆病',
     special_needs: '現在飼っている住居が身内の不幸により、立ち退きする為',
   },
@@ -94,7 +94,8 @@ const extractedData = {
     age_estimate: '5～6歳',
     gender: 'female',
     color: '黒(エンジェルマーク有)',
-    health_status: '良好、避妊去勢済、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済',
+    health_status:
+      '良好、避妊去勢済、マイクロチップ無、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済',
     personality:
       '大人しく臆病。猫じゃらして遊ぶのが好き・撫でられる事が好き・ブラッシング大好き。夜はトイレなど人を起こさないように抜き足差し足で人のリズムに合わせて暮らせる気遣い出来る猫です。',
     special_needs:
@@ -107,7 +108,8 @@ const extractedData = {
     age_estimate: '1歳7ヶ月',
     gender: 'female',
     color: 'キジ白(キジ柄が明るめ茶色)',
-    health_status: '良好、避妊去勢済、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済',
+    health_status:
+      '良好、避妊去勢済、マイクロチップ無、猫エイズ検査陰性、猫白血病検査陰性、ワクチン接種済',
     personality: 'ボールや猫じゃらして上手に遊べて好奇心旺盛。ご機嫌上手で触ってもそこまで大好き。',
     special_needs:
       '家の敷地に来る野良猫を保護したが病気の保護猫がいるので飼えない。希望者様に送り事項としてあげたが、一緒に遊んだりする時間を確保して頂けたら嬉しいです。',
@@ -119,8 +121,117 @@ const extractedData = {
     age_estimate: '6歳',
     gender: 'male',
     color: '白',
-    health_status: '良好、避妊去勢済、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種',
+    health_status:
+      '良好、避妊去勢済、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種',
     personality: '心優しく小心者、見た目とのギャップにびっくり',
+    special_needs: '転居のため。',
+  },
+  '251112-002': {
+    inquiry_number: '2376',
+    animal_type: 'cat',
+    breed: '雑種',
+    age_estimate: '6歳',
+    gender: 'female',
+    color: '黒白',
+    health_status:
+      '良好、避妊去勢未実施、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種',
+    personality: '女の子らしい甘えっ子',
+    special_needs: '転居のため。',
+  },
+  '251112-003': {
+    inquiry_number: '2377',
+    animal_type: 'cat',
+    breed: '雑種',
+    age_estimate: '4歳',
+    gender: 'female',
+    color: 'キジトラ',
+    health_status:
+      '良好、避妊去勢未実施、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種',
+    personality: 'とっても賢く元気な女の子',
+    special_needs: '転居のため。',
+  },
+  '251112-004': {
+    inquiry_number: '2378',
+    animal_type: 'cat',
+    breed: '雑種',
+    age_estimate: '5歳',
+    gender: 'female',
+    color: 'サビ',
+    health_status:
+      '良好、避妊去勢未実施、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種',
+    personality: '頭が大く、誰とでも仲良しな女の子です。',
+    special_needs: '転居のため。',
+  },
+  '251112-005': {
+    inquiry_number: '2379',
+    animal_type: 'cat',
+    breed: '雑種',
+    age_estimate: '5歳',
+    gender: 'female',
+    color: '黒',
+    health_status:
+      '良好、避妊去勢未実施、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種',
+    personality: 'テレビを見るのが、趣味の女の子です。小さい体でも一人前',
+    special_needs: '転居のため。',
+  },
+  '251112-006': {
+    inquiry_number: '2380',
+    animal_type: 'cat',
+    breed: '雑種',
+    age_estimate: '6歳',
+    gender: 'male',
+    color: '茶トラ',
+    health_status:
+      '良好、避妊去勢未実施、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種',
+    personality: '元気いっぱいで健康',
+    special_needs: '転居のため。',
+  },
+  '251112-007': {
+    inquiry_number: '2381',
+    animal_type: 'cat',
+    breed: '雑種',
+    age_estimate: '6歳',
+    gender: 'male',
+    color: '黒白',
+    health_status:
+      '良好、避妊去勢未実施、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種',
+    personality: '甘えん坊で食欲旺盛な男の子',
+    special_needs: '転居のため。',
+  },
+  '251112-008': {
+    inquiry_number: '2382',
+    animal_type: 'cat',
+    breed: '雑種',
+    age_estimate: '6歳',
+    gender: 'female',
+    color: '白',
+    health_status:
+      '良好、避妊去勢未実施、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種',
+    personality: '真が大好きでおとなしい女の子',
+    special_needs: '転居のため。',
+  },
+  '251112-009': {
+    inquiry_number: '2383',
+    animal_type: 'cat',
+    breed: '雑種',
+    age_estimate: '6歳',
+    gender: 'female',
+    color: '黒白',
+    health_status:
+      '良好、避妊去勢未実施、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種',
+    personality: '気好きでおりこうさん',
+    special_needs: '転居のため。',
+  },
+  '251112-010': {
+    inquiry_number: '2384',
+    animal_type: 'cat',
+    breed: 'スコティッシュフォールド',
+    age_estimate: '推定3～5歳',
+    gender: 'male',
+    color: 'ベージュ',
+    health_status:
+      '良好、避妊去勢未実施、マイクロチップ無、猫エイズ検査未検査、猫白血病検査未検査、ワクチン未接種',
+    personality: '温厚・人懐っこく初対面でも触れます',
     special_needs: '転居のため。',
   },
 };
@@ -133,6 +244,8 @@ async function main() {
   console.log('='.repeat(60));
   console.log('🐱🐕 名古屋市動物愛護センター - YAML更新');
   console.log('='.repeat(60) + '\n');
+
+  console.log(`📊 抽出データ: ${Object.keys(extractedData).length}件\n`);
 
   // 画像から作成したYAMLファイルを読み込み
   const yamlDir = path.join(process.cwd(), 'data', 'yaml', 'aichi', 'nagoya-city');
