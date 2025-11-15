@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-15T10:55:38.655+09:00",
+  "url": "https://www.zaidan-fukuoka-douai.or.jp/animals/centers/dog",
+  "has_animals": true,
+  "html_size": 118112,
+  "scraper": "playwright",
+  "note": "カード形式、No.番号・性別・年齢・体サイズ・体重表示、募集中ステータス"
+}

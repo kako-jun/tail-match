@@ -1,0 +1,55 @@
+meta:
+  source_file: 20251115_105646_tail.html
+  source_url: https://www.city.kitakyushu.lg.jp/contents/924_11834.html
+  extracted_at: '2025-11-15T11:08:38.875+09:00'
+  municipality: fukuoka/kitakyushu-city-dogs
+  municipality_id: null
+  total_count: 2
+  note: 成猫・子猫の譲渡候補情報（検査結果付き）
+animals:
+  - external_id: kitakyushu-city-A25101
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: 2025年9月下旬
+    gender: female
+    color: 茶
+    size: null
+    health_status: null
+    personality: null
+    special_needs: "11月25日(火曜日)の子犬の譲渡会にて譲渡します。\n\t\t\t\t\t(事前予約制)\n\t\t\t\t野犬の子犬なので、どのように成長するか分かりません。\n\t\t\t\t成犬時推定体重\n\t\t\t\t\tオス：15から20キログラム前後\n\t\t\t\t\tメス：10から15キログラム前後"
+    images:
+      - https://www.city.kitakyushu.lg.jp/files/001170212.jpg
+      - https://www.city.kitakyushu.lg.jp/files/001170214.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.kitakyushu.lg.jp/contents/924_11834.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption
+  - external_id: kitakyushu-city-A24135
+    name: アポロ
+    animal_type: cat
+    breed: null
+    age_estimate: 茶白
+    gender: unknown
+    color: "オス\n\t\t\t\t（去勢済）"
+    size: null
+    health_status: '猫白血病: 2017年、猫エイズ: 強陽性'
+    personality: null
+    special_needs: "受付中\n\t\t\t\t人見知りせず、人懐っこい性格です。\n\t\t\t\t\t体が大きめなので、力も強いです。"
+    images:
+      - https://www.city.kitakyushu.lg.jp/files/001133183.jpg
+      - https://www.city.kitakyushu.lg.jp/files/001133184.jpg
+      - https://www.city.kitakyushu.lg.jp/files/001149263.jpg
+      - https://www.city.kitakyushu.lg.jp/files/001149264.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.kitakyushu.lg.jp/contents/924_11834.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象猫
+    listing_type: adoption
