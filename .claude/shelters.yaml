@@ -3,13 +3,13 @@
 # データソース: データベース実装済み施設（正確なURL・連絡先）+ 市レベル施設調査
 
 metadata:
-  version: "5.5.0"
+  version: "5.6.0"
   last_updated: "2025-11-15"
-  total_facilities: 78   # 全施設数（実装済み35 + 未実装43）新潟市追加
-  total_implemented: 35  # 実装済み自治体数
-  total_pending: 43      # 未実装施設数（調査済みURL）
-  total_scrapers: 52     # 猫犬別ページ含む
-  implementation_rate: "44.9%"  # 実装率（35/78）
+  total_facilities: 78   # 全施設数（実装済み36 + 未実装42）新潟県追加
+  total_implemented: 36  # 実装済み自治体数
+  total_pending: 42      # 未実装施設数（調査済みURL）
+  total_scrapers: 54     # 猫犬別ページ含む
+  implementation_rate: "46.2%"  # 実装率（36/78）
   status: "運用中"
   notes: |
     このファイルは全国の保護施設情報を都道府県単位で管理します。
@@ -21,13 +21,13 @@ metadata:
 implementation_summary:
   implemented_prefectures: 21      # 北海道、宮城、東京、埼玉、千葉、神奈川、新潟、富山、石川、福井、愛知、京都、大阪、兵庫、広島、福岡、香川、徳島、愛媛、高知、沖縄
   pending_prefectures: 26          # 残り26都道府県
-  implemented_facilities: 35       # 実装済み自治体
-  scraper_count: 52                # 猫専用27 + 犬専用17 + 混在8
+  implemented_facilities: 36       # 実装済み自治体
+  scraper_count: 54                # 猫専用28 + 犬専用18 + 混在8
 
   by_type:
     mixed_pages: 8                 # 犬猫混在ページ
-    cat_only_pages: 27             # 猫専用ページ
-    dog_only_pages: 17             # 犬専用ページ
+    cat_only_pages: 28             # 猫専用ページ
+    dog_only_pages: 18             # 犬専用ページ
 
 # ========================================
 # 47都道府県別施設リスト
@@ -523,17 +523,19 @@ prefectures:
       - name: "新潟県動物愛護センター"
         city: null
         type: "prefecture"
-        status: "pending"
-        scraper_path: null
-        page_type: "unknown"
-        url: "https://www.pref.niigata.lg.jp/sec/seikatueisei/1194060413803.html"
-        url_adoption: "https://www.pref.niigata.lg.jp/sec/seikatueisei/1356831944722.html"
+        status: "implemented"
+        scraper_path: "scripts/scrapers/niigata/niigata-pref-cats, scripts/scrapers/niigata/niigata-pref-dogs"
+        page_type: "separate"
+        url: "https://www.pref.niigata.lg.jp/site/da-top/"
+        url_cats: "https://www.pref.niigata.lg.jp/sec/seikatueisei/1334350843426.html"
+        url_cats_kittens: "https://www.pref.niigata.lg.jp/sec/seikatueisei/1344055708060.html"
+        url_dogs: "https://www.pref.niigata.lg.jp/sec/seikatueisei/1334350842609.html"
         contact:
           phone: "0258-21-5501"
           address: "新潟県長岡市関原町1-2663-6"
           email: null
           postal_code: "940-2035"
-        notes: "未実装、調査済み"
+        notes: "猫: h3で飼育場所、画像altで名前、成猫11匹＋子猫1匹=12匹。犬: h3で名前、画像altで管理番号、2匹。実装完了 (2025-11-15)"
 
       - name: "新潟市動物愛護センター"
         city: "新潟市"

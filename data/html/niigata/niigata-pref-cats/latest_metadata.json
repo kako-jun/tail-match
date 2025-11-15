@@ -1,0 +1,11 @@
+{
+  "timestamp": "2025-11-15T13:29:46.997Z",
+  "url_adults": "https://www.pref.niigata.lg.jp/sec/seikatueisei/1334350843426.html",
+  "url_kittens": "https://www.pref.niigata.lg.jp/sec/seikatueisei/1344055708060.html",
+  "has_animals": true,
+  "adult_count": 11,
+  "kitten_count": 1,
+  "total_count": 12,
+  "scraper": "playwright",
+  "note": "h3要素で飼育場所、画像altで猫名"
+}
