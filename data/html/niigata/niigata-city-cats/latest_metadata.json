@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-15T17:34:41.807+09:00",
+  "url": "https://www.ikutopia.com/facilities/doubutsu/foster/cat/",
+  "has_animals": true,
+  "html_size": 40969,
+  "scraper": "playwright",
+  "note": "カード型レイアウト、管理番号（2025k28など）・名前・年齢表示"
+}

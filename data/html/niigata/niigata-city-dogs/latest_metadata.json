@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-15T17:42:23.217+09:00",
+  "url": "https://www.ikutopia.com/facilities/doubutsu/foster/dog/",
+  "has_animals": true,
+  "html_size": 33670,
+  "scraper": "playwright",
+  "note": "カード型レイアウト、管理番号（2025d10など）・名前・年齢表示"
+}
