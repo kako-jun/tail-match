@@ -1,0 +1,72 @@
+meta:
+  source_file: 20251115_174223_tail.html
+  source_url: https://www.ikutopia.com/facilities/doubutsu/foster/dog/
+  extracted_at: '2025-11-15T17:43:35.853+09:00'
+  municipality: niigata/niigata-city-dogs
+  municipality_id: null
+  total_count: 3
+  note: 新潟市譲渡犬情報（いくとぴあ食花）
+animals:
+  - external_id: niigata-city-2025d10
+    name: ずんだ
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.ikutopia.com/wp-content/uploads/2025/11/c156815fb834a3ef4dea2efd2346b1c8-345x254.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.ikutopia.com/fosterinfo/77858/
+    confidence_level: high
+    extraction_notes:
+      - 2025d10
+    listing_type: adoption
+  - external_id: niigata-city-2025d9
+    name: あんこ
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.ikutopia.com/wp-content/uploads/2025/11/0b59135392bf82c526c2fe999a010f09-345x254.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.ikutopia.com/fosterinfo/77856/
+    confidence_level: high
+    extraction_notes:
+      - 2025d9
+    listing_type: adoption
+  - external_id: niigata-city-2025d8
+    name: わらび
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.ikutopia.com/wp-content/uploads/2025/10/image0-e1759458172418-345x254.jpeg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.ikutopia.com/fosterinfo/77344/
+    confidence_level: high
+    extraction_notes:
+      - 2025d8
+    listing_type: adoption
