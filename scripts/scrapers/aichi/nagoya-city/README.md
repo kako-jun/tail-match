@@ -26,11 +26,15 @@
 
 ## 実装方式
 
-### ⚠️ OCR処理が必要
+### ⚠️ OCR処理が必要（完全自動化不可）
 
 このスクレイパーは**堺市・横浜市と同じOCR方式**を採用しています。
 
+**重要**: このスクレイパーは通常の全国一括実行では**完結しません**。
+
 ### 実行手順
+
+#### 自動実行部分（全国スクレイパー実行に含まれる）
 
 ```bash
 # 1. HTMLページ収集
@@ -38,16 +42,35 @@ node scripts/scrapers/aichi/nagoya-city/scrape.js
 
 # 2. 画像ダウンロード＆テンプレートYAML生成
 node scripts/scrapers/aichi/nagoya-city/extract-from-images.js
+```
 
-# 3. OCR処理（手動 or Claude Vision API）
-# data/images/aichi/nagoya-city/ の画像を確認し、情報を抽出
+この時点で：
 
-# 4. YAML更新（別途実装が必要）
-# node scripts/scrapers/aichi/nagoya-city/update-yaml-from-ocr.js
+- ✅ 猫のリストは取得済み（123匹など）
+- ✅ 画像は全てダウンロード済み
+- ❌ 詳細データ（年齢、性別、毛色など）は**null**
 
-# 5. DB投入（yaml-to-db.jsに自治体を追加後）
+#### 手動実行部分（別途実施が必要）
+
+```bash
+# 3. 画像を目視確認し、extractedData を更新
+# update-yaml-from-images.js の extractedData オブジェクトに
+# 画像から読み取った情報を追加
+
+# 4. YAML更新
+node scripts/scrapers/aichi/nagoya-city/update-yaml-from-images.js
+
+# 5. DB投入
 node scripts/core/yaml-to-db.js
 ```
+
+### OCR自動化の可能性
+
+`ocr-extract.js` スクリプトで Claude Vision API を使った自動化が可能ですが：
+
+- `@anthropic-ai/sdk` のインストールが必要
+- API費用がかかる（123枚 × $0.02-0.05 = $2-6程度）
+- 現状は手動抽出を推奨
 
 ## OCR処理の流れ
 
