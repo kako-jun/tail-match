@@ -64,49 +64,37 @@ node scripts/scrapers/aichi/nagoya-city/update-yaml-from-images.js
 node scripts/core/yaml-to-db.js
 ```
 
-### OCR自動化（推奨）
+### OCR自動化（完全ローカル・無制限）
 
-`ocr-extract.js` スクリプトで **Google Cloud Vision API** を使った完全自動化が可能です：
+`ocr-extract.js` スクリプトで **Tesseract.js** を使った完全自動化が可能です：
 
 #### メリット
 
-- ✅ **月1,000リクエストまで無料**
-- ✅ OCR専用なので精度が高い
-- ✅ 名古屋市123枚は完全に無料枠内
+- ✅ **APIキー不要**（完全ローカル実行）
+- ✅ **無制限に使用可能**（回数制限なし）
+- ✅ **持続可能**（外部サービス依存なし）
+- ✅ 日本語OCR精度が高い
 
 #### セットアップ手順
 
 ```bash
-# 1. Google Cloud Vision APIを有効化
-# https://console.cloud.google.com/ でプロジェクト作成
-# Vision API を有効化
+# 1. パッケージインストール（初回のみ）
+npm install tesseract.js
 
-# 2. サービスアカウント作成 → キーをダウンロード
-# IAMと管理 → サービスアカウント → キーを作成 → JSON
-
-# 3. 環境変数を設定
-export GOOGLE_APPLICATION_CREDENTIALS="/path/to/key.json"
-
-# 4. パッケージインストール
-npm install @google-cloud/vision
-
-# 5. OCR実行
+# 2. OCR実行（全69枚を自動処理）
 node scripts/scrapers/aichi/nagoya-city/ocr-extract.js
 
-# 6. 抽出データで YAML 更新
-# ocr-extract.js が data/ocr/aichi/nagoya-city/extracted_data.json を生成
-# このJSONを update-yaml-from-images.js の extractedData に反映
+# 3. 抽出データ確認
+# data/ocr/aichi/nagoya-city/extracted_data.json が生成される
 
-# 7. YAML更新
-node scripts/scrapers/aichi/nagoya-city/update-yaml-from-images.js
+# 4. YAML更新（TODO: 自動統合スクリプト作成予定）
+# 現状は手動で update-yaml-from-images.js に反映
 ```
 
-#### 無料枠の計算
+#### 処理時間
 
-- 名古屋市: 123リクエスト/月
-- 堺市: ~50リクエスト/月
-- 横浜市: ~10リクエスト/月
-- **合計**: ~200リクエスト/月 → **完全に無料枠内**
+- 69枚: 約5～10分（1枚あたり4～8秒）
+- 完全自動・バックグラウンド実行可能
 
 ## OCR処理の流れ
 

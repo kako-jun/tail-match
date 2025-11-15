@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * 名古屋市動物愛護センター 画像OCR抽出スクリプト（Tesseract.js版）
+ * 堺市動物愛護センター 画像OCR抽出スクリプト（Tesseract.js版）
  *
  * Tesseract.jsを使用して画像から情報を自動抽出します
  * APIキー不要・完全ローカル実行で持続可能
@@ -15,7 +15,7 @@
  * - ✅ 無制限に使用可能
  * - ✅ 日本語OCR精度が高い
  *
- * 出力: data/ocr/aichi/nagoya-city/extracted_data.json
+ * 出力: data/ocr/osaka/sakai-city-cats/extracted_data.json
  */
 
 import fs from 'fs';
@@ -23,7 +23,7 @@ import path from 'path';
 import { createWorker } from 'tesseract.js';
 
 const CONFIG = {
-  municipality: 'aichi/nagoya-city',
+  municipality: 'osaka/sakai-city-cats',
   batchSize: 5, // 一度に処理する画像数（Tesseractは重いので少なめ）
 };
 
@@ -124,7 +124,7 @@ function parseExtractedText(text, externalId) {
     const special_needs = needsMatch ? needsMatch[1].trim() : null;
 
     // 動物種判定（猫エイズ検査があれば猫、なければ犬と推定）
-    const animal_type = text.includes('猫エイズ') || text.includes('猫白血病') ? 'cat' : 'dog';
+    const animal_type = 'cat'; // 猫専用ページなので固定
 
     return {
       inquiry_number,
@@ -179,7 +179,7 @@ async function extractFromImage(worker, imagePath, externalId) {
 
 async function main() {
   console.log('='.repeat(60));
-  console.log('🐱🐕 名古屋市動物愛護センター - 画像OCR抽出（Tesseract.js）');
+  console.log('🐱 堺市動物愛護センター - 画像OCR抽出（Tesseract.js）');
   console.log('='.repeat(60) + '\n');
 
   // Tesseract.js ワーカー初期化（日本語＋英語）
@@ -242,7 +242,7 @@ async function main() {
 
     for (const imageFile of batch) {
       const imagePath = path.join(imagesDir, imageFile);
-      const externalId = imageFile.replace('nagoya-', '').replace('.jpg', '');
+      const externalId = imageFile.replace('sakai-', '').replace('.jpg', '');
 
       const data = await extractFromImage(worker, imagePath, externalId);
 
