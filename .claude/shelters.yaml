@@ -726,16 +726,16 @@ prefectures:
       - name: "静岡市動物愛護館"
         city: "静岡市"
         type: "designated_city"
-        status: "pending"
+        status: "not_implemented"
         scraper_path: null
-        page_type: "unknown"
+        page_type: "phone_only"
         url: "https://www.city.shizuoka.lg.jp/s3276/s001865.html"
         contact:
-          phone: null
-          address: null
+          phone: "054-278-4070"
+          address: "静岡市葵区産女953"
           email: null
-          postal_code: null
-        notes: "子猫譲渡あり。3種混合ワクチン、ウイルス検査、寄生虫駆除済み"
+          postal_code: "420-0831"
+        notes: "オンライン譲渡情報なし。電話問い合わせのみ。子猫譲渡あり。3種混合ワクチン、ウイルス検査、寄生虫駆除済み"
 
       - name: "浜松市動物愛護教育センター"
         city: "浜松市"
