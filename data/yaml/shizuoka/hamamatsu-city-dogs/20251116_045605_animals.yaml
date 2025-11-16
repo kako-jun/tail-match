@@ -1,0 +1,54 @@
+metadata:
+  municipality: shizuoka/hamamatsu-city-dogs
+  source_url: https://www.hama-aikyou.jp/jouto/yuzuriuke/
+  scraped_at: '2025-11-16T04:56:05.508+09:00'
+  total_count: 2
+animals:
+  - external_id: hamamatsu-city-リョウ
+    name: リョウ
+    animal_type: dog
+    breed: 柴犬
+    age_estimate: 15歳
+    gender: male
+    color: null
+    size: 中（8.6㎏）
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.hama-aikyou.jp/media/20170615-163846-105.png
+      - https://www.hama-aikyou.jp/common/image/sp/header-bt001_off.png
+      - http://b.st-hatena.com/images/entry-button/button-only.gif
+      - https://www.hama-aikyou.jp/media/20250318-140831-323.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.hama-aikyou.jp/jouto/yuzuriuke/ryou/index.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
+  - external_id: hamamatsu-city-タクロー
+    name: タクロー
+    animal_type: dog
+    breed: 雑種
+    age_estimate: 推定2歳
+    gender: male
+    color: null
+    size: 大（21.5㎏）
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.hama-aikyou.jp/media/20170615-163846-105.png
+      - https://www.hama-aikyou.jp/common/image/sp/header-bt001_off.png
+      - http://b.st-hatena.com/images/entry-button/button-only.gif
+      - https://www.hama-aikyou.jp/media/2025088-122051-543.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.hama-aikyou.jp/jouto/yuzuriuke/takuro/index.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡対象
+    listing_type: adoption
