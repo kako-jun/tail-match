@@ -1,0 +1,106 @@
+metadata:
+  municipality: shizuoka/hamamatsu-city-cats
+  source_url: https://www.hama-aikyou.jp/jouto/cat/
+  scraped_at: '2025-11-16T05:04:27.908+09:00'
+  total_count: 5
+animals:
+  - external_id: hamamatsu-city-ミーシャ
+    name: ミーシャ
+    animal_type: cat
+    breed: null
+    age_estimate: 推定5歳
+    gender: female
+    color: キジトラ
+    size: null
+    health_status: null
+    personality: 寂しがり屋の甘えん坊さんです
+    special_needs: なでてもらうと身をよじって喜びます。
+    images: []
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.hama-aikyou.jp/jouto/cat/
+    confidence_level: high
+    extraction_notes:
+      - 'PDF: 20250820-103552-648.pdf'
+    listing_type: adoption
+  - external_id: hamamatsu-city-エル
+    name: エル
+    animal_type: cat
+    breed: null
+    age_estimate: 推定10歳
+    gender: female
+    color: キジ
+    size: null
+    health_status: null
+    personality: ヤキモチ焼きなので同居猫がいないご家庭を希望します。
+    special_needs: ブラッシング好きな方にはたまりません！
+    images: []
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.hama-aikyou.jp/jouto/cat/
+    confidence_level: high
+    extraction_notes:
+      - 'PDF: 20250820-103552-648.pdf'
+    listing_type: adoption
+  - external_id: hamamatsu-city-シロ
+    name: シロ
+    animal_type: cat
+    breed: null
+    age_estimate: 推定3歳
+    gender: female
+    color: 白
+    size: null
+    health_status: 未避妊
+    personality: ンゴロンと転がります。実は猫じゃらしも大好きです。
+    special_needs: null
+    images: []
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.hama-aikyou.jp/jouto/cat/
+    confidence_level: high
+    extraction_notes:
+      - 'PDF: 20251024-103107-318.pdf'
+    listing_type: adoption
+  - external_id: hamamatsu-city-ベス
+    name: ベス
+    animal_type: cat
+    breed: null
+    age_estimate: 推定7歳
+    gender: female
+    color: シャム風
+    size: null
+    health_status: 未避妊
+    personality: 甘えん坊さんで、マイペースな性格です
+    special_needs: null
+    images: []
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.hama-aikyou.jp/jouto/cat/
+    confidence_level: high
+    extraction_notes:
+      - 'PDF: 20251029-104601-680.pdf'
+    listing_type: adoption
+  - external_id: hamamatsu-city-バウム
+    name: バウム
+    animal_type: cat
+    breed: null
+    age_estimate: 推定7歳
+    gender: male
+    color: クリーム
+    size: null
+    health_status: 去勢手術済
+    personality: おっとりしていて甘えん坊さんです。
+    special_needs: null
+    images: []
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.hama-aikyou.jp/jouto/cat/
+    confidence_level: high
+    extraction_notes:
+      - 'PDF: 2025114-132307-750.pdf'
+    listing_type: adoption
