@@ -1,0 +1,28 @@
+meta:
+  source_file: 20251116_190237_tail.html
+  source_url: https://www.city.maebashi.gunma.jp/soshiki/kenko/eiseikensa/gyomu/1/1/3/17337.html
+  extracted_at: '2025-11-16T19:02:37.242+09:00'
+  municipality: gunma/maebashi-city-dogs
+  total_count: 1
+animals:
+  - external_id: D2025-011
+    name: しらたま
+    animal_type: dog
+    breed: 雑種
+    age_estimate: 7歳
+    gender: male
+    color: 白
+    size: null
+    health_status: 9/18 狂犬病ワクチン 9/18 駆虫薬 9/18 フィラリア検査(陰性)
+    personality: 人好き
+    special_needs: null
+    images:
+      - https://www.city.maebashi.gunma.jp//www.city.maebashi.gunma.jp/material/images/group/43/2025-09-08fujimimachiyamaguchi1.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.city.maebashi.gunma.jp/soshiki/kenko/eiseikensa/gyomu/1/1/3/17337.html
+    confidence_level: high
+    extraction_notes:
+      - 'ワクチン履歴: 9/18 狂犬病ワクチン 9/18 駆虫薬 9/18 フィラリア検査(陰性)'
+      - '去勢・避妊: 未去勢'
