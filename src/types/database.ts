@@ -101,6 +101,8 @@ export interface TailSearchParams {
   offset?: number
   sort_by?: 'deadline_date' | 'created_at' | 'updated_at'
   sort_order?: 'asc' | 'desc'
+  keyword?: string
+  personality_traits?: string[]
 }
 
 export interface SearchResult<T> {

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { TailWithDetails } from '@/types/database'
 import {
   Card,
@@ -96,18 +97,15 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
           }}
         >
           {imageUrl ? (
-            <Box
-              component="img"
+            <Image
               src={imageUrl}
-              alt={tail.name || '保護猫'}
-              sx={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
+              alt={tail.name || '保護動物'}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              style={{
                 objectFit: 'cover'
               }}
+              priority={false}
             />
           ) : (
             <Box
@@ -125,7 +123,7 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
                 opacity: 0.7
               }}
             >
-              🐱
+              {tail.animal_type === 'dog' ? '🐶' : '🐱'}
             </Box>
           )}
 
