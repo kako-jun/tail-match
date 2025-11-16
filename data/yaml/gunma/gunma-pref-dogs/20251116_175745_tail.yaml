@@ -1,0 +1,51 @@
+meta:
+  source_file: 20251116_175745_tail.html
+  source_url: https://www.pref.gunma.jp/page/5761.html
+  extracted_at: '2025-11-16T17:57:45.753+09:00'
+  municipality: gunma/gunma-pref-dogs
+  total_count: 2
+animals:
+  - external_id: 2024-027
+    name: フラッシュくん
+    animal_type: dog
+    breed: 雑種
+    age_estimate: 8才齢（推定）
+    gender: male
+    color: 白茶
+    size: medium
+    health_status: 去勢済み
+    personality: パワフル
+    special_needs: null
+    images:
+      - https://www.pref.gunma.jp/uploaded/image/624836.JPG
+      - https://www.pref.gunma.jp/uploaded/image/625572.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.gunma.jp/page/712802.html
+    confidence_level: high
+    extraction_notes:
+      - 品種・年齢・性別・毛色・体重などの詳細情報を抽出
+      - '体重: 18.1kg'
+  - external_id: 2025-073
+    name: 福禄寿（ふくろくじゅ）くん
+    animal_type: dog
+    breed: 柴犬
+    age_estimate: 10才齢（推定）
+    gender: male
+    color: 茶
+    size: medium
+    health_status: 未去勢
+    personality: おとなしい
+    special_needs: null
+    images:
+      - https://www.pref.gunma.jp/uploaded/image/626193.JPG
+      - https://www.pref.gunma.jp/uploaded/image/628615.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.gunma.jp/page/719354.html
+    confidence_level: high
+    extraction_notes:
+      - 品種・年齢・性別・毛色・体重などの詳細情報を抽出
+      - '体重: 8.2kg'
