@@ -24,7 +24,9 @@ export async function GET(request: NextRequest) {
       limit: Math.min(parseInt(searchParams.get('limit') || '20'), 100), // 最大100件
       offset: parseInt(searchParams.get('offset') || '0'),
       sort_by: (searchParams.get('sort_by') as any) || 'deadline_date',
-      sort_order: (searchParams.get('sort_order') as any) || 'asc'
+      sort_order: (searchParams.get('sort_order') as any) || 'asc',
+      keyword: searchParams.get('keyword') || undefined,
+      personality_traits: searchParams.get('personality_traits')?.split(',') || undefined
     }
 
     const result = await getTails(params)
