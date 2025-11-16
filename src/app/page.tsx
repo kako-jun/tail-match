@@ -180,7 +180,7 @@ export default function HomePage() {
       <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3, md: 4 }, py: 4 }}>
         {/* メインコンテンツ */}
         <Box sx={{ textAlign: 'center', mb: 6 }}>
-          <Typography variant="h2" component="h1" sx={{ 
+          <Typography variant="h2" component="h1" sx={{
             fontSize: { xs: '2rem', md: '2.5rem', lg: '3rem' },
             fontWeight: 'bold',
             background: 'linear-gradient(45deg, #8B4513 30%, #FF8C00 90%)',
@@ -188,9 +188,9 @@ export default function HomePage() {
             WebkitTextFillColor: 'transparent',
             mb: 3
           }}>
-            1匹でも多くの猫を救うために
+            1匹でも多くの動物を救うために
           </Typography>
-          <Typography variant="h5" sx={{ 
+          <Typography variant="h5" sx={{
             fontSize: { xs: '1.2rem', md: '1.5rem' },
             color: 'text.primary',
             mb: 4,
@@ -198,17 +198,69 @@ export default function HomePage() {
             mx: 'auto',
             lineHeight: 1.5
           }}>
-            <Box component="span" sx={{ 
+            <Box component="span" sx={{
               fontWeight: 'bold',
               background: 'linear-gradient(45deg, #8B4513 30%, #FF8C00 90%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent'
             }}>
-              全国の保護猫情報
+              全国の保護動物情報
             </Box>
             をまとめてお届けします
           </Typography>
         </Box>
+
+        {/* はじめにお読みください */}
+        <Paper elevation={3} sx={{
+          maxWidth: '900px',
+          mx: 'auto',
+          p: { xs: 3, md: 4 },
+          mb: 6,
+          borderRadius: 4,
+          background: 'linear-gradient(135deg, #FFF8DC 0%, #FFEFD5 100%)',
+          border: '2px solid',
+          borderColor: 'primary.main'
+        }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+            <Box sx={{
+              background: 'linear-gradient(45deg, #8B4513 30%, #FF8C00 90%)',
+              p: 1.5,
+              borderRadius: 2,
+              mr: 2
+            }}>
+              <Typography sx={{ color: 'white', fontSize: '1.5rem' }}>📖</Typography>
+            </Box>
+            <Typography variant="h4" sx={{
+              fontWeight: 'bold',
+              background: 'linear-gradient(45deg, #8B4513 30%, #FF8C00 90%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }}>
+              はじめにお読みください
+            </Typography>
+          </Box>
+
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
+              <Box component="span" sx={{ fontWeight: 'bold', color: 'primary.main' }}>
+                「ているまっち！」
+              </Box>
+              は、全国の自治体が保護している犬・猫の情報を集約し、新しい家族とのマッチングをサポートするサービスです。
+            </Typography>
+
+            <Box sx={{ pl: 2, borderLeft: '4px solid', borderColor: 'primary.main' }}>
+              <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
+                <strong>ご注意：</strong>このサイトは情報提供のみを行っています。<br />
+                譲渡のお申し込みや詳細なお問い合わせは、各保護センターへ直接ご連絡ください。
+              </Typography>
+            </Box>
+
+            <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
+              保護動物たちは、期限が過ぎると<Box component="span" sx={{ fontWeight: 'bold', color: 'error.main' }}>殺処分</Box>の可能性があります。
+              一匹でも多くの命を救うため、ぜひ里親をご検討ください。
+            </Typography>
+          </Box>
+        </Paper>
             
         {/* 緊急度の高い猫の表示エリア */}
         <Paper 
@@ -452,7 +504,7 @@ export default function HomePage() {
               📊 リアルタイム統計
             </Typography>
             <Typography variant="h5" color="text.secondary">
-              現在の保護猫情報をお知らせします
+              現在の保護動物情報をお知らせします
             </Typography>
           </Box>
           <StatsDisplay />
