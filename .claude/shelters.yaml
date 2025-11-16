@@ -350,17 +350,18 @@ prefectures:
       - name: "群馬県動物愛護センター"
         city: null
         type: "prefecture"
-        status: "pending"
-        scraper_path: null
-        page_type: "unknown"
-        url: "https://www.pref.gunma.jp/02/d4210001.html"
-        url_adoption: "https://www.pref.gunma.jp/02/d4210013.html"
+        status: "implemented"
+        scraper_path: "gunma/gunma-pref-cats, gunma/gunma-pref-dogs"
+        page_type: "separate"
+        url: "https://www.pref.gunma.jp/soshiki/86/"
+        url_cats: "https://www.pref.gunma.jp/page/710676.html"
+        url_dogs: "https://www.pref.gunma.jp/page/5761.html"
         contact:
           phone: "027-278-0555"
           address: "群馬県玉村町樋越305-7"
           email: null
           postal_code: "370-1124"
-        notes: "未実装、調査済み"
+        notes: "猫: h4見出し+管理番号パターン。犬: h4見出し+詳細情報テキスト解析。実装完了 (2025-11-16)"
 
       - name: "前橋市保健所 衛生検査課 動物愛護管理センター準備室"
         city: "前橋市"
