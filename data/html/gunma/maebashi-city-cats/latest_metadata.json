@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-16T18:50:03.213+09:00",
+  "url": "https://www.city.maebashi.gunma.jp/soshiki/kenko/eiseikensa/gyomu/1/1/3/17223.html",
+  "has_animals": true,
+  "html_size": 117356,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}
