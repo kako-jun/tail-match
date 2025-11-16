@@ -1,8 +1,8 @@
 metadata:
   version: 1.0.0
-  last_updated: '2025-11-16T03:13:50.260+09:00'
+  last_updated: '2025-11-16T05:04:27.954+09:00'
   purpose: スクレイピング動作確認・エラー履歴管理
-  total_scrapers: 62
+  total_scrapers: 64
 scrapers:
   hokkaido/hokkaido-pref:
     name: 北海道立動物愛護センター「あいにきた」
@@ -3269,6 +3269,118 @@ scrapers:
         error_message: 'ENOENT: no such file or directory, scandir ''/home/ariori/repos/2025/tail-match/data/html/kanagawa/yokohama-city-dogs'''
         warning: null
         duration_ms: 63
+  shizuoka/hamamatsu-city-dogs:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-16T04:53:08.933+09:00'
+    last_error: null
+    last_error_message: null
+    total_runs: 4
+    success_count: 1
+    error_count: 0
+    mismatch_count: 3
+    last_10_runs:
+      - timestamp: '2025-11-16T04:56:05.514+09:00'
+        status: mismatch
+        html_count: 3
+        yaml_count: 2
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで1匹減少 (3→2)
+        duration_ms: 301
+      - timestamp: '2025-11-16T04:55:52.433+09:00'
+        status: mismatch
+        html_count: 3
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで3匹減少 (3→0)
+        duration_ms: 218
+      - timestamp: '2025-11-16T04:55:41.077+09:00'
+        status: mismatch
+        html_count: 3
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで3匹減少 (3→0)
+        duration_ms: 307
+      - timestamp: '2025-11-16T04:53:08.933+09:00'
+        status: success
+        html_count: 3
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 14464
+  shizuoka/hamamatsu-city-cats:
+    name: null
+    page_type: null
+    verified: true
+    last_success: '2025-11-16T05:02:32.023+09:00'
+    last_error: null
+    last_error_message: null
+    total_runs: 7
+    success_count: 2
+    error_count: 0
+    mismatch_count: 5
+    last_10_runs:
+      - timestamp: '2025-11-16T05:04:27.924+09:00'
+        status: mismatch
+        html_count: 7
+        yaml_count: 5
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで2匹減少 (7→5)
+        duration_ms: 252
+      - timestamp: '2025-11-16T05:04:08.957+09:00'
+        status: mismatch
+        html_count: 7
+        yaml_count: 5
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで2匹減少 (7→5)
+        duration_ms: 286
+      - timestamp: '2025-11-16T05:02:45.632+09:00'
+        status: mismatch
+        html_count: 7
+        yaml_count: 4
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで3匹減少 (7→4)
+        duration_ms: 231
+      - timestamp: '2025-11-16T05:02:32.023+09:00'
+        status: success
+        html_count: 7
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 6787
+      - timestamp: '2025-11-16T05:01:59.451+09:00'
+        status: mismatch
+        html_count: 6
+        yaml_count: 4
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで2匹減少 (6→4)
+        duration_ms: 190
+      - timestamp: '2025-11-16T05:01:19.157+09:00'
+        status: mismatch
+        html_count: 6
+        yaml_count: 3
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで3匹減少 (6→3)
+        duration_ms: 319
+      - timestamp: '2025-11-16T04:59:42.390+09:00'
+        status: success
+        html_count: 6
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 6836
 status_definitions:
   success: HTML収集→YAML抽出→DB投入が全て成功
   error: いずれかのステップでエラーが発生
