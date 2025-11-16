@@ -2,9 +2,15 @@
 const nextConfig = {
   serverExternalPackages: ['pg'],
   images: {
-    domains: [
-      // 自治体サイトのドメインを必要に応じて追加
-      'localhost'
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
     ],
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
