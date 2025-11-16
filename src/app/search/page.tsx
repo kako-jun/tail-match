@@ -21,9 +21,14 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
-  InputAdornment
+  InputAdornment,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Pagination
 } from '@mui/material'
-import { Search, FilterList, Close } from '@mui/icons-material'
+import { Search, FilterList, Close, Sort } from '@mui/icons-material'
 import TailCard from '@/components/TailCard'
 import type { TailWithDetails } from '@/types/database'
 
@@ -72,6 +77,12 @@ export default function SearchPage() {
   const [regionDialogOpen, setRegionDialogOpen] = useState(false)
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>([])
 
+  // ソート・ページネーション
+  const [sortBy, setSortBy] = useState<'deadline_date' | 'created_at' | 'updated_at'>('deadline_date')
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc')
+  const [page, setPage] = useState(1)
+  const [itemsPerPage] = useState(12)
+
   // 検索結果のステート
   const [results, setResults] = useState<TailWithDetails[]>([])
   const [loading, setLoading] = useState(false)
@@ -92,7 +103,10 @@ export default function SearchPage() {
     try {
       const params = new URLSearchParams({
         animal_type: animalType,
-        limit: '50'
+        limit: itemsPerPage.toString(),
+        offset: ((page - 1) * itemsPerPage).toString(),
+        sort_by: sortBy,
+        sort_order: sortOrder
       })
 
       if (keyword) params.append('keyword', keyword)
@@ -113,7 +127,24 @@ export default function SearchPage() {
   // 初回読み込み時に検索実行
   useEffect(() => {
     handleSearch()
-  }, [animalType])
+  }, [animalType, page, sortBy, sortOrder])
+
+  // ページ変更時はトップにスクロール
+  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  // ソート変更時はページをリセット
+  const handleSortChange = (newSortBy: typeof sortBy) => {
+    setSortBy(newSortBy)
+    setPage(1)
+  }
+
+  const handleSortOrderChange = (newSortOrder: typeof sortOrder) => {
+    setSortOrder(newSortOrder)
+    setPage(1)
+  }
 
   // 地方選択ダイアログを開く
   const handleOpenRegionDialog = () => {
@@ -291,10 +322,39 @@ export default function SearchPage() {
 
         {/* 検索結果 */}
         <Grid item xs={12} md={8}>
-          <Box sx={{ mb: 3 }}>
+          {/* ヘッダー・ソート */}
+          <Box sx={{ mb: 3, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 2 }}>
             <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
               検索結果: {totalCount}件
             </Typography>
+
+            <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+              <FormControl size="small" sx={{ minWidth: 150 }}>
+                <InputLabel>並び順</InputLabel>
+                <Select
+                  value={sortBy}
+                  label="並び順"
+                  onChange={(e) => handleSortChange(e.target.value as typeof sortBy)}
+                  startAdornment={<Sort fontSize="small" sx={{ ml: 1, mr: -0.5 }} />}
+                >
+                  <MenuItem value="deadline_date">期限日順</MenuItem>
+                  <MenuItem value="created_at">登録日順</MenuItem>
+                  <MenuItem value="updated_at">更新日順</MenuItem>
+                </Select>
+              </FormControl>
+
+              <FormControl size="small" sx={{ minWidth: 100 }}>
+                <InputLabel>順序</InputLabel>
+                <Select
+                  value={sortOrder}
+                  label="順序"
+                  onChange={(e) => handleSortOrderChange(e.target.value as typeof sortOrder)}
+                >
+                  <MenuItem value="asc">昇順</MenuItem>
+                  <MenuItem value="desc">降順</MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
           </Box>
 
           {results.length === 0 ? (
@@ -304,13 +364,30 @@ export default function SearchPage() {
               </Typography>
             </Paper>
           ) : (
-            <Grid container spacing={3}>
-              {results.map(tail => (
-                <Grid item xs={12} sm={6} lg={4} key={tail.id}>
-                  <TailCard tail={tail} />
-                </Grid>
-              ))}
-            </Grid>
+            <>
+              <Grid container spacing={3}>
+                {results.map(tail => (
+                  <Grid item xs={12} sm={6} lg={4} key={tail.id}>
+                    <TailCard tail={tail} />
+                  </Grid>
+                ))}
+              </Grid>
+
+              {/* ページネーション */}
+              {totalCount > itemsPerPage && (
+                <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
+                  <Pagination
+                    count={Math.ceil(totalCount / itemsPerPage)}
+                    page={page}
+                    onChange={handlePageChange}
+                    color="primary"
+                    size="large"
+                    showFirstButton
+                    showLastButton
+                  />
+                </Box>
+              )}
+            </>
           )}
         </Grid>
       </Grid>
