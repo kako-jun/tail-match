@@ -1,0 +1,27 @@
+meta:
+  source_file: 20251116_211033_tail.html
+  source_url: https://www.douai.pref.tochigi.lg.jp/work/kitten/
+  extracted_at: '2025-11-16T21:10:33.877+09:00'
+  municipality: tochigi/tochigi-pref-cats
+  total_count: 1
+animals:
+  - external_id: A-2
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.douai.pref.tochigi.lg.jp/wp/wp-content/uploads/2025/09/1bdb79223317f583af0396d87ab1b674.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.douai.pref.tochigi.lg.jp/work/kitten/
+    confidence_level: medium
+    extraction_notes:
+      - 'ケージ: Aケージ'

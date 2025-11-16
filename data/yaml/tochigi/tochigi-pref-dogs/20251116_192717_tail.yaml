@@ -1,0 +1,27 @@
+meta:
+  source_file: 20251116_192717_tail.html
+  source_url: https://www.douai.pref.tochigi.lg.jp/work/dog/
+  extracted_at: '2025-11-16T19:27:17.314+09:00'
+  municipality: tochigi/tochigi-pref-dogs
+  total_count: 1
+animals:
+  - external_id: R7-0007
+    name: null
+    animal_type: dog
+    breed: null
+    age_estimate: 推定４～９歳
+    gender: male
+    color: null
+    size: null
+    health_status: ５種混合ワクチン　１回接種済
+    personality: ふくよか体型のモッチリさん。人慣れしており、尻尾を振って近寄ってきます。ドライフードを残すことが多く、食事に選り好みがあります。体格は小さめですが、お散歩時の引っ張る力は強めなので、必ず大人が制御する必要があります。
+    special_needs: null
+    images:
+      - https://www.douai.pref.tochigi.lg.jp/wp/wp-content/uploads/2025/11/R7-0007.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.douai.pref.tochigi.lg.jp/work/dog/
+    confidence_level: high
+    extraction_notes:
+      - 'ワクチン: ５種混合ワクチン　１回接種済'

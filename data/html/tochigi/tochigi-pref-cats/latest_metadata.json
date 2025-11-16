@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-16T20:23:13.681+09:00",
+  "url": "https://www.douai.pref.tochigi.lg.jp/work/kitten/",
+  "has_animals": true,
+  "html_size": 66125,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}

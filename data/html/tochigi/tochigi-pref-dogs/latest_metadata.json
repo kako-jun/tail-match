@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-16T19:22:36.494+09:00",
+  "url": "https://www.douai.pref.tochigi.lg.jp/work/dog/",
+  "has_animals": true,
+  "html_size": 65737,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}
