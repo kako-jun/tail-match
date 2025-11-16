@@ -380,7 +380,7 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
         )}
       </CardContent>
 
-      <CardActions sx={{ justifyContent: 'space-between', p: 2 }}>
+      <CardActions sx={{ justifyContent: 'space-between', p: 2, flexWrap: 'wrap', gap: 1 }}>
         <Box>
           {tail.transfer_decided && (
             <Chip
@@ -392,15 +392,28 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
             />
           )}
         </Box>
-        <Button
-          component={Link}
-          href={`/tails/${tail.id}`}
-          variant="contained"
-          startIcon={<Visibility />}
-          size="small"
-        >
-          詳細を見る
-        </Button>
+        <Box sx={{ display: 'flex', gap: 1 }}>
+          <Button
+            component={Link}
+            href={`/tails/${tail.id}`}
+            variant="contained"
+            startIcon={<Visibility />}
+            size="small"
+          >
+            詳細
+          </Button>
+          {tail.source_url && (
+            <Button
+              href={tail.source_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="outlined"
+              size="small"
+            >
+              施設サイト
+            </Button>
+          )}
+        </Box>
       </CardActions>
     </Card>
   )
