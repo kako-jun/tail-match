@@ -319,15 +319,16 @@ prefectures:
         type: "prefecture"
         status: "pending"
         scraper_path: null
-        page_type: "unknown"
-        url: "https://www.pref.tochigi.lg.jp/e50/life/doubutsu/aigo/center.html"
-        url_adoption: "https://www.pref.tochigi.lg.jp/e50/life/doubutsu/aigo/jouto-inu-neko.html"
+        page_type: "separate"
+        url: "https://www.douai.pref.tochigi.lg.jp/"
+        url_dogs: "https://www.douai.pref.tochigi.lg.jp/work/dog/"
+        url_cats: "https://www.douai.pref.tochigi.lg.jp/work/kitten/"
         contact:
           phone: "028-684-5458"
           address: "栃木県宇都宮市今宮4-7-8"
           email: null
           postal_code: "321-0974"
-        notes: "未実装、調査済み"
+        notes: "サイトURL変更確認済み。犬: テーブル形式（R7-XXXX）、猫: Aケージ形式。実装準備中 (2025-11-16)"
 
       - name: "宇都宮市保健所「宮わんにゃんパーク」"
         city: "宇都宮市"
