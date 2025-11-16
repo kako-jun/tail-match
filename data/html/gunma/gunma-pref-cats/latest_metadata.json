@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-16T17:51:54.331+09:00",
+  "url": "https://www.pref.gunma.jp/page/710676.html",
+  "has_animals": true,
+  "html_size": 34192,
+  "scraper": "playwright",
+  "note": "JavaScript実行後の完全レンダリングHTML取得"
+}

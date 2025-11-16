@@ -1,0 +1,70 @@
+meta:
+  source_file: 20251116_175636_tail.html
+  source_url: https://www.pref.gunma.jp/page/710676.html
+  extracted_at: '2025-11-16T17:56:36.502+09:00'
+  municipality: gunma/gunma-pref-cats
+  total_count: 3
+animals:
+  - external_id: 2025-F126
+    name: ジョーヌくん
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.gunma.jp/uploaded/image/627869.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.gunma.jp/page/726414.html
+    confidence_level: medium
+    extraction_notes:
+      - 詳細情報は別ページに記載（性別・年齢・品種など）
+      - '詳細ページ: https://www.pref.gunma.jp/page/726414.html'
+  - external_id: 2025-F127
+    name: クルールくん
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.gunma.jp/uploaded/image/627870.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.gunma.jp/page/726416.html
+    confidence_level: medium
+    extraction_notes:
+      - 詳細情報は別ページに記載（性別・年齢・品種など）
+      - '詳細ページ: https://www.pref.gunma.jp/page/726416.html'
+  - external_id: 2025-F112
+    name: ポン豆（ぽんず）くん
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.gunma.jp/uploaded/image/628606.JPG
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.gunma.jp/page/730332.html
+    confidence_level: medium
+    extraction_notes:
+      - 詳細情報は別ページに記載（性別・年齢・品種など）
+      - '詳細ページ: https://www.pref.gunma.jp/page/730332.html'
