@@ -1,8 +1,8 @@
 metadata:
   version: 1.0.0
-  last_updated: '2025-11-16T17:57:00.000+09:00'
+  last_updated: '2025-11-16T19:02:00.000+09:00'
   purpose: スクレイピング動作確認・エラー履歴管理
-  total_scrapers: 66
+  total_scrapers: 68
 scrapers:
   hokkaido/hokkaido-pref:
     name: 北海道立動物愛護センター「あいにきた」
@@ -3405,6 +3405,30 @@ warning_types:
     last_10_runs: []
   gunma/gunma-pref-dogs:
     name: 群馬県動物愛護センター（犬）
+    page_type: dog_only
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+  gunma/maebashi-city-cats:
+    name: 前橋市保健所（猫）
+    page_type: cat_only
+    verified: false
+    last_success: null
+    last_error: null
+    last_error_message: null
+    total_runs: 0
+    success_count: 0
+    error_count: 0
+    mismatch_count: 0
+    last_10_runs: []
+  gunma/maebashi-city-dogs:
+    name: 前橋市保健所（犬）
     page_type: dog_only
     verified: false
     last_success: null
