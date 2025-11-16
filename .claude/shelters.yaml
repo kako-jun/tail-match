@@ -708,20 +708,20 @@ prefectures:
     prefecture_code: "22"
     region: "中部地方"
     facilities:
-      - name: "静岡県動物愛護管理センター「しっぽの森」"
+      - name: "静岡県動物愛護管理センター「しっぽのバトン」"
         city: null
         type: "prefecture"
-        status: "pending"
+        status: "not_implemented"
         scraper_path: null
         page_type: "unknown"
         url: "https://www.pref.shizuoka.jp/kenkou/ke-140/animal_center.html"
         url_adoption: "https://www.pref.shizuoka.jp/kenkou/ke-140/animal_jyoto.html"
         contact:
-          phone: "0538-49-2222"
-          address: "静岡県磐田市岡ノ谷2071-1"
+          phone: "054-278-0450"
+          address: "静岡県富士市大淵2158"
           email: null
-          postal_code: "438-0001"
-        notes: "未実装、調査済み"
+          postal_code: "417-0801"
+        notes: "新施設「しっぽのバトン」2025年11月23日開所。旧「しっぽの森」は2025年3月閉所。未実装"
 
       - name: "静岡市動物愛護館"
         city: "静岡市"
@@ -740,16 +740,18 @@ prefectures:
       - name: "浜松市動物愛護教育センター"
         city: "浜松市"
         type: "designated_city"
-        status: "pending"
-        scraper_path: null
-        page_type: "unknown"
+        status: "implemented"
+        scraper_path: "shizuoka/hamamatsu-city-dogs, shizuoka/hamamatsu-city-cats"
+        page_type: "separate"
         url: "https://www.hama-aikyou.jp/"
+        url_dogs: "https://www.hama-aikyou.jp/jouto/yuzuriuke/"
+        url_cats: "https://www.hama-aikyou.jp/jouto/cat/"
         contact:
           phone: "053-487-1616"
           address: "浜松市中央区舘山寺町199"
-          email: null
-          postal_code: null
-        notes: "日曜祝日10:00-16:00に犬猫見学可能。事前連絡推奨"
+          email: "aikyou@city.hamamatsu.shizuoka.jp"
+          postal_code: "431-1209"
+        notes: "犬: HTML 2匹（リョウ、タクロー）。猫: PDF 5匹（ミーシャ、エル、シロ、ベス、バウム）。わけあり猫対応済。ニケ・くま2匹は画像PDF（OCR未実装）。実装完了 (2025-11-16)"
 
   - prefecture_name: "愛知県"
     prefecture_code: "23"
