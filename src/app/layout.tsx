@@ -34,23 +34,23 @@ export default function RootLayout({
                 <Link href="/" style={{ textDecoration: 'none', color: 'inherit', flexGrow: 1 }}>
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <Box sx={{ textAlign: 'center' }}>
-                      <Typography variant="h4" component="h1" sx={{ 
+                      <Typography variant="h4" component="h1" sx={{
                         fontWeight: 'bold',
                         background: 'linear-gradient(45deg, #8B4513 30%, #FF8C00 90%)',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
                         lineHeight: 1.2
                       }}>
-                        🐾 Tail Match
+                        🐾 ているまっち！
                       </Typography>
-                      <Typography variant="caption" sx={{ 
+                      <Typography variant="caption" sx={{
                         color: 'text.secondary',
                         fontSize: '0.75rem',
                         display: 'block',
                         lineHeight: 1,
                         textAlign: 'center'
                       }}>
-                        全国の保護猫マッチングサービス
+                        全国の保護動物マッチングサービス
                       </Typography>
                     </Box>
                   </Box>
@@ -58,7 +58,7 @@ export default function RootLayout({
                 
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                   <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
-                    <Button 
+                    <Button
                       component={Link}
                       href="/"
                       startIcon={<Home />}
@@ -66,22 +66,28 @@ export default function RootLayout({
                     >
                       ホーム
                     </Button>
-                    <Button 
+                    <Button
+                      component={Link}
+                      href="/search"
+                      startIcon={<Pets />}
+                      color="primary"
+                    >
+                      動物を探す
+                    </Button>
+                    <Button
+                      component={Link}
+                      href="/gallery"
+                      color="primary"
+                    >
+                      📷 ギャラリー
+                    </Button>
+                    <Button
                       component={Link}
                       href="/shelters"
                       startIcon={<Business />}
                       color="primary"
                     >
-                      保護センターの一覧
-                    </Button>
-                    <Button 
-                      component={Link}
-                      href="/api-test"
-                      startIcon={<Build />}
-                      size="small"
-                      color="inherit"
-                    >
-                      API動作確認
+                      保護センター
                     </Button>
                   </Box>
                   
@@ -111,13 +117,16 @@ export default function RootLayout({
                     <Home sx={{ mr: 1 }} />
                     ホーム
                   </MenuItem>
+                  <MenuItem onClick={handleMobileMenuClose} component={Link} href="/search">
+                    <Pets sx={{ mr: 1 }} />
+                    動物を探す
+                  </MenuItem>
+                  <MenuItem onClick={handleMobileMenuClose} component={Link} href="/gallery">
+                    📷 ギャラリー
+                  </MenuItem>
                   <MenuItem onClick={handleMobileMenuClose} component={Link} href="/shelters">
                     <Business sx={{ mr: 1 }} />
-                    保護センターの一覧
-                  </MenuItem>
-                  <MenuItem onClick={handleMobileMenuClose} component={Link} href="/api-test">
-                    <Build sx={{ mr: 1 }} />
-                    API動作確認
+                    保護センター
                   </MenuItem>
                 </MuiMenu>
               </Toolbar>
@@ -153,11 +162,11 @@ export default function RootLayout({
                       WebkitTextFillColor: 'transparent',
                       fontWeight: 'bold'
                     }}>
-                      🐾 Tail Match
+                      🐾 ているまっち！
                     </Typography>
                     <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
-                      1匹でも多くの猫を救うために。<br />
-                      全国の保護猫情報をお届けします。
+                      1匹でも多くの動物を救うために。<br />
+                      全国の保護動物情報をお届けします。
                     </Typography>
                   </Box>
                   
@@ -172,11 +181,14 @@ export default function RootLayout({
                       <Button component={Link} href="/" size="small" sx={{ justifyContent: 'flex-start' }}>
                         🏠 ホーム
                       </Button>
-                      <Button component={Link} href="/facilities" size="small" sx={{ justifyContent: 'flex-start' }}>
-                        🏥 保護センターの一覧
+                      <Button component={Link} href="/search" size="small" sx={{ justifyContent: 'flex-start' }}>
+                        🔍 動物を探す
                       </Button>
-                      <Button component={Link} href="/api-test" size="small" sx={{ justifyContent: 'flex-start' }}>
-                        🔧 API動作確認
+                      <Button component={Link} href="/gallery" size="small" sx={{ justifyContent: 'flex-start' }}>
+                        📷 ギャラリー
+                      </Button>
+                      <Button component={Link} href="/shelters" size="small" sx={{ justifyContent: 'flex-start' }}>
+                        🏥 保護センター
                       </Button>
                     </Box>
                   </Box>
@@ -220,9 +232,9 @@ export default function RootLayout({
                     </Link>
                   </Box>
                   <Typography variant="body2" color="text.secondary" textAlign="center">
-                    © 2025 Tail Match by kako-jun | 
+                    © 2025 ているまっち！ by kako-jun |
                     <Box component="span" sx={{ ml: 1, fontWeight: 'medium' }}>
-                      すべての猫に愛ある家族を
+                      すべての動物に愛ある家族を
                     </Box>
                   </Typography>
                 </Box>

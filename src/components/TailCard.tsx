@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { TailWithDetails } from '@/types/database'
 import {
   Card,
@@ -96,18 +97,15 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
           }}
         >
           {imageUrl ? (
-            <Box
-              component="img"
+            <Image
               src={imageUrl}
-              alt={tail.name || '保護猫'}
-              sx={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
+              alt={tail.name || '保護動物'}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              style={{
                 objectFit: 'cover'
               }}
+              priority={false}
             />
           ) : (
             <Box
@@ -125,7 +123,7 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
                 opacity: 0.7
               }}
             >
-              🐱
+              {tail.animal_type === 'dog' ? '🐶' : '🐱'}
             </Box>
           )}
 
@@ -380,7 +378,7 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
         )}
       </CardContent>
 
-      <CardActions sx={{ justifyContent: 'space-between', p: 2 }}>
+      <CardActions sx={{ justifyContent: 'space-between', p: 2, flexWrap: 'wrap', gap: 1 }}>
         <Box>
           {tail.transfer_decided && (
             <Chip
@@ -392,15 +390,28 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
             />
           )}
         </Box>
-        <Button
-          component={Link}
-          href={`/tails/${tail.id}`}
-          variant="contained"
-          startIcon={<Visibility />}
-          size="small"
-        >
-          詳細を見る
-        </Button>
+        <Box sx={{ display: 'flex', gap: 1 }}>
+          <Button
+            component={Link}
+            href={`/tails/${tail.id}`}
+            variant="contained"
+            startIcon={<Visibility />}
+            size="small"
+          >
+            詳細
+          </Button>
+          {tail.source_url && (
+            <Button
+              href={tail.source_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="outlined"
+              size="small"
+            >
+              施設サイト
+            </Button>
+          )}
+        </Box>
       </CardActions>
     </Card>
   )
