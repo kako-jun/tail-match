@@ -101,3 +101,4 @@ scripts/temp/  # Temporary/one-time scripts
 scripts/migrate-*.js  # One-time migration scripts
 *.traineddata
 .claude/settings.local.json
+.mcp.json
