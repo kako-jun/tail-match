@@ -21,7 +21,7 @@ import { getJSTISOString } from './timestamp.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const HISTORY_FILE = path.join(__dirname, '../../.claude/shelters-history.yaml');
+const HISTORY_FILE = path.join(__dirname, '../../data/shelters-history.yaml');
 
 /**
  * スクレイピング履歴ロガー

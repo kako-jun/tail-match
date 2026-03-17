@@ -177,7 +177,7 @@ logger.logHTMLCount(totalCount);
 ## 次のステップ
 
 1. **実行テスト**: 各施設でスクレイパーを実行して動作確認
-2. **履歴データ確認**: `.claude/shelters-history.yaml` の更新を確認
+2. **履歴データ確認**: `data/shelters-history.yaml` の更新を確認
 3. **精度向上**: 実際のHTMLデータに基づいてカウントパターンを最適化
 
 ---

@@ -339,7 +339,7 @@ animals:
 
 #### Step 0: シェルター情報の確認（最重要）
 
-**まず最初に** `.claude/shelters.yaml` を確認してください。
+**まず最初に** `data/shelters.yaml` を確認してください。
 
 **確認すべき情報**:
 - `website_url`: 公式サイトURL
@@ -351,7 +351,7 @@ URLが404の場合はWeb検索で最新URLを探す。
 
 #### Step 1: 調査
 
-1. `.claude/shelters.yaml` から対象サイトのURLを確認（最重要）
+1. `data/shelters.yaml` から対象サイトのURLを確認（最重要）
 2. ブラウザでHTMLを確認（DevToolsでセレクタを調査）
 3. JavaScript必須か確認（ほとんどの場合、Playwright必須）
 4. 既存のHTMLサンプルを取得
@@ -366,7 +366,7 @@ URLが404の場合はWeb検索で最新URLを探す。
 
 #### Step 1.5: shelters.yaml の更新（重要）
 
-施設の構造を理解した時点で、**必ず** `.claude/shelters.yaml` を更新する。
+施設の構造を理解した時点で、**必ず** `data/shelters.yaml` を更新する。
 
 ```yaml
 - name: '○○動物愛護センター'
@@ -658,7 +658,7 @@ done
 node scripts/core/cleanup-html-yaml.js
 
 # スクレイパーコードのコミット
-git add scripts/scrapers/{prefecture}/{municipality}/ .claude/shelters-history.yaml
+git add scripts/scrapers/{prefecture}/{municipality}/ data/shelters-history.yaml
 git commit -m "feat: {施設名}のスクレイパー実装（{動物種}）"
 
 # データファイルのコミット

@@ -15,7 +15,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const HISTORY_FILE = path.join(__dirname, '../../.claude/shelters-history.yaml');
+const HISTORY_FILE = path.join(__dirname, '../../data/shelters-history.yaml');
 
 // ========================================
 // メイン処理
@@ -185,7 +185,7 @@ function main() {
 
   console.log('');
   console.log('🔍 詳細確認:');
-  console.log('   cat .claude/shelters-history.yaml | grep -A 20 "{key}"');
+  console.log('   cat data/shelters-history.yaml | grep -A 20 "{key}"');
   console.log('');
 }
 

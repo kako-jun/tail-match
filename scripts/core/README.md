@@ -72,7 +72,7 @@ node scripts/core/show-scraping-summary.js
 📭 動物0匹: 5施設 (18%)
 ```
 
-**参照ファイル**: `.claude/shelters-history.yaml`
+**参照ファイル**: `data/shelters-history.yaml`
 
 ---
 
@@ -126,7 +126,7 @@ show-scraping-summary.js で結果確認
 node scripts/core/show-scraping-summary.js
 
 # 履歴詳細を確認
-cat .claude/shelters-history.yaml | grep -A 20 "エラー施設名"
+cat data/shelters-history.yaml | grep -A 20 "エラー施設名"
 
 # 該当施設を個別実行
 cd scripts/scrapers/{prefecture}/{municipality}

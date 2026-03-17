@@ -150,10 +150,10 @@ sqlite3 data/tail-match.db "SELECT m.name, COUNT(t.id) FROM municipalities m LEF
 
 ```bash
 # 特定施設の履歴を確認
-cat .claude/shelters-history.yaml | grep -A 15 "chiba/chiba-city-cats"
+cat data/shelters-history.yaml | grep -A 15 "chiba/chiba-city-cats"
 
 # 全施設の最新ステータス確認
-cat .claude/shelters-history.yaml | grep -E "^  [a-z]|last_success|last_error" | head -60
+cat data/shelters-history.yaml | grep -E "^  [a-z]|last_success|last_error" | head -60
 ```
 
 確認ポイント: `verified`, `last_success`, `last_error`, `mismatch_count`, `last_10_runs[0].status`
@@ -161,7 +161,7 @@ cat .claude/shelters-history.yaml | grep -E "^  [a-z]|last_success|last_error" |
 ### 4. エラー確認
 
 ```bash
-cat .claude/shelters-history.yaml | grep -B 3 "status: error"
+cat data/shelters-history.yaml | grep -B 3 "status: error"
 ```
 
 ---
