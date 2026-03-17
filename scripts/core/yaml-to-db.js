@@ -182,7 +182,7 @@ function importYAMLToDB(yamlData, db, yamlFilename) {
       const displayName = db.ensureUniqueName(yamlData.meta.municipality_id, baseName);
 
       if (!CONFIG.dryRun) {
-        const result = db.upsertTail({
+        const { isNew } = db.upsertTail({
           municipality_id: yamlData.meta.municipality_id,
           external_id: animal.external_id,
           animal_type: animal.animal_type || 'unknown',
@@ -203,7 +203,7 @@ function importYAMLToDB(yamlData, db, yamlFilename) {
           listing_type: animal.listing_type || 'adoption', // 迷子猫 or 譲渡猫
         });
 
-        if (result) {
+        if (isNew) {
           stats.inserted++;
           console.log(`   ✅ 投入 ${index + 1}: ${displayName} (${animal.gender || 'unknown'})`);
         } else {

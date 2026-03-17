@@ -84,6 +84,38 @@ export function saveMetadata(metadata, municipality) {
 }
 
 /**
+ * 指定された自治体の最新HTMLファイルのパスを返す
+ *
+ * @param {string} municipality - 自治体パス（例: 'niigata/niigata-city-cats'）
+ * @param {string} [suffix='_tail.html'] - ファイル名のサフィックス
+ * @returns {string} 最新HTMLファイルの絶対パス
+ */
+export function getLatestHtmlFile(municipality, suffix = '_tail.html') {
+  const htmlDir = path.join(
+    process.cwd(),
+    'data',
+    'html',
+    municipality.replace('/', path.sep)
+  );
+
+  if (!fs.existsSync(htmlDir)) {
+    throw new Error(`HTMLディレクトリが存在しません: ${htmlDir}\n先に scrape.js を実行してください`);
+  }
+
+  const files = fs
+    .readdirSync(htmlDir)
+    .filter((f) => f.endsWith(suffix))
+    .sort()
+    .reverse();
+
+  if (files.length === 0) {
+    throw new Error(`HTMLファイルが見つかりません: ${htmlDir}\n先に scrape.js を実行してください`);
+  }
+
+  return path.join(htmlDir, files[0]);
+}
+
+/**
  * 警告付きで静的HTMLを保存（JS必須サイト用）
  *
  * @param {string} html - HTML

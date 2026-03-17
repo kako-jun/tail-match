@@ -5,12 +5,8 @@ import {
   Container,
   Box,
   Typography,
-  Paper,
-  Card,
-  CardContent,
   Button,
   Chip,
-  Grid,
   CircularProgress,
   Alert,
   ToggleButtonGroup,
@@ -23,7 +19,6 @@ import {
   ListItemButton,
   ListItemText,
   Divider,
-  CardActions,
   TextField,
   InputAdornment
 } from '@mui/material'
@@ -37,7 +32,8 @@ import {
   ViewList,
   ViewModule,
   Search,
-  FilterList
+  FilterList,
+  Close
 } from '@mui/icons-material'
 import Link from 'next/link'
 
@@ -212,11 +208,11 @@ export default function SheltersPage() {
 
   if (loading) {
     return (
-      <Container maxWidth="lg" sx={{ minHeight: '100vh', px: { xs: 2, sm: 3, md: 4 }, py: 4 }}>
+      <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 }, py: 4 }}>
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '50vh' }}>
           <Box sx={{ textAlign: 'center' }}>
-            <CircularProgress color="primary" sx={{ mb: 2 }} />
-            <Typography color="text.secondary">施設情報を読み込んでいます...</Typography>
+            <CircularProgress size={24} thickness={2} sx={{ color: '#262626', mb: 2 }} />
+            <Typography sx={{ fontSize: '0.875rem', color: '#8E8E8E' }}>施設情報を読み込んでいます...</Typography>
           </Box>
         </Box>
       </Container>
@@ -225,12 +221,16 @@ export default function SheltersPage() {
 
   if (error) {
     return (
-      <Container maxWidth="lg" sx={{ minHeight: '100vh', px: { xs: 2, sm: 3, md: 4 }, py: 4 }}>
-        <Alert severity="error" sx={{ mb: 2 }}>
+      <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 }, py: 4 }}>
+        <Alert severity="error" sx={{ mb: 2, borderRadius: '8px' }}>
           {error}
         </Alert>
         <Box sx={{ textAlign: 'center' }}>
-          <Button variant="contained" onClick={() => window.location.reload()}>
+          <Button
+            variant="outlined"
+            onClick={() => window.location.reload()}
+            sx={{ borderColor: '#DBDBDB', color: '#262626' }}
+          >
             再読み込み
           </Button>
         </Box>
@@ -240,332 +240,344 @@ export default function SheltersPage() {
 
   return (
     <Container maxWidth="xl" sx={{ py: 4 }}>
-      {/* ページヘッダー */}
-      <Box sx={{ textAlign: 'center', mb: 4 }}>
-        <Typography variant="h3" component="h1" sx={{
-          fontWeight: 'bold',
-          background: 'linear-gradient(45deg, #8B4513 30%, #FF8C00 90%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          mb: 2
-        }}>
-          🏥 保護センター
+      {/* Header */}
+      <Box sx={{ mb: 4, pb: 3, borderBottom: '1px solid #DBDBDB' }}>
+        <Typography sx={{ fontSize: '1.375rem', fontWeight: 300, color: '#262626', letterSpacing: '-0.01em' }}>
+          保護センター
         </Typography>
-        <Typography variant="h6" color="text.secondary">
+        <Typography sx={{ fontSize: '0.875rem', color: '#8E8E8E', mt: 0.5 }}>
           全国の保護動物を管理している施設一覧
         </Typography>
       </Box>
 
-      {/* 統計情報 */}
-      <Grid container spacing={2} sx={{ mb: 4 }}>
-        <Grid item xs={12} sm={6} md={3}>
-          <Paper elevation={2} sx={{ p: 3, textAlign: 'center', borderRadius: 3 }}>
-            <Typography variant="h4" sx={{ fontWeight: 'bold', color: 'primary.main' }}>
-              {municipalities.length}
+      {/* Summary stats */}
+      <Box
+        sx={{
+          display: 'grid',
+          gap: 2,
+          gridTemplateColumns: { xs: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' },
+          mb: 4,
+        }}
+      >
+        {[
+          { value: municipalities.length, label: '登録施設数' },
+          { value: totalAnimals, label: '保護動物総数' },
+          { value: `${totalCats} 🐱`, label: '保護猫' },
+          { value: `${totalDogs} 🐶`, label: '保護犬' },
+        ].map((item, i) => (
+          <Box
+            key={i}
+            sx={{
+              backgroundColor: '#FFFFFF',
+              border: '1px solid #DBDBDB',
+              borderRadius: '8px',
+              p: 2.5,
+              textAlign: 'center',
+            }}
+          >
+            <Typography sx={{ fontSize: '1.5rem', fontWeight: 300, color: '#262626', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+              {item.value}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-              登録施設数
-            </Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <Paper elevation={2} sx={{ p: 3, textAlign: 'center', borderRadius: 3 }}>
-            <Typography variant="h4" sx={{ fontWeight: 'bold', color: 'warning.main' }}>
-              {totalAnimals}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              保護動物総数
-            </Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <Paper elevation={2} sx={{ p: 3, textAlign: 'center', borderRadius: 3 }}>
-            <Typography variant="h4" sx={{ fontWeight: 'bold', color: 'secondary.main' }}>
-              {totalCats} 🐱
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              保護猫
-            </Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <Paper elevation={2} sx={{ p: 3, textAlign: 'center', borderRadius: 3 }}>
-            <Typography variant="h4" sx={{ fontWeight: 'bold', color: 'info.main' }}>
-              {totalDogs} 🐶
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              保護犬
-            </Typography>
-          </Paper>
-        </Grid>
-      </Grid>
-
-      {/* フィルター */}
-      <Paper elevation={3} sx={{ p: 3, mb: 4, borderRadius: 3 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 2 }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap', flex: 1 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <FilterList color="primary" />
-              <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                絞り込み
-              </Typography>
-            </Box>
-
-            {/* 地域選択 */}
-            {selectedRegion ? (
-              <Chip
-                label={selectedRegion}
-                onDelete={handleClearRegion}
-                color="primary"
-              />
-            ) : (
-              <Button variant="outlined" onClick={handleOpenRegionDialog} size="small">
-                🗾 地域を選択
-              </Button>
-            )}
-
-            {/* キーワード検索 */}
-            <TextField
-              size="small"
-              placeholder="施設名で検索"
-              value={searchKeyword}
-              onChange={(e) => setSearchKeyword(e.target.value)}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <Search />
-                  </InputAdornment>
-                )
-              }}
-              sx={{ minWidth: 200 }}
-            />
-
-            <Typography variant="body2" color="text.secondary">
-              {filteredMunicipalities.length}件
+            <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E', mt: 0.5 }}>
+              {item.label}
             </Typography>
           </Box>
+        ))}
+      </Box>
 
-          {/* 表示切り替え */}
-          <ToggleButtonGroup
-            value={viewMode}
-            exclusive
-            onChange={(e, value) => value && setViewMode(value)}
-            size="small"
-          >
-            <ToggleButton value="grid">
-              <ViewModule />
-            </ToggleButton>
-            <ToggleButton value="list">
-              <ViewList />
-            </ToggleButton>
-          </ToggleButtonGroup>
+      {/* Filter bar */}
+      <Box
+        sx={{
+          border: '1px solid #DBDBDB',
+          borderRadius: '8px',
+          backgroundColor: '#FFFFFF',
+          p: 2.5,
+          mb: 4,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 2,
+          flexWrap: 'wrap',
+        }}
+      >
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <FilterList sx={{ fontSize: 16, color: '#8E8E8E' }} />
+          <Typography sx={{ fontSize: '0.875rem', fontWeight: 600, color: '#262626' }}>絞り込み</Typography>
         </Box>
-      </Paper>
 
-      {/* 施設一覧 */}
+        {selectedRegion ? (
+          <Chip
+            label={selectedRegion}
+            onDelete={handleClearRegion}
+            deleteIcon={<Close sx={{ fontSize: '14px !important' }} />}
+            sx={{
+              borderRadius: '6px',
+              border: '1px solid #DBDBDB',
+              backgroundColor: '#FAFAFA',
+              fontSize: '0.8125rem',
+              '& .MuiChip-deleteIcon': { color: '#8E8E8E' },
+            }}
+          />
+        ) : (
+          <Button
+            variant="outlined"
+            onClick={handleOpenRegionDialog}
+            size="small"
+            sx={{ fontSize: '0.8125rem', borderColor: '#DBDBDB', color: '#262626', '&:hover': { borderColor: '#A8A8A8', backgroundColor: 'transparent' } }}
+          >
+            地域を選択
+          </Button>
+        )}
+
+        <TextField
+          size="small"
+          placeholder="施設名で検索"
+          value={searchKeyword}
+          onChange={(e) => setSearchKeyword(e.target.value)}
+          sx={{
+            '& .MuiOutlinedInput-root': {
+              borderRadius: '8px',
+              fontSize: '0.875rem',
+              backgroundColor: '#FAFAFA',
+              '& fieldset': { borderColor: '#DBDBDB' },
+              '&:hover fieldset': { borderColor: '#A8A8A8' },
+              '&.Mui-focused fieldset': { borderColor: '#262626', borderWidth: 1 },
+            },
+          }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <Search sx={{ fontSize: 16, color: '#8E8E8E' }} />
+              </InputAdornment>
+            ),
+          }}
+        />
+
+        <Typography sx={{ fontSize: '0.8125rem', color: '#8E8E8E', ml: 'auto' }}>
+          {filteredMunicipalities.length}件
+        </Typography>
+
+        <ToggleButtonGroup
+          value={viewMode}
+          exclusive
+          onChange={(_, value) => value && setViewMode(value)}
+          size="small"
+          sx={{
+            '& .MuiToggleButton-root': {
+              border: '1px solid #DBDBDB',
+              borderRadius: '6px !important',
+              p: '5px 8px',
+              '&.Mui-selected': { backgroundColor: '#262626', color: '#FFFFFF', borderColor: '#262626' },
+              '&:hover': { backgroundColor: '#F5F5F5' },
+            },
+          }}
+        >
+          <ToggleButton value="grid"><ViewModule sx={{ fontSize: 18 }} /></ToggleButton>
+          <ToggleButton value="list"><ViewList sx={{ fontSize: 18 }} /></ToggleButton>
+        </ToggleButtonGroup>
+      </Box>
+
+      {/* Shelter list */}
       {filteredMunicipalities.length === 0 ? (
-        <Box sx={{ textAlign: 'center', py: 8 }}>
-          <Typography variant="h1" sx={{ fontSize: '4rem', mb: 2 }}>🏢</Typography>
-          <Typography variant="h5" gutterBottom color="primary">
+        <Box sx={{ textAlign: 'center', py: 10 }}>
+          <Typography sx={{ fontSize: '0.9375rem', color: '#8E8E8E' }}>
             施設が見つかりませんでした
-          </Typography>
-          <Typography color="text.secondary">
-            条件を変更して再度検索してください
           </Typography>
         </Box>
       ) : (
-        <Grid container spacing={viewMode === 'grid' ? 3 : 2}>
+        <Box
+          sx={{
+            display: 'grid',
+            gap: 2,
+            gridTemplateColumns: viewMode === 'grid'
+              ? { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' }
+              : '1fr',
+          }}
+        >
           {filteredMunicipalities.map((municipality) => (
-            <Grid item xs={12} sm={viewMode === 'grid' ? 6 : 12} md={viewMode === 'grid' ? 4 : 12} key={municipality.id}>
-              <Card sx={{
-                height: '100%',
+            <Box
+              key={municipality.id}
+              sx={{
+                border: '1px solid #DBDBDB',
+                borderRadius: '8px',
+                backgroundColor: '#FFFFFF',
+                overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
-                borderRadius: 3,
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  transform: viewMode === 'grid' ? 'translateY(-4px)' : 'none',
-                  boxShadow: 4
-                }
-              }}>
-                <CardContent sx={{ flexGrow: 1, p: 3 }}>
-                  {/* ヘッダー */}
-                  <Box sx={{ mb: 2 }}>
-                    <Typography variant="h6" sx={{
-                      fontWeight: 'bold',
-                      color: 'primary.main',
-                      mb: 1,
-                      lineHeight: 1.3
-                    }}>
-                      {municipality.name}
-                    </Typography>
-                    <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 2 }}>
-                      {municipality.region && (
-                        <Chip
-                          label={municipality.region.name}
-                          size="small"
-                          color="primary"
-                          variant="outlined"
-                        />
+                transition: 'border-color 0.15s ease',
+                '&:hover': { borderColor: '#A8A8A8' },
+              }}
+            >
+              <Box sx={{ p: 2.5, flex: 1 }}>
+                {/* Name + badges */}
+                <Box sx={{ mb: 1.5 }}>
+                  <Typography sx={{ fontSize: '0.9375rem', fontWeight: 600, color: '#262626', mb: 0.75, lineHeight: 1.3 }}>
+                    {municipality.name}
+                  </Typography>
+                  <Box sx={{ display: 'flex', gap: 0.75, flexWrap: 'wrap' }}>
+                    {municipality.region && (
+                      <Box component="span" sx={{ px: 1, py: '2px', borderRadius: '4px', backgroundColor: '#F5F5F5', fontSize: '0.6875rem', color: '#8E8E8E', fontWeight: 500 }}>
+                        {municipality.region.name}
+                      </Box>
+                    )}
+                    <Box
+                      component="span"
+                      sx={{
+                        px: 1,
+                        py: '2px',
+                        borderRadius: '4px',
+                        fontSize: '0.6875rem',
+                        fontWeight: 600,
+                        ...(municipality.is_active
+                          ? { backgroundColor: '#F0FFF4', color: '#2E7D32', border: '1px solid #A5D6A7' }
+                          : { backgroundColor: '#F5F5F5', color: '#8E8E8E', border: '1px solid #DBDBDB' }),
+                      }}
+                    >
+                      {municipality.is_active ? '稼働中' : '停止中'}
+                    </Box>
+                  </Box>
+                </Box>
+
+                {/* Animal count */}
+                {municipality.animals_count != null && municipality.animals_count > 0 && (
+                  <Box sx={{ mb: 2, p: 1.5, backgroundColor: '#FAFAFA', borderRadius: '6px', border: '1px solid #EFEFEF' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.5 }}>
+                      <Pets sx={{ fontSize: 14, color: '#8E8E8E' }} />
+                      <Typography sx={{ fontSize: '0.8125rem', fontWeight: 600, color: '#262626' }}>
+                        保護動物 {municipality.animals_count}匹
+                      </Typography>
+                    </Box>
+                    <Box sx={{ display: 'flex', gap: 2 }}>
+                      {municipality.cats_count != null && municipality.cats_count > 0 && (
+                        <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E' }}>🐱 猫 {municipality.cats_count}</Typography>
                       )}
-                      {municipality.is_active ? (
-                        <Chip label="稼働中" size="small" color="success" />
-                      ) : (
-                        <Chip label="停止中" size="small" color="default" />
+                      {municipality.dogs_count != null && municipality.dogs_count > 0 && (
+                        <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E' }}>🐶 犬 {municipality.dogs_count}</Typography>
                       )}
                     </Box>
                   </Box>
+                )}
 
-                  {/* 統計 */}
-                  {(municipality.animals_count && municipality.animals_count > 0) && (
-                    <Box sx={{ mb: 2, p: 2, backgroundColor: 'background.default', borderRadius: 2 }}>
-                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-                        <Pets color="primary" fontSize="small" />
-                        <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-                          保護動物: {municipality.animals_count}匹
-                        </Typography>
-                      </Box>
-                      <Box sx={{ display: 'flex', gap: 2 }}>
-                        {municipality.cats_count! > 0 && (
-                          <Typography variant="caption" color="text.secondary">
-                            🐱 猫: {municipality.cats_count}
-                          </Typography>
-                        )}
-                        {municipality.dogs_count! > 0 && (
-                          <Typography variant="caption" color="text.secondary">
-                            🐶 犬: {municipality.dogs_count}
-                          </Typography>
-                        )}
-                      </Box>
+                <Divider sx={{ my: 1.5, borderColor: '#EFEFEF' }} />
+
+                {/* Contact info */}
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                  {municipality.contact_info?.address && (
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1 }}>
+                      <LocationOn sx={{ fontSize: 14, color: '#8E8E8E', mt: '2px', flexShrink: 0 }} />
+                      <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E', lineHeight: 1.5 }}>{municipality.contact_info.address}</Typography>
                     </Box>
                   )}
-
-                  <Divider sx={{ my: 2 }} />
-
-                  {/* 連絡先情報 */}
-                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
-                    {municipality.contact_info?.address && (
-                      <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
-                        <LocationOn sx={{ fontSize: 18, mr: 1, color: 'text.secondary', mt: 0.2 }} />
-                        <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.5 }}>
-                          {municipality.contact_info.address}
-                        </Typography>
-                      </Box>
-                    )}
-
-                    {municipality.contact_info?.phone && (
-                      <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <Phone sx={{ fontSize: 16, mr: 1, color: 'text.secondary' }} />
-                        <Typography variant="body2" color="text.secondary">
-                          {municipality.contact_info.phone}
-                        </Typography>
-                      </Box>
-                    )}
-
-                    {municipality.contact_info?.email && (
-                      <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <Email sx={{ fontSize: 16, mr: 1, color: 'text.secondary' }} />
-                        <Typography variant="body2" color="text.secondary" sx={{ wordBreak: 'break-all' }}>
-                          {municipality.contact_info.email}
-                        </Typography>
-                      </Box>
-                    )}
-
-                    {municipality.contact_info?.hours && (
-                      <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
-                        <AccessTime sx={{ fontSize: 16, mr: 1, color: 'text.secondary', mt: 0.2 }} />
-                        <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.5 }}>
-                          {municipality.contact_info.hours}
-                        </Typography>
-                      </Box>
-                    )}
-                  </Box>
-                </CardContent>
-
-                <CardActions sx={{ p: 2, pt: 0, gap: 1 }}>
-                  {municipality.website_url && (
-                    <Button
-                      href={municipality.website_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      variant="outlined"
-                      size="small"
-                      startIcon={<Language />}
-                      fullWidth
-                    >
-                      公式サイト
-                    </Button>
+                  {municipality.contact_info?.phone && (
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                      <Phone sx={{ fontSize: 14, color: '#8E8E8E', flexShrink: 0 }} />
+                      <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E' }}>{municipality.contact_info.phone}</Typography>
+                    </Box>
                   )}
-                  {municipality.animals_count! > 0 && (
-                    <Button
-                      component={Link}
-                      href={`/search?municipality_id=${municipality.id}`}
-                      variant="contained"
-                      size="small"
-                      startIcon={<Pets />}
-                      fullWidth
-                    >
-                      動物を見る
-                    </Button>
+                  {municipality.contact_info?.hours && (
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1 }}>
+                      <AccessTime sx={{ fontSize: 14, color: '#8E8E8E', mt: '2px', flexShrink: 0 }} />
+                      <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E', lineHeight: 1.5 }}>{municipality.contact_info.hours}</Typography>
+                    </Box>
                   )}
-                </CardActions>
-              </Card>
-            </Grid>
+                </Box>
+              </Box>
+
+              {/* Actions */}
+              <Box sx={{ px: 2.5, pb: 2.5, display: 'flex', gap: 1 }}>
+                {municipality.website_url && (
+                  <Button
+                    href={municipality.website_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="outlined"
+                    size="small"
+                    startIcon={<Language sx={{ fontSize: 14 }} />}
+                    fullWidth
+                    sx={{ fontSize: '0.8125rem', py: 0.875, borderColor: '#DBDBDB', color: '#262626', '&:hover': { borderColor: '#A8A8A8', backgroundColor: 'transparent' } }}
+                  >
+                    公式サイト
+                  </Button>
+                )}
+                {municipality.animals_count != null && municipality.animals_count > 0 && (
+                  <Button
+                    component={Link}
+                    href={`/search?municipality_id=${municipality.id}`}
+                    variant="contained"
+                    size="small"
+                    startIcon={<Pets sx={{ fontSize: 14 }} />}
+                    fullWidth
+                    sx={{ fontSize: '0.8125rem', py: 0.875, backgroundColor: '#262626', '&:hover': { backgroundColor: '#000000' } }}
+                  >
+                    動物を見る
+                  </Button>
+                )}
+              </Box>
+            </Box>
           ))}
-        </Grid>
+        </Box>
       )}
 
-      {/* 注意書き */}
-      <Paper elevation={2} sx={{ mt: 6, p: 4, borderRadius: 3, backgroundColor: 'rgba(255, 248, 220, 0.5)' }}>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2, color: 'primary.main' }}>
-          📞 お問い合わせについて
+      {/* Notice */}
+      <Box
+        sx={{
+          mt: 5,
+          p: 3,
+          border: '1px solid #DBDBDB',
+          borderRadius: '8px',
+          backgroundColor: '#FFFFFF',
+        }}
+      >
+        <Typography sx={{ fontSize: '0.875rem', fontWeight: 600, color: '#262626', mb: 1 }}>
+          お問い合わせについて
         </Typography>
-        <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.7 }}>
+        <Typography sx={{ fontSize: '0.8125rem', color: '#8E8E8E', lineHeight: 1.7 }}>
           動物の譲渡や見学については、各保護センターに直接お問い合わせください。<br />
           施設によって手続きや条件が異なりますので、事前に確認されることをお勧めします。
         </Typography>
-      </Paper>
+      </Box>
 
-      {/* 地域選択ダイアログ */}
+      {/* Region dialog */}
       <Dialog
         open={regionDialogOpen}
         onClose={() => setRegionDialogOpen(false)}
         maxWidth="sm"
         fullWidth
+        PaperProps={{
+          sx: { border: '1px solid #DBDBDB', borderRadius: '8px', boxShadow: '0 4px 20px rgba(0,0,0,0.08)' },
+        }}
       >
-        <DialogTitle>
-          <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
-            🗾 地域を選択
-          </Typography>
+        <DialogTitle sx={{ borderBottom: '1px solid #DBDBDB', pb: 2 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Typography sx={{ fontSize: '1rem', fontWeight: 600, color: '#262626' }}>地域を選択</Typography>
+            <Close sx={{ fontSize: 20, color: '#8E8E8E', cursor: 'pointer' }} onClick={() => setRegionDialogOpen(false)} />
+          </Box>
         </DialogTitle>
-        <DialogContent>
+        <DialogContent sx={{ pt: 2 }}>
           {Object.entries(REGION_GROUPS).map(([groupCode, group]) => {
             const prefecturesInGroup = regions.filter(r =>
               group.prefectures.some(p => r.name.includes(p.replace(/[都道府県]/g, '')))
             )
-
             if (prefecturesInGroup.length === 0) return null
 
             return (
-              <Box key={groupCode} sx={{ mb: 3 }}>
-                <Typography
-                  variant="h6"
-                  sx={{
-                    fontWeight: 'bold',
-                    color: 'primary.main',
-                    mb: 1
-                  }}
-                >
+              <Box key={groupCode} sx={{ mb: 2.5 }}>
+                <Typography sx={{ fontSize: '0.75rem', fontWeight: 700, color: '#8E8E8E', textTransform: 'uppercase', letterSpacing: '0.06em', mb: 1 }}>
                   {group.name}
                 </Typography>
-                <List dense>
+                <List dense disablePadding>
                   {prefecturesInGroup.map(region => (
                     <ListItem key={region.id} disablePadding>
                       <ListItemButton
                         onClick={() => handleSelectRegion(region.name)}
                         selected={selectedRegion === region.name}
+                        sx={{
+                          borderRadius: '6px',
+                          py: 0.75,
+                          '&.Mui-selected': { backgroundColor: '#262626', color: '#FFFFFF', '&:hover': { backgroundColor: '#000000' } },
+                          '&:hover': { backgroundColor: '#F5F5F5' },
+                        }}
                       >
-                        <ListItemText primary={region.name} />
+                        <ListItemText primary={region.name} primaryTypographyProps={{ fontSize: '0.875rem' }} />
                       </ListItemButton>
                     </ListItem>
                   ))}

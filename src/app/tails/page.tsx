@@ -30,33 +30,34 @@ export default function TailsPage() {
 
   return (
     <Container maxWidth="lg" sx={{ minHeight: '100vh', px: { xs: 2, sm: 3, md: 4 }, py: 4 }}>
-      {/* ページヘッダー */}
-      <Box sx={{ textAlign: 'center', mb: 6 }}>
-        <Typography variant="h3" component="h1" sx={{ 
-          fontWeight: 'bold',
-          background: 'linear-gradient(45deg, #8B4513 30%, #FF8C00 90%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          mb: 2
-        }}>
-          🐾 シッポたち一覧
+      {/* Page header */}
+      <Box sx={{ mb: 4, pb: 3, borderBottom: '1px solid #DBDBDB' }}>
+        <Typography sx={{ fontSize: '1.375rem', fontWeight: 300, color: '#262626', letterSpacing: '-0.01em' }}>
+          シッポたち一覧
         </Typography>
-        <Typography variant="h6" color="text.secondary">
+        <Typography sx={{ fontSize: '0.875rem', color: '#8E8E8E', mt: 0.5 }}>
           家族を待っているシッポたちです
         </Typography>
       </Box>
 
-      {/* 検索・フィルタセクション */}
-      <Box component="section" sx={{ mb: 6 }}>
-        <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-            <Search sx={{ mr: 1, color: 'primary.main' }} />
-            <Typography variant="h5" sx={{ fontWeight: 'bold', color: 'primary.main' }}>
-              検索・フィルタ
+      {/* Search/filter */}
+      <Box component="section" sx={{ mb: 4 }}>
+        <Box
+          sx={{
+            border: '1px solid #DBDBDB',
+            borderRadius: '8px',
+            backgroundColor: '#FFFFFF',
+            p: { xs: 2.5, md: 3 },
+          }}
+        >
+          <Box sx={{ display: 'flex', alignItems: 'center', mb: 2.5, gap: 1 }}>
+            <Search sx={{ fontSize: 16, color: '#8E8E8E' }} />
+            <Typography sx={{ fontSize: '0.875rem', fontWeight: 600, color: '#262626' }}>
+              絞り込み
             </Typography>
           </Box>
           <SearchForm onSearch={handleSearch} initialParams={searchParams} />
-        </Paper>
+        </Box>
       </Box>
 
       {/* シッポたち一覧 */}

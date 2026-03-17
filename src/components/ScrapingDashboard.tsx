@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Clock, CheckCircle, XCircle, Activity, Database, TrendingUp } from 'lucide-react'
+import { Box, Typography, CircularProgress } from '@mui/material'
 
 interface ScrapingLog {
   id: number
@@ -53,6 +54,13 @@ interface DailyStats {
   avg_execution_time: string
 }
 
+const cellSx = {
+  backgroundColor: '#FFFFFF',
+  border: '1px solid #DBDBDB',
+  borderRadius: '8px',
+  p: 3,
+}
+
 export default function ScrapingDashboard() {
   const [logs, setLogs] = useState<ScrapingLog[]>([])
   const [stats, setStats] = useState<ScrapingStats | null>(null)
@@ -96,208 +104,281 @@ export default function ScrapingDashboard() {
     }
   }
 
-  const formatDateTime = (dateString: string) => {
-    return new Date(dateString).toLocaleString('ja-JP')
-  }
+  const formatDateTime = (dateString: string) =>
+    new Date(dateString).toLocaleString('ja-JP')
 
   const formatDuration = (ms?: number) => {
-    if (!ms) return '不明'
+    if (!ms) return '—'
     if (ms < 1000) return `${ms}ms`
     return `${(ms / 1000).toFixed(1)}秒`
   }
 
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case 'success': return <CheckCircle className="w-4 h-4 text-green-500" />
-      case 'error': return <XCircle className="w-4 h-4 text-red-500" />
-      case 'timeout': return <Clock className="w-4 h-4 text-yellow-500" />
-      default: return <Activity className="w-4 h-4 text-gray-500" />
+      case 'success': return <CheckCircle size={14} style={{ color: '#4CAF50' }} />
+      case 'error': return <XCircle size={14} style={{ color: '#ED4956' }} />
+      case 'timeout': return <Clock size={14} style={{ color: '#FFBA33' }} />
+      default: return <Activity size={14} style={{ color: '#8E8E8E' }} />
     }
   }
 
-  const getStatusColor = (status: string) => {
+  const getStatusStyle = (status: string): React.CSSProperties => {
     switch (status) {
-      case 'success': return 'bg-green-100 text-green-800'
-      case 'error': return 'bg-red-100 text-red-800'
-      case 'timeout': return 'bg-yellow-100 text-yellow-800'
-      default: return 'bg-gray-100 text-gray-800'
+      case 'success': return { background: '#F0FFF4', color: '#1B5E20', border: '1px solid #A5D6A7' }
+      case 'error': return { background: '#FFEEF0', color: '#B71C1C', border: '1px solid #FFBEC2' }
+      case 'timeout': return { background: '#FFF8E6', color: '#7A5000', border: '1px solid #FFE299' }
+      default: return { background: '#F5F5F5', color: '#616161', border: '1px solid #DBDBDB' }
     }
   }
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center py-12">
-        <div className="text-center">
-          <Activity className="w-8 h-8 animate-spin text-blue-600 mx-auto mb-4" />
-          <p className="text-gray-600">スクレイピングデータを読み込み中...</p>
-        </div>
-      </div>
+      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', py: 10 }}>
+        <Box sx={{ textAlign: 'center' }}>
+          <CircularProgress size={24} thickness={2} sx={{ color: '#262626', mb: 2 }} />
+          <Typography sx={{ fontSize: '0.875rem', color: '#8E8E8E' }}>
+            スクレイピングデータを読み込み中...
+          </Typography>
+        </Box>
+      </Box>
     )
   }
 
   if (error) {
     return (
-      <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-        <div className="flex items-center mb-2">
-          <XCircle className="w-5 h-5 text-red-500 mr-2" />
-          <h3 className="text-red-800 font-medium">エラーが発生しました</h3>
-        </div>
-        <p className="text-red-700 text-sm">{error}</p>
-        <button 
+      <Box
+        sx={{
+          border: '1px solid #FFBEC2',
+          borderRadius: '8px',
+          backgroundColor: '#FFEEF0',
+          p: 3,
+        }}
+      >
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
+          <XCircle size={16} style={{ color: '#ED4956' }} />
+          <Typography sx={{ fontSize: '0.875rem', fontWeight: 600, color: '#262626' }}>
+            エラーが発生しました
+          </Typography>
+        </Box>
+        <Typography sx={{ fontSize: '0.8125rem', color: '#8E8E8E', mb: 2 }}>{error}</Typography>
+        <button
           onClick={fetchData}
-          className="mt-4 bg-red-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-red-700"
+          style={{
+            background: '#262626',
+            color: '#FFFFFF',
+            border: 'none',
+            borderRadius: '6px',
+            padding: '8px 16px',
+            fontSize: '0.8125rem',
+            fontWeight: 600,
+            cursor: 'pointer',
+          }}
         >
           再読み込み
         </button>
-      </div>
+      </Box>
     )
   }
 
   return (
-    <div className="space-y-6">
-      {/* 統計サマリー */}
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+      {/* Stats summary */}
       {stats && (
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-600">総スクレイピング回数</p>
-                <p className="text-2xl font-bold text-gray-900">{stats.totalScrapes.total}</p>
-              </div>
-              <Database className="w-8 h-8 text-blue-500" />
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-600">成功率</p>
-                <p className="text-2xl font-bold text-green-600">{stats.successRate.success_rate}%</p>
-              </div>
-              <TrendingUp className="w-8 h-8 text-green-500" />
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-600">最新発見数</p>
-                <p className="text-2xl font-bold text-orange-600">
-                  {stats.lastScrape?.tails_found || 0}匹
-                </p>
-              </div>
-              <Activity className="w-8 h-8 text-orange-500" />
-            </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-600">最終実行</p>
-                <p className="text-sm font-medium text-gray-900">
-                  {stats.lastScrape ? formatDateTime(stats.lastScrape.started_at) : '未実行'}
-                </p>
-              </div>
-              <Clock className="w-8 h-8 text-purple-500" />
-            </div>
-          </div>
-        </div>
+        <Box
+          sx={{
+            display: 'grid',
+            gap: 2,
+            gridTemplateColumns: {
+              xs: 'repeat(2, 1fr)',
+              md: 'repeat(4, 1fr)',
+            },
+          }}
+        >
+          {[
+            {
+              label: '総スクレイピング回数',
+              value: stats.totalScrapes.total,
+              icon: <Database size={22} style={{ color: '#8E8E8E' }} />,
+            },
+            {
+              label: '成功率',
+              value: `${stats.successRate.success_rate}%`,
+              icon: <TrendingUp size={22} style={{ color: '#4CAF50' }} />,
+            },
+            {
+              label: '最新発見数',
+              value: `${stats.lastScrape?.tails_found || 0}匹`,
+              icon: <Activity size={22} style={{ color: '#FFBA33' }} />,
+            },
+            {
+              label: '最終実行',
+              value: stats.lastScrape ? formatDateTime(stats.lastScrape.started_at) : '未実行',
+              icon: <Clock size={22} style={{ color: '#8E8E8E' }} />,
+              small: true,
+            },
+          ].map((item, i) => (
+            <Box key={i} sx={cellSx}>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 1 }}>
+                <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E', lineHeight: 1.4 }}>
+                  {item.label}
+                </Typography>
+                {item.icon}
+              </Box>
+              <Typography
+                sx={{
+                  fontSize: item.small ? '0.875rem' : '1.5rem',
+                  fontWeight: item.small ? 500 : 300,
+                  color: '#262626',
+                  lineHeight: 1.2,
+                  letterSpacing: item.small ? 0 : '-0.02em',
+                }}
+              >
+                {item.value}
+              </Typography>
+            </Box>
+          ))}
+        </Box>
       )}
 
-      {/* 日別統計 */}
+      {/* Daily stats table */}
       {dailyStats.length > 0 && (
-        <div className="bg-white rounded-lg shadow-md border border-gray-200">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <h3 className="text-lg font-semibold text-gray-900">過去7日間の活動</h3>
-          </div>
-          <div className="p-6">
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-gray-200">
-                    <th className="text-left py-2">日付</th>
-                    <th className="text-center py-2">スクレイピング回数</th>
-                    <th className="text-center py-2">成功</th>
-                    <th className="text-center py-2">失敗</th>
-                    <th className="text-center py-2">発見数</th>
-                    <th className="text-center py-2">追加数</th>
-                    <th className="text-center py-2">平均実行時間</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {dailyStats.map((day) => (
-                    <tr key={day.date} className="border-b border-gray-100">
-                      <td className="py-2">{new Date(day.date).toLocaleDateString('ja-JP')}</td>
-                      <td className="text-center py-2">{day.total_scrapes}</td>
-                      <td className="text-center py-2 text-green-600">{day.successful_scrapes}</td>
-                      <td className="text-center py-2 text-red-600">{day.failed_scrapes}</td>
-                      <td className="text-center py-2">{day.tails_found}</td>
-                      <td className="text-center py-2 font-medium">{day.tails_added}</td>
-                      <td className="text-center py-2">{formatDuration(parseFloat(day.avg_execution_time))}</td>
-                    </tr>
+        <Box sx={cellSx}>
+          <Typography sx={{ fontSize: '0.875rem', fontWeight: 600, color: '#262626', mb: 2 }}>
+            過去7日間の活動
+          </Typography>
+          <Box sx={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8125rem' }}>
+              <thead>
+                <tr style={{ borderBottom: '1px solid #DBDBDB' }}>
+                  {['日付', 'スクレイピング', '成功', '失敗', '発見数', '追加数', '平均時間'].map((h) => (
+                    <th
+                      key={h}
+                      style={{
+                        padding: '8px 12px',
+                        textAlign: h === '日付' ? 'left' : 'center',
+                        fontWeight: 600,
+                        color: '#8E8E8E',
+                        whiteSpace: 'nowrap',
+                        fontSize: '0.75rem',
+                      }}
+                    >
+                      {h}
+                    </th>
                   ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+                </tr>
+              </thead>
+              <tbody>
+                {dailyStats.map((day) => (
+                  <tr key={day.date} style={{ borderBottom: '1px solid #EFEFEF' }}>
+                    <td style={{ padding: '10px 12px', color: '#262626' }}>
+                      {new Date(day.date).toLocaleDateString('ja-JP')}
+                    </td>
+                    <td style={{ padding: '10px 12px', textAlign: 'center', color: '#262626' }}>{day.total_scrapes}</td>
+                    <td style={{ padding: '10px 12px', textAlign: 'center', color: '#4CAF50', fontWeight: 600 }}>{day.successful_scrapes}</td>
+                    <td style={{ padding: '10px 12px', textAlign: 'center', color: '#ED4956', fontWeight: 600 }}>{day.failed_scrapes}</td>
+                    <td style={{ padding: '10px 12px', textAlign: 'center', color: '#262626' }}>{day.tails_found}</td>
+                    <td style={{ padding: '10px 12px', textAlign: 'center', color: '#262626', fontWeight: 600 }}>{day.tails_added}</td>
+                    <td style={{ padding: '10px 12px', textAlign: 'center', color: '#8E8E8E' }}>
+                      {formatDuration(parseFloat(day.avg_execution_time))}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </Box>
+        </Box>
       )}
 
-      {/* 最新のスクレイピングログ */}
-      <div className="bg-white rounded-lg shadow-md border border-gray-200">
-        <div className="px-6 py-4 border-b border-gray-200">
-          <h3 className="text-lg font-semibold text-gray-900">最新のスクレイピングログ</h3>
-        </div>
-        <div className="divide-y divide-gray-200">
-          {logs.map((log) => (
-            <div key={log.id} className="p-4">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center space-x-2">
+      {/* Scraping logs */}
+      <Box sx={cellSx}>
+        <Typography sx={{ fontSize: '0.875rem', fontWeight: 600, color: '#262626', mb: 2 }}>
+          最新のスクレイピングログ
+        </Typography>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+          {logs.map((log, i) => (
+            <Box
+              key={log.id}
+              sx={{
+                py: 2,
+                px: 0,
+                borderBottom: i < logs.length - 1 ? '1px solid #EFEFEF' : 'none',
+              }}
+            >
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
                   {getStatusIcon(log.status)}
-                  <span className="font-medium text-gray-900">
+                  <Typography sx={{ fontSize: '0.875rem', fontWeight: 600, color: '#262626' }}>
                     {log.region_name} {log.municipality_name}
-                  </span>
-                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(log.status)}`}>
+                  </Typography>
+                  <span
+                    style={{
+                      ...getStatusStyle(log.status),
+                      padding: '2px 8px',
+                      borderRadius: '4px',
+                      fontSize: '0.6875rem',
+                      fontWeight: 600,
+                    }}
+                  >
                     {log.status.toUpperCase()}
                   </span>
-                </div>
-                <span className="text-sm text-gray-500">
+                </Box>
+                <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E' }}>
                   {formatDateTime(log.started_at)}
-                </span>
-              </div>
-              
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-sm">
-                <div>
-                  <span className="text-gray-600">発見:</span>
-                  <span className="ml-1 font-medium">{log.tails_found}匹</span>
-                </div>
-                <div>
-                  <span className="text-gray-600">追加:</span>
-                  <span className="ml-1 font-medium text-green-600">{log.tails_added}匹</span>
-                </div>
-                <div>
-                  <span className="text-gray-600">更新:</span>
-                  <span className="ml-1 font-medium text-blue-600">{log.tails_updated}匹</span>
-                </div>
-                <div>
-                  <span className="text-gray-600">削除:</span>
-                  <span className="ml-1 font-medium text-red-600">{log.tails_removed}匹</span>
-                </div>
-                <div>
-                  <span className="text-gray-600">実行時間:</span>
-                  <span className="ml-1 font-medium">{formatDuration(log.execution_time_ms)}</span>
-                </div>
-              </div>
-              
+                </Typography>
+              </Box>
+
+              <Box
+                sx={{
+                  display: 'flex',
+                  gap: 3,
+                  flexWrap: 'wrap',
+                  pl: '26px',
+                }}
+              >
+                {[
+                  { label: '発見', value: `${log.tails_found}匹`, color: '#262626' },
+                  { label: '追加', value: `${log.tails_added}匹`, color: '#4CAF50' },
+                  { label: '更新', value: `${log.tails_updated}匹`, color: '#1565C0' },
+                  { label: '削除', value: `${log.tails_removed}匹`, color: '#ED4956' },
+                  { label: '時間', value: formatDuration(log.execution_time_ms), color: '#8E8E8E' },
+                ].map(({ label, value, color }) => (
+                  <Box key={label}>
+                    <Typography
+                      component="span"
+                      sx={{ fontSize: '0.75rem', color: '#8E8E8E', mr: 0.5 }}
+                    >
+                      {label}
+                    </Typography>
+                    <Typography
+                      component="span"
+                      sx={{ fontSize: '0.75rem', color, fontWeight: 600 }}
+                    >
+                      {value}
+                    </Typography>
+                  </Box>
+                ))}
+              </Box>
+
               {log.error_message && (
-                <div className="mt-2 p-2 bg-red-50 rounded text-sm text-red-700">
-                  <strong>エラー:</strong> {log.error_message}
-                </div>
+                <Box
+                  sx={{
+                    mt: 1,
+                    ml: '26px',
+                    p: 1.5,
+                    backgroundColor: '#FFEEF0',
+                    borderRadius: '6px',
+                    border: '1px solid #FFBEC2',
+                  }}
+                >
+                  <Typography sx={{ fontSize: '0.75rem', color: '#B71C1C' }}>
+                    <strong>エラー:</strong> {log.error_message}
+                  </Typography>
+                </Box>
               )}
-            </div>
+            </Box>
           ))}
-        </div>
-      </div>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   )
 }

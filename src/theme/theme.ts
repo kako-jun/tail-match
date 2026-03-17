@@ -1,103 +1,185 @@
 import { createTheme } from '@mui/material/styles'
 
-// 三毛猫カラーパレット
-const mikeNekoColors = {
-  brown: '#8B4513',      // 茶色 (メイン)
-  darkBrown: '#654321',  // 濃い茶色
-  black: '#2F2F2F',      // 黒
-  cream: '#FFF8DC',      // クリーム色
-  white: '#FFFFFF',      // 白
-  orange: '#FF8C00',     // オレンジ (アクセント)
-  lightOrange: '#FFB347', // 薄いオレンジ
-  urgent: '#FF6B6B',     // 緊急色 (柔らかい赤)
-  warning: '#FFB347',    // 警告色 (オレンジ)
-  success: '#51CF66',    // 成功色 (緑)
+// Instagram-inspired palette — light, airy, minimal
+const igColors = {
+  white: '#FFFFFF',
+  offWhite: '#FAFAFA',       // Instagram background
+  border: '#DBDBDB',         // Instagram border
+  borderLight: '#EFEFEF',    // lighter dividers
+  textPrimary: '#262626',    // Instagram near-black
+  textSecondary: '#8E8E8E',  // Instagram muted gray
+  coral: '#FF7A7A',          // soft coral for hearts/favorites
+  coralLight: '#FFEDED',     // coral tint background
+  coralDark: '#E85555',      // hover state
+  urgentRed: '#ED4956',      // Instagram-like alert red
+  warmGray: '#F5F5F5',       // subtle section backgrounds
 }
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: mikeNekoColors.brown,
-      dark: mikeNekoColors.darkBrown,
-      light: '#A0522D',
+      main: igColors.textPrimary,
+      dark: '#000000',
+      light: igColors.textSecondary,
     },
     secondary: {
-      main: mikeNekoColors.orange,
-      dark: '#FF7F00',
-      light: mikeNekoColors.lightOrange,
+      main: igColors.coral,
+      dark: igColors.coralDark,
+      light: igColors.coralLight,
     },
     background: {
-      default: mikeNekoColors.cream,
-      paper: mikeNekoColors.white,
+      default: igColors.offWhite,
+      paper: igColors.white,
     },
     text: {
-      primary: mikeNekoColors.black,
-      secondary: '#5D4037',
+      primary: igColors.textPrimary,
+      secondary: igColors.textSecondary,
     },
+    divider: igColors.border,
     error: {
-      main: mikeNekoColors.urgent,
+      main: igColors.urgentRed,
     },
     warning: {
-      main: mikeNekoColors.warning,
+      main: '#FFBA33',
     },
     success: {
-      main: mikeNekoColors.success,
+      main: '#4CAF50',
     },
   },
   typography: {
     fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
       'Hiragino Kaku Gothic ProN',
       'Hiragino Sans',
       'Yu Gothic Medium',
       'Meiryo',
-      '-apple-system',
-      'BlinkMacSystemFont',
-      'Segoe UI',
-      'Roboto',
       'sans-serif',
     ].join(','),
     h1: {
-      fontWeight: 700,
-      fontSize: '2.5rem',
+      fontWeight: 300,
+      fontSize: '2rem',
+      letterSpacing: '-0.02em',
     },
     h2: {
-      fontWeight: 600,
-      fontSize: '2rem',
+      fontWeight: 300,
+      fontSize: '1.75rem',
+      letterSpacing: '-0.01em',
     },
     h3: {
+      fontWeight: 400,
+      fontSize: '1.375rem',
+    },
+    h4: {
+      fontWeight: 400,
+      fontSize: '1.125rem',
+    },
+    h5: {
+      fontWeight: 400,
+      fontSize: '1rem',
+    },
+    h6: {
       fontWeight: 600,
-      fontSize: '1.5rem',
+      fontSize: '0.875rem',
+    },
+    body1: {
+      fontSize: '0.9375rem',
+      lineHeight: 1.6,
+    },
+    body2: {
+      fontSize: '0.8125rem',
+      lineHeight: 1.5,
+    },
+    caption: {
+      fontSize: '0.75rem',
+      color: igColors.textSecondary,
     },
   },
   shape: {
-    borderRadius: 12,
+    borderRadius: 8,
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          backgroundColor: igColors.offWhite,
+          color: igColors.textPrimary,
+        },
+      },
+    },
     MuiCard: {
       styleOverrides: {
         root: {
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-          borderRadius: 16,
-          transition: 'box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out',
+          boxShadow: 'none',
+          border: `1px solid ${igColors.border}`,
+          borderRadius: 8,
+          backgroundColor: igColors.white,
+          transition: 'opacity 0.15s ease',
           '&:hover': {
-            boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)',
-            transform: 'translateY(-2px)',
+            boxShadow: 'none',
+            opacity: 0.9,
           },
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          boxShadow: 'none',
+          border: `1px solid ${igColors.border}`,
+        },
+        elevation2: {
+          boxShadow: 'none',
+          border: `1px solid ${igColors.border}`,
+        },
+        elevation3: {
+          boxShadow: 'none',
+          border: `1px solid ${igColors.border}`,
+        },
+        elevation4: {
+          boxShadow: 'none',
+          border: `1px solid ${igColors.border}`,
         },
       },
     },
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: 12,
+          borderRadius: 8,
           textTransform: 'none',
           fontWeight: 600,
-          padding: '8px 24px',
+          fontSize: '0.875rem',
+          padding: '8px 16px',
+          boxShadow: 'none',
+          '&:hover': {
+            boxShadow: 'none',
+          },
         },
         contained: {
-          boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
+          backgroundColor: igColors.textPrimary,
+          color: igColors.white,
+          boxShadow: 'none',
           '&:hover': {
-            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.2)',
+            backgroundColor: '#000000',
+            boxShadow: 'none',
+          },
+        },
+        outlined: {
+          borderColor: igColors.border,
+          color: igColors.textPrimary,
+          '&:hover': {
+            borderColor: igColors.textPrimary,
+            backgroundColor: 'transparent',
+          },
+        },
+        text: {
+          color: igColors.textPrimary,
+          '&:hover': {
+            backgroundColor: igColors.warmGray,
           },
         },
       },
@@ -106,7 +188,18 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           '& .MuiOutlinedInput-root': {
-            borderRadius: 12,
+            borderRadius: 8,
+            backgroundColor: igColors.white,
+            '& fieldset': {
+              borderColor: igColors.border,
+            },
+            '&:hover fieldset': {
+              borderColor: igColors.textSecondary,
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: igColors.textPrimary,
+              borderWidth: 1,
+            },
           },
         },
       },
@@ -114,14 +207,78 @@ const theme = createTheme({
     MuiSelect: {
       styleOverrides: {
         root: {
-          borderRadius: 12,
+          borderRadius: 8,
+          '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: igColors.border,
+          },
+          '&:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: igColors.textSecondary,
+          },
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: igColors.textPrimary,
+            borderWidth: 1,
+          },
         },
       },
     },
     MuiChip: {
       styleOverrides: {
         root: {
-          borderRadius: 16,
+          borderRadius: 4,
+          fontSize: '0.75rem',
+          fontWeight: 500,
+          height: 24,
+        },
+      },
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: igColors.white,
+          borderBottom: `1px solid ${igColors.border}`,
+          boxShadow: 'none',
+        },
+      },
+    },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          borderColor: igColors.border,
+        },
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          '&:hover': {
+            backgroundColor: igColors.warmGray,
+          },
+        },
+      },
+    },
+    MuiToggleButton: {
+      styleOverrides: {
+        root: {
+          borderColor: igColors.border,
+          color: igColors.textSecondary,
+          '&.Mui-selected': {
+            backgroundColor: igColors.textPrimary,
+            color: igColors.white,
+            '&:hover': {
+              backgroundColor: '#000000',
+            },
+          },
+          '&:hover': {
+            backgroundColor: igColors.warmGray,
+          },
+        },
+      },
+    },
+    MuiAlert: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          border: `1px solid`,
         },
       },
     },

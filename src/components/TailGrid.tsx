@@ -3,17 +3,13 @@
 import { useState, useEffect } from 'react'
 import TailCard from './TailCard'
 import { TailWithDetails, TailSearchParams } from '@/types/database'
-import { Loader2, AlertCircle } from 'lucide-react'
-import { 
-  Container, 
-  Typography, 
-  Box, 
-  CircularProgress, 
-  Alert, 
+import {
+  Typography,
+  Box,
+  CircularProgress,
+  Alert,
   AlertTitle,
   Button,
-  Paper,
-  Chip,
   ToggleButton,
   ToggleButtonGroup
 } from '@mui/material'
@@ -34,15 +30,16 @@ interface ApiResponse {
   message?: string
 }
 
-export default function TailGrid({ 
-  searchParams = {}, 
+export default function TailGrid({
+  searchParams = {},
   showUrgentOnly = false,
-  maxCount 
+  maxCount
 }: TailGridProps) {
   const [tails, setTails] = useState<TailWithDetails[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [viewMode, setViewMode] = useState<'instagram' | 'card'>('card')
+  const [viewMode, setViewMode] = useState<'instagram' | 'card'>('instagram')
+  const [retryCount, setRetryCount] = useState(0)
 
   useEffect(() => {
     const fetchTails = async () => {
@@ -60,14 +57,13 @@ export default function TailGrid({
         } else {
           url = '/api/tails'
           params = new URLSearchParams()
-          
-          // 検索パラメータを構築
+
           Object.entries(searchParams).forEach(([key, value]) => {
             if (value !== undefined && value !== null && value !== '') {
               params.set(key, value.toString())
             }
           })
-          
+
           if (maxCount) params.set('limit', maxCount.toString())
         }
 
@@ -94,14 +90,20 @@ export default function TailGrid({
 
     fetchTails()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [JSON.stringify(searchParams), showUrgentOnly, maxCount])
+  }, [JSON.stringify(searchParams), showUrgentOnly, maxCount, retryCount])
 
   if (loading) {
     return (
-      <Box sx={{ display: 'flex', justifyContent: 'center', py: 6 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
         <Box sx={{ textAlign: 'center' }}>
-          <CircularProgress color="primary" sx={{ mb: 2 }} />
-          <Typography color="text.secondary">シッポたちを探しています...</Typography>
+          <CircularProgress
+            size={28}
+            thickness={2}
+            sx={{ color: '#262626', mb: 2 }}
+          />
+          <Typography sx={{ color: '#8E8E8E', fontSize: '0.875rem' }}>
+            シッポたちを探しています...
+          </Typography>
         </Box>
       </Box>
     )
@@ -109,16 +111,27 @@ export default function TailGrid({
 
   if (error) {
     return (
-      <Box sx={{ py: 6 }}>
-        <Alert severity="error" sx={{ mb: 2 }}>
-          <AlertTitle>エラーが発生しました</AlertTitle>
-          {error}
+      <Box sx={{ py: 4 }}>
+        <Alert
+          severity="error"
+          sx={{
+            mb: 2,
+            border: '1px solid #FFBEC2',
+            backgroundColor: '#FFEEF0',
+            borderRadius: '8px',
+            '& .MuiAlert-message': { color: '#262626' },
+          }}
+        >
+          <AlertTitle sx={{ fontWeight: 600, fontSize: '0.875rem' }}>
+            エラーが発生しました
+          </AlertTitle>
+          <Typography variant="body2" sx={{ color: '#8E8E8E' }}>{error}</Typography>
         </Alert>
         <Box sx={{ textAlign: 'center' }}>
-          <Button 
-            variant="contained" 
-            onClick={() => window.location.reload()}
-            color="primary"
+          <Button
+            variant="outlined"
+            onClick={() => setRetryCount(c => c + 1)}
+            sx={{ borderColor: '#DBDBDB', color: '#262626', fontSize: '0.875rem' }}
           >
             再読み込み
           </Button>
@@ -129,104 +142,155 @@ export default function TailGrid({
 
   if (tails.length === 0) {
     return (
-      <Box sx={{ textAlign: 'center', py: 6 }}>
-        <Typography variant="h1" sx={{ fontSize: '4rem', mb: 2 }}>😿</Typography>
-        <Typography variant="h5" component="h3" gutterBottom color="primary">
-          {showUrgentOnly ? '緊急のシッポたちは見つかりませんでした' : '条件に合うシッポたちが見つかりませんでした'}
+      <Box sx={{ textAlign: 'center', py: 10 }}>
+        <Typography sx={{ fontSize: '3rem', mb: 2 }}>😿</Typography>
+        <Typography
+          variant="h6"
+          sx={{ fontWeight: 400, color: '#262626', mb: 1, fontSize: '1rem' }}
+        >
+          {showUrgentOnly
+            ? '緊急のシッポたちは見つかりませんでした'
+            : '条件に合うシッポたちが見つかりませんでした'}
         </Typography>
-        <Typography color="text.secondary">
-          {showUrgentOnly ? 
-            '現在、緊急度の高い保護猫はいません。' : 
-            '検索条件を変更して再度お試しください。'
-          }
+        <Typography sx={{ color: '#8E8E8E', fontSize: '0.875rem' }}>
+          {showUrgentOnly
+            ? '現在、緊急度の高い保護猫はいません。'
+            : '検索条件を変更して再度お試しください。'}
         </Typography>
       </Box>
     )
   }
 
   return (
-    <Box sx={{ py: 2 }}>
-      {/* ヘッダー情報と表示切り替え */}
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4, flexWrap: 'wrap', gap: 2 }}>
-        <Paper elevation={2} sx={{ px: 4, py: 2, borderRadius: 3, flex: 1, minWidth: 'fit-content' }}>
-          <Typography variant="h6" component="p" sx={{ 
-            fontWeight: 'semibold',
-            color: 'text.primary',
-            textAlign: 'center'
-          }}>
-            {showUrgentOnly ? 
-              `🚨 緊急度の高いシッポたち ${tails.length}匹` :
-              `😺 ${tails.length}匹のシッポたちが見つかりました`
-            }
-          </Typography>
-        </Paper>
+    <Box>
+      {/* Header bar */}
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          mb: 3,
+          pb: 2,
+          borderBottom: '1px solid #DBDBDB',
+        }}
+      >
+        <Typography
+          sx={{
+            fontSize: '0.875rem',
+            color: '#8E8E8E',
+            fontWeight: 400,
+          }}
+        >
+          {showUrgentOnly
+            ? `${tails.length}匹の緊急シッポ`
+            : `${tails.length}匹のシッポたち`}
+        </Typography>
 
-        {/* 表示モード切り替え */}
+        {/* View mode toggle */}
         <ToggleButtonGroup
           value={viewMode}
           exclusive
-          onChange={(event, newMode) => {
-            if (newMode !== null) {
-              setViewMode(newMode)
-            }
+          onChange={(_, newMode) => {
+            if (newMode !== null) setViewMode(newMode)
           }}
           size="small"
+          sx={{
+            '& .MuiToggleButton-root': {
+              border: '1px solid #DBDBDB',
+              borderRadius: '6px !important',
+              padding: '5px 10px',
+              '&.Mui-selected': {
+                backgroundColor: '#262626',
+                color: '#FFFFFF',
+                borderColor: '#262626',
+              },
+            },
+          }}
         >
-          <ToggleButton value="card" aria-label="詳細表示">
-            <ViewList />
+          <ToggleButton value="instagram" aria-label="グリッド表示">
+            <ViewModule sx={{ fontSize: 18 }} />
           </ToggleButton>
-          <ToggleButton value="instagram" aria-label="画像表示">
-            <ViewModule />
+          <ToggleButton value="card" aria-label="カード表示">
+            <ViewList sx={{ fontSize: 18 }} />
           </ToggleButton>
         </ToggleButtonGroup>
       </Box>
 
-      {/* Flexbox表示 */}
-      <Box sx={{ 
-        display: 'flex', 
-        flexWrap: 'wrap', 
-        gap: 3,
-        justifyContent: 'flex-start'
-      }}>
-        {tails.map((tail) => (
-          <Box 
-            key={tail.id}
-            sx={{ 
-              flex: viewMode === 'instagram' ? {
-                xs: '1 1 calc(50% - 12px)',      // モバイル: 2列
-                sm: '1 1 calc(33.333% - 16px)',  // タブレット: 3列
-                md: '1 1 calc(20% - 19px)',       // デスクトップ: 5列
-                lg: '1 1 calc(16.666% - 20px)',  // 大画面: 6列
-                xl: '1 1 calc(14.285% - 21px)'   // 超大画面: 7列
-              } : {
-                xs: '1 1 100%',                 // カード: モバイル1列
-                sm: '1 1 calc(50% - 12px)',     // カード: タブレット2列
-                md: '1 1 calc(50% - 12px)',     // カード: デスクトップ2列
-                lg: '1 1 calc(33.333% - 16px)'  // カード: 大画面3列
-              },
-              minWidth: 0
-            }}
-          >
-            <TailCard 
+      {/* Instagram photo grid */}
+      {viewMode === 'instagram' ? (
+        <Box
+          sx={{
+            display: 'grid',
+            gap: '3px',
+            gridTemplateColumns: {
+              xs: 'repeat(3, 1fr)',
+              sm: 'repeat(4, 1fr)',
+              md: 'repeat(5, 1fr)',
+              lg: 'repeat(6, 1fr)',
+            },
+          }}
+        >
+          {tails.map((tail) => (
+            <TailCard
+              key={tail.id}
               tail={tail}
               showRegion={true}
-              viewMode={viewMode}
+              viewMode="instagram"
             />
-          </Box>
-        ))}
-      </Box>
+          ))}
+        </Box>
+      ) : (
+        /* Feed card layout */
+        <Box
+          sx={{
+            display: 'grid',
+            gap: 3,
+            gridTemplateColumns: {
+              xs: '1fr',
+              sm: 'repeat(2, 1fr)',
+              md: 'repeat(2, 1fr)',
+              lg: 'repeat(3, 1fr)',
+            },
+          }}
+        >
+          {tails.map((tail) => (
+            <TailCard
+              key={tail.id}
+              tail={tail}
+              showRegion={true}
+              viewMode="card"
+            />
+          ))}
+        </Box>
+      )}
 
-      {/* 緊急度の高い猫がいる場合の注意書き */}
+      {/* Urgent notice */}
       {showUrgentOnly && tails.length > 0 && (
-        <Box sx={{ mt: 4 }}>
-          <Alert severity="error" sx={{ textAlign: 'center' }}>
-            <AlertTitle sx={{ fontWeight: 'bold' }}>
-              ⚠️ 緊急を要するシッポたちです
-            </AlertTitle>
-            これらの猫たちは残り時間がわずかです。
-            お近くの方、または遠方でも引き取り可能な方は、
-            各自治体に直接お問い合わせください。
-          </Alert>
+        <Box
+          sx={{
+            mt: 4,
+            p: 3,
+            border: '1px solid #FFBEC2',
+            borderRadius: '8px',
+            backgroundColor: '#FFEEF0',
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: '0.875rem',
+              color: '#ED4956',
+              fontWeight: 600,
+              textAlign: 'center',
+              mb: 0.5,
+            }}
+          >
+            緊急を要するシッポたちです
+          </Typography>
+          <Typography
+            sx={{ fontSize: '0.8125rem', color: '#8E8E8E', textAlign: 'center' }}
+          >
+            残り時間がわずかです。お近くの方はぜひ各自治体にご連絡ください。
+          </Typography>
         </Box>
       )}
     </Box>

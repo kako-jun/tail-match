@@ -157,7 +157,17 @@ class TailMatchDB {
   /**
    * 動物情報をUPSERT
    */
+  /**
+   * 動物情報をUPSERT
+   * @returns {{ isNew: boolean }} isNew=true なら新規挿入、false なら更新
+   */
   upsertTail(tailData) {
+    // INSERT前に既存レコードの有無を確認（insert vs update を正確に判定するため）
+    const existsStmt = this.db.prepare(
+      `SELECT id FROM tails WHERE municipality_id = ? AND external_id = ?`
+    );
+    const existing = existsStmt.get(tailData.municipality_id, tailData.external_id);
+
     const stmt = this.db.prepare(`
       INSERT INTO tails (
         municipality_id, external_id, animal_type, name, breed,
@@ -186,7 +196,7 @@ class TailMatchDB {
         updated_at = CURRENT_TIMESTAMP
     `);
 
-    const result = stmt.run(
+    stmt.run(
       tailData.municipality_id,
       tailData.external_id,
       tailData.animal_type || 'cat',
@@ -208,7 +218,7 @@ class TailMatchDB {
       new Date().toISOString()
     );
 
-    return result.lastInsertRowid;
+    return { isNew: !existing };
   }
 
   /**

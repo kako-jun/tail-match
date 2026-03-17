@@ -8,31 +8,75 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // 三毛猫カラーパレット
-        'calico': {
-          'brown': '#D2691E',    // 茶トラ色 - メインカラー
-          'white': '#FFF8DC',    // 三毛の白 - サブカラー
-          'black': '#2F2F2F',    // 三毛の黒 - アクセント
-          'cream': '#F5DEB3',    // 三毛のクリーム - ハイライト
-          'pink': '#FFB6C1',     // 肉球ピンク - 特別色
+        // Instagram-inspired palette
+        'ig': {
+          'white': '#FFFFFF',
+          'off-white': '#FAFAFA',   // Instagram background
+          'border': '#DBDBDB',      // Instagram border
+          'border-light': '#EFEFEF',
+          'text': '#262626',        // Instagram near-black
+          'muted': '#8E8E8E',       // Instagram muted gray
+          'coral': '#FF7A7A',       // heart/favorite accent
+          'coral-light': '#FFEDED',
+          'coral-dark': '#E85555',
+          'urgent': '#ED4956',      // alert red
+          'warm-gray': '#F5F5F5',   // subtle section bg
         },
-        'denim': '#4682B4',      // デニムブルー
-        'emergency': '#DC143C',  // 緊急レッド
-        
-        // 緊急度別カラー
+        // Keep urgency colors for status chips
         'urgent': {
-          'red': '#DC143C',      // 残り1-3日
-          'orange': '#FF8C00',   // 残り4-7日  
-          'yellow': '#FFD700',   // 残り8-14日
-        }
+          'red': '#ED4956',
+          'orange': '#FFBA33',
+          'yellow': '#FFD166',
+        },
+        // Legacy aliases for tails/[id] page (calico-* → neutral Instagram tones)
+        'calico': {
+          'brown': '#262626',    // was #D2691E, now near-black
+          'white': '#FAFAFA',    // was #FFF8DC, now off-white
+          'black': '#262626',    // unchanged concept
+          'cream': '#F5F5F5',    // was #F5DEB3, now warm-gray
+          'pink': '#FF7A7A',     // was #FFB6C1, now coral
+        },
+        'denim': '#8E8E8E',      // was #4682B4, now muted gray
       },
       fontFamily: {
-        sans: ['Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic Medium', 'Meiryo', 'sans-serif'],
+        sans: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'Roboto',
+          '"Helvetica Neue"',
+          'Arial',
+          'Hiragino Kaku Gothic ProN',
+          'Hiragino Sans',
+          'sans-serif',
+        ],
+      },
+      borderRadius: {
+        'ig': '8px',
+        'ig-sm': '4px',
+        'ig-full': '50%',
+      },
+      boxShadow: {
+        'none': 'none',
+        'ig': '0 1px 3px rgba(0,0,0,0.08)',
+      },
+      aspectRatio: {
+        'square': '1 / 1',
       },
       animation: {
-        'pulse-urgent': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'bounce-gentle': 'bounce 2s infinite',
-      }
+        'fade-in': 'fadeIn 0.3s ease',
+        'scale-in': 'scaleIn 0.2s ease',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        scaleIn: {
+          '0%': { transform: 'scale(0.95)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+      },
     },
   },
   plugins: [],

@@ -6,22 +6,16 @@ import {
   Container,
   Box,
   Typography,
-  ImageList,
-  ImageListItem,
-  ImageListItemBar,
   IconButton,
   Dialog,
   DialogContent,
-  Card,
-  CardMedia,
-  CardContent,
   Chip,
   Button,
   ToggleButtonGroup,
   ToggleButton,
-  CircularProgress
+  CircularProgress,
 } from '@mui/material'
-import { Favorite, Share, Close, LocationOn, AccessTime, Pets } from '@mui/icons-material'
+import { FavoriteBorder, Favorite, Close, LocationOn, AccessTime, BookmarkBorder } from '@mui/icons-material'
 import Link from 'next/link'
 import type { TailWithDetails } from '@/types/database'
 
@@ -32,28 +26,19 @@ export default function GalleryPage() {
   const [dialogOpen, setDialogOpen] = useState(false)
   const [animalType, setAnimalType] = useState<'all' | 'cat' | 'dog'>('all')
 
-  // データ取得
   useEffect(() => {
     const fetchAnimals = async () => {
       setLoading(true)
       try {
-        const params = new URLSearchParams({
-          limit: '100',
-          status: 'available'
-        })
-
-        if (animalType !== 'all') {
-          params.append('animal_type', animalType)
-        }
+        const params = new URLSearchParams({ limit: '100', status: 'available' })
+        if (animalType !== 'all') params.append('animal_type', animalType)
 
         const response = await fetch(`/api/tails?${params}`)
         const data = await response.json()
 
-        // 画像がある動物のみをフィルター
         const animalsWithImages = (data.data || []).filter(
           (animal: TailWithDetails) => animal.images && animal.images.length > 0
         )
-
         setAnimals(animalsWithImages)
       } catch (error) {
         console.error('データ取得エラー:', error)
@@ -61,29 +46,24 @@ export default function GalleryPage() {
         setLoading(false)
       }
     }
-
     fetchAnimals()
   }, [animalType])
 
-  // 画像クリック時
   const handleImageClick = (animal: TailWithDetails) => {
     setSelectedAnimal(animal)
     setDialogOpen(true)
   }
 
-  // ダイアログを閉じる
   const handleCloseDialog = () => {
     setDialogOpen(false)
     setTimeout(() => setSelectedAnimal(null), 200)
   }
 
-  // 緊急度レベル計算
   const getUrgencyLevel = (deadlineDate: string | undefined) => {
     if (!deadlineDate) return null
-    const deadline = new Date(deadlineDate)
-    const now = new Date()
-    const daysRemaining = Math.ceil((deadline.getTime() - now.getTime()) / (1000 * 60 * 60 * 24))
-
+    const daysRemaining = Math.ceil(
+      (new Date(deadlineDate).getTime() - Date.now()) / (1000 * 60 * 60 * 24)
+    )
     if (daysRemaining <= 3) return 'urgent'
     if (daysRemaining <= 7) return 'warning'
     if (daysRemaining <= 14) return 'caution'
@@ -92,257 +72,355 @@ export default function GalleryPage() {
 
   return (
     <Container maxWidth="xl" sx={{ py: 4 }}>
-      {/* ページタイトル */}
-      <Box sx={{ textAlign: 'center', mb: 4 }}>
-        <Typography variant="h3" component="h1" sx={{
-          fontWeight: 'bold',
-          background: 'linear-gradient(45deg, #8B4513 30%, #FF8C00 90%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          mb: 2
-        }}>
-          📷 ギャラリー
-        </Typography>
-        <Typography variant="h6" color="text.secondary" sx={{ mb: 3 }}>
-          新しい家族を待っている動物たちの写真集
-        </Typography>
+      {/* Header */}
+      <Box sx={{ mb: 4, pb: 3, borderBottom: '1px solid #DBDBDB' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 2 }}>
+          <Box>
+            <Typography sx={{ fontSize: '1.375rem', fontWeight: 300, color: '#262626', letterSpacing: '-0.01em' }}>
+              ギャラリー
+            </Typography>
+            <Typography sx={{ fontSize: '0.875rem', color: '#8E8E8E', mt: 0.5 }}>
+              新しい家族を待っている動物たちの写真集
+            </Typography>
+          </Box>
 
-        {/* 動物種別フィルター */}
-        <ToggleButtonGroup
-          value={animalType}
-          exclusive
-          onChange={(e, value) => value && setAnimalType(value)}
-          aria-label="動物種別"
-          sx={{ mb: 2 }}
-        >
-          <ToggleButton value="all" aria-label="すべて">
-            🐾 すべて
-          </ToggleButton>
-          <ToggleButton value="cat" aria-label="猫">
-            🐱 猫
-          </ToggleButton>
-          <ToggleButton value="dog" aria-label="犬">
-            🐶 犬
-          </ToggleButton>
-        </ToggleButtonGroup>
+          {/* Filter tabs */}
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <ToggleButtonGroup
+              value={animalType}
+              exclusive
+              onChange={(_, value) => value && setAnimalType(value)}
+              size="small"
+              sx={{
+                '& .MuiToggleButton-root': {
+                  border: '1px solid #DBDBDB',
+                  borderRadius: '6px !important',
+                  px: 2,
+                  py: 0.75,
+                  fontSize: '0.8125rem',
+                  color: '#262626',
+                  fontWeight: 500,
+                  '&.Mui-selected': {
+                    backgroundColor: '#262626',
+                    color: '#FFFFFF',
+                    borderColor: '#262626',
+                  },
+                  '&:hover': { backgroundColor: '#F5F5F5' },
+                },
+              }}
+            >
+              <ToggleButton value="all">すべて</ToggleButton>
+              <ToggleButton value="cat">🐱 猫</ToggleButton>
+              <ToggleButton value="dog">🐶 犬</ToggleButton>
+            </ToggleButtonGroup>
 
-        <Typography variant="body2" color="text.secondary">
-          全 {animals.length} 匹
-        </Typography>
+            {!loading && (
+              <Typography sx={{ fontSize: '0.8125rem', color: '#8E8E8E' }}>
+                {animals.length}匹
+              </Typography>
+            )}
+          </Box>
+        </Box>
       </Box>
 
-      {/* ローディング */}
+      {/* Grid */}
       {loading ? (
-        <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
-          <CircularProgress />
+        <Box sx={{ display: 'flex', justifyContent: 'center', py: 10 }}>
+          <Box sx={{ textAlign: 'center' }}>
+            <CircularProgress size={24} thickness={2} sx={{ color: '#262626', mb: 2 }} />
+            <Typography sx={{ fontSize: '0.875rem', color: '#8E8E8E' }}>読み込み中...</Typography>
+          </Box>
         </Box>
       ) : animals.length === 0 ? (
-        <Box sx={{ textAlign: 'center', py: 8 }}>
-          <Typography variant="h6" color="text.secondary">
+        <Box sx={{ textAlign: 'center', py: 10 }}>
+          <Typography sx={{ fontSize: '0.9375rem', color: '#8E8E8E' }}>
             表示できる画像がありません
           </Typography>
         </Box>
       ) : (
-        /* Instagram風グリッド */
-        <ImageList
-          variant="masonry"
-          cols={window.innerWidth < 600 ? 2 : window.innerWidth < 960 ? 3 : 4}
-          gap={16}
+        /* Instagram square grid — strict 3px gap, squares */
+        <Box
+          sx={{
+            display: 'grid',
+            gap: '3px',
+            gridTemplateColumns: {
+              xs: 'repeat(3, 1fr)',
+              sm: 'repeat(4, 1fr)',
+              md: 'repeat(5, 1fr)',
+              lg: 'repeat(6, 1fr)',
+              xl: 'repeat(7, 1fr)',
+            },
+          }}
         >
           {animals.map((animal) => {
             const urgency = getUrgencyLevel(animal.deadline_date)
             const mainImage = Array.isArray(animal.images) ? animal.images[0] : null
-
             if (!mainImage) return null
 
             return (
-              <ImageListItem
+              <Box
                 key={animal.id}
-                sx={{
-                  cursor: 'pointer',
-                  borderRadius: 2,
-                  overflow: 'hidden',
-                  transition: 'transform 0.2s ease-in-out',
-                  '&:hover': {
-                    transform: 'scale(1.05)',
-                    '& .MuiImageListItemBar-root': {
-                      opacity: 1
-                    }
-                  }
-                }}
                 onClick={() => handleImageClick(animal)}
+                sx={{
+                  position: 'relative',
+                  width: '100%',
+                  paddingBottom: '100%',
+                  overflow: 'hidden',
+                  cursor: 'pointer',
+                  backgroundColor: '#EFEFEF',
+                  borderRadius: '2px',
+                }}
               >
-                <img
+                <Image
                   src={mainImage}
                   alt={animal.name || '保護動物'}
-                  loading="lazy"
-                  style={{
-                    borderRadius: 8,
-                    objectFit: 'cover',
-                    width: '100%',
-                    height: 'auto'
-                  }}
+                  fill
+                  sizes="(max-width: 600px) 33vw, (max-width: 960px) 25vw, 17vw"
+                  style={{ objectFit: 'cover' }}
                 />
-                <ImageListItemBar
-                  title={animal.name || '名前未定'}
-                  subtitle={
-                    <Box component="span">
-                      {animal.animal_type === 'cat' ? '🐱' : '🐶'}{' '}
-                      {animal.municipality?.name || '保護センター'}
-                    </Box>
-                  }
-                  actionIcon={
-                    urgency === 'urgent' ? (
-                      <IconButton sx={{ color: 'error.main' }}>
-                        <AccessTime />
-                      </IconButton>
-                    ) : null
-                  }
+                {/* Warm tint */}
+                <Box
                   sx={{
-                    opacity: 0,
-                    transition: 'opacity 0.2s ease-in-out',
-                    background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)'
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(135deg, rgba(255,200,150,0.07) 0%, rgba(255,240,210,0.03) 100%)',
+                    pointerEvents: 'none',
+                    zIndex: 1,
                   }}
                 />
-              </ImageListItem>
+                {/* Urgency badge */}
+                {urgency === 'urgent' && (
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      top: 5,
+                      left: 5,
+                      zIndex: 3,
+                      px: 1,
+                      py: '2px',
+                      backgroundColor: 'rgba(255,255,255,0.92)',
+                      borderRadius: '3px',
+                      border: '1px solid #FFBEC2',
+                    }}
+                  >
+                    <Typography sx={{ fontSize: '0.625rem', fontWeight: 700, color: '#ED4956', lineHeight: 1.4 }}>
+                      緊急
+                    </Typography>
+                  </Box>
+                )}
+                {/* Hover overlay */}
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'rgba(0,0,0,0)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: 2,
+                    opacity: 0,
+                    transition: 'all 0.15s ease',
+                    zIndex: 4,
+                    '&:hover': {
+                      background: 'rgba(0,0,0,0.3)',
+                      opacity: 1,
+                    },
+                  }}
+                >
+                  <FavoriteBorder sx={{ color: 'white', fontSize: 22 }} />
+                  <BookmarkBorder sx={{ color: 'white', fontSize: 22 }} />
+                </Box>
+              </Box>
             )
           })}
-        </ImageList>
+        </Box>
       )}
 
-      {/* 詳細ダイアログ */}
+      {/* Detail dialog — Instagram lightbox style */}
       <Dialog
         open={dialogOpen}
         onClose={handleCloseDialog}
         maxWidth="md"
         fullWidth
+        PaperProps={{
+          sx: {
+            border: '1px solid #DBDBDB',
+            borderRadius: '8px',
+            boxShadow: '0 4px 30px rgba(0,0,0,0.12)',
+            overflow: 'hidden',
+          },
+        }}
       >
         {selectedAnimal && (
           <DialogContent sx={{ p: 0 }}>
-            <Card elevation={0}>
-              {/* 画像 */}
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' } }}>
+              {/* Left: photo */}
               {selectedAnimal.images && selectedAnimal.images[0] && (
-                <CardMedia
-                  component="img"
-                  image={selectedAnimal.images[0]}
-                  alt={selectedAnimal.name || '保護動物'}
-                  sx={{ maxHeight: 500, objectFit: 'contain', backgroundColor: 'black' }}
-                />
+                <Box
+                  sx={{
+                    flex: { sm: '0 0 50%' },
+                    position: 'relative',
+                    minHeight: { xs: 260, sm: 420 },
+                    backgroundColor: '#0A0A0A',
+                  }}
+                >
+                  <Image
+                    src={selectedAnimal.images[0]}
+                    alt={selectedAnimal.name || '保護動物'}
+                    fill
+                    style={{ objectFit: 'contain' }}
+                  />
+                </Box>
               )}
 
-              {/* 詳細情報 */}
-              <CardContent sx={{ p: 3 }}>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
-                  <Box>
-                    <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 1 }}>
+              {/* Right: info */}
+              <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                {/* Header */}
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    px: 2,
+                    py: 1.5,
+                    borderBottom: '1px solid #EFEFEF',
+                    gap: 1.5,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      width: 36,
+                      height: 36,
+                      borderRadius: '50%',
+                      backgroundColor: '#F5F5F5',
+                      border: '1.5px solid #DBDBDB',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '1.25rem',
+                    }}
+                  >
+                    {selectedAnimal.animal_type === 'dog' ? '🐶' : '🐱'}
+                  </Box>
+                  <Box sx={{ flex: 1 }}>
+                    <Typography sx={{ fontSize: '0.875rem', fontWeight: 600, color: '#262626' }}>
                       {selectedAnimal.name || '名前未定'}
                     </Typography>
-                    <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-                      <Chip
-                        icon={<Pets />}
-                        label={selectedAnimal.animal_type === 'cat' ? '猫' : '犬'}
-                        color="primary"
-                        size="small"
-                      />
-                      {selectedAnimal.gender && (
-                        <Chip
-                          label={selectedAnimal.gender === 'male' ? 'オス' : 'メス'}
-                          size="small"
-                        />
-                      )}
-                      {selectedAnimal.age_estimate && (
-                        <Chip label={selectedAnimal.age_estimate} size="small" />
-                      )}
-                      {selectedAnimal.breed && (
-                        <Chip label={selectedAnimal.breed} size="small" />
-                      )}
-                    </Box>
-                  </Box>
-                  <IconButton onClick={handleCloseDialog}>
-                    <Close />
-                  </IconButton>
-                </Box>
-
-                {/* 保護センター情報 */}
-                {selectedAnimal.municipality && (
-                  <Box sx={{ mb: 2, p: 2, backgroundColor: 'background.default', borderRadius: 2 }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                      <LocationOn sx={{ mr: 1, color: 'primary.main' }} />
-                      <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                        {selectedAnimal.municipality.name}
-                      </Typography>
-                    </Box>
-                    {selectedAnimal.region && (
-                      <Typography variant="body2" color="text.secondary">
-                        {selectedAnimal.region.name}
+                    {selectedAnimal.municipality && (
+                      <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E' }}>
+                        {selectedAnimal.region?.name} {selectedAnimal.municipality.name}
                       </Typography>
                     )}
                   </Box>
-                )}
+                  <IconButton size="small" onClick={handleCloseDialog} sx={{ color: '#262626' }}>
+                    <Close sx={{ fontSize: 20 }} />
+                  </IconButton>
+                </Box>
 
-                {/* 特徴・性格 */}
-                {(selectedAnimal.personality || selectedAnimal.color || selectedAnimal.size) && (
-                  <Box sx={{ mb: 2 }}>
-                    <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1 }}>
-                      特徴
-                    </Typography>
-                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                      {selectedAnimal.color && (
-                        <Typography variant="body1">
-                          <strong>毛色:</strong> {selectedAnimal.color}
-                        </Typography>
-                      )}
-                      {selectedAnimal.size && (
-                        <Typography variant="body1">
-                          <strong>体格:</strong> {selectedAnimal.size}
-                        </Typography>
-                      )}
-                      {selectedAnimal.personality && (
-                        <Typography variant="body1">
-                          <strong>性格:</strong> {selectedAnimal.personality}
-                        </Typography>
-                      )}
+                {/* Body */}
+                <Box sx={{ flex: 1, p: 2.5, overflowY: 'auto' }}>
+                  {/* Chips */}
+                  <Box sx={{ display: 'flex', gap: 0.75, flexWrap: 'wrap', mb: 2 }}>
+                    {selectedAnimal.gender && (
+                      <Box component="span" sx={{ px: 1.5, py: '3px', borderRadius: '4px', backgroundColor: '#F5F5F5', fontSize: '0.75rem', color: '#8E8E8E', fontWeight: 500 }}>
+                        {selectedAnimal.gender === 'male' ? 'オス' : 'メス'}
+                      </Box>
+                    )}
+                    {selectedAnimal.age_estimate && (
+                      <Box component="span" sx={{ px: 1.5, py: '3px', borderRadius: '4px', backgroundColor: '#F5F5F5', fontSize: '0.75rem', color: '#8E8E8E', fontWeight: 500 }}>
+                        {selectedAnimal.age_estimate}
+                      </Box>
+                    )}
+                    {selectedAnimal.breed && (
+                      <Box component="span" sx={{ px: 1.5, py: '3px', borderRadius: '4px', backgroundColor: '#F5F5F5', fontSize: '0.75rem', color: '#8E8E8E', fontWeight: 500 }}>
+                        {selectedAnimal.breed}
+                      </Box>
+                    )}
+                    {selectedAnimal.color && (
+                      <Box component="span" sx={{ px: 1.5, py: '3px', borderRadius: '4px', backgroundColor: '#F5F5F5', fontSize: '0.75rem', color: '#8E8E8E', fontWeight: 500 }}>
+                        {selectedAnimal.color}
+                      </Box>
+                    )}
+                  </Box>
+
+                  {/* Personality */}
+                  {selectedAnimal.personality && (
+                    <Box sx={{ mb: 2 }}>
+                      <Typography sx={{ fontSize: '0.875rem', color: '#262626', lineHeight: 1.6 }}>
+                        <Box component="span" sx={{ fontWeight: 600 }}>{selectedAnimal.name || '名前未定'} </Box>
+                        {selectedAnimal.personality}
+                      </Typography>
                     </Box>
-                  </Box>
-                )}
+                  )}
 
-                {/* 期限 */}
-                {selectedAnimal.deadline_date && (
-                  <Box sx={{ mb: 2 }}>
-                    <Chip
-                      icon={<AccessTime />}
-                      label={`期限: ${new Date(selectedAnimal.deadline_date).toLocaleDateString('ja-JP')}`}
-                      color={getUrgencyLevel(selectedAnimal.deadline_date) === 'urgent' ? 'error' : 'default'}
-                    />
-                  </Box>
-                )}
+                  {/* Deadline */}
+                  {selectedAnimal.deadline_date && (
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75, mb: 2 }}>
+                      <AccessTime sx={{ fontSize: 14, color: '#8E8E8E' }} />
+                      <Typography sx={{ fontSize: '0.8125rem', color: '#8E8E8E' }}>
+                        期限 {new Date(selectedAnimal.deadline_date).toLocaleDateString('ja-JP')}
+                      </Typography>
+                    </Box>
+                  )}
 
-                {/* アクションボタン */}
-                <Box sx={{ display: 'flex', gap: 2, mt: 3 }}>
-                  <Button
-                    variant="contained"
-                    fullWidth
-                    component={Link}
-                    href={`/tails/${selectedAnimal.id}`}
-                    size="large"
-                  >
-                    詳細を見る
-                  </Button>
-                  {selectedAnimal.source_url && (
-                    <Button
-                      variant="outlined"
-                      fullWidth
-                      href={selectedAnimal.source_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      size="large"
-                    >
-                      施設サイトへ
-                    </Button>
+                  {/* Location */}
+                  {selectedAnimal.municipality && (
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75, mb: 3 }}>
+                      <LocationOn sx={{ fontSize: 14, color: '#8E8E8E' }} />
+                      <Typography sx={{ fontSize: '0.8125rem', color: '#8E8E8E' }}>
+                        {selectedAnimal.region?.name} {selectedAnimal.municipality.name}
+                      </Typography>
+                    </Box>
                   )}
                 </Box>
-              </CardContent>
-            </Card>
+
+                {/* Actions */}
+                <Box sx={{ borderTop: '1px solid #EFEFEF' }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', px: 1, pt: 0.75, pb: 0.5 }}>
+                    <IconButton size="small" sx={{ color: '#262626', p: '8px' }}>
+                      <FavoriteBorder sx={{ fontSize: 24 }} />
+                    </IconButton>
+                    <Box sx={{ flex: 1 }} />
+                    <IconButton size="small" sx={{ color: '#262626', p: '8px' }}>
+                      <BookmarkBorder sx={{ fontSize: 24 }} />
+                    </IconButton>
+                  </Box>
+                  <Box sx={{ px: 2, pb: 2, display: 'flex', gap: 1 }}>
+                    <Button
+                      variant="contained"
+                      fullWidth
+                      component={Link}
+                      href={`/tails/${selectedAnimal.id}`}
+                      sx={{
+                        fontSize: '0.875rem',
+                        py: 1,
+                        backgroundColor: '#262626',
+                        '&:hover': { backgroundColor: '#000000' },
+                      }}
+                    >
+                      詳細を見る
+                    </Button>
+                    {selectedAnimal.source_url && (
+                      <Button
+                        variant="outlined"
+                        fullWidth
+                        href={selectedAnimal.source_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        sx={{
+                          fontSize: '0.875rem',
+                          py: 1,
+                          borderColor: '#DBDBDB',
+                          color: '#262626',
+                          '&:hover': { borderColor: '#A8A8A8', backgroundColor: 'transparent' },
+                        }}
+                      >
+                        施設サイト
+                      </Button>
+                    )}
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
           </DialogContent>
         )}
       </Dialog>

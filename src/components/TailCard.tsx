@@ -11,12 +11,15 @@ import {
   Box,
   Grid,
   Avatar,
-  Divider
+  Divider,
+  IconButton
 } from '@mui/material'
 import {
   AccessTime,
   LocationOn,
+  FavoriteBorder,
   Favorite,
+  BookmarkBorder,
   Visibility
 } from '@mui/icons-material'
 
@@ -27,378 +30,350 @@ interface TailCardProps {
 }
 
 export default function TailCard({ tail, showRegion = true, viewMode = 'card' }: TailCardProps) {
-  // 緊急度によるスタイル設定
-  const getUrgencyStyle = () => {
-    switch (tail.urgency_level) {
-      case 'urgent':
-        return 'emergency-urgent'
-      case 'warning':
-        return 'emergency-warning'
-      case 'caution':
-        return 'emergency-caution'
-      default:
-        return 'bg-white'
-    }
-  }
-
-  // 残り日数の表示
+  // Urgency badge label
   const formatDaysRemaining = () => {
     if (!tail.days_remaining) return null
-    
-    if (tail.days_remaining < 0) {
-      return '期限切れ'
-    } else if (tail.days_remaining === 0) {
-      return '今日まで！'
-    } else {
-      return `あと${tail.days_remaining}日`
-    }
+    if (tail.days_remaining < 0) return '期限切れ'
+    if (tail.days_remaining === 0) return '今日まで'
+    return `あと${tail.days_remaining}日`
   }
 
-  // 画像URL（エラー時のフォールバック付き）
-  const imageUrl = tail.images && tail.images.length > 0 
-    ? tail.images[0] 
+  const imageUrl = tail.images && tail.images.length > 0
+    ? tail.images[0]
     : null
 
-  const getUrgencyColor = () => {
+  const getUrgencyBadgeClass = () => {
     switch (tail.urgency_level) {
-      case 'urgent': return 'error'
-      case 'warning': return 'warning'
-      case 'caution': return 'secondary'
-      default: return 'default'
+      case 'urgent': return 'urgency-badge urgent'
+      case 'warning': return 'urgency-badge warning'
+      case 'caution': return 'urgency-badge caution'
+      default: return null
     }
   }
 
-  // Instagram風表示
+  const urgencyBadgeClass = getUrgencyBadgeClass()
+
+  // ===== Instagram grid/square card =====
   if (viewMode === 'instagram') {
     return (
-      <Card 
-        sx={{ 
-          height: '100%', 
+      <Box
+        sx={{
           position: 'relative',
-          borderRadius: 3,
+          width: '100%',
+          paddingBottom: '100%',  // enforce 1:1
           overflow: 'hidden',
-          '&:hover .overlay': {
-            opacity: 1
-          },
-          '&:hover': {
-            transform: 'scale(1.02)',
-            transition: 'transform 0.3s ease'
-          }
+          borderRadius: '4px',
+          backgroundColor: '#EFEFEF',
+          cursor: 'pointer',
         }}
       >
-        {/* メイン画像 */}
-        <Box
-          sx={{
-            width: '100%',
-            paddingBottom: '100%', // 1:1のアスペクト比
-            position: 'relative',
-            overflow: 'hidden',
-            background: 'linear-gradient(135deg, #FFE4B5 0%, #FFF8DC 100%)'
-          }}
-        >
-          {imageUrl ? (
-            <Image
-              src={imageUrl}
-              alt={tail.name || '保護動物'}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              style={{
-                objectFit: 'cover'
-              }}
-              priority={false}
-            />
-          ) : (
-            <Box
-              sx={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '4rem',
-                color: 'primary.main',
-                opacity: 0.7
-              }}
-            >
-              {tail.animal_type === 'dog' ? '🐶' : '🐱'}
-            </Box>
-          )}
-
-          {/* 右上バッジ - 緊急度 */}
-          {tail.urgency_level !== 'normal' && tail.days_remaining !== null && (
-            <Chip
-              icon={<AccessTime />}
-              label={formatDaysRemaining()}
-              color={getUrgencyColor() as 'error' | 'warning' | 'secondary' | 'default'}
-              size="small"
-              sx={{
-                position: 'absolute',
-                top: 8,
-                right: 8,
-                fontWeight: 'bold',
-                backdropFilter: 'blur(8px)',
-                backgroundColor: 'rgba(255, 255, 255, 0.9)'
-              }}
-            />
-          )}
-
-          {/* 左上バッジ - 譲渡決定 */}
-          {tail.transfer_decided && (
-            <Chip
-              icon={<Favorite />}
-              label="譲渡決定"
-              color="success"
-              size="small"
-              sx={{
-                position: 'absolute',
-                top: 8,
-                left: 8,
-                fontWeight: 'bold',
-                backdropFilter: 'blur(8px)',
-                backgroundColor: 'rgba(255, 255, 255, 0.9)'
-              }}
-            />
-          )}
-
-          {/* ホバー時のオーバーレイ */}
+        {/* Photo */}
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt={tail.name || '保護動物'}
+            fill
+            sizes="(max-width: 600px) 33vw, (max-width: 900px) 25vw, 20vw"
+            style={{ objectFit: 'cover' }}
+          />
+        ) : (
           <Box
-            className="overlay"
             sx={{
               position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)',
-              opacity: 0,
-              transition: 'opacity 0.3s ease',
+              inset: 0,
               display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'flex-end',
-              p: 2
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '3rem',
+              backgroundColor: '#F5F5F5',
+              color: '#A8A8A8',
             }}
           >
-            {/* 基本情報 */}
-            <Box sx={{ mb: 2 }}>
-              <Typography variant="h6" sx={{ color: 'white', fontWeight: 'bold', mb: 1 }}>
-                {tail.name || '名前未定'}
-              </Typography>
-              
-              <Box sx={{ display: 'flex', gap: 1, mb: 1, flexWrap: 'wrap' }}>
-                <Chip 
-                  label={tail.breed || 'ミックス'} 
-                  size="small" 
-                  sx={{ backgroundColor: 'rgba(255,255,255,0.9)', fontSize: '0.75rem' }}
-                />
-                <Chip 
-                  label={tail.age_estimate || '年齢不明'} 
-                  size="small" 
-                  sx={{ backgroundColor: 'rgba(255,255,255,0.9)', fontSize: '0.75rem' }}
-                />
-                <Chip 
-                  label={tail.gender === 'male' ? 'オス' : tail.gender === 'female' ? 'メス' : '性別不明'} 
-                  size="small" 
-                  sx={{ backgroundColor: 'rgba(255,255,255,0.9)', fontSize: '0.75rem' }}
-                />
-              </Box>
+            {tail.animal_type === 'dog' ? '🐶' : '🐱'}
+          </Box>
+        )}
 
-              {showRegion && (
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                  <LocationOn sx={{ fontSize: 16, mr: 0.5, color: 'white' }} />
-                  <Typography variant="body2" sx={{ color: 'white' }}>
-                    {tail.region?.name} {tail.municipality?.name}
-                  </Typography>
-                </Box>
-              )}
+        {/* Warm photo tint */}
+        <Box
+          sx={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(135deg, rgba(255,200,150,0.07) 0%, rgba(255,240,210,0.03) 100%)',
+            pointerEvents: 'none',
+            zIndex: 1,
+          }}
+        />
 
-              {tail.deadline_date && (
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                  <AccessTime sx={{ fontSize: 16, mr: 0.5, color: 'white' }} />
-                  <Typography variant="body2" sx={{ color: 'white' }}>
-                    期限: {new Date(tail.deadline_date).toLocaleDateString('ja-JP')}
-                  </Typography>
-                </Box>
-              )}
-            </Box>
+        {/* Urgency badge — top left */}
+        {urgencyBadgeClass && tail.days_remaining !== null && (
+          <Box sx={{ position: 'absolute', top: 6, left: 6, zIndex: 3 }}>
+            <span className={urgencyBadgeClass}>
+              {formatDaysRemaining()}
+            </span>
+          </Box>
+        )}
 
-            {/* 詳細ボタン */}
-            <Button
-              component={Link}
-              href={`/tails/${tail.id}`}
-              variant="contained"
-              startIcon={<Visibility />}
-              size="small"
-              fullWidth
-              sx={{
-                backgroundColor: 'primary.main',
-                '&:hover': {
-                  backgroundColor: 'primary.dark'
-                }
-              }}
-            >
-              詳細を見る
-            </Button>
+        {/* Transfer decided — top right */}
+        {tail.transfer_decided && (
+          <Box sx={{ position: 'absolute', top: 6, right: 6, zIndex: 3 }}>
+            <Favorite sx={{ fontSize: 18, color: '#ED4956', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.3))' }} />
+          </Box>
+        )}
+
+        {/* Hover overlay */}
+        <Box
+          className="ig-overlay"
+          component={Link}
+          href={`/tails/${tail.id}`}
+          sx={{
+            position: 'absolute',
+            inset: 0,
+            background: 'rgba(0,0,0,0)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '20px',
+            opacity: 0,
+            transition: 'all 0.15s ease',
+            zIndex: 4,
+            textDecoration: 'none',
+            '&:hover': {
+              background: 'rgba(0,0,0,0.3)',
+              opacity: 1,
+            },
+          }}
+        >
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'white', fontWeight: 700, fontSize: '0.9rem' }}>
+            <FavoriteBorder sx={{ fontSize: 22 }} />
+          </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'white', fontWeight: 700, fontSize: '0.9rem' }}>
+            <Visibility sx={{ fontSize: 22 }} />
           </Box>
         </Box>
-      </Card>
+      </Box>
     )
   }
 
-  // カード表示（従来通り）
+  // ===== Feed card (below grid, Instagram feed post style) =====
   return (
-    <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-      <Box sx={{ display: 'flex', p: 2 }}>
-        {/* 左側: 画像 */}
-        <Box sx={{ mr: 2, position: 'relative' }}>
-          <Avatar
-            sx={{
-              width: 120,
-              height: 120,
-              bgcolor: 'secondary.light',
-              fontSize: '3rem'
-            }}
-            src={imageUrl || undefined}
+    <Card
+      sx={{
+        border: '1px solid #DBDBDB',
+        borderRadius: '8px',
+        boxShadow: 'none',
+        overflow: 'hidden',
+        backgroundColor: '#FFFFFF',
+      }}
+    >
+      {/* Card header: avatar + name + location */}
+      <Box sx={{ display: 'flex', alignItems: 'center', px: 2, py: 1.5, gap: 1.5 }}>
+        <Avatar
+          src={imageUrl || undefined}
+          sx={{
+            width: 36,
+            height: 36,
+            border: '1.5px solid #DBDBDB',
+            fontSize: '1.25rem',
+            backgroundColor: '#F5F5F5',
+          }}
+        >
+          {tail.animal_type === 'dog' ? '🐶' : '🐱'}
+        </Avatar>
+        <Box sx={{ flex: 1, minWidth: 0 }}>
+          <Typography
+            variant="body2"
+            sx={{ fontWeight: 600, color: '#262626', lineHeight: 1.3 }}
+            noWrap
           >
-            🐱
-          </Avatar>
-          
-          {/* 緊急度バッジ */}
-          {tail.urgency_level !== 'normal' && tail.days_remaining !== null && (
-            <Chip
-              icon={<AccessTime />}
-              label={formatDaysRemaining()}
-              color={getUrgencyColor() as 'error' | 'warning' | 'secondary' | 'default'}
-              size="small"
-              sx={{
-                position: 'absolute',
-                top: -8,
-                right: -8,
-                fontWeight: 'bold'
-              }}
-            />
-          )}
-
-          {/* 譲渡決定バッジ */}
-          {tail.transfer_decided && (
-            <Chip
-              icon={<Favorite />}
-              label="譲渡決定"
-              color="success"
-              size="small"
-              sx={{
-                position: 'absolute',
-                top: -8,
-                left: -8,
-                fontWeight: 'bold'
-              }}
-            />
-          )}
-        </Box>
-
-        {/* 右側: 基本情報 */}
-        <Box sx={{ flexGrow: 1, minWidth: 0 }}>
-          {/* 名前とステータス */}
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 1 }}>
-            <Typography variant="h6" component="h3" sx={{ fontWeight: 'bold', color: 'primary.main' }} noWrap>
-              {tail.name || '名前未定'}
-            </Typography>
-            {tail.days_remaining !== null && (
-              <Chip
-                label={formatDaysRemaining()}
-                color={getUrgencyColor() as 'error' | 'warning' | 'secondary' | 'default'}
-                size="small"
-                variant="outlined"
-              />
-            )}
-          </Box>
-
-          {/* 基本情報グリッド */}
-          <Grid container spacing={1} sx={{ mb: 2 }}>
-            <Grid item xs={6}>
-              <Typography variant="caption" color="text.secondary">品種</Typography>
-              <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-                {tail.breed || 'ミックス'}
-              </Typography>
-            </Grid>
-            <Grid item xs={6}>
-              <Typography variant="caption" color="text.secondary">年齢</Typography>
-              <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-                {tail.age_estimate || '不明'}
-              </Typography>
-            </Grid>
-            <Grid item xs={6}>
-              <Typography variant="caption" color="text.secondary">性別</Typography>
-              <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-                {tail.gender === 'male' ? 'オス' :
-                 tail.gender === 'female' ? 'メス' : '不明'}
-              </Typography>
-            </Grid>
-            <Grid item xs={6}>
-              <Typography variant="caption" color="text.secondary">毛色</Typography>
-              <Typography variant="body2" sx={{ fontWeight: 'medium' }}>
-                {tail.color || '不明'}
-              </Typography>
-            </Grid>
-          </Grid>
-
-          {/* 地域情報 */}
+            {tail.name || '名前未定'}
+          </Typography>
           {showRegion && (
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-              <LocationOn sx={{ fontSize: 16, mr: 0.5, color: 'text.secondary' }} />
-              <Typography variant="body2" color="text.secondary">
-                {tail.region?.name} {tail.municipality?.name}
-              </Typography>
-            </Box>
-          )}
-
-          {/* 期限日 */}
-          {tail.deadline_date && (
-            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-              <AccessTime sx={{ fontSize: 16, mr: 0.5, color: 'text.secondary' }} />
-              <Typography variant="body2" color="text.secondary">
-                期限: {new Date(tail.deadline_date).toLocaleDateString('ja-JP')}
-              </Typography>
-            </Box>
+            <Typography variant="caption" sx={{ color: '#8E8E8E', lineHeight: 1.2 }}>
+              {tail.region?.name} {tail.municipality?.name}
+            </Typography>
           )}
         </Box>
+        {/* Urgency badge */}
+        {urgencyBadgeClass && tail.days_remaining !== null && (
+          <span className={urgencyBadgeClass}>
+            <AccessTime sx={{ fontSize: 12 }} />
+            {formatDaysRemaining()}
+          </span>
+        )}
       </Box>
 
-      <CardContent sx={{ flexGrow: 1, pt: 0 }}>
-        {/* 性格 */}
-        {tail.personality && (
-          <>
-            <Divider sx={{ mb: 1 }} />
-            <Typography variant="body2" color="text.secondary" className="line-clamp-2">
-              {tail.personality}
-            </Typography>
-          </>
+      {/* Square photo */}
+      <Box
+        component={Link}
+        href={`/tails/${tail.id}`}
+        sx={{
+          display: 'block',
+          width: '100%',
+          paddingBottom: '100%',
+          position: 'relative',
+          overflow: 'hidden',
+          backgroundColor: '#EFEFEF',
+        }}
+      >
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt={tail.name || '保護動物'}
+            fill
+            sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
+            style={{ objectFit: 'cover' }}
+          />
+        ) : (
+          <Box
+            sx={{
+              position: 'absolute',
+              inset: 0,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '4rem',
+              color: '#C7C7C7',
+            }}
+          >
+            {tail.animal_type === 'dog' ? '🐶' : '🐱'}
+          </Box>
         )}
-      </CardContent>
+        {/* Warm tint */}
+        <Box
+          sx={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(135deg, rgba(255,200,150,0.07) 0%, rgba(255,240,210,0.03) 100%)',
+            pointerEvents: 'none',
+          }}
+        />
+        {/* Transfer decided overlay badge */}
+        {tail.transfer_decided && (
+          <Chip
+            icon={<Favorite sx={{ fontSize: '14px !important', color: '#ED4956 !important' }} />}
+            label="譲渡決定"
+            size="small"
+            sx={{
+              position: 'absolute',
+              top: 10,
+              left: 10,
+              backgroundColor: 'rgba(255,255,255,0.92)',
+              border: '1px solid #DBDBDB',
+              fontSize: '0.6875rem',
+              fontWeight: 600,
+              height: 24,
+              backdropFilter: 'blur(4px)',
+            }}
+          />
+        )}
+      </Box>
 
-      <CardActions sx={{ justifyContent: 'space-between', p: 2, flexWrap: 'wrap', gap: 1 }}>
-        <Box>
-          {tail.transfer_decided && (
-            <Chip
-              icon={<Favorite />}
-              label="譲渡決定"
-              color="success"
-              size="small"
-              variant="outlined"
-            />
+      {/* Action bar */}
+      <Box sx={{ display: 'flex', alignItems: 'center', px: 1, pt: 1, pb: 0.5 }}>
+        <IconButton size="small" sx={{ color: '#262626', p: '8px' }}>
+          <FavoriteBorder sx={{ fontSize: 24 }} />
+        </IconButton>
+        <Box sx={{ flex: 1 }} />
+        <IconButton size="small" sx={{ color: '#262626', p: '8px' }}>
+          <BookmarkBorder sx={{ fontSize: 24 }} />
+        </IconButton>
+      </Box>
+
+      {/* Metadata */}
+      <Box sx={{ px: 2, pb: 1.5 }}>
+        {/* Breed / age / gender chips */}
+        <Box sx={{ display: 'flex', gap: 0.75, mb: 1, flexWrap: 'wrap' }}>
+          {tail.breed && (
+            <Box
+              component="span"
+              sx={{
+                display: 'inline-block',
+                px: '8px',
+                py: '2px',
+                borderRadius: '4px',
+                backgroundColor: '#F5F5F5',
+                fontSize: '0.6875rem',
+                color: '#8E8E8E',
+                fontWeight: 500,
+              }}
+            >
+              {tail.breed}
+            </Box>
+          )}
+          {tail.age_estimate && (
+            <Box
+              component="span"
+              sx={{
+                display: 'inline-block',
+                px: '8px',
+                py: '2px',
+                borderRadius: '4px',
+                backgroundColor: '#F5F5F5',
+                fontSize: '0.6875rem',
+                color: '#8E8E8E',
+                fontWeight: 500,
+              }}
+            >
+              {tail.age_estimate}
+            </Box>
+          )}
+          {tail.gender && (
+            <Box
+              component="span"
+              sx={{
+                display: 'inline-block',
+                px: '8px',
+                py: '2px',
+                borderRadius: '4px',
+                backgroundColor: '#F5F5F5',
+                fontSize: '0.6875rem',
+                color: '#8E8E8E',
+                fontWeight: 500,
+              }}
+            >
+              {tail.gender === 'male' ? 'オス' : tail.gender === 'female' ? 'メス' : '性別不明'}
+            </Box>
           )}
         </Box>
-        <Box sx={{ display: 'flex', gap: 1 }}>
+
+        {/* Personality snippet */}
+        {tail.personality && (
+          <Typography
+            variant="body2"
+            sx={{ fontSize: '0.8125rem', color: '#262626', lineHeight: 1.5, mb: 1 }}
+            className="line-clamp-2"
+          >
+            <Box component="span" sx={{ fontWeight: 600 }}>{tail.name || '名前未定'} </Box>
+            {tail.personality}
+          </Typography>
+        )}
+
+        {/* Deadline */}
+        {tail.deadline_date && (
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, mb: 1 }}>
+            <AccessTime sx={{ fontSize: 13, color: '#8E8E8E' }} />
+            <Typography variant="caption" sx={{ color: '#8E8E8E' }}>
+              期限 {new Date(tail.deadline_date).toLocaleDateString('ja-JP')}
+            </Typography>
+          </Box>
+        )}
+
+        {/* CTA */}
+        <Box sx={{ display: 'flex', gap: 1, mt: 1.5 }}>
           <Button
             component={Link}
             href={`/tails/${tail.id}`}
             variant="contained"
-            startIcon={<Visibility />}
             size="small"
+            sx={{
+              flex: 1,
+              fontSize: '0.8rem',
+              py: 0.75,
+              backgroundColor: '#262626',
+              '&:hover': { backgroundColor: '#000' },
+            }}
           >
-            詳細
+            詳細を見る
           </Button>
           {tail.source_url && (
             <Button
@@ -407,12 +382,19 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
               rel="noopener noreferrer"
               variant="outlined"
               size="small"
+              sx={{
+                fontSize: '0.8rem',
+                py: 0.75,
+                borderColor: '#DBDBDB',
+                color: '#262626',
+                '&:hover': { borderColor: '#A8A8A8', backgroundColor: 'transparent' },
+              }}
             >
               施設サイト
             </Button>
           )}
         </Box>
-      </CardActions>
+      </Box>
     </Card>
   )
 }

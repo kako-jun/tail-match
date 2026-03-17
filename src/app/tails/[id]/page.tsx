@@ -63,8 +63,24 @@ export default function TailDetailPage({ params }: TailDetailPageProps) {
     )
   }
 
-  if (error || !tail) {
+  if (!tail) {
     notFound()
+  }
+
+  if (error) {
+    return (
+      <div className="container py-8">
+        <div className="flex justify-center items-center min-h-96">
+          <div className="text-center">
+            <p className="text-red-600 mb-4">{error}</p>
+            <Link href="/tails" className="inline-flex items-center text-denim hover:underline">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              一覧に戻る
+            </Link>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   // 緊急度による背景色
@@ -79,8 +95,8 @@ export default function TailDetailPage({ params }: TailDetailPageProps) {
 
   // 残り日数の表示
   const formatDaysRemaining = () => {
-    if (!tail.days_remaining) return null
-    
+    if (tail.days_remaining == null) return null
+
     if (tail.days_remaining < 0) {
       return '期限切れ'
     } else if (tail.days_remaining === 0) {

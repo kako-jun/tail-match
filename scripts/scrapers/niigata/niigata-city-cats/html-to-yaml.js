@@ -26,11 +26,21 @@ function getLatestHtmlFile() {
     'html',
     CONFIG.municipality.replace('/', path.sep)
   );
+
+  if (!fs.existsSync(htmlDir)) {
+    throw new Error(`HTMLディレクトリが存在しません: ${htmlDir}\n先に scrape.js を実行してください`);
+  }
+
   const files = fs
     .readdirSync(htmlDir)
     .filter((f) => f.endsWith('_tail.html'))
     .sort()
     .reverse();
+
+  if (files.length === 0) {
+    throw new Error(`HTMLファイルが見つかりません: ${htmlDir}\n先に scrape.js を実行してください`);
+  }
+
   return path.join(htmlDir, files[0]);
 }
 

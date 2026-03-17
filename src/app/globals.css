@@ -1,17 +1,158 @@
-/* TailwindCSSの残りを削除し、MUIに移行 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* 基本設定 */
+/* ===== Base ===== */
 html {
-  font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic Medium', 'Meiryo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic Medium', 'Meiryo', sans-serif;
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   margin: 0;
   padding: 0;
+  background-color: #FAFAFA;
+  color: #262626;
 }
 
-/* テキスト切り詰め用ユーティリティ（MUIで使用） */
+/* ===== Instagram-style photo grid ===== */
+.ig-grid {
+  display: grid;
+  gap: 3px;
+}
+
+@media (min-width: 0px) {
+  .ig-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 600px) {
+  .ig-grid { grid-template-columns: repeat(4, 1fr); gap: 4px; }
+}
+
+@media (min-width: 900px) {
+  .ig-grid { grid-template-columns: repeat(5, 1fr); gap: 4px; }
+}
+
+@media (min-width: 1200px) {
+  .ig-grid { grid-template-columns: repeat(6, 1fr); }
+}
+
+/* Square aspect-ratio cell */
+.ig-grid-cell {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  overflow: hidden;
+  background-color: #EFEFEF;
+}
+
+.ig-grid-cell img,
+.ig-grid-cell > * {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+/* Hover overlay for grid cells */
+.ig-grid-cell .ig-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  transition: background 0.15s ease;
+  opacity: 0;
+  z-index: 2;
+}
+
+.ig-grid-cell:hover .ig-overlay {
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 1;
+}
+
+.ig-overlay-stat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* ===== Card — Instagram feed style ===== */
+.ig-card {
+  background: #FFFFFF;
+  border: 1px solid #DBDBDB;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ig-card-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 10px;
+}
+
+.ig-card-image {
+  width: 100%;
+  padding-bottom: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #EFEFEF;
+}
+
+.ig-card-actions {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px 4px;
+  gap: 8px;
+}
+
+.ig-card-body {
+  padding: 4px 16px 12px;
+}
+
+/* ===== Heart / bookmark icon buttons ===== */
+.ig-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease;
+  color: #262626;
+}
+
+.ig-icon-btn:hover {
+  background-color: #F5F5F5;
+}
+
+.ig-icon-btn:active {
+  transform: scale(0.85);
+}
+
+.ig-icon-btn.liked {
+  color: #ED4956;
+}
+
+/* ===== Typography helpers ===== */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -24,4 +165,124 @@ body {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* ===== Urgency badges (minimal, pill style) ===== */
+.urgency-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.urgency-badge.urgent {
+  background: #FFEEF0;
+  color: #ED4956;
+  border: 1px solid #FFBEC2;
+}
+
+.urgency-badge.warning {
+  background: #FFF8E6;
+  color: #B07D00;
+  border: 1px solid #FFE299;
+}
+
+.urgency-badge.caution {
+  background: #FFF3CD;
+  color: #856404;
+  border: 1px solid #FFE69C;
+}
+
+/* ===== Stats cards ===== */
+.stat-card {
+  background: #FFFFFF;
+  border: 1px solid #DBDBDB;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  transition: border-color 0.15s ease;
+}
+
+.stat-card:hover {
+  border-color: #A8A8A8;
+}
+
+/* ===== Section divider ===== */
+.ig-section-divider {
+  border: none;
+  border-top: 1px solid #DBDBDB;
+  margin: 32px 0;
+}
+
+/* ===== Filter bar (Instagram explore-style) ===== */
+.ig-filter-bar {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 8px 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.ig-filter-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.ig-filter-chip {
+  flex-shrink: 0;
+  padding: 6px 14px;
+  border-radius: 16px;
+  border: 1px solid #DBDBDB;
+  background: #FFFFFF;
+  color: #262626;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.ig-filter-chip:hover,
+.ig-filter-chip.active {
+  background: #262626;
+  color: #FFFFFF;
+  border-color: #262626;
+}
+
+/* ===== Warm photo filter overlay (subtle Instagram warmth) ===== */
+.ig-photo-warm::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 200, 150, 0.08) 0%,
+    rgba(255, 240, 210, 0.04) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ===== AppBar override ===== */
+.ig-appbar {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid #DBDBDB;
+}
+
+/* ===== Smooth image load ===== */
+img {
+  transition: opacity 0.3s ease;
+}
+
+img[data-loaded="false"] {
+  opacity: 0;
+}
+
+img[data-loaded="true"] {
+  opacity: 1;
 }

@@ -150,7 +150,7 @@ export default function SpaceCatGame({ size = 'small' }: SpaceCatGameProps) {
           label={score}
           size="small"
           sx={{
-            background: 'linear-gradient(45deg, #8B4513 30%, #FF8C00 90%)',
+            backgroundColor: '#262626',
             color: 'white',
             fontWeight: 'bold',
             fontSize: '0.75rem',
