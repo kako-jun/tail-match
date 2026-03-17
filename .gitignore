@@ -38,9 +38,10 @@ next-env.d.ts
 
 # Database
 /postgres_data
-*.db  # SQLiteデータベースは除外（YAMLから再現可能）
+# SQLiteデータベースは除外（YAMLから再現可能）
+*.db
 *.sqlite
-data/tail-match.db  # 明示的にSQLiteデータベースを除外
+data/tail-match.db
 
 # Python
 __pycache__/
@@ -86,19 +87,25 @@ ENV/
 .idea/
 *.swp
 *.swo
-/.serena  # Serena MCP server data
+# Serena MCP server data
+/.serena
 
 # OS
 Thumbs.db
 
 # Data files (exclude from git)
 data/images/
-**/data/images/  # OCR画像ファイル（scripts/scrapers内も含む）
+# OCR画像ファイル（scripts/scrapers内も含む）
+**/data/images/
 *.db.backup
+# PDFファイルは除外（スクレイピングで再取得可能）
+data/html/**/*.pdf
 
 # Temporary scripts (exclude from git)
-scripts/temp/  # Temporary/one-time scripts
-scripts/migrate-*.js  # One-time migration scripts
+# Temporary/one-time scripts
+scripts/temp/
+# One-time migration scripts
+scripts/migrate-*.js
 *.traineddata
 .claude/settings.local.json
 .mcp.json
