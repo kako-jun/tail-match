@@ -4,14 +4,14 @@
 
 ### 開発フェーズ
 
-- **[スクレイピング実装ガイド](./.claude/scraping-guide.md)** - 新規自治体追加の完全な手順
-- **[よくある間違い](./.claude/common-mistakes.md)** - 過去の失敗から学んだ教訓
-- **[スクレイピングアーキテクチャ](./.claude/scraping-architecture.md)** - 技術設計・実装方針
-- **[履歴ロガー統合ガイド](./.claude/history-logger-guide.md)** - スクレイピング履歴管理システム
+- **[スクレイピング実装ガイド](./docs/scraping.md)** - 新規自治体追加の完全な手順
+- **[よくある間違い](./docs/common-mistakes.md)** - 過去の失敗から学んだ教訓
+- **[スクレイピングアーキテクチャ](./docs/scraping.md)** - 技術設計・実装方針（スクレイピングガイドに統合）
+- **[履歴ロガー統合ガイド](./docs/history-logging.md)** - スクレイピング履歴管理システム
 
 ### 運用フェーズ
 
-- **[運用ガイド](./.claude/operations-guide.md)** - 日常運用・トラブルシューティング手順
+- **[運用ガイド](./docs/operations.md)** - 日常運用・トラブルシューティング手順
 - **[保護施設データベース](./.claude/shelters.yaml)** - 全78施設の情報（実装済み34＋未実装44）
 
 ### その他
@@ -56,9 +56,9 @@
 ### ✅ **Phase 4.2-part スクレイパー共通化・命名規則統一完了** (2025-11-13)
 
 - **共通ヘルパー関数**: 全34施設で統一ロジックを使用（譲渡済み判定・動物種判定）
-  - 詳細は [スクレイピングアーキテクチャ](./.claude/scraping-architecture.md#汎用化完了) 参照
+  - 詳細は [スクレイピングアーキテクチャ](./docs/scraping.md#汎用化完了) 参照
 - **命名規則統一**: -cats/-dogs サフィックス完備（猫専用26 + 犬専用16 + 混在8）
-  - 詳細は [実装ガイド](./.claude/scraping-guide.md#命名規則) 参照
+  - 詳細は [実装ガイド](./docs/scraping.md#命名規則) 参照
 - **犬用ページ実装**: 16施設で犬用スクレイパーを追加実装
 - **ドキュメント更新**: 共通化・命名規則を各ガイドに反映
 
@@ -76,7 +76,6 @@
   - サマリー表示: `scripts/core/show-scraping-summary.js`
 - **バグ修正**:
   - 千葉市: 全角・半角括弧混在問題を修正（17→15不一致を解消）
-  - 詳細は [バグ修正ログ](./.claude/bugfix-log.md) 参照
 - **運用準備完了**:
   - `scripts/core/run-all-scrapers.sh` でDB初期化→全施設スクレイピング→サマリー表示の完全自動化
   - 不一致検出率: 2.9%（1/34施設）
@@ -86,7 +85,7 @@
 - **📋 データベース接続**: スクレイピング実行時の接続問題（要調査）
 - **📋 Next.js設定**: standalone build設定が未完了
 
-詳細は [scraping-architecture.md](./.claude/scraping-architecture.md) を参照。
+詳細は [scraping.md](./docs/scraping.md) を参照。
 
 ### ✅ **Phase 4.3 法的整備完了** (2025-07-01)
 
@@ -123,7 +122,7 @@
 - ✅ 「ワンちゃん」「わんちゃん」表記漏れ問題
 - ✅ 履歴ロガー統合（全34スクレイパー、HTML→YAML→DB不一致検出）
 - ✅ 運用スクリプト作成（`scripts/core/run-all-scrapers.sh`）
-- ✅ 運用ドキュメント作成（`.claude/operations-guide.md`）
+- ✅ 運用ドキュメント作成（`docs/operations.md`）
 - ✅ 定期実行・監視システム（cron設定手順、ログ確認、エラー通知）
 
 ---
