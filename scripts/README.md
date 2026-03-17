@@ -142,7 +142,7 @@ data/html/ishikawa/aigo-ishikawa/
 
 ## 📝 新規自治体追加方法
 
-詳細は `.claude/NEW_MUNICIPALITY_GUIDE.md` を参照してください。
+詳細は `docs/scraping.md` を参照してください。
 
 **概要**:
 
@@ -290,9 +290,8 @@ JavaScript必須サイトを検出（現在は使用していない、Playwright
 
 ## 📚 関連ドキュメント
 
-- **[.claude/NEW_MUNICIPALITY_GUIDE.md]** - 新規自治体追加ガイド（必読）
-- **[.claude/scraping-architecture.md]** - スクレイピングアーキテクチャ仕様
-- **[.claude/CLAUDE.md]** - プロジェクト全体仕様
+- **[docs/scraping.md]** - 新規自治体追加ガイド・スクレイピングアーキテクチャ仕様
+- **[CLAUDE.md]** - プロジェクト全体仕様
 
 ---
 

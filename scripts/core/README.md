@@ -145,6 +145,6 @@ node scripts/core/cleanup-html-yaml.js            # 実行
 
 ## 📝 関連ドキュメント
 
-- **運用ガイド**: `.claude/operations-guide.md`
-- **履歴ロガー**: `.claude/history-logger-guide.md`
-- **スクレイピング設計**: `.claude/scraping-guide.md`
+- **運用ガイド**: `docs/operations.md`
+- **履歴ロガー**: `docs/history-logging.md`
+- **スクレイピング設計**: `docs/scraping.md`

@@ -159,7 +159,7 @@ if (imageUrl.startsWith('/')) {
 ## 関連ドキュメント
 
 - [scripts/README.md](../../README.md) - 3ステップパイプライン説明
-- [.claude/NEW_MUNICIPALITY_GUIDE.md](../../../.claude/NEW_MUNICIPALITY_GUIDE.md) - 新規自治体追加ガイド
+- [docs/scraping.md](../../../../docs/scraping.md) - 新規自治体追加ガイド
 
 ---
 
