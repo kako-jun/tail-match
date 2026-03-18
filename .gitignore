@@ -109,3 +109,4 @@ scripts/migrate-*.js
 *.traineddata
 .claude/settings.local.json
 .mcp.json
+.env.prod

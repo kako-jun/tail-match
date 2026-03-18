@@ -48,7 +48,7 @@ tail-match/
 │   ├── app/               # App Router
 │   ├── components/        # Reactコンポーネント
 │   └── lib/               # ユーティリティ
-├── scraper/               # Python スクレイピングシステム
+├── scripts/scrapers/      # Python スクレイピングシステム
 │   ├── main.py           # メインスクレイパー
 │   ├── local_extractor.py # AI抽出エンジン
 │   └── database.py       # DB操作
