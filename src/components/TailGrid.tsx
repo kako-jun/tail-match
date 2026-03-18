@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
-import TailCard from './TailCard'
-import { TailWithDetails, TailSearchParams } from '@/types/database'
+import { useState, useEffect } from 'react';
+import TailCard from './TailCard';
+import { TailWithDetails, TailSearchParams } from '@/types/database';
 import {
   Typography,
   Box,
@@ -11,102 +11,97 @@ import {
   AlertTitle,
   Button,
   ToggleButton,
-  ToggleButtonGroup
-} from '@mui/material'
-import { ViewModule, ViewList } from '@mui/icons-material'
+  ToggleButtonGroup,
+} from '@mui/material';
+import { ViewModule, ViewList } from '@mui/icons-material';
 
 interface TailGridProps {
-  searchParams?: TailSearchParams
-  showUrgentOnly?: boolean
-  maxCount?: number
+  searchParams?: TailSearchParams;
+  showUrgentOnly?: boolean;
+  maxCount?: number;
 }
 
 interface ApiResponse {
-  success: boolean
-  data: TailWithDetails[]
-  total?: number
-  has_more?: boolean
-  error?: string
-  message?: string
+  success: boolean;
+  data: TailWithDetails[];
+  total?: number;
+  has_more?: boolean;
+  error?: string;
+  message?: string;
 }
 
 export default function TailGrid({
   searchParams = {},
   showUrgentOnly = false,
-  maxCount
+  maxCount,
 }: TailGridProps) {
-  const [tails, setTails] = useState<TailWithDetails[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-  const [viewMode, setViewMode] = useState<'instagram' | 'card'>('instagram')
-  const [retryCount, setRetryCount] = useState(0)
+  const [tails, setTails] = useState<TailWithDetails[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<'instagram' | 'card'>('instagram');
+  const [retryCount, setRetryCount] = useState(0);
 
   useEffect(() => {
     const fetchTails = async () => {
-      setLoading(true)
-      setError(null)
+      setLoading(true);
+      setError(null);
 
       try {
-        let url: string
-        let params: URLSearchParams
+        let url: string;
+        let params: URLSearchParams;
 
         if (showUrgentOnly) {
-          url = '/api/tails/urgent'
-          params = new URLSearchParams()
-          if (maxCount) params.set('limit', maxCount.toString())
+          url = '/api/tails/urgent';
+          params = new URLSearchParams();
+          if (maxCount) params.set('limit', maxCount.toString());
         } else {
-          url = '/api/tails'
-          params = new URLSearchParams()
+          url = '/api/tails';
+          params = new URLSearchParams();
 
           Object.entries(searchParams).forEach(([key, value]) => {
             if (value !== undefined && value !== null && value !== '') {
-              params.set(key, value.toString())
+              params.set(key, value.toString());
             }
-          })
+          });
 
-          if (maxCount) params.set('limit', maxCount.toString())
+          if (maxCount) params.set('limit', maxCount.toString());
         }
 
-        const response = await fetch(`${url}?${params.toString()}`)
-        const data: ApiResponse = await response.json()
+        const response = await fetch(`${url}?${params.toString()}`);
+        const data = (await response.json()) as ApiResponse;
 
         if (!response.ok) {
-          throw new Error(data.message || data.error || 'APIエラーが発生しました')
+          throw new Error(data.message || data.error || 'APIエラーが発生しました');
         }
 
         if (data.success) {
-          setTails(data.data || [])
+          setTails(data.data || []);
         } else {
-          throw new Error(data.error || '予期しないエラーが発生しました')
+          throw new Error(data.error || '予期しないエラーが発生しました');
         }
-
       } catch (err) {
-        console.error('Failed to fetch tails:', err)
-        setError(err instanceof Error ? err.message : '不明なエラーが発生しました')
+        console.error('Failed to fetch tails:', err);
+        setError(err instanceof Error ? err.message : '不明なエラーが発生しました');
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    fetchTails()
+    fetchTails();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [JSON.stringify(searchParams), showUrgentOnly, maxCount, retryCount])
+  }, [JSON.stringify(searchParams), showUrgentOnly, maxCount, retryCount]);
 
   if (loading) {
     return (
       <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
         <Box sx={{ textAlign: 'center' }}>
-          <CircularProgress
-            size={28}
-            thickness={2}
-            sx={{ color: '#262626', mb: 2 }}
-          />
+          <CircularProgress size={28} thickness={2} sx={{ color: '#262626', mb: 2 }} />
           <Typography sx={{ color: '#8E8E8E', fontSize: '0.875rem' }}>
             シッポたちを探しています...
           </Typography>
         </Box>
       </Box>
-    )
+    );
   }
 
   if (error) {
@@ -125,19 +120,21 @@ export default function TailGrid({
           <AlertTitle sx={{ fontWeight: 600, fontSize: '0.875rem' }}>
             エラーが発生しました
           </AlertTitle>
-          <Typography variant="body2" sx={{ color: '#8E8E8E' }}>{error}</Typography>
+          <Typography variant="body2" sx={{ color: '#8E8E8E' }}>
+            {error}
+          </Typography>
         </Alert>
         <Box sx={{ textAlign: 'center' }}>
           <Button
             variant="outlined"
-            onClick={() => setRetryCount(c => c + 1)}
+            onClick={() => setRetryCount((c) => c + 1)}
             sx={{ borderColor: '#DBDBDB', color: '#262626', fontSize: '0.875rem' }}
           >
             再読み込み
           </Button>
         </Box>
       </Box>
-    )
+    );
   }
 
   if (tails.length === 0) {
@@ -158,7 +155,7 @@ export default function TailGrid({
             : '検索条件を変更して再度お試しください。'}
         </Typography>
       </Box>
-    )
+    );
   }
 
   return (
@@ -181,9 +178,7 @@ export default function TailGrid({
             fontWeight: 400,
           }}
         >
-          {showUrgentOnly
-            ? `${tails.length}匹の緊急シッポ`
-            : `${tails.length}匹のシッポたち`}
+          {showUrgentOnly ? `${tails.length}匹の緊急シッポ` : `${tails.length}匹のシッポたち`}
         </Typography>
 
         {/* View mode toggle */}
@@ -191,7 +186,7 @@ export default function TailGrid({
           value={viewMode}
           exclusive
           onChange={(_, newMode) => {
-            if (newMode !== null) setViewMode(newMode)
+            if (newMode !== null) setViewMode(newMode);
           }}
           size="small"
           sx={{
@@ -231,12 +226,7 @@ export default function TailGrid({
           }}
         >
           {tails.map((tail) => (
-            <TailCard
-              key={tail.id}
-              tail={tail}
-              showRegion={true}
-              viewMode="instagram"
-            />
+            <TailCard key={tail.id} tail={tail} showRegion={true} viewMode="instagram" />
           ))}
         </Box>
       ) : (
@@ -254,12 +244,7 @@ export default function TailGrid({
           }}
         >
           {tails.map((tail) => (
-            <TailCard
-              key={tail.id}
-              tail={tail}
-              showRegion={true}
-              viewMode="card"
-            />
+            <TailCard key={tail.id} tail={tail} showRegion={true} viewMode="card" />
           ))}
         </Box>
       )}
@@ -286,13 +271,11 @@ export default function TailGrid({
           >
             緊急を要するシッポたちです
           </Typography>
-          <Typography
-            sx={{ fontSize: '0.8125rem', color: '#8E8E8E', textAlign: 'center' }}
-          >
+          <Typography sx={{ fontSize: '0.8125rem', color: '#8E8E8E', textAlign: 'center' }}>
             残り時間がわずかです。お近くの方はぜひ各自治体にご連絡ください。
           </Typography>
         </Box>
       )}
     </Box>
-  )
+  );
 }

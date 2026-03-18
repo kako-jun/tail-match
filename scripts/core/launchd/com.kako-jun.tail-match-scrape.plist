@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	  Tail Match 自動スクレイピング（毎日 AM 3:17 JST）
+
+	  インストール:
+	    cp scripts/core/launchd/com.kako-jun.tail-match-scrape.plist ~/Library/LaunchAgents/
+	    launchctl load ~/Library/LaunchAgents/com.kako-jun.tail-match-scrape.plist
+
+	  手動実行:
+	    launchctl start com.kako-jun.tail-match-scrape
+
+	  停止:
+	    launchctl unload ~/Library/LaunchAgents/com.kako-jun.tail-match-scrape.plist
+
+	  ログ確認:
+	    tail -f /tmp/tail-match-scrape.log
+	    ls -lt ~/repos/2025/tail-match/logs/scraping/ | head
+	-->
+	<key>Label</key>
+	<string>com.kako-jun.tail-match-scrape</string>
+
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/bash</string>
+		<string>/Users/kako-jun/repos/2025/tail-match/scripts/core/auto-scrape.sh</string>
+	</array>
+
+	<key>WorkingDirectory</key>
+	<string>/Users/kako-jun/repos/2025/tail-match</string>
+
+	<!-- 毎日 AM 3:17（深夜、自治体サイトへの負荷が少ない時間帯） -->
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Hour</key>
+		<integer>3</integer>
+		<key>Minute</key>
+		<integer>17</integer>
+	</dict>
+
+	<!-- 環境変数（node へのパス等） -->
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key>
+		<string>/Users/kako-jun/.volta/bin:/usr/local/bin:/usr/bin:/bin</string>
+		<key>HOME</key>
+		<string>/Users/kako-jun</string>
+	</dict>
+
+	<!-- 出力ログ -->
+	<key>StandardOutPath</key>
+	<string>/tmp/tail-match-scrape.log</string>
+	<key>StandardErrorPath</key>
+	<string>/tmp/tail-match-scrape-err.log</string>
+</dict>
+</plist>

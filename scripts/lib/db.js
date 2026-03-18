@@ -30,7 +30,7 @@ class TailMatchDB {
    */
   initializeSchema() {
     try {
-      const schemaPath = path.join('database', 'schema.sql');
+      const schemaPath = path.join('database', 'schema-sqlite.sql');
       const schema = fs.readFileSync(schemaPath, 'utf-8');
 
       // スキーマを実行

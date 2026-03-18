@@ -1,20 +1,14 @@
+import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
+
+// Development環境でD1バインディングをエミュレート
+if (process.env.NODE_ENV === 'development') {
+  await setupDevPlatform();
+}
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  serverExternalPackages: ['pg'],
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-      },
-    ],
-    dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment',
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    unoptimized: true, // Cloudflare Pages では /_next/image が使えないため
   },
   async headers() {
     return [

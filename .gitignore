@@ -40,6 +40,8 @@ next-env.d.ts
 /postgres_data
 # SQLiteデータベースは除外（YAMLから再現可能）
 *.db
+*.db-shm
+*.db-wal
 *.sqlite
 data/tail-match.db
 

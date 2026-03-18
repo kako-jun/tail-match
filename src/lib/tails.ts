@@ -1,105 +1,96 @@
-import { query } from './database'
-import { TailWithDetails, TailSearchParams, SearchResult } from '@/types/database'
+import { query } from './database';
+import { TailWithDetails, TailSearchParams, SearchResult } from '@/types/database';
 
 /**
  * 保護動物を検索して取得
  */
-export async function getTails(
-  params: TailSearchParams
-): Promise<SearchResult<TailWithDetails>> {
+export async function getTails(params: TailSearchParams): Promise<SearchResult<TailWithDetails>> {
   // WHERE句とパラメータを構築
-  const conditions: string[] = []
-  const values: any[] = []
-  let paramCounter = 1
+  const conditions: string[] = [];
+  const values: any[] = [];
 
   // 動物種別フィルター
   if (params.animal_type) {
-    conditions.push(`t.animal_type = $${paramCounter}`)
-    values.push(params.animal_type)
-    paramCounter++
+    conditions.push(`t.animal_type = ?`);
+    values.push(params.animal_type);
   }
 
   // ステータスフィルター
   if (params.status) {
-    conditions.push(`t.status = $${paramCounter}`)
-    values.push(params.status)
-    paramCounter++
+    conditions.push(`t.status = ?`);
+    values.push(params.status);
   }
 
   // 地域フィルター
   if (params.region_id) {
-    conditions.push(`r.id = $${paramCounter}`)
-    values.push(params.region_id)
-    paramCounter++
+    conditions.push(`r.id = ?`);
+    values.push(params.region_id);
   }
 
   // 自治体フィルター
   if (params.municipality_id) {
-    conditions.push(`m.id = $${paramCounter}`)
-    values.push(params.municipality_id)
-    paramCounter++
+    conditions.push(`m.id = ?`);
+    values.push(params.municipality_id);
   }
 
   // 性別フィルター
   if (params.gender) {
-    conditions.push(`t.gender = $${paramCounter}`)
-    values.push(params.gender)
-    paramCounter++
+    conditions.push(`t.gender = ?`);
+    values.push(params.gender);
   }
 
   // 年齢フィルター
   if (params.age_estimate) {
-    conditions.push(`t.age_estimate = $${paramCounter}`)
-    values.push(params.age_estimate)
-    paramCounter++
+    conditions.push(`t.age_estimate = ?`);
+    values.push(params.age_estimate);
   }
 
   // 緊急度フィルター（期限日ベース）
   if (params.urgency_days !== undefined) {
-    conditions.push(`t.deadline_date <= CURRENT_DATE + ($${paramCounter} * INTERVAL '1 day')`)
-    values.push(params.urgency_days)
-    paramCounter++
+    conditions.push(`t.deadline_date <= date('now', '+' || ? || ' days')`);
+    values.push(params.urgency_days);
   }
 
-  // 🔍 キーワード検索 - 名前、品種、性格、毛色を検索
+  // キーワード検索 - 名前、品種、性格、毛色を検索
   if (params.keyword) {
-    const keyword = `%${params.keyword}%`
+    const keyword = `%${params.keyword}%`;
     conditions.push(`(
-      t.name ILIKE $${paramCounter} OR
-      t.breed ILIKE $${paramCounter} OR
-      t.personality ILIKE $${paramCounter} OR
-      t.color ILIKE $${paramCounter}
-    )`)
-    values.push(keyword)
-    paramCounter++
+      t.name LIKE ? OR
+      t.breed LIKE ? OR
+      t.personality LIKE ? OR
+      t.color LIKE ?
+    )`);
+    values.push(keyword, keyword, keyword, keyword);
   }
 
-  // 🎯 性格フィルター - 複数の性格特徴をOR検索
+  // 性格フィルター - 複数の性格特徴をOR検索
   if (params.personality_traits && params.personality_traits.length > 0) {
     const personalityConditions = params.personality_traits.map(() => {
-      const condition = `t.personality ILIKE $${paramCounter}`
-      paramCounter++
-      return condition
-    })
-    conditions.push(`(${personalityConditions.join(' OR ')})`)
-    params.personality_traits.forEach(trait => {
-      values.push(`%${trait}%`)
-    })
+      return `t.personality LIKE ?`;
+    });
+    conditions.push(`(${personalityConditions.join(' OR ')})`);
+    params.personality_traits.forEach((trait) => {
+      values.push(`%${trait}%`);
+    });
   }
 
   // WHERE句を構築
-  const whereClause = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : ''
+  const whereClause = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : '';
 
   // ソート順を構築（allowlistで注入を防ぐ）
-  const allowedSortColumns = ['deadline_date', 'created_at', 'updated_at'] as const
-  const allowedSortOrders = ['asc', 'desc'] as const
-  const sortBy = allowedSortColumns.includes(params.sort_by as any) ? params.sort_by! : 'deadline_date'
-  const sortOrder = allowedSortOrders.includes(params.sort_order as any) ? params.sort_order! : 'asc'
-  const orderClause = `ORDER BY t.${sortBy} ${sortOrder.toUpperCase()}`
+  const allowedSortColumns = ['deadline_date', 'created_at', 'updated_at'] as const;
+  const allowedSortOrders = ['asc', 'desc'] as const;
+  const sortBy = allowedSortColumns.includes(params.sort_by as any)
+    ? params.sort_by!
+    : 'deadline_date';
+  const sortOrder = allowedSortOrders.includes(params.sort_order as any)
+    ? params.sort_order!
+    : 'asc';
+  const orderClause = `ORDER BY t.${sortBy} ${sortOrder.toUpperCase()}`;
 
   // ページネーション
-  const limit = params.limit || 20
-  const offset = params.offset || 0
+  const limit = params.limit || 20;
+  const offset = params.offset || 0;
 
   // 総件数を取得
   const countQuery = `
@@ -108,10 +99,10 @@ export async function getTails(
     LEFT JOIN municipalities m ON t.municipality_id = m.id
     LEFT JOIN regions r ON m.region_id = r.id
     ${whereClause}
-  `
+  `;
 
-  const countResult = await query(countQuery, values)
-  const total = parseInt(countResult.rows[0].total)
+  const countResult = await query(countQuery, values);
+  const total = parseInt(countResult.rows[0].total);
 
   // データを取得
   const dataQuery = `
@@ -126,13 +117,13 @@ export async function getTails(
       r.code as region_code,
       CASE
         WHEN t.deadline_date IS NULL THEN NULL
-        ELSE GREATEST(0, EXTRACT(DAY FROM (t.deadline_date - CURRENT_DATE))::INTEGER)
+        ELSE MAX(0, CAST(julianday(t.deadline_date) - julianday('now') AS INTEGER))
       END as days_remaining,
       CASE
         WHEN t.deadline_date IS NULL THEN 'normal'
-        WHEN t.deadline_date <= CURRENT_DATE + INTERVAL '3 days' THEN 'urgent'
-        WHEN t.deadline_date <= CURRENT_DATE + INTERVAL '7 days' THEN 'warning'
-        WHEN t.deadline_date <= CURRENT_DATE + INTERVAL '14 days' THEN 'caution'
+        WHEN t.deadline_date <= date('now', '+3 days') THEN 'urgent'
+        WHEN t.deadline_date <= date('now', '+7 days') THEN 'warning'
+        WHEN t.deadline_date <= date('now', '+14 days') THEN 'caution'
         ELSE 'normal'
       END as urgency_level
     FROM tails t
@@ -140,11 +131,11 @@ export async function getTails(
     LEFT JOIN regions r ON m.region_id = r.id
     ${whereClause}
     ${orderClause}
-    LIMIT $${paramCounter} OFFSET $${paramCounter + 1}
-  `
+    LIMIT ? OFFSET ?
+  `;
 
-  values.push(limit, offset)
-  const dataResult = await query(dataQuery, values)
+  const dataValues = [...values, limit, offset];
+  const dataResult = await query(dataQuery, dataValues);
 
   // 結果を整形
   const data: TailWithDetails[] = dataResult.rows.map((row: any) => ({
@@ -161,7 +152,7 @@ export async function getTails(
     health_status: row.health_status,
     personality: row.personality,
     special_needs: row.special_needs,
-    images: row.images,
+    images: typeof row.images === 'string' ? JSON.parse(row.images) : row.images || [],
     protection_date: row.protection_date,
     deadline_date: row.deadline_date,
     status: row.status,
@@ -175,29 +166,32 @@ export async function getTails(
       region_id: row.region_id,
       name: row.municipality_name,
       website_url: row.municipality_website_url,
-      contact_info: row.municipality_contact_info,
+      contact_info:
+        typeof row.municipality_contact_info === 'string'
+          ? JSON.parse(row.municipality_contact_info)
+          : row.municipality_contact_info,
       is_active: true,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
     },
     region: {
       id: row.region_id,
       name: row.region_name,
       code: row.region_code,
       type: 'prefecture',
-      created_at: new Date()
+      created_at: new Date(),
     },
     days_remaining: row.days_remaining,
-    urgency_level: row.urgency_level
-  }))
+    urgency_level: row.urgency_level,
+  }));
 
   return {
     data,
     total,
     limit,
     offset,
-    has_more: offset + limit < total
-  }
+    has_more: offset + limit < total,
+  };
 }
 
 /**
@@ -217,26 +211,26 @@ export async function getTailById(id: number): Promise<TailWithDetails | null> {
       r.code as region_code,
       CASE
         WHEN t.deadline_date IS NULL THEN NULL
-        ELSE GREATEST(0, EXTRACT(DAY FROM (t.deadline_date - CURRENT_DATE))::INTEGER)
+        ELSE MAX(0, CAST(julianday(t.deadline_date) - julianday('now') AS INTEGER))
       END as days_remaining,
       CASE
         WHEN t.deadline_date IS NULL THEN 'normal'
-        WHEN t.deadline_date <= CURRENT_DATE + INTERVAL '3 days' THEN 'urgent'
-        WHEN t.deadline_date <= CURRENT_DATE + INTERVAL '7 days' THEN 'warning'
-        WHEN t.deadline_date <= CURRENT_DATE + INTERVAL '14 days' THEN 'caution'
+        WHEN t.deadline_date <= date('now', '+3 days') THEN 'urgent'
+        WHEN t.deadline_date <= date('now', '+7 days') THEN 'warning'
+        WHEN t.deadline_date <= date('now', '+14 days') THEN 'caution'
         ELSE 'normal'
       END as urgency_level
     FROM tails t
     LEFT JOIN municipalities m ON t.municipality_id = m.id
     LEFT JOIN regions r ON m.region_id = r.id
-    WHERE t.id = $1
+    WHERE t.id = ?
     `,
     [id]
-  )
+  );
 
-  if (result.rows.length === 0) return null
+  if (result.rows.length === 0) return null;
 
-  const row = result.rows[0]
+  const row = result.rows[0];
   return {
     id: row.id,
     municipality_id: row.municipality_id,
@@ -251,7 +245,7 @@ export async function getTailById(id: number): Promise<TailWithDetails | null> {
     health_status: row.health_status,
     personality: row.personality,
     special_needs: row.special_needs,
-    images: row.images,
+    images: typeof row.images === 'string' ? JSON.parse(row.images) : row.images || [],
     protection_date: row.protection_date,
     deadline_date: row.deadline_date,
     status: row.status,
@@ -265,21 +259,24 @@ export async function getTailById(id: number): Promise<TailWithDetails | null> {
       region_id: row.region_id,
       name: row.municipality_name,
       website_url: row.municipality_website_url,
-      contact_info: row.municipality_contact_info,
+      contact_info:
+        typeof row.municipality_contact_info === 'string'
+          ? JSON.parse(row.municipality_contact_info)
+          : row.municipality_contact_info,
       is_active: true,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
     },
     region: {
       id: row.region_id,
       name: row.region_name,
       code: row.region_code,
       type: 'prefecture',
-      created_at: new Date()
+      created_at: new Date(),
     },
     days_remaining: row.days_remaining,
-    urgency_level: row.urgency_level
-  }
+    urgency_level: row.urgency_level,
+  };
 }
 
 /**
@@ -297,11 +294,11 @@ export async function getUrgentTails(limit: number = 10): Promise<TailWithDetail
       r.id as region_id,
       r.name as region_name,
       r.code as region_code,
-      GREATEST(0, EXTRACT(DAY FROM (t.deadline_date - CURRENT_DATE))::INTEGER) as days_remaining,
+      MAX(0, CAST(julianday(t.deadline_date) - julianday('now') AS INTEGER)) as days_remaining,
       CASE
-        WHEN t.deadline_date <= CURRENT_DATE + INTERVAL '3 days' THEN 'urgent'
-        WHEN t.deadline_date <= CURRENT_DATE + INTERVAL '7 days' THEN 'warning'
-        WHEN t.deadline_date <= CURRENT_DATE + INTERVAL '14 days' THEN 'caution'
+        WHEN t.deadline_date <= date('now', '+3 days') THEN 'urgent'
+        WHEN t.deadline_date <= date('now', '+7 days') THEN 'warning'
+        WHEN t.deadline_date <= date('now', '+14 days') THEN 'caution'
         ELSE 'normal'
       END as urgency_level
     FROM tails t
@@ -309,12 +306,12 @@ export async function getUrgentTails(limit: number = 10): Promise<TailWithDetail
     LEFT JOIN regions r ON m.region_id = r.id
     WHERE t.status = 'available'
       AND t.deadline_date IS NOT NULL
-      AND t.deadline_date >= CURRENT_DATE
+      AND t.deadline_date >= date('now')
     ORDER BY t.deadline_date ASC
-    LIMIT $1
+    LIMIT ?
     `,
     [limit]
-  )
+  );
 
   return result.rows.map((row: any) => ({
     id: row.id,
@@ -330,7 +327,7 @@ export async function getUrgentTails(limit: number = 10): Promise<TailWithDetail
     health_status: row.health_status,
     personality: row.personality,
     special_needs: row.special_needs,
-    images: row.images,
+    images: typeof row.images === 'string' ? JSON.parse(row.images) : row.images || [],
     protection_date: row.protection_date,
     deadline_date: row.deadline_date,
     status: row.status,
@@ -344,21 +341,24 @@ export async function getUrgentTails(limit: number = 10): Promise<TailWithDetail
       region_id: row.region_id,
       name: row.municipality_name,
       website_url: row.municipality_website_url,
-      contact_info: row.municipality_contact_info,
+      contact_info:
+        typeof row.municipality_contact_info === 'string'
+          ? JSON.parse(row.municipality_contact_info)
+          : row.municipality_contact_info,
       is_active: true,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
     },
     region: {
       id: row.region_id,
       name: row.region_name,
       code: row.region_code,
       type: 'prefecture',
-      created_at: new Date()
+      created_at: new Date(),
     },
     days_remaining: row.days_remaining,
-    urgency_level: row.urgency_level
-  }))
+    urgency_level: row.urgency_level,
+  }));
 }
 
 /**
@@ -368,35 +368,31 @@ export async function getTailsStats() {
   const statsQuery = `
     SELECT
       COUNT(*) as total,
-      COUNT(*) FILTER (WHERE animal_type = 'cat') as cats,
-      COUNT(*) FILTER (WHERE animal_type = 'dog') as dogs,
-      COUNT(*) FILTER (WHERE status = 'available') as available,
-      COUNT(*) FILTER (WHERE status = 'adopted') as adopted,
-      COUNT(*) FILTER (WHERE transfer_decided = true) as transfer_decided,
-      COUNT(*) FILTER (
-        WHERE deadline_date IS NOT NULL
-        AND deadline_date <= CURRENT_DATE + INTERVAL '3 days'
-        AND status = 'available'
-      ) as urgent,
-      COUNT(*) FILTER (
-        WHERE deadline_date IS NOT NULL
-        AND deadline_date <= CURRENT_DATE + INTERVAL '7 days'
-        AND status = 'available'
-      ) as warning
+      SUM(CASE WHEN animal_type = 'cat' THEN 1 ELSE 0 END) as cats,
+      SUM(CASE WHEN animal_type = 'dog' THEN 1 ELSE 0 END) as dogs,
+      SUM(CASE WHEN status = 'available' THEN 1 ELSE 0 END) as available,
+      SUM(CASE WHEN status = 'adopted' THEN 1 ELSE 0 END) as adopted,
+      SUM(CASE WHEN transfer_decided = 1 THEN 1 ELSE 0 END) as transfer_decided,
+      SUM(CASE WHEN deadline_date IS NOT NULL
+        AND deadline_date <= date('now', '+3 days')
+        AND status = 'available' THEN 1 ELSE 0 END) as urgent,
+      SUM(CASE WHEN deadline_date IS NOT NULL
+        AND deadline_date <= date('now', '+7 days')
+        AND status = 'available' THEN 1 ELSE 0 END) as warning
     FROM tails
-  `
+  `;
 
-  const result = await query(statsQuery)
-  const stats = result.rows[0]
+  const result = await query(statsQuery);
+  const stats = result.rows[0];
 
   return {
-    total: parseInt(stats.total),
-    cats: parseInt(stats.cats),
-    dogs: parseInt(stats.dogs),
-    available: parseInt(stats.available),
-    adopted: parseInt(stats.adopted),
-    transfer_decided: parseInt(stats.transfer_decided),
-    urgent: parseInt(stats.urgent),
-    warning: parseInt(stats.warning)
-  }
+    total: parseInt(stats.total) || 0,
+    cats: parseInt(stats.cats) || 0,
+    dogs: parseInt(stats.dogs) || 0,
+    available: parseInt(stats.available) || 0,
+    adopted: parseInt(stats.adopted) || 0,
+    transfer_decided: parseInt(stats.transfer_decided) || 0,
+    urgent: parseInt(stats.urgent) || 0,
+    warning: parseInt(stats.warning) || 0,
+  };
 }

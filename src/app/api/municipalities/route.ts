@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/database';
 
+export const runtime = 'edge';
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -11,19 +13,19 @@ export async function GET(request: NextRequest) {
         m.*,
         r.name as region_name,
         r.code as region_code,
-        COUNT(t.id) FILTER (WHERE t.status = 'available') as available_tails_count,
-        COUNT(t.id) FILTER (WHERE t.status = 'available' AND t.animal_type = 'cat') as cats_count,
-        COUNT(t.id) FILTER (WHERE t.status = 'available' AND t.animal_type = 'dog') as dogs_count
+        SUM(CASE WHEN t.status = 'available' THEN 1 ELSE 0 END) as available_tails_count,
+        SUM(CASE WHEN t.status = 'available' AND t.animal_type = 'cat' THEN 1 ELSE 0 END) as cats_count,
+        SUM(CASE WHEN t.status = 'available' AND t.animal_type = 'dog' THEN 1 ELSE 0 END) as dogs_count
       FROM municipalities m
       JOIN regions r ON m.region_id = r.id
       LEFT JOIN tails t ON m.id = t.municipality_id
-      WHERE m.is_active = true
+      WHERE m.is_active = 1
     `;
 
     const queryParams: any[] = [];
 
     if (regionId) {
-      municipalitiesQuery += ` AND m.region_id = $1`;
+      municipalitiesQuery += ` AND m.region_id = ?`;
       queryParams.push(parseInt(regionId));
     }
 
@@ -46,9 +48,9 @@ export async function GET(request: NextRequest) {
         website_url: row.website_url,
         contact_info: row.contact_info,
         is_active: row.is_active,
-        available_tails_count: parseInt(row.available_tails_count),
-        cats_count: parseInt(row.cats_count),
-        dogs_count: parseInt(row.dogs_count),
+        available_tails_count: parseInt(row.available_tails_count) || 0,
+        cats_count: parseInt(row.cats_count) || 0,
+        dogs_count: parseInt(row.dogs_count) || 0,
         region: {
           id: row.region_id,
           name: row.region_name,

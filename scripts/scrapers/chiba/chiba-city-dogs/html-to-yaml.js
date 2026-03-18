@@ -61,47 +61,76 @@ function parseGender(text) {
   return 'unknown';
 }
 
-function extractDogInfo($, element, index) {
-  const textLines = [];
-  let detailText = '';
+/**
+ * h4見出し + 後続p要素から犬情報を抽出
+ * HTML構造: <h4>26011901（チャオ）</h4> → <p><img ...></p> → <p>種類：柴犬<br>毛色：茶<br>...</p>
+ */
+function extractDogInfo($, h4Element, index) {
+  const h4Text = $(h4Element).text().trim();
 
-  $(element)
-    .find('*')
-    .contents()
-    .each((i, node) => {
-      if (node.type === 'text') {
-        const text = $(node).text().trim();
-        if (text) textLines.push(text);
-      }
-    });
-
-  detailText = textLines.join(' ');
-
+  // h4から管理番号と愛称を抽出
   let external_id = null;
   let name = null;
+
+  const idMatch = h4Text.match(/(\d{8,})/);
+  if (idMatch) {
+    external_id = idMatch[1];
+  }
+  const nameMatch = h4Text.match(/[（(](.+?)[）)]/);
+  if (nameMatch) {
+    name = nameMatch[1].trim();
+  }
+
+  if (!external_id) {
+    external_id = `chiba-city-dog-${index}`;
+  }
+
+  // h4の後続p要素からデータを収集
+  let breed = null;
   let age_estimate = null;
   let gender = 'unknown';
   let color = null;
   let personality = null;
+  const images = [];
+  let detailText = '';
 
-  textLines.forEach((line) => {
-    if (line.includes('管理番号') || line.includes('No.')) {
-      external_id = line.replace(/管理番号|No\.|:|：/g, '').trim();
-    } else if (line.includes('犬種') || line.includes('種類')) {
-      name = line.replace(/犬種|種類|:|：/g, '').trim();
-    } else if (line.includes('年齢') || line.includes('推定')) {
-      age_estimate = line.replace(/年齢|推定|:|：/g, '').trim();
-    } else if (line.includes('性別') || line.includes('オス') || line.includes('メス')) {
-      gender = parseGender(line);
-    } else if (line.includes('毛色') || line.includes('色')) {
-      color = line.replace(/毛色|色|:|：/g, '').trim();
-    } else if (line.includes('コメント') || line.includes('性格')) {
-      personality = line.replace('コメント：', '').trim();
+  let $next = $(h4Element).next();
+  while (
+    $next.length &&
+    $next.prop('tagName') !== 'H4' &&
+    $next.prop('tagName') !== 'H2' &&
+    $next.prop('tagName') !== 'H3'
+  ) {
+    // 画像を抽出
+    $next.find('img').each((i, img) => {
+      const src = $(img).attr('src');
+      if (src) {
+        images.push(src.startsWith('http') ? src : CONFIG.base_url + src);
+      }
+    });
+
+    const text = $next.text().trim();
+    if (text) {
+      detailText += ' ' + text;
+      // br区切りの各行を解析
+      const lines = text.split(/\n/);
+      for (const line of lines) {
+        const l = line.trim();
+        if (l.match(/^種類[：:]/)) {
+          breed = l.replace(/^種類[：:]/, '').trim();
+        } else if (l.match(/^毛色[：:]/)) {
+          color = l.replace(/^毛色[：:]/, '').trim();
+        } else if (l.match(/^性別[：:]/)) {
+          gender = parseGender(l);
+        } else if (l.match(/^年齢[：:]/)) {
+          age_estimate = l.replace(/^年齢[：:]/, '').trim();
+        } else if (l.match(/^コメント[：:]/)) {
+          personality = l.replace(/^コメント[：:]/, '').trim();
+        }
+      }
     }
-  });
 
-  if (!external_id) {
-    external_id = `chiba-city-dog-${index}`;
+    $next = $next.next();
   }
 
   // 譲渡済み判定
@@ -111,7 +140,7 @@ function extractDogInfo($, element, index) {
     external_id,
     name,
     animal_type: 'dog',
-    breed: null,
+    breed,
     age_estimate,
     gender,
     color,
@@ -119,7 +148,7 @@ function extractDogInfo($, element, index) {
     health_status: null,
     personality,
     special_needs: null,
-    images: [],
+    images,
     protection_date: null,
     status: status,
     source_url: CONFIG.source_url,
@@ -152,10 +181,16 @@ async function main() {
 
     const allDogs = [];
 
-    $('div.animal-info, div.content div, article section').each((index, element) => {
-      const dog = extractDogInfo($, element, index);
-      if (dog.external_id) {
-        allDogs.push(dog);
+    // 「譲渡可能な犬たち」セクション内のh4要素を検索
+    // HTML構造: <h2>譲渡可能な犬たち</h2> → <h4>26011901（チャオ）</h4> → <p>...</p>
+    $('h4').each((index, element) => {
+      const text = $(element).text().trim();
+      // 管理番号パターン（8桁以上の数字）を含むh4のみ対象
+      if (text.match(/\d{8,}/)) {
+        const dog = extractDogInfo($, element, index);
+        if (dog.external_id) {
+          allDogs.push(dog);
+        }
       }
     });
 

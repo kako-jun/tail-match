@@ -1,5 +1,7 @@
 'use client';
 
+export const runtime = 'edge';
+
 import { useState, useEffect, use } from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
@@ -29,7 +31,7 @@ export default function TailDetailPage({ params }: TailDetailPageProps) {
     const fetchTail = async () => {
       try {
         const response = await fetch(`/api/tails/${id}`);
-        const data = await response.json();
+        const data = (await response.json()) as Record<string, any>;
 
         if (!response.ok) {
           throw new Error(data.message || 'Failed to fetch tail');
@@ -134,7 +136,7 @@ export default function TailDetailPage({ params }: TailDetailPageProps) {
           startIcon={<ArrowBack sx={{ fontSize: 16 }} />}
           sx={{ color: '#262626', fontSize: '0.875rem', '&:hover': { backgroundColor: '#F5F5F5' } }}
         >
-          尻尾ちゃん一覧に戻る
+          シッポたち一覧に戻る
         </Button>
       </Box>
 
@@ -184,7 +186,7 @@ export default function TailDetailPage({ params }: TailDetailPageProps) {
             )}
 
             {/* Transfer decided badge */}
-            {tail.transfer_decided && (
+            {!!tail.transfer_decided && (
               <Chip
                 icon={<Favorite sx={{ fontSize: 14, color: '#FFFFFF !important' }} />}
                 label="譲渡決定済み"
@@ -204,7 +206,7 @@ export default function TailDetailPage({ params }: TailDetailPageProps) {
           {/* Additional images */}
           {tail.images && tail.images.length > 1 && (
             <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1 }}>
-              {tail.images.slice(1, 4).map((imageUrl, index) => (
+              {tail.images.slice(1, 4).map((img, index) => (
                 <Box
                   key={index}
                   sx={{
@@ -216,7 +218,7 @@ export default function TailDetailPage({ params }: TailDetailPageProps) {
                   }}
                 >
                   <img
-                    src={imageUrl}
+                    src={img}
                     alt={`${tail.name || '保護猫'} 追加画像 ${index + 1}`}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     onError={(e) => {

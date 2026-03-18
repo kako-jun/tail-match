@@ -1,6 +1,8 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { TailWithDetails } from '@/types/database'
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+import { TailWithDetails } from '@/types/database';
 import {
   Card,
   CardContent,
@@ -12,46 +14,50 @@ import {
   Grid,
   Avatar,
   Divider,
-  IconButton
-} from '@mui/material'
+  IconButton,
+} from '@mui/material';
 import {
   AccessTime,
   LocationOn,
   FavoriteBorder,
   Favorite,
   BookmarkBorder,
-  Visibility
-} from '@mui/icons-material'
+  Visibility,
+} from '@mui/icons-material';
 
 interface TailCardProps {
-  tail: TailWithDetails
-  showRegion?: boolean
-  viewMode?: 'instagram' | 'card'
+  tail: TailWithDetails;
+  showRegion?: boolean;
+  viewMode?: 'instagram' | 'card';
 }
 
 export default function TailCard({ tail, showRegion = true, viewMode = 'card' }: TailCardProps) {
+  const [imgError, setImgError] = useState(false);
+
   // Urgency badge label
   const formatDaysRemaining = () => {
-    if (!tail.days_remaining) return null
-    if (tail.days_remaining < 0) return '期限切れ'
-    if (tail.days_remaining === 0) return '今日まで'
-    return `あと${tail.days_remaining}日`
-  }
+    if (!tail.days_remaining) return null;
+    if (tail.days_remaining < 0) return '期限切れ';
+    if (tail.days_remaining === 0) return '今日まで';
+    return `あと${tail.days_remaining}日`;
+  };
 
-  const imageUrl = tail.images && tail.images.length > 0
-    ? tail.images[0]
-    : null
+  const imageUrl = tail.images && tail.images.length > 0 ? tail.images[0] : null;
 
   const getUrgencyBadgeClass = () => {
     switch (tail.urgency_level) {
-      case 'urgent': return 'urgency-badge urgent'
-      case 'warning': return 'urgency-badge warning'
-      case 'caution': return 'urgency-badge caution'
-      default: return null
+      case 'urgent':
+        return 'urgency-badge urgent';
+      case 'warning':
+        return 'urgency-badge warning';
+      case 'caution':
+        return 'urgency-badge caution';
+      default:
+        return null;
     }
-  }
+  };
 
-  const urgencyBadgeClass = getUrgencyBadgeClass()
+  const urgencyBadgeClass = getUrgencyBadgeClass();
 
   // ===== Instagram grid/square card =====
   if (viewMode === 'instagram') {
@@ -60,7 +66,7 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
         sx={{
           position: 'relative',
           width: '100%',
-          paddingBottom: '100%',  // enforce 1:1
+          paddingBottom: '100%', // enforce 1:1
           overflow: 'hidden',
           borderRadius: '4px',
           backgroundColor: '#EFEFEF',
@@ -68,13 +74,18 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
         }}
       >
         {/* Photo */}
-        {imageUrl ? (
-          <Image
+        {imageUrl && !imgError ? (
+          <img
             src={imageUrl}
             alt={tail.name || '保護動物'}
-            fill
-            sizes="(max-width: 600px) 33vw, (max-width: 900px) 25vw, 20vw"
-            style={{ objectFit: 'cover' }}
+            onError={() => setImgError(true)}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
           />
         ) : (
           <Box
@@ -98,7 +109,8 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
           sx={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(135deg, rgba(255,200,150,0.07) 0%, rgba(255,240,210,0.03) 100%)',
+            background:
+              'linear-gradient(135deg, rgba(255,200,150,0.07) 0%, rgba(255,240,210,0.03) 100%)',
             pointerEvents: 'none',
             zIndex: 1,
           }}
@@ -107,16 +119,20 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
         {/* Urgency badge — top left */}
         {urgencyBadgeClass && tail.days_remaining !== null && (
           <Box sx={{ position: 'absolute', top: 6, left: 6, zIndex: 3 }}>
-            <span className={urgencyBadgeClass}>
-              {formatDaysRemaining()}
-            </span>
+            <span className={urgencyBadgeClass}>{formatDaysRemaining()}</span>
           </Box>
         )}
 
         {/* Transfer decided — top right */}
-        {tail.transfer_decided && (
+        {!!tail.transfer_decided && (
           <Box sx={{ position: 'absolute', top: 6, right: 6, zIndex: 3 }}>
-            <Favorite sx={{ fontSize: 18, color: '#ED4956', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.3))' }} />
+            <Favorite
+              sx={{
+                fontSize: 18,
+                color: '#ED4956',
+                filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.3))',
+              }}
+            />
           </Box>
         )}
 
@@ -143,15 +159,33 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
             },
           }}
         >
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'white', fontWeight: 700, fontSize: '0.9rem' }}>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              color: 'white',
+              fontWeight: 700,
+              fontSize: '0.9rem',
+            }}
+          >
             <FavoriteBorder sx={{ fontSize: 22 }} />
           </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'white', fontWeight: 700, fontSize: '0.9rem' }}>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              color: 'white',
+              fontWeight: 700,
+              fontSize: '0.9rem',
+            }}
+          >
             <Visibility sx={{ fontSize: 22 }} />
           </Box>
         </Box>
       </Box>
-    )
+    );
   }
 
   // ===== Feed card (below grid, Instagram feed post style) =====
@@ -215,13 +249,18 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
           backgroundColor: '#EFEFEF',
         }}
       >
-        {imageUrl ? (
-          <Image
+        {imageUrl && !imgError ? (
+          <img
             src={imageUrl}
             alt={tail.name || '保護動物'}
-            fill
-            sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
-            style={{ objectFit: 'cover' }}
+            onError={() => setImgError(true)}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
           />
         ) : (
           <Box
@@ -243,12 +282,13 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
           sx={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(135deg, rgba(255,200,150,0.07) 0%, rgba(255,240,210,0.03) 100%)',
+            background:
+              'linear-gradient(135deg, rgba(255,200,150,0.07) 0%, rgba(255,240,210,0.03) 100%)',
             pointerEvents: 'none',
           }}
         />
         {/* Transfer decided overlay badge */}
-        {tail.transfer_decided && (
+        {!!tail.transfer_decided && (
           <Chip
             icon={<Favorite sx={{ fontSize: '14px !important', color: '#ED4956 !important' }} />}
             label="譲渡決定"
@@ -343,7 +383,9 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
             sx={{ fontSize: '0.8125rem', color: '#262626', lineHeight: 1.5, mb: 1 }}
             className="line-clamp-2"
           >
-            <Box component="span" sx={{ fontWeight: 600 }}>{tail.name || '名前未定'} </Box>
+            <Box component="span" sx={{ fontWeight: 600 }}>
+              {tail.name || '名前未定'}{' '}
+            </Box>
             {tail.personality}
           </Typography>
         )}
@@ -396,5 +438,5 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
         </Box>
       </Box>
     </Card>
-  )
+  );
 }

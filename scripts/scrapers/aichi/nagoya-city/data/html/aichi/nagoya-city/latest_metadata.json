@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-11-16T01:53:28.573+09:00",
+  "url": "https://dog-cat-support.nagoya/adoption/",
+  "has_animals": true,
+  "html_size": 34210,
+  "scraper": "playwright",
+  "note": "名古屋市・犬猫混在・画像OCR必要"
+}

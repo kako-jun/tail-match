@@ -1,57 +1,57 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
-import { Clock, CheckCircle, XCircle, Activity, Database, TrendingUp } from 'lucide-react'
-import { Box, Typography, CircularProgress } from '@mui/material'
+import { useState, useEffect } from 'react';
+import { Clock, CheckCircle, XCircle, Activity, Database, TrendingUp } from 'lucide-react';
+import { Box, Typography, CircularProgress } from '@mui/material';
 
 interface ScrapingLog {
-  id: number
-  municipality_id: number
-  municipality_name: string
-  region_name: string
-  started_at: string
-  completed_at?: string
-  status: 'success' | 'error' | 'timeout'
-  tails_found: number
-  tails_added: number
-  tails_updated: number
-  tails_removed: number
-  error_message?: string
-  execution_time_ms?: number
+  id: number;
+  municipality_id: number;
+  municipality_name: string;
+  region_name: string;
+  started_at: string;
+  completed_at?: string;
+  status: 'success' | 'error' | 'timeout';
+  tails_found: number;
+  tails_added: number;
+  tails_updated: number;
+  tails_removed: number;
+  error_message?: string;
+  execution_time_ms?: number;
 }
 
 interface ScrapingStats {
-  totalScrapes: { total: string }
-  successRate: { successful: string; total: string; success_rate: string }
+  totalScrapes: { total: string };
+  successRate: { successful: string; total: string; success_rate: string };
   lastScrape: {
-    started_at: string
-    completed_at?: string
-    status: string
-    tails_found: number
-    tails_added: number
-    execution_time_ms?: number
-  }
+    started_at: string;
+    completed_at?: string;
+    status: string;
+    tails_found: number;
+    tails_added: number;
+    execution_time_ms?: number;
+  };
   municipalityStats: Array<{
-    municipality_name: string
-    region_name: string
-    total_scrapes: string
-    successful_scrapes: string
-    last_scrape: string
-    total_tails_found: string
-    total_tails_added: string
-  }>
+    municipality_name: string;
+    region_name: string;
+    total_scrapes: string;
+    successful_scrapes: string;
+    last_scrape: string;
+    total_tails_found: string;
+    total_tails_added: string;
+  }>;
 }
 
 interface DailyStats {
-  date: string
-  total_scrapes: string
-  successful_scrapes: string
-  failed_scrapes: string
-  tails_found: string
-  tails_added: string
-  tails_updated: string
-  tails_removed: string
-  avg_execution_time: string
+  date: string;
+  total_scrapes: string;
+  successful_scrapes: string;
+  failed_scrapes: string;
+  tails_found: string;
+  tails_added: string;
+  tails_updated: string;
+  tails_removed: string;
+  avg_execution_time: string;
 }
 
 const cellSx = {
@@ -59,77 +59,83 @@ const cellSx = {
   border: '1px solid #DBDBDB',
   borderRadius: '8px',
   p: 3,
-}
+};
 
 export default function ScrapingDashboard() {
-  const [logs, setLogs] = useState<ScrapingLog[]>([])
-  const [stats, setStats] = useState<ScrapingStats | null>(null)
-  const [dailyStats, setDailyStats] = useState<DailyStats[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [logs, setLogs] = useState<ScrapingLog[]>([]);
+  const [stats, setStats] = useState<ScrapingStats | null>(null);
+  const [dailyStats, setDailyStats] = useState<DailyStats[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
   const fetchData = async () => {
-    setLoading(true)
-    setError(null)
+    setLoading(true);
+    setError(null);
 
     try {
       const [logsRes, statsRes, dailyRes] = await Promise.all([
         fetch('/api/scraping-logs?limit=20'),
         fetch('/api/scraping-stats'),
-        fetch('/api/scraping-stats?type=daily&days=7')
-      ])
+        fetch('/api/scraping-stats?type=daily&days=7'),
+      ]);
 
       if (!logsRes.ok || !statsRes.ok || !dailyRes.ok) {
-        throw new Error('APIリクエストが失敗しました')
+        throw new Error('APIリクエストが失敗しました');
       }
 
       const [logsData, statsData, dailyData] = await Promise.all([
-        logsRes.json(),
-        statsRes.json(),
-        dailyRes.json()
-      ])
+        logsRes.json() as Promise<Record<string, any>>,
+        statsRes.json() as Promise<Record<string, any>>,
+        dailyRes.json() as Promise<Record<string, any>>,
+      ]);
 
-      if (logsData.success) setLogs(logsData.data)
-      if (statsData.success) setStats(statsData.data)
-      if (dailyData.success) setDailyStats(dailyData.data)
-
+      if (logsData.success) setLogs(logsData.data);
+      if (statsData.success) setStats(statsData.data);
+      if (dailyData.success) setDailyStats(dailyData.data);
     } catch (err) {
-      setError(err instanceof Error ? err.message : '不明なエラーが発生しました')
+      setError(err instanceof Error ? err.message : '不明なエラーが発生しました');
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
-  const formatDateTime = (dateString: string) =>
-    new Date(dateString).toLocaleString('ja-JP')
+  const formatDateTime = (dateString: string) => new Date(dateString).toLocaleString('ja-JP');
 
   const formatDuration = (ms?: number) => {
-    if (!ms) return '—'
-    if (ms < 1000) return `${ms}ms`
-    return `${(ms / 1000).toFixed(1)}秒`
-  }
+    if (!ms) return '—';
+    if (ms < 1000) return `${ms}ms`;
+    return `${(ms / 1000).toFixed(1)}秒`;
+  };
 
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case 'success': return <CheckCircle size={14} style={{ color: '#4CAF50' }} />
-      case 'error': return <XCircle size={14} style={{ color: '#ED4956' }} />
-      case 'timeout': return <Clock size={14} style={{ color: '#FFBA33' }} />
-      default: return <Activity size={14} style={{ color: '#8E8E8E' }} />
+      case 'success':
+        return <CheckCircle size={14} style={{ color: '#4CAF50' }} />;
+      case 'error':
+        return <XCircle size={14} style={{ color: '#ED4956' }} />;
+      case 'timeout':
+        return <Clock size={14} style={{ color: '#FFBA33' }} />;
+      default:
+        return <Activity size={14} style={{ color: '#8E8E8E' }} />;
     }
-  }
+  };
 
   const getStatusStyle = (status: string): React.CSSProperties => {
     switch (status) {
-      case 'success': return { background: '#F0FFF4', color: '#1B5E20', border: '1px solid #A5D6A7' }
-      case 'error': return { background: '#FFEEF0', color: '#B71C1C', border: '1px solid #FFBEC2' }
-      case 'timeout': return { background: '#FFF8E6', color: '#7A5000', border: '1px solid #FFE299' }
-      default: return { background: '#F5F5F5', color: '#616161', border: '1px solid #DBDBDB' }
+      case 'success':
+        return { background: '#F0FFF4', color: '#1B5E20', border: '1px solid #A5D6A7' };
+      case 'error':
+        return { background: '#FFEEF0', color: '#B71C1C', border: '1px solid #FFBEC2' };
+      case 'timeout':
+        return { background: '#FFF8E6', color: '#7A5000', border: '1px solid #FFE299' };
+      default:
+        return { background: '#F5F5F5', color: '#616161', border: '1px solid #DBDBDB' };
     }
-  }
+  };
 
   if (loading) {
     return (
@@ -141,7 +147,7 @@ export default function ScrapingDashboard() {
           </Typography>
         </Box>
       </Box>
-    )
+    );
   }
 
   if (error) {
@@ -177,7 +183,7 @@ export default function ScrapingDashboard() {
           再読み込み
         </button>
       </Box>
-    )
+    );
   }
 
   return (
@@ -218,7 +224,14 @@ export default function ScrapingDashboard() {
             },
           ].map((item, i) => (
             <Box key={i} sx={cellSx}>
-              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 1 }}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'flex-start',
+                  mb: 1,
+                }}
+              >
                 <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E', lineHeight: 1.4 }}>
                   {item.label}
                 </Typography>
@@ -250,21 +263,23 @@ export default function ScrapingDashboard() {
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8125rem' }}>
               <thead>
                 <tr style={{ borderBottom: '1px solid #DBDBDB' }}>
-                  {['日付', 'スクレイピング', '成功', '失敗', '発見数', '追加数', '平均時間'].map((h) => (
-                    <th
-                      key={h}
-                      style={{
-                        padding: '8px 12px',
-                        textAlign: h === '日付' ? 'left' : 'center',
-                        fontWeight: 600,
-                        color: '#8E8E8E',
-                        whiteSpace: 'nowrap',
-                        fontSize: '0.75rem',
-                      }}
-                    >
-                      {h}
-                    </th>
-                  ))}
+                  {['日付', 'スクレイピング', '成功', '失敗', '発見数', '追加数', '平均時間'].map(
+                    (h) => (
+                      <th
+                        key={h}
+                        style={{
+                          padding: '8px 12px',
+                          textAlign: h === '日付' ? 'left' : 'center',
+                          fontWeight: 600,
+                          color: '#8E8E8E',
+                          whiteSpace: 'nowrap',
+                          fontSize: '0.75rem',
+                        }}
+                      >
+                        {h}
+                      </th>
+                    )
+                  )}
                 </tr>
               </thead>
               <tbody>
@@ -273,11 +288,42 @@ export default function ScrapingDashboard() {
                     <td style={{ padding: '10px 12px', color: '#262626' }}>
                       {new Date(day.date).toLocaleDateString('ja-JP')}
                     </td>
-                    <td style={{ padding: '10px 12px', textAlign: 'center', color: '#262626' }}>{day.total_scrapes}</td>
-                    <td style={{ padding: '10px 12px', textAlign: 'center', color: '#4CAF50', fontWeight: 600 }}>{day.successful_scrapes}</td>
-                    <td style={{ padding: '10px 12px', textAlign: 'center', color: '#ED4956', fontWeight: 600 }}>{day.failed_scrapes}</td>
-                    <td style={{ padding: '10px 12px', textAlign: 'center', color: '#262626' }}>{day.tails_found}</td>
-                    <td style={{ padding: '10px 12px', textAlign: 'center', color: '#262626', fontWeight: 600 }}>{day.tails_added}</td>
+                    <td style={{ padding: '10px 12px', textAlign: 'center', color: '#262626' }}>
+                      {day.total_scrapes}
+                    </td>
+                    <td
+                      style={{
+                        padding: '10px 12px',
+                        textAlign: 'center',
+                        color: '#4CAF50',
+                        fontWeight: 600,
+                      }}
+                    >
+                      {day.successful_scrapes}
+                    </td>
+                    <td
+                      style={{
+                        padding: '10px 12px',
+                        textAlign: 'center',
+                        color: '#ED4956',
+                        fontWeight: 600,
+                      }}
+                    >
+                      {day.failed_scrapes}
+                    </td>
+                    <td style={{ padding: '10px 12px', textAlign: 'center', color: '#262626' }}>
+                      {day.tails_found}
+                    </td>
+                    <td
+                      style={{
+                        padding: '10px 12px',
+                        textAlign: 'center',
+                        color: '#262626',
+                        fontWeight: 600,
+                      }}
+                    >
+                      {day.tails_added}
+                    </td>
                     <td style={{ padding: '10px 12px', textAlign: 'center', color: '#8E8E8E' }}>
                       {formatDuration(parseFloat(day.avg_execution_time))}
                     </td>
@@ -304,7 +350,14 @@ export default function ScrapingDashboard() {
                 borderBottom: i < logs.length - 1 ? '1px solid #EFEFEF' : 'none',
               }}
             >
-              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  mb: 1,
+                }}
+              >
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
                   {getStatusIcon(log.status)}
                   <Typography sx={{ fontSize: '0.875rem', fontWeight: 600, color: '#262626' }}>
@@ -380,5 +433,5 @@ export default function ScrapingDashboard() {
         </Box>
       </Box>
     </Box>
-  )
+  );
 }

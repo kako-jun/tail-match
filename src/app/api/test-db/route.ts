@@ -1,30 +1,29 @@
-import { NextResponse } from 'next/server'
-import { testConnection, query } from '@/lib/database'
+import { NextResponse } from 'next/server';
+import { testConnection, query } from '@/lib/database';
+
+export const runtime = 'edge';
 
 export async function GET() {
   try {
     // データベース接続テスト
-    const isConnected = await testConnection()
-    
+    const isConnected = await testConnection();
+
     if (!isConnected) {
-      return NextResponse.json(
-        { error: 'Database connection failed' },
-        { status: 500 }
-      )
+      return NextResponse.json({ error: 'Database connection failed' }, { status: 500 });
     }
 
-    // テーブル存在確認
+    // テーブル存在確認（SQLite版）
     const tablesResult = await query(`
-      SELECT table_name 
-      FROM information_schema.tables 
-      WHERE table_schema = 'public'
-      ORDER BY table_name
-    `)
+      SELECT name as table_name
+      FROM sqlite_master
+      WHERE type = 'table'
+      ORDER BY name
+    `);
 
     // 簡単なデータ確認
-    const regionsResult = await query('SELECT COUNT(*) as count FROM regions')
-    const municipalitiesResult = await query('SELECT COUNT(*) as count FROM municipalities')
-    const tailsResult = await query('SELECT COUNT(*) as count FROM tails')
+    const regionsResult = await query('SELECT COUNT(*) as count FROM regions');
+    const municipalitiesResult = await query('SELECT COUNT(*) as count FROM municipalities');
+    const tailsResult = await query('SELECT COUNT(*) as count FROM tails');
 
     return NextResponse.json({
       status: 'success',
@@ -34,21 +33,20 @@ export async function GET() {
         counts: {
           regions: parseInt(regionsResult.rows[0].count),
           municipalities: parseInt(municipalitiesResult.rows[0].count),
-          tails: parseInt(tailsResult.rows[0].count)
-        }
-      }
-    })
-
+          tails: parseInt(tailsResult.rows[0].count),
+        },
+      },
+    });
   } catch (error) {
-    console.error('Database test error:', error)
-    
+    console.error('Database test error:', error);
+
     return NextResponse.json(
-      { 
+      {
         error: 'Database test failed',
         message: error instanceof Error ? error.message : 'Unknown error',
-        suggestion: 'Make sure PostgreSQL is running and environment variables are set correctly'
+        suggestion: 'Make sure D1 database is configured correctly in wrangler.toml',
       },
       { status: 500 }
-    )
+    );
   }
 }

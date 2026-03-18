@@ -13,8 +13,8 @@
 import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
-import { initializeDatabase, closeDatabase } from './lib/db.js';
-import { createLogger } from './lib/history-logger.js';
+import { initializeDatabase, closeDatabase } from '../lib/db.js';
+import { createLogger } from '../lib/history-logger.js';
 
 // ========================================
 // 設定
@@ -133,6 +133,20 @@ function generateDefaultName(animal) {
 }
 
 // ========================================
+// 画像の正規化
+// ========================================
+
+/**
+ * 画像データを string[] (URL のみ) に正規化する。
+ * スクレイパーによって {url, alt, original_src}[] または string[] が混在するため、
+ * DB 投入前に統一する。
+ */
+function normalizeImages(images) {
+  if (!images || !Array.isArray(images)) return [];
+  return images.map((img) => (typeof img === 'string' ? img : img?.url)).filter(Boolean);
+}
+
+// ========================================
 // データベース投入
 // ========================================
 
@@ -195,7 +209,7 @@ function importYAMLToDB(yamlData, db, yamlFilename) {
           health_status: animal.health_status,
           personality: animal.personality,
           special_needs: animal.special_needs,
-          images: animal.images,
+          images: normalizeImages(animal.images),
           protection_date: animal.protection_date,
           deadline_date: animal.deadline_date,
           status: animal.status || 'available',

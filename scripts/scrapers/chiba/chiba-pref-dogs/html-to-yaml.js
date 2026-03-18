@@ -157,7 +157,7 @@ async function main() {
 
     const allDogs = [];
 
-    $('.column2.clearfix').each((index, element) => {
+    $('.col2').each((index, element) => {
       const dog = extractDogFromBlock($, $(element), index);
       if (dog) {
         allDogs.push(dog);

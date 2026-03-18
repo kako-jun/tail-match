@@ -1,3 +1,7 @@
+# NOTE: This compose.yaml is LEGACY and unused for production.
+# Production uses Cloudflare Pages + D1 (see wrangler.toml).
+# Kept for reference only.
+
 services:
   db:
     image: postgres:16-alpine

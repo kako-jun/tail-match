@@ -1,0 +1,10 @@
+# Tail Match - Cloudflare Pages + D1 configuration
+name = "tail-match"
+pages_build_output_dir = ".vercel/output/static"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tail-match-db"
+database_id = "9ed5914c-6034-4393-a39a-26879638a7ee"

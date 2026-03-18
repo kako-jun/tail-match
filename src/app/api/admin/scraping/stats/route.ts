@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/database';
 
+export const runtime = 'edge';
+
 function checkAdminAuth(request: NextRequest): boolean {
   const token = request.headers.get('x-admin-token');
   const expected = process.env.ADMIN_API_TOKEN;
@@ -14,8 +16,6 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    // scraping_logs の status 値は 'success' / 'error' / 'warning'
-    // (旧コードの 'completed' / 'failed' は実際のスキーマと不一致だったため修正)
     const statsQuery = `
       SELECT
         COUNT(*) as total_runs,
@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
         COALESCE(AVG(execution_time_ms), 0) as avg_execution_time,
         MAX(started_at) as last_run
       FROM scraping_logs
-      WHERE started_at >= NOW() - INTERVAL '30 days'
+      WHERE started_at >= datetime('now', '-30 days')
     `;
 
     const result = await query(statsQuery);

@@ -1,0 +1,159 @@
+meta:
+  source_file: 20260318_204349_tail.html
+  source_url: https://www4.city.kanazawa.lg.jp/soshikikarasagasu/dobutsuaigokanricenter/gyomuannai/1/jouto_info/7301.html
+  extracted_at: '2026-03-18T20:43:49.852+09:00'
+  municipality: ishikawa/kanazawa-city-cats
+  municipality_id: 2
+animals:
+  - external_id: C071021
+    animal_type: cat
+    name: 四郎
+    breed: 雑種
+    age_estimate: 4ヶ月半齢
+    gender: male
+    color: キジトラ
+    size: small
+    health_status: null
+    personality: null
+    special_needs: "好奇心旺盛なやんちゃBOYです♪\n\n\t\t\t名前は『四郎』くん🐈\n\n\t\t\t\_\n\n\t\t\t※猫ケージご用意できる方でお願いします。\n\n\t\t\t※身体に気になる症状がありますので、四郎くんご希望の方はセンターにお電話下さい！\n\n\t\t\t\_\n\n\t\t\t・ノミ、ダニ駆除済み\n\n\t\t\t・3種混合ワクチン接種済み"
+    images:
+      - https://www4.city.kanazawa.lg.jp/material/images/group/57/071021.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://www4.city.kanazawa.lg.jp/soshikikarasagasu/dobutsuaigokanricenter/gyomuannai/1/jouto_info/7301.html
+    confidence_score: 0.9
+    extraction_method: table_based
+  - external_id: C071202
+    animal_type: cat
+    name: しらたま
+    breed: 雑種（長毛）
+    age_estimate: 10歳以上
+    gender: male
+    color: 白
+    size: large
+    health_status: null
+    personality: null
+    special_needs: "まだ少し警戒心がある子ですが、\n\n\t\t\tごはんの時間になったらすり寄って来るようになりました！\n\n\t\t\tおしりをトントンすると、嬉しそうにしています♪\n\n\t\t\t名前は『しらたま』くん🐈\n\n\t\t\t\_\n\n\t\t\t・ノミ、ダニ駆除済み\n\n\t\t\t・去勢手術済み"
+    images:
+      - https://www4.city.kanazawa.lg.jp/material/images/group/57/071202.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://www4.city.kanazawa.lg.jp/soshikikarasagasu/dobutsuaigokanricenter/gyomuannai/1/jouto_info/7301.html
+    confidence_score: 0.9
+    extraction_method: table_based
+  - external_id: C071127
+    animal_type: cat
+    name: ステック
+    breed: 雑種
+    age_estimate: 10歳以上
+    gender: female
+    color: シールポイント
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: "高齢ですが、食欲旺盛です☆彡\n\n\t\t\t自由気ままな性格です♪\n\n\t\t\t名前は『ステック』ちゃん🐈\n\n\t\t\t\_\n\n\t\t\t・ノミ、ダニ駆除済み"
+    images:
+      - https://www4.city.kanazawa.lg.jp/material/images/group/57/071127.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://www4.city.kanazawa.lg.jp/soshikikarasagasu/dobutsuaigokanricenter/gyomuannai/1/jouto_info/7301.html
+    confidence_score: 0.9
+    extraction_method: table_based
+  - external_id: C071119
+    animal_type: cat
+    name: すもも
+    breed: 雑種
+    age_estimate: 13歳
+    gender: female
+    color: 黒白
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: "人懐っこく甘えん坊な女の子です☆彡\n\n\t\t\tマイペースな性格も可愛いです♪\n\n\t\t\t名前は『すもも』ちゃん🐈\n\n\t\t\t\_\n\n\t\t\t・ノミ、ダニ駆除済み\n\n\t\t\t・避妊手術済み"
+    images:
+      - https://www4.city.kanazawa.lg.jp/material/images/group/57/071121.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://www4.city.kanazawa.lg.jp/soshikikarasagasu/dobutsuaigokanricenter/gyomuannai/1/jouto_info/7301.html
+    confidence_score: 0.9
+    extraction_method: table_based
+  - external_id: C070327
+    animal_type: cat
+    name: みたらし
+    breed: 雑種
+    age_estimate: 15歳
+    gender: female
+    color: キジトラ
+    size: small
+    health_status: null
+    personality: null
+    special_needs: "少しツンデレな性格の女の子♪\n\n\t\t\t高齢ですが、食欲旺盛で元気です☆彡\n\n\t\t\t他の猫ちゃんは苦手そうです！\n\n\t\t\t※首元に脱毛箇所あり\n\n\t\t\t名前は『みたらし』ちゃん🐈\n\n\t\t\t\_\n\n\t\t\t・ノミ、ダニ駆除済み\n\n\t\t\t・避妊手術済み\n\n\t\t\t・3種混合ワクチン接種済み"
+    images:
+      - https://www4.city.kanazawa.lg.jp/material/images/group/57/C070327.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://www4.city.kanazawa.lg.jp/soshikikarasagasu/dobutsuaigokanricenter/gyomuannai/1/jouto_info/7301.html
+    confidence_score: 0.9
+    extraction_method: table_based
+  - external_id: C060926
+    animal_type: cat
+    name: キング
+    breed: 雑種（長毛）
+    age_estimate: 11歳
+    gender: male
+    color: 茶
+    size: large
+    health_status: null
+    personality: null
+    special_needs: "触られることはまだ少し苦手ですが、\n\n\t\t\tごはんの時間になると、フミフミしながら待ってます♪\n\n\t\t\t保護した当初、左前足に大怪我をしていて治療したため、\n\n\t\t\t現在も少し前足の大きさが違います。\n\n\t\t\t名前は『キング』くんです🐈\n\n\t\t\t\_\n\n\t\t\t※猫ケージご用意できる方でお願いします。\n\n\t\t\t\_\n\n\t\t\t・ノミ、ダニ駆除済み\n\n\t\t\t・去勢手術済み\n\n\t\t\t・3種混合ワクチン接種済み"
+    images:
+      - https://www4.city.kanazawa.lg.jp/material/images/group/57/60926.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://www4.city.kanazawa.lg.jp/soshikikarasagasu/dobutsuaigokanricenter/gyomuannai/1/jouto_info/7301.html
+    confidence_score: 0.9
+    extraction_method: table_based
+  - external_id: C070922
+    animal_type: cat
+    name: おかき
+    breed: 雑種
+    age_estimate: 3歳
+    gender: female
+    color: キジトラ
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: "まだ少し怖がりさんですが、頭を撫でてもらうことが好きな女の子です♪\n\n\t\t\tお顔がとっても可愛い美猫ちゃんです☆彡\n\n\t\t\t名前は『おかき』ちゃんです🐈\n\n\t\t\t\_\n\n\t\t\t※トライアルに入りました！！\n\n\t\t\t\_\n\n\t\t\t・ノミ、ダニ駆除済み\n\n\t\t\t・避妊手術済み\n\n\t\t\t・3種混合ワクチン接種済み"
+    images:
+      - https://www4.city.kanazawa.lg.jp/material/images/group/57/070922.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://www4.city.kanazawa.lg.jp/soshikikarasagasu/dobutsuaigokanricenter/gyomuannai/1/jouto_info/7301.html
+    confidence_score: 0.9
+    extraction_method: table_based
+statistics:
+  total_tables: 7
+  valid_animals: 7
+  extraction_errors: 0
+cross_check:
+  gender_mentions: 7
+  age_mentions: 14
+  breed_mentions: 14
+  image_tags: 30
+  table_count: 7
+consistency_warnings: []
+confidence_level: high

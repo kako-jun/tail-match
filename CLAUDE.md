@@ -40,7 +40,7 @@
 
 ### ✅ **継続完了機能**
 
-- **基盤システム**: Next.js + PostgreSQL + Python スクレイピング環境完成
+- **基盤システム**: Next.js + Cloudflare D1 (SQLite) + Playwright スクレイピング環境完成
 - **フロントエンド完成**: Phase 3 UI/UX実装完了
   - 検索・フィルタリング機能 (地域・性別・年齢・緊急度)
   - 緊急度表示システム (視覚的アラート・アニメーション)
@@ -82,8 +82,8 @@
 
 ### ⚠️ **残存技術課題**
 
-- **📋 データベース接続**: スクレイピング実行時の接続問題（要調査）
-- **📋 Next.js設定**: standalone build設定が未完了
+- **📋 カスタムドメイン**: tail-match.llll-ll.com の Cloudflare Pages への設定
+- **📋 全国展開**: 残り27都府県のスクレイパー実装
 
 詳細は [scraping.md](./docs/scraping.md) を参照。
 

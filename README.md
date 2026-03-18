@@ -15,29 +15,27 @@
 git clone https://github.com/kako-jun/tail-match.git
 cd tail-match
 
-# 環境変数設定
-cp .env.example .env.local
-# .env.local を編集してデータベース情報等を設定
+# 依存関係インストール
+npm install
 
-# Docker Compose で起動
-docker compose up -d
+# 開発サーバー起動（D1バインディングをローカルでエミュレート）
+npm run dev
 
 # ブラウザでアクセス
 open http://localhost:3000
 ```
 
-### 本番環境
+### 本番デプロイ（Cloudflare Pages + D1）
 
 ```bash
-# 本番環境用設定
-cp .env.prod .env.local
-# .env.local を編集
+# ビルド
+npx @cloudflare/next-on-pages
 
-# 本番環境で起動
-docker compose -f compose.yaml -f compose.prod.yaml up -d
+# デプロイ
+npx wrangler pages deploy .vercel/output/static --project-name tail-match
 
-# または自動デプロイスクリプト使用
-./scripts/deploy.sh production
+# ローカルSQLite → D1 データ同期
+node scripts/core/sync-to-d1.js
 ```
 
 ## 📁 プロジェクト構成
@@ -52,11 +50,11 @@ tail-match/
 │   ├── ishikawa/         # 石川県（aigo-ishikawa, kanazawa-city-cats）
 │   ├── tokyo/            # 東京都（tokyo-metro-cats）
 │   └── ...               # 各都道府県ごとに scrape.js + html-to-yaml.js
-├── database/              # データベース設定
-├── nginx/                # Nginx設定
-├── scripts/              # デプロイスクリプト
-├── compose.yaml          # Docker Compose (開発)
-└── compose.prod.yaml     # Docker Compose (本番)
+├── database/              # データベーススキーマ
+│   └── schema-sqlite.sql # SQLiteスキーマ定義
+├── scripts/core/          # パイプライン（スクレイピング・DB同期）
+├── wrangler.toml          # Cloudflare Pages + D1 設定
+└── compose.yaml           # Docker Compose (レガシー、未使用)
 ```
 
 ## 🛠 技術スタック
@@ -69,15 +67,16 @@ tail-match/
 
 ### バックエンド
 
-- **Next.js API Routes** - サーバーサイドAPI
-- **PostgreSQL** - メインデータベース
+- **Next.js API Routes** (Edge Runtime) - サーバーサイドAPI
+- **Cloudflare D1** (SQLite互換) - 本番データベース
+- **better-sqlite3** - ローカルスクレイピング用DB
 - **JavaScript + Playwright** - スクレイピングシステム
 
 ### インフラ
 
-- **Docker Compose** - コンテナオーケストレーション
-- **Nginx** - リバースプロキシ
-- **GitHub Actions** - CI/CD
+- **Cloudflare Pages** - ホスティング (@cloudflare/next-on-pages)
+- **Cloudflare D1** - サーバーレスデータベース
+- **launchd** - macOSでの定期スクレイピング実行
 
 ## 🐱 スクレイピング機能
 
@@ -116,24 +115,23 @@ GET /api/admin/scraping/stats # 統計情報
 
 ```bash
 # フロントエンド開発
-npm run dev                 # 開発サーバー起動
+npm run dev                 # 開発サーバー起動（D1ローカルエミュレーション）
 npm run build              # 本番ビルド
 npm run lint               # ESLint実行
 npm run lint:fix           # ESLint自動修正
 npm run format             # Prettier実行（全ファイル）
 npm run format:check       # Prettierチェック（CIで使用）
 
-# スクレイピング開発
-cd scripts/scrapers
-node ishikawa/aigo-ishikawa/scrape.js  # スクレイパー実行
+# Cloudflare Pages ビルド・デプロイ
+npx @cloudflare/next-on-pages          # Pages用ビルド
+npx wrangler pages deploy .vercel/output/static --project-name tail-match
 
-# Docker 操作
-docker compose up -d        # 開発環境起動
-docker compose logs -f      # ログ表示
-docker compose down         # 停止
+# スクレイピング
+bash scripts/core/run-all-scrapers.sh  # 全施設スクレイピング
+node scripts/core/sync-to-d1.js       # ローカルDB → D1同期
 
-# 本番環境
-docker compose -f compose.yaml -f compose.prod.yaml up -d
+# D1 確認
+npx wrangler d1 execute tail-match-db --remote --command="SELECT COUNT(*) FROM tails;"
 ```
 
 ## 🪝 Git Hooks（自動フォーマット）
@@ -174,22 +172,17 @@ npm run format:check
 
 ### ✅ 完了機能
 
-- **基盤システム**: Next.js + PostgreSQL + Python完成
-- **UI/UX**: 検索・フィルタリング・緊急度表示
-- **スクレイピング**: 石川県で24匹発見（フォールバック）
+- **基盤システム**: Next.js + Cloudflare D1 + Playwright スクレイピング
+- **本番デプロイ**: Cloudflare Pages + D1 で稼働中（547匹掲載）
+- **UI/UX**: 検索・フィルタリング・緊急度表示・ギャラリー
+- **スクレイピング**: 28施設対応、launchd自動実行 + 異常検知
 - **管理画面**: 履歴表示・統計ダッシュボード
-
-### ⚠️ 技術課題
-
-- **JavaScript必須サイト**: 動的コンテンツ対応が必要
-- **Playwright統合**: 一部のサイトで必須
-- **データ品質**: フォールバック抽出の精度向上
 
 ### 🚀 次期実装予定
 
-- **Phase 4.2**: 複数自治体対応システム
-- **Phase 4.3**: 法的整備（免責事項・プライバシーポリシー）
-- **Playwright統合**: 全動的サイト対応
+- カスタムドメイン tail-match.llll-ll.com の設定
+- 残り27都府県のスクレイパー実装
+- OCR完全自動化（横浜市・堺市）
 
 ## 📄 ライセンス
 

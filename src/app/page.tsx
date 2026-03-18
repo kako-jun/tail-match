@@ -242,7 +242,7 @@ export default function HomePage() {
             はじめにお読みください
           </Typography>
           <Typography sx={{ fontSize: '0.9375rem', color: '#262626', lineHeight: 1.7, mb: 1.5 }}>
-            <strong>「ているまっち！」</strong>は、全国の自治体が保護している犬・猫の情報を集約し、
+            <strong>「ているまっち！」</strong>は、全国の自治体が保護している猫・犬の情報を集約し、
             新しい家族とのマッチングをサポートするサービスです。
           </Typography>
           <Typography sx={{ fontSize: '0.8125rem', color: '#8E8E8E', lineHeight: 1.7, mb: 1.5 }}>
@@ -259,7 +259,7 @@ export default function HomePage() {
             }}
           >
             <Typography sx={{ fontSize: '0.8125rem', color: '#ED4956', lineHeight: 1.6 }}>
-              保護動物たちは、期限が過ぎると<strong>殺処分</strong>の可能性があります。
+              シッポたちは、期限が過ぎると<strong>殺処分</strong>の可能性があります。
               一匹でも多くの命を救うため、ぜひ里親をご検討ください。
             </Typography>
           </Box>

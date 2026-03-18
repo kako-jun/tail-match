@@ -618,8 +618,10 @@ function calculateConfidenceScore(name, gender, age, color, imageCount) {
 
 async function processAllHTMLFiles() {
   console.log('='.repeat(60));
-  console.log('🐱 HTML → YAML 変換処理');
+  console.log('🐱 いしかわ動物愛護センター - HTML → YAML 変換');
   console.log('='.repeat(60));
+  console.log(`   Municipality: ${CONFIG.municipality}`);
+  console.log('='.repeat(60) + '\n');
 
   const logger = createLogger(CONFIG.municipality);
   logger.start();
@@ -631,61 +633,63 @@ async function processAllHTMLFiles() {
       fs.mkdirSync(CONFIG.yamlOutputDir, { recursive: true });
     }
 
-    // HTMLファイルを検索
-    const htmlFiles = [];
-    const archiveDir = path.join(CONFIG.htmlDir, 'archive');
+    // 最新のHTMLファイルを取得
+    const htmlFiles = fs
+      .readdirSync(CONFIG.htmlDir)
+      .filter((f) => f.endsWith('.html'))
+      .sort()
+      .reverse();
 
-    if (fs.existsSync(archiveDir)) {
-      const files = fs.readdirSync(archiveDir);
-      files.forEach((file) => {
-        if (file.endsWith('.html')) {
-          htmlFiles.push(path.join(archiveDir, file));
-        }
-      });
+    if (htmlFiles.length === 0) {
+      throw new Error(`HTMLファイルが見つかりません: ${CONFIG.htmlDir}`);
     }
 
-    console.log(`\n📁 発見したHTMLファイル: ${htmlFiles.length}個`);
+    const latestHtmlFile = htmlFiles[0];
+    const htmlPath = path.join(CONFIG.htmlDir, latestHtmlFile);
 
-    // 各HTMLファイルを処理
-    for (const htmlFile of htmlFiles) {
-      console.log(`\n📄 処理中: ${path.basename(htmlFile)}`);
+    console.log(`📂 HTMLファイル読み込み: ${latestHtmlFile}\n`);
 
-      const html = fs.readFileSync(htmlFile, 'utf-8');
-      const sourceUrl = 'https://aigo-ishikawa.jp/petadoption_list/';
+    const html = fs.readFileSync(htmlPath, 'utf-8');
+    const sourceUrl = 'https://aigo-ishikawa.jp/petadoption_list/';
 
-      // 動物データを抽出
-      const extractionResult = extractAnimalsFromHTML(html, sourceUrl, path.basename(htmlFile));
+    // HTMLからYAMLデータを抽出
+    const extractionResult = extractAnimalsFromHTML(html, sourceUrl, latestHtmlFile);
 
-      // YAML抽出後の動物数を記録（⚠️ 1匹でも減少したら自動警告）
-      logger.logYAMLCount(extractionResult.statistics.valid_animals);
+    // YAML抽出後の動物数を記録（⚠️ 1匹でも減少したら自動警告）
+    logger.logYAMLCount(extractionResult.statistics.valid_animals);
 
-      // YAMLファイルに出力
-      const yamlFilename = path.basename(htmlFile, '.html') + '.yaml';
-      const yamlFilepath = path.join(CONFIG.yamlOutputDir, yamlFilename);
+    // YAMLファイル名を生成（タイムスタンプ付き）
+    const timestamp = getJSTTimestamp();
+    const yamlFilename = `${timestamp}_tail.yaml`;
+    const yamlFilepath = path.join(CONFIG.yamlOutputDir, yamlFilename);
 
-      const yamlContent = yaml.dump(extractionResult, {
-        indent: 2,
-        defaultStyle: null,
-        sortKeys: false,
-      });
+    const yamlContent = yaml.dump(extractionResult, {
+      indent: 2,
+      lineWidth: 120,
+      noRefs: true,
+    });
 
-      fs.writeFileSync(yamlFilepath, yamlContent, 'utf-8');
+    fs.writeFileSync(yamlFilepath, yamlContent, 'utf-8');
 
-      logger.finalize(); // 履歴を保存
-
-      console.log(`✅ YAML出力: ${yamlFilepath}`);
-      console.log(
-        `📊 統計: ${extractionResult.statistics.valid_animals}匹の動物, ${extractionResult.statistics.extraction_errors}個のエラー`
-      );
-    }
+    logger.finalize(); // 履歴を保存
 
     console.log('\n' + '='.repeat(60));
-    console.log('✅ HTML → YAML 変換完了');
+    console.log('✅ YAML変換完了');
     console.log('='.repeat(60));
-    console.log('\n次の手順:');
-    console.log('1. 生成されたYAMLファイルを確認・編集');
-    console.log('2. yaml-to-db.js でデータベースに投入');
-    console.log(`\nYAMLファイル場所: ${CONFIG.yamlOutputDir}`);
+    console.log(`📄 保存: ${yamlFilepath}`);
+    console.log(
+      `📊 抽出数: ${extractionResult.statistics.valid_animals}匹の動物, ${extractionResult.statistics.extraction_errors}個のエラー`
+    );
+    console.log(`🎯 信頼度: ${extractionResult.confidence_level.toUpperCase()}`);
+    console.log('='.repeat(60));
+
+    if (
+      extractionResult.confidence_level === 'critical' ||
+      extractionResult.confidence_level === 'low'
+    ) {
+      console.log('\n⚠️  警告: 手動確認を推奨します');
+      process.exit(1);
+    }
   } catch (error) {
     logger.logError(error);
     logger.finalize(); // エラー時も履歴を保存

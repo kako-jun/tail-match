@@ -175,7 +175,7 @@ function SearchPageContent() {
       if (municipalityId) params.append('municipality_id', municipalityId);
 
       const response = await fetch(`/api/tails?${params}`);
-      const data = await response.json();
+      const data = (await response.json()) as Record<string, any>;
       setResults(data.data || []);
       setTotalCount(data.total || 0);
     } catch (error) {
@@ -239,7 +239,7 @@ function SearchPageContent() {
         <Typography
           sx={{ fontSize: '1.375rem', fontWeight: 300, color: '#262626', letterSpacing: '-0.01em' }}
         >
-          動物を探す
+          シッポを探す
         </Typography>
         <Typography sx={{ fontSize: '0.875rem', color: '#8E8E8E', mt: 0.5 }}>
           あなたにぴったりの家族を見つけましょう
@@ -286,7 +286,7 @@ function SearchPageContent() {
                 mb: 1.5,
               }}
             >
-              動物の種類
+              シッポの種類
             </Typography>
             <Box
               sx={{
@@ -548,7 +548,7 @@ function SearchPageContent() {
               }}
             >
               <Typography sx={{ fontSize: '0.9375rem', color: '#8E8E8E' }}>
-                条件に一致する動物が見つかりませんでした
+                条件に一致するシッポが見つかりませんでした
               </Typography>
             </Box>
           ) : (

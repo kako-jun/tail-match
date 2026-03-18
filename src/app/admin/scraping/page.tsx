@@ -80,7 +80,7 @@ export default function ScrapingAdminPage() {
       if (!logsResponse.ok) {
         throw new Error('Failed to fetch scraping logs');
       }
-      const logsData = await logsResponse.json();
+      const logsData = (await logsResponse.json()) as ScrapingLog[];
       setLogs(logsData);
 
       // Fetch scraping statistics
@@ -88,7 +88,7 @@ export default function ScrapingAdminPage() {
       if (!statsResponse.ok) {
         throw new Error('Failed to fetch scraping stats');
       }
-      const statsData = await statsResponse.json();
+      const statsData = (await statsResponse.json()) as ScrapingStats;
       setStats(statsData);
     } catch (err) {
       console.error('Error fetching data:', err);

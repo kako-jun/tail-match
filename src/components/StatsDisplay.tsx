@@ -1,15 +1,15 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
-import { Heart, MapPin, Clock, AlertCircle } from 'lucide-react'
-import { Box, Typography, Skeleton } from '@mui/material'
+import { useState, useEffect } from 'react';
+import { Heart, MapPin, Clock, AlertCircle } from 'lucide-react';
+import { Box, Typography, Skeleton } from '@mui/material';
 
 interface Stats {
-  total: number
-  urgent: number
-  warning: number
-  caution: number
-  by_region: { region_name: string; count: string }[]
+  total: number;
+  urgent: number;
+  warning: number;
+  caution: number;
+  by_region: { region_name: string; count: string }[];
 }
 
 function StatCard({
@@ -19,11 +19,11 @@ function StatCard({
   sub,
   iconColor = '#262626',
 }: {
-  icon: React.ReactNode
-  value: string | number
-  label: string
-  sub?: string
-  iconColor?: string
+  icon: React.ReactNode;
+  value: string | number;
+  label: string;
+  sub?: string;
+  iconColor?: string;
 }) {
   return (
     <Box
@@ -60,9 +60,7 @@ function StatCard({
       >
         {typeof value === 'number' ? value.toLocaleString() : value}
       </Typography>
-      <Typography
-        sx={{ fontSize: '0.8125rem', color: '#8E8E8E', fontWeight: 400 }}
-      >
+      <Typography sx={{ fontSize: '0.8125rem', color: '#8E8E8E', fontWeight: 400 }}>
         {label}
       </Typography>
       {sub && (
@@ -83,29 +81,29 @@ function StatCard({
         </Typography>
       )}
     </Box>
-  )
+  );
 }
 
 export default function StatsDisplay() {
-  const [stats, setStats] = useState<Stats | null>(null)
-  const [loading, setLoading] = useState(true)
+  const [stats, setStats] = useState<Stats | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const response = await fetch('/api/tails?stats=true')
-        const data = await response.json()
+        const response = await fetch('/api/tails?stats=true');
+        const data = (await response.json()) as Record<string, any>;
         if (data.success && data.data) {
-          setStats(data.data)
+          setStats({ ...data.data, by_region: data.data.by_region || [] });
         }
       } catch (error) {
-        console.error('Failed to fetch stats:', error)
+        console.error('Failed to fetch stats:', error);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
-    fetchStats()
-  }, [])
+    };
+    fetchStats();
+  }, []);
 
   if (loading) {
     return (
@@ -136,7 +134,7 @@ export default function StatsDisplay() {
           </Box>
         ))}
       </Box>
-    )
+    );
   }
 
   if (!stats) {
@@ -153,9 +151,14 @@ export default function StatsDisplay() {
       >
         <StatCard icon={<Heart size={24} />} value="-" label="現在掲載中" iconColor="#FF7A7A" />
         <StatCard icon={<MapPin size={24} />} value="-" label="連携自治体数" iconColor="#8E8E8E" />
-        <StatCard icon={<AlertCircle size={24} />} value="-" label="緊急シッポ" iconColor="#ED4956" />
+        <StatCard
+          icon={<AlertCircle size={24} />}
+          value="-"
+          label="緊急シッポ"
+          iconColor="#ED4956"
+        />
       </Box>
-    )
+    );
   }
 
   return (
@@ -220,7 +223,8 @@ export default function StatsDisplay() {
           <Box sx={{ display: 'flex', gap: 2 }}>
             <Box
               sx={{
-                px: 2, py: 0.5,
+                px: 2,
+                py: 0.5,
                 borderRadius: '20px',
                 backgroundColor: '#FFFFFF',
                 border: '1px solid #FFBEC2',
@@ -232,7 +236,8 @@ export default function StatsDisplay() {
             </Box>
             <Box
               sx={{
-                px: 2, py: 0.5,
+                px: 2,
+                py: 0.5,
                 borderRadius: '20px',
                 backgroundColor: '#FFFFFF',
                 border: '1px solid #FFE299',
@@ -263,9 +268,7 @@ export default function StatsDisplay() {
               borderBottom: '1px solid #DBDBDB',
             }}
           >
-            <Typography
-              sx={{ fontSize: '0.875rem', fontWeight: 600, color: '#262626' }}
-            >
+            <Typography sx={{ fontSize: '0.875rem', fontWeight: 600, color: '#262626' }}>
               地域別 シッポ分布
             </Typography>
           </Box>
@@ -300,9 +303,7 @@ export default function StatsDisplay() {
                 >
                   {region.count}
                 </Typography>
-                <Typography
-                  sx={{ fontSize: '0.75rem', color: '#8E8E8E', mt: 0.5 }}
-                >
+                <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E', mt: 0.5 }}>
                   {region.region_name}
                 </Typography>
               </Box>
@@ -311,5 +312,5 @@ export default function StatsDisplay() {
         </Box>
       )}
     </Box>
-  )
+  );
 }

@@ -40,7 +40,7 @@ export default function ApiTestPage() {
 
       try {
         const response = await fetch(test.endpoint);
-        const data = await response.json();
+        const data = (await response.json()) as Record<string, any>;
 
         if (response.ok) {
           result.status = 'success';
@@ -244,12 +244,12 @@ export default function ApiTestPage() {
           sx={{ m: 0, pl: 2.5, display: 'flex', flexDirection: 'column', gap: 0.75 }}
         >
           {[
-            { name: 'Database Connection', desc: 'PostgreSQL接続確認' },
+            { name: 'Database Connection', desc: 'D1データベース接続確認' },
             { name: 'Regions List', desc: '都道府県一覧取得' },
             { name: 'Municipalities List', desc: '自治体一覧取得' },
             { name: 'Tails Statistics', desc: '統計情報取得' },
-            { name: 'All Tails', desc: '尻尾ちゃん一覧取得' },
-            { name: 'Urgent Tails', desc: '緊急度の高い尻尾ちゃん取得' },
+            { name: 'All Tails', desc: 'シッポたち一覧取得' },
+            { name: 'Urgent Tails', desc: '緊急度の高いシッポたち取得' },
             { name: 'Scraping Logs', desc: 'スクレイピング履歴取得' },
             { name: 'Scraping Stats', desc: 'スクレイピング統計情報取得' },
           ].map((item) => (

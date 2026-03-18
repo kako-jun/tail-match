@@ -1,54 +1,68 @@
-import { Pool, QueryResult } from 'pg'
+import { getRequestContext } from '@cloudflare/next-on-pages';
 
-// PostgreSQL接続プール
-let pool: Pool | null = null
-
-/**
- * データベース接続プールを取得
- */
-export function getPool(): Pool {
-  if (!pool) {
-    pool = new Pool({
-      connectionString: process.env.DATABASE_URL,
-      max: 20, // 最大接続数
-      idleTimeoutMillis: 30000,
-      connectionTimeoutMillis: 2000,
-    })
-
-    // エラーハンドリング
-    pool.on('error', (err) => {
-      console.error('Unexpected pool error:', err)
-    })
-  }
-
-  return pool
+interface QueryResult {
+  rows: any[];
+  rowCount: number;
 }
 
 /**
- * SQLクエリを実行
+ * D1データベースバインディングを取得
  */
-export async function query(
-  text: string,
-  params?: any[]
-): Promise<QueryResult> {
-  const pool = getPool()
-  const start = Date.now()
+function getDB(): D1Database {
+  const { env } = getRequestContext();
+  return (env as any).DB as D1Database;
+}
+
+/**
+ * パラメータプレースホルダ $1,$2... をSQLite の ? に変換
+ */
+function convertParams(text: string): string {
+  return text.replace(/\$\d+/g, '?');
+}
+
+/**
+ * SQLクエリを実行（D1互換）
+ */
+export async function query(text: string, params?: any[]): Promise<QueryResult> {
+  const db = getDB();
+  const sqliteText = convertParams(text);
+  const start = Date.now();
 
   try {
-    const result = await pool.query(text, params)
-    const duration = Date.now() - start
+    const stmt = db.prepare(sqliteText);
+    const bound = params && params.length > 0 ? stmt.bind(...params) : stmt;
 
-    // ログ出力（開発環境のみ）
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Executed query', { text, duration, rows: result.rowCount })
+    // SELECT系かどうかを判定
+    const trimmed = sqliteText.trim().toUpperCase();
+    if (
+      trimmed.startsWith('SELECT') ||
+      trimmed.startsWith('WITH') ||
+      trimmed.startsWith('PRAGMA')
+    ) {
+      const result = await bound.all();
+      const rows = result.results || [];
+      const duration = Date.now() - start;
+
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Executed query', { text: sqliteText, duration, rows: rows.length });
+      }
+
+      return { rows, rowCount: rows.length };
+    } else {
+      const result = await bound.run();
+      const duration = Date.now() - start;
+
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Executed query', { text: sqliteText, duration });
+      }
+
+      return { rows: [], rowCount: result.meta?.changes || 0 };
     }
-
-    return result
   } catch (error) {
-    console.error('Database query error:', error)
-    console.error('Query:', text)
-    console.error('Params:', params)
-    throw error
+    console.error('Database query error:', error);
+    console.error('Query:', sqliteText);
+    console.error('Params:', params);
+    throw error;
   }
 }
 
@@ -57,22 +71,19 @@ export async function query(
  */
 export async function testConnection(): Promise<boolean> {
   try {
-    const result = await query('SELECT NOW()')
-    return result.rows.length > 0
+    const result = await query("SELECT datetime('now') as now");
+    return result.rows.length > 0;
   } catch (error) {
-    console.error('Database connection test failed:', error)
-    return false
+    console.error('Database connection test failed:', error);
+    return false;
   }
 }
 
 /**
- * 接続プールを閉じる（アプリケーション終了時）
+ * 接続プールを閉じる（D1では不要、互換性のために残す）
  */
 export async function closePool(): Promise<void> {
-  if (pool) {
-    await pool.end()
-    pool = null
-  }
+  // D1はステートレスなので何もしない
 }
 
 /**
@@ -88,9 +99,9 @@ export async function getScrapingStats() {
       COALESCE(AVG(execution_time_ms), 0) as avg_execution_time,
       MAX(started_at) as last_run
     FROM scraping_logs
-    WHERE started_at >= NOW() - INTERVAL '30 days'
-  `)
-  const row = result.rows[0]
+    WHERE started_at >= datetime('now', '-30 days')
+  `);
+  const row = result.rows[0];
   return {
     total_runs: parseInt(row.total_runs),
     successful_runs: parseInt(row.successful_runs),
@@ -98,7 +109,7 @@ export async function getScrapingStats() {
     total_tails_found: parseInt(row.total_tails_found),
     avg_execution_time: Math.round(parseFloat(row.avg_execution_time)),
     last_run: row.last_run,
-  }
+  };
 }
 
 /**
@@ -116,13 +127,13 @@ export async function getDailyStats(days: number = 30) {
       COALESCE(SUM(tails_updated), 0) as tails_updated,
       COALESCE(SUM(tails_removed), 0) as tails_removed
     FROM scraping_logs
-    WHERE started_at >= NOW() - ($1 * INTERVAL '1 day')
+    WHERE started_at >= datetime('now', '-' || ? || ' days')
     GROUP BY DATE(started_at)
     ORDER BY date DESC
     `,
     [days]
-  )
-  return result.rows
+  );
+  return result.rows;
 }
 
 /**
@@ -146,9 +157,9 @@ export async function getScrapingLogs(limit: number = 50) {
     FROM scraping_logs sl
     JOIN municipalities m ON sl.municipality_id = m.id
     ORDER BY sl.started_at DESC
-    LIMIT $1
+    LIMIT ?
     `,
     [limit]
-  )
-  return result.rows
+  );
+  return result.rows;
 }

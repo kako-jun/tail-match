@@ -128,13 +128,13 @@ export default function SheltersPage() {
       try {
         // 地域一覧取得
         const regionsRes = await fetch('/api/regions');
-        const regionsData = await regionsRes.json();
+        const regionsData = (await regionsRes.json()) as Record<string, any>;
         const regionsArr: Region[] = regionsData.data || [];
         setRegions(regionsArr);
 
         // 自治体一覧取得 (already includes available_tails_count and region info from server JOIN)
         const municipalitiesRes = await fetch('/api/municipalities');
-        const municipalitiesData = await municipalitiesRes.json();
+        const municipalitiesData = (await municipalitiesRes.json()) as Record<string, any>;
 
         const municipalitiesWithStats: MunicipalityWithStats[] = (
           municipalitiesData.data || []
@@ -252,7 +252,7 @@ export default function SheltersPage() {
           保護センター
         </Typography>
         <Typography sx={{ fontSize: '0.875rem', color: '#8E8E8E', mt: 0.5 }}>
-          全国の保護動物を管理している施設一覧
+          全国のシッポたちを保護している施設一覧
         </Typography>
       </Box>
 
@@ -267,7 +267,7 @@ export default function SheltersPage() {
       >
         {[
           { value: municipalities.length, label: '登録施設数' },
-          { value: totalAnimals, label: '保護動物総数' },
+          { value: totalAnimals, label: 'シッポ総数' },
           { value: `${totalCats} 🐱`, label: '保護猫' },
           { value: `${totalDogs} 🐶`, label: '保護犬' },
         ].map((item, i) => (
@@ -508,7 +508,7 @@ export default function SheltersPage() {
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.5 }}>
                       <Pets sx={{ fontSize: 14, color: '#8E8E8E' }} />
                       <Typography sx={{ fontSize: '0.8125rem', fontWeight: 600, color: '#262626' }}>
-                        保護動物 {municipality.animals_count}匹
+                        シッポ {municipality.animals_count}匹
                       </Typography>
                     </Box>
                     <Box sx={{ display: 'flex', gap: 2 }}>
@@ -598,7 +598,7 @@ export default function SheltersPage() {
                       '&:hover': { backgroundColor: '#000000' },
                     }}
                   >
-                    動物を見る
+                    シッポを見る
                   </Button>
                 )}
               </Box>
@@ -621,7 +621,7 @@ export default function SheltersPage() {
           お問い合わせについて
         </Typography>
         <Typography sx={{ fontSize: '0.8125rem', color: '#8E8E8E', lineHeight: 1.7 }}>
-          動物の譲渡や見学については、各保護センターに直接お問い合わせください。
+          シッポたちの譲渡や見学については、各保護センターに直接お問い合わせください。
           <br />
           施設によって手続きや条件が異なりますので、事前に確認されることをお勧めします。
         </Typography>

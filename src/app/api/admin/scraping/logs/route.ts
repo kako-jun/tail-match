@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { query } from '@/lib/database';
 
+export const runtime = 'edge';
+
 function checkAdminAuth(request: NextRequest): boolean {
   const token = request.headers.get('x-admin-token');
   const expected = process.env.ADMIN_API_TOKEN;

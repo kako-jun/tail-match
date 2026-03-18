@@ -18,7 +18,7 @@
 set -e  # エラーで停止
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 cd "$PROJECT_ROOT"
 
 # ================================================================
@@ -187,7 +187,7 @@ echo "[Step 2] YAML→DB投入"
 echo "================================================================"
 echo ""
 
-if node scripts/yaml-to-db.js; then
+if node scripts/core/yaml-to-db.js; then
   echo "✅ DB投入成功"
 else
   echo "❌ DB投入失敗"
@@ -205,7 +205,7 @@ echo "[Step 3] 実行結果サマリー"
 echo "================================================================"
 echo ""
 
-node scripts/show-scraping-summary.js
+node scripts/core/show-scraping-summary.js
 
 # ================================================================
 # 完了
@@ -228,5 +228,5 @@ echo "🔍 確認方法:"
 echo "  - ログ: cat $LOG_FILE"
 echo "  - DB: sqlite3 data/tail-match.db 'SELECT COUNT(*) FROM tails;'"
 echo "  - 履歴: cat \$PROJECT_ROOT/data/shelters-history.yaml"
-echo "  - サマリー再表示: node scripts/show-scraping-summary.js"
+echo "  - サマリー再表示: node scripts/core/show-scraping-summary.js"
 echo ""

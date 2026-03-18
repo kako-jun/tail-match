@@ -23,10 +23,10 @@ import yaml from 'js-yaml';
 // ========================================
 
 const CONFIG = {
-  municipality: 'kanagawa/yokohama-city-cats',
+  municipality: 'kanagawa/yokohama-city-dogs',
   base_url: 'https://www.city.yokohama.lg.jp',
   source_url:
-    'https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/jotoinfo-cat.html',
+    'https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/joto_inu.html',
 };
 
 // ========================================
@@ -83,8 +83,8 @@ function extractCatFromImage($img) {
   const alt = $img.attr('alt') || '';
   const src = $img.attr('src') || '';
 
-  // alt属性から猫のIDを抽出: "134の猫の写真" -> "134"
-  const idMatch = alt.match(/(\d+)の猫の写真/);
+  // alt属性から犬のIDを抽出: "134の犬の写真" -> "134"
+  const idMatch = alt.match(/(\d+)の犬の写真/);
   if (!idMatch) {
     return null;
   }
@@ -110,7 +110,7 @@ function extractCatFromImage($img) {
   return {
     external_id: externalId,
     name: `横浜市-${inquiryNumber}`,
-    animal_type: 'cat',
+    animal_type: 'dog',
     breed: null,
     age_estimate: null,
     gender: 'unknown',
@@ -158,44 +158,44 @@ async function main() {
     const html = fs.readFileSync(htmlFile, 'utf-8');
     const $ = load(html);
 
-    // Step 2: 猫の画像を取得（「譲渡動物情報《猫》」セクションのみ）
+    // Step 2: 犬の画像を取得（「譲渡動物情報《犬》」セクションのみ）
     // 「譲渡されました！」セクションより前の画像のみを取得
-    const $section = $('h2:contains("譲渡動物情報《猫》")').first().parent().parent();
+    const $section = $('h2:contains("譲渡動物情報《犬》")').first().parent().parent();
     const $nextSection = $('h2:contains("譲渡されました")').first().parent().parent();
 
     // セクション内の画像を取得
-    let $catImages;
+    let $dogImages;
     if ($nextSection.length > 0) {
       // 「譲渡されました！」セクションより前の画像
-      $catImages = $section.nextUntil($nextSection).find('img[alt*="の猫の写真"]');
+      $dogImages = $section.nextUntil($nextSection).find('img[alt*="の犬の写真"]');
     } else {
       // 「譲渡されました！」セクションが見つからない場合は、セクション以降のすべての画像
-      $catImages = $section.nextAll().find('img[alt*="の猫の写真"]');
+      $dogImages = $section.nextAll().find('img[alt*="の犬の写真"]');
     }
 
-    console.log(`📊 検出した猫数: ${$catImages.length}\n`);
+    console.log(`📊 検出した犬数: ${$dogImages.length}\n`);
 
-    if ($catImages.length === 0) {
-      console.warn('⚠️ 猫情報が見つかりませんでした');
+    if ($dogImages.length === 0) {
+      console.warn('⚠️ 犬情報が見つかりませんでした');
       process.exit(1);
     }
 
-    // Step 3: 各画像から猫情報を抽出
-    const allCats = [];
-    $catImages.each((index, img) => {
-      const cat = extractCatFromImage($(img));
-      if (cat) {
-        allCats.push(cat);
+    // Step 3: 各画像から犬情報を抽出
+    const allDogs = [];
+    $dogImages.each((index, img) => {
+      const dog = extractCatFromImage($(img));
+      if (dog) {
+        allDogs.push(dog);
         console.log(
-          `   ${index + 1}. お問合せ番号-${cat.inquiry_number} (${cat.protection_date || '日付不明'})`
+          `   ${index + 1}. お問合せ番号-${dog.inquiry_number} (${dog.protection_date || '日付不明'})`
         );
       }
     });
 
-    console.log(`\n📊 合計抽出数: ${allCats.length}匹`);
+    console.log(`\n📊 合計抽出数: ${allDogs.length}匹`);
 
     // YAML抽出後の動物数を記録（⚠️ 1匹でも減少したら自動警告）
-    logger.logYAMLCount(allCats.length);
+    logger.logYAMLCount(allDogs.length);
 
     // Step 4: YAML出力
     const outputDir = path.join(
@@ -219,10 +219,10 @@ async function main() {
           extracted_at: getJSTISOString(),
           municipality: CONFIG.municipality,
           municipality_id: 16, // 横浜市動物愛護センター
-          total_count: allCats.length,
+          total_count: allDogs.length,
           note: '譲渡動物情報（新しい飼い主募集中）- 詳細は電話問い合わせ必須',
         },
-        animals: allCats,
+        animals: allDogs,
       },
       { indent: 2, lineWidth: -1 }
     );

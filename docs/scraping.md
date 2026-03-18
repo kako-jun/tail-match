@@ -25,8 +25,10 @@
     ↓ data/html/{prefecture}/{municipality}/{timestamp}_tail.html
 [2] YAML抽出 (Cheerio + 共通ヘルパー関数)
     ↓ data/yaml/{prefecture}/{municipality}/{timestamp}_tail.yaml
-[3] DB投入 (better-sqlite3)
+[3] ローカルDB投入 (better-sqlite3)
     ↓ data/tail-match.db
+[4] 本番D1同期 (sync-to-d1.js → wrangler d1 execute)
+    ↓ Cloudflare D1: tail-match-db
 ```
 
 **実装状況**: 28施設（猫専用17 + 犬専用7 + 混在4）
@@ -63,7 +65,7 @@
 
 #### SQLiteを選んだ理由
 
-1. **軽量**: PostgreSQL不要、ファイルベースで管理が容易
+1. **軽量**: ファイルベースで管理が容易、Cloudflare D1と互換
 2. **十分な性能**: 数千〜数万レコード程度なら問題なし
 3. **バージョン管理可能**: GitHubにコミットできる
 
@@ -103,7 +105,7 @@ tail-match/
 │   │   └── ... （全28施設）
 │   └── yaml-to-db.js              # YAML→DB投入（汎用化済み）
 └── database/
-    └── schema.sql                 # SQLite スキーマ定義
+    └── schema-sqlite.sql          # SQLite スキーマ定義
 ```
 
 ### 命名規則（2025-11-13統一完了）
@@ -225,6 +227,7 @@ CREATE TABLE scraping_logs (
 ```
 
 **スキーマ設計の要点**:
+
 - `UNIQUE(municipality_id, external_id)`: 同じ施設内での個体識別子重複を防止
 - JSON フィールド: 柔軟な構造化データ（images, contact_info, scraping_config）
 - TEXT 型の日付: SQLiteではISO 8601形式の文字列を推奨
@@ -240,11 +243,7 @@ CREATE TABLE scraping_logs (
 
 ```javascript
 export async function fetchDynamicHTML(url, options = {}) {
-  const {
-    waitTime = 5000,
-    timeout = 30000,
-    viewport = { width: 1920, height: 1080 },
-  } = options;
+  const { waitTime = 5000, timeout = 30000, viewport = { width: 1920, height: 1080 } } = options;
 
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport });
@@ -310,11 +309,11 @@ animals:
 
 ### 実証結果（2025-11-13現在）
 
-| 指標                 | Before               | After                    | 改善率 |
-| -------------------- | -------------------- | ------------------------ | ------ |
-| **HTMLサイズ**       | 1KB（空）            | 90KB                     | 9000%  |
-| **抽出成功率**       | 0%                   | 100%（18/18匹）          | ∞      |
-| **confidence_score** | 0.3                  | 0.8                      | 167%   |
+| 指標                 | Before    | After           | 改善率 |
+| -------------------- | --------- | --------------- | ------ |
+| **HTMLサイズ**       | 1KB（空） | 90KB            | 9000%  |
+| **抽出成功率**       | 0%        | 100%（18/18匹） | ∞      |
+| **confidence_score** | 0.3       | 0.8             | 167%   |
 
 - **実装済み施設数**: 28施設（猫専用17 + 犬専用7 + 混在4）
 - **パフォーマンス**: 約12秒/施設（HTML収集10秒 + YAML抽出1秒 + DB投入0.5秒）
@@ -342,6 +341,7 @@ animals:
 **まず最初に** `data/shelters.yaml` を確認してください。
 
 **確認すべき情報**:
+
 - `website_url`: 公式サイトURL
 - `adoption_page_url`: 譲渡ページURL（これを使う）
 - `site_analysis.investigated`: 調査済みか
@@ -555,6 +555,7 @@ node scripts/scrapers/{municipality}/html-to-yaml.js
 ```
 
 **確認ポイント**:
+
 - ファイルサイズが十分か（1KB以下なら失敗）
 - 動物が正しく抽出されたか
 - animal_type, status, 画像URLが正しいか
@@ -678,6 +679,7 @@ const externalId = `${baseId}-${i + 1}`; // "HC25374-1", "HC25374-2", ...
 ```
 
 チェックリスト:
+
 - [ ] 1つの管理番号に複数の個体が存在する可能性を確認
 - [ ] external_id生成ロジックにサフィックス付与機能を実装
 - [ ] `node scripts/core/yaml-to-db.js --dry-run` で制約エラーがないことを確認
@@ -686,17 +688,18 @@ const externalId = `${baseId}-${i + 1}`; // "HC25374-1", "HC25374-2", ...
 
 ### トラブルシューティング
 
-| 問題 | 原因 | 対応 |
-|------|------|------|
-| 動物が0匹抽出される | セレクタが間違い、または犬用ページを見逃し | HTMLでセレクタを確認、`div.wysiwyg > table` → `div.wysiwyg table` に緩める |
-| 画像URLが空 | 画像の取得方法が間違い | `.closest()` や `.prev()` の対象を調整 |
-| HTMLサイズが小さい（1KB以下） | JS動的レンダリングが必要 | `wait_for_js` を増やす（5000 → 10000） |
+| 問題                          | 原因                                       | 対応                                                                       |
+| ----------------------------- | ------------------------------------------ | -------------------------------------------------------------------------- |
+| 動物が0匹抽出される           | セレクタが間違い、または犬用ページを見逃し | HTMLでセレクタを確認、`div.wysiwyg > table` → `div.wysiwyg table` に緩める |
+| 画像URLが空                   | 画像の取得方法が間違い                     | `.closest()` や `.prev()` の対象を調整                                     |
+| HTMLサイズが小さい（1KB以下） | JS動的レンダリングが必要                   | `wait_for_js` を増やす（5000 → 10000）                                     |
 
 ---
 
 ### 設計の学び
 
 **やって良かったこと**:
+
 1. Playwright常時使用（JS動的サイト判定を排除）
 2. raw_text優先抽出（confidence 0.3→0.8に改善）
 3. 3ステップパイプライン（HTML→YAML→DB）
@@ -704,6 +707,7 @@ const externalId = `${baseId}-${i + 1}`; // "HC25374-1", "HC25374-2", ...
 5. 命名規則統一（-cats/-dogsサフィックス）
 
 **避けるべきこと**:
+
 1. HTML→DB直接投入（ロールバック困難）
 2. セレクタのみ抽出（サイト変更に弱い）
 3. archive/ サブディレクトリ（HTMLは同階層に保存）

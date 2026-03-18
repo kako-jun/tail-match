@@ -26,7 +26,7 @@ const __dirname = path.dirname(__filename);
 const CONFIG = {
   url: 'https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/pet-dobutsu/aigo/joto/joto_inu.html',
   municipality: 'kanagawa/yokohama-city-dogs',
-  outputDir: path.join(process.cwd(), 'data', 'html', 'kanagawa', 'yokohama-city'),
+  outputDir: path.join(process.cwd(), 'data', 'html', 'kanagawa', 'yokohama-city-dogs'),
   userAgent:
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
 };

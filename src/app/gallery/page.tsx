@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import {
   Container,
   Box,
@@ -41,7 +40,7 @@ export default function GalleryPage() {
         if (animalType !== 'all') params.append('animal_type', animalType);
 
         const response = await fetch(`/api/tails?${params}`);
-        const data = await response.json();
+        const data = (await response.json()) as Record<string, any>;
 
         const animalsWithImages = (data.data || []).filter(
           (animal: TailWithDetails) => animal.images && animal.images.length > 0
@@ -102,7 +101,7 @@ export default function GalleryPage() {
               ギャラリー
             </Typography>
             <Typography sx={{ fontSize: '0.875rem', color: '#8E8E8E', mt: 0.5 }}>
-              新しい家族を待っている動物たちの写真集
+              新しい家族を待っているシッポたちの写真集
             </Typography>
           </Box>
 
@@ -176,7 +175,8 @@ export default function GalleryPage() {
         >
           {animals.map((animal) => {
             const urgency = getUrgencyLevel(animal.deadline_date);
-            const mainImage = Array.isArray(animal.images) ? animal.images[0] : null;
+            const mainImage =
+              Array.isArray(animal.images) && animal.images.length > 0 ? animal.images[0] : null;
             if (!mainImage) return null;
 
             return (
@@ -193,13 +193,39 @@ export default function GalleryPage() {
                   borderRadius: '2px',
                 }}
               >
-                <Image
+                <img
                   src={mainImage}
                   alt={animal.name || '保護動物'}
-                  fill
-                  sizes="(max-width: 600px) 33vw, (max-width: 960px) 25vw, 17vw"
-                  style={{ objectFit: 'cover' }}
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                  }}
+                  onError={(e) => {
+                    const img = e.target as HTMLImageElement;
+                    img.style.display = 'none';
+                    const fallback = img.parentElement?.querySelector(
+                      '.img-fallback'
+                    ) as HTMLElement;
+                    if (fallback) fallback.style.display = 'flex';
+                  }}
                 />
+                <Box
+                  className="img-fallback"
+                  sx={{
+                    display: 'none',
+                    position: 'absolute',
+                    inset: 0,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '3rem',
+                    backgroundColor: '#F5F5F5',
+                  }}
+                >
+                  {animal.animal_type === 'dog' ? '🐶' : '🐱'}
+                </Box>
                 {/* Warm tint */}
                 <Box
                   sx={{
@@ -294,12 +320,39 @@ export default function GalleryPage() {
                     backgroundColor: '#0A0A0A',
                   }}
                 >
-                  <Image
+                  <img
                     src={selectedAnimal.images[0]}
                     alt={selectedAnimal.name || '保護動物'}
-                    fill
-                    style={{ objectFit: 'contain' }}
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'contain',
+                    }}
+                    onError={(e) => {
+                      const img = e.target as HTMLImageElement;
+                      img.style.display = 'none';
+                      const fallback = img.parentElement?.querySelector(
+                        '.img-fallback'
+                      ) as HTMLElement;
+                      if (fallback) fallback.style.display = 'flex';
+                    }}
                   />
+                  <Box
+                    className="img-fallback"
+                    sx={{
+                      display: 'none',
+                      position: 'absolute',
+                      inset: 0,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '6rem',
+                      backgroundColor: '#1A1A1A',
+                    }}
+                  >
+                    {selectedAnimal.animal_type === 'dog' ? '🐶' : '🐱'}
+                  </Box>
                 </Box>
               )}
 

@@ -49,7 +49,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             >
               <Toolbar sx={{ minHeight: '54px !important', px: { xs: 2, md: 3 } }}>
                 {/* Logo */}
-                <Link href="/" style={{ textDecoration: 'none', color: 'inherit', marginRight: 'auto' }}>
+                <Link
+                  href="/"
+                  style={{ textDecoration: 'none', color: 'inherit', marginRight: 'auto' }}
+                >
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                     <Image
                       src="/tail-match_logo.webp"
@@ -91,7 +94,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       '&:hover': { backgroundColor: '#F5F5F5' },
                     }}
                   >
-                    動物を探す
+                    シッポを探す
                   </Button>
                   <Button
                     component={Link}
@@ -156,7 +159,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 >
                   {[
                     { label: 'ホーム', href: '/' },
-                    { label: '動物を探す', href: '/search' },
+                    { label: 'シッポを探す', href: '/search' },
                     { label: 'ギャラリー', href: '/gallery' },
                     { label: '保護センター', href: '/shelters' },
                   ].map((item) => (
@@ -216,8 +219,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       ているまっち！
                     </Typography>
                     <Typography variant="body2" sx={{ color: '#8E8E8E', lineHeight: 1.7 }}>
-                      1匹でも多くの動物を救うために。<br />
-                      全国の保護動物情報をお届けします。
+                      1匹でも多くのシッポを救うために。
+                      <br />
+                      全国の保護シッポ情報をお届けします。
                     </Typography>
                   </Box>
 
@@ -232,7 +236,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                       {[
                         { label: 'ホーム', href: '/' },
-                        { label: '動物を探す', href: '/search' },
+                        { label: 'シッポを探す', href: '/search' },
                         { label: 'ギャラリー', href: '/gallery' },
                         { label: '保護センター', href: '/shelters' },
                       ].map((item) => (
@@ -263,7 +267,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       variant="body2"
                       sx={{ color: '#8E8E8E', lineHeight: 1.7, mb: 2, fontSize: '0.8125rem' }}
                     >
-                      このサイトは情報提供のみです。<br />
+                      このサイトは情報提供のみです。
+                      <br />
                       譲渡は各自治体へ直接お問い合わせください。
                     </Typography>
                     <Link
