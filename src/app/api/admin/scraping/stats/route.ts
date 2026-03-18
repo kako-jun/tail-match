@@ -1,7 +1,18 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { query } from '@/lib/database'
+import { NextRequest, NextResponse } from 'next/server';
+import { query } from '@/lib/database';
+
+function checkAdminAuth(request: NextRequest): boolean {
+  const token = request.headers.get('x-admin-token');
+  const expected = process.env.ADMIN_API_TOKEN;
+  if (!expected) return false;
+  return token === expected;
+}
 
 export async function GET(request: NextRequest) {
+  if (!checkAdminAuth(request)) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
   try {
     // scraping_logs の status 値は 'success' / 'error' / 'warning'
     // (旧コードの 'completed' / 'failed' は実際のスキーマと不一致だったため修正)
@@ -15,10 +26,10 @@ export async function GET(request: NextRequest) {
         MAX(started_at) as last_run
       FROM scraping_logs
       WHERE started_at >= NOW() - INTERVAL '30 days'
-    `
+    `;
 
-    const result = await query(statsQuery)
-    const stats = result.rows[0]
+    const result = await query(statsQuery);
+    const stats = result.rows[0];
 
     const response = {
       total_runs: parseInt(stats.total_runs),
@@ -26,15 +37,12 @@ export async function GET(request: NextRequest) {
       failed_runs: parseInt(stats.failed_runs),
       total_cats_found: parseInt(stats.total_cats_found),
       avg_execution_time: Math.round(parseFloat(stats.avg_execution_time)),
-      last_run: stats.last_run
-    }
+      last_run: stats.last_run,
+    };
 
-    return NextResponse.json(response)
+    return NextResponse.json(response);
   } catch (error) {
-    console.error('Error fetching scraping stats:', error)
-    return NextResponse.json(
-      { error: 'Failed to fetch scraping stats' },
-      { status: 500 }
-    )
+    console.error('Error fetching scraping stats:', error);
+    return NextResponse.json({ error: 'Failed to fetch scraping stats' }, { status: 500 });
   }
 }

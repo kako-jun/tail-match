@@ -1,7 +1,18 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { query } from '@/lib/database'
+import { NextRequest, NextResponse } from 'next/server';
+import { query } from '@/lib/database';
+
+function checkAdminAuth(request: NextRequest): boolean {
+  const token = request.headers.get('x-admin-token');
+  const expected = process.env.ADMIN_API_TOKEN;
+  if (!expected) return false;
+  return token === expected;
+}
 
 export async function GET(request: NextRequest) {
+  if (!checkAdminAuth(request)) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
   try {
     const sql = `
       SELECT
@@ -20,16 +31,13 @@ export async function GET(request: NextRequest) {
       JOIN municipalities m ON sl.municipality_id = m.id
       ORDER BY sl.started_at DESC
       LIMIT 50
-    `
+    `;
 
-    const result = await query(sql)
+    const result = await query(sql);
 
-    return NextResponse.json(result.rows)
+    return NextResponse.json(result.rows);
   } catch (error) {
-    console.error('Error fetching scraping logs:', error)
-    return NextResponse.json(
-      { error: 'Failed to fetch scraping logs' },
-      { status: 500 }
-    )
+    console.error('Error fetching scraping logs:', error);
+    return NextResponse.json({ error: 'Failed to fetch scraping logs' }, { status: 500 });
   }
 }

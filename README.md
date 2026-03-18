@@ -71,8 +71,7 @@ tail-match/
 
 - **Next.js API Routes** - サーバーサイドAPI
 - **PostgreSQL** - メインデータベース
-- **Python + Poetry** - スクレイピングシステム
-- **BeautifulSoup + Playwright** - 静的・動的コンテンツ対応
+- **JavaScript + Playwright** - スクレイピングシステム
 
 ### インフラ
 
@@ -125,10 +124,8 @@ npm run format             # Prettier実行（全ファイル）
 npm run format:check       # Prettierチェック（CIで使用）
 
 # スクレイピング開発
-cd scraper
-poetry install             # 依存関係インストール
-poetry run python main.py  # スクレイパー実行
-poetry run python test_ishikawa_direct.py # テスト実行
+cd scripts/scrapers
+node ishikawa/aigo-ishikawa/scrape.js  # スクレイパー実行
 
 # Docker 操作
 docker compose up -d        # 開発環境起動
