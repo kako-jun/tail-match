@@ -48,10 +48,10 @@ tail-match/
 │   ├── app/               # App Router
 │   ├── components/        # Reactコンポーネント
 │   └── lib/               # ユーティリティ
-├── scripts/scrapers/      # Python スクレイピングシステム
-│   ├── main.py           # メインスクレイパー
-│   ├── local_extractor.py # AI抽出エンジン
-│   └── database.py       # DB操作
+├── scripts/scrapers/      # JS スクレイピングシステム（都道府県別）
+│   ├── ishikawa/         # 石川県（aigo-ishikawa, kanazawa-city-cats）
+│   ├── tokyo/            # 東京都（tokyo-metro-cats）
+│   └── ...               # 各都道府県ごとに scrape.js + html-to-yaml.js
 ├── database/              # データベース設定
 ├── nginx/                # Nginx設定
 ├── scripts/              # デプロイスクリプト
