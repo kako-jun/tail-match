@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
-import Image from 'next/image'
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import {
   Container,
   Box,
@@ -14,69 +14,91 @@ import {
   ToggleButtonGroup,
   ToggleButton,
   CircularProgress,
-} from '@mui/material'
-import { FavoriteBorder, Favorite, Close, LocationOn, AccessTime, BookmarkBorder } from '@mui/icons-material'
-import Link from 'next/link'
-import type { TailWithDetails } from '@/types/database'
+} from '@mui/material';
+import {
+  FavoriteBorder,
+  Favorite,
+  Close,
+  LocationOn,
+  AccessTime,
+  BookmarkBorder,
+} from '@mui/icons-material';
+import Link from 'next/link';
+import type { TailWithDetails } from '@/types/database';
 
 export default function GalleryPage() {
-  const [animals, setAnimals] = useState<TailWithDetails[]>([])
-  const [loading, setLoading] = useState(true)
-  const [selectedAnimal, setSelectedAnimal] = useState<TailWithDetails | null>(null)
-  const [dialogOpen, setDialogOpen] = useState(false)
-  const [animalType, setAnimalType] = useState<'all' | 'cat' | 'dog'>('all')
+  const [animals, setAnimals] = useState<TailWithDetails[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedAnimal, setSelectedAnimal] = useState<TailWithDetails | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [animalType, setAnimalType] = useState<'all' | 'cat' | 'dog'>('all');
 
   useEffect(() => {
     const fetchAnimals = async () => {
-      setLoading(true)
+      setLoading(true);
       try {
-        const params = new URLSearchParams({ limit: '100', status: 'available' })
-        if (animalType !== 'all') params.append('animal_type', animalType)
+        const params = new URLSearchParams({ limit: '100', status: 'available' });
+        if (animalType !== 'all') params.append('animal_type', animalType);
 
-        const response = await fetch(`/api/tails?${params}`)
-        const data = await response.json()
+        const response = await fetch(`/api/tails?${params}`);
+        const data = await response.json();
 
         const animalsWithImages = (data.data || []).filter(
           (animal: TailWithDetails) => animal.images && animal.images.length > 0
-        )
-        setAnimals(animalsWithImages)
+        );
+        setAnimals(animalsWithImages);
       } catch (error) {
-        console.error('データ取得エラー:', error)
+        console.error('データ取得エラー:', error);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
-    fetchAnimals()
-  }, [animalType])
+    };
+    fetchAnimals();
+  }, [animalType]);
 
   const handleImageClick = (animal: TailWithDetails) => {
-    setSelectedAnimal(animal)
-    setDialogOpen(true)
-  }
+    setSelectedAnimal(animal);
+    setDialogOpen(true);
+  };
 
   const handleCloseDialog = () => {
-    setDialogOpen(false)
-    setTimeout(() => setSelectedAnimal(null), 200)
-  }
+    setDialogOpen(false);
+    setTimeout(() => setSelectedAnimal(null), 200);
+  };
 
-  const getUrgencyLevel = (deadlineDate: string | undefined) => {
-    if (!deadlineDate) return null
+  const getUrgencyLevel = (deadlineDate: string | Date | undefined) => {
+    if (!deadlineDate) return null;
     const daysRemaining = Math.ceil(
       (new Date(deadlineDate).getTime() - Date.now()) / (1000 * 60 * 60 * 24)
-    )
-    if (daysRemaining <= 3) return 'urgent'
-    if (daysRemaining <= 7) return 'warning'
-    if (daysRemaining <= 14) return 'caution'
-    return 'normal'
-  }
+    );
+    if (daysRemaining <= 3) return 'urgent';
+    if (daysRemaining <= 7) return 'warning';
+    if (daysRemaining <= 14) return 'caution';
+    return 'normal';
+  };
 
   return (
     <Container maxWidth="xl" sx={{ py: 4 }}>
       {/* Header */}
       <Box sx={{ mb: 4, pb: 3, borderBottom: '1px solid #DBDBDB' }}>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 2 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'flex-end',
+            flexWrap: 'wrap',
+            gap: 2,
+          }}
+        >
           <Box>
-            <Typography sx={{ fontSize: '1.375rem', fontWeight: 300, color: '#262626', letterSpacing: '-0.01em' }}>
+            <Typography
+              sx={{
+                fontSize: '1.375rem',
+                fontWeight: 300,
+                color: '#262626',
+                letterSpacing: '-0.01em',
+              }}
+            >
               ギャラリー
             </Typography>
             <Typography sx={{ fontSize: '0.875rem', color: '#8E8E8E', mt: 0.5 }}>
@@ -153,9 +175,9 @@ export default function GalleryPage() {
           }}
         >
           {animals.map((animal) => {
-            const urgency = getUrgencyLevel(animal.deadline_date)
-            const mainImage = Array.isArray(animal.images) ? animal.images[0] : null
-            if (!mainImage) return null
+            const urgency = getUrgencyLevel(animal.deadline_date);
+            const mainImage = Array.isArray(animal.images) ? animal.images[0] : null;
+            if (!mainImage) return null;
 
             return (
               <Box
@@ -183,7 +205,8 @@ export default function GalleryPage() {
                   sx={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(135deg, rgba(255,200,150,0.07) 0%, rgba(255,240,210,0.03) 100%)',
+                    background:
+                      'linear-gradient(135deg, rgba(255,200,150,0.07) 0%, rgba(255,240,210,0.03) 100%)',
                     pointerEvents: 'none',
                     zIndex: 1,
                   }}
@@ -203,7 +226,14 @@ export default function GalleryPage() {
                       border: '1px solid #FFBEC2',
                     }}
                   >
-                    <Typography sx={{ fontSize: '0.625rem', fontWeight: 700, color: '#ED4956', lineHeight: 1.4 }}>
+                    <Typography
+                      sx={{
+                        fontSize: '0.625rem',
+                        fontWeight: 700,
+                        color: '#ED4956',
+                        lineHeight: 1.4,
+                      }}
+                    >
                       緊急
                     </Typography>
                   </Box>
@@ -231,7 +261,7 @@ export default function GalleryPage() {
                   <BookmarkBorder sx={{ color: 'white', fontSize: 22 }} />
                 </Box>
               </Box>
-            )
+            );
           })}
         </Box>
       )}
@@ -321,22 +351,66 @@ export default function GalleryPage() {
                   {/* Chips */}
                   <Box sx={{ display: 'flex', gap: 0.75, flexWrap: 'wrap', mb: 2 }}>
                     {selectedAnimal.gender && (
-                      <Box component="span" sx={{ px: 1.5, py: '3px', borderRadius: '4px', backgroundColor: '#F5F5F5', fontSize: '0.75rem', color: '#8E8E8E', fontWeight: 500 }}>
+                      <Box
+                        component="span"
+                        sx={{
+                          px: 1.5,
+                          py: '3px',
+                          borderRadius: '4px',
+                          backgroundColor: '#F5F5F5',
+                          fontSize: '0.75rem',
+                          color: '#8E8E8E',
+                          fontWeight: 500,
+                        }}
+                      >
                         {selectedAnimal.gender === 'male' ? 'オス' : 'メス'}
                       </Box>
                     )}
                     {selectedAnimal.age_estimate && (
-                      <Box component="span" sx={{ px: 1.5, py: '3px', borderRadius: '4px', backgroundColor: '#F5F5F5', fontSize: '0.75rem', color: '#8E8E8E', fontWeight: 500 }}>
+                      <Box
+                        component="span"
+                        sx={{
+                          px: 1.5,
+                          py: '3px',
+                          borderRadius: '4px',
+                          backgroundColor: '#F5F5F5',
+                          fontSize: '0.75rem',
+                          color: '#8E8E8E',
+                          fontWeight: 500,
+                        }}
+                      >
                         {selectedAnimal.age_estimate}
                       </Box>
                     )}
                     {selectedAnimal.breed && (
-                      <Box component="span" sx={{ px: 1.5, py: '3px', borderRadius: '4px', backgroundColor: '#F5F5F5', fontSize: '0.75rem', color: '#8E8E8E', fontWeight: 500 }}>
+                      <Box
+                        component="span"
+                        sx={{
+                          px: 1.5,
+                          py: '3px',
+                          borderRadius: '4px',
+                          backgroundColor: '#F5F5F5',
+                          fontSize: '0.75rem',
+                          color: '#8E8E8E',
+                          fontWeight: 500,
+                        }}
+                      >
                         {selectedAnimal.breed}
                       </Box>
                     )}
                     {selectedAnimal.color && (
-                      <Box component="span" sx={{ px: 1.5, py: '3px', borderRadius: '4px', backgroundColor: '#F5F5F5', fontSize: '0.75rem', color: '#8E8E8E', fontWeight: 500 }}>
+                      <Box
+                        component="span"
+                        sx={{
+                          px: 1.5,
+                          py: '3px',
+                          borderRadius: '4px',
+                          backgroundColor: '#F5F5F5',
+                          fontSize: '0.75rem',
+                          color: '#8E8E8E',
+                          fontWeight: 500,
+                        }}
+                      >
                         {selectedAnimal.color}
                       </Box>
                     )}
@@ -346,7 +420,9 @@ export default function GalleryPage() {
                   {selectedAnimal.personality && (
                     <Box sx={{ mb: 2 }}>
                       <Typography sx={{ fontSize: '0.875rem', color: '#262626', lineHeight: 1.6 }}>
-                        <Box component="span" sx={{ fontWeight: 600 }}>{selectedAnimal.name || '名前未定'} </Box>
+                        <Box component="span" sx={{ fontWeight: 600 }}>
+                          {selectedAnimal.name || '名前未定'}{' '}
+                        </Box>
                         {selectedAnimal.personality}
                       </Typography>
                     </Box>
@@ -425,5 +501,5 @@ export default function GalleryPage() {
         )}
       </Dialog>
     </Container>
-  )
+  );
 }

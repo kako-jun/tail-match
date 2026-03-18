@@ -9,34 +9,25 @@ module.exports = {
     extend: {
       colors: {
         // Instagram-inspired palette
-        'ig': {
-          'white': '#FFFFFF',
-          'off-white': '#FAFAFA',   // Instagram background
-          'border': '#DBDBDB',      // Instagram border
+        ig: {
+          white: '#FFFFFF',
+          'off-white': '#FAFAFA', // Instagram background
+          border: '#DBDBDB', // Instagram border
           'border-light': '#EFEFEF',
-          'text': '#262626',        // Instagram near-black
-          'muted': '#8E8E8E',       // Instagram muted gray
-          'coral': '#FF7A7A',       // heart/favorite accent
+          text: '#262626', // Instagram near-black
+          muted: '#8E8E8E', // Instagram muted gray
+          coral: '#FF7A7A', // heart/favorite accent
           'coral-light': '#FFEDED',
           'coral-dark': '#E85555',
-          'urgent': '#ED4956',      // alert red
-          'warm-gray': '#F5F5F5',   // subtle section bg
+          urgent: '#ED4956', // alert red
+          'warm-gray': '#F5F5F5', // subtle section bg
         },
         // Keep urgency colors for status chips
-        'urgent': {
-          'red': '#ED4956',
-          'orange': '#FFBA33',
-          'yellow': '#FFD166',
+        urgent: {
+          red: '#ED4956',
+          orange: '#FFBA33',
+          yellow: '#FFD166',
         },
-        // Legacy aliases for tails/[id] page (calico-* → neutral Instagram tones)
-        'calico': {
-          'brown': '#262626',    // was #D2691E, now near-black
-          'white': '#FAFAFA',    // was #FFF8DC, now off-white
-          'black': '#262626',    // unchanged concept
-          'cream': '#F5F5F5',    // was #F5DEB3, now warm-gray
-          'pink': '#FF7A7A',     // was #FFB6C1, now coral
-        },
-        'denim': '#8E8E8E',      // was #4682B4, now muted gray
       },
       fontFamily: {
         sans: [
@@ -52,16 +43,16 @@ module.exports = {
         ],
       },
       borderRadius: {
-        'ig': '8px',
+        ig: '8px',
         'ig-sm': '4px',
         'ig-full': '50%',
       },
       boxShadow: {
-        'none': 'none',
-        'ig': '0 1px 3px rgba(0,0,0,0.08)',
+        none: 'none',
+        ig: '0 1px 3px rgba(0,0,0,0.08)',
       },
       aspectRatio: {
-        'square': '1 / 1',
+        square: '1 / 1',
       },
       animation: {
         'fade-in': 'fadeIn 0.3s ease',
@@ -80,4 +71,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};

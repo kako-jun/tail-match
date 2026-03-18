@@ -1,4 +1,6 @@
-import { Container, Typography, Box, Paper, Divider } from '@mui/material'
+'use client';
+
+import { Container, Typography, Box, Paper, Divider, Alert } from '@mui/material';
 
 export default function TermsOfServicePage() {
   return (
@@ -7,7 +9,7 @@ export default function TermsOfServicePage() {
         <Typography variant="h3" component="h1" gutterBottom align="center">
           利用規約
         </Typography>
-        
+
         <Typography variant="body2" color="text.secondary" align="center" sx={{ mb: 4 }}>
           最終更新日: 2025年7月1日
         </Typography>
@@ -19,8 +21,15 @@ export default function TermsOfServicePage() {
           <Typography variant="body1" paragraph>
             <strong>Tail Matchは保護猫の命を救うための無料情報提供サービスです</strong>
           </Typography>
-          
-          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: 3, mt: 2 }}>
+
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+              gap: 3,
+              mt: 2,
+            }}
+          >
             <Box>
               <Typography variant="subtitle1" color="success.main" gutterBottom>
                 ✅ このサービスでできること
@@ -35,7 +44,7 @@ export default function TermsOfServicePage() {
                 </ul>
               </Typography>
             </Box>
-            
+
             <Box>
               <Typography variant="subtitle1" color="error" gutterBottom>
                 ❌ このサービスでできないこと
@@ -51,7 +60,7 @@ export default function TermsOfServicePage() {
               </Typography>
             </Box>
           </Box>
-          
+
           <Typography variant="body2" sx={{ mt: 2, fontWeight: 'medium', color: 'warning.main' }}>
             ⚠️ 重要: 保護猫の引き取りは必ず各自治体に直接ご連絡ください
           </Typography>
@@ -74,7 +83,7 @@ export default function TermsOfServicePage() {
           <Typography variant="h5" component="h2" gutterBottom>
             2. 利用条件
           </Typography>
-          
+
           <Typography variant="h6" component="h3" gutterBottom sx={{ mt: 3 }}>
             2.1 基本原則
           </Typography>
@@ -112,7 +121,7 @@ export default function TermsOfServicePage() {
           <Typography variant="h5" component="h2" gutterBottom>
             3. 情報の性質と免責
           </Typography>
-          
+
           <Typography variant="h6" component="h3" gutterBottom sx={{ mt: 3 }}>
             3.1 情報源
           </Typography>
@@ -136,7 +145,9 @@ export default function TermsOfServicePage() {
             </ul>
           </Typography>
           <Typography variant="body1" paragraph>
-            <strong>保護猫の引き取りを希望される場合は、必ず各自治体に直接確認してください。</strong>
+            <strong>
+              保護猫の引き取りを希望される場合は、必ず各自治体に直接確認してください。
+            </strong>
           </Typography>
 
           <Typography variant="h6" component="h3" gutterBottom sx={{ mt: 3 }}>
@@ -171,8 +182,7 @@ export default function TermsOfServicePage() {
             5. サービスの変更・停止
           </Typography>
           <Typography variant="body1" paragraph>
-            運営者は、以下の場合にサービスの内容変更・一時停止・終了を
-            行うことがあります：
+            運営者は、以下の場合にサービスの内容変更・一時停止・終了を 行うことがあります：
           </Typography>
           <Typography component="div" variant="body1">
             <ul>
@@ -212,18 +222,20 @@ export default function TermsOfServicePage() {
             本規約に関するお問い合わせは、以下までご連絡ください：
           </Typography>
           <Typography variant="body1">
-            <strong>Tail Match運営</strong><br />
-            ウェブサイト: https://tail-match.llll-ll.com<br />
+            <strong>Tail Match運営</strong>
+            <br />
+            ウェブサイト: https://tail-match.llll-ll.com
+            <br />
             GitHub: https://github.com/kako-jun/tail-match
           </Typography>
         </Box>
 
         <Divider sx={{ my: 4 }} />
-        
+
         <Typography variant="body2" color="text.secondary" align="center">
           🐾 保護猫の命を最優先に、皆様のご協力をお願いいたします
         </Typography>
       </Paper>
     </Container>
-  )
+  );
 }

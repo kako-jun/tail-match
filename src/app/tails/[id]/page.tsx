@@ -1,356 +1,563 @@
-'use client'
+'use client';
 
-import { useState, useEffect, use } from 'react'
-import { notFound } from 'next/navigation'
-import Link from 'next/link'
-import { Clock, MapPin, Phone, ExternalLink, ArrowLeft, Heart } from 'lucide-react'
-import { TailWithDetails } from '@/types/database'
+import { useState, useEffect, use } from 'react';
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import { Container, Box, Typography, Button, CircularProgress, Chip, Divider } from '@mui/material';
+import { AccessTime, LocationOn, Phone, OpenInNew, ArrowBack, Favorite } from '@mui/icons-material';
+import { TailWithDetails } from '@/types/database';
 
 interface TailDetailPageProps {
-  params: Promise<{ id: string }>
+  params: Promise<{ id: string }>;
 }
 
 export default function TailDetailPage({ params }: TailDetailPageProps) {
-  const [tail, setTail] = useState<TailWithDetails | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-  
-  const resolvedParams = use(params)
-  const id = parseInt(resolvedParams.id)
+  const [tail, setTail] = useState<TailWithDetails | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const resolvedParams = use(params);
+  const id = parseInt(resolvedParams.id);
 
   useEffect(() => {
     if (isNaN(id)) {
-      setError('Invalid ID')
-      setLoading(false)
-      return
+      setError('Invalid ID');
+      setLoading(false);
+      return;
     }
 
     const fetchTail = async () => {
       try {
-        const response = await fetch(`/api/tails/${id}`)
-        const data = await response.json()
-        
+        const response = await fetch(`/api/tails/${id}`);
+        const data = await response.json();
+
         if (!response.ok) {
-          throw new Error(data.message || 'Failed to fetch tail')
+          throw new Error(data.message || 'Failed to fetch tail');
         }
-        
+
         if (data.success) {
-          setTail(data.data)
+          setTail(data.data);
         } else {
-          throw new Error(data.error || 'Unknown error')
+          throw new Error(data.error || 'Unknown error');
         }
       } catch (err) {
-        console.error('Failed to fetch tail:', err)
-        setError(err instanceof Error ? err.message : 'Unknown error')
+        console.error('Failed to fetch tail:', err);
+        setError(err instanceof Error ? err.message : 'Unknown error');
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    fetchTail()
-  }, [id])
+    fetchTail();
+  }, [id]);
 
   if (loading) {
     return (
-      <div className="container py-8">
-        <div className="flex justify-center items-center min-h-96">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-denim mx-auto mb-4"></div>
-            <p className="text-calico-black">読み込み中...</p>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  if (!tail) {
-    notFound()
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: '50vh',
+          }}
+        >
+          <Box sx={{ textAlign: 'center' }}>
+            <CircularProgress size={24} thickness={2} sx={{ color: '#262626', mb: 2 }} />
+            <Typography sx={{ fontSize: '0.875rem', color: '#8E8E8E' }}>読み込み中...</Typography>
+          </Box>
+        </Box>
+      </Container>
+    );
   }
 
   if (error) {
     return (
-      <div className="container py-8">
-        <div className="flex justify-center items-center min-h-96">
-          <div className="text-center">
-            <p className="text-red-600 mb-4">{error}</p>
-            <Link href="/tails" className="inline-flex items-center text-denim hover:underline">
-              <ArrowLeft className="w-4 h-4 mr-2" />
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: '50vh',
+          }}
+        >
+          <Box sx={{ textAlign: 'center' }}>
+            <Typography sx={{ color: '#ED4956', mb: 2 }}>{error}</Typography>
+            <Button
+              component={Link}
+              href="/tails"
+              variant="outlined"
+              startIcon={<ArrowBack sx={{ fontSize: 16 }} />}
+              sx={{ borderColor: '#DBDBDB', color: '#262626' }}
+            >
               一覧に戻る
-            </Link>
-          </div>
-        </div>
-      </div>
-    )
+            </Button>
+          </Box>
+        </Box>
+      </Container>
+    );
   }
 
-  // 緊急度による背景色
-  const getUrgencyBgClass = () => {
+  if (!tail) {
+    notFound();
+  }
+
+  // Urgency styling
+  const getUrgencySx = () => {
     switch (tail.urgency_level) {
-      case 'urgent': return 'bg-urgent-red text-white'
-      case 'warning': return 'bg-urgent-orange text-white'
-      case 'caution': return 'bg-urgent-yellow text-calico-black'
-      default: return 'bg-calico-cream text-calico-black'
+      case 'urgent':
+        return { backgroundColor: '#FFEEF0', color: '#ED4956', border: '1px solid #FFBEC2' };
+      case 'warning':
+        return { backgroundColor: '#FFF8E6', color: '#B07D00', border: '1px solid #FFE299' };
+      case 'caution':
+        return { backgroundColor: '#FFF3CD', color: '#856404', border: '1px solid #FFE69C' };
+      default:
+        return { backgroundColor: '#F5F5F5', color: '#262626', border: '1px solid #EFEFEF' };
     }
-  }
+  };
 
-  // 残り日数の表示
   const formatDaysRemaining = () => {
-    if (tail.days_remaining == null) return null
-
-    if (tail.days_remaining < 0) {
-      return '期限切れ'
-    } else if (tail.days_remaining === 0) {
-      return '今日まで！'
-    } else {
-      return `あと${tail.days_remaining}日`
-    }
-  }
+    if (tail.days_remaining == null) return null;
+    if (tail.days_remaining < 0) return '期限切れ';
+    if (tail.days_remaining === 0) return '今日まで！';
+    return `あと${tail.days_remaining}日`;
+  };
 
   return (
-    <div className="container py-8">
-      {/* 戻るボタン */}
-      <div className="mb-6">
-        <Link href="/tails" className="inline-flex items-center text-denim hover:underline">
-          <ArrowLeft className="w-4 h-4 mr-2" />
+    <Container maxWidth="lg" sx={{ py: 4 }}>
+      {/* Back button */}
+      <Box sx={{ mb: 3 }}>
+        <Button
+          component={Link}
+          href="/search"
+          startIcon={<ArrowBack sx={{ fontSize: 16 }} />}
+          sx={{ color: '#262626', fontSize: '0.875rem', '&:hover': { backgroundColor: '#F5F5F5' } }}
+        >
           尻尾ちゃん一覧に戻る
-        </Link>
-      </div>
+        </Button>
+      </Box>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* 画像エリア */}
-        <div className="space-y-4">
-          {/* メイン画像 */}
-          <div className="aspect-square bg-gradient-to-br from-calico-cream to-yellow-100 rounded-2xl overflow-hidden relative center-all shadow-xl">
+      <Box
+        sx={{
+          display: 'grid',
+          gap: 4,
+          gridTemplateColumns: { xs: '1fr', lg: '1fr 1fr' },
+        }}
+      >
+        {/* Image area */}
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          {/* Main image */}
+          <Box
+            sx={{
+              aspectRatio: '1 / 1',
+              borderRadius: '8px',
+              overflow: 'hidden',
+              position: 'relative',
+              backgroundColor: '#EFEFEF',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              border: '1px solid #DBDBDB',
+            }}
+          >
             {tail.images && tail.images.length > 0 ? (
               <img
                 src={tail.images[0]}
                 alt={tail.name || '保護猫'}
-                className="w-full h-full object-cover"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 onError={(e) => {
-                  const target = e.target as HTMLImageElement
-                  const parent = target.parentElement
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const parent = target.parentElement;
                   if (parent) {
-                    target.style.display = 'none'
-                    const placeholder = document.createElement('div')
-                    placeholder.className = 'w-full h-full center-all text-9xl opacity-60'
-                    placeholder.innerHTML = '🐱'
-                    parent.appendChild(placeholder)
+                    const placeholder = document.createElement('div');
+                    placeholder.style.cssText =
+                      'display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:8rem;opacity:0.6';
+                    placeholder.textContent = '\uD83D\uDC31';
+                    parent.appendChild(placeholder);
                   }
                 }}
               />
             ) : (
-              <div className="w-full h-full center-all text-9xl opacity-60">
-                🐱
-              </div>
+              <Typography sx={{ fontSize: '8rem', opacity: 0.6 }}>{'\uD83D\uDC31'}</Typography>
             )}
-            
-            {/* 譲渡決定バッジ */}
-            {tail.transfer_decided && (
-              <div className="absolute top-4 left-4 bg-green-500 text-white px-4 py-2 rounded-full font-bold">
-                <Heart className="inline w-4 h-4 mr-2" />
-                譲渡決定済み
-              </div>
-            )}
-          </div>
 
-          {/* 追加画像（あれば） */}
+            {/* Transfer decided badge */}
+            {tail.transfer_decided && (
+              <Chip
+                icon={<Favorite sx={{ fontSize: 14, color: '#FFFFFF !important' }} />}
+                label="譲渡決定済み"
+                sx={{
+                  position: 'absolute',
+                  top: 16,
+                  left: 16,
+                  backgroundColor: '#4CAF50',
+                  color: '#FFFFFF',
+                  fontWeight: 700,
+                  fontSize: '0.8125rem',
+                }}
+              />
+            )}
+          </Box>
+
+          {/* Additional images */}
           {tail.images && tail.images.length > 1 && (
-            <div className="grid grid-cols-3 gap-2">
+            <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1 }}>
               {tail.images.slice(1, 4).map((imageUrl, index) => (
-                <div key={index} className="aspect-square bg-calico-cream rounded overflow-hidden">
+                <Box
+                  key={index}
+                  sx={{
+                    aspectRatio: '1 / 1',
+                    borderRadius: '4px',
+                    overflow: 'hidden',
+                    backgroundColor: '#EFEFEF',
+                    border: '1px solid #EFEFEF',
+                  }}
+                >
                   <img
                     src={imageUrl}
                     alt={`${tail.name || '保護猫'} 追加画像 ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     onError={(e) => {
-                      const target = e.target as HTMLImageElement
-                      target.src = '/images/no-image-cat.svg'
+                      const target = e.target as HTMLImageElement;
+                      target.src = '/images/no-image-cat.svg';
                     }}
                   />
-                </div>
+                </Box>
               ))}
-            </div>
+            </Box>
           )}
-        </div>
+        </Box>
 
-        {/* 詳細情報エリア */}
-        <div className="space-y-6">
-          {/* 基本情報 */}
-          <div className="card">
-            <h1 className="text-3xl font-bold text-calico-brown mb-4">
+        {/* Detail info area */}
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+          {/* Basic info card */}
+          <Box
+            sx={{
+              border: '1px solid #DBDBDB',
+              borderRadius: '8px',
+              backgroundColor: '#FFFFFF',
+              p: 3,
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: '1.5rem',
+                fontWeight: 300,
+                color: '#262626',
+                mb: 2,
+                letterSpacing: '-0.01em',
+              }}
+            >
               {tail.name || '名前未定'}
-            </h1>
+            </Typography>
 
-            {/* 緊急度表示 */}
+            {/* Urgency display */}
             {tail.urgency_level !== 'normal' && tail.deadline_date && (
-              <div className={`p-4 rounded-lg mb-4 ${getUrgencyBgClass()}`}>
-                <div className="flex items-center">
-                  <Clock className="w-5 h-5 mr-2" />
-                  <span className="font-bold">
+              <Box sx={{ p: 2, borderRadius: '6px', mb: 3, ...getUrgencySx() }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <AccessTime sx={{ fontSize: 18 }} />
+                  <Typography sx={{ fontWeight: 600, fontSize: '0.875rem' }}>
                     期限: {new Date(tail.deadline_date).toLocaleDateString('ja-JP')}
                     {tail.days_remaining !== null && ` (${formatDaysRemaining()})`}
-                  </span>
-                </div>
+                  </Typography>
+                </Box>
                 {tail.urgency_level === 'urgent' && (
-                  <p className="text-sm mt-2">
-                    ⚠️ 非常に緊急です！すぐにお問い合わせください
-                  </p>
+                  <Typography sx={{ fontSize: '0.8125rem', mt: 1 }}>
+                    非常に緊急です！すぐにお問い合わせください
+                  </Typography>
                 )}
-              </div>
+              </Box>
             )}
 
-            {/* 基本データ */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <h3 className="font-semibold text-calico-brown mb-2">基本情報</h3>
-                <dl className="space-y-2 text-sm">
-                  <div>
-                    <dt className="font-medium">品種:</dt>
-                    <dd>{tail.breed || 'ミックス'}</dd>
-                  </div>
-                  <div>
-                    <dt className="font-medium">年齢:</dt>
-                    <dd>{tail.age_estimate || '不明'}</dd>
-                  </div>
-                  <div>
-                    <dt className="font-medium">性別:</dt>
-                    <dd>{
-                      tail.gender === 'male' ? 'オス' :
-                      tail.gender === 'female' ? 'メス' : '不明'
-                    }</dd>
-                  </div>
-                  <div>
-                    <dt className="font-medium">毛色:</dt>
-                    <dd>{tail.color || '詳細不明'}</dd>
-                  </div>
-                  {tail.size && (
-                    <div>
-                      <dt className="font-medium">サイズ:</dt>
-                      <dd>{tail.size}</dd>
-                    </div>
-                  )}
-                </dl>
-              </div>
+            {/* Basic data */}
+            <Box
+              sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: 3 }}
+            >
+              <Box>
+                <Typography
+                  sx={{
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    color: '#8E8E8E',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.06em',
+                    mb: 1.5,
+                  }}
+                >
+                  基本情報
+                </Typography>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                  {[
+                    { label: '品種', value: tail.breed || 'ミックス' },
+                    { label: '年齢', value: tail.age_estimate || '不明' },
+                    {
+                      label: '性別',
+                      value:
+                        tail.gender === 'male'
+                          ? 'オス'
+                          : tail.gender === 'female'
+                            ? 'メス'
+                            : '不明',
+                    },
+                    { label: '毛色', value: tail.color || '詳細不明' },
+                    ...(tail.size ? [{ label: 'サイズ', value: tail.size }] : []),
+                  ].map((item) => (
+                    <Box key={item.label} sx={{ display: 'flex', gap: 1, fontSize: '0.875rem' }}>
+                      <Typography
+                        sx={{
+                          fontSize: '0.875rem',
+                          fontWeight: 600,
+                          color: '#262626',
+                          minWidth: 60,
+                        }}
+                      >
+                        {item.label}:
+                      </Typography>
+                      <Typography sx={{ fontSize: '0.875rem', color: '#8E8E8E' }}>
+                        {item.value}
+                      </Typography>
+                    </Box>
+                  ))}
+                </Box>
+              </Box>
 
-              <div>
-                <h3 className="font-semibold text-calico-brown mb-2">保護情報</h3>
-                <dl className="space-y-2 text-sm">
-                  <div>
-                    <dt className="font-medium">保護地域:</dt>
-                    <dd>
-                      <div className="flex items-center">
-                        <MapPin className="w-3 h-3 mr-1" />
-                        {tail.region?.name} / {tail.municipality?.name}
-                      </div>
-                    </dd>
-                  </div>
+              <Box>
+                <Typography
+                  sx={{
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    color: '#8E8E8E',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.06em',
+                    mb: 1.5,
+                  }}
+                >
+                  保護情報
+                </Typography>
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                  <Box
+                    sx={{ display: 'flex', alignItems: 'center', gap: 0.5, fontSize: '0.875rem' }}
+                  >
+                    <LocationOn sx={{ fontSize: 14, color: '#8E8E8E' }} />
+                    <Typography sx={{ fontSize: '0.875rem', color: '#8E8E8E' }}>
+                      {tail.region?.name} / {tail.municipality?.name}
+                    </Typography>
+                  </Box>
                   {tail.protection_date && (
-                    <div>
-                      <dt className="font-medium">保護日:</dt>
-                      <dd>{new Date(tail.protection_date).toLocaleDateString('ja-JP')}</dd>
-                    </div>
+                    <Box sx={{ display: 'flex', gap: 1, fontSize: '0.875rem' }}>
+                      <Typography
+                        sx={{
+                          fontSize: '0.875rem',
+                          fontWeight: 600,
+                          color: '#262626',
+                          minWidth: 60,
+                        }}
+                      >
+                        保護日:
+                      </Typography>
+                      <Typography sx={{ fontSize: '0.875rem', color: '#8E8E8E' }}>
+                        {new Date(tail.protection_date).toLocaleDateString('ja-JP')}
+                      </Typography>
+                    </Box>
                   )}
-                  <div>
-                    <dt className="font-medium">ステータス:</dt>
-                    <dd className={tail.transfer_decided ? 'text-green-600 font-bold' : ''}>
+                  <Box sx={{ display: 'flex', gap: 1, fontSize: '0.875rem' }}>
+                    <Typography
+                      sx={{ fontSize: '0.875rem', fontWeight: 600, color: '#262626', minWidth: 80 }}
+                    >
+                      ステータス:
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontSize: '0.875rem',
+                        ...(tail.transfer_decided
+                          ? { color: '#4CAF50', fontWeight: 700 }
+                          : { color: '#8E8E8E' }),
+                      }}
+                    >
                       {tail.transfer_decided ? '譲渡決定済み' : '家族募集中'}
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-            </div>
-          </div>
+                    </Typography>
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
+          </Box>
 
-          {/* 健康状態・性格 */}
+          {/* Health / personality */}
           {(tail.health_status || tail.personality || tail.special_needs) && (
-            <div className="card">
-              <h3 className="font-semibold text-calico-brown mb-4">詳細情報</h3>
-              
+            <Box
+              sx={{
+                border: '1px solid #DBDBDB',
+                borderRadius: '8px',
+                backgroundColor: '#FFFFFF',
+                p: 3,
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  color: '#8E8E8E',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.06em',
+                  mb: 2,
+                }}
+              >
+                詳細情報
+              </Typography>
+
               {tail.health_status && (
-                <div className="mb-4">
-                  <h4 className="font-medium text-calico-brown mb-2">健康状態</h4>
-                  <p className="text-sm text-calico-black">{tail.health_status}</p>
-                </div>
+                <Box sx={{ mb: 2 }}>
+                  <Typography
+                    sx={{ fontSize: '0.875rem', fontWeight: 600, color: '#262626', mb: 0.5 }}
+                  >
+                    健康状態
+                  </Typography>
+                  <Typography sx={{ fontSize: '0.8125rem', color: '#8E8E8E', lineHeight: 1.6 }}>
+                    {tail.health_status}
+                  </Typography>
+                </Box>
               )}
 
               {tail.personality && (
-                <div className="mb-4">
-                  <h4 className="font-medium text-calico-brown mb-2">性格</h4>
-                  <p className="text-sm text-calico-black">{tail.personality}</p>
-                </div>
+                <Box sx={{ mb: 2 }}>
+                  <Typography
+                    sx={{ fontSize: '0.875rem', fontWeight: 600, color: '#262626', mb: 0.5 }}
+                  >
+                    性格
+                  </Typography>
+                  <Typography sx={{ fontSize: '0.8125rem', color: '#8E8E8E', lineHeight: 1.6 }}>
+                    {tail.personality}
+                  </Typography>
+                </Box>
               )}
 
               {tail.special_needs && (
-                <div>
-                  <h4 className="font-medium text-calico-brown mb-2">特別なケア</h4>
-                  <p className="text-sm text-calico-black">{tail.special_needs}</p>
-                </div>
+                <Box>
+                  <Typography
+                    sx={{ fontSize: '0.875rem', fontWeight: 600, color: '#262626', mb: 0.5 }}
+                  >
+                    特別なケア
+                  </Typography>
+                  <Typography sx={{ fontSize: '0.8125rem', color: '#8E8E8E', lineHeight: 1.6 }}>
+                    {tail.special_needs}
+                  </Typography>
+                </Box>
               )}
-            </div>
+            </Box>
           )}
 
-          {/* お問い合わせ先 */}
-          <div className="card">
-            <h3 className="font-semibold text-calico-brown mb-4">お問い合わせ先</h3>
-            
-            <div className="space-y-3">
-              <div>
-                <h4 className="font-medium text-calico-brown">{tail.municipality?.name}</h4>
-                
-                {tail.municipality?.contact_info && (
-                  <div className="mt-2 space-y-1 text-sm">
-                    {tail.municipality.contact_info.phone && (
-                      <div className="flex items-center">
-                        <Phone className="w-4 h-4 mr-2 text-denim" />
-                        <a 
-                          href={`tel:${tail.municipality.contact_info.phone}`}
-                          className="text-denim hover:underline"
-                        >
-                          {tail.municipality.contact_info.phone}
-                        </a>
-                      </div>
-                    )}
-                    {tail.municipality.contact_info.address && (
-                      <div className="flex items-start">
-                        <MapPin className="w-4 h-4 mr-2 text-denim mt-0.5" />
-                        <span className="text-calico-black">
-                          {tail.municipality.contact_info.address}
-                        </span>
-                      </div>
-                    )}
-                  </div>
+          {/* Contact info */}
+          <Box
+            sx={{
+              border: '1px solid #DBDBDB',
+              borderRadius: '8px',
+              backgroundColor: '#FFFFFF',
+              p: 3,
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                color: '#8E8E8E',
+                textTransform: 'uppercase',
+                letterSpacing: '0.06em',
+                mb: 2,
+              }}
+            >
+              お問い合わせ先
+            </Typography>
+
+            <Typography sx={{ fontSize: '0.9375rem', fontWeight: 600, color: '#262626', mb: 1.5 }}>
+              {tail.municipality?.name}
+            </Typography>
+
+            {tail.municipality?.contact_info && (
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, mb: 2 }}>
+                {tail.municipality.contact_info.phone && (
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                    <Phone sx={{ fontSize: 14, color: '#8E8E8E' }} />
+                    <Typography
+                      component="a"
+                      href={`tel:${tail.municipality.contact_info.phone}`}
+                      sx={{
+                        fontSize: '0.875rem',
+                        color: '#262626',
+                        textDecoration: 'none',
+                        '&:hover': { textDecoration: 'underline' },
+                      }}
+                    >
+                      {tail.municipality.contact_info.phone}
+                    </Typography>
+                  </Box>
                 )}
-              </div>
+                {tail.municipality.contact_info.address && (
+                  <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1 }}>
+                    <LocationOn sx={{ fontSize: 14, color: '#8E8E8E', mt: '2px' }} />
+                    <Typography sx={{ fontSize: '0.875rem', color: '#8E8E8E', lineHeight: 1.5 }}>
+                      {tail.municipality.contact_info.address}
+                    </Typography>
+                  </Box>
+                )}
+              </Box>
+            )}
 
-              {/* 元サイトへのリンク */}
-              {tail.source_url && (
-                <div className="pt-4 border-t border-calico-cream">
-                  <a
-                    href={tail.source_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-secondary inline-flex items-center"
-                  >
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    元の掲載ページを見る
-                  </a>
-                </div>
-              )}
-            </div>
-          </div>
+            {/* Source URL link */}
+            {tail.source_url && (
+              <>
+                <Divider sx={{ borderColor: '#EFEFEF', my: 2 }} />
+                <Button
+                  href={tail.source_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="outlined"
+                  startIcon={<OpenInNew sx={{ fontSize: 14 }} />}
+                  sx={{
+                    fontSize: '0.8125rem',
+                    borderColor: '#DBDBDB',
+                    color: '#262626',
+                    '&:hover': { borderColor: '#A8A8A8', backgroundColor: 'transparent' },
+                  }}
+                >
+                  元の掲載ページを見る
+                </Button>
+              </>
+            )}
+          </Box>
 
-          {/* 注意事項 */}
-          <div className="bg-calico-cream p-4 rounded-lg">
-            <h3 className="font-semibold text-calico-brown mb-2">⚠️ 重要な注意事項</h3>
-            <ul className="text-sm text-calico-black space-y-1">
-              <li>• 譲渡には条件がある場合があります</li>
-              <li>• 必ず事前に自治体にお問い合わせください</li>
-              <li>• 情報は変更される可能性があります</li>
-              <li>• このサイトは情報提供のみを行っています</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
+          {/* Disclaimer */}
+          <Box
+            sx={{
+              p: 2.5,
+              backgroundColor: '#FAFAFA',
+              borderRadius: '8px',
+              border: '1px solid #EFEFEF',
+            }}
+          >
+            <Typography sx={{ fontSize: '0.875rem', fontWeight: 600, color: '#262626', mb: 1 }}>
+              重要な注意事項
+            </Typography>
+            <Box component="ul" sx={{ m: 0, pl: 2.5 }}>
+              {[
+                '譲渡には条件がある場合があります',
+                '必ず事前に自治体にお問い合わせください',
+                '情報は変更される可能性があります',
+                'このサイトは情報提供のみを行っています',
+              ].map((text) => (
+                <Typography
+                  key={text}
+                  component="li"
+                  sx={{ fontSize: '0.8125rem', color: '#8E8E8E', lineHeight: 1.7 }}
+                >
+                  {text}
+                </Typography>
+              ))}
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    </Container>
+  );
 }

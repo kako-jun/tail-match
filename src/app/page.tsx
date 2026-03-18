@@ -1,9 +1,9 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import TailGrid from '@/components/TailGrid'
-import StatsDisplay from '@/components/StatsDisplay'
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import TailGrid from '@/components/TailGrid';
+import StatsDisplay from '@/components/StatsDisplay';
 import {
   Container,
   Box,
@@ -13,8 +13,8 @@ import {
   MenuItem,
   Button,
   IconButton,
-} from '@mui/material'
-import { ChevronLeft, ChevronRight, Search } from '@mui/icons-material'
+} from '@mui/material';
+import { ChevronLeft, ChevronRight, Search } from '@mui/icons-material';
 
 const heroImages = [
   {
@@ -32,7 +32,7 @@ const heroImages = [
     title: '元気いっぱいのシッポたち',
     subtitle: '新しい家族との楽しい毎日を夢見ています',
   },
-]
+];
 
 const selectSx = {
   backgroundColor: '#FFFFFF',
@@ -48,20 +48,35 @@ const selectSx = {
     borderWidth: 1,
   },
   '& .MuiSelect-select': { padding: '10px 14px', color: '#262626' },
-}
+};
 
 export default function HomePage() {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [searchRegion, setSearchRegion] = useState('');
+  const [searchGender, setSearchGender] = useState('');
+  const [searchAge, setSearchAge] = useState('');
+  const [searchBreed, setSearchBreed] = useState('');
+
+  const buildSearchUrl = () => {
+    const params = new URLSearchParams();
+    if (searchRegion) params.set('region', searchRegion);
+    if (searchGender) params.set('gender', searchGender);
+    if (searchAge) params.set('age', searchAge);
+    if (searchBreed) params.set('breed', searchBreed);
+    const qs = params.toString();
+    return `/search${qs ? `?${qs}` : ''}`;
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroImages.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [])
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroImages.length)
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length)
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+  const prevSlide = () =>
+    setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
 
   return (
     <>
@@ -315,49 +330,111 @@ export default function HomePage() {
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             {/* Region */}
             <FormControl fullWidth>
-              <Select displayEmpty defaultValue="" sx={selectSx}>
-                <MenuItem value="" sx={{ color: '#8E8E8E', fontSize: '0.875rem' }}>地域を選択</MenuItem>
-                <MenuItem value="hokkaido" sx={{ fontSize: '0.875rem' }}>北海道</MenuItem>
-                <MenuItem value="tohoku" sx={{ fontSize: '0.875rem' }}>東北</MenuItem>
-                <MenuItem value="kanto" sx={{ fontSize: '0.875rem' }}>関東</MenuItem>
-                <MenuItem value="chubu" sx={{ fontSize: '0.875rem' }}>中部</MenuItem>
-                <MenuItem value="kansai" sx={{ fontSize: '0.875rem' }}>関西</MenuItem>
-                <MenuItem value="chugoku" sx={{ fontSize: '0.875rem' }}>中国</MenuItem>
-                <MenuItem value="shikoku" sx={{ fontSize: '0.875rem' }}>四国</MenuItem>
-                <MenuItem value="kyushu" sx={{ fontSize: '0.875rem' }}>九州・沖縄</MenuItem>
+              <Select
+                displayEmpty
+                value={searchRegion}
+                onChange={(e) => setSearchRegion(e.target.value)}
+                sx={selectSx}
+              >
+                <MenuItem value="" sx={{ color: '#8E8E8E', fontSize: '0.875rem' }}>
+                  地域を選択
+                </MenuItem>
+                <MenuItem value="hokkaido" sx={{ fontSize: '0.875rem' }}>
+                  北海道
+                </MenuItem>
+                <MenuItem value="tohoku" sx={{ fontSize: '0.875rem' }}>
+                  東北
+                </MenuItem>
+                <MenuItem value="kanto" sx={{ fontSize: '0.875rem' }}>
+                  関東
+                </MenuItem>
+                <MenuItem value="chubu" sx={{ fontSize: '0.875rem' }}>
+                  中部
+                </MenuItem>
+                <MenuItem value="kansai" sx={{ fontSize: '0.875rem' }}>
+                  関西
+                </MenuItem>
+                <MenuItem value="chugoku" sx={{ fontSize: '0.875rem' }}>
+                  中国
+                </MenuItem>
+                <MenuItem value="shikoku" sx={{ fontSize: '0.875rem' }}>
+                  四国
+                </MenuItem>
+                <MenuItem value="kyushu" sx={{ fontSize: '0.875rem' }}>
+                  九州・沖縄
+                </MenuItem>
               </Select>
             </FormControl>
 
             <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
               <FormControl sx={{ flex: 1, minWidth: 120 }}>
-                <Select displayEmpty defaultValue="" sx={selectSx}>
-                  <MenuItem value="" sx={{ color: '#8E8E8E', fontSize: '0.875rem' }}>性別</MenuItem>
-                  <MenuItem value="male" sx={{ fontSize: '0.875rem' }}>オス</MenuItem>
-                  <MenuItem value="female" sx={{ fontSize: '0.875rem' }}>メス</MenuItem>
+                <Select
+                  displayEmpty
+                  value={searchGender}
+                  onChange={(e) => setSearchGender(e.target.value)}
+                  sx={selectSx}
+                >
+                  <MenuItem value="" sx={{ color: '#8E8E8E', fontSize: '0.875rem' }}>
+                    性別
+                  </MenuItem>
+                  <MenuItem value="male" sx={{ fontSize: '0.875rem' }}>
+                    オス
+                  </MenuItem>
+                  <MenuItem value="female" sx={{ fontSize: '0.875rem' }}>
+                    メス
+                  </MenuItem>
                 </Select>
               </FormControl>
               <FormControl sx={{ flex: 1, minWidth: 120 }}>
-                <Select displayEmpty defaultValue="" sx={selectSx}>
-                  <MenuItem value="" sx={{ color: '#8E8E8E', fontSize: '0.875rem' }}>年齢</MenuItem>
-                  <MenuItem value="kitten" sx={{ fontSize: '0.875rem' }}>子猫</MenuItem>
-                  <MenuItem value="adult" sx={{ fontSize: '0.875rem' }}>成猫</MenuItem>
-                  <MenuItem value="senior" sx={{ fontSize: '0.875rem' }}>シニア猫</MenuItem>
+                <Select
+                  displayEmpty
+                  value={searchAge}
+                  onChange={(e) => setSearchAge(e.target.value)}
+                  sx={selectSx}
+                >
+                  <MenuItem value="" sx={{ color: '#8E8E8E', fontSize: '0.875rem' }}>
+                    年齢
+                  </MenuItem>
+                  <MenuItem value="子猫" sx={{ fontSize: '0.875rem' }}>
+                    子猫
+                  </MenuItem>
+                  <MenuItem value="成猫" sx={{ fontSize: '0.875rem' }}>
+                    成猫
+                  </MenuItem>
+                  <MenuItem value="シニア猫" sx={{ fontSize: '0.875rem' }}>
+                    シニア猫
+                  </MenuItem>
                 </Select>
               </FormControl>
               <FormControl sx={{ flex: 1, minWidth: 120 }}>
-                <Select displayEmpty defaultValue="" sx={selectSx}>
-                  <MenuItem value="" sx={{ color: '#8E8E8E', fontSize: '0.875rem' }}>猫種</MenuItem>
-                  <MenuItem value="mixed" sx={{ fontSize: '0.875rem' }}>ミックス</MenuItem>
-                  <MenuItem value="persian" sx={{ fontSize: '0.875rem' }}>ペルシャ</MenuItem>
-                  <MenuItem value="siamese" sx={{ fontSize: '0.875rem' }}>シャム</MenuItem>
-                  <MenuItem value="maine-coon" sx={{ fontSize: '0.875rem' }}>メインクーン</MenuItem>
+                <Select
+                  displayEmpty
+                  value={searchBreed}
+                  onChange={(e) => setSearchBreed(e.target.value)}
+                  sx={selectSx}
+                >
+                  <MenuItem value="" sx={{ color: '#8E8E8E', fontSize: '0.875rem' }}>
+                    猫種
+                  </MenuItem>
+                  <MenuItem value="ミックス" sx={{ fontSize: '0.875rem' }}>
+                    ミックス
+                  </MenuItem>
+                  <MenuItem value="ペルシャ" sx={{ fontSize: '0.875rem' }}>
+                    ペルシャ
+                  </MenuItem>
+                  <MenuItem value="シャム" sx={{ fontSize: '0.875rem' }}>
+                    シャム
+                  </MenuItem>
+                  <MenuItem value="メインクーン" sx={{ fontSize: '0.875rem' }}>
+                    メインクーン
+                  </MenuItem>
                 </Select>
               </FormControl>
             </Box>
 
             <Button
               component={Link}
-              href="/search"
+              href={buildSearchUrl()}
               variant="contained"
               startIcon={<Search sx={{ fontSize: 18 }} />}
               sx={{
@@ -446,12 +523,21 @@ export default function HomePage() {
                     border: `1px solid ${item.tagBorder}`,
                   }}
                 >
-                  <Typography sx={{ fontSize: '0.6875rem', fontWeight: 700, color: item.tagColor, whiteSpace: 'nowrap' }}>
+                  <Typography
+                    sx={{
+                      fontSize: '0.6875rem',
+                      fontWeight: 700,
+                      color: item.tagColor,
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
                     {item.date}
                   </Typography>
                 </Box>
                 <Box>
-                  <Typography sx={{ fontSize: '0.9375rem', fontWeight: 600, color: '#262626', mb: 0.5 }}>
+                  <Typography
+                    sx={{ fontSize: '0.9375rem', fontWeight: 600, color: '#262626', mb: 0.5 }}
+                  >
                     {item.title}
                   </Typography>
                   <Typography sx={{ fontSize: '0.8125rem', color: '#8E8E8E', lineHeight: 1.6 }}>
@@ -464,5 +550,5 @@ export default function HomePage() {
         </Box>
       </Container>
     </>
-  )
+  );
 }

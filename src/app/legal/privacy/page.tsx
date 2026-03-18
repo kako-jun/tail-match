@@ -1,4 +1,6 @@
-import { Container, Typography, Box, Paper, Divider } from '@mui/material'
+'use client';
+
+import { Container, Typography, Box, Paper, Divider, Alert } from '@mui/material';
 
 export default function PrivacyPolicyPage() {
   return (
@@ -7,7 +9,7 @@ export default function PrivacyPolicyPage() {
         <Typography variant="h3" component="h1" gutterBottom align="center">
           プライバシーポリシー
         </Typography>
-        
+
         <Typography variant="body2" color="text.secondary" align="center" sx={{ mb: 4 }}>
           最終更新日: 2025年7月1日
         </Typography>
@@ -19,8 +21,15 @@ export default function PrivacyPolicyPage() {
           <Typography variant="body1" paragraph>
             <strong>Tail Matchは個人情報をほとんど収集しない情報提供サービスです</strong>
           </Typography>
-          
-          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: 3, mt: 2 }}>
+
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+              gap: 3,
+              mt: 2,
+            }}
+          >
             <Box>
               <Typography variant="subtitle1" color="error" gutterBottom>
                 ❌ 収集していない情報
@@ -37,7 +46,7 @@ export default function PrivacyPolicyPage() {
                 </ul>
               </Typography>
             </Box>
-            
+
             <Box>
               <Typography variant="subtitle1" color="success.main" gutterBottom>
                 ✅ 最小限の収集情報
@@ -52,7 +61,7 @@ export default function PrivacyPolicyPage() {
               </Typography>
             </Box>
           </Box>
-          
+
           <Typography variant="body2" sx={{ mt: 2, fontWeight: 'medium' }}>
             💡 ユーザー登録不要・個人特定不可・保護猫情報の閲覧のみのシンプルなサービスです
           </Typography>
@@ -65,7 +74,8 @@ export default function PrivacyPolicyPage() {
             1. 基本方針
           </Typography>
           <Typography variant="body1" paragraph>
-            Tail Match（以下「当サービス」）は、保護猫の命を救うことを目的としたマッチングサービスです。
+            Tail
+            Match（以下「当サービス」）は、保護猫の命を救うことを目的としたマッチングサービスです。
             利用者の個人情報保護を重要な責務と考え、個人情報保護法をはじめとする関連法令を遵守し、
             適切な取り扱いに努めます。
           </Typography>
@@ -75,7 +85,7 @@ export default function PrivacyPolicyPage() {
           <Typography variant="h5" component="h2" gutterBottom>
             2. 収集する情報
           </Typography>
-          
+
           <Typography variant="h6" component="h3" gutterBottom sx={{ mt: 3 }}>
             2.1 自動収集情報
           </Typography>
@@ -189,8 +199,7 @@ export default function PrivacyPolicyPage() {
           </Typography>
           <Typography variant="body1" paragraph>
             当プライバシーポリシーは、法令の変更やサービス改善に伴い
-            変更する場合があります。重要な変更がある場合は、
-            サイト上で事前に通知いたします。
+            変更する場合があります。重要な変更がある場合は、 サイト上で事前に通知いたします。
           </Typography>
         </Box>
 
@@ -199,22 +208,23 @@ export default function PrivacyPolicyPage() {
             9. お問い合わせ
           </Typography>
           <Typography variant="body1" paragraph>
-            プライバシーポリシーに関するお問い合わせは、
-            以下までご連絡ください：
+            プライバシーポリシーに関するお問い合わせは、 以下までご連絡ください：
           </Typography>
           <Typography variant="body1">
-            <strong>Tail Match運営</strong><br />
-            ウェブサイト: https://tail-match.llll-ll.com<br />
+            <strong>Tail Match運営</strong>
+            <br />
+            ウェブサイト: https://tail-match.llll-ll.com
+            <br />
             GitHub: https://github.com/kako-jun/tail-match
           </Typography>
         </Box>
 
         <Divider sx={{ my: 4 }} />
-        
+
         <Typography variant="body2" color="text.secondary" align="center">
           🐾 すべては保護猫の命を救うために
         </Typography>
       </Paper>
     </Container>
-  )
+  );
 }

@@ -1,4 +1,6 @@
-import { Container, Typography, Box, Paper, Divider, Alert } from '@mui/material'
+'use client';
+
+import { Container, Typography, Box, Paper, Divider, Alert } from '@mui/material';
 
 export default function DisclaimerPage() {
   return (
@@ -7,7 +9,7 @@ export default function DisclaimerPage() {
         <Typography variant="h3" component="h1" gutterBottom align="center">
           免責事項
         </Typography>
-        
+
         <Typography variant="body2" color="text.secondary" align="center" sx={{ mb: 4 }}>
           最終更新日: 2025年7月1日
         </Typography>
@@ -19,8 +21,15 @@ export default function DisclaimerPage() {
           <Typography variant="body1" paragraph>
             <strong>Tail Matchは情報提供のみ行う自動収集サービスです</strong>
           </Typography>
-          
-          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: 3, mt: 2 }}>
+
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+              gap: 3,
+              mt: 2,
+            }}
+          >
             <Box>
               <Typography variant="subtitle1" color="warning.main" gutterBottom>
                 ⚠️ 情報の制約
@@ -34,7 +43,7 @@ export default function DisclaimerPage() {
                 </ul>
               </Typography>
             </Box>
-            
+
             <Box>
               <Typography variant="subtitle1" color="error" gutterBottom>
                 🚫 当サービスでは責任を負わないこと
@@ -49,7 +58,7 @@ export default function DisclaimerPage() {
               </Typography>
             </Box>
           </Box>
-          
+
           <Typography variant="body1" sx={{ mt: 2, fontWeight: 'bold', color: 'error.main' }}>
             📞 必須: 保護猫の引き取りは必ず各自治体に直接確認してください
           </Typography>
@@ -63,13 +72,11 @@ export default function DisclaimerPage() {
           </Typography>
           <Typography variant="body1" paragraph>
             Tail Match（以下「当サービス」）は、全国の自治体が公開している
-            保護猫情報を自動収集し、一元的に検索・閲覧できるようにする
-            情報提供サービスです。
+            保護猫情報を自動収集し、一元的に検索・閲覧できるようにする 情報提供サービスです。
           </Typography>
           <Typography variant="body1" paragraph>
             当サービスは保護猫の命を救うことを目的としていますが、
-            情報の仲介のみを行い、保護猫の譲渡や引き取りに関する
-            手続きには一切関与いたしません。
+            情報の仲介のみを行い、保護猫の譲渡や引き取りに関する 手続きには一切関与いたしません。
           </Typography>
         </Box>
 
@@ -77,14 +84,13 @@ export default function DisclaimerPage() {
           <Typography variant="h5" component="h2" gutterBottom>
             2. 情報の正確性について
           </Typography>
-          
+
           <Typography variant="h6" component="h3" gutterBottom sx={{ mt: 3 }}>
             2.1 自動収集システムの限界
           </Typography>
           <Typography variant="body1" paragraph>
             当サービスで表示される情報は、各自治体のウェブサイトから
-            自動収集したものです。以下の理由により、情報に遅延や
-            差異が生じる場合があります：
+            自動収集したものです。以下の理由により、情報に遅延や 差異が生じる場合があります：
           </Typography>
           <Typography component="div" variant="body1">
             <ul>
@@ -115,7 +121,7 @@ export default function DisclaimerPage() {
           <Typography variant="h5" component="h2" gutterBottom>
             3. 免責範囲
           </Typography>
-          
+
           <Typography variant="h6" component="h3" gutterBottom sx={{ mt: 3 }}>
             3.1 情報に関する免責
           </Typography>
@@ -168,10 +174,18 @@ export default function DisclaimerPage() {
           </Typography>
           <Typography component="div" variant="body1">
             <ul>
-              <li><strong>事前確認:</strong> 必ず該当自治体に直接連絡して最新状況を確認</li>
-              <li><strong>複数確認:</strong> 電話とウェブサイトの両方で情報を確認</li>
-              <li><strong>早めの連絡:</strong> 気になる猫がいる場合は迅速に自治体へ連絡</li>
-              <li><strong>準備完了:</strong> 引き取り条件や必要書類を事前に確認</li>
+              <li>
+                <strong>事前確認:</strong> 必ず該当自治体に直接連絡して最新状況を確認
+              </li>
+              <li>
+                <strong>複数確認:</strong> 電話とウェブサイトの両方で情報を確認
+              </li>
+              <li>
+                <strong>早めの連絡:</strong> 気になる猫がいる場合は迅速に自治体へ連絡
+              </li>
+              <li>
+                <strong>準備完了:</strong> 引き取り条件や必要書類を事前に確認
+              </li>
             </ul>
           </Typography>
         </Box>
@@ -193,8 +207,7 @@ export default function DisclaimerPage() {
           </Typography>
           <Typography variant="body1" paragraph>
             表示される保護猫の写真や情報の著作権は各自治体に帰属します。
-            当サービスは情報収集・表示の目的でのみ使用しており、
-            商業利用や二次配布は行いません。
+            当サービスは情報収集・表示の目的でのみ使用しており、 商業利用や二次配布は行いません。
           </Typography>
         </Box>
 
@@ -209,10 +222,11 @@ export default function DisclaimerPage() {
         </Box>
 
         <Divider sx={{ my: 4 }} />
-        
+
         <Alert severity="info" sx={{ mb: 4 }}>
           <Typography variant="body1">
-            <strong>お願い:</strong> 当サービスは保護猫の命を救うという善意に基づいて運営されています。
+            <strong>お願い:</strong>{' '}
+            当サービスは保護猫の命を救うという善意に基づいて運営されています。
             情報の制約をご理解いただき、各自治体への直接確認を必ず行ってください。
           </Typography>
         </Alert>
@@ -222,5 +236,5 @@ export default function DisclaimerPage() {
         </Typography>
       </Paper>
     </Container>
-  )
+  );
 }

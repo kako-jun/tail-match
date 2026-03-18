@@ -1,6 +1,7 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
+import { Suspense, useState, useEffect, useCallback } from 'react';
+import { useSearchParams } from 'next/navigation';
 import {
   Container,
   Box,
@@ -25,21 +26,46 @@ import {
   MenuItem,
   Pagination,
   CircularProgress,
-} from '@mui/material'
-import { Search, FilterList, Close, Sort } from '@mui/icons-material'
-import TailCard from '@/components/TailCard'
-import type { TailWithDetails } from '@/types/database'
+} from '@mui/material';
+import { Search, FilterList, Close, Sort } from '@mui/icons-material';
+import TailCard from '@/components/TailCard';
+import type { TailWithDetails } from '@/types/database';
 
 const REGION_MAP: Record<string, { name: string; prefectures: string[] }> = {
   hokkaido: { name: '北海道', prefectures: ['北海道'] },
-  tohoku: { name: '東北', prefectures: ['青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県'] },
-  kanto: { name: '関東', prefectures: ['茨城県', '栃木県', '群馬県', '埼玉県', '千葉県', '東京都', '神奈川県'] },
-  chubu: { name: '中部', prefectures: ['新潟県', '富山県', '石川県', '福井県', '山梨県', '長野県', '岐阜県', '静岡県', '愛知県'] },
-  kansai: { name: '関西', prefectures: ['三重県', '滋賀県', '京都府', '大阪府', '兵庫県', '奈良県', '和歌山県'] },
+  tohoku: {
+    name: '東北',
+    prefectures: ['青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県'],
+  },
+  kanto: {
+    name: '関東',
+    prefectures: ['茨城県', '栃木県', '群馬県', '埼玉県', '千葉県', '東京都', '神奈川県'],
+  },
+  chubu: {
+    name: '中部',
+    prefectures: [
+      '新潟県',
+      '富山県',
+      '石川県',
+      '福井県',
+      '山梨県',
+      '長野県',
+      '岐阜県',
+      '静岡県',
+      '愛知県',
+    ],
+  },
+  kansai: {
+    name: '関西',
+    prefectures: ['三重県', '滋賀県', '京都府', '大阪府', '兵庫県', '奈良県', '和歌山県'],
+  },
   chugoku: { name: '中国', prefectures: ['鳥取県', '島根県', '岡山県', '広島県', '山口県'] },
   shikoku: { name: '四国', prefectures: ['徳島県', '香川県', '愛媛県', '高知県'] },
-  kyushu: { name: '九州・沖縄', prefectures: ['福岡県', '佐賀県', '長崎県', '熊本県', '大分県', '宮崎県', '鹿児島県', '沖縄県'] },
-}
+  kyushu: {
+    name: '九州・沖縄',
+    prefectures: ['福岡県', '佐賀県', '長崎県', '熊本県', '大分県', '宮崎県', '鹿児島県', '沖縄県'],
+  },
+};
 
 const selectSx = {
   backgroundColor: '#FFFFFF',
@@ -49,24 +75,46 @@ const selectSx = {
   '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: '#A8A8A8' },
   '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: '#262626', borderWidth: 1 },
   '& .MuiSelect-select': { padding: '9px 14px', color: '#262626', fontSize: '0.875rem' },
+};
+
+export default function SearchPageWrapper() {
+  return (
+    <Suspense
+      fallback={
+        <Container maxWidth="lg" sx={{ py: 4 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', py: 10 }}>
+            <CircularProgress size={24} thickness={2} sx={{ color: '#262626' }} />
+          </Box>
+        </Container>
+      }
+    >
+      <SearchPageContent />
+    </Suspense>
+  );
 }
 
-export default function SearchPage() {
-  const [animalType, setAnimalType] = useState<'cat' | 'dog'>('cat')
-  const [keyword, setKeyword] = useState('')
-  const [selectedRegion, setSelectedRegion] = useState<string>('')
-  const [selectedPrefecture, setSelectedPrefecture] = useState<string>('')
-  const [regionDialogOpen, setRegionDialogOpen] = useState(false)
-  const [selectedFeatures, setSelectedFeatures] = useState<string[]>([])
+function SearchPageContent() {
+  const searchParams = useSearchParams();
 
-  const [sortBy, setSortBy] = useState<'deadline_date' | 'created_at' | 'updated_at'>('deadline_date')
-  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc')
-  const [page, setPage] = useState(1)
-  const [itemsPerPage] = useState(12)
+  const [animalType, setAnimalType] = useState<'cat' | 'dog'>('cat');
+  const [keyword, setKeyword] = useState('');
+  const [selectedRegion, setSelectedRegion] = useState<string>('');
+  const [selectedPrefecture, setSelectedPrefecture] = useState<string>('');
+  const [regionDialogOpen, setRegionDialogOpen] = useState(false);
+  const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
+  const [municipalityId, setMunicipalityId] = useState<string>('');
 
-  const [results, setResults] = useState<TailWithDetails[]>([])
-  const [loading, setLoading] = useState(false)
-  const [totalCount, setTotalCount] = useState(0)
+  const [sortBy, setSortBy] = useState<'deadline_date' | 'created_at' | 'updated_at'>(
+    'deadline_date'
+  );
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
+  const [page, setPage] = useState(1);
+  const [itemsPerPage] = useState(12);
+
+  const [results, setResults] = useState<TailWithDetails[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [totalCount, setTotalCount] = useState(0);
+  const [initialized, setInitialized] = useState(false);
 
   const featureOptions = [
     { value: 'friendly', label: '人懐っこい' },
@@ -74,10 +122,46 @@ export default function SearchPage() {
     { value: 'active', label: '活発' },
     { value: 'quiet', label: 'おとなしい' },
     { value: 'playful', label: '遊び好き' },
-  ]
+  ];
 
-  const handleSearch = async () => {
-    setLoading(true)
+  // Initialize from URL search params (from home page search form)
+  useEffect(() => {
+    const region = searchParams.get('region');
+    const gender = searchParams.get('gender');
+    const age = searchParams.get('age');
+    const breed = searchParams.get('breed');
+    const muniId = searchParams.get('municipality_id');
+
+    if (region) {
+      // Map region code to a prefecture name for display
+      const regionData = REGION_MAP[region];
+      if (regionData) {
+        setSelectedRegion(region);
+        // If only one prefecture in the region, auto-select it
+        if (regionData.prefectures.length === 1) {
+          setSelectedPrefecture(regionData.prefectures[0]);
+        }
+      }
+    }
+    if (gender) {
+      // Gender is passed as keyword for now since the API supports it
+      setKeyword((prev) => prev || '');
+    }
+    if (age) {
+      setKeyword((prev) => prev || age);
+    }
+    if (breed) {
+      setKeyword((prev) => prev || breed);
+    }
+    if (muniId) {
+      setMunicipalityId(muniId);
+    }
+    setInitialized(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleSearch = useCallback(async () => {
+    setLoading(true);
     try {
       const params = new URLSearchParams({
         animal_type: animalType,
@@ -85,63 +169,76 @@ export default function SearchPage() {
         offset: ((page - 1) * itemsPerPage).toString(),
         sort_by: sortBy,
         sort_order: sortOrder,
-      })
-      if (keyword) params.append('keyword', keyword)
-      if (selectedPrefecture) params.append('prefecture', selectedPrefecture)
+      });
+      if (keyword) params.append('keyword', keyword);
+      if (selectedPrefecture) params.append('prefecture', selectedPrefecture);
+      if (municipalityId) params.append('municipality_id', municipalityId);
 
-      const response = await fetch(`/api/tails?${params}`)
-      const data = await response.json()
-      setResults(data.data || [])
-      setTotalCount(data.total || 0)
+      const response = await fetch(`/api/tails?${params}`);
+      const data = await response.json();
+      setResults(data.data || []);
+      setTotalCount(data.total || 0);
     } catch (error) {
-      console.error('検索エラー:', error)
+      console.error('検索エラー:', error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  }, [
+    animalType,
+    page,
+    itemsPerPage,
+    sortBy,
+    sortOrder,
+    keyword,
+    selectedPrefecture,
+    municipalityId,
+  ]);
 
   useEffect(() => {
-    handleSearch()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [animalType, page, sortBy, sortOrder])
+    if (initialized) {
+      handleSearch();
+    }
+  }, [initialized, handleSearch]);
 
   const handlePageChange = (_: React.ChangeEvent<unknown>, value: number) => {
-    setPage(value)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+    setPage(value);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const handleSortChange = (newSortBy: typeof sortBy) => {
-    setSortBy(newSortBy)
-    setPage(1)
-  }
+    setSortBy(newSortBy);
+    setPage(1);
+  };
 
   const handleSortOrderChange = (newSortOrder: typeof sortOrder) => {
-    setSortOrder(newSortOrder)
-    setPage(1)
-  }
+    setSortOrder(newSortOrder);
+    setPage(1);
+  };
 
   const handleSelectPrefecture = (prefecture: string, region: string) => {
-    setSelectedPrefecture(prefecture)
-    setSelectedRegion(region)
-    setRegionDialogOpen(false)
-  }
+    setSelectedPrefecture(prefecture);
+    setSelectedRegion(region);
+    setRegionDialogOpen(false);
+  };
 
   const handleClearPrefecture = () => {
-    setSelectedPrefecture('')
-    setSelectedRegion('')
-  }
+    setSelectedPrefecture('');
+    setSelectedRegion('');
+  };
 
   const handleFeatureChange = (feature: string) => {
-    setSelectedFeatures(prev =>
-      prev.includes(feature) ? prev.filter(f => f !== feature) : [...prev, feature]
-    )
-  }
+    setSelectedFeatures((prev) =>
+      prev.includes(feature) ? prev.filter((f) => f !== feature) : [...prev, feature]
+    );
+  };
 
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       {/* Page title */}
       <Box sx={{ mb: 4, pb: 3, borderBottom: '1px solid #DBDBDB' }}>
-        <Typography sx={{ fontSize: '1.375rem', fontWeight: 300, color: '#262626', letterSpacing: '-0.01em' }}>
+        <Typography
+          sx={{ fontSize: '1.375rem', fontWeight: 300, color: '#262626', letterSpacing: '-0.01em' }}
+        >
           動物を探す
         </Typography>
         <Typography sx={{ fontSize: '0.875rem', color: '#8E8E8E', mt: 0.5 }}>
@@ -149,7 +246,14 @@ export default function SearchPage() {
         </Typography>
       </Box>
 
-      <Box sx={{ display: 'flex', gap: 4, alignItems: 'flex-start', flexWrap: { xs: 'wrap', md: 'nowrap' } }}>
+      <Box
+        sx={{
+          display: 'flex',
+          gap: 4,
+          alignItems: 'flex-start',
+          flexWrap: { xs: 'wrap', md: 'nowrap' },
+        }}
+      >
         {/* Sidebar filter */}
         <Box
           sx={{
@@ -172,11 +276,36 @@ export default function SearchPage() {
 
           {/* Animal type */}
           <Box sx={{ mb: 3 }}>
-            <Typography sx={{ fontSize: '0.75rem', fontWeight: 600, color: '#8E8E8E', textTransform: 'uppercase', letterSpacing: '0.06em', mb: 1.5 }}>
+            <Typography
+              sx={{
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: '#8E8E8E',
+                textTransform: 'uppercase',
+                letterSpacing: '0.06em',
+                mb: 1.5,
+              }}
+            >
               動物の種類
             </Typography>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, backgroundColor: '#FAFAFA', borderRadius: '8px', border: '1px solid #EFEFEF', p: 1.5 }}>
-              <Typography sx={{ fontSize: '0.875rem', fontWeight: animalType === 'cat' ? 600 : 400, color: animalType === 'cat' ? '#262626' : '#8E8E8E' }}>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 1.5,
+                backgroundColor: '#FAFAFA',
+                borderRadius: '8px',
+                border: '1px solid #EFEFEF',
+                p: 1.5,
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: '0.875rem',
+                  fontWeight: animalType === 'cat' ? 600 : 400,
+                  color: animalType === 'cat' ? '#262626' : '#8E8E8E',
+                }}
+              >
                 🐱 猫
               </Typography>
               <Switch
@@ -189,7 +318,13 @@ export default function SearchPage() {
                   '& .MuiSwitch-track': { backgroundColor: '#DBDBDB' },
                 }}
               />
-              <Typography sx={{ fontSize: '0.875rem', fontWeight: animalType === 'dog' ? 600 : 400, color: animalType === 'dog' ? '#262626' : '#8E8E8E' }}>
+              <Typography
+                sx={{
+                  fontSize: '0.875rem',
+                  fontWeight: animalType === 'dog' ? 600 : 400,
+                  color: animalType === 'dog' ? '#262626' : '#8E8E8E',
+                }}
+              >
                 🐶 犬
               </Typography>
             </Box>
@@ -197,7 +332,16 @@ export default function SearchPage() {
 
           {/* Region */}
           <Box sx={{ mb: 3 }}>
-            <Typography sx={{ fontSize: '0.75rem', fontWeight: 600, color: '#8E8E8E', textTransform: 'uppercase', letterSpacing: '0.06em', mb: 1.5 }}>
+            <Typography
+              sx={{
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: '#8E8E8E',
+                textTransform: 'uppercase',
+                letterSpacing: '0.06em',
+                mb: 1.5,
+              }}
+            >
               地域
             </Typography>
             {selectedPrefecture ? (
@@ -235,7 +379,16 @@ export default function SearchPage() {
 
           {/* Keyword */}
           <Box sx={{ mb: 3 }}>
-            <Typography sx={{ fontSize: '0.75rem', fontWeight: 600, color: '#8E8E8E', textTransform: 'uppercase', letterSpacing: '0.06em', mb: 1.5 }}>
+            <Typography
+              sx={{
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: '#8E8E8E',
+                textTransform: 'uppercase',
+                letterSpacing: '0.06em',
+                mb: 1.5,
+              }}
+            >
               キーワード
             </Typography>
             <TextField
@@ -266,11 +419,20 @@ export default function SearchPage() {
 
           {/* Features */}
           <Box sx={{ mb: 3 }}>
-            <Typography sx={{ fontSize: '0.75rem', fontWeight: 600, color: '#8E8E8E', textTransform: 'uppercase', letterSpacing: '0.06em', mb: 1.5 }}>
+            <Typography
+              sx={{
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: '#8E8E8E',
+                textTransform: 'uppercase',
+                letterSpacing: '0.06em',
+                mb: 1.5,
+              }}
+            >
               性格・特徴
             </Typography>
             <FormGroup>
-              {featureOptions.map(option => (
+              {featureOptions.map((option) => (
                 <FormControlLabel
                   key={option.value}
                   control={
@@ -339,9 +501,15 @@ export default function SearchPage() {
                   onChange={(e) => handleSortChange(e.target.value as typeof sortBy)}
                   sx={selectSx}
                 >
-                  <MenuItem value="deadline_date" sx={{ fontSize: '0.875rem' }}>期限日順</MenuItem>
-                  <MenuItem value="created_at" sx={{ fontSize: '0.875rem' }}>登録日順</MenuItem>
-                  <MenuItem value="updated_at" sx={{ fontSize: '0.875rem' }}>更新日順</MenuItem>
+                  <MenuItem value="deadline_date" sx={{ fontSize: '0.875rem' }}>
+                    期限日順
+                  </MenuItem>
+                  <MenuItem value="created_at" sx={{ fontSize: '0.875rem' }}>
+                    登録日順
+                  </MenuItem>
+                  <MenuItem value="updated_at" sx={{ fontSize: '0.875rem' }}>
+                    更新日順
+                  </MenuItem>
                 </Select>
               </FormControl>
 
@@ -351,8 +519,12 @@ export default function SearchPage() {
                   onChange={(e) => handleSortOrderChange(e.target.value as typeof sortOrder)}
                   sx={selectSx}
                 >
-                  <MenuItem value="asc" sx={{ fontSize: '0.875rem' }}>昇順</MenuItem>
-                  <MenuItem value="desc" sx={{ fontSize: '0.875rem' }}>降順</MenuItem>
+                  <MenuItem value="asc" sx={{ fontSize: '0.875rem' }}>
+                    昇順
+                  </MenuItem>
+                  <MenuItem value="desc" sx={{ fontSize: '0.875rem' }}>
+                    降順
+                  </MenuItem>
                 </Select>
               </FormControl>
             </Box>
@@ -366,7 +538,15 @@ export default function SearchPage() {
               </Box>
             </Box>
           ) : results.length === 0 ? (
-            <Box sx={{ textAlign: 'center', py: 10, border: '1px solid #DBDBDB', borderRadius: '8px', backgroundColor: '#FFFFFF' }}>
+            <Box
+              sx={{
+                textAlign: 'center',
+                py: 10,
+                border: '1px solid #DBDBDB',
+                borderRadius: '8px',
+                backgroundColor: '#FFFFFF',
+              }}
+            >
               <Typography sx={{ fontSize: '0.9375rem', color: '#8E8E8E' }}>
                 条件に一致する動物が見つかりませんでした
               </Typography>
@@ -384,7 +564,7 @@ export default function SearchPage() {
                   },
                 }}
               >
-                {results.map(tail => (
+                {results.map((tail) => (
                   <TailCard key={tail.id} tail={tail} viewMode="card" />
                 ))}
               </Box>
@@ -460,7 +640,7 @@ export default function SearchPage() {
                 {region.name}
               </Typography>
               <List dense disablePadding>
-                {region.prefectures.map(prefecture => (
+                {region.prefectures.map((prefecture) => (
                   <ListItem key={prefecture} disablePadding>
                     <ListItemButton
                       onClick={() => handleSelectPrefecture(prefecture, regionCode)}
@@ -489,5 +669,5 @@ export default function SearchPage() {
         </DialogContent>
       </Dialog>
     </Container>
-  )
+  );
 }
