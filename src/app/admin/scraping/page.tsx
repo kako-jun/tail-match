@@ -64,13 +64,19 @@ export default function ScrapingAdminPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const getAdminHeaders = (): HeadersInit => {
+    const token = process.env.NEXT_PUBLIC_ADMIN_TOKEN || prompt('Admin token:') || '';
+    return { 'x-admin-token': token };
+  };
+
   const fetchData = async () => {
     try {
       setLoading(true);
       setError(null);
+      const headers = getAdminHeaders();
 
       // Fetch scraping logs
-      const logsResponse = await fetch('/api/admin/scraping/logs');
+      const logsResponse = await fetch('/api/admin/scraping/logs', { headers });
       if (!logsResponse.ok) {
         throw new Error('Failed to fetch scraping logs');
       }
@@ -78,7 +84,7 @@ export default function ScrapingAdminPage() {
       setLogs(logsData);
 
       // Fetch scraping statistics
-      const statsResponse = await fetch('/api/admin/scraping/stats');
+      const statsResponse = await fetch('/api/admin/scraping/stats', { headers });
       if (!statsResponse.ok) {
         throw new Error('Failed to fetch scraping stats');
       }

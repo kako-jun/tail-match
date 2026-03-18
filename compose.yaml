@@ -1,0 +1,34 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-tailmatch}
+      POSTGRES_USER: ${DB_USER:-tailmatch_user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-tailmatch_user} -d ${DB_NAME:-tailmatch}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://${DB_USER:-tailmatch_user}:${DB_PASSWORD}@db:5432/${DB_NAME:-tailmatch}
+      NODE_ENV: ${NODE_ENV:-development}
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-}
+    ports:
+      - "${NEXT_PORT:-3000}:3000"
+
+volumes:
+  pgdata:
