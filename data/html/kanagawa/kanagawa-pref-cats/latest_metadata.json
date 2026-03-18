@@ -1,9 +1,0 @@
-{
-  "timestamp": "2025-11-13T15:50:11.897+09:00",
-  "url": "https://www.pref.kanagawa.jp/osirase/1594/awc/receive/cat.html",
-  "has_animals": true,
-  "html_size": 46784,
-  "total_pages": 4,
-  "scraper": "playwright",
-  "note": "JavaScript実行後の完全レンダリングHTML取得（ページネーション対応）"
-}

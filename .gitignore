@@ -110,3 +110,7 @@ scripts/migrate-*.js
 .claude/settings.local.json
 .mcp.json
 .env.prod
+
+# Scraped HTML files (re-fetchable, large)
+data/html/
+scripts/scrapers/**/*.html
