@@ -175,8 +175,14 @@ function SearchPageContent() {
     const region = searchParams.get('region');
     if (region && !selectedPrefecture) {
       const regionData = REGION_MAP[region];
-      if (regionData && regionData.prefectures.length === 1) {
-        setSelectedPrefecture(regionData.prefectures[0]);
+      if (regionData) {
+        setSelectedRegion(region);
+        if (regionData.prefectures.length === 1) {
+          setSelectedPrefecture(regionData.prefectures[0]);
+        } else {
+          // Multi-prefecture region: open dialog for user to pick
+          setRegionDialogOpen(true);
+        }
       }
     }
     // Handle age/breed from home search form as keyword

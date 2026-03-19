@@ -327,7 +327,12 @@ export default function HomePage() {
             </Box>
           </Box>
           <TailGrid
-            searchParams={{ urgency_days: 7, sort_by: 'deadline_date', sort_order: 'asc' }}
+            searchParams={{
+              urgency_days: 7,
+              urgency_days_min: 3,
+              sort_by: 'deadline_date',
+              sort_order: 'asc',
+            }}
             maxCount={12}
           />
         </Box>

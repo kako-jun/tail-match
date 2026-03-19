@@ -34,9 +34,9 @@ export async function getTails(params: TailSearchParams): Promise<SearchResult<T
   }
 
   // 都道府県名フィルター
-  if ((params as any).prefecture) {
+  if (params.prefecture) {
     conditions.push(`r.name = ?`);
-    values.push((params as any).prefecture);
+    values.push(params.prefecture);
   }
 
   // 性別フィルター
@@ -53,8 +53,16 @@ export async function getTails(params: TailSearchParams): Promise<SearchResult<T
 
   // 緊急度フィルター（期限日ベース）
   if (params.urgency_days !== undefined) {
-    conditions.push(`t.deadline_date <= date('now', '+' || ? || ' days')`);
+    conditions.push(
+      `t.deadline_date IS NOT NULL AND t.deadline_date >= date('now') AND t.deadline_date <= date('now', '+' || ? || ' days')`
+    );
     values.push(params.urgency_days);
+  }
+
+  // 緊急度下限フィルター（重複回避用：urgency_days_min日以降のみ）
+  if (params.urgency_days_min !== undefined) {
+    conditions.push(`t.deadline_date > date('now', '+' || ? || ' days')`);
+    values.push(params.urgency_days_min);
   }
 
   // キーワード検索 - 名前、品種、性格、毛色を検索

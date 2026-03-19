@@ -36,7 +36,10 @@ export async function GET(request: NextRequest) {
       keyword: searchParams.get('keyword') || undefined,
       personality_traits: searchParams.get('personality_traits')?.split(',') || undefined,
       prefecture: searchParams.get('prefecture') || undefined,
-    } as TailSearchParams & { prefecture?: string };
+      urgency_days_min: searchParams.get('urgency_days_min')
+        ? parseInt(searchParams.get('urgency_days_min')!)
+        : undefined,
+    };
 
     const result = await getTails(params);
 
