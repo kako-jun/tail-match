@@ -1,10 +1,19 @@
-import type { Metadata } from 'next'
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'ているまっち！ - 全国の保護動物マッチングサービス',
-  description: '日本全国の自治体保護動物（猫・犬）情報を集約し、殺処分を防ぐためのマッチングサービス',
+  description:
+    '日本全国の自治体保護動物（猫・犬）情報を集約し、殺処分を防ぐためのマッチングサービス',
   keywords: ['保護猫', '保護犬', '里親', 'マッチング', '自治体', '猫', '犬', '救助'],
   authors: [{ name: 'kako-jun' }],
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '64x64 48x48 32x32 16x16' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     title: 'ているまっち！ - 全国の保護動物マッチングサービス',
     description: '1匹でも多くの動物を救うために。全国の保護猫・保護犬情報をまとめてお届けします。',
@@ -21,4 +30,4 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
-}
+};

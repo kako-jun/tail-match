@@ -297,6 +297,41 @@ export default function HomePage() {
           <TailGrid showUrgentOnly={true} maxCount={12} />
         </Box>
 
+        {/* Warning section (要注意) */}
+        <Box sx={{ mb: 6 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'baseline',
+              gap: 1.5,
+              mb: 3,
+              pb: 2,
+              borderBottom: '1px solid #DBDBDB',
+            }}
+          >
+            <Typography sx={{ fontSize: '1rem', fontWeight: 600, color: '#262626' }}>
+              要注意のシッポたち
+            </Typography>
+            <Box
+              sx={{
+                px: 1.5,
+                py: 0.25,
+                borderRadius: '20px',
+                backgroundColor: '#FFF8E6',
+                border: '1px solid #FFE299',
+              }}
+            >
+              <Typography sx={{ fontSize: '0.6875rem', color: '#B07D00', fontWeight: 700 }}>
+                残り1週間以内
+              </Typography>
+            </Box>
+          </Box>
+          <TailGrid
+            searchParams={{ urgency_days: 7, sort_by: 'deadline_date', sort_order: 'asc' }}
+            maxCount={12}
+          />
+        </Box>
+
         {/* Search section */}
         <Box
           sx={{

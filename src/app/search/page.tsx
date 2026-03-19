@@ -1,7 +1,7 @@
 'use client';
 
-import { Suspense, useState, useEffect, useCallback } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { Suspense, useState, useEffect, useCallback, useRef } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import {
   Container,
   Box,
@@ -95,26 +95,42 @@ export default function SearchPageWrapper() {
 
 function SearchPageContent() {
   const searchParams = useSearchParams();
+  const router = useRouter();
 
-  const [animalType, setAnimalType] = useState<'cat' | 'dog'>('cat');
-  const [keyword, setKeyword] = useState('');
-  const [selectedRegion, setSelectedRegion] = useState<string>('');
-  const [selectedPrefecture, setSelectedPrefecture] = useState<string>('');
+  // Initialize state from URL params
+  const [animalType, setAnimalType] = useState<'cat' | 'dog'>(
+    (searchParams.get('animal_type') as 'cat' | 'dog') || 'cat'
+  );
+  const [keyword, setKeyword] = useState(searchParams.get('keyword') || '');
+  const [selectedRegion, setSelectedRegion] = useState<string>(searchParams.get('region') || '');
+  const [selectedPrefecture, setSelectedPrefecture] = useState<string>(
+    searchParams.get('prefecture') || ''
+  );
   const [regionDialogOpen, setRegionDialogOpen] = useState(false);
-  const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
-  const [municipalityId, setMunicipalityId] = useState<string>('');
+  const [selectedFeatures, setSelectedFeatures] = useState<string[]>(
+    searchParams.get('traits') ? searchParams.get('traits')!.split(',') : []
+  );
+  const [municipalityId, setMunicipalityId] = useState<string>(
+    searchParams.get('municipality_id') || ''
+  );
 
   const [sortBy, setSortBy] = useState<'deadline_date' | 'created_at' | 'updated_at'>(
-    'deadline_date'
+    (searchParams.get('sort_by') as any) || 'deadline_date'
   );
-  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
-  const [page, setPage] = useState(1);
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>(
+    (searchParams.get('sort_order') as 'asc' | 'desc') || 'asc'
+  );
+  const [page, setPage] = useState(parseInt(searchParams.get('page') || '1'));
   const [itemsPerPage] = useState(12);
+  const [urgencyDays, setUrgencyDays] = useState<number | undefined>(
+    searchParams.get('urgency_days') ? parseInt(searchParams.get('urgency_days')!) : undefined
+  );
 
   const [results, setResults] = useState<TailWithDetails[]>([]);
   const [loading, setLoading] = useState(false);
   const [totalCount, setTotalCount] = useState(0);
   const [initialized, setInitialized] = useState(false);
+  const isFirstRender = useRef(true);
 
   const featureOptions = [
     { value: 'friendly', label: '人懐っこい' },
@@ -124,38 +140,50 @@ function SearchPageContent() {
     { value: 'playful', label: '遊び好き' },
   ];
 
-  // Initialize from URL search params (from home page search form)
+  // Sync state to URL (skip on first render to avoid double-push)
+  const updateUrl = useCallback(() => {
+    if (isFirstRender.current) return;
+    const params = new URLSearchParams();
+    if (animalType !== 'cat') params.set('animal_type', animalType);
+    if (keyword) params.set('keyword', keyword);
+    if (selectedRegion) params.set('region', selectedRegion);
+    if (selectedPrefecture) params.set('prefecture', selectedPrefecture);
+    if (municipalityId) params.set('municipality_id', municipalityId);
+    if (selectedFeatures.length > 0) params.set('traits', selectedFeatures.join(','));
+    if (sortBy !== 'deadline_date') params.set('sort_by', sortBy);
+    if (sortOrder !== 'asc') params.set('sort_order', sortOrder);
+    if (page > 1) params.set('page', page.toString());
+    if (urgencyDays !== undefined) params.set('urgency_days', urgencyDays.toString());
+    const qs = params.toString();
+    router.replace(`/search${qs ? `?${qs}` : ''}`, { scroll: false });
+  }, [
+    animalType,
+    keyword,
+    selectedRegion,
+    selectedPrefecture,
+    municipalityId,
+    selectedFeatures,
+    sortBy,
+    sortOrder,
+    page,
+    urgencyDays,
+    router,
+  ]);
+
+  // Initialize: handle legacy params (region code → prefecture mapping)
   useEffect(() => {
     const region = searchParams.get('region');
-    const gender = searchParams.get('gender');
-    const age = searchParams.get('age');
-    const breed = searchParams.get('breed');
-    const muniId = searchParams.get('municipality_id');
-
-    if (region) {
-      // Map region code to a prefecture name for display
+    if (region && !selectedPrefecture) {
       const regionData = REGION_MAP[region];
-      if (regionData) {
-        setSelectedRegion(region);
-        // If only one prefecture in the region, auto-select it
-        if (regionData.prefectures.length === 1) {
-          setSelectedPrefecture(regionData.prefectures[0]);
-        }
+      if (regionData && regionData.prefectures.length === 1) {
+        setSelectedPrefecture(regionData.prefectures[0]);
       }
     }
-    if (gender) {
-      // Gender is passed as keyword for now since the API supports it
-      setKeyword((prev) => prev || '');
-    }
-    if (age) {
-      setKeyword((prev) => prev || age);
-    }
-    if (breed) {
-      setKeyword((prev) => prev || breed);
-    }
-    if (muniId) {
-      setMunicipalityId(muniId);
-    }
+    // Handle age/breed from home search form as keyword
+    const age = searchParams.get('age');
+    const breed = searchParams.get('breed');
+    if (age && !keyword) setKeyword(age);
+    if (breed && !keyword) setKeyword(breed);
     setInitialized(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -173,6 +201,9 @@ function SearchPageContent() {
       if (keyword) params.append('keyword', keyword);
       if (selectedPrefecture) params.append('prefecture', selectedPrefecture);
       if (municipalityId) params.append('municipality_id', municipalityId);
+      if (selectedFeatures.length > 0)
+        params.append('personality_traits', selectedFeatures.join(','));
+      if (urgencyDays !== undefined) params.append('urgency_days', urgencyDays.toString());
 
       const response = await fetch(`/api/tails?${params}`);
       const data = (await response.json()) as Record<string, any>;
@@ -192,13 +223,17 @@ function SearchPageContent() {
     keyword,
     selectedPrefecture,
     municipalityId,
+    selectedFeatures,
+    urgencyDays,
   ]);
 
   useEffect(() => {
     if (initialized) {
       handleSearch();
+      updateUrl();
+      isFirstRender.current = false;
     }
-  }, [initialized, handleSearch]);
+  }, [initialized, handleSearch, updateUrl]);
 
   const handlePageChange = (_: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
@@ -477,6 +512,49 @@ function SearchPageContent() {
 
         {/* Results */}
         <Box sx={{ flex: 1, minWidth: 0 }}>
+          {/* Active filters */}
+          {(urgencyDays !== undefined || selectedPrefecture) && (
+            <Box sx={{ display: 'flex', gap: 1, mb: 2, flexWrap: 'wrap' }}>
+              {urgencyDays !== undefined && (
+                <Chip
+                  label={
+                    urgencyDays <= 3
+                      ? '緊急（3日以内）'
+                      : urgencyDays <= 7
+                        ? '要注意（1週間以内）'
+                        : `${urgencyDays}日以内`
+                  }
+                  onDelete={() => {
+                    setUrgencyDays(undefined);
+                    setPage(1);
+                  }}
+                  deleteIcon={<Close sx={{ fontSize: '14px !important' }} />}
+                  sx={{
+                    backgroundColor: urgencyDays <= 3 ? '#FFEEF0' : '#FFF8E6',
+                    border: urgencyDays <= 3 ? '1px solid #FFBEC2' : '1px solid #FFE299',
+                    color: urgencyDays <= 3 ? '#ED4956' : '#B07D00',
+                    fontWeight: 600,
+                    fontSize: '0.75rem',
+                    '& .MuiChip-deleteIcon': { color: 'inherit' },
+                  }}
+                />
+              )}
+              {selectedPrefecture && (
+                <Chip
+                  label={selectedPrefecture}
+                  onDelete={handleClearPrefecture}
+                  deleteIcon={<Close sx={{ fontSize: '14px !important' }} />}
+                  sx={{
+                    backgroundColor: '#F5F5F5',
+                    border: '1px solid #DBDBDB',
+                    fontSize: '0.75rem',
+                    '& .MuiChip-deleteIcon': { color: '#8E8E8E' },
+                  }}
+                />
+              )}
+            </Box>
+          )}
+
           {/* Sort bar */}
           <Box
             sx={{

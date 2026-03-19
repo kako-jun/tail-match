@@ -33,6 +33,12 @@ export async function getTails(params: TailSearchParams): Promise<SearchResult<T
     values.push(params.municipality_id);
   }
 
+  // 都道府県名フィルター
+  if ((params as any).prefecture) {
+    conditions.push(`r.name = ?`);
+    values.push((params as any).prefecture);
+  }
+
   // 性別フィルター
   if (params.gender) {
     conditions.push(`t.gender = ?`);
@@ -378,11 +384,24 @@ export async function getTailsStats() {
         AND status = 'available' THEN 1 ELSE 0 END) as urgent,
       SUM(CASE WHEN deadline_date IS NOT NULL
         AND deadline_date <= date('now', '+7 days')
-        AND status = 'available' THEN 1 ELSE 0 END) as warning
+        AND status = 'available' THEN 1 ELSE 0 END) as warning,
+      SUM(CASE WHEN deadline_date IS NOT NULL
+        AND deadline_date <= date('now', '+14 days')
+        AND status = 'available' THEN 1 ELSE 0 END) as caution
     FROM tails
   `;
 
-  const result = await query(statsQuery);
+  const regionQuery = `
+    SELECT r.name as region_name, COUNT(t.id) as count
+    FROM tails t
+    LEFT JOIN municipalities m ON t.municipality_id = m.id
+    LEFT JOIN regions r ON m.region_id = r.id
+    WHERE t.status = 'available' AND r.name IS NOT NULL
+    GROUP BY r.name
+    ORDER BY count DESC
+  `;
+
+  const [result, regionResult] = await Promise.all([query(statsQuery), query(regionQuery)]);
   const stats = result.rows[0];
 
   return {
@@ -394,5 +413,10 @@ export async function getTailsStats() {
     transfer_decided: parseInt(stats.transfer_decided) || 0,
     urgent: parseInt(stats.urgent) || 0,
     warning: parseInt(stats.warning) || 0,
+    caution: parseInt(stats.caution) || 0,
+    by_region: regionResult.rows.map((r: any) => ({
+      region_name: r.region_name,
+      count: r.count.toString(),
+    })),
   };
 }

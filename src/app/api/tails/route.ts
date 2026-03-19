@@ -35,7 +35,8 @@ export async function GET(request: NextRequest) {
       sort_order: (searchParams.get('sort_order') as any) || 'asc',
       keyword: searchParams.get('keyword') || undefined,
       personality_traits: searchParams.get('personality_traits')?.split(',') || undefined,
-    };
+      prefecture: searchParams.get('prefecture') || undefined,
+    } as TailSearchParams & { prefecture?: string };
 
     const result = await getTails(params);
 

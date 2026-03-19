@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { Heart, MapPin, Clock, AlertCircle } from 'lucide-react';
 import { Box, Typography, Skeleton } from '@mui/material';
 
@@ -18,14 +19,16 @@ function StatCard({
   label,
   sub,
   iconColor = '#262626',
+  href,
 }: {
   icon: React.ReactNode;
   value: string | number;
   label: string;
   sub?: string;
   iconColor?: string;
+  href?: string;
 }) {
-  return (
+  const content = (
     <Box
       sx={{
         backgroundColor: '#FFFFFF',
@@ -33,8 +36,12 @@ function StatCard({
         borderRadius: '8px',
         p: 3,
         textAlign: 'center',
-        transition: 'border-color 0.15s ease',
-        '&:hover': { borderColor: '#A8A8A8' },
+        transition: 'border-color 0.15s ease, box-shadow 0.15s ease',
+        cursor: href ? 'pointer' : 'default',
+        '&:hover': {
+          borderColor: href ? '#262626' : '#A8A8A8',
+          boxShadow: href ? '0 2px 8px rgba(0,0,0,0.08)' : 'none',
+        },
       }}
     >
       <Box
@@ -82,6 +89,15 @@ function StatCard({
       )}
     </Box>
   );
+
+  if (href) {
+    return (
+      <Link href={href} style={{ textDecoration: 'none', color: 'inherit' }}>
+        {content}
+      </Link>
+    );
+  }
+  return content;
 }
 
 export default function StatsDisplay() {
@@ -179,6 +195,7 @@ export default function StatsDisplay() {
           value={stats.total}
           label="現在掲載中"
           iconColor="#FF7A7A"
+          href="/search"
         />
         <StatCard
           icon={<Clock size={24} />}
@@ -186,12 +203,14 @@ export default function StatsDisplay() {
           label="緊急シッポ"
           sub="残り3日以内"
           iconColor="#ED4956"
+          href="/search?urgency_days=3&sort_by=deadline_date&sort_order=asc"
         />
         <StatCard
           icon={<MapPin size={24} />}
           value={stats.by_region.length}
           label="連携地域数"
           iconColor="#8E8E8E"
+          href="/shelters"
         />
         <StatCard
           icon={<AlertCircle size={24} />}
@@ -199,6 +218,7 @@ export default function StatsDisplay() {
           label="要注意シッポ"
           sub="残り1週間以内"
           iconColor="#FFBA33"
+          href="/search?urgency_days=7&sort_by=deadline_date&sort_order=asc"
         />
       </Box>
 
@@ -221,32 +241,46 @@ export default function StatsDisplay() {
             注意が必要なシッポが {stats.urgent + stats.warning} 匹います
           </Typography>
           <Box sx={{ display: 'flex', gap: 2 }}>
-            <Box
-              sx={{
-                px: 2,
-                py: 0.5,
-                borderRadius: '20px',
-                backgroundColor: '#FFFFFF',
-                border: '1px solid #FFBEC2',
-              }}
+            <Link
+              href="/search?urgency_days=3&sort_by=deadline_date&sort_order=asc"
+              style={{ textDecoration: 'none' }}
             >
-              <Typography sx={{ fontSize: '0.75rem', color: '#ED4956', fontWeight: 600 }}>
-                緊急 {stats.urgent}匹
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                px: 2,
-                py: 0.5,
-                borderRadius: '20px',
-                backgroundColor: '#FFFFFF',
-                border: '1px solid #FFE299',
-              }}
+              <Box
+                sx={{
+                  px: 2,
+                  py: 0.5,
+                  borderRadius: '20px',
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid #FFBEC2',
+                  transition: 'box-shadow 0.15s ease',
+                  '&:hover': { boxShadow: '0 1px 4px rgba(0,0,0,0.1)' },
+                }}
+              >
+                <Typography sx={{ fontSize: '0.75rem', color: '#ED4956', fontWeight: 600 }}>
+                  緊急 {stats.urgent}匹
+                </Typography>
+              </Box>
+            </Link>
+            <Link
+              href="/search?urgency_days=7&sort_by=deadline_date&sort_order=asc"
+              style={{ textDecoration: 'none' }}
             >
-              <Typography sx={{ fontSize: '0.75rem', color: '#B07D00', fontWeight: 600 }}>
-                要注意 {stats.warning}匹
-              </Typography>
-            </Box>
+              <Box
+                sx={{
+                  px: 2,
+                  py: 0.5,
+                  borderRadius: '20px',
+                  backgroundColor: '#FFFFFF',
+                  border: '1px solid #FFE299',
+                  transition: 'box-shadow 0.15s ease',
+                  '&:hover': { boxShadow: '0 1px 4px rgba(0,0,0,0.1)' },
+                }}
+              >
+                <Typography sx={{ fontSize: '0.75rem', color: '#B07D00', fontWeight: 600 }}>
+                  要注意 {stats.warning}匹
+                </Typography>
+              </Box>
+            </Link>
           </Box>
         </Box>
       )}
@@ -284,29 +318,32 @@ export default function StatsDisplay() {
             }}
           >
             {stats.by_region.map((region, index) => (
-              <Box
+              <Link
                 key={index}
-                sx={{
-                  p: 2.5,
-                  textAlign: 'center',
-                  borderRight: '1px solid #EFEFEF',
-                  borderBottom: '1px solid #EFEFEF',
-                  '&:nth-last-child(-n+4)': { borderBottom: 'none' },
-                  '&:nth-child(4n)': { borderRight: 'none' },
-                  cursor: 'default',
-                  transition: 'background 0.1s ease',
-                  '&:hover': { backgroundColor: '#FAFAFA' },
-                }}
+                href={`/search?prefecture=${encodeURIComponent(region.region_name)}`}
+                style={{ textDecoration: 'none', color: 'inherit' }}
               >
-                <Typography
-                  sx={{ fontSize: '1.125rem', fontWeight: 300, color: '#262626', lineHeight: 1 }}
+                <Box
+                  sx={{
+                    p: 2.5,
+                    textAlign: 'center',
+                    borderRight: '1px solid #EFEFEF',
+                    borderBottom: '1px solid #EFEFEF',
+                    cursor: 'pointer',
+                    transition: 'background 0.1s ease',
+                    '&:hover': { backgroundColor: '#F0F0F0' },
+                  }}
                 >
-                  {region.count}
-                </Typography>
-                <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E', mt: 0.5 }}>
-                  {region.region_name}
-                </Typography>
-              </Box>
+                  <Typography
+                    sx={{ fontSize: '1.125rem', fontWeight: 300, color: '#262626', lineHeight: 1 }}
+                  >
+                    {region.count}
+                  </Typography>
+                  <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E', mt: 0.5 }}>
+                    {region.region_name}
+                  </Typography>
+                </Box>
+              </Link>
             ))}
           </Box>
         </Box>
