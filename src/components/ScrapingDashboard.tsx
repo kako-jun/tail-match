@@ -1,8 +1,15 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Clock, CheckCircle, XCircle, Activity, Database, TrendingUp } from 'lucide-react';
 import { Box, Typography, CircularProgress } from '@mui/material';
+import {
+  AccessTime as ClockIcon,
+  CheckCircle as CheckCircleIcon,
+  Cancel as XCircleIcon,
+  Speed as ActivityIcon,
+  Storage as DatabaseIcon,
+  TrendingUp as TrendingUpIcon,
+} from '@mui/icons-material';
 
 interface ScrapingLog {
   id: number;
@@ -114,13 +121,13 @@ export default function ScrapingDashboard() {
   const getStatusIcon = (status: string) => {
     switch (status) {
       case 'success':
-        return <CheckCircle size={14} style={{ color: '#4CAF50' }} />;
+        return <CheckCircleIcon sx={{ fontSize: 14, color: '#4CAF50' }} />;
       case 'error':
-        return <XCircle size={14} style={{ color: '#ED4956' }} />;
+        return <XCircleIcon sx={{ fontSize: 14, color: '#ED4956' }} />;
       case 'timeout':
-        return <Clock size={14} style={{ color: '#FFBA33' }} />;
+        return <ClockIcon sx={{ fontSize: 14, color: '#FFBA33' }} />;
       default:
-        return <Activity size={14} style={{ color: '#8E8E8E' }} />;
+        return <ActivityIcon sx={{ fontSize: 14, color: '#8E8E8E' }} />;
     }
   };
 
@@ -161,7 +168,7 @@ export default function ScrapingDashboard() {
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-          <XCircle size={16} style={{ color: '#ED4956' }} />
+          <XCircleIcon sx={{ fontSize: 16, color: '#ED4956' }} />
           <Typography sx={{ fontSize: '0.875rem', fontWeight: 600, color: '#262626' }}>
             エラーが発生しました
           </Typography>
@@ -204,22 +211,22 @@ export default function ScrapingDashboard() {
             {
               label: '総スクレイピング回数',
               value: stats.totalScrapes.total,
-              icon: <Database size={22} style={{ color: '#8E8E8E' }} />,
+              icon: <DatabaseIcon sx={{ fontSize: 22, color: '#8E8E8E' }} />,
             },
             {
               label: '成功率',
               value: `${stats.successRate.success_rate}%`,
-              icon: <TrendingUp size={22} style={{ color: '#4CAF50' }} />,
+              icon: <TrendingUpIcon sx={{ fontSize: 22, color: '#4CAF50' }} />,
             },
             {
               label: '最新発見数',
               value: `${stats.lastScrape?.tails_found || 0}匹`,
-              icon: <Activity size={22} style={{ color: '#FFBA33' }} />,
+              icon: <ActivityIcon sx={{ fontSize: 22, color: '#FFBA33' }} />,
             },
             {
               label: '最終実行',
               value: stats.lastScrape ? formatDateTime(stats.lastScrape.started_at) : '未実行',
-              icon: <Clock size={22} style={{ color: '#8E8E8E' }} />,
+              icon: <ClockIcon sx={{ fontSize: 22, color: '#8E8E8E' }} />,
               small: true,
             },
           ].map((item, i) => (

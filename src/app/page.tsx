@@ -1,38 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import TailGrid from '@/components/TailGrid';
 import StatsDisplay from '@/components/StatsDisplay';
-import {
-  Container,
-  Box,
-  Typography,
-  FormControl,
-  Select,
-  MenuItem,
-  Button,
-  IconButton,
-} from '@mui/material';
-import { ChevronLeft, ChevronRight, Search } from '@mui/icons-material';
-
-const heroImages = [
-  {
-    url: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=1400&h=500&fit=crop&auto=format',
-    title: '幸せな家族を待つシッポたち',
-    subtitle: '温かい家庭で愛情をもらえる日を夢見ています',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1400&h=500&fit=crop&auto=format',
-    title: '愛らしい表情のシッポたち',
-    subtitle: 'あなたとの出会いを心待ちにしています',
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=1400&h=500&fit=crop&auto=format',
-    title: '元気いっぱいのシッポたち',
-    subtitle: '新しい家族との楽しい毎日を夢見ています',
-  },
-];
+import { Container, Box, Typography, FormControl, Select, MenuItem, Button } from '@mui/material';
+import { Search } from '@mui/icons-material';
 
 const selectSx = {
   backgroundColor: '#FFFFFF',
@@ -51,7 +24,6 @@ const selectSx = {
 };
 
 export default function HomePage() {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [searchRegion, setSearchRegion] = useState('');
   const [searchGender, setSearchGender] = useState('');
   const [searchAge, setSearchAge] = useState('');
@@ -67,153 +39,76 @@ export default function HomePage() {
     return `/search${qs ? `?${qs}` : ''}`;
   };
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroImages.length);
-  const prevSlide = () =>
-    setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
-
   return (
     <>
-      {/* Hero carousel — clean, photo-first */}
+      {/* Hero — gradient with message */}
       <Box
         sx={{
           position: 'relative',
           width: '100%',
-          height: { xs: '260px', sm: '340px', md: '420px' },
+          py: { xs: 6, sm: 8, md: 10 },
+          px: 3,
+          background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%)',
+          textAlign: 'center',
           overflow: 'hidden',
-          backgroundColor: '#EFEFEF',
         }}
       >
-        {heroImages.map((image, index) => (
-          <Box
-            key={index}
-            sx={{
-              position: 'absolute',
-              inset: 0,
-              backgroundImage: `url(${image.url})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              transition: 'opacity 1s ease-in-out',
-              opacity: index === currentSlide ? 1 : 0,
-            }}
-          />
-        ))}
-
-        {/* Subtle warm overlay */}
         <Box
           sx={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 100%)',
-            zIndex: 1,
+            background:
+              'radial-gradient(circle at 30% 50%, rgba(255,200,150,0.08) 0%, transparent 60%)',
+            pointerEvents: 'none',
           }}
         />
-
-        {/* Caption */}
-        <Box
+        <Typography
           sx={{
-            position: 'absolute',
-            bottom: { xs: 32, md: 48 },
-            left: 0,
-            right: 0,
-            textAlign: 'center',
-            zIndex: 2,
-            px: 3,
+            position: 'relative',
+            color: 'white',
+            fontWeight: 300,
+            fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
+            letterSpacing: '-0.02em',
+            lineHeight: 1.3,
+            mb: 1.5,
           }}
         >
-          <Typography
-            sx={{
-              color: 'white',
-              fontWeight: 300,
-              fontSize: { xs: '1.25rem', md: '1.75rem' },
-              letterSpacing: '-0.01em',
-              textShadow: '0 1px 4px rgba(0,0,0,0.4)',
-              mb: 0.75,
-            }}
-          >
-            {heroImages[currentSlide].title}
-          </Typography>
-          <Typography
-            sx={{
-              color: 'rgba(255,255,255,0.85)',
-              fontSize: { xs: '0.875rem', md: '1rem' },
-              fontWeight: 300,
-              textShadow: '0 1px 3px rgba(0,0,0,0.4)',
-            }}
-          >
-            {heroImages[currentSlide].subtitle}
-          </Typography>
-        </Box>
-
-        {/* Carousel controls */}
-        <IconButton
-          onClick={prevSlide}
+          1匹でも多くの命を、家族へ
+        </Typography>
+        <Typography
           sx={{
-            position: 'absolute',
-            left: 12,
-            top: '50%',
-            transform: 'translateY(-50%)',
-            zIndex: 3,
-            backgroundColor: 'rgba(255,255,255,0.8)',
-            color: '#262626',
-            width: 32,
-            height: 32,
-            '&:hover': { backgroundColor: 'rgba(255,255,255,0.95)' },
+            position: 'relative',
+            color: 'rgba(255,255,255,0.7)',
+            fontSize: { xs: '0.875rem', md: '1.125rem' },
+            fontWeight: 300,
+            maxWidth: 560,
+            mx: 'auto',
+            lineHeight: 1.7,
           }}
         >
-          <ChevronLeft sx={{ fontSize: 20 }} />
-        </IconButton>
-        <IconButton
-          onClick={nextSlide}
+          全国の自治体が保護している猫・犬の情報を集約。
+          <br />
+          あなたとシッポたちの出会いをサポートします。
+        </Typography>
+        <Button
+          component={Link}
+          href="/search"
+          variant="contained"
+          startIcon={<Search sx={{ fontSize: 18 }} />}
           sx={{
-            position: 'absolute',
-            right: 12,
-            top: '50%',
-            transform: 'translateY(-50%)',
-            zIndex: 3,
-            backgroundColor: 'rgba(255,255,255,0.8)',
-            color: '#262626',
-            width: 32,
-            height: 32,
-            '&:hover': { backgroundColor: 'rgba(255,255,255,0.95)' },
+            position: 'relative',
+            mt: 3,
+            px: 4,
+            py: 1.25,
+            fontSize: '0.9375rem',
+            fontWeight: 600,
+            backgroundColor: 'rgba(255,255,255,0.95)',
+            color: '#1a1a2e',
+            '&:hover': { backgroundColor: '#FFFFFF' },
           }}
         >
-          <ChevronRight sx={{ fontSize: 20 }} />
-        </IconButton>
-
-        {/* Dot indicators */}
-        <Box
-          sx={{
-            position: 'absolute',
-            bottom: 12,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            display: 'flex',
-            gap: 0.75,
-            zIndex: 3,
-          }}
-        >
-          {heroImages.map((_, index) => (
-            <Box
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              sx={{
-                width: index === currentSlide ? 20 : 6,
-                height: 6,
-                borderRadius: '3px',
-                backgroundColor: index === currentSlide ? 'white' : 'rgba(255,255,255,0.5)',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-              }}
-            />
-          ))}
-        </Box>
+          シッポたちを探す
+        </Button>
       </Box>
 
       {/* Disclaimer banner */}
