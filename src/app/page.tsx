@@ -216,6 +216,25 @@ export default function HomePage() {
         </Box>
       </Box>
 
+      {/* Disclaimer banner */}
+      <Box
+        sx={{
+          backgroundColor: '#F5F5F5',
+          borderBottom: '1px solid #EFEFEF',
+          py: 1.25,
+          px: 2,
+          textAlign: 'center',
+        }}
+      >
+        <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E' }}>
+          本サイトは個人運営の非公式サービスです。各自治体の公開情報を自動収集しています。
+          情報の正確性は保証できません。
+          <Link href="/legal/disclaimer" style={{ color: '#262626', marginLeft: '4px' }}>
+            免責事項
+          </Link>
+        </Typography>
+      </Box>
+
       <Container maxWidth="lg" sx={{ px: { xs: 2, md: 3 }, py: 5 }}>
         {/* Notice — minimal card */}
         <Box
