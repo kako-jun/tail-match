@@ -182,7 +182,7 @@ npm run format:check
 
 - 残り27都府県のスクレイパー実装
 - お気に入り/ブックマーク機能
-- layout.tsx SSR化（SEO改善）
+- 動的OGタグ（SNSシェア対応）
 - Unsplash画像の自前素材への差し替え
 
 ## 📄 ライセンス

@@ -44,9 +44,9 @@
 
 ## 技術的な積み残し
 
-### layout.tsx の SSR 化
+### ~~layout.tsx の SSR 化~~ ✅ 完了（セッション112）
 
-現在 `layout.tsx` が `'use client'` のため、Next.js の metadata export が効かずSEOに影響しています。Server Component への移行が必要です。
+Header/Footer を Client Component に分離し、layout.tsx を Server Component 化。metadata export が有効に。
 
 ### Unsplash 画像の自前素材への差し替え
 
