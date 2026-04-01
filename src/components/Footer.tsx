@@ -1,7 +1,40 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Typography, Container, Box, Divider } from '@mui/material';
+import { Update } from '@mui/icons-material';
 
 export default function Footer() {
+  const [lastUpdate, setLastUpdate] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchLastUpdate = async () => {
+      try {
+        const response = await fetch('/api/scraping-stats');
+        const data = (await response.json()) as Record<string, any>;
+        if (data.success && data.data?.last_run) {
+          setLastUpdate(data.data.last_run);
+        }
+      } catch {
+        // Silently ignore — non-critical info
+      }
+    };
+    fetchLastUpdate();
+  }, []);
+
+  const formatLastUpdate = (dateStr: string) => {
+    const date = new Date(dateStr);
+    return date.toLocaleString('ja-JP', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZone: 'Asia/Tokyo',
+    });
+  };
+
   return (
     <Box
       component="footer"
@@ -129,9 +162,19 @@ export default function Footer() {
             gap: 2,
           }}
         >
-          <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E' }}>
-            © 2025 ているまっち！ by kako-jun
-          </Typography>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
+            <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E' }}>
+              &copy; 2026 ているまっち！ by kako-jun
+            </Typography>
+            {lastUpdate && (
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                <Update sx={{ fontSize: 12, color: '#A8A8A8' }} />
+                <Typography sx={{ fontSize: '0.6875rem', color: '#A8A8A8' }}>
+                  データ最終更新: {formatLastUpdate(lastUpdate)}
+                </Typography>
+              </Box>
+            )}
+          </Box>
           <Box sx={{ display: 'flex', gap: 3 }}>
             {[
               { label: 'プライバシーポリシー', href: '/legal/privacy' },

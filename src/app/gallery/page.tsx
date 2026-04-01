@@ -5,23 +5,15 @@ import {
   Container,
   Box,
   Typography,
-  IconButton,
   Dialog,
   DialogContent,
-  Chip,
   Button,
   ToggleButtonGroup,
   ToggleButton,
   CircularProgress,
+  IconButton,
 } from '@mui/material';
-import {
-  FavoriteBorder,
-  Favorite,
-  Close,
-  LocationOn,
-  AccessTime,
-  BookmarkBorder,
-} from '@mui/icons-material';
+import { Close, LocationOn, AccessTime } from '@mui/icons-material';
 import Link from 'next/link';
 import type { TailWithDetails } from '@/types/database';
 
@@ -196,6 +188,7 @@ export default function GalleryPage() {
                 <img
                   src={mainImage}
                   alt={animal.name || '保護動物'}
+                  loading="lazy"
                   style={{
                     position: 'absolute',
                     inset: 0,
@@ -273,19 +266,15 @@ export default function GalleryPage() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    gap: 2,
                     opacity: 0,
                     transition: 'all 0.15s ease',
                     zIndex: 4,
                     '&:hover': {
-                      background: 'rgba(0,0,0,0.3)',
+                      background: 'rgba(0,0,0,0.15)',
                       opacity: 1,
                     },
                   }}
-                >
-                  <FavoriteBorder sx={{ color: 'white', fontSize: 22 }} />
-                  <BookmarkBorder sx={{ color: 'white', fontSize: 22 }} />
-                </Box>
+                />
               </Box>
             );
           })}
@@ -504,16 +493,7 @@ export default function GalleryPage() {
 
                 {/* Actions */}
                 <Box sx={{ borderTop: '1px solid #EFEFEF' }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', px: 1, pt: 0.75, pb: 0.5 }}>
-                    <IconButton size="small" sx={{ color: '#262626', p: '8px' }}>
-                      <FavoriteBorder sx={{ fontSize: 24 }} />
-                    </IconButton>
-                    <Box sx={{ flex: 1 }} />
-                    <IconButton size="small" sx={{ color: '#262626', p: '8px' }}>
-                      <BookmarkBorder sx={{ fontSize: 24 }} />
-                    </IconButton>
-                  </Box>
-                  <Box sx={{ px: 2, pb: 2, display: 'flex', gap: 1 }}>
+                  <Box sx={{ px: 2, py: 2, display: 'flex', gap: 1 }}>
                     <Button
                       variant="contained"
                       fullWidth

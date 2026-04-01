@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Heart, MapPin, Clock, AlertCircle } from 'lucide-react';
 import { Box, Typography, Skeleton } from '@mui/material';
+import { Favorite, Place, AccessTime, Warning } from '@mui/icons-material';
 
 interface Stats {
   total: number;
@@ -165,10 +165,20 @@ export default function StatsDisplay() {
           },
         }}
       >
-        <StatCard icon={<Heart size={24} />} value="-" label="現在掲載中" iconColor="#FF7A7A" />
-        <StatCard icon={<MapPin size={24} />} value="-" label="連携自治体数" iconColor="#8E8E8E" />
         <StatCard
-          icon={<AlertCircle size={24} />}
+          icon={<Favorite sx={{ fontSize: 24 }} />}
+          value="-"
+          label="現在掲載中"
+          iconColor="#FF7A7A"
+        />
+        <StatCard
+          icon={<Place sx={{ fontSize: 24 }} />}
+          value="-"
+          label="連携自治体数"
+          iconColor="#8E8E8E"
+        />
+        <StatCard
+          icon={<Warning sx={{ fontSize: 24 }} />}
           value="-"
           label="緊急シッポ"
           iconColor="#ED4956"
@@ -191,14 +201,14 @@ export default function StatsDisplay() {
         }}
       >
         <StatCard
-          icon={<Heart size={24} />}
+          icon={<Favorite sx={{ fontSize: 24 }} />}
           value={stats.total}
           label="現在掲載中"
           iconColor="#FF7A7A"
           href="/search"
         />
         <StatCard
-          icon={<Clock size={24} />}
+          icon={<AccessTime sx={{ fontSize: 24 }} />}
           value={stats.urgent}
           label="緊急シッポ"
           sub="残り3日以内"
@@ -206,14 +216,14 @@ export default function StatsDisplay() {
           href="/search?urgency_days=3&sort_by=deadline_date&sort_order=asc"
         />
         <StatCard
-          icon={<MapPin size={24} />}
+          icon={<Place sx={{ fontSize: 24 }} />}
           value={stats.by_region.length}
           label="連携地域数"
           iconColor="#8E8E8E"
           href="/shelters"
         />
         <StatCard
-          icon={<AlertCircle size={24} />}
+          icon={<Warning sx={{ fontSize: 24 }} />}
           value={stats.warning}
           label="要注意シッポ"
           sub="残り1週間以内"

@@ -3,27 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { TailWithDetails } from '@/types/database';
-import {
-  Card,
-  CardContent,
-  CardActions,
-  Typography,
-  Chip,
-  Button,
-  Box,
-  Grid,
-  Avatar,
-  Divider,
-  IconButton,
-} from '@mui/material';
-import {
-  AccessTime,
-  LocationOn,
-  FavoriteBorder,
-  Favorite,
-  BookmarkBorder,
-  Visibility,
-} from '@mui/icons-material';
+import { Card, Typography, Chip, Button, Box, Avatar } from '@mui/material';
+import { AccessTime, LocationOn, Favorite, Visibility } from '@mui/icons-material';
 
 interface TailCardProps {
   tail: TailWithDetails;
@@ -78,6 +59,7 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
           <img
             src={imageUrl}
             alt={tail.name || '保護動物'}
+            loading="lazy"
             onError={() => setImgError(true)}
             style={{
               position: 'absolute',
@@ -169,18 +151,6 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
               fontSize: '0.9rem',
             }}
           >
-            <FavoriteBorder sx={{ fontSize: 22 }} />
-          </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              color: 'white',
-              fontWeight: 700,
-              fontSize: '0.9rem',
-            }}
-          >
             <Visibility sx={{ fontSize: 22 }} />
           </Box>
         </Box>
@@ -253,6 +223,7 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
           <img
             src={imageUrl}
             alt={tail.name || '保護動物'}
+            loading="lazy"
             onError={() => setImgError(true)}
             style={{
               position: 'absolute',
@@ -306,17 +277,6 @@ export default function TailCard({ tail, showRegion = true, viewMode = 'card' }:
             }}
           />
         )}
-      </Box>
-
-      {/* Action bar */}
-      <Box sx={{ display: 'flex', alignItems: 'center', px: 1, pt: 1, pb: 0.5 }}>
-        <IconButton size="small" sx={{ color: '#262626', p: '8px' }}>
-          <FavoriteBorder sx={{ fontSize: 24 }} />
-        </IconButton>
-        <Box sx={{ flex: 1 }} />
-        <IconButton size="small" sx={{ color: '#262626', p: '8px' }}>
-          <BookmarkBorder sx={{ fontSize: 24 }} />
-        </IconButton>
       </Box>
 
       {/* Metadata */}

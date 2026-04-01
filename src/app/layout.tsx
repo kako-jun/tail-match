@@ -11,9 +11,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ja">
       <body>
         <ThemeRegistry>
+          <a
+            href="#main-content"
+            style={{
+              position: 'absolute',
+              left: '-9999px',
+              top: 'auto',
+              width: '1px',
+              height: '1px',
+              overflow: 'hidden',
+            }}
+          >
+            メインコンテンツへスキップ
+          </a>
           <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Header />
-            <Box component="main" sx={{ flexGrow: 1, backgroundColor: '#FAFAFA' }}>
+            <Box
+              component="main"
+              id="main-content"
+              sx={{ flexGrow: 1, backgroundColor: '#FAFAFA' }}
+            >
               {children}
             </Box>
             <Footer />
