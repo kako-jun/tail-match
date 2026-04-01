@@ -4,16 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import SpaceCatGame from '@/components/SpaceCatGame';
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  Box,
-  IconButton,
-  Menu as MuiMenu,
-  MenuItem,
-} from '@mui/material';
+import { AppBar, Toolbar, Button, Box, IconButton, Menu as MuiMenu, MenuItem } from '@mui/material';
 import { Menu } from '@mui/icons-material';
 
 export default function Header() {
