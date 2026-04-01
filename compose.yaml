@@ -30,7 +30,7 @@ services:
     environment:
       DATABASE_URL: postgresql://${DB_USER:-tailmatch_user}:${DB_PASSWORD}@db:5432/${DB_NAME:-tailmatch}
       NODE_ENV: ${NODE_ENV:-development}
-      ADMIN_TOKEN: ${ADMIN_TOKEN:-}
+      ADMIN_API_TOKEN: ${ADMIN_API_TOKEN:-}
     ports:
       - "${NEXT_PORT:-3000}:3000"
 

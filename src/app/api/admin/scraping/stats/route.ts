@@ -1,20 +1,9 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { query } from '@/lib/database';
 
 export const runtime = 'edge';
 
-function checkAdminAuth(request: NextRequest): boolean {
-  const token = request.headers.get('x-admin-token');
-  const expected = process.env.ADMIN_API_TOKEN;
-  if (!expected) return false;
-  return token === expected;
-}
-
-export async function GET(request: NextRequest) {
-  if (!checkAdminAuth(request)) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
+export async function GET() {
   try {
     const statsQuery = `
       SELECT
