@@ -229,6 +229,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       <br />
                       全国の保護シッポ情報をお届けします。
                     </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{ color: '#8E8E8E', lineHeight: 1.7, mt: 1.5, fontSize: '0.75rem' }}
+                    >
+                      本サイトは個人が運営する非公式サービスです。各自治体が公開している情報を自動収集して掲載しています。
+                      掲載情報の正確性は保証できません。譲渡をご希望の方は必ず各自治体に直接ご確認ください。
+                      詳しくは
+                      <Link
+                        href="/legal/disclaimer"
+                        style={{ color: '#262626', textDecoration: 'underline' }}
+                      >
+                        免責事項
+                      </Link>
+                      をご覧ください。
+                    </Typography>
                   </Box>
 
                   {/* Sitemap */}
