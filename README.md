@@ -69,7 +69,7 @@ tail-match/
 
 - **Next.js API Routes** (Edge Runtime) - サーバーサイドAPI
 - **Cloudflare D1** (SQLite互換) - 本番データベース
-- **better-sqlite3** - ローカルスクレイピング用DB
+- **better-sqlite3** - ローカルスクレイピング用DB（devDependencies）
 - **JavaScript + Playwright** - スクレイピングシステム
 
 ### インフラ
@@ -174,16 +174,13 @@ npm run format:check
 
 - **基盤システム**: Next.js + Cloudflare D1 + Playwright スクレイピング
 - **本番デプロイ**: Cloudflare Pages + D1 で稼働中（547匹掲載）
-- **UI/UX**: 検索（URLクエリ同期対応）・フィルタリング・緊急度表示・ギャラリー・統計リンク化・favicon
+- **UI/UX**: 検索（URLクエリ同期対応）・フィルタリング・緊急度表示・ギャラリー・統計リンク化・favicon・動的OGタグ・sitemap
 - **スクレイピング**: 28施設対応、launchd自動実行 + 異常検知
 - **管理画面**: 履歴表示・統計ダッシュボード
 
 ### 🚀 次期実装予定
 
 - 残り27都府県のスクレイパー実装
-- お気に入り/ブックマーク機能
-- 動的OGタグ（SNSシェア対応）
-- Unsplash画像の自前素材への差し替え
 
 ## 📄 ライセンス
 
