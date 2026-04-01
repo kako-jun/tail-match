@@ -116,3 +116,6 @@ scripts/migrate-*.js
 # Scraped HTML files (re-fetchable, large)
 data/html/
 scripts/scrapers/**/*.html
+
+# Scraped YAML files (intermediate, D1 is the source of truth)
+data/yaml/
