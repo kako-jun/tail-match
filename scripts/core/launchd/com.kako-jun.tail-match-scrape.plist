@@ -44,7 +44,7 @@
 	<key>EnvironmentVariables</key>
 	<dict>
 		<key>PATH</key>
-		<string>/Users/kako-jun/.volta/bin:/usr/local/bin:/usr/bin:/bin</string>
+		<string>/Users/kako-jun/.volta/bin:/Users/kako-jun/.local/bin:/usr/local/bin:/usr/bin:/bin</string>
 		<key>HOME</key>
 		<string>/Users/kako-jun</string>
 	</dict>
