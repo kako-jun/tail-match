@@ -202,26 +202,8 @@
 
 ---
 
-## 🔄 スクレイピング→DB投入→YAML管理の運用フロー
+## 🔄 スクレイピング運用
 
-### 毎日の自動実行（run-all-scrapers.sh / auto-scrape.sh）
-
-```
-1. DBファイル削除（data/tail-match.db を rm）
-2. 全施設スクレイプ → タイムスタンプ付きYAMLを生成（data/yaml/{pref}/{municipality}/YYYYMMDD_HHMMSS_*.yaml）
-3. yaml-to-db.js → 各自治体ディレクトリの最新YAML 1件のみをDB投入（古いYAMLは無視）
-4. sync-to-d1.js → ローカルDB → Cloudflare D1 に全件同期
-```
-
-### YAMLファイルの管理方針
-
-- **YAMLはgitにコミットする**（gitignoreから除外済み）
-- DB投入後、`cleanup-html-yaml.js` で古いYAMLを削除する（最新1件のみ残す）
-- **削除されたYAMLはgit履歴から参照可能**（匹数が最大だった時点のデータ等を後から確認できる）
-- yaml-to-db.js と cleanup-html-yaml.js は両方とも「最新のファイルを残す」基準で統一されている
-
-### コミットの流れ
-
-```
-スクレイプ実行 → yaml-to-db.js → コミット（新しいYAML含む） → cleanup → コミット（古いYAML削除）
-```
+- yaml-to-db.js は各自治体の**最新YAML 1件のみ**DB投入（古いYAMLはゾンビの原因になるため無視）
+- **YAMLはgitにコミットする**。cleanup後に古いYAMLは削除されるが、git履歴から参照可能
+- 詳細は **[運用ガイド](./docs/operations.md)** を参照

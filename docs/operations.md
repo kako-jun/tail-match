@@ -11,16 +11,26 @@
 ```
 毎日1回実行（推奨: 早朝3:00）
   ↓
-① DB全削除
+① DB全削除（data/tail-match.db を rm）
   ↓
-② 全施設スクレイピング（HTML→YAML）
+② 全施設スクレイピング（HTML→YAML、タイムスタンプ付きファイル名で生成）
   ↓
-③ YAML→DB投入
+③ yaml-to-db.js（各自治体ディレクトリの最新YAML 1件のみDB投入）
   ↓
-④ 履歴記録（shelters-history.yaml更新）
+④ sync-to-d1.js（ローカルDB → Cloudflare D1 同期）
+  ↓
+⑤ 履歴記録（shelters-history.yaml更新）
   ↓
 完了
 ```
+
+### YAMLファイルの管理方針
+
+- **YAMLはgitにコミットする**（トレーサビリティ確保）
+- yaml-to-db.js は各自治体ディレクトリの**最新YAML 1件のみ**をDB投入（古いYAMLは無視）
+- DB投入後に `cleanup-html-yaml.js` で古いYAMLを削除（最新1件のみ残す）
+- 削除されたYAMLは**git履歴から参照可能**（匹数最大時のデータ等を後から確認できる）
+- コミットの流れ: スクレイプ→yaml-to-db.js→**コミット**→cleanup→**コミット**
 
 ---
 
