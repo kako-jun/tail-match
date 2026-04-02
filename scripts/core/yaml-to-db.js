@@ -284,8 +284,12 @@ async function main() {
           continue;
         }
 
-        const yamlFiles = fs.readdirSync(yamlDir).filter((f) => f.endsWith('.yaml'));
-        console.log(`\n📁 ${municipality}: ${yamlFiles.length}個のYAMLファイル`);
+        const allYamlFiles = fs.readdirSync(yamlDir).filter((f) => f.endsWith('.yaml'));
+
+        // 最新のYAMLファイルのみ使用（古いファイルはゾンビの原因になる）
+        allYamlFiles.sort().reverse();
+        const yamlFiles = allYamlFiles.length > 0 ? [allYamlFiles[0]] : [];
+        console.log(`\n📁 ${municipality}: 最新1件を使用 (全${allYamlFiles.length}件中)`);
 
         let municipalityTotalInserted = 0;
         let municipalityTotalYAML = 0; // YAMLファイル内の動物数合計
