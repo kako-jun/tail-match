@@ -189,26 +189,19 @@ async function main() {
     if (yamlFiles.length > 0) {
       console.log(`\n📄 YAML: ${yamlFiles.length}ファイル`);
 
-      // 各YAMLの匹数を確認
-      const yamlWithCounts = yamlFiles.map((f) => ({
-        ...f,
-        count: extractCountFromYaml(f.path),
-      }));
+      // 最新のファイルを保持（ファイル名がYYYYMMDD_HHMMSS形式なのでソートで最新が末尾）
+      yamlFiles.sort((a, b) => a.name.localeCompare(b.name));
 
-      // 匹数が最も多いファイルを保持
-      yamlWithCounts.sort((a, b) => {
-        if (b.count !== a.count) return b.count - a.count;
-        return b.stat.mtime - a.stat.mtime; // 同数なら新しい方
-      });
-
-      const keepFile = yamlWithCounts[0];
-      console.log(`  ✅ 保持: ${keepFile.name} (${keepFile.count}匹)`);
+      const keepFile = yamlFiles[yamlFiles.length - 1];
+      const keepCount = extractCountFromYaml(keepFile.path);
+      console.log(`  ✅ 保持: ${keepFile.name} (${keepCount}匹)`);
       stats.keptYamlFiles++;
 
       // それ以外を削除
-      for (let i = 1; i < yamlWithCounts.length; i++) {
-        const deleteFile = yamlWithCounts[i];
-        console.log(`  🗑️  削除: ${deleteFile.name} (${deleteFile.count}匹)`);
+      for (let i = 0; i < yamlFiles.length - 1; i++) {
+        const deleteFile = yamlFiles[i];
+        const deleteCount = extractCountFromYaml(deleteFile.path);
+        console.log(`  🗑️  削除: ${deleteFile.name} (${deleteCount}匹)`);
 
         if (!DRY_RUN) {
           fs.unlinkSync(deleteFile.path);

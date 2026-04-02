@@ -43,7 +43,7 @@ node scripts/core/yaml-to-db.js
 
 **処理内容**:
 
-- data/yaml/**/**.yaml を読み込み
+- 各自治体ディレクトリから最新のYAMLファイル1件のみ読み込み
 - data/tail-match.db に投入
 - shelters-history.yaml の DB count を更新
 
@@ -92,7 +92,7 @@ node scripts/core/cleanup-html-yaml.js
 
 **処理内容**:
 
-- 各施設で最も匹数が多いYAMLを1つ保持
+- 各施設で最新のYAMLを1つ保持
 - 各施設で最新のHTMLを1つ保持
 - それ以外のファイルを削除
 
