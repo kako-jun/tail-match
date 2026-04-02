@@ -117,5 +117,4 @@ scripts/migrate-*.js
 data/html/
 scripts/scrapers/**/*.html
 
-# Scraped YAML files (intermediate, D1 is the source of truth)
-data/yaml/
+# Scraped YAML files (committed for traceability, cleaned up after DB import)
