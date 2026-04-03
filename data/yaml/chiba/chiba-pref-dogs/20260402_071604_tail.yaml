@@ -1,0 +1,29 @@
+meta:
+  source_file: 20260402_071604_tail.html
+  source_url: https://www.pref.chiba.lg.jp/aigo/pet/inu-neko/shuuyou/shuu-inu-tou.html
+  extracted_at: '2026-04-02T07:16:04.695+09:00'
+  municipality: chiba/chiba-pref-dogs
+  municipality_id: 17
+  total_count: 1
+animals:
+  - external_id: chiba-pref-dog-0
+    name: 260000-0-0
+    animal_type: dog
+    breed: null
+    age_estimate: null
+    gender: male
+    color: 種類・毛色・オスメス
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images: []
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.chiba.lg.jp/aigo/pet/inu-neko/shuuyou/shuu-inu-tou.html
+    confidence_level: high
+    extraction_notes:
+      - 収容犬情報
+      - 【収容場所】市
+    listing_type: lost_pet

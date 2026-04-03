@@ -1,0 +1,31 @@
+meta:
+  source_file: 20260402_071552_tail.html
+  source_url: https://www.pref.chiba.lg.jp/aigo/pet/inu-neko/shuuyou/shuu-neko-tou.html
+  extracted_at: '2026-04-02T07:15:52.574+09:00'
+  municipality: chiba/chiba-pref-cats
+  municipality_id: 17
+  total_count: 1
+  note: 収容猫情報（東葛飾支所）
+animals:
+  - external_id: chiba-pref-1
+    name: 260331-2-1（JPG：21.4KB）
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: male
+    color: 雑種・茶トラ白・オス
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.chiba.lg.jp/aigo/pet/inu-neko/shuuyou/images/260331-2-01.JPG
+    protection_date: null
+    deadline_date: '2026-04-06'
+    status: available
+    source_url: https://www.pref.chiba.lg.jp/aigo/pet/inu-neko/shuuyou/shuu-neko-tou.html
+    confidence_level: high
+    extraction_notes:
+      - 収容猫情報（東葛飾支所）
+      - 【収容場所】市川市日之出
+    listing_type: lost_pet

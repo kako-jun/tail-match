@@ -1,6 +1,6 @@
 metadata:
   version: 1.0.0
-  last_updated: '2026-03-19T00:40:24.178+09:00'
+  last_updated: '2026-04-03T09:59:49.428+09:00'
   purpose: スクレイピング動作確認・エラー履歴管理
   total_scrapers: 70
 scrapers:
@@ -8,14 +8,62 @@ scrapers:
     name: 北海道立動物愛護センター「あいにきた」
     page_type: mixed
     verified: true
-    last_success: '2026-03-19T00:40:23.721+09:00'
+    last_success: '2026-04-03T09:59:46.397+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 17
-    success_count: 17
+    total_runs: 23
+    success_count: 23
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:46.397+09:00'
+        status: success
+        html_count: 20
+        yaml_count: 211
+        db_count: 211
+        error_message: null
+        warning: null
+        duration_ms: 25
+      - timestamp: '2026-04-03T09:59:45.519+09:00'
+        status: success
+        html_count: 20
+        yaml_count: 211
+        db_count: 211
+        error_message: null
+        warning: null
+        duration_ms: 32
+      - timestamp: '2026-04-03T04:08:46.264+09:00'
+        status: success
+        html_count: 20
+        yaml_count: 20
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 24
+      - timestamp: '2026-04-03T04:08:45.553+09:00'
+        status: success
+        html_count: 20
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 1051853
+      - timestamp: '2026-04-02T07:16:17.073+09:00'
+        status: success
+        html_count: 20
+        yaml_count: 20
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 23
+      - timestamp: '2026-04-02T07:16:16.842+09:00'
+        status: success
+        html_count: 20
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 6875
       - timestamp: '2026-03-19T00:40:23.721+09:00'
         status: success
         html_count: 20
@@ -48,66 +96,50 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 2576
-      - timestamp: '2026-03-18T20:56:32.758+09:00'
-        status: success
-        html_count: 20
-        yaml_count: 31
-        db_count: 31
-        error_message: null
-        warning: null
-        duration_ms: 15
-      - timestamp: '2026-03-18T20:56:31.618+09:00'
-        status: success
-        html_count: 20
-        yaml_count: 31
-        db_count: 31
-        error_message: null
-        warning: null
-        duration_ms: 14
-      - timestamp: '2026-03-18T20:50:07.942+09:00'
-        status: success
-        html_count: 20
-        yaml_count: 20
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 28
-      - timestamp: '2026-03-18T20:50:07.667+09:00'
-        status: success
-        html_count: 20
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 8655
-      - timestamp: '2026-03-18T20:45:51.528+09:00'
-        status: success
-        html_count: 11
-        yaml_count: 11
-        db_count: 11
-        error_message: null
-        warning: null
-        duration_ms: 7
-      - timestamp: '2025-11-13T15:54:51.002+09:00'
-        status: success
-        html_count: 11
-        yaml_count: 32
-        db_count: 32
-        error_message: null
-        warning: null
-        duration_ms: 13
   hokkaido/sapporo-city-cats:
     name: 札幌市動物愛護管理センター「あいまる さっぽろ」
     page_type: cat_only
     verified: true
-    last_success: '2026-03-19T00:40:24.013+09:00'
+    last_success: '2026-04-03T09:59:48.574+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 15
-    success_count: 15
+    total_runs: 19
+    success_count: 19
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:48.574+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 312
+        db_count: 312
+        error_message: null
+        warning: null
+        duration_ms: 159
+      - timestamp: '2026-04-03T09:59:45.959+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 312
+        db_count: 312
+        error_message: null
+        warning: null
+        duration_ms: 35
+      - timestamp: '2026-04-03T04:08:59.157+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 31
+        db_count: 38
+        error_message: null
+        warning: null
+        duration_ms: 36
+      - timestamp: '2026-04-02T07:16:29.473+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 32
+        db_count: 38
+        error_message: null
+        warning: null
+        duration_ms: 30
       - timestamp: '2026-03-19T00:40:24.013+09:00'
         status: success
         html_count: 0
@@ -156,50 +188,34 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 18
-      - timestamp: '2026-03-18T20:50:20.432+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 19
-        db_count: 19
-        error_message: null
-        warning: null
-        duration_ms: 37
-      - timestamp: '2026-03-18T20:45:51.791+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 19
-        db_count: 19
-        error_message: null
-        warning: null
-        duration_ms: 6
-      - timestamp: '2025-11-13T16:08:40.436+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 17
-        db_count: 40
-        error_message: null
-        warning: null
-        duration_ms: 58
-      - timestamp: '2025-11-13T15:54:51.339+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 40
-        db_count: 40
-        error_message: null
-        warning: null
-        duration_ms: 11
   saitama/saitama-pref-cats:
     name: 埼玉県動物指導センター
     page_type: cat_only
     verified: true
-    last_success: '2026-03-19T00:40:23.961+09:00'
+    last_success: '2026-04-03T09:59:48.160+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 14
-    success_count: 12
+    total_runs: 16
+    success_count: 14
     error_count: 0
     mismatch_count: 2
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:48.160+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 4
+        db_count: 4
+        error_message: null
+        warning: null
+        duration_ms: 29
+      - timestamp: '2026-04-03T09:59:45.864+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 4
+        db_count: 4
+        error_message: null
+        warning: null
+        duration_ms: 6
       - timestamp: '2026-03-19T00:40:23.961+09:00'
         status: success
         html_count: 0
@@ -264,34 +280,42 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 2
-      - timestamp: '2025-11-13T15:53:38.446+09:00'
-        status: empty
-        html_count: 0
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 48
-      - timestamp: '2025-11-13T15:23:09.994+09:00'
-        status: empty
-        html_count: 0
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 2
   saitama/saitama-city-cats:
     name: さいたま市動物愛護ふれあいセンター
     page_type: cat_only
     verified: true
-    last_success: '2026-03-19T00:40:23.973+09:00'
+    last_success: '2026-04-03T09:59:48.243+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 15
-    success_count: 15
+    total_runs: 18
+    success_count: 18
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:48.243+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 10
+        db_count: 10
+        error_message: null
+        warning: null
+        duration_ms: 20
+      - timestamp: '2026-04-03T09:59:45.876+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 10
+        db_count: 10
+        error_message: null
+        warning: null
+        duration_ms: 5
+      - timestamp: '2026-04-03T08:24:11.204+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 0
+        db_count: 10
+        error_message: null
+        warning: null
+        duration_ms: 23
       - timestamp: '2026-03-19T00:40:23.973+09:00'
         status: success
         html_count: 0
@@ -348,42 +372,42 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 41
-      - timestamp: '2026-03-18T20:45:51.750+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 10
-        db_count: 10
-        error_message: null
-        warning: null
-        duration_ms: 5
-      - timestamp: '2025-11-13T15:54:51.289+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 30
-        db_count: 30
-        error_message: null
-        warning: null
-        duration_ms: 26
-      - timestamp: '2025-11-13T15:53:25.502+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 10
-        db_count: 20
-        error_message: null
-        warning: null
-        duration_ms: 58
   chiba/chiba-pref-cats:
     name: 千葉県動物愛護センター（猫）
     page_type: cat_only
-    verified: false
-    last_success: '2026-03-19T00:40:23.983+09:00'
+    verified: true
+    last_success: '2026-04-03T09:59:48.284+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 15
-    success_count: 15
+    total_runs: 18
+    success_count: 18
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:48.284+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 2
+        db_count: 2
+        error_message: null
+        warning: null
+        duration_ms: 14
+      - timestamp: '2026-04-03T09:59:45.889+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 2
+        db_count: 2
+        error_message: null
+        warning: null
+        duration_ms: 6
+      - timestamp: '2026-04-03T03:19:44.252+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 20
       - timestamp: '2026-03-19T00:40:23.983+09:00'
         status: empty
         html_count: 0
@@ -440,42 +464,50 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 41
-      - timestamp: '2026-03-18T20:45:51.761+09:00'
-        status: empty
-        html_count: 0
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 3
-      - timestamp: '2025-11-13T15:54:51.298+09:00'
-        status: empty
-        html_count: 0
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 3
-      - timestamp: '2025-11-13T15:48:01.363+09:00'
-        status: empty
-        html_count: 0
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 45
   chiba/chiba-pref-dogs:
     name: 千葉県動物愛護センター（犬）
     page_type: dog_only
     verified: true
-    last_success: '2026-03-19T00:40:24.149+09:00'
+    last_success: '2026-04-03T09:59:49.288+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 14
-    success_count: 14
+    total_runs: 18
+    success_count: 18
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:49.288+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 17
+        db_count: 17
+        error_message: null
+        warning: null
+        duration_ms: 21
+      - timestamp: '2026-04-03T09:59:46.144+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 17
+        db_count: 17
+        error_message: null
+        warning: null
+        duration_ms: 10
+      - timestamp: '2026-04-03T03:35:26.646+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 1
+        db_count: 2
+        error_message: null
+        warning: null
+        duration_ms: 36
+      - timestamp: '2026-04-02T07:16:04.696+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 1
+        db_count: 2
+        error_message: null
+        warning: null
+        duration_ms: 22
       - timestamp: '2026-03-19T00:40:24.149+09:00'
         status: success
         html_count: 0
@@ -524,50 +556,66 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 5
-      - timestamp: '2026-03-18T20:49:53.697+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 2
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 52
-      - timestamp: '2026-03-18T20:45:51.915+09:00'
-        status: empty
-        html_count: 0
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 2
-      - timestamp: '2025-11-13T15:54:51.420+09:00'
-        status: empty
-        html_count: 0
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 2
-      - timestamp: '2025-11-13T15:23:10.121+09:00'
-        status: empty
-        html_count: 0
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 2
   chiba/chiba-city-cats:
     name: 千葉市動物保護指導センター（猫）
     page_type: cat_only
     verified: true
-    last_success: '2026-03-19T00:40:23.998+09:00'
+    last_success: '2026-04-03T09:59:48.391+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 22
-    success_count: 21
+    total_runs: 28
+    success_count: 27
     error_count: 0
     mismatch_count: 1
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:48.391+09:00'
+        status: success
+        html_count: 10
+        yaml_count: 160
+        db_count: 160
+        error_message: null
+        warning: null
+        duration_ms: 84
+      - timestamp: '2026-04-03T09:59:45.918+09:00'
+        status: success
+        html_count: 10
+        yaml_count: 160
+        db_count: 160
+        error_message: null
+        warning: null
+        duration_ms: 23
+      - timestamp: '2026-04-03T03:19:19.673+09:00'
+        status: success
+        html_count: 10
+        yaml_count: 10
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 28
+      - timestamp: '2026-04-03T03:19:19.391+09:00'
+        status: success
+        html_count: 10
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 8122
+      - timestamp: '2026-04-02T07:15:28.444+09:00'
+        status: success
+        html_count: 10
+        yaml_count: 10
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 30
+      - timestamp: '2026-04-02T07:15:28.166+09:00'
+        status: success
+        html_count: 10
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 7721
       - timestamp: '2026-03-19T00:40:23.998+09:00'
         status: success
         html_count: 9
@@ -600,66 +648,50 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 458
-      - timestamp: '2026-03-18T20:56:33.149+09:00'
-        status: success
-        html_count: 9
-        yaml_count: 26
-        db_count: 26
-        error_message: null
-        warning: null
-        duration_ms: 13
-      - timestamp: '2026-03-18T20:56:32.163+09:00'
-        status: success
-        html_count: 9
-        yaml_count: 26
-        db_count: 26
-        error_message: null
-        warning: null
-        duration_ms: 15
-      - timestamp: '2026-03-18T20:49:08.097+09:00'
-        status: success
-        html_count: 9
-        yaml_count: 9
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 300
-      - timestamp: '2026-03-18T20:49:06.838+09:00'
-        status: success
-        html_count: 9
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 10885
-      - timestamp: '2026-03-18T20:45:51.774+09:00'
-        status: success
-        html_count: 17
-        yaml_count: 17
-        db_count: 17
-        error_message: null
-        warning: null
-        duration_ms: 5
-      - timestamp: '2025-11-13T15:54:51.322+09:00'
-        status: success
-        html_count: 17
-        yaml_count: 79
-        db_count: 79
-        error_message: null
-        warning: null
-        duration_ms: 18
   chiba/chiba-city-dogs:
     name: 千葉市動物保護指導センター（犬）
     page_type: dog_only
     verified: true
-    last_success: '2026-03-19T00:40:24.160+09:00'
+    last_success: '2026-04-03T09:59:49.311+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 14
-    success_count: 14
+    total_runs: 18
+    success_count: 18
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:49.311+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 15
+        db_count: 15
+        error_message: null
+        warning: null
+        duration_ms: 7
+      - timestamp: '2026-04-03T09:59:46.157+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 15
+        db_count: 15
+        error_message: null
+        warning: null
+        duration_ms: 7
+      - timestamp: '2026-04-03T03:19:32.240+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 1
+        db_count: 1
+        error_message: null
+        warning: null
+        duration_ms: 23
+      - timestamp: '2026-04-02T07:15:40.687+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 1
+        db_count: 1
+        error_message: null
+        warning: null
+        duration_ms: 46
       - timestamp: '2026-03-19T00:40:24.160+09:00'
         status: success
         html_count: 0
@@ -708,50 +740,42 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 5
-      - timestamp: '2026-03-18T20:56:32.445+09:00'
-        status: empty
-        html_count: 0
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 4
-      - timestamp: '2026-03-18T20:45:51.926+09:00'
-        status: empty
-        html_count: 0
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 3
-      - timestamp: '2025-11-13T15:54:51.429+09:00'
-        status: empty
-        html_count: 0
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 3
-      - timestamp: '2025-11-13T15:23:10.127+09:00'
-        status: empty
-        html_count: 0
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 2
   tokyo/tokyo-metro-cats:
     name: 東京都動物愛護相談センター
     page_type: cat_only
     verified: true
-    last_success: '2026-03-19T00:40:23.904+09:00'
+    last_success: '2026-04-03T09:59:46.577+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 16
-    success_count: 16
+    total_runs: 19
+    success_count: 19
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:46.577+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 19
+        db_count: 19
+        error_message: null
+        warning: null
+        duration_ms: 5
+      - timestamp: '2026-04-03T09:59:45.730+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 19
+        db_count: 19
+        error_message: null
+        warning: null
+        duration_ms: 10
+      - timestamp: '2026-04-03T08:59:53.865+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 2124652
       - timestamp: '2026-03-19T00:40:23.904+09:00'
         status: success
         html_count: 0
@@ -808,42 +832,42 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 9623
-      - timestamp: '2026-03-18T20:45:51.689+09:00'
-        status: success
-        html_count: 1
-        yaml_count: 14
-        db_count: 14
-        error_message: null
-        warning: null
-        duration_ms: 6
-      - timestamp: '2025-11-13T15:54:51.178+09:00'
-        status: success
-        html_count: 1
-        yaml_count: 30
-        db_count: 30
-        error_message: null
-        warning: null
-        duration_ms: 9
-      - timestamp: '2025-11-13T15:53:54.588+09:00'
-        status: success
-        html_count: 1
-        yaml_count: 1
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 34
   kanagawa/kanagawa-pref-cats:
     name: 神奈川県動物愛護センター（猫）
     page_type: cat_only
     verified: true
-    last_success: '2026-03-19T00:40:23.937+09:00'
+    last_success: '2026-04-03T09:59:46.728+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 15
-    success_count: 15
+    total_runs: 18
+    success_count: 18
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:46.728+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 932
+        db_count: 932
+        error_message: null
+        warning: null
+        duration_ms: 146
+      - timestamp: '2026-04-03T09:59:45.842+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 932
+        db_count: 932
+        error_message: null
+        warning: null
+        duration_ms: 106
+      - timestamp: '2026-04-02T07:17:51.767+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 62
+        db_count: 146
+        error_message: null
+        warning: null
+        duration_ms: 48
       - timestamp: '2026-03-19T00:40:23.937+09:00'
         status: success
         html_count: 0
@@ -900,42 +924,50 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 105
-      - timestamp: '2026-03-18T20:45:51.711+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 77
-        db_count: 77
-        error_message: null
-        warning: null
-        duration_ms: 15
-      - timestamp: '2025-11-13T15:54:51.236+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 169
-        db_count: 169
-        error_message: null
-        warning: null
-        duration_ms: 52
-      - timestamp: '2025-11-13T15:50:12.241+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 72
-        db_count: 97
-        error_message: null
-        warning: null
-        duration_ms: 138
   kanagawa/kanagawa-pref-dogs:
     name: 神奈川県動物愛護センター（犬）
     page_type: dog_only
     verified: true
-    last_success: '2026-03-19T00:40:24.137+09:00'
+    last_success: '2026-04-03T09:59:49.242+09:00'
     last_error: '2025-11-13T16:09:04.903+09:00'
     last_error_message: allAnimals is not defined
-    total_runs: 16
-    success_count: 15
+    total_runs: 20
+    success_count: 19
     error_count: 1
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:49.242+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 268
+        db_count: 268
+        error_message: null
+        warning: null
+        duration_ms: 108
+      - timestamp: '2026-04-03T09:59:46.128+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 268
+        db_count: 268
+        error_message: null
+        warning: null
+        duration_ms: 30
+      - timestamp: '2026-04-03T05:21:17.409+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 18
+        db_count: 29
+        error_message: null
+        warning: null
+        duration_ms: 36
+      - timestamp: '2026-04-02T07:18:03.516+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 18
+        db_count: 29
+        error_message: null
+        warning: null
+        duration_ms: 26
       - timestamp: '2026-03-19T00:40:24.137+09:00'
         status: success
         html_count: 0
@@ -984,50 +1016,42 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 15
-      - timestamp: '2026-03-18T20:52:01.474+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 19
-        db_count: 10
-        error_message: null
-        warning: null
-        duration_ms: 39
-      - timestamp: '2026-03-18T20:45:51.906+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 10
-        db_count: 10
-        error_message: null
-        warning: null
-        duration_ms: 8
-      - timestamp: '2025-11-13T16:14:12.423+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 10
-        db_count: 10
-        error_message: null
-        warning: null
-        duration_ms: 55
-      - timestamp: '2025-11-13T16:09:04.903+09:00'
-        status: error
-        html_count: 0
-        yaml_count: 10
-        db_count: 10
-        error_message: allAnimals is not defined
-        warning: null
-        duration_ms: 53
   kanagawa/yokohama-city-cats:
     name: 横浜市動物愛護センター
     page_type: cat_only
     verified: true
-    last_success: '2026-03-19T00:40:23.950+09:00'
+    last_success: '2026-04-03T09:59:47.977+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 15
-    success_count: 9
+    total_runs: 18
+    success_count: 12
     error_count: 0
     mismatch_count: 6
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:47.977+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 9
+        db_count: 9
+        error_message: null
+        warning: null
+        duration_ms: 1020
+      - timestamp: '2026-04-03T09:59:45.852+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 9
+        db_count: 9
+        error_message: null
+        warning: null
+        duration_ms: 4
+      - timestamp: '2026-04-03T05:21:28.123+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 9
+        db_count: 9
+        error_message: null
+        warning: null
+        duration_ms: 1766
       - timestamp: '2026-03-19T00:40:23.950+09:00'
         status: success
         html_count: 0
@@ -1084,42 +1108,42 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 2231
-      - timestamp: '2026-03-18T20:45:51.726+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 9
-        db_count: 9
-        error_message: null
-        warning: null
-        duration_ms: 5
-      - timestamp: '2025-11-13T16:24:35.371+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 9
-        db_count: 18
-        error_message: null
-        warning: null
-        duration_ms: 2303
-      - timestamp: '2025-11-13T15:54:51.249+09:00'
-        status: mismatch
-        html_count: 0
-        yaml_count: 27
-        db_count: 18
-        error_message: null
-        warning: YAML→DBで9匹減少 (27→18)
-        duration_ms: 7
   toyama/toyama-pref-cats:
     name: 富山県動物愛護センター（猫）
     page_type: cat_only
     verified: true
-    last_success: '2026-03-19T00:40:23.795+09:00'
+    last_success: '2026-04-03T09:59:46.451+09:00'
     last_error: '2025-11-13T16:09:50.064+09:00'
     last_error_message: 'ENOENT: no such file or directory, scandir ''data/html/toyama/toyama-pref'''
-    total_runs: 17
-    success_count: 15
+    total_runs: 20
+    success_count: 18
     error_count: 2
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:46.451+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 64
+        db_count: 64
+        error_message: null
+        warning: null
+        duration_ms: 11
+      - timestamp: '2026-04-03T09:59:45.590+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 64
+        db_count: 64
+        error_message: null
+        warning: null
+        duration_ms: 13
+      - timestamp: '2026-04-03T09:25:19.506+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 4
+        db_count: 12
+        error_message: null
+        warning: null
+        duration_ms: 41
       - timestamp: '2026-03-19T00:40:23.795+09:00'
         status: success
         html_count: 0
@@ -1176,42 +1200,42 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 59
-      - timestamp: '2026-03-18T20:45:51.585+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 8
-        db_count: 8
-        error_message: null
-        warning: null
-        duration_ms: 5
-      - timestamp: '2025-11-13T16:14:28.671+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 8
-        db_count: 8
-        error_message: null
-        warning: null
-        duration_ms: 79
-      - timestamp: '2025-11-13T16:09:50.064+09:00'
-        status: error
-        html_count: 0
-        yaml_count: 8
-        db_count: 8
-        error_message: 'ENOENT: no such file or directory, scandir ''data/html/toyama/toyama-pref'''
-        warning: null
-        duration_ms: 16
   toyama/toyama-pref-dogs:
     name: 富山県動物愛護センター（犬）
     page_type: dog_only
     verified: true
-    last_success: '2026-03-19T00:40:24.089+09:00'
+    last_success: '2026-04-03T09:59:48.920+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 15
-    success_count: 15
+    total_runs: 18
+    success_count: 18
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:48.920+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 26
+        db_count: 26
+        error_message: null
+        warning: null
+        duration_ms: 31
+      - timestamp: '2026-04-03T09:59:46.042+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 26
+        db_count: 26
+        error_message: null
+        warning: null
+        duration_ms: 9
+      - timestamp: '2026-04-03T09:25:31.931+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 2
+        db_count: 4
+        error_message: null
+        warning: null
+        duration_ms: 23
       - timestamp: '2026-03-19T00:40:24.089+09:00'
         status: success
         html_count: 0
@@ -1268,42 +1292,66 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 43
-      - timestamp: '2026-03-18T20:45:51.865+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 2
-        db_count: 2
-        error_message: null
-        warning: null
-        duration_ms: 4
-      - timestamp: '2025-11-13T16:10:00.596+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 2
-        db_count: 2
-        error_message: null
-        warning: null
-        duration_ms: 58
-      - timestamp: '2025-11-13T15:54:51.361+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 2
-        db_count: 2
-        error_message: null
-        warning: null
-        duration_ms: 3
   ishikawa/aigo-ishikawa:
     name: いしかわ動物愛護センター
     page_type: mixed
     verified: true
-    last_success: '2026-03-19T00:40:23.670+09:00'
+    last_success: '2026-04-03T09:59:46.363+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 18
-    success_count: 14
+    total_runs: 24
+    success_count: 18
     error_count: 0
-    mismatch_count: 4
+    mismatch_count: 6
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:46.363+09:00'
+        status: success
+        html_count: 19
+        yaml_count: 306
+        db_count: 306
+        error_message: null
+        warning: null
+        duration_ms: 52
+      - timestamp: '2026-04-03T09:59:45.474+09:00'
+        status: success
+        html_count: 19
+        yaml_count: 306
+        db_count: 306
+        error_message: null
+        warning: null
+        duration_ms: 95
+      - timestamp: '2026-04-03T04:20:35.671+09:00'
+        status: mismatch
+        html_count: 19
+        yaml_count: 18
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで1匹減少 (19→18)
+        duration_ms: 32
+      - timestamp: '2026-04-03T04:20:35.504+09:00'
+        status: success
+        html_count: 19
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 9171
+      - timestamp: '2026-04-02T07:17:00.664+09:00'
+        status: mismatch
+        html_count: 19
+        yaml_count: 18
+        db_count: 0
+        error_message: null
+        warning: HTML→YAMLで1匹減少 (19→18)
+        duration_ms: 35
+      - timestamp: '2026-04-02T07:17:00.499+09:00'
+        status: success
+        html_count: 19
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 6002
       - timestamp: '2026-03-19T00:40:23.670+09:00'
         status: success
         html_count: 19
@@ -1336,66 +1384,50 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 3426
-      - timestamp: '2026-03-18T20:56:32.718+09:00'
-        status: success
-        html_count: 19
-        yaml_count: 54
-        db_count: 54
-        error_message: null
-        warning: null
-        duration_ms: 33
-      - timestamp: '2026-03-18T20:56:31.581+09:00'
-        status: success
-        html_count: 19
-        yaml_count: 54
-        db_count: 54
-        error_message: null
-        warning: null
-        duration_ms: 49
-      - timestamp: '2026-03-18T20:50:55.548+09:00'
-        status: mismatch
-        html_count: 19
-        yaml_count: 18
-        db_count: 0
-        error_message: null
-        warning: HTML→YAMLで1匹減少 (19→18)
-        duration_ms: 55
-      - timestamp: '2026-03-18T20:50:55.294+09:00'
-        status: success
-        html_count: 19
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 7183
-      - timestamp: '2026-03-18T20:48:26.819+09:00'
-        status: mismatch
-        html_count: 19
-        yaml_count: 18
-        db_count: 0
-        error_message: null
-        warning: HTML→YAMLで1匹減少 (19→18)
-        duration_ms: 58
-      - timestamp: '2026-03-18T20:46:09.122+09:00'
-        status: success
-        html_count: 19
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 10672
   ishikawa/kanazawa-city-cats:
     name: 金沢市動物愛護管理センター
     page_type: cat_only
     verified: true
-    last_success: '2026-03-19T00:40:23.778+09:00'
+    last_success: '2026-04-03T09:59:46.434+09:00'
     last_error: '2025-11-13T15:49:37.318+09:00'
     last_error_message: 'ENOENT: no such file or directory, scandir ''data/html/ishikawa/kanazawa-city'''
-    total_runs: 19
-    success_count: 18
+    total_runs: 23
+    success_count: 22
     error_count: 1
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:46.434+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 128
+        db_count: 128
+        error_message: null
+        warning: null
+        duration_ms: 13
+      - timestamp: '2026-04-03T09:59:45.571+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 128
+        db_count: 128
+        error_message: null
+        warning: null
+        duration_ms: 20
+      - timestamp: '2026-04-03T04:37:29.078+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 7
+        db_count: 30
+        error_message: null
+        warning: null
+        duration_ms: 33
+      - timestamp: '2026-04-02T07:17:17.446+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 7
+        db_count: 30
+        error_message: null
+        warning: null
+        duration_ms: 34
       - timestamp: '2026-03-19T00:40:23.778+09:00'
         status: success
         html_count: 0
@@ -1444,50 +1476,42 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 21
-      - timestamp: '2026-03-18T20:51:13.994+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 7
-        db_count: 16
-        error_message: null
-        warning: null
-        duration_ms: 50
-      - timestamp: '2026-03-18T20:46:26.283+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 7
-        db_count: 16
-        error_message: null
-        warning: null
-        duration_ms: 58
-      - timestamp: '2026-03-18T20:45:51.574+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 16
-        db_count: 16
-        error_message: null
-        warning: null
-        duration_ms: 9
-      - timestamp: '2026-03-18T20:43:49.867+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 7
-        db_count: 2
-        error_message: null
-        warning: null
-        duration_ms: 57
   fukui/fukui-pref-cats:
     name: 福井県動物愛護管理センター（猫）
     page_type: cat_only
     verified: true
-    last_success: '2026-03-19T00:40:23.813+09:00'
+    last_success: '2026-04-03T09:59:46.481+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 15
-    success_count: 15
+    total_runs: 18
+    success_count: 18
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:46.481+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 193
+        db_count: 193
+        error_message: null
+        warning: null
+        duration_ms: 24
+      - timestamp: '2026-04-03T09:59:45.628+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 193
+        db_count: 193
+        error_message: null
+        warning: null
+        duration_ms: 32
+      - timestamp: '2026-04-03T09:25:43.176+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 12
+        db_count: 37
+        error_message: null
+        warning: null
+        duration_ms: 30
       - timestamp: '2026-03-19T00:40:23.813+09:00'
         status: success
         html_count: 0
@@ -1544,42 +1568,42 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 66
-      - timestamp: '2026-03-18T20:45:51.600+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 25
-        db_count: 25
-        error_message: null
-        warning: null
-        duration_ms: 8
-      - timestamp: '2025-11-13T15:54:51.071+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 50
-        db_count: 50
-        error_message: null
-        warning: null
-        duration_ms: 14
-      - timestamp: '2025-11-13T15:54:32.659+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 25
-        db_count: 25
-        error_message: null
-        warning: null
-        duration_ms: 99
   fukui/fukui-pref-dogs:
     name: 福井県動物愛護管理センター（犬）
     page_type: dog_only
     verified: true
-    last_success: '2026-03-19T00:40:24.102+09:00'
+    last_success: '2026-04-03T09:59:48.974+09:00'
     last_error: '2025-11-13T16:10:12.243+09:00'
     last_error_message: allAnimals is not defined
-    total_runs: 16
-    success_count: 15
+    total_runs: 19
+    success_count: 18
     error_count: 1
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:48.974+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 30
+        db_count: 30
+        error_message: null
+        warning: null
+        duration_ms: 26
+      - timestamp: '2026-04-03T09:59:46.056+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 30
+        db_count: 30
+        error_message: null
+        warning: null
+        duration_ms: 7
+      - timestamp: '2026-04-03T09:42:07.591+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 2
+        db_count: 4
+        error_message: null
+        warning: null
+        duration_ms: 72
       - timestamp: '2026-03-19T00:40:24.102+09:00'
         status: success
         html_count: 0
@@ -1636,42 +1660,42 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 83
-      - timestamp: '2026-03-18T20:45:51.877+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 2
-        db_count: 2
-        error_message: null
-        warning: null
-        duration_ms: 3
-      - timestamp: '2025-11-13T16:14:38.353+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 2
-        db_count: 2
-        error_message: null
-        warning: null
-        duration_ms: 52
-      - timestamp: '2025-11-13T16:10:12.243+09:00'
-        status: error
-        html_count: 0
-        yaml_count: 2
-        db_count: 2
-        error_message: allAnimals is not defined
-        warning: null
-        duration_ms: 57
   kyoto/kyoto-pref-cats:
     name: 京都府動物愛護センター（猫）
     page_type: cat_only
     verified: true
-    last_success: '2026-03-19T00:40:23.831+09:00'
+    last_success: '2026-04-03T09:59:46.519+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 15
-    success_count: 15
+    total_runs: 18
+    success_count: 18
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:46.519+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 210
+        db_count: 210
+        error_message: null
+        warning: null
+        duration_ms: 29
+      - timestamp: '2026-04-03T09:59:45.666+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 210
+        db_count: 210
+        error_message: null
+        warning: null
+        duration_ms: 32
+      - timestamp: '2026-04-03T05:21:39.998+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 13
+        db_count: 24
+        error_message: null
+        warning: null
+        duration_ms: 24
       - timestamp: '2026-03-19T00:40:23.831+09:00'
         status: success
         html_count: 0
@@ -1728,42 +1752,42 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 45
-      - timestamp: '2026-03-18T20:45:51.617+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 11
-        db_count: 11
-        error_message: null
-        warning: null
-        duration_ms: 8
-      - timestamp: '2025-11-13T15:54:51.104+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 15
-        db_count: 15
-        error_message: null
-        warning: null
-        duration_ms: 24
-      - timestamp: '2025-11-13T15:50:48.330+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 11
-        db_count: 4
-        error_message: null
-        warning: null
-        duration_ms: 61
   kyoto/kyoto-pref-dogs:
     name: 京都府動物愛護センター（犬）
     page_type: dog_only
     verified: true
-    last_success: '2026-03-19T00:40:24.117+09:00'
+    last_success: '2026-04-03T09:59:49.110+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 15
-    success_count: 15
+    total_runs: 18
+    success_count: 18
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:49.110+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 169
+        db_count: 169
+        error_message: null
+        warning: null
+        duration_ms: 112
+      - timestamp: '2026-04-03T09:59:46.091+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 169
+        db_count: 169
+        error_message: null
+        warning: null
+        duration_ms: 29
+      - timestamp: '2026-04-03T05:21:52.052+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 5
+        db_count: 33
+        error_message: null
+        warning: null
+        duration_ms: 21
       - timestamp: '2026-03-19T00:40:24.117+09:00'
         status: success
         html_count: 0
@@ -1820,42 +1844,34 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 45
-      - timestamp: '2026-03-18T20:45:51.892+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 19
-        db_count: 19
-        error_message: null
-        warning: null
-        duration_ms: 9
-      - timestamp: '2025-11-13T16:09:17.027+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 19
-        db_count: 19
-        error_message: null
-        warning: null
-        duration_ms: 73
-      - timestamp: '2025-11-13T15:54:51.401+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 19
-        db_count: 19
-        error_message: null
-        warning: null
-        duration_ms: 24
   osaka/osaka-pref-cats:
     name: 大阪府動物愛護管理センター
     page_type: cat_only
     verified: true
-    last_success: '2026-03-19T00:40:23.846+09:00'
+    last_success: '2026-04-03T09:59:46.537+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 14
-    success_count: 14
+    total_runs: 16
+    success_count: 16
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:46.537+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 33
+        db_count: 33
+        error_message: null
+        warning: null
+        duration_ms: 9
+      - timestamp: '2026-04-03T09:59:45.679+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 33
+        db_count: 33
+        error_message: null
+        warning: null
+        duration_ms: 7
       - timestamp: '2026-03-19T00:40:23.846+09:00'
         status: success
         html_count: 0
@@ -1920,34 +1936,42 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 16
-      - timestamp: '2025-11-13T15:52:03.457+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 32
-        db_count: 33
-        error_message: null
-        warning: null
-        duration_ms: 104
-      - timestamp: '2025-11-13T15:23:09.886+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 33
-        db_count: 33
-        error_message: null
-        warning: null
-        duration_ms: 10
   osaka/osaka-city-cats:
     name: 大阪市動物管理センター
     page_type: cat_only
     verified: true
-    last_success: '2026-03-19T00:40:23.860+09:00'
+    last_success: '2026-04-03T09:59:46.546+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 15
-    success_count: 15
+    total_runs: 18
+    success_count: 18
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:46.546+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 5
+        db_count: 5
+        error_message: null
+        warning: null
+        duration_ms: 3
+      - timestamp: '2026-04-03T09:59:45.691+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 5
+        db_count: 5
+        error_message: null
+        warning: null
+        duration_ms: 7
+      - timestamp: '2026-04-03T06:39:53.669+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 0
+        db_count: 5
+        error_message: null
+        warning: null
+        duration_ms: 27
       - timestamp: '2026-03-19T00:40:23.860+09:00'
         status: success
         html_count: 0
@@ -2004,30 +2028,6 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 26
-      - timestamp: '2026-03-18T20:45:51.648+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 5
-        db_count: 5
-        error_message: null
-        warning: null
-        duration_ms: 4
-      - timestamp: '2025-11-13T15:54:51.137+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 10
-        db_count: 10
-        error_message: null
-        warning: null
-        duration_ms: 5
-      - timestamp: '2025-11-13T15:51:45.519+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 5
-        db_count: 5
-        error_message: null
-        warning: null
-        duration_ms: 62
   osaka/sakai-city-cats:
     name: 堺市動物指導センター
     page_type: cat_only
@@ -2035,11 +2035,27 @@ scrapers:
     last_success: '2026-03-18T20:45:51.662+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 13
+    total_runs: 15
     success_count: 7
     error_count: 0
-    mismatch_count: 6
+    mismatch_count: 8
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:46.558+09:00'
+        status: mismatch
+        html_count: 0
+        yaml_count: 121
+        db_count: 22
+        error_message: null
+        warning: YAML→DBで99匹減少 (121→22)
+        duration_ms: 6
+      - timestamp: '2026-04-03T09:59:45.706+09:00'
+        status: mismatch
+        html_count: 0
+        yaml_count: 121
+        db_count: 22
+        error_message: null
+        warning: YAML→DBで99匹減少 (121→22)
+        duration_ms: 9
       - timestamp: '2026-03-19T00:40:23.878+09:00'
         status: mismatch
         html_count: 0
@@ -2104,34 +2120,34 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 8
-      - timestamp: '2025-11-13T15:23:09.907+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 22
-        db_count: 22
-        error_message: null
-        warning: null
-        duration_ms: 7
-      - timestamp: '2025-11-13T15:22:56.925+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 22
-        db_count: 22
-        error_message: null
-        warning: null
-        duration_ms: 7
   hyogo/hyogo-pref-cats:
     name: 兵庫県動物愛護センター
     page_type: cat_only
     verified: true
-    last_success: '2026-03-19T00:40:23.889+09:00'
+    last_success: '2026-04-03T09:59:46.567+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 14
-    success_count: 14
+    total_runs: 16
+    success_count: 16
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:46.567+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 1
+        db_count: 1
+        error_message: null
+        warning: null
+        duration_ms: 3
+      - timestamp: '2026-04-03T09:59:45.714+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 1
+        db_count: 1
+        error_message: null
+        warning: null
+        duration_ms: 3
       - timestamp: '2026-03-19T00:40:23.889+09:00'
         status: success
         html_count: 0
@@ -2196,34 +2212,34 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 4
-      - timestamp: '2025-11-13T15:48:51.930+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 1
-        db_count: 1
-        error_message: null
-        warning: null
-        duration_ms: 35
-      - timestamp: '2025-11-13T15:23:09.919+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 1
-        db_count: 1
-        error_message: null
-        warning: null
-        duration_ms: 2
   hyogo/kobe-city:
     name: 神戸市動物管理センター
     page_type: mixed
     verified: false
-    last_success: '2026-03-19T00:40:23.741+09:00'
+    last_success: '2026-04-03T09:59:46.405+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 13
-    success_count: 13
+    total_runs: 15
+    success_count: 15
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:46.405+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 2
+      - timestamp: '2026-04-03T09:59:45.530+09:00'
+        status: empty
+        html_count: 0
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 3
       - timestamp: '2026-03-19T00:40:23.741+09:00'
         status: empty
         html_count: 0
@@ -2288,34 +2304,50 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 3
-      - timestamp: '2025-11-13T15:23:09.804+09:00'
-        status: empty
-        html_count: 0
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 2
-      - timestamp: '2025-11-13T15:22:56.838+09:00'
-        status: empty
-        html_count: 0
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 2
   okinawa/okinawa-pref-cats:
     name: 沖縄県動物愛護管理センター（猫）
     page_type: cat_only
     verified: true
-    last_success: '2026-03-19T00:40:24.032+09:00'
+    last_success: '2026-04-03T09:59:48.703+09:00'
     last_error: '2025-11-13T16:09:31.901+09:00'
     last_error_message: allAnimals is not defined
-    total_runs: 21
-    success_count: 17
+    total_runs: 25
+    success_count: 21
     error_count: 2
     mismatch_count: 2
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:48.703+09:00'
+        status: success
+        html_count: 14
+        yaml_count: 203
+        db_count: 203
+        error_message: null
+        warning: null
+        duration_ms: 95
+      - timestamp: '2026-04-03T09:59:45.990+09:00'
+        status: success
+        html_count: 14
+        yaml_count: 203
+        db_count: 203
+        error_message: null
+        warning: null
+        duration_ms: 24
+      - timestamp: '2026-04-03T06:08:57.045+09:00'
+        status: success
+        html_count: 14
+        yaml_count: 14
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 18
+      - timestamp: '2026-04-03T06:08:56.828+09:00'
+        status: success
+        html_count: 14
+        yaml_count: 0
+        db_count: 0
+        error_message: null
+        warning: null
+        duration_ms: 4216
       - timestamp: '2026-03-19T00:40:24.032+09:00'
         status: success
         html_count: 18
@@ -2364,50 +2396,42 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 13
-      - timestamp: '2026-03-18T20:53:01.170+09:00'
-        status: success
-        html_count: 18
-        yaml_count: 18
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 33
-      - timestamp: '2026-03-18T20:53:00.902+09:00'
-        status: success
-        html_count: 18
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 5126
-      - timestamp: '2026-03-18T20:45:51.806+09:00'
-        status: success
-        html_count: 13
-        yaml_count: 13
-        db_count: 13
-        error_message: null
-        warning: null
-        duration_ms: 7
-      - timestamp: '2025-11-13T16:14:19.633+09:00'
-        status: success
-        html_count: 13
-        yaml_count: 13
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 49
   okinawa/okinawa-pref-dogs:
     name: 沖縄県動物愛護管理センター（犬）
     page_type: dog_only
     verified: true
-    last_success: '2026-03-19T00:40:24.176+09:00'
+    last_success: '2026-04-03T09:59:49.415+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 15
-    success_count: 13
+    total_runs: 18
+    success_count: 16
     error_count: 0
     mismatch_count: 2
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:49.415+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 280
+        db_count: 280
+        error_message: null
+        warning: null
+        duration_ms: 91
+      - timestamp: '2026-04-03T09:59:46.197+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 280
+        db_count: 280
+        error_message: null
+        warning: null
+        duration_ms: 34
+      - timestamp: '2026-04-03T06:22:22.132+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 19
+        db_count: 36
+        error_message: null
+        warning: null
+        duration_ms: 24
       - timestamp: '2026-03-19T00:40:24.176+09:00'
         status: success
         html_count: 0
@@ -2464,42 +2488,42 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 34
-      - timestamp: '2026-03-18T20:45:51.941+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 18
-        db_count: 18
-        error_message: null
-        warning: null
-        duration_ms: 7
-      - timestamp: '2025-11-13T16:09:41.062+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 18
-        db_count: 18
-        error_message: null
-        warning: null
-        duration_ms: 49
-      - timestamp: '2025-11-13T15:54:51.440+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 18
-        db_count: 18
-        error_message: null
-        warning: null
-        duration_ms: 6
   okinawa/naha-city:
     name: 那覇市環境衛生課
     page_type: mixed
     verified: true
-    last_success: '2026-03-19T00:40:23.758+09:00'
+    last_success: '2026-04-03T09:59:46.415+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 15
-    success_count: 13
+    total_runs: 18
+    success_count: 16
     error_count: 0
     mismatch_count: 2
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:46.415+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 6
+        db_count: 6
+        error_message: null
+        warning: null
+        duration_ms: 3
+      - timestamp: '2026-04-03T09:59:45.545+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 6
+        db_count: 6
+        error_message: null
+        warning: null
+        duration_ms: 8
+      - timestamp: '2026-04-03T05:53:40.201+09:00'
+        status: success
+        html_count: 0
+        yaml_count: 0
+        db_count: 6
+        error_message: null
+        warning: null
+        duration_ms: 28
       - timestamp: '2026-03-19T00:40:23.758+09:00'
         status: success
         html_count: 0
@@ -2556,30 +2580,6 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 43
-      - timestamp: '2026-03-18T20:45:51.558+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 6
-        db_count: 6
-        error_message: null
-        warning: null
-        duration_ms: 7
-      - timestamp: '2025-11-13T16:09:24.757+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 5
-        db_count: 11
-        error_message: null
-        warning: null
-        duration_ms: 46
-      - timestamp: '2025-11-13T15:54:51.028+09:00'
-        status: success
-        html_count: 0
-        yaml_count: 11
-        db_count: 11
-        error_message: null
-        warning: null
-        duration_ms: 6
   miyagi/miyagi-pref-cats:
     name: null
     page_type: null
@@ -3496,14 +3496,30 @@ scrapers:
     name: null
     page_type: null
     verified: true
-    last_success: '2026-03-19T00:40:24.042+09:00'
+    last_success: '2026-04-03T09:59:48.747+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 9
-    success_count: 9
+    total_runs: 11
+    success_count: 11
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:48.747+09:00'
+        status: success
+        html_count: 10
+        yaml_count: 10
+        db_count: 10
+        error_message: null
+        warning: null
+        duration_ms: 17
+      - timestamp: '2026-04-03T09:59:46.000+09:00'
+        status: success
+        html_count: 10
+        yaml_count: 10
+        db_count: 10
+        error_message: null
+        warning: null
+        duration_ms: 4
       - timestamp: '2026-03-19T00:40:24.042+09:00'
         status: success
         html_count: 10
@@ -3568,26 +3584,34 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 475
-      - timestamp: '2025-11-15T17:34:42.097+09:00'
-        status: success
-        html_count: 10
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 6489
   niigata/niigata-city-dogs:
     name: null
     page_type: null
     verified: true
-    last_success: '2026-03-19T00:40:24.066+09:00'
+    last_success: '2026-04-03T09:59:48.830+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 9
-    success_count: 9
+    total_runs: 11
+    success_count: 11
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:48.830+09:00'
+        status: success
+        html_count: 3
+        yaml_count: 3
+        db_count: 3
+        error_message: null
+        warning: null
+        duration_ms: 8
+      - timestamp: '2026-04-03T09:59:46.018+09:00'
+        status: success
+        html_count: 3
+        yaml_count: 3
+        db_count: 3
+        error_message: null
+        warning: null
+        duration_ms: 3
       - timestamp: '2026-03-19T00:40:24.066+09:00'
         status: success
         html_count: 3
@@ -3652,26 +3676,34 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 559
-      - timestamp: '2025-11-15T17:42:23.595+09:00'
-        status: success
-        html_count: 3
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 7736
   niigata/niigata-pref-dogs:
     name: null
     page_type: null
     verified: true
-    last_success: '2026-03-19T00:40:24.077+09:00'
+    last_success: '2026-04-03T09:59:48.862+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 9
-    success_count: 9
+    total_runs: 11
+    success_count: 11
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:48.862+09:00'
+        status: success
+        html_count: 2
+        yaml_count: 2
+        db_count: 2
+        error_message: null
+        warning: null
+        duration_ms: 7
+      - timestamp: '2026-04-03T09:59:46.028+09:00'
+        status: success
+        html_count: 2
+        yaml_count: 2
+        db_count: 2
+        error_message: null
+        warning: null
+        duration_ms: 3
       - timestamp: '2026-03-19T00:40:24.077+09:00'
         status: success
         html_count: 2
@@ -3736,26 +3768,34 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 342
-      - timestamp: '2025-11-15T22:28:32.737+09:00'
-        status: success
-        html_count: 2
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 12024
   niigata/niigata-pref-cats:
     name: null
     page_type: null
     verified: true
-    last_success: '2026-03-19T00:40:24.054+09:00'
+    last_success: '2026-04-03T09:59:48.793+09:00'
     last_error: null
     last_error_message: null
-    total_runs: 9
-    success_count: 9
+    total_runs: 11
+    success_count: 11
     error_count: 0
     mismatch_count: 0
     last_10_runs:
+      - timestamp: '2026-04-03T09:59:48.793+09:00'
+        status: success
+        html_count: 12
+        yaml_count: 12
+        db_count: 12
+        error_message: null
+        warning: null
+        duration_ms: 22
+      - timestamp: '2026-04-03T09:59:46.009+09:00'
+        status: success
+        html_count: 12
+        yaml_count: 12
+        db_count: 12
+        error_message: null
+        warning: null
+        duration_ms: 3
       - timestamp: '2026-03-19T00:40:24.054+09:00'
         status: success
         html_count: 12
@@ -3820,14 +3860,6 @@ scrapers:
         error_message: null
         warning: null
         duration_ms: 477
-      - timestamp: '2025-11-15T22:29:47.001+09:00'
-        status: success
-        html_count: 12
-        yaml_count: 0
-        db_count: 0
-        error_message: null
-        warning: null
-        duration_ms: 19016
   ibaraki/ibaraki-pref-cats:
     name: null
     page_type: null

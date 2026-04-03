@@ -1,0 +1,260 @@
+meta:
+  source_file: 20260327_065615_tail.html
+  source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+  extracted_at: '2026-03-27T06:56:15.338+09:00'
+  municipality: kyoto/kyoto-pref-dogs
+  municipality_id: 15
+  total_count: 14
+animals:
+  - external_id: kyoto-dog-1774562175333-0
+    name: さち
+    animal_type: dog
+    breed: ダックスフント
+    age_estimate: 推定１４歳
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: 市内路上を徘徊していたところを保護された、小さなダックスフントの女の子です。吠え癖はありますが、慣れると人懐っこく甘え、散歩も大好きです。歯がほとんどなく、舌が出ていることが多いです。収容時、背中や腰に傷があり、治療のために毛刈りをしており、一部毛が薄い箇所があります。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/11/IMG_6248.jpg
+    protection_location: null
+    status: available
+    source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto-dog-1774562175334-1
+    name: コン
+    animal_type: dog
+    breed: 雑種
+    age_estimate: 推定２０２１年２月生まれ
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: 野犬として保護されました。野犬の中では比較的人馴れしていますが，小さなお子様の高い声や挙動等で怖がってしまうので，穏やかに見守ってくれる飼い主さんを募集します。譲渡に当たってはトレーナーのレクチャーがあります。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2024/08/17ad3761e70e9228031c2a030d56f853.jpeg
+    protection_location: null
+    status: available
+    source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto-dog-1774562175335-2
+    name: ほわ
+    animal_type: dog
+    breed: 雑種
+    age_estimate: 推定２０２０年１０月生まれ
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 野犬として保護されました。小さなお子様の高い声や挙動が苦手で怖がってしまうので，穏やかに見守ってくれる飼い主さんを募集します。譲渡にあたってレクチャーを受けていただく必要があります。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2024/08/c6fbe416fabe61664441b4673f0f5c57.jpeg
+    protection_location: null
+    status: available
+    source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto-dog-1774562175335-3
+    name: もぐ
+    animal_type: dog
+    breed: 雑種
+    age_estimate: 推定2022年1月生まれ
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 野犬として保護されました。生まれつき目が見えていませんが，慣れたスペースでは，音やにおいを頼りに壁などにぶつからずに歩いています。小さなお子様の高い声や挙動が苦手で怖がるので，穏やかに見守ってくれる飼い主さんを募集します。また，精神的にも成長期ですので，ご家族との相性を慎重に検討いたします。譲渡にあたってレクチャーを受けていただく必要があります。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2022/05/IMG_2667-scaled.jpg
+    protection_location: null
+    status: available
+    source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto-dog-1774562175336-4
+    name: ニコ
+    animal_type: dog
+    breed: 雑種
+    age_estimate: 推定２０２１年１０月生まれ
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 野犬として保護されました。小さなお子様の高い声や挙動が苦手で怖がってしまうので，穏やかに見守ってくれる飼い主さんを募集します。また精神的にも成長期ですので，ご家族との相性を慎重に検討いたします。譲渡にあたってレクチャーを受けていただく必要があります。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2024/10/IMG_3662.jpeg
+    protection_location: null
+    status: adopted
+    source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto-dog-1774562175336-5
+    name: ヴィヴィ
+    animal_type: dog
+    breed: ダックスフント
+    age_estimate: ６歳（２０１９年６月生まれ）
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: ワイヤーヘアーのダックスフントの女の子。少し臆病な性格ですが、慣れた人には甘えます。少し人への依存が高い傾向が見受けられるので、適切な距離感で生活できる環境が望ましいと思われます。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/11/IMG_5891-rotated-e1763529901328.jpg
+    protection_location: null
+    status: adopted
+    source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto-dog-1774562175336-6
+    name: コロ
+    animal_type: dog
+    breed: 雑種
+    age_estimate: 推定３歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 野犬として保護されました。小さなお子様と男性が苦手で怖がってしまいます。穏やかに見守ってくれる飼い主さんを募集します。譲渡にあたって条件があります。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/02/IMG_4554-1.jpg
+    protection_location: null
+    status: available
+    source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto-dog-1774562175336-7
+    name: シンイチ
+    animal_type: dog
+    breed: 柴犬
+    age_estimate: ２歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 白柴の男の子です。やんちゃ盛りで元気いっぱい。とびかかったり、グイグイ引っ張る癖もあり、トライアル開始前にはレクチャーの受講が必須です。一緒に楽しく過ごしていただける家族をお待ちしています。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/08/IMG_4230-rotated.jpg
+    protection_location: null
+    status: adopted
+    source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto-dog-1774562175336-8
+    name: テオ
+    animal_type: dog
+    breed: 雑種
+    age_estimate: １４歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 体格もしっかりしていて元気いっぱい！お散歩もよく歩いてくれます。 歯はありませんが食欲旺盛でドライフードも問題なく食べています！ 左眼ふちの上にあるイボで涙が流れやすいため、拭いてあげるなど定期的なケアが必要です。 寂しくなると鳴いてしまうことがありますが、フレンドリーで楽しいことが大好きなテオ君です。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/11/5ba897d6d697425ab4b38f14e988b482.jpg
+    protection_location: null
+    status: adopted
+    source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto-dog-1774562175336-9
+    name: メーター
+    animal_type: dog
+    breed: 雑種（トイプードル系）
+    age_estimate: 推定１２～１３歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: フレンドリーな性格ですが、人にかまって欲しくて要求鳴きをすることがあります。散歩時や人がそばにいる時は大変おとなしくしています。 少し高齢ですが元気で食欲旺盛！散歩もゆっくり歩いてくれるメーターさんです！
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/09/c5c13a354ee67dff9a009a2ff3f15308.jpg
+    protection_location: null
+    status: adopted
+    source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto-dog-1774562175336-10
+    name: マック
+    animal_type: dog
+    breed: 雑種（トイプードル系）
+    age_estimate: 推定１２～１３歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 大変におとなしく、少し控えめですがフレンドリーな性格です。センターのボランティアさんも大好き♡マックさん♡少し高齢ですが食欲旺盛！散歩も大好きです！
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/08/e32c49581e3ae9e4a31e82be658a5c38.jpg
+    protection_location: null
+    status: adopted
+    source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto-dog-1774562175336-11
+    name: ストーン
+    animal_type: dog
+    breed: 雑種（トイプードル系）
+    age_estimate: 推定１２～１３歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 大変におとなしくてフレンドリーな性格です。センターのボランティアさんも大好き♡ストーンさん♡少し高齢ですが食欲旺盛！散歩も大好きです！
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/08/ab302f96ef0e9e60947bd4ff5e55f06e.jpg
+    protection_location: null
+    status: adopted
+    source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto-dog-1774562175338-12
+    name: ヒン
+    animal_type: dog
+    breed: 雑種（ミニチュアダックス系）
+    age_estimate: 推定１５～１６歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 高齢ですがまだまだ食欲旺盛なヒンくんです。 目はほとんど見えていませんが音やにおいはしっかりわかるようです。搬入当初、背中（腰部分）の毛は、はげていましたが少しづつはえてきました。 普段はおとなしく寝ていることが多いですが、お散歩はよちよち歩きで少しだけできます。 触られるのは苦手なので、優しく見守ってくださる飼い主さんを募集中です。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/09/IMG_7003-scaled.jpg
+    protection_location: null
+    status: adopted
+    source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto-dog-1774562175338-13
+    name: ユパ
+    animal_type: dog
+    breed: 雑種
+    age_estimate: 推定２～３歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 元気いっぱい！フレンドリー！！のユパくんです。 人を呼ぶような要求吠えをすることがあるので近所迷惑にならないように注意が必要です。 普段はおとなしくて優しい性格のユパくんですが、体格も大きいのでしっかりと制御できる方が飼育管理してあげてください。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/06/1bd2fde9fe9ff9f4871a9870a17da0fa.jpg
+    protection_location: null
+    status: adopted
+    source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+    confidence_level: high
+    extraction_notes: []

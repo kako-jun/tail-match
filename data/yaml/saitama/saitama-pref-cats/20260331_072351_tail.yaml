@@ -1,0 +1,30 @@
+meta:
+  source_file: 20260331_072351_tail.html
+  source_url: https://www.pref.saitama.lg.jp/b0716/shuuyou-jyouhou-pocg.html
+  extracted_at: '2026-03-31T07:23:51.736+09:00'
+  municipality: saitama/saitama-pref-cats
+  municipality_id: 15
+  total_count: 1
+  note: 収容動物情報（迷子猫、飼い主探し用）
+animals:
+  - external_id: 2026-3-002
+    name: null
+    animal_type: cat
+    breed: null
+    age_estimate: null
+    gender: unknown
+    color: キジトラ
+    size: null
+    health_status: null
+    personality: null
+    special_needs: null
+    images: []
+    protection_date: 2026年3月27日
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.saitama.lg.jp/b0716/shuuyou-jyouhou-pocg.html
+    confidence_level: medium
+    extraction_notes:
+      - 収容動物情報（迷子猫）
+      - '収容場所: 飯能市川寺'
+    listing_type: lost_pet

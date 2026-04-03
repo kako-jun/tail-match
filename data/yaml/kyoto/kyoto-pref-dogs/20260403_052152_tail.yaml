@@ -1,0 +1,98 @@
+meta:
+  source_file: 20260403_052152_tail.html
+  source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+  extracted_at: '2026-04-03T05:21:52.051+09:00'
+  municipality: kyoto/kyoto-pref-dogs
+  municipality_id: 15
+  total_count: 5
+animals:
+  - external_id: kyoto-dog-1775161312050-0
+    name: コン
+    animal_type: dog
+    breed: 雑種
+    age_estimate: 推定２０２１年２月生まれ
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: 野犬として保護されました。野犬の中では比較的人馴れしていますが，小さなお子様の高い声や挙動等で怖がってしまうので，穏やかに見守ってくれる飼い主さんを募集します。譲渡に当たってはトレーナーのレクチャーがあります。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2024/08/17ad3761e70e9228031c2a030d56f853.jpeg
+    protection_location: null
+    status: available
+    source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto-dog-1775161312050-1
+    name: ほわ
+    animal_type: dog
+    breed: 雑種
+    age_estimate: 推定２０２０年１０月生まれ
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 野犬として保護されました。小さなお子様の高い声や挙動が苦手で怖がってしまうので，穏やかに見守ってくれる飼い主さんを募集します。譲渡にあたってレクチャーを受けていただく必要があります。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2024/08/c6fbe416fabe61664441b4673f0f5c57.jpeg
+    protection_location: null
+    status: available
+    source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto-dog-1775161312050-2
+    name: もぐ
+    animal_type: dog
+    breed: 雑種
+    age_estimate: 推定2022年1月生まれ
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 野犬として保護されました。生まれつき目が見えていませんが，慣れたスペースでは，音やにおいを頼りに壁などにぶつからずに歩いています。小さなお子様の高い声や挙動が苦手で怖がるので，穏やかに見守ってくれる飼い主さんを募集します。また，精神的にも成長期ですので，ご家族との相性を慎重に検討いたします。譲渡にあたってレクチャーを受けていただく必要があります。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2022/05/IMG_2667-scaled.jpg
+    protection_location: null
+    status: available
+    source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto-dog-1775161312051-3
+    name: コロ
+    animal_type: dog
+    breed: 雑種
+    age_estimate: 推定３歳
+    gender: male
+    color: null
+    size: null
+    health_status: null
+    personality: 野犬として保護されました。小さなお子様と男性が苦手で怖がってしまいます。穏やかに見守ってくれる飼い主さんを募集します。譲渡にあたって条件があります。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/02/IMG_4554-1.jpg
+    protection_location: null
+    status: available
+    source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+    confidence_level: high
+    extraction_notes: []
+  - external_id: kyoto-dog-1775161312051-4
+    name: さち
+    animal_type: dog
+    breed: ダックスフント
+    age_estimate: 推定１４歳
+    gender: female
+    color: null
+    size: null
+    health_status: null
+    personality: 市内路上を徘徊していたところを保護された、小さなダックスフントの女の子です。吠え癖はありますが、慣れると人懐っこく甘え、散歩も大好きです。歯がほとんどなく、舌が出ていることが多いです。収容時、背中や腰に傷があり、治療のために毛刈りをしており、一部毛が薄い箇所があります。
+    special_needs: null
+    images:
+      - https://kyoto-ani-love.com/wp-content/uploads/2025/11/IMG_6248.jpg
+    protection_location: null
+    status: adopted
+    source_url: https://kyoto-ani-love.com/recruit-animal/dog/
+    confidence_level: high
+    extraction_notes: []

@@ -1,0 +1,426 @@
+meta:
+  source_file: 20260326_055549_tail.html
+  source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+  extracted_at: '2026-03-26T05:55:49.416+09:00'
+  municipality: kanagawa/kanagawa-pref-dogs
+  municipality_id: 8
+  total_count: 19
+animals:
+  - external_id: kanagawa-dog-ポンタ
+    name: ポンタ
+    animal_type: dog
+    breed: T.プードル系・チワワ系・M.ダックスフント系・シーズー系・ポメラニアン系
+    age_estimate: null
+    gender: male
+    color: null
+    size: small
+    health_status: null
+    personality: 人が大好きです
+    special_needs: null
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/dog/img/ponnta.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2026年１月'
+    listing_type: adoption
+  - external_id: kanagawa-dog-サンボ
+    name: サンボ
+    animal_type: dog
+    breed: T.プードル系・チワワ系・M.ダックスフント系・シーズー系・ポメラニアン系
+    age_estimate: null
+    gender: female
+    color: null
+    size: small
+    health_status: null
+    personality: 人が大好きです
+    special_needs: null
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/dog/img/sannbo.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2026年１月'
+    listing_type: adoption
+  - external_id: kanagawa-dog-ビッグ
+    name: ビッグ
+    animal_type: dog
+    breed: T.プードル系・チワワ系・M.ダックスフント系・シーズー系・ポメラニアン系
+    age_estimate: null
+    gender: male
+    color: null
+    size: small
+    health_status: null
+    personality: 人が大好きです
+    special_needs: null
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/dog/img/big.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2026年１月'
+    listing_type: adoption
+  - external_id: kanagawa-dog-ゴマ
+    name: ゴマ
+    animal_type: dog
+    breed: T.プードル系・チワワ系・M.ダックスフント系・シーズー系・ポメラニアン系
+    age_estimate: null
+    gender: female
+    color: null
+    size: small
+    health_status: null
+    personality: 人が大好きです
+    special_needs: null
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/dog/img/goma.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2026年１月'
+    listing_type: adoption
+  - external_id: kanagawa-dog-イクラ
+    name: イクラ
+    animal_type: dog
+    breed: T.プードル系・チワワ系・M.ダックスフント系・シーズー系・ポメラニアン系
+    age_estimate: null
+    gender: female
+    color: null
+    size: small
+    health_status: null
+    personality: 人が大好きです
+    special_needs: null
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/dog/img/ikura.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2026年１月'
+    listing_type: adoption
+  - external_id: kanagawa-dog-くま
+    name: くま
+    animal_type: dog
+    breed: 日本犬系
+    age_estimate: null
+    gender: male
+    color: null
+    size: large
+    health_status: null
+    personality: 人が大好きです
+    special_needs: null
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/dog/img/kuma
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年７月'
+    listing_type: adoption
+  - external_id: kanagawa-dog-わたる
+    name: わたる
+    animal_type: dog
+    breed: T.プードル系・チワワ系・M.ダックスフント系・シーズー系・ポメラニアン系
+    age_estimate: null
+    gender: male
+    color: null
+    size: small
+    health_status: null
+    personality: 少し触れます
+    special_needs: null
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/dog/img/wataru
+    protection_date: '2024-10-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2024年10月'
+    listing_type: adoption
+  - external_id: kanagawa-dog-もっくん
+    name: もっくん
+    animal_type: dog
+    breed: 日本犬系
+    age_estimate: null
+    gender: male
+    color: null
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: null
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/dog/img/mokkun
+    protection_date: '2024-11-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2024年11月'
+    listing_type: adoption
+  - external_id: kanagawa-dog-マルクス
+    name: マルクス
+    animal_type: dog
+    breed: T.プードル系・チワワ系・M.ダックスフント系・シーズー系・ポメラニアン系
+    age_estimate: null
+    gender: male
+    color: null
+    size: small
+    health_status: null
+    personality: 少し触れます
+    special_needs: null
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/dog/img/marukusu
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2024年６月'
+    listing_type: adoption
+  - external_id: kanagawa-dog-そら
+    name: そら
+    animal_type: dog
+    breed: 日本犬系
+    age_estimate: null
+    gender: male
+    color: null
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: null
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/dog/img/sora
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2023年３月'
+    listing_type: adoption
+  - external_id: kanagawa-dog-とも
+    name: とも
+    animal_type: dog
+    breed: 日本犬系
+    age_estimate: null
+    gender: male
+    color: null
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: null
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/dog/img/tomo
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年５月'
+    listing_type: adoption
+  - external_id: kanagawa-dog-ドロップ
+    name: ドロップ
+    animal_type: dog
+    breed: T.プードル系・チワワ系・M.ダックスフント系・シーズー系・ポメラニアン系
+    age_estimate: null
+    gender: male
+    color: null
+    size: small
+    health_status: null
+    personality: 人が大好きです
+    special_needs: null
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/dog/img/drop
+    protection_date: '2025-10-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年10月'
+    listing_type: adoption
+  - external_id: kanagawa-dog-くるり
+    name: くるり
+    animal_type: dog
+    breed: 日本犬系
+    age_estimate: null
+    gender: male
+    color: null
+    size: medium
+    health_status: null
+    personality: 人が大好きです
+    special_needs: null
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/dog/img/kururi
+    protection_date: '2025-11-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年11月'
+    listing_type: adoption
+  - external_id: kanagawa-dog-ゆっこ
+    name: ゆっこ
+    animal_type: dog
+    breed: 日本犬系
+    age_estimate: null
+    gender: female
+    color: null
+    size: medium
+    health_status: null
+    personality: 人が大好きです
+    special_needs: null
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/dog/img/yukko.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年６月'
+    listing_type: adoption
+  - external_id: kanagawa-dog-純一
+    name: 純一
+    animal_type: dog
+    breed: 日本犬系
+    age_estimate: null
+    gender: male
+    color: null
+    size: medium
+    health_status: null
+    personality: 人が大好きです
+    special_needs: null
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/dog/img/juniti.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2025年５月'
+    listing_type: adoption
+  - external_id: kanagawa-dog-せいや
+    name: せいや
+    animal_type: dog
+    breed: 日本犬系
+    age_estimate: null
+    gender: male
+    color: null
+    size: medium
+    health_status: null
+    personality: 人が大好きです
+    special_needs: null
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/dog/img/seiya.jpg
+    protection_date: null
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2024年２月'
+    listing_type: adoption
+  - external_id: kanagawa-dog-みろく
+    name: みろく
+    animal_type: dog
+    breed: 日本犬系
+    age_estimate: null
+    gender: male
+    color: null
+    size: medium
+    health_status: null
+    personality: 少し触れます
+    special_needs: null
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/dog/img/miroku.jpg
+    protection_date: '2023-08-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2023年8月'
+    listing_type: adoption
+  - external_id: kanagawa-dog-うっしー
+    name: うっしー
+    animal_type: dog
+    breed: その他
+    age_estimate: null
+    gender: male
+    color: null
+    size: medium
+    health_status: null
+    personality: 人馴れ練習中です
+    special_needs: null
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/dog/img/usshi.JPG
+    protection_date: '2023-02-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2023年2月'
+    listing_type: adoption
+  - external_id: kanagawa-dog-いく
+    name: いく
+    animal_type: dog
+    breed: 日本犬系
+    age_estimate: null
+    gender: male
+    color: null
+    size: medium
+    health_status: null
+    personality: 人が大好きです
+    special_needs: null
+    images:
+      - https://www.pref.kanagawa.jp/osirase/1594/awc/assets/animals/dog/img/iku.JPG
+    protection_date: '2023-01-01'
+    deadline_date: null
+    status: available
+    source_url: https://www.pref.kanagawa.jp/osirase/1594/awc/receive/dog.html
+    confidence_level: high
+    extraction_notes:
+      - 譲渡動物情報（新しい飼い主募集中）
+      - '収容時期: 2023年1月'
+    listing_type: adoption

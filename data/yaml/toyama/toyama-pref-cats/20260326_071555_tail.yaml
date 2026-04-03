@@ -1,0 +1,99 @@
+meta:
+  source_file: 20260326_071555_tail.html
+  source_url: https://www.pref.toyama.jp/1207/kurashi/seikatsu/seikatsu/doubutsuaigo/cat.html
+  extracted_at: '2026-03-26T07:15:55.451+09:00'
+  municipality: toyama/toyama-pref-cats
+  municipality_id: 3
+animals:
+  - external_id: '7034'
+    animal_type: cat
+    name: マイケル
+    breed: 雑種
+    age_estimate: null
+    gender: male
+    color: null
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.toyama.jp/images/13938/7034.png
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://www.pref.toyama.jp/1207/kurashi/seikatsu/seikatsu/doubutsuaigo/cat7034.html
+    confidence_score: 0.9
+    extraction_method: col2_based
+  - external_id: '7056'
+    animal_type: cat
+    name: ペコ
+    breed: 雑種
+    age_estimate: null
+    gender: female
+    color: null
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.toyama.jp/images/13938/7056-n.png
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://www.pref.toyama.jp/1207/kurashi/seikatsu/seikatsu/doubutsuaigo/cat7056.html
+    confidence_score: 0.9
+    extraction_method: col2_based
+  - external_id: toyama_3
+    animal_type: cat
+    name: null
+    breed: 雑種
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images:
+      - https://www.pref.toyama.jp/images/13938/cat0.png
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://www.pref.toyama.jp/1207/kurashi/seikatsu/seikatsu/doubutsuaigo/cat.html
+    confidence_score: 0.5
+    extraction_method: col2_based
+  - external_id: toyama_4
+    animal_type: cat
+    name: null
+    breed: 雑種
+    age_estimate: null
+    gender: unknown
+    color: null
+    size: medium
+    health_status: null
+    personality: null
+    special_needs: null
+    images: []
+    protection_date: null
+    deadline_date: null
+    status: available
+    transfer_decided: false
+    source_url: https://www.pref.toyama.jp/1207/kurashi/seikatsu/seikatsu/doubutsuaigo/cat.html
+    confidence_score: 0.5
+    extraction_method: col2_based
+statistics:
+  total_containers: 4
+  valid_animals: 4
+  extraction_errors: 0
+cross_check:
+  gender_mentions:
+    male: 1
+    female: 1
+  image_tags: 3
+  container_count: 4
+  warnings: []
+consistency_warnings: []
+confidence_level: high

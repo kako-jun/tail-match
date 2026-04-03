@@ -1,0 +1,26 @@
+meta:
+  source_file: 20260331_032013_tail.html
+  source_url: https://www.city.chiba.jp/hokenfukushi/iryoeisei/seikatsueisei/dobutsuhogo/transferdogs.html
+  extracted_at: '2026-03-31T03:20:13.628+09:00'
+  municipality: chiba/chiba-city-dogs
+  municipality_id: 18
+  total_count: 1
+animals:
+  - external_id: '26011901'
+    name: チャオ
+    animal_type: dog
+    breed: 柴犬
+    age_estimate: 11歳
+    gender: male
+    color: 茶
+    size: null
+    health_status: null
+    personality: お外が大好きで、散歩の時間は元気いっぱいに駆け回ります！！
+    special_needs: null
+    images:
+      - https://www.city.chiba.jp/hokenfukushi/iryoeisei/seikatsueisei/dobutsuhogo/images/chao.jpg
+    protection_date: null
+    status: available
+    source_url: https://www.city.chiba.jp/hokenfukushi/iryoeisei/seikatsueisei/dobutsuhogo/transferdogs.html
+    confidence_level: medium
+    extraction_notes: []
