@@ -59,7 +59,7 @@ node scripts/core/show-scraping-summary.js
 
 ### 2. 自動実行（launchd + Claude異常検知）
 
-macOS の launchd で毎日 AM 3:17 に自動実行する。異常が検知された場合のみ `claude -p` で診断・修復を行う。
+macOS の launchd で毎日 AM 3:17 に自動実行する。異常が検知された場合はレポートを出力して終了する。
 
 #### セットアップ
 
@@ -83,8 +83,7 @@ auto-scrape.sh [target]
   ├── sync-to-d1.js             ← ローカルSQLite→Cloudflare D1同期（本番DB）
   ├── check-anomalies.js        ← 異常検知（shelters-history.yaml を分析）
   │   ├── 異常なし → 静かに終了
-  │   └── 異常あり → claude -p で修復依頼
-  └── claude が壊れたセレクタを診断・修復
+  │   └── 異常あり → レポート出力して exit 1
 ```
 
 #### 対象の柔軟な指定
@@ -353,7 +352,7 @@ find logs/scraping -name "*.log" -mtime +30 -delete
 │   → ローカルSQLite  │──sync──→  │ D1: tail-match-db        │
 │   → sync-to-d1.js   │           │   547匹 (APAC)           │
 │   → 異常検知        │           └──────────────────────────┘
-│   → claude -p 修復  │
+│   → 異常レポート出力│
 └─────────────────────┘
 ```
 
@@ -402,7 +401,7 @@ npx wrangler d1 execute tail-match-db --remote --command="SELECT animal_type, CO
 
 ### 将来の改善予定
 
-1. ~~cron設定~~ → launchd + check-anomalies.js + claude -p で自動化済み
+1. ~~cron設定~~ → launchd + check-anomalies.js で自動化済み
 2. ~~デプロイ~~ → Cloudflare Pages + D1 で本番稼働中
 3. カスタムドメイン tail-match.llll-ll.com の設定
 4. 並列実行（現在は順次実行、5秒間隔）

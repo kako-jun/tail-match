@@ -53,14 +53,6 @@ cd ~/repos/2025/tail-match
 トークンは `~/Library/Preferences/.wrangler/config/default.toml` に保存される。
 wranglerは `refresh_token` で自動更新するが、長期間PCが起動していなかった場合に期限切れになることがある。
 
-#### Claude修復が `command not found` で失敗する
-
-plistのPATHに `~/.local/bin` が含まれていることを確認:
-
-```xml
-<string>/Users/USERNAME/.volta/bin:/Users/USERNAME/.local/bin:/usr/local/bin:/usr/bin:/bin</string>
-```
-
 #### スクレイプ自体が失敗する
 
 Playwrightのブラウザが必要:
@@ -77,7 +69,7 @@ launchd (毎日 AM 3:17)
       ├── Step 1: 全施設スクレイプ（Playwright → HTML → YAML → ローカルSQLite）
       ├── Step 2: D1同期（ローカルSQLite → Cloudflare D1）
       ├── Step 3: 異常検知（check-anomalies.js）
-      └── Step 4: 異常時のみ Claude CLI で自動修復
+      └── Step 4: 異常時はレポート出力して exit 1
 ```
 
 ## 別PCへの移行

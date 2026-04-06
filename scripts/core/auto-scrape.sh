@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ================================================================
-# Tail Match - 自動スクレイピング＋異常検知＋Claude修復
+# Tail Match - 自動スクレイピング＋異常検知
 # ================================================================
 #
 # 使い方:
@@ -10,7 +10,7 @@
 #   bash scripts/core/auto-scrape.sh ishikawa/aigo-ishikawa  # 施設単位
 #
 # cron/launchd から呼ばれることを想定。
-# 異常がなければ静かに終了。異常時のみ claude -p で修復を試みる。
+# 異常がなければ静かに終了。異常時はレポートを出力して exit 1。
 # ================================================================
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -117,7 +117,7 @@ if [ "$ANOMALY_EXIT" -eq 2 ]; then
 fi
 
 # ================================================================
-# Step 4: 異常あり → Claude に修復を依頼
+# Step 4: 異常あり → レポート出力
 # ================================================================
 
 ANOMALY_COUNT=$(echo "$ANOMALY_OUTPUT" | node -e "
@@ -126,39 +126,9 @@ ANOMALY_COUNT=$(echo "$ANOMALY_OUTPUT" | node -e "
 " 2>/dev/null || echo "?")
 
 log "異常検知: ${ANOMALY_COUNT}件の施設に問題あり"
-log "Claude による診断・修復を開始"
-
-# claude -p でノンインタラクティブ実行
-# --allowedTools で必要最小限の権限に絞る
-PROMPT="tail-matchスクレイパーの異常検知レポートです。以下のJSONを読んで、各施設の問題を診断し、可能であればセレクタの修正を行ってください。
-
-プロジェクトディレクトリ: $PROJECT_ROOT
-
-異常レポート:
-$ANOMALY_OUTPUT
-
-手順:
-1. 異常のある施設の最新HTMLを data/html/{prefecture}/{municipality}/ から読む
-2. 対応する html-to-yaml.js のセレクタを確認する
-3. HTMLの構造変化を特定し、セレクタを修正する
-4. 修正後、該当施設のスクレイプを再実行して検証する
-
-重要:
-- セレクタの修正のみ行うこと。アーキテクチャの変更はしない
-- 修正できない場合は、何が起きているかのレポートだけ出力すること
-- severity: warning の場合は、サイト側の一時的な問題の可能性もあるので、HTMLの内容を確認してから判断すること"
-
-claude -p "$PROMPT" \
-  --allowedTools 'Read' 'Bash' 'Edit' 'Glob' 'Grep' \
-  >> "$LOG_FILE" 2>&1
-
-CLAUDE_EXIT=$?
-
-if [ "$CLAUDE_EXIT" -eq 0 ]; then
-  log "Claude 修復完了"
-else
-  log "Claude 修復失敗 (exit: $CLAUDE_EXIT)"
-fi
+log "異常レポート:"
+echo "$ANOMALY_OUTPUT" >> "$LOG_FILE"
+log "修復が必要です。claude code で対応してください。"
 
 log "=== auto-scrape 終了 ==="
-exit $CLAUDE_EXIT
+exit 1
