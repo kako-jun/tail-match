@@ -36,9 +36,10 @@ export default function Footer() {
   };
 
   const legalLinks = [
-    { label: 'プライバシーポリシー', href: '/legal/privacy' },
-    { label: '利用規約', href: '/legal/terms' },
+    { label: 'サイトについて', href: '/about' },
     { label: '免責事項', href: '/legal/disclaimer' },
+    { label: '利用規約', href: '/legal/terms' },
+    { label: 'プライバシーポリシー', href: '/legal/privacy' },
   ];
 
   return (
@@ -61,14 +62,6 @@ export default function Footer() {
             textAlign: 'center',
           }}
         >
-          {/* 1-line disclaimer */}
-          <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E', lineHeight: 1.7 }}>
-            このサイトは非公式です。詳しくは{' '}
-            <Link href="/about" style={{ color: '#262626', textDecoration: 'underline' }}>
-              サイトについて
-            </Link>
-          </Typography>
-
           {/* Legal links */}
           <Box
             sx={{
@@ -83,9 +76,15 @@ export default function Footer() {
                 key={item.href}
                 href={item.href}
                 style={{
-                  fontSize: '0.75rem',
+                  fontSize: '0.875rem',
                   color: '#8E8E8E',
                   textDecoration: 'none',
+                  minHeight: '44px',
+                  minWidth: '44px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '0 4px',
                 }}
               >
                 {item.label}

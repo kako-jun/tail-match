@@ -71,6 +71,8 @@ export default function AboutPage() {
             本サイトは個人が運営する非公式サービスです。情報提供のみを目的としており、
             掲載内容の正確性・最新性は保証できません。譲渡のお申し込みや詳細なお問い合わせは、
             必ず各保護センターへ直接ご連絡ください。
+            なお、譲渡には各施設が定める条件（居住地、年齢、住環境など）があります。
+            必ず各施設に直接ご確認ください。
           </Typography>
         </Box>
 
@@ -106,8 +108,7 @@ export default function AboutPage() {
             対応地域
           </Typography>
           <Typography sx={{ fontSize: '0.9375rem', color: '#262626', lineHeight: 1.8, mb: 3 }}>
-            対応地域は47都道府県のうち現在20都道府県34施設です。
-            順次拡大しています。詳しくは保護センター一覧をご覧ください。
+            順次対応地域を拡大しています。詳しくは保護センター一覧をご覧ください。
           </Typography>
           <Button
             component={Link}

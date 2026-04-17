@@ -21,6 +21,7 @@ export default function Header() {
     { label: 'ホーム', href: '/' },
     { label: '検索', href: '/search' },
     { label: '保護センター', href: '/shelters' },
+    { label: 'サイトについて', href: '/about' },
   ];
 
   return (

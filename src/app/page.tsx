@@ -116,7 +116,7 @@ export default function HomePage() {
 
           {!loading && (
             <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E' }}>
-              {tails.length}匹 (期限が近い順)
+              {tails.length}匹 （期限が近い順）
             </Typography>
           )}
         </Box>
@@ -130,6 +130,13 @@ export default function HomePage() {
           <Box sx={{ textAlign: 'center', py: 10 }}>
             <Typography sx={{ fontSize: '0.9375rem', color: '#8E8E8E' }}>
               表示できるシッポたちがいません
+            </Typography>
+            <Typography sx={{ fontSize: '0.875rem', color: '#8E8E8E', mt: 1.5 }}>
+              詳しくは{' '}
+              <Link href="/about" style={{ color: '#262626', textDecoration: 'underline' }}>
+                サイトについて
+              </Link>{' '}
+              をご覧ください
             </Typography>
           </Box>
         ) : (
