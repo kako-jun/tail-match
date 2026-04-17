@@ -17,15 +17,6 @@ import {
   Tooltip,
 } from '@mui/material';
 import {
-  Timeline,
-  TimelineItem,
-  TimelineSeparator,
-  TimelineConnector,
-  TimelineContent,
-  TimelineDot,
-  TimelineOppositeContent,
-} from '@mui/lab';
-import {
   Refresh as RefreshIcon,
   CheckCircle as SuccessIcon,
   Error as ErrorIcon,
@@ -299,87 +290,92 @@ export default function ScrapingAdminPage() {
         </Typography>
         <Divider sx={{ mb: 3 }} />
 
-        <Timeline>
-          {logs.map((log, index) => (
-            <TimelineItem key={log.id}>
-              <TimelineOppositeContent color="text.secondary">
-                {formatDateTime(log.started_at)}
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineDot color={getStatusColor(log.status) as any}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          {logs.map((log) => (
+            <Paper key={log.id} elevation={1} sx={{ p: 2 }}>
+              <Box display="flex" alignItems="center" gap={1.5} mb={1}>
+                <Box
+                  sx={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: '50%',
+                    bgcolor: `${getStatusColor(log.status)}.main`,
+                    color: 'common.white',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                  }}
+                >
                   {getStatusIcon(log.status)}
-                </TimelineDot>
-                {index < logs.length - 1 && <TimelineConnector />}
-              </TimelineSeparator>
-              <TimelineContent>
-                <Paper elevation={1} sx={{ p: 2, mb: 2 }}>
-                  <Box display="flex" justifyContent="space-between" alignItems="flex-start" mb={1}>
-                    <Typography variant="h6" component="h3">
-                      {log.municipality_name}
+                </Box>
+                <Typography variant="body2" color="text.secondary" sx={{ minWidth: 160 }}>
+                  {formatDateTime(log.started_at)}
+                </Typography>
+                <Typography variant="h6" component="h3" sx={{ flexGrow: 1 }}>
+                  {log.municipality_name}
+                </Typography>
+                <Chip
+                  label={
+                    log.status === 'completed'
+                      ? '完了'
+                      : log.status === 'failed'
+                        ? '失敗'
+                        : '実行中'
+                  }
+                  color={getStatusColor(log.status) as any}
+                  size="small"
+                />
+              </Box>
+
+              {log.status === 'completed' && (
+                <Grid container spacing={2} sx={{ mt: 1 }}>
+                  <Grid size={{ xs: 3 }}>
+                    <Typography variant="body2" color="text.secondary">
+                      発見数
                     </Typography>
-                    <Chip
-                      label={
-                        log.status === 'completed'
-                          ? '完了'
-                          : log.status === 'failed'
-                            ? '失敗'
-                            : '実行中'
-                      }
-                      color={getStatusColor(log.status) as any}
-                      size="small"
-                    />
-                  </Box>
+                    <Typography variant="h6" color="primary">
+                      {log.tails_found}匹
+                    </Typography>
+                  </Grid>
+                  <Grid size={{ xs: 3 }}>
+                    <Typography variant="body2" color="text.secondary">
+                      新規追加
+                    </Typography>
+                    <Typography variant="h6" color="success.main">
+                      +{log.tails_added}
+                    </Typography>
+                  </Grid>
+                  <Grid size={{ xs: 3 }}>
+                    <Typography variant="body2" color="text.secondary">
+                      更新
+                    </Typography>
+                    <Typography variant="h6" color="info.main">
+                      {log.tails_updated}
+                    </Typography>
+                  </Grid>
+                  <Grid size={{ xs: 3 }}>
+                    <Typography variant="body2" color="text.secondary">
+                      実行時間
+                    </Typography>
+                    <Typography variant="h6">
+                      {log.execution_time_ms ? formatDuration(log.execution_time_ms) : '-'}
+                    </Typography>
+                  </Grid>
+                </Grid>
+              )}
 
-                  {log.status === 'completed' && (
-                    <Grid container spacing={2} sx={{ mt: 1 }}>
-                      <Grid size={{ xs: 3 }}>
-                        <Typography variant="body2" color="text.secondary">
-                          発見数
-                        </Typography>
-                        <Typography variant="h6" color="primary">
-                          {log.tails_found}匹
-                        </Typography>
-                      </Grid>
-                      <Grid size={{ xs: 3 }}>
-                        <Typography variant="body2" color="text.secondary">
-                          新規追加
-                        </Typography>
-                        <Typography variant="h6" color="success.main">
-                          +{log.tails_added}
-                        </Typography>
-                      </Grid>
-                      <Grid size={{ xs: 3 }}>
-                        <Typography variant="body2" color="text.secondary">
-                          更新
-                        </Typography>
-                        <Typography variant="h6" color="info.main">
-                          {log.tails_updated}
-                        </Typography>
-                      </Grid>
-                      <Grid size={{ xs: 3 }}>
-                        <Typography variant="body2" color="text.secondary">
-                          実行時間
-                        </Typography>
-                        <Typography variant="h6">
-                          {log.execution_time_ms ? formatDuration(log.execution_time_ms) : '-'}
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  )}
-
-                  {log.error_message && (
-                    <Alert
-                      severity={log.error_message.includes('フォールバック') ? 'warning' : 'error'}
-                      sx={{ mt: 2 }}
-                    >
-                      {log.error_message}
-                    </Alert>
-                  )}
-                </Paper>
-              </TimelineContent>
-            </TimelineItem>
+              {log.error_message && (
+                <Alert
+                  severity={log.error_message.includes('フォールバック') ? 'warning' : 'error'}
+                  sx={{ mt: 2 }}
+                >
+                  {log.error_message}
+                </Alert>
+              )}
+            </Paper>
           ))}
-        </Timeline>
+        </Box>
 
         {logs.length === 0 && (
           <Typography variant="body1" color="text.secondary" textAlign="center" py={4}>
