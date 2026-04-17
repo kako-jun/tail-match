@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { Container, Typography, Box, Paper, Divider, Alert } from '@mui/material';
 
 export default function DisclaimerPage() {
@@ -10,8 +11,16 @@ export default function DisclaimerPage() {
           免責事項
         </Typography>
 
-        <Typography variant="body2" color="text.secondary" align="center" sx={{ mb: 4 }}>
+        <Typography variant="body2" color="text.secondary" align="center" sx={{ mb: 2 }}>
           最終更新日: 2025年7月1日
+        </Typography>
+
+        <Typography variant="body2" color="text.secondary" align="center" sx={{ mb: 4 }}>
+          サイトの目的・対応地域など、全体像は{' '}
+          <Link href="/about" style={{ color: '#262626', textDecoration: 'underline' }}>
+            サイトについて
+          </Link>{' '}
+          をご覧ください。
         </Typography>
 
         <Alert severity="warning" sx={{ mb: 4 }}>

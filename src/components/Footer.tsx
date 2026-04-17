@@ -74,14 +74,12 @@ export default function Footer() {
               variant="body2"
               sx={{ color: '#8E8E8E', lineHeight: 1.7, mt: 1.5, fontSize: '0.75rem' }}
             >
-              本サイトは個人が運営する非公式サービスです。各自治体が公開している情報を自動収集して掲載しています。
-              掲載情報の正確性は保証できません。譲渡をご希望の方は必ず各自治体に直接ご確認ください。
-              詳しくは
+              本サイトは非公式です。詳しくは
               <Link
-                href="/legal/disclaimer"
-                style={{ color: '#262626', textDecoration: 'underline' }}
+                href="/about"
+                style={{ color: '#262626', textDecoration: 'underline', marginLeft: '2px' }}
               >
-                免責事項
+                サイトについて
               </Link>
               をご覧ください。
             </Typography>
