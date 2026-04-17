@@ -10,6 +10,9 @@ const nextConfig = {
   images: {
     unoptimized: true, // Cloudflare Pages では /_next/image が使えないため
   },
+  async redirects() {
+    return [{ source: '/gallery', destination: '/', permanent: true }];
+  },
   async headers() {
     return [
       {

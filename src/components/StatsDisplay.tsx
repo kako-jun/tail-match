@@ -174,7 +174,7 @@ export default function StatsDisplay() {
         <StatCard
           icon={<Place sx={{ fontSize: 24 }} />}
           value="-"
-          label="連携自治体数"
+          label="対応施設数"
           iconColor="#8E8E8E"
         />
         <StatCard
@@ -218,7 +218,7 @@ export default function StatsDisplay() {
         <StatCard
           icon={<Place sx={{ fontSize: 24 }} />}
           value={stats.by_region.length}
-          label="連携地域数"
+          label="対応地域数"
           iconColor="#8E8E8E"
           href="/shelters"
         />

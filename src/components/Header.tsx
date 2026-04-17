@@ -3,9 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import SpaceCatGame from '@/components/SpaceCatGame';
 import { AppBar, Toolbar, Button, Box, IconButton, Menu as MuiMenu, MenuItem } from '@mui/material';
-import { Menu } from '@mui/icons-material';
+import { Menu, Search as SearchIcon } from '@mui/icons-material';
 
 export default function Header() {
   const [mobileMenuAnchor, setMobileMenuAnchor] = useState<null | HTMLElement>(null);
@@ -17,6 +16,13 @@ export default function Header() {
   const handleMobileMenuClose = () => {
     setMobileMenuAnchor(null);
   };
+
+  const navItems = [
+    { label: 'ホーム', href: '/' },
+    { label: '検索', href: '/search' },
+    { label: '保護センター', href: '/shelters' },
+    { label: 'サイトについて', href: '/about' },
+  ];
 
   return (
     <AppBar
@@ -47,75 +53,55 @@ export default function Header() {
 
         {/* Desktop nav */}
         <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 0.5 }}>
-          <Button
-            component={Link}
-            href="/"
-            sx={{
-              color: '#262626',
-              fontSize: '0.875rem',
-              fontWeight: 500,
-              px: 1.5,
-              minWidth: 0,
-              '&:hover': { backgroundColor: '#F5F5F5' },
-            }}
-          >
-            ホーム
-          </Button>
-          <Button
-            component={Link}
-            href="/search"
-            sx={{
-              color: '#262626',
-              fontSize: '0.875rem',
-              fontWeight: 500,
-              px: 1.5,
-              minWidth: 0,
-              '&:hover': { backgroundColor: '#F5F5F5' },
-            }}
-          >
-            シッポを探す
-          </Button>
-          <Button
-            component={Link}
-            href="/gallery"
-            sx={{
-              color: '#262626',
-              fontSize: '0.875rem',
-              fontWeight: 500,
-              px: 1.5,
-              minWidth: 0,
-              '&:hover': { backgroundColor: '#F5F5F5' },
-            }}
-          >
-            ギャラリー
-          </Button>
-          <Button
-            component={Link}
-            href="/shelters"
-            sx={{
-              color: '#262626',
-              fontSize: '0.875rem',
-              fontWeight: 500,
-              px: 1.5,
-              minWidth: 0,
-              '&:hover': { backgroundColor: '#F5F5F5' },
-            }}
-          >
-            保護センター
-          </Button>
+          {navItems.map((item) => (
+            <Button
+              key={item.href}
+              component={Link}
+              href={item.href}
+              sx={{
+                color: '#262626',
+                fontSize: '0.875rem',
+                fontWeight: 500,
+                px: 1.5,
+                minWidth: 0,
+                transition: 'background-color 0.15s ease',
+                '&:hover': { backgroundColor: '#F5F5F5' },
+              }}
+            >
+              {item.label}
+            </Button>
+          ))}
         </Box>
 
-        {/* SpaceCat game */}
-        <Box sx={{ ml: { xs: 'auto', md: 1 } }}>
-          <SpaceCatGame size="small" />
-        </Box>
+        {/* Search icon (always visible, at far right on desktop; near hamburger on mobile) */}
+        <IconButton
+          component={Link}
+          href="/search"
+          aria-label="検索"
+          sx={{
+            color: '#262626',
+            width: 44,
+            height: 44,
+            ml: { xs: 'auto', md: 1 },
+            transition: 'background-color 0.15s ease',
+            '&:hover': { backgroundColor: '#F5F5F5' },
+          }}
+        >
+          <SearchIcon sx={{ fontSize: 22 }} />
+        </IconButton>
 
         {/* Mobile hamburger */}
         <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
           <IconButton
             onClick={handleMobileMenuOpen}
-            sx={{ color: '#262626', p: 1 }}
             aria-label="メニュー"
+            sx={{
+              color: '#262626',
+              width: 44,
+              height: 44,
+              transition: 'background-color 0.15s ease',
+              '&:hover': { backgroundColor: '#F5F5F5' },
+            }}
           >
             <Menu sx={{ fontSize: 22 }} />
           </IconButton>
@@ -136,12 +122,7 @@ export default function Header() {
           }}
           sx={{ display: { xs: 'block', md: 'none' } }}
         >
-          {[
-            { label: 'ホーム', href: '/' },
-            { label: 'シッポを探す', href: '/search' },
-            { label: 'ギャラリー', href: '/gallery' },
-            { label: '保護センター', href: '/shelters' },
-          ].map((item) => (
+          {navItems.map((item) => (
             <MenuItem
               key={item.href}
               onClick={handleMobileMenuClose}

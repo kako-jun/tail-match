@@ -535,25 +535,14 @@ export default function TailDetailClient({ id }: TailDetailClientProps) {
               border: '1px solid #EFEFEF',
             }}
           >
-            <Typography sx={{ fontSize: '0.875rem', fontWeight: 600, color: '#262626', mb: 1 }}>
-              重要な注意事項
+            <Typography sx={{ fontSize: '0.8125rem', color: '#8E8E8E', lineHeight: 1.7 }}>
+              譲渡のお申し込みや詳細なお問い合わせは、必ず各保護センターへ直接ご連絡ください。
+              詳しくは{' '}
+              <Link href="/about" style={{ color: '#262626', textDecoration: 'underline' }}>
+                サイトについて
+              </Link>{' '}
+              をご覧ください。
             </Typography>
-            <Box component="ul" sx={{ m: 0, pl: 2.5 }}>
-              {[
-                '譲渡には条件がある場合があります',
-                '必ず事前に自治体にお問い合わせください',
-                '情報は変更される可能性があります',
-                'このサイトは情報提供のみを行っています',
-              ].map((text) => (
-                <Typography
-                  key={text}
-                  component="li"
-                  sx={{ fontSize: '0.8125rem', color: '#8E8E8E', lineHeight: 1.7 }}
-                >
-                  {text}
-                </Typography>
-              ))}
-            </Box>
           </Box>
         </Box>
       </Box>
