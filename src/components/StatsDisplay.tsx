@@ -208,19 +208,19 @@ export default function StatsDisplay() {
           href="/search"
         />
         <StatCard
+          icon={<Place sx={{ fontSize: 24 }} />}
+          value={stats.by_region.length}
+          label="対応地域数"
+          iconColor="#8E8E8E"
+          href="/shelters"
+        />
+        <StatCard
           icon={<AccessTime sx={{ fontSize: 24 }} />}
           value={stats.urgent}
           label="緊急シッポ"
           sub="残り3日以内"
           iconColor="#ED4956"
           href="/search?urgency_days=3&sort_by=deadline_date&sort_order=asc"
-        />
-        <StatCard
-          icon={<Place sx={{ fontSize: 24 }} />}
-          value={stats.by_region.length}
-          label="対応地域数"
-          iconColor="#8E8E8E"
-          href="/shelters"
         />
         <StatCard
           icon={<Warning sx={{ fontSize: 24 }} />}

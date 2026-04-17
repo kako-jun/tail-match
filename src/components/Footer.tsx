@@ -120,7 +120,7 @@ export default function Footer() {
             }}
           >
             <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E' }}>
-              © ているまっち！ by llll-ll
+              © ているまっち！
             </Typography>
             {lastUpdate && (
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
