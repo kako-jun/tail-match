@@ -197,9 +197,6 @@ export default function SheltersPage() {
   };
 
   // 統計計算
-  const totalAnimals = municipalities.reduce((sum, m) => sum + (m.animals_count || 0), 0);
-  const totalCats = municipalities.reduce((sum, m) => sum + (m.cats_count || 0), 0);
-  const totalDogs = municipalities.reduce((sum, m) => sum + (m.dogs_count || 0), 0);
 
   if (loading) {
     return (
@@ -256,47 +253,14 @@ export default function SheltersPage() {
         </Typography>
       </Box>
 
-      {/* Summary stats */}
-      <Box
-        sx={{
-          display: 'grid',
-          gap: 2,
-          gridTemplateColumns: { xs: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' },
-          mb: 4,
-        }}
-      >
-        {[
-          { value: municipalities.length, label: '登録施設数' },
-          { value: totalAnimals, label: 'シッポ総数' },
-          { value: `${totalCats} 🐱`, label: '保護猫' },
-          { value: `${totalDogs} 🐶`, label: '保護犬' },
-        ].map((item, i) => (
-          <Box
-            key={i}
-            sx={{
-              backgroundColor: '#FFFFFF',
-              border: '1px solid #DBDBDB',
-              borderRadius: '8px',
-              p: 2.5,
-              textAlign: 'center',
-            }}
-          >
-            <Typography
-              sx={{
-                fontSize: '1.5rem',
-                fontWeight: 300,
-                color: '#262626',
-                letterSpacing: '-0.02em',
-                lineHeight: 1.1,
-              }}
-            >
-              {item.value}
-            </Typography>
-            <Typography sx={{ fontSize: '0.75rem', color: '#8E8E8E', mt: 0.5 }}>
-              {item.label}
-            </Typography>
+      {/* Summary */}
+      <Box sx={{ mb: 4 }}>
+        <Typography sx={{ fontSize: '0.875rem', color: '#8E8E8E' }}>
+          登録施設数:{' '}
+          <Box component="span" sx={{ color: '#262626', fontWeight: 600 }}>
+            {municipalities.length}
           </Box>
-        ))}
+        </Typography>
       </Box>
 
       {/* Filter bar */}
