@@ -108,7 +108,7 @@ export default function AboutPage() {
             対応地域
           </Typography>
           <Typography sx={{ fontSize: '0.9375rem', color: '#262626', lineHeight: 1.8, mb: 3 }}>
-            順次対応地域を拡大しています。詳しくは保護センター一覧をご覧ください。
+            順次対応地域を拡大しています。詳しくは保護センターの一覧をご覧ください。
           </Typography>
           <Button
             component={Link}
@@ -124,7 +124,7 @@ export default function AboutPage() {
               '&:hover': { borderColor: '#A8A8A8', backgroundColor: 'transparent' },
             }}
           >
-            保護センター一覧を見る
+            保護センターの一覧を見る
           </Button>
         </Box>
 
