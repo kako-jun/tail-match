@@ -1,7 +1,6 @@
-import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
-
-// Development環境でD1バインディングをエミュレート
+// Development環境でD1バインディングをエミュレート（wranglerはdev時のみ必要）
 if (process.env.NODE_ENV === 'development') {
+  const { setupDevPlatform } = await import('@cloudflare/next-on-pages/next-dev');
   await setupDevPlatform();
 }
 
