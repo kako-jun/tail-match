@@ -28,7 +28,7 @@ export default function PrivacyPolicyPage() {
             📋 簡潔版 - 個人情報の取り扱い
           </Typography>
           <Typography variant="body1" paragraph>
-            <strong>Tail Matchは個人情報をほとんど収集しない情報提供サービスです</strong>
+            <strong>ているまっち！は個人情報をほとんど収集しない情報提供サービスです</strong>
           </Typography>
 
           <Box
@@ -220,7 +220,7 @@ export default function PrivacyPolicyPage() {
             プライバシーポリシーに関するお問い合わせは、 以下までご連絡ください：
           </Typography>
           <Typography variant="body1">
-            <strong>Tail Match運営</strong>
+            <strong>ているまっち！運営</strong>
             <br />
             ウェブサイト: https://tail-match.llll-ll.com
             <br />

@@ -28,7 +28,7 @@ export default function DisclaimerPage() {
             🚨 簡潔版 - 重要な注意事項
           </Typography>
           <Typography variant="body1" paragraph>
-            <strong>Tail Matchは情報提供のみ行う自動収集サービスです</strong>
+            <strong>ているまっち！は情報提供のみ行う自動収集サービスです</strong>
           </Typography>
 
           <Box
@@ -80,7 +80,7 @@ export default function DisclaimerPage() {
             1. サービスの性質
           </Typography>
           <Typography variant="body1" paragraph>
-            Tail Match（以下「当サービス」）は、全国の自治体が公開している
+            ているまっち！（以下「当サービス」）は、全国の自治体が公開している
             保護猫情報を自動収集し、一元的に検索・閲覧できるようにする 情報提供サービスです。
           </Typography>
           <Typography variant="body1" paragraph>

@@ -28,7 +28,7 @@ export default function TermsOfServicePage() {
             🐾 簡潔版 - サービス概要
           </Typography>
           <Typography variant="body1" paragraph>
-            <strong>Tail Matchは保護猫の命を救うための無料情報提供サービスです</strong>
+            <strong>ているまっち！は保護猫の命を救うための無料情報提供サービスです</strong>
           </Typography>
 
           <Box
@@ -82,7 +82,7 @@ export default function TermsOfServicePage() {
             1. サービス概要
           </Typography>
           <Typography variant="body1" paragraph>
-            Tail Match（以下「当サービス」）は、日本全国の自治体が公開している
+            ているまっち！（以下「当サービス」）は、日本全国の自治体が公開している
             保護猫情報を自動収集・集約し、一元的に検索・閲覧できるサービスです。
             保護猫の殺処分を防ぎ、一匹でも多くの命を救うことを目的としています。
           </Typography>
@@ -231,7 +231,7 @@ export default function TermsOfServicePage() {
             本規約に関するお問い合わせは、以下までご連絡ください：
           </Typography>
           <Typography variant="body1">
-            <strong>Tail Match運営</strong>
+            <strong>ているまっち！運営</strong>
             <br />
             ウェブサイト: https://tail-match.llll-ll.com
             <br />
